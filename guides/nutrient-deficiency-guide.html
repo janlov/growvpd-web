@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://giscus.app; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://giscus.app https://discord.com; connect-src 'self' https://giscus.app; base-uri 'self'; form-action 'self';">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutrient Deficiency Identification Guide — GrowVPD Pro</title>
+    <meta name="description" content="Visual guide to identifying nutrient deficiencies: nitrogen, phosphorus, potassium, calcium, magnesium, iron, zinc, and manganese. Symptoms, causes, and fixes.">
+
+    <link rel="icon" type="image/png" href="../images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="canonical" href="https://growvpd.pro/guides/nutrient-deficiency-guide.html">
+    <link rel="alternate" hreflang="en" href="https://growvpd.pro/guides/nutrient-deficiency-guide.html">
+    <link rel="alternate" hreflang="cs" href="https://growvpd.pro/guides/nutrient-deficiency-guide.html?lang=cs">
+    <link rel="alternate" hreflang="de" href="https://growvpd.pro/guides/nutrient-deficiency-guide.html?lang=de">
+    <link rel="alternate" hreflang="es" href="https://growvpd.pro/guides/nutrient-deficiency-guide.html?lang=es">
+    <link rel="alternate" hreflang="nl" href="https://growvpd.pro/guides/nutrient-deficiency-guide.html?lang=nl">
+    <link rel="alternate" hreflang="fr" href="https://growvpd.pro/guides/nutrient-deficiency-guide.html?lang=fr">
+    <link rel="alternate" hreflang="it" href="https://growvpd.pro/guides/nutrient-deficiency-guide.html?lang=it">
+    <link rel="alternate" hreflang="pt" href="https://growvpd.pro/guides/nutrient-deficiency-guide.html?lang=pt">
+    <link rel="alternate" hreflang="pl" href="https://growvpd.pro/guides/nutrient-deficiency-guide.html?lang=pl">
+    <link rel="alternate" hreflang="th" href="https://growvpd.pro/guides/nutrient-deficiency-guide.html?lang=th">
+    <link rel="alternate" hreflang="he" href="https://growvpd.pro/guides/nutrient-deficiency-guide.html?lang=he">
+    <link rel="alternate" hreflang="x-default" href="https://growvpd.pro/guides/nutrient-deficiency-guide.html">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/forum.css">
+
+    <style>
+        .article-page { padding: 100px 0 60px; background: #fff; min-height: 100vh; }
+        .article-container { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+        .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: .82rem; color: #90A4AE; margin-bottom: 32px; flex-wrap: wrap; }
+        .breadcrumb a { color: #2E7D32; font-weight: 500; transition: color .2s; }
+        .breadcrumb a:hover { color: #1B5E20; }
+        .breadcrumb .sep { color: #CFD8DC; user-select: none; }
+        .article-header { margin-bottom: 40px; }
+        .article-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+        .category-badge { display: inline-block; background: rgba(46,125,50,.08); color: #2E7D32; font-size: .75rem; font-weight: 700; padding: 4px 12px; border-radius: 6px; text-transform: uppercase; letter-spacing: .05em; }
+        .article-date, .article-read-time { font-size: .82rem; color: #90A4AE; }
+        .article-date::before { content: ''; display: inline-block; width: 3px; height: 3px; background: #CFD8DC; border-radius: 50%; vertical-align: middle; margin-right: 12px; }
+        .article-header h1 { font-size: 2.2rem; font-weight: 900; color: #1B5E20; line-height: 1.15; letter-spacing: -.02em; }
+        .article-body h2 { font-size: 1.45rem; font-weight: 800; color: #212121; margin: 40px 0 16px; letter-spacing: -.01em; }
+        .article-body h3 { font-size: 1.1rem; font-weight: 700; color: #37474F; margin: 28px 0 12px; }
+        .article-body p { color: #546E7A; font-size: .95rem; line-height: 1.75; margin-bottom: 16px; }
+        .article-body ul, .article-body ol { color: #546E7A; font-size: .95rem; line-height: 1.75; margin: 0 0 16px 24px; }
+        .article-body ul { list-style: disc; }
+        .article-body ol { list-style: decimal; }
+        .article-body li { margin-bottom: 6px; }
+        .article-body strong { color: #212121; font-weight: 600; }
+        .article-body blockquote { background: #F1F8E9; border-left: 4px solid #4CAF50; padding: 16px 20px; border-radius: 0 12px 12px 0; margin: 24px 0; font-size: .9rem; color: #33691E; line-height: 1.7; }
+        .article-body blockquote strong { color: #1B5E20; }
+        .article-body code { background: #ECEFF1; padding: 2px 6px; border-radius: 4px; font-size: .85rem; color: #37474F; }
+        .step-card { background: #FAFBFC; border: 1px solid #ECEFF1; border-radius: 14px; padding: 24px; margin: 20px 0; }
+        .step-card .step-number { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; background: #2E7D32; color: #fff; font-size: .8rem; font-weight: 800; border-radius: 8px; margin-right: 10px; vertical-align: middle; }
+        .step-card h3 { display: inline; font-size: 1.05rem; font-weight: 700; color: #212121; margin: 0; vertical-align: middle; }
+        .step-card p { margin-top: 12px; margin-bottom: 0; }
+        .step-card ul, .step-card ol { margin-top: 12px; margin-bottom: 0; }
+        .warning-box { background: #FFF8E1; border-left: 4px solid #FFB300; padding: 16px 20px; border-radius: 0 12px 12px 0; margin: 24px 0; font-size: .9rem; color: #5D4037; line-height: 1.7; }
+        .warning-box strong { color: #E65100; }
+        .discord-cta { background: linear-gradient(135deg, #F1F8E9, #E8F5E9); border: 1px solid #C8E6C9; border-radius: 16px; padding: 32px; text-align: center; margin: 48px 0; }
+        .discord-cta h3 { font-size: 1.2rem; font-weight: 800; color: #1B5E20; margin-bottom: 8px; }
+        .discord-cta p { font-size: .9rem; color: #546E7A; margin-bottom: 20px; }
+        .discord-cta .btn { display: inline-flex; align-items: center; gap: 8px; background: #2E7D32; color: #fff; padding: 12px 28px; border-radius: 10px; font-weight: 600; font-size: .9rem; transition: all .25s; border: none; cursor: pointer; text-decoration: none; }
+        .discord-cta .btn:hover { background: #1B5E20; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(46,125,50,.35); }
+        .related-guides { margin: 48px 0; }
+        .related-guides h3 { font-size: 1.1rem; font-weight: 800; color: #212121; margin-bottom: 16px; }
+        .related-list { display: flex; flex-direction: column; gap: 10px; }
+        .related-link { display: flex; align-items: center; gap: 10px; padding: 14px 18px; background: #FAFBFC; border: 1px solid #ECEFF1; border-radius: 12px; transition: all .25s; color: #2E7D32; font-weight: 600; font-size: .9rem; }
+        .related-link:hover { border-color: #C8E6C9; background: #F1F8E9; transform: translateX(4px); }
+        .related-link .arrow { margin-left: auto; color: #90A4AE; transition: color .2s; }
+        .related-link:hover .arrow { color: #2E7D32; }
+        .article-footer { border-top: 1px solid #ECEFF1; padding: 32px 0; margin-top: 48px; text-align: center; font-size: .82rem; color: #90A4AE; }
+        .article-footer a { color: #2E7D32; font-weight: 500; }
+        .article-footer a:hover { color: #1B5E20; }
+        @media (max-width: 768px) { .article-page { padding: 80px 0 40px; } .article-header h1 { font-size: 1.7rem; } .article-body h2 { font-size: 1.25rem; } .discord-cta { padding: 24px 20px; } .step-card { padding: 18px; } }
+        @media (max-width: 480px) { .article-header h1 { font-size: 1.45rem; } .article-meta { gap: 8px; } }
+    </style>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://growvpd.pro/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://growvpd.pro/guides/"},{"@type":"ListItem","position":3,"name":"Nutrient Deficiency Identification Guide"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Article","headline":"Nutrient Deficiency Identification Guide","author":{"@type":"Organization","name":"GrowVPD Pro"},"publisher":{"@type":"Organization","name":"GrowVPD Pro"},"datePublished":"2026-04-05","description":"Visual guide to identifying nutrient deficiencies: nitrogen, phosphorus, potassium, calcium, magnesium, iron, zinc, and manganese. Symptoms, causes, and fixes.","mainEntityOfPage":"https://growvpd.pro/guides/nutrient-deficiency-guide.html"}
+    </script>
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="../index.html" class="nav-brand">
+                <svg class="nav-logo" viewBox="0 0 32 32" width="28" height="28">
+                    <circle cx="16" cy="16" r="16" fill="#2E7D32"/>
+                    <path d="M16 6c0 0-6 4-6 12 0 4 2.5 7 6 8 3.5-1 6-4 6-8 0-8-6-12-6-12z" fill="#81C784"/>
+                    <path d="M16 10c0 0-3 3-3 8 0 2.5 1.2 4.5 3 5.2 1.8-.7 3-2.7 3-5.2 0-5-3-8-3-8z" fill="#A5D6A7"/>
+                </svg>
+                <span>GrowVPD Pro</span>
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="index.html" style="color:#2E7D32;font-weight:700">Guides &amp; Community</a></li>
+                <li><a href="../support/index.html">Support</a></li>
+                <li><a href="../index.html#download" class="nav-cta">Download</a></li>
+            </ul>
+        </div>
+    </nav>
+    <script>
+document.getElementById('navToggle')?.addEventListener('click',function(){this.classList.toggle('active');document.getElementById('navLinks').classList.toggle('active')});
+window.addEventListener('scroll',function(){document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>20)},{passive:true});
+    </script>
+
+    <main class="article-page">
+        <div class="article-container">
+
+            <div class="breadcrumb">
+                <a href="index.html">Guides &amp; Community</a>
+                <span class="sep">/</span>
+                <a href="index.html">Equipment &amp; Calculators</a>
+                <span class="sep">/</span>
+                <span>Nutrient Deficiency Guide</span>
+            </div>
+
+            <header class="article-header">
+                <div class="article-meta">
+                    <span class="category-badge">Equipment &amp; Calculators</span>
+                    <span class="article-date">April 2026</span>
+                    <span class="article-read-time">8 min read</span>
+                </div>
+                <h1>Nutrient Deficiency Identification Guide</h1>
+            </header>
+
+            <div class="article-body">
+
+                <h2>Before You Diagnose: Check the Basics</h2>
+                <p>Before assuming a nutrient deficiency, rule out the two most common culprits that mimic deficiency symptoms:</p>
+                <ul>
+                    <li><strong>pH imbalance:</strong> If your root zone pH is outside 5.8&ndash;6.5 (hydro/coco) or 6.0&ndash;7.0 (soil), nutrients become unavailable even if they are present in the solution. A calcium "deficiency" at pH 5.0 is actually a pH lockout. Fix pH first.</li>
+                    <li><strong>Overwatering:</strong> Waterlogged roots cannot absorb nutrients. Drooping plants with yellowing leaves often just need to dry out, not more fertilizer.</li>
+                </ul>
+
+                <blockquote>
+                    <strong>Tip:</strong> GrowVPD Pro's Disease and Pest Guide includes a visual diagnostic tool with reference images for all common deficiencies. Use it alongside this article for the most accurate identification.
+                </blockquote>
+
+                <h2>Mobile vs. Immobile Nutrients</h2>
+                <p>Understanding nutrient mobility tells you where symptoms appear:</p>
+                <ul>
+                    <li><strong>Mobile nutrients</strong> (N, P, K, Mg) can be redistributed from old leaves to new growth. Deficiency symptoms show on <strong>lower/older leaves first</strong> because the plant pulls nutrients from them to feed new growth.</li>
+                    <li><strong>Immobile nutrients</strong> (Ca, Fe, Mn, Zn, S, B, Cu) cannot move once deposited. Deficiency symptoms show on <strong>upper/newer leaves first</strong> because new growth cannot get what it needs.</li>
+                </ul>
+
+                <h2>Nitrogen (N) &mdash; Mobile</h2>
+                <h3>Symptoms</h3>
+                <ul>
+                    <li>Uniform yellowing of <strong>lower/older leaves</strong>, starting from the tips and moving inward</li>
+                    <li>Leaves eventually turn completely pale yellow, then white, then die and fall off</li>
+                    <li>Progresses upward from the bottom of the plant</li>
+                    <li>Overall plant appears light green, growth slows</li>
+                </ul>
+                <h3>Common Causes</h3>
+                <ul>
+                    <li>Insufficient nitrogen in feed solution, especially during peak vegetative growth</li>
+                    <li>Heavily leached medium (excessive runoff washes out nitrogen)</li>
+                    <li>Natural nitrogen depletion in organic soil after 4&ndash;6 weeks</li>
+                </ul>
+                <h3>Fix</h3>
+                <p>Increase nitrogen in the feed. For immediate correction, use a nitrogen-heavy liquid feed (fish emulsion, calcium nitrate, or veg-stage nutrients). Affected lower leaves will not recover but new growth should green up within 5&ndash;7 days.</p>
+
+                <h2>Phosphorus (P) &mdash; Mobile</h2>
+                <h3>Symptoms</h3>
+                <ul>
+                    <li><strong>Purple or reddish stems</strong> and petioles (leaf stalks)</li>
+                    <li>Dark green leaves that develop bluish or purple tints</li>
+                    <li>Older leaves may develop dark brown or bronze dead spots</li>
+                    <li>Slow overall growth, stunted root development</li>
+                    <li>In flower: small, airy buds that develop slowly</li>
+                </ul>
+                <h3>Common Causes</h3>
+                <ul>
+                    <li>Cold root zone temperatures (below 18&deg;C) reduce phosphorus uptake</li>
+                    <li>pH too high (above 7.0) locks out phosphorus</li>
+                    <li>Insufficient phosphorus in feed during flowering when demand peaks</li>
+                </ul>
+                <h3>Fix</h3>
+                <p>Check root zone temperature first. If cold, add a heat mat. If pH is correct and temperature is fine, increase phosphorus. Bloom-stage nutrients typically have elevated phosphorus. Bone meal is a slow-release organic option.</p>
+
+                <div class="warning-box">
+                    <strong>Note:</strong> Some strains naturally produce purple stems regardless of phosphorus levels. If only the stems are purple but leaves are healthy green, it may be genetic rather than a deficiency.
+                </div>
+
+                <h2>Potassium (K) &mdash; Mobile</h2>
+                <h3>Symptoms</h3>
+                <ul>
+                    <li><strong>Brown, crispy edges</strong> on older/lower leaves (leaf margin burn)</li>
+                    <li>Edges may curl upward before browning</li>
+                    <li>Yellowing between veins of older leaves, while veins remain green initially</li>
+                    <li>Weak stems, plants prone to flopping over</li>
+                    <li>In flower: buds feel light and loose</li>
+                </ul>
+                <h3>Common Causes</h3>
+                <ul>
+                    <li>High calcium or magnesium can block potassium uptake (antagonism)</li>
+                    <li>Very high EC feed locking out specific ions</li>
+                    <li>Insufficient potassium in feed during mid-to-late flower when demand peaks</li>
+                </ul>
+                <h3>Fix</h3>
+                <p>Add potassium-rich feed (potassium silicate, kelp extract, or bloom boosters with elevated K). Check that calcium and magnesium are not excessively high. Reduce overall EC if above 2.0 mS/cm and re-balance the nutrient ratio.</p>
+
+                <h2>Calcium (Ca) &mdash; Immobile</h2>
+                <h3>Symptoms</h3>
+                <ul>
+                    <li><strong>Brown spots</strong> on newer/upper leaves, often irregularly shaped</li>
+                    <li>New leaf tips may curl and die (tip burn that differs from nutrient burn in pattern)</li>
+                    <li>Leaf edges become jagged and crinkled</li>
+                    <li>In severe cases, new growth is distorted and stunted</li>
+                    <li>Stems are weak and hollow</li>
+                </ul>
+                <h3>Common Causes</h3>
+                <ul>
+                    <li>Using RO or distilled water without cal-mag supplementation</li>
+                    <li>pH below 6.0 (calcium lockout begins)</li>
+                    <li>Excessive potassium blocking calcium uptake</li>
+                    <li>High humidity reducing transpiration (calcium travels with water flow through the plant)</li>
+                </ul>
+                <h3>Fix</h3>
+                <p>Add cal-mag supplement. If using RO water, always include cal-mag at 0.3&ndash;0.5 EC before adding base nutrients. Ensure pH is above 6.0. If humidity is very high (above 80%), increase airflow to promote transpiration.</p>
+
+                <h2>Magnesium (Mg) &mdash; Mobile</h2>
+                <h3>Symptoms</h3>
+                <ul>
+                    <li><strong>Interveinal chlorosis on older/lower leaves</strong>: the tissue between veins turns yellow while the veins themselves remain green, creating a distinctive striped pattern</li>
+                    <li>Affected leaves may eventually develop rust-colored spots</li>
+                    <li>Leaves curl upward and edges may become brittle</li>
+                    <li>Progresses from lower to upper leaves</li>
+                </ul>
+                <h3>Common Causes</h3>
+                <ul>
+                    <li>High potassium or calcium blocking magnesium uptake</li>
+                    <li>pH below 6.0 in soil (magnesium becomes less available)</li>
+                    <li>RO water without supplementation</li>
+                    <li>LED grows seem to increase magnesium demand compared to HPS</li>
+                </ul>
+                <h3>Fix</h3>
+                <p>Epsom salt (magnesium sulfate) is the quickest fix: 1&ndash;2 g/L in the feed or as a foliar spray. Cal-mag products also contain magnesium. Ensure pH is in range. Response is visible within 7&ndash;10 days on new growth; affected leaves rarely recover fully.</p>
+
+                <h2>Iron (Fe) &mdash; Immobile</h2>
+                <h3>Symptoms</h3>
+                <ul>
+                    <li><strong>Interveinal chlorosis on new/upper leaves</strong> (similar to magnesium but on NEW growth, not old)</li>
+                    <li>New leaves emerge pale yellow or almost white, with green veins</li>
+                    <li>In severe cases, entire new leaves are yellow/white</li>
+                </ul>
+                <h3>Common Causes</h3>
+                <ul>
+                    <li>pH too high (above 6.5 in hydro, above 7.0 in soil) &mdash; this is the most common cause</li>
+                    <li>Excessive manganese, zinc, or copper blocking iron uptake</li>
+                    <li>Cold root zone temperatures</li>
+                </ul>
+                <h3>Fix</h3>
+                <p>Lower pH to the correct range. Iron is extremely pH-sensitive. If pH is correct, apply chelated iron (Fe-EDDHA or Fe-DTPA) as a feed additive. Foliar application of iron chelate can provide faster relief while root feeding catches up.</p>
+
+                <h2>Zinc (Zn) &mdash; Immobile</h2>
+                <h3>Symptoms</h3>
+                <ul>
+                    <li>New leaves are small, thin, and clustered together (short internodes at the top)</li>
+                    <li>Interveinal chlorosis on young leaves</li>
+                    <li>Leaf tips may twist or curl</li>
+                    <li>Overall growth appears stunted and "bunched up" at the top</li>
+                </ul>
+                <h3>Fix</h3>
+                <p>Check pH (zinc locks out above 7.0). Apply a zinc-containing micronutrient supplement. Kelp extract contains trace zinc. Most complete nutrient lines include zinc, so a deficiency usually points to pH lockout rather than absence in the feed.</p>
+
+                <h2>Manganese (Mn) &mdash; Immobile</h2>
+                <h3>Symptoms</h3>
+                <ul>
+                    <li>Interveinal chlorosis on young leaves (similar to iron, but with small tan or brown spots scattered between veins)</li>
+                    <li>Dead spots are typically smaller and more numerous than calcium spots</li>
+                    <li>Leaf edges may remain green while the center yellows</li>
+                </ul>
+                <h3>Fix</h3>
+                <p>Lower pH if too high. Manganese sulphate can be added to the feed, but most deficiencies are pH-related. Ensure your base nutrient line includes manganese (virtually all do).</p>
+
+                <h2>Diagnosis Flowchart</h2>
+                <ol>
+                    <li><strong>Where are symptoms?</strong> Lower/old leaves = mobile nutrient (N, P, K, Mg). Upper/new leaves = immobile nutrient (Ca, Fe, Zn, Mn).</li>
+                    <li><strong>What type of symptom?</strong> Uniform yellowing = nitrogen. Brown edges = potassium. Interveinal = magnesium (old) or iron (new). Spots = calcium or manganese. Purple stems = phosphorus.</li>
+                    <li><strong>Check pH first.</strong> 80% of apparent deficiencies are pH lockout.</li>
+                    <li><strong>Check EC/PPM.</strong> Too low = underfeeding. Too high = nutrient burn or lockout from excess.</li>
+                    <li><strong>Take photos.</strong> Use GrowVPD Pro's disease guide to compare against reference images.</li>
+                </ol>
+
+                <blockquote>
+                    <strong>Tip:</strong> GrowVPD Pro's AI Disease Diagnostics (Pro feature) can analyze photos of affected leaves and suggest the most likely deficiency or disease, including recommended corrective actions.
+                </blockquote>
+
+            </div>
+
+            <div class="discord-cta">
+                <h3>Get Help Diagnosing</h3>
+                <p>Post photos of affected leaves in the Discord and get diagnosis help from experienced growers.</p>
+                <a href="https://discord.gg/growvpd" class="btn" target="_blank" rel="noopener noreferrer">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+                    Discuss on Discord
+                </a>
+            </div>
+
+            <div class="article-discussion">
+                <h2>Discussion</h2>
+                <p>Have questions about this guide? Share your experience or ask for help below.</p>
+                <script src="https://giscus.app/client.js" data-repo="OWNER/REPO" data-repo-id="REPO_ID" data-category="Guides" data-category-id="CATEGORY_ID" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" data-loading="lazy" crossorigin="anonymous" async></script>
+                <p class="giscus-note">Discussions powered by <a href="https://giscus.app" target="_blank" rel="noopener noreferrer">Giscus</a> &amp; GitHub Discussions. <a href="https://discord.gg/growvpd" target="_blank" rel="noopener noreferrer">Prefer Discord?</a></p>
+            </div>
+
+            <div class="related-guides">
+                <h3>Related Guides</h3>
+                <div class="related-list">
+                    <a href="substrate-mixing.html" class="related-link">Substrate Mixing Guide: Soil, Coco &amp; Custom Blends <span class="arrow">&rarr;</span></a>
+                    <a href="vpd-complete-guide.html" class="related-link">Understanding VPD: The Complete Guide for Indoor Growers <span class="arrow">&rarr;</span></a>
+                    <a href="equipment-setup.html" class="related-link">Equipment Setup Guide <span class="arrow">&rarr;</span></a>
+                </div>
+            </div>
+
+            <footer class="article-footer">
+                <p>&copy; 2026 <a href="../index.html">GrowVPD Pro</a>. All rights reserved. &middot; <a href="../privacy/index.html">Privacy Policy</a> &middot; <a href="../support/index.html">Support</a></p>
+            </footer>
+
+        </div>
+    </main>
+
+<script src="guide-i18n.js"></script>
+</body>
+</html>

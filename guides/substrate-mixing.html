@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://giscus.app; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://giscus.app https://discord.com; connect-src 'self' https://giscus.app; base-uri 'self'; form-action 'self';">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Substrate Mixing Guide: Soil, Coco & Custom Blends — GrowVPD Pro</title>
+    <meta name="description" content="Complete guide to growing substrates: soil, coco coir, perlite, and custom mixes. Popular recipes, water retention vs drainage, and using the Substrate Mixer calculator.">
+
+    <link rel="icon" type="image/png" href="../images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="canonical" href="https://growvpd.pro/guides/substrate-mixing.html">
+    <link rel="alternate" hreflang="en" href="https://growvpd.pro/guides/substrate-mixing.html">
+    <link rel="alternate" hreflang="cs" href="https://growvpd.pro/guides/substrate-mixing.html?lang=cs">
+    <link rel="alternate" hreflang="de" href="https://growvpd.pro/guides/substrate-mixing.html?lang=de">
+    <link rel="alternate" hreflang="es" href="https://growvpd.pro/guides/substrate-mixing.html?lang=es">
+    <link rel="alternate" hreflang="nl" href="https://growvpd.pro/guides/substrate-mixing.html?lang=nl">
+    <link rel="alternate" hreflang="fr" href="https://growvpd.pro/guides/substrate-mixing.html?lang=fr">
+    <link rel="alternate" hreflang="it" href="https://growvpd.pro/guides/substrate-mixing.html?lang=it">
+    <link rel="alternate" hreflang="pt" href="https://growvpd.pro/guides/substrate-mixing.html?lang=pt">
+    <link rel="alternate" hreflang="pl" href="https://growvpd.pro/guides/substrate-mixing.html?lang=pl">
+    <link rel="alternate" hreflang="th" href="https://growvpd.pro/guides/substrate-mixing.html?lang=th">
+    <link rel="alternate" hreflang="he" href="https://growvpd.pro/guides/substrate-mixing.html?lang=he">
+    <link rel="alternate" hreflang="x-default" href="https://growvpd.pro/guides/substrate-mixing.html">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/forum.css">
+
+    <style>
+        .article-page { padding: 100px 0 60px; background: #fff; min-height: 100vh; }
+        .article-container { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+        .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: .82rem; color: #90A4AE; margin-bottom: 32px; flex-wrap: wrap; }
+        .breadcrumb a { color: #2E7D32; font-weight: 500; transition: color .2s; } .breadcrumb a:hover { color: #1B5E20; }
+        .breadcrumb .sep { color: #CFD8DC; user-select: none; }
+        .article-header { margin-bottom: 40px; }
+        .article-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+        .category-badge { display: inline-block; background: rgba(46,125,50,.08); color: #2E7D32; font-size: .75rem; font-weight: 700; padding: 4px 12px; border-radius: 6px; text-transform: uppercase; letter-spacing: .05em; }
+        .article-date, .article-read-time { font-size: .82rem; color: #90A4AE; }
+        .article-date::before { content: ''; display: inline-block; width: 3px; height: 3px; background: #CFD8DC; border-radius: 50%; vertical-align: middle; margin-right: 12px; }
+        .article-header h1 { font-size: 2.2rem; font-weight: 900; color: #1B5E20; line-height: 1.15; letter-spacing: -.02em; }
+        .article-body h2 { font-size: 1.45rem; font-weight: 800; color: #212121; margin: 40px 0 16px; letter-spacing: -.01em; }
+        .article-body h3 { font-size: 1.1rem; font-weight: 700; color: #37474F; margin: 28px 0 12px; }
+        .article-body p { color: #546E7A; font-size: .95rem; line-height: 1.75; margin-bottom: 16px; }
+        .article-body ul, .article-body ol { color: #546E7A; font-size: .95rem; line-height: 1.75; margin: 0 0 16px 24px; }
+        .article-body ul { list-style: disc; } .article-body ol { list-style: decimal; }
+        .article-body li { margin-bottom: 6px; }
+        .article-body strong { color: #212121; font-weight: 600; }
+        .article-body blockquote { background: #F1F8E9; border-left: 4px solid #4CAF50; padding: 16px 20px; border-radius: 0 12px 12px 0; margin: 24px 0; font-size: .9rem; color: #33691E; line-height: 1.7; }
+        .article-body blockquote strong { color: #1B5E20; }
+        .article-body code { background: #ECEFF1; padding: 2px 6px; border-radius: 4px; font-size: .85rem; color: #37474F; }
+        .step-card { background: #FAFBFC; border: 1px solid #ECEFF1; border-radius: 14px; padding: 24px; margin: 20px 0; }
+        .step-card .step-number { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; background: #2E7D32; color: #fff; font-size: .8rem; font-weight: 800; border-radius: 8px; margin-right: 10px; vertical-align: middle; }
+        .step-card h3 { display: inline; font-size: 1.05rem; font-weight: 700; color: #212121; margin: 0; vertical-align: middle; }
+        .step-card p { margin-top: 12px; margin-bottom: 0; } .step-card ul, .step-card ol { margin-top: 12px; margin-bottom: 0; }
+        .warning-box { background: #FFF8E1; border-left: 4px solid #FFB300; padding: 16px 20px; border-radius: 0 12px 12px 0; margin: 24px 0; font-size: .9rem; color: #5D4037; line-height: 1.7; }
+        .warning-box strong { color: #E65100; }
+        .discord-cta { background: linear-gradient(135deg, #F1F8E9, #E8F5E9); border: 1px solid #C8E6C9; border-radius: 16px; padding: 32px; text-align: center; margin: 48px 0; }
+        .discord-cta h3 { font-size: 1.2rem; font-weight: 800; color: #1B5E20; margin-bottom: 8px; }
+        .discord-cta p { font-size: .9rem; color: #546E7A; margin-bottom: 20px; }
+        .discord-cta .btn { display: inline-flex; align-items: center; gap: 8px; background: #2E7D32; color: #fff; padding: 12px 28px; border-radius: 10px; font-weight: 600; font-size: .9rem; transition: all .25s; border: none; cursor: pointer; text-decoration: none; }
+        .discord-cta .btn:hover { background: #1B5E20; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(46,125,50,.35); }
+        .related-guides { margin: 48px 0; }
+        .related-guides h3 { font-size: 1.1rem; font-weight: 800; color: #212121; margin-bottom: 16px; }
+        .related-list { display: flex; flex-direction: column; gap: 10px; }
+        .related-link { display: flex; align-items: center; gap: 10px; padding: 14px 18px; background: #FAFBFC; border: 1px solid #ECEFF1; border-radius: 12px; transition: all .25s; color: #2E7D32; font-weight: 600; font-size: .9rem; }
+        .related-link:hover { border-color: #C8E6C9; background: #F1F8E9; transform: translateX(4px); }
+        .related-link .arrow { margin-left: auto; color: #90A4AE; transition: color .2s; } .related-link:hover .arrow { color: #2E7D32; }
+        .article-footer { border-top: 1px solid #ECEFF1; padding: 32px 0; margin-top: 48px; text-align: center; font-size: .82rem; color: #90A4AE; }
+        .article-footer a { color: #2E7D32; font-weight: 500; } .article-footer a:hover { color: #1B5E20; }
+        @media (max-width: 768px) { .article-page { padding: 80px 0 40px; } .article-header h1 { font-size: 1.7rem; } .article-body h2 { font-size: 1.25rem; } .discord-cta { padding: 24px 20px; } .step-card { padding: 18px; } }
+        @media (max-width: 480px) { .article-header h1 { font-size: 1.45rem; } .article-meta { gap: 8px; } }
+    </style>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://growvpd.pro/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://growvpd.pro/guides/"},{"@type":"ListItem","position":3,"name":"Substrate Mixing Guide: Soil, Coco & Custom Blends"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Article","headline":"Substrate Mixing Guide: Soil, Coco & Custom Blends","author":{"@type":"Organization","name":"GrowVPD Pro"},"publisher":{"@type":"Organization","name":"GrowVPD Pro"},"datePublished":"2026-04-05","description":"Complete guide to growing substrates: soil, coco coir, perlite, and custom mixes. Popular recipes, water retention vs drainage, and using the Substrate Mixer calculator.","mainEntityOfPage":"https://growvpd.pro/guides/substrate-mixing.html"}
+    </script>
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="../index.html" class="nav-brand">
+                <svg class="nav-logo" viewBox="0 0 32 32" width="28" height="28">
+                    <circle cx="16" cy="16" r="16" fill="#2E7D32"/>
+                    <path d="M16 6c0 0-6 4-6 12 0 4 2.5 7 6 8 3.5-1 6-4 6-8 0-8-6-12-6-12z" fill="#81C784"/>
+                    <path d="M16 10c0 0-3 3-3 8 0 2.5 1.2 4.5 3 5.2 1.8-.7 3-2.7 3-5.2 0-5-3-8-3-8z" fill="#A5D6A7"/>
+                </svg>
+                <span>GrowVPD Pro</span>
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="index.html" style="color:#2E7D32;font-weight:700">Guides &amp; Community</a></li>
+                <li><a href="../support/index.html">Support</a></li>
+                <li><a href="../index.html#download" class="nav-cta">Download</a></li>
+            </ul>
+        </div>
+    </nav>
+    <script>
+document.getElementById('navToggle')?.addEventListener('click',function(){this.classList.toggle('active');document.getElementById('navLinks').classList.toggle('active')});
+window.addEventListener('scroll',function(){document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>20)},{passive:true});
+    </script>
+
+    <main class="article-page">
+        <div class="article-container">
+
+            <div class="breadcrumb"><a href="index.html">Guides &amp; Community</a><span class="sep">/</span><a href="index.html">Equipment &amp; Calculators</a><span class="sep">/</span><span>Substrate Mixing Guide</span></div>
+
+            <header class="article-header">
+                <div class="article-meta">
+                    <span class="category-badge">Equipment &amp; Calculators</span>
+                    <span class="article-date">April 2026</span>
+                    <span class="article-read-time">6 min read</span>
+                </div>
+                <h1>Substrate Mixing Guide: Soil, Coco &amp; Custom Blends</h1>
+            </header>
+
+            <div class="article-body">
+
+                <h2>Why Substrate Matters</h2>
+                <p>The substrate is where your plant lives. It determines water retention, drainage, aeration, nutrient availability, and root health. The best environmental control in the world cannot compensate for a root zone that is waterlogged, compacted, or nutrient-depleted. Choosing and mixing the right substrate is one of the most impactful decisions you make before a grow even starts.</p>
+
+                <h2>Substrate Types</h2>
+
+                <h3>Soil (Potting Mix)</h3>
+                <p>Soil is the most forgiving medium for beginners. A quality potting mix contains organic matter that buffers pH and slowly releases nutrients, reducing the need for precise feeding in the early weeks.</p>
+                <ul>
+                    <li><strong>Pros:</strong> Forgiving, buffers pH, contains some nutrients, natural microbial ecosystem</li>
+                    <li><strong>Cons:</strong> Heavier, slower drainage, harder to control root zone precisely, pests can live in organic matter</li>
+                    <li><strong>Best for:</strong> Beginners, organic growers, low-maintenance grows</li>
+                    <li><strong>pH range:</strong> 6.0&ndash;7.0</li>
+                </ul>
+
+                <h3>Coco Coir</h3>
+                <p>Coco coir is made from coconut husks and provides an excellent balance of water retention and aeration. It is inert (contains no nutrients), giving you complete control over feeding. It is the most popular substrate among experienced growers.</p>
+                <ul>
+                    <li><strong>Pros:</strong> Excellent water retention + drainage, reusable, lightweight, pH stable, fast root growth</li>
+                    <li><strong>Cons:</strong> Requires nutrients from day one, needs cal-mag supplementation (coco naturally holds calcium), requires frequent watering</li>
+                    <li><strong>Best for:</strong> Intermediate to advanced growers, those wanting maximum control</li>
+                    <li><strong>pH range:</strong> 5.8&ndash;6.2</li>
+                </ul>
+
+                <h3>Perlite</h3>
+                <p>Volcanic glass expanded into lightweight white granules. Perlite provides excellent drainage and aeration but holds almost no water. It is rarely used alone &mdash; instead, it is mixed with soil or coco to improve drainage and prevent compaction.</p>
+
+                <h3>Vermiculite</h3>
+                <p>Expanded mica mineral that holds 3&ndash;4 times its weight in water. Used to increase water retention in mixes that drain too quickly. Useful for seedling mixes or dry climates.</p>
+
+                <h3>Clay Pebbles (LECA / Hydroton)</h3>
+                <p>Lightweight expanded clay aggregate. Provides aeration and drainage with minimal water retention. Used in hydroponic systems (DWC, ebb-and-flow) or as a drainage layer at the bottom of pots.</p>
+
+                <h2>Popular Mixes</h2>
+
+                <div class="step-card">
+                    <span class="step-number">1</span>
+                    <h3>Standard Coco/Perlite (70/30)</h3>
+                    <p>The most popular mix among indoor growers. 70% coco coir + 30% perlite. Provides excellent water retention for daily watering while preventing waterlogging. Suitable for all growth stages.</p>
+                    <ul>
+                        <li>Water retention: High</li>
+                        <li>Drainage: Very good</li>
+                        <li>Watering frequency: 1&ndash;2 times daily in flower</li>
+                        <li>Best for: Hand-watering or drip systems</li>
+                    </ul>
+                </div>
+
+                <div class="step-card">
+                    <span class="step-number">2</span>
+                    <h3>High-Frequency Coco/Perlite (50/50)</h3>
+                    <p>50% coco + 50% perlite. Drains faster and holds less water, requiring more frequent irrigation. Popular with automated drip systems where the grower wants to feed 3&ndash;5 times daily for maximum growth speed.</p>
+                    <ul>
+                        <li>Water retention: Medium</li>
+                        <li>Drainage: Excellent</li>
+                        <li>Watering frequency: 3&ndash;5 times daily</li>
+                        <li>Best for: Automated drip systems, experienced growers</li>
+                    </ul>
+                </div>
+
+                <div class="step-card">
+                    <span class="step-number">3</span>
+                    <h3>Living Soil (Organic Super Soil)</h3>
+                    <p>A nutrient-rich organic mix that feeds the plant through soil biology rather than bottled nutrients. Typically: base soil (30%) + compost/worm castings (30%) + aeration (perlite/pumice 20%) + amendments (bone meal, kelp meal, bat guano, dolomite lime 20%).</p>
+                    <ul>
+                        <li>Water retention: High</li>
+                        <li>Drainage: Moderate (depends on perlite content)</li>
+                        <li>Watering frequency: Every 2&ndash;4 days (water only, no bottled nutrients)</li>
+                        <li>Best for: Organic growers, "water only" approaches, flavor-focused grows</li>
+                    </ul>
+                </div>
+
+                <div class="step-card">
+                    <span class="step-number">4</span>
+                    <h3>Seedling Mix</h3>
+                    <p>Light and fluffy mix for germination and early growth. 40% coco + 30% perlite + 30% vermiculite. The vermiculite holds extra moisture around the tiny root zone, and the light texture prevents compaction that can suffocate seedling roots.</p>
+                </div>
+
+                <blockquote>
+                    <strong>Tip:</strong> GrowVPD Pro's Substrate Mixer calculator lets you input your component percentages and calculates the resulting water retention, drainage rate, and aeration capacity. You can adjust ratios and see the impact in real-time before mixing.
+                </blockquote>
+
+                <h2>Water Retention vs. Drainage</h2>
+                <p>The fundamental tradeoff in substrate design is between holding water (so the plant has a reservoir between waterings) and draining water (so roots have access to oxygen). Roots need both water and air. A substrate that stays saturated for too long suffocates roots. One that drains too fast dries out before the next watering.</p>
+                <p>The ideal balance depends on your watering method:</p>
+                <ul>
+                    <li><strong>Hand watering 1x/day:</strong> Higher water retention (70/30 coco/perlite or soil)</li>
+                    <li><strong>Automated drip 3&ndash;5x/day:</strong> Higher drainage (50/50 or even 40/60 coco/perlite)</li>
+                    <li><strong>Bottom-fed (flood and drain):</strong> Very high drainage (clay pebbles, or 30/70 coco/perlite)</li>
+                </ul>
+
+                <h2>Preparing Coco Coir</h2>
+                <p>Raw coco coir requires preparation before use:</p>
+                <ol>
+                    <li><strong>Hydrate:</strong> Expand compressed coco bricks with warm water. A standard 5 kg brick expands to ~70 liters.</li>
+                    <li><strong>Rinse:</strong> Flush with pH-adjusted water until runoff EC is below 0.5 mS/cm. This removes excess sodium and potassium salts.</li>
+                    <li><strong>Buffer:</strong> Soak in cal-mag solution (EC 0.8&ndash;1.0) for 8&ndash;12 hours. This pre-loads the cation exchange sites with calcium and magnesium, preventing the coco from stealing these nutrients from your feed later.</li>
+                    <li><strong>Drain and mix:</strong> Drain excess water, add perlite at your chosen ratio, and mix thoroughly.</li>
+                </ol>
+
+                <div class="warning-box">
+                    <strong>Important:</strong> Never use coco coir straight from the brick without rinsing and buffering. Unbuffered coco will rob calcium and magnesium from your nutrient solution for the first 2&ndash;3 weeks, causing deficiency symptoms that are difficult to diagnose.
+                </div>
+
+                <h2>Pot Size Guidance</h2>
+                <ul>
+                    <li><strong>Seedlings:</strong> Start in 0.5&ndash;1 L pots or solo cups</li>
+                    <li><strong>Autoflowers:</strong> Final pot 7&ndash;15 L (transplant shock is risky with autos, so many growers start in the final pot)</li>
+                    <li><strong>Photoperiod (small tent):</strong> 11&ndash;15 L final pot</li>
+                    <li><strong>Photoperiod (larger tent, long veg):</strong> 20&ndash;30 L</li>
+                    <li><strong>Fabric pots</strong> are strongly recommended: they air-prune roots, preventing root-bound conditions that hard plastic pots create</li>
+                </ul>
+
+            </div>
+
+            <div class="discord-cta">
+                <h3>Share Your Substrate Recipe</h3>
+                <p>What mix works best for you? Share your recipe and learn from other growers' experiments.</p>
+                <a href="https://discord.gg/growvpd" class="btn" target="_blank" rel="noopener noreferrer"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>Discuss on Discord</a>
+            </div>
+
+            <div class="article-discussion"><h2>Discussion</h2><p>Have questions about this guide? Share your experience or ask for help below.</p><script src="https://giscus.app/client.js" data-repo="OWNER/REPO" data-repo-id="REPO_ID" data-category="Guides" data-category-id="CATEGORY_ID" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" data-loading="lazy" crossorigin="anonymous" async></script><p class="giscus-note">Discussions powered by <a href="https://giscus.app" target="_blank" rel="noopener noreferrer">Giscus</a> &amp; GitHub Discussions. <a href="https://discord.gg/growvpd" target="_blank" rel="noopener noreferrer">Prefer Discord?</a></p></div>
+
+            <div class="related-guides"><h3>Related Guides</h3><div class="related-list">
+                <a href="nutrient-deficiency-guide.html" class="related-link">Nutrient Deficiency Identification Guide <span class="arrow">&rarr;</span></a>
+                <a href="tent-ventilation-guide.html" class="related-link">Grow Tent Ventilation: Complete CFM Guide <span class="arrow">&rarr;</span></a>
+                <a href="humidity-control-guide.html" class="related-link">How to Control Humidity in Your Grow Room <span class="arrow">&rarr;</span></a>
+            </div></div>
+
+            <footer class="article-footer"><p>&copy; 2026 <a href="../index.html">GrowVPD Pro</a>. All rights reserved. &middot; <a href="../privacy/index.html">Privacy Policy</a> &middot; <a href="../support/index.html">Support</a></p></footer>
+
+        </div>
+    </main>
+
+<script src="guide-i18n.js"></script>
+</body>
+</html>

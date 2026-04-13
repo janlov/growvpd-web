@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://giscus.app; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://giscus.app https://discord.com; connect-src 'self' https://giscus.app; base-uri 'self'; form-action 'self';">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Connect Tuya / Smart Life Devices to GrowVPD Pro — GrowVPD Pro</title>
+    <meta name="description" content="Step-by-step guide to connecting Tuya and Smart Life sensors, smart plugs, cameras, AC units, and irrigation to GrowVPD Pro for automated climate control.">
+
+    <link rel="icon" type="image/png" href="../images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="canonical" href="https://growvpd.pro/guides/connect-tuya.html">
+    <link rel="alternate" hreflang="en" href="https://growvpd.pro/guides/connect-tuya.html">
+    <link rel="alternate" hreflang="cs" href="https://growvpd.pro/guides/connect-tuya.html?lang=cs">
+    <link rel="alternate" hreflang="de" href="https://growvpd.pro/guides/connect-tuya.html?lang=de">
+    <link rel="alternate" hreflang="es" href="https://growvpd.pro/guides/connect-tuya.html?lang=es">
+    <link rel="alternate" hreflang="nl" href="https://growvpd.pro/guides/connect-tuya.html?lang=nl">
+    <link rel="alternate" hreflang="fr" href="https://growvpd.pro/guides/connect-tuya.html?lang=fr">
+    <link rel="alternate" hreflang="it" href="https://growvpd.pro/guides/connect-tuya.html?lang=it">
+    <link rel="alternate" hreflang="pt" href="https://growvpd.pro/guides/connect-tuya.html?lang=pt">
+    <link rel="alternate" hreflang="pl" href="https://growvpd.pro/guides/connect-tuya.html?lang=pl">
+    <link rel="alternate" hreflang="th" href="https://growvpd.pro/guides/connect-tuya.html?lang=th">
+    <link rel="alternate" hreflang="he" href="https://growvpd.pro/guides/connect-tuya.html?lang=he">
+    <link rel="alternate" hreflang="x-default" href="https://growvpd.pro/guides/connect-tuya.html">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/forum.css">
+
+    <style>
+        /* Article page layout */
+        .article-page { padding: 100px 0 60px; background: #fff; min-height: 100vh; }
+        .article-container { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+        /* Breadcrumb */
+        .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: .82rem; color: #90A4AE; margin-bottom: 32px; flex-wrap: wrap; }
+        .breadcrumb a { color: #2E7D32; font-weight: 500; transition: color .2s; }
+        .breadcrumb a:hover { color: #1B5E20; }
+        .breadcrumb .sep { color: #CFD8DC; user-select: none; }
+
+        /* Article header */
+        .article-header { margin-bottom: 40px; }
+        .article-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+        .category-badge { display: inline-block; background: rgba(46,125,50,.08); color: #2E7D32; font-size: .75rem; font-weight: 700; padding: 4px 12px; border-radius: 6px; text-transform: uppercase; letter-spacing: .05em; }
+        .article-date, .article-read-time { font-size: .82rem; color: #90A4AE; }
+        .article-date::before { content: ''; display: inline-block; width: 3px; height: 3px; background: #CFD8DC; border-radius: 50%; vertical-align: middle; margin-right: 12px; }
+        .article-header h1 { font-size: 2.2rem; font-weight: 900; color: #1B5E20; line-height: 1.15; letter-spacing: -.02em; }
+
+        /* Article body */
+        .article-body h2 { font-size: 1.45rem; font-weight: 800; color: #212121; margin: 40px 0 16px; letter-spacing: -.01em; }
+        .article-body h3 { font-size: 1.1rem; font-weight: 700; color: #37474F; margin: 28px 0 12px; }
+        .article-body p { color: #546E7A; font-size: .95rem; line-height: 1.75; margin-bottom: 16px; }
+        .article-body ul, .article-body ol { color: #546E7A; font-size: .95rem; line-height: 1.75; margin: 0 0 16px 24px; }
+        .article-body ul { list-style: disc; }
+        .article-body ol { list-style: decimal; }
+        .article-body li { margin-bottom: 6px; }
+        .article-body strong { color: #212121; font-weight: 600; }
+        .article-body blockquote { background: #F1F8E9; border-left: 4px solid #4CAF50; padding: 16px 20px; border-radius: 0 12px 12px 0; margin: 24px 0; font-size: .9rem; color: #33691E; line-height: 1.7; }
+        .article-body blockquote strong { color: #1B5E20; }
+        .article-body code { background: #ECEFF1; padding: 2px 6px; border-radius: 4px; font-size: .85rem; color: #37474F; }
+
+        /* Step cards */
+        .step-card { background: #FAFBFC; border: 1px solid #ECEFF1; border-radius: 14px; padding: 24px; margin: 20px 0; }
+        .step-card .step-number { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; background: #2E7D32; color: #fff; font-size: .8rem; font-weight: 800; border-radius: 8px; margin-right: 10px; vertical-align: middle; }
+        .step-card h3 { display: inline; font-size: 1.05rem; font-weight: 700; color: #212121; margin: 0; vertical-align: middle; }
+        .step-card p { margin-top: 12px; margin-bottom: 0; }
+        .step-card ul, .step-card ol { margin-top: 12px; margin-bottom: 0; }
+
+        /* Warning box */
+        .warning-box { background: #FFF8E1; border-left: 4px solid #FFB300; padding: 16px 20px; border-radius: 0 12px 12px 0; margin: 24px 0; font-size: .9rem; color: #5D4037; line-height: 1.7; }
+        .warning-box strong { color: #E65100; }
+
+        /* Discord CTA */
+        .discord-cta { background: linear-gradient(135deg, #F1F8E9, #E8F5E9); border: 1px solid #C8E6C9; border-radius: 16px; padding: 32px; text-align: center; margin: 48px 0; }
+        .discord-cta h3 { font-size: 1.2rem; font-weight: 800; color: #1B5E20; margin-bottom: 8px; }
+        .discord-cta p { font-size: .9rem; color: #546E7A; margin-bottom: 20px; }
+        .discord-cta .btn { display: inline-flex; align-items: center; gap: 8px; background: #2E7D32; color: #fff; padding: 12px 28px; border-radius: 10px; font-weight: 600; font-size: .9rem; transition: all .25s; border: none; cursor: pointer; text-decoration: none; }
+        .discord-cta .btn:hover { background: #1B5E20; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(46,125,50,.35); }
+
+        /* Related guides */
+        .related-guides { margin: 48px 0; }
+        .related-guides h3 { font-size: 1.1rem; font-weight: 800; color: #212121; margin-bottom: 16px; }
+        .related-list { display: flex; flex-direction: column; gap: 10px; }
+        .related-link { display: flex; align-items: center; gap: 10px; padding: 14px 18px; background: #FAFBFC; border: 1px solid #ECEFF1; border-radius: 12px; transition: all .25s; color: #2E7D32; font-weight: 600; font-size: .9rem; }
+        .related-link:hover { border-color: #C8E6C9; background: #F1F8E9; transform: translateX(4px); }
+        .related-link .arrow { margin-left: auto; color: #90A4AE; transition: color .2s; }
+        .related-link:hover .arrow { color: #2E7D32; }
+
+        /* Article footer */
+        .article-footer { border-top: 1px solid #ECEFF1; padding: 32px 0; margin-top: 48px; text-align: center; font-size: .82rem; color: #90A4AE; }
+        .article-footer a { color: #2E7D32; font-weight: 500; }
+        .article-footer a:hover { color: #1B5E20; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .article-page { padding: 80px 0 40px; }
+            .article-header h1 { font-size: 1.7rem; }
+            .article-body h2 { font-size: 1.25rem; }
+            .discord-cta { padding: 24px 20px; }
+            .step-card { padding: 18px; }
+        }
+        @media (max-width: 480px) {
+            .article-header h1 { font-size: 1.45rem; }
+            .article-meta { gap: 8px; }
+        }
+    </style>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://growvpd.pro/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://growvpd.pro/guides/"},{"@type":"ListItem","position":3,"name":"How to Connect Tuya / Smart Life Devices to GrowVPD Pro"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Article","headline":"How to Connect Tuya / Smart Life Devices to GrowVPD Pro","author":{"@type":"Organization","name":"GrowVPD Pro"},"publisher":{"@type":"Organization","name":"GrowVPD Pro"},"datePublished":"2026-04-05","description":"Step-by-step guide to connecting Tuya and Smart Life sensors, smart plugs, and cameras to GrowVPD Pro for automated climate control.","mainEntityOfPage":"https://growvpd.pro/guides/connect-tuya.html"}
+    </script>
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="../index.html" class="nav-brand">
+                <svg class="nav-logo" viewBox="0 0 32 32" width="28" height="28">
+                    <circle cx="16" cy="16" r="16" fill="#2E7D32"/>
+                    <path d="M16 6c0 0-6 4-6 12 0 4 2.5 7 6 8 3.5-1 6-4 6-8 0-8-6-12-6-12z" fill="#81C784"/>
+                    <path d="M16 10c0 0-3 3-3 8 0 2.5 1.2 4.5 3 5.2 1.8-.7 3-2.7 3-5.2 0-5-3-8-3-8z" fill="#A5D6A7"/>
+                </svg>
+                <span>GrowVPD Pro</span>
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="index.html" style="color:#2E7D32;font-weight:700">Guides &amp; Community</a></li>
+                <li><a href="../support/index.html">Support</a></li>
+                <li><a href="../index.html#download" class="nav-cta">Download</a></li>
+            </ul>
+        </div>
+    </nav>
+    <script>
+document.getElementById('navToggle')?.addEventListener('click',function(){this.classList.toggle('active');document.getElementById('navLinks').classList.toggle('active')});
+window.addEventListener('scroll',function(){document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>20)},{passive:true});
+    </script>
+
+    <main class="article-page">
+        <div class="article-container">
+
+            <!-- Breadcrumb -->
+            <div class="breadcrumb">
+                <a href="index.html">Guides &amp; Community</a>
+                <span class="sep">/</span>
+                <a href="index.html">Smart Automation</a>
+                <span class="sep">/</span>
+                <span>How to Connect Tuya / Smart Life Devices</span>
+            </div>
+
+            <!-- Article Header -->
+            <header class="article-header">
+                <div class="article-meta">
+                    <span class="category-badge">Smart Automation</span>
+                    <span class="article-date">April 2026</span>
+                    <span class="article-read-time">6 min read</span>
+                </div>
+                <h1>How to Connect Tuya / Smart Life Devices to GrowVPD Pro</h1>
+            </header>
+
+            <!-- Article Body -->
+            <div class="article-body">
+
+                <h2>What Tuya / Smart Life Devices Work?</h2>
+                <p>Tuya is the platform behind hundreds of white-label smart home brands. If your device works with the <strong>Tuya</strong> or <strong>Smart Life</strong> app, it will most likely work with GrowVPD Pro. Commonly used devices include:</p>
+                <ul>
+                    <li><strong>Temperature/Humidity sensors</strong> &mdash; WiFi sensors that report temp and RH to the cloud. These feed live data into the VPD chart.</li>
+                    <li><strong>Smart plugs</strong> &mdash; Turn humidifiers, dehumidifiers, fans, or heaters on and off based on automation rules.</li>
+                    <li><strong>Smart cameras</strong> &mdash; Tuya-compatible cameras can auto-capture snapshots and save them to your grow diary.</li>
+                    <li><strong>Smart switches and dimmers</strong> &mdash; Control lights, pumps, and other equipment.</li>
+                    <li><strong>Soil moisture sensors, CO2 monitors</strong> &mdash; Any Tuya device that reports environmental data.</li>
+                    <li><strong>AC units</strong> &mdash; Tuya-compatible air conditioners with native cloud control (dehumidify, cool, heat, ventilate).</li>
+                    <li><strong>Irrigation valves and water level sensors</strong> &mdash; Automate watering schedules and monitor reservoir levels.</li>
+                </ul>
+
+                <h2>Prerequisites</h2>
+                <ul>
+                    <li>GrowVPD Pro with an active <strong>Pro subscription</strong> (smart automation is a Pro feature)</li>
+                    <li>Your Tuya/Smart Life devices already set up and working in the official Tuya or Smart Life app</li>
+                    <li>A stable WiFi connection (devices communicate via Tuya Cloud API)</li>
+                    <li>A Tuya IoT Platform developer account (free &mdash; instructions below)</li>
+                </ul>
+
+                <h2>Connection Steps</h2>
+
+                <div class="step-card">
+                    <span class="step-number">1</span>
+                    <h3>Get Tuya Developer Credentials</h3>
+                    <p>GrowVPD Pro connects to your devices through the Tuya Cloud API. To authorize this, you need an <strong>Access ID</strong> and <strong>Access Secret</strong> from the Tuya IoT Platform:</p>
+                    <ol>
+                        <li>Go to <strong>iot.tuya.com</strong> and create a free account (or sign in if you already have one).</li>
+                        <li>In the sidebar, go to <strong>Cloud &gt; Development</strong> and create a new Cloud Project.</li>
+                        <li>Choose <strong>Smart Home</strong> as the industry and select your data center region (Western Europe, Eastern America, China, or India).</li>
+                        <li>Under the <strong>API Products</strong> tab, make sure <strong>IoT Core</strong> and <strong>Smart Home Device Management</strong> are subscribed (they are free).</li>
+                        <li>Go to the <strong>Devices</strong> tab and link your Tuya/Smart Life app account so the cloud project can access your devices.</li>
+                        <li>On the project <strong>Overview</strong> page, copy your <strong>Access ID/Client ID</strong> and <strong>Access Secret/Client Secret</strong>.</li>
+                    </ol>
+                </div>
+
+                <blockquote>
+                    <strong>Tip:</strong> The region you select in Tuya IoT must match the region of your Tuya/Smart Life app account. If your app is set to Europe, choose the Western Europe data center. Mismatched regions are the most common cause of "No devices found" errors.
+                </blockquote>
+
+                <div class="step-card">
+                    <span class="step-number">2</span>
+                    <h3>Link Tuya Account in GrowVPD Pro</h3>
+                    <p>Open GrowVPD Pro and go to <strong>Settings &gt; Connected Accounts &gt; Tuya</strong>. Enter your Access ID and Access Secret, then select your region (EU, US, or CN). Tap <strong>Connect</strong>. The app will verify your credentials and establish a connection to the Tuya Cloud.</p>
+                </div>
+
+                <div class="step-card">
+                    <span class="step-number">3</span>
+                    <h3>Discover Your Devices</h3>
+                    <p>Go to the <strong>Automation</strong> tab and tap <strong>Add Devices</strong>. The app scans your linked Tuya account and lists all available devices with their names, types, and online status. Tap any device to add it to GrowVPD Pro.</p>
+                </div>
+
+                <div class="step-card">
+                    <span class="step-number">4</span>
+                    <h3>Assign Devices to Rooms and Tents</h3>
+                    <p>Organize your devices into rooms and tents for clear management:</p>
+                    <ol>
+                        <li>Create a <strong>Room</strong> (e.g., "Garage", "Basement", "Bedroom").</li>
+                        <li>Inside the room, create a <strong>Tent</strong> (e.g., "Tent A 120x120", "Veg Tent").</li>
+                        <li>Assign your sensor to the tent so the app knows which device provides readings for that tent.</li>
+                        <li>Assign actuators (smart plugs, switches) to the same tent so automation rules can control them.</li>
+                    </ol>
+                </div>
+
+                <div class="step-card">
+                    <span class="step-number">5</span>
+                    <h3>Verify the Connection</h3>
+                    <p>Once assigned, your sensor's live data should appear in the tent dashboard within a few seconds. Verify by checking:</p>
+                    <ul>
+                        <li>The tent shows current temperature and humidity</li>
+                        <li>The VPD value is calculated and displayed</li>
+                        <li>Tapping a smart plug toggles it on/off successfully</li>
+                    </ul>
+                    <p>If live data appears and device control works, you are all set. You can now create automation rules in the Automation tab.</p>
+                </div>
+
+                <h2>Troubleshooting</h2>
+
+                <h3>"No devices found" after connecting</h3>
+                <ul>
+                    <li><strong>Check your region.</strong> The region in GrowVPD Pro must match the data center you selected in the Tuya IoT Platform, which must match your Tuya/Smart Life app region.</li>
+                    <li><strong>Verify credentials.</strong> Double-check that you copied the Access ID and Access Secret correctly. They are case-sensitive.</li>
+                    <li><strong>Link your app account.</strong> In the Tuya IoT Platform, go to your Cloud Project &gt; Devices &gt; Link Tuya App Account. Scan the QR code with your Tuya or Smart Life app to link them.</li>
+                    <li><strong>Check API subscriptions.</strong> Make sure IoT Core and Smart Home Device Management are subscribed in the API Products tab.</li>
+                </ul>
+
+                <h3>"Device offline"</h3>
+                <ul>
+                    <li>Check that the device is connected to WiFi and powered on.</li>
+                    <li>Open the Tuya/Smart Life app and verify the device shows as online there first.</li>
+                    <li>Power-cycle the device (unplug, wait 10 seconds, plug back in).</li>
+                    <li>If the device was recently moved to a new WiFi network, re-pair it through the Tuya/Smart Life app first.</li>
+                </ul>
+
+                <h3>"Wrong readings" or sensor seems inaccurate</h3>
+                <ul>
+                    <li>In GrowVPD Pro, go to the device settings and use the <strong>calibration offset</strong> to correct for known sensor error. Many cheap Tuya sensors drift by 1&ndash;2&deg;C or 3&ndash;5% RH.</li>
+                    <li>Compare against a known-accurate thermometer/hygrometer at the same location for a few hours.</li>
+                    <li>Place the sensor at canopy level, out of direct light, for the most useful readings.</li>
+                </ul>
+
+                <h2>Tuya Camera Auto-Snapshots</h2>
+                <p>If you have a Tuya-compatible camera, GrowVPD Pro can automatically capture periodic snapshots and save them to your grow diary. This is great for building timelapse sequences without any manual effort.</p>
+                <p>To enable this, assign the camera to a tent and configure the camera schedule in the tent settings. You can choose intervals from daily to every two weeks. Snapshots are taken automatically and attached to the corresponding grow diary entry.</p>
+
+                <div class="warning-box">
+                    <strong>Note:</strong> All Tuya device communication requires WiFi and internet access. Tuya devices use the Tuya Cloud API &mdash; they cannot be controlled locally without internet. If your internet connection drops, automation rules will pause until the connection is restored.
+                </div>
+
+            </div>
+
+            <!-- Discord CTA -->
+            <div class="discord-cta">
+                <h3>Need Help Connecting?</h3>
+                <p>If you run into issues, the GrowVPD Discord community can help. Many members have Tuya setups and can troubleshoot live.</p>
+                <a href="https://discord.gg/growvpd" class="btn" target="_blank" rel="noopener noreferrer">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+                    Discuss on Discord
+                </a>
+            </div>
+
+            <!-- Discussion -->
+            <div class="article-discussion">
+                <h2>Discussion</h2>
+                <p>Have questions about this guide? Share your experience or ask for help below.</p>
+                <script src="https://giscus.app/client.js"
+                    data-repo="OWNER/REPO"
+                    data-repo-id="REPO_ID"
+                    data-category="Guides"
+                    data-category-id="CATEGORY_ID"
+                    data-mapping="pathname"
+                    data-strict="0"
+                    data-reactions-enabled="1"
+                    data-emit-metadata="0"
+                    data-input-position="top"
+                    data-theme="light"
+                    data-lang="en"
+                    data-loading="lazy"
+                    crossorigin="anonymous"
+                    async>
+                </script>
+                <p class="giscus-note">Discussions powered by <a href="https://giscus.app" target="_blank" rel="noopener noreferrer">Giscus</a> &amp; GitHub Discussions. <a href="https://discord.gg/growvpd" target="_blank" rel="noopener noreferrer">Prefer Discord?</a></p>
+            </div>
+
+            <!-- Related Guides -->
+            <div class="related-guides">
+                <h3>Related Guides</h3>
+                <div class="related-list">
+                    <a href="connect-mars-hydro.html" class="related-link">
+                        How to Connect Mars Hydro Devices to GrowVPD Pro
+                        <span class="arrow">&rarr;</span>
+                    </a>
+                    <a href="vpd-complete-guide.html" class="related-link">
+                        Understanding VPD: The Complete Guide for Indoor Growers
+                        <span class="arrow">&rarr;</span>
+                    </a>
+                    <a href="getting-started.html" class="related-link">
+                        Getting Started with GrowVPD Pro
+                        <span class="arrow">&rarr;</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Article Footer -->
+            <footer class="article-footer">
+                <p>&copy; 2026 <a href="../index.html">GrowVPD Pro</a>. All rights reserved. &middot; <a href="../privacy/index.html">Privacy Policy</a> &middot; <a href="../support/index.html">Support</a></p>
+            </footer>
+
+        </div>
+    </main>
+
+<script src="guide-i18n.js"></script>
+</body>
+</html>

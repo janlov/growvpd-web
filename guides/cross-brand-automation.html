@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://giscus.app; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://giscus.app https://discord.com; connect-src 'self' https://giscus.app; base-uri 'self'; form-action 'self';">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cross-Brand Automation: Mixing Tuya, Mars Hydro & More — GrowVPD Pro</title>
+    <meta name="description" content="Learn how GrowVPD Pro lets you create automation rules across brands. Use a Tuya sensor to trigger a Mars Hydro fan, or an AC Infinity controller with Tuya plugs.">
+
+    <link rel="icon" type="image/png" href="../images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="canonical" href="https://growvpd.pro/guides/cross-brand-automation.html">
+    <link rel="alternate" hreflang="en" href="https://growvpd.pro/guides/cross-brand-automation.html">
+    <link rel="alternate" hreflang="cs" href="https://growvpd.pro/guides/cross-brand-automation.html?lang=cs">
+    <link rel="alternate" hreflang="de" href="https://growvpd.pro/guides/cross-brand-automation.html?lang=de">
+    <link rel="alternate" hreflang="es" href="https://growvpd.pro/guides/cross-brand-automation.html?lang=es">
+    <link rel="alternate" hreflang="nl" href="https://growvpd.pro/guides/cross-brand-automation.html?lang=nl">
+    <link rel="alternate" hreflang="fr" href="https://growvpd.pro/guides/cross-brand-automation.html?lang=fr">
+    <link rel="alternate" hreflang="it" href="https://growvpd.pro/guides/cross-brand-automation.html?lang=it">
+    <link rel="alternate" hreflang="pt" href="https://growvpd.pro/guides/cross-brand-automation.html?lang=pt">
+    <link rel="alternate" hreflang="pl" href="https://growvpd.pro/guides/cross-brand-automation.html?lang=pl">
+    <link rel="alternate" hreflang="th" href="https://growvpd.pro/guides/cross-brand-automation.html?lang=th">
+    <link rel="alternate" hreflang="he" href="https://growvpd.pro/guides/cross-brand-automation.html?lang=he">
+    <link rel="alternate" hreflang="x-default" href="https://growvpd.pro/guides/cross-brand-automation.html">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/forum.css">
+
+    <style>
+        .article-page { padding: 100px 0 60px; background: #fff; min-height: 100vh; }
+        .article-container { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+        .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: .82rem; color: #90A4AE; margin-bottom: 32px; flex-wrap: wrap; }
+        .breadcrumb a { color: #2E7D32; font-weight: 500; transition: color .2s; }
+        .breadcrumb a:hover { color: #1B5E20; }
+        .breadcrumb .sep { color: #CFD8DC; user-select: none; }
+        .article-header { margin-bottom: 40px; }
+        .article-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+        .category-badge { display: inline-block; background: rgba(46,125,50,.08); color: #2E7D32; font-size: .75rem; font-weight: 700; padding: 4px 12px; border-radius: 6px; text-transform: uppercase; letter-spacing: .05em; }
+        .article-date, .article-read-time { font-size: .82rem; color: #90A4AE; }
+        .article-date::before { content: ''; display: inline-block; width: 3px; height: 3px; background: #CFD8DC; border-radius: 50%; vertical-align: middle; margin-right: 12px; }
+        .article-header h1 { font-size: 2.2rem; font-weight: 900; color: #1B5E20; line-height: 1.15; letter-spacing: -.02em; }
+        .article-body h2 { font-size: 1.45rem; font-weight: 800; color: #212121; margin: 40px 0 16px; letter-spacing: -.01em; }
+        .article-body h3 { font-size: 1.1rem; font-weight: 700; color: #37474F; margin: 28px 0 12px; }
+        .article-body p { color: #546E7A; font-size: .95rem; line-height: 1.75; margin-bottom: 16px; }
+        .article-body ul, .article-body ol { color: #546E7A; font-size: .95rem; line-height: 1.75; margin: 0 0 16px 24px; }
+        .article-body ul { list-style: disc; }
+        .article-body ol { list-style: decimal; }
+        .article-body li { margin-bottom: 6px; }
+        .article-body strong { color: #212121; font-weight: 600; }
+        .article-body blockquote { background: #F1F8E9; border-left: 4px solid #4CAF50; padding: 16px 20px; border-radius: 0 12px 12px 0; margin: 24px 0; font-size: .9rem; color: #33691E; line-height: 1.7; }
+        .article-body blockquote strong { color: #1B5E20; }
+        .article-body code { background: #ECEFF1; padding: 2px 6px; border-radius: 4px; font-size: .85rem; color: #37474F; }
+        .step-card { background: #FAFBFC; border: 1px solid #ECEFF1; border-radius: 14px; padding: 24px; margin: 20px 0; }
+        .step-card .step-number { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; background: #2E7D32; color: #fff; font-size: .8rem; font-weight: 800; border-radius: 8px; margin-right: 10px; vertical-align: middle; }
+        .step-card h3 { display: inline; font-size: 1.05rem; font-weight: 700; color: #212121; margin: 0; vertical-align: middle; }
+        .step-card p { margin-top: 12px; margin-bottom: 0; }
+        .step-card ul, .step-card ol { margin-top: 12px; margin-bottom: 0; }
+        .warning-box { background: #FFF8E1; border-left: 4px solid #FFB300; padding: 16px 20px; border-radius: 0 12px 12px 0; margin: 24px 0; font-size: .9rem; color: #5D4037; line-height: 1.7; }
+        .warning-box strong { color: #E65100; }
+        .discord-cta { background: linear-gradient(135deg, #F1F8E9, #E8F5E9); border: 1px solid #C8E6C9; border-radius: 16px; padding: 32px; text-align: center; margin: 48px 0; }
+        .discord-cta h3 { font-size: 1.2rem; font-weight: 800; color: #1B5E20; margin-bottom: 8px; }
+        .discord-cta p { font-size: .9rem; color: #546E7A; margin-bottom: 20px; }
+        .discord-cta .btn { display: inline-flex; align-items: center; gap: 8px; background: #2E7D32; color: #fff; padding: 12px 28px; border-radius: 10px; font-weight: 600; font-size: .9rem; transition: all .25s; border: none; cursor: pointer; text-decoration: none; }
+        .discord-cta .btn:hover { background: #1B5E20; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(46,125,50,.35); }
+        .related-guides { margin: 48px 0; }
+        .related-guides h3 { font-size: 1.1rem; font-weight: 800; color: #212121; margin-bottom: 16px; }
+        .related-list { display: flex; flex-direction: column; gap: 10px; }
+        .related-link { display: flex; align-items: center; gap: 10px; padding: 14px 18px; background: #FAFBFC; border: 1px solid #ECEFF1; border-radius: 12px; transition: all .25s; color: #2E7D32; font-weight: 600; font-size: .9rem; }
+        .related-link:hover { border-color: #C8E6C9; background: #F1F8E9; transform: translateX(4px); }
+        .related-link .arrow { margin-left: auto; color: #90A4AE; transition: color .2s; }
+        .related-link:hover .arrow { color: #2E7D32; }
+        .article-footer { border-top: 1px solid #ECEFF1; padding: 32px 0; margin-top: 48px; text-align: center; font-size: .82rem; color: #90A4AE; }
+        .article-footer a { color: #2E7D32; font-weight: 500; }
+        .article-footer a:hover { color: #1B5E20; }
+        @media (max-width: 768px) {
+            .article-page { padding: 80px 0 40px; }
+            .article-header h1 { font-size: 1.7rem; }
+            .article-body h2 { font-size: 1.25rem; }
+            .discord-cta { padding: 24px 20px; }
+            .step-card { padding: 18px; }
+        }
+        @media (max-width: 480px) {
+            .article-header h1 { font-size: 1.45rem; }
+            .article-meta { gap: 8px; }
+        }
+    </style>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://growvpd.pro/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://growvpd.pro/guides/"},{"@type":"ListItem","position":3,"name":"Cross-Brand Automation: Mixing Tuya, Mars Hydro & More"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Article","headline":"Cross-Brand Automation: Mixing Tuya, Mars Hydro & More","author":{"@type":"Organization","name":"GrowVPD Pro"},"publisher":{"@type":"Organization","name":"GrowVPD Pro"},"datePublished":"2026-04-05","description":"Learn how GrowVPD Pro lets you create automation rules across brands. Use a Tuya sensor to trigger a Mars Hydro fan, or an AC Infinity controller with Tuya plugs.","mainEntityOfPage":"https://growvpd.pro/guides/cross-brand-automation.html"}
+    </script>
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="../index.html" class="nav-brand">
+                <svg class="nav-logo" viewBox="0 0 32 32" width="28" height="28">
+                    <circle cx="16" cy="16" r="16" fill="#2E7D32"/>
+                    <path d="M16 6c0 0-6 4-6 12 0 4 2.5 7 6 8 3.5-1 6-4 6-8 0-8-6-12-6-12z" fill="#81C784"/>
+                    <path d="M16 10c0 0-3 3-3 8 0 2.5 1.2 4.5 3 5.2 1.8-.7 3-2.7 3-5.2 0-5-3-8-3-8z" fill="#A5D6A7"/>
+                </svg>
+                <span>GrowVPD Pro</span>
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="index.html" style="color:#2E7D32;font-weight:700">Guides &amp; Community</a></li>
+                <li><a href="../support/index.html">Support</a></li>
+                <li><a href="../index.html#download" class="nav-cta">Download</a></li>
+            </ul>
+        </div>
+    </nav>
+    <script>
+document.getElementById('navToggle')?.addEventListener('click',function(){this.classList.toggle('active');document.getElementById('navLinks').classList.toggle('active')});
+window.addEventListener('scroll',function(){document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>20)},{passive:true});
+    </script>
+
+    <main class="article-page">
+        <div class="article-container">
+
+            <!-- Breadcrumb -->
+            <div class="breadcrumb">
+                <a href="index.html">Guides &amp; Community</a>
+                <span class="sep">/</span>
+                <a href="index.html">Smart Automation</a>
+                <span class="sep">/</span>
+                <span>Cross-Brand Automation</span>
+            </div>
+
+            <!-- Article Header -->
+            <header class="article-header">
+                <div class="article-meta">
+                    <span class="category-badge">Smart Automation</span>
+                    <span class="article-date">April 2026</span>
+                    <span class="article-read-time">6 min read</span>
+                </div>
+                <h1>Cross-Brand Automation: Mixing Tuya, Mars Hydro &amp; More</h1>
+            </header>
+
+            <!-- Article Body -->
+            <div class="article-body">
+
+                <h2>The Problem: Walled Gardens</h2>
+                <p>Every smart device brand has its own app, its own cloud, and its own automation system. A Tuya sensor can trigger a Tuya plug within the Tuya app. An AC Infinity controller can adjust an AC Infinity fan. But what if you want a <strong>Tuya sensor</strong> to trigger a <strong>Mars Hydro fan</strong>? Or an <strong>AC Infinity temperature reading</strong> to turn on a <strong>Tuya smart plug</strong> connected to your humidifier?</p>
+                <p>None of these brands talk to each other natively. Their apps are walled gardens. This forces growers to either commit to a single ecosystem (limiting their equipment choices) or run multiple apps with manual coordination (which defeats the purpose of automation).</p>
+
+                <h2>The Solution: GrowVPD Pro as the Hub</h2>
+                <p>GrowVPD Pro connects to <strong>multiple platforms simultaneously</strong> and treats all devices as part of one unified system. It reads sensor data from any connected platform and can trigger actions on any connected device, regardless of brand. The app acts as the central intelligence layer that sits above all the individual ecosystems.</p>
+                <p>Supported platforms:</p>
+                <ul>
+                    <li><strong>Tuya / Smart Life</strong> &mdash; sensors, smart plugs, switches, cameras, dimmers, AC units, irrigation</li>
+                    <li><strong>AC Infinity</strong> &mdash; inline fans, clip fans, controllers with integrated sensors</li>
+                    <li><strong>Mars Hydro</strong> &mdash; LED drivers, inline fans, clip fans (WiFi + MQTT)</li>
+                    <li><strong>Spider Farmer</strong> &mdash; LED drivers, fans, sensors (WiFi + MQTT, shared protocol with Mars Hydro)</li>
+                    <li><strong>TP-Link Tapo</strong> &mdash; cameras (ONVIF snapshots + RTSP)</li>
+                </ul>
+
+                <h2>Real-World Cross-Brand Scenarios</h2>
+
+                <h3>Scenario 1: Tuya Sensor + Mars Hydro Exhaust Fan</h3>
+                <p>You have a cheap Tuya WiFi temperature/humidity sensor ($15) in your tent and a Mars Hydro 6-inch inline fan. You want the fan to speed up when VPD exceeds your target.</p>
+                <div class="step-card">
+                    <span class="step-number">1</span>
+                    <h3>Setup</h3>
+                    <ul>
+                        <li>Connect your Tuya account in Settings (Access ID + Secret)</li>
+                        <li>Connect your Mars Hydro account in Settings (email + password)</li>
+                        <li>Both the Tuya sensor and Mars Hydro fan appear in the Automation tab</li>
+                        <li>Assign both to the same tent</li>
+                    </ul>
+                </div>
+                <div class="step-card">
+                    <span class="step-number">2</span>
+                    <h3>Create the Rule</h3>
+                    <ul>
+                        <li><strong>Sensor:</strong> Tuya WiFi Sensor (reads temperature + humidity)</li>
+                        <li><strong>Condition:</strong> VPD &gt; 1.4 kPa</li>
+                        <li><strong>Action (trigger):</strong> Set Mars Hydro fan to speed 8</li>
+                        <li><strong>Action (restore):</strong> Set Mars Hydro fan to speed 4</li>
+                        <li><strong>Hysteresis:</strong> 0.15 kPa</li>
+                    </ul>
+                </div>
+                <p>Result: The Tuya sensor feeds VPD data to GrowVPD Pro. When VPD crosses 1.4 kPa, the app sends an MQTT command to the Mars Hydro fan to increase speed. When VPD drops below 1.25 kPa (1.4 - 0.15 hysteresis), it reduces the fan back to speed 4. Two different brands, one seamless rule.</p>
+
+                <h3>Scenario 2: AC Infinity Controller + Tuya Humidifier Plug</h3>
+                <p>Your AC Infinity Controller 69 Pro has a built-in temperature/humidity sensor. Your humidifier is plugged into a Tuya smart plug.</p>
+                <div class="step-card">
+                    <span class="step-number">1</span>
+                    <h3>The Rule</h3>
+                    <ul>
+                        <li><strong>Sensor:</strong> AC Infinity Controller 69 Pro (temp + RH)</li>
+                        <li><strong>Condition:</strong> VPD &gt; 1.2 kPa (air too dry for veg)</li>
+                        <li><strong>Action (trigger):</strong> Turn ON Tuya smart plug (humidifier)</li>
+                        <li><strong>Action (restore):</strong> Turn OFF Tuya smart plug</li>
+                        <li><strong>Min on-time:</strong> 5 minutes (prevents rapid cycling)</li>
+                    </ul>
+                </div>
+
+                <h3>Scenario 3: Multi-Sensor VPD Averaging</h3>
+                <p>Large tents can have significant climate variation between the canopy center and the edges. Place two sensors from different brands (e.g., one Tuya, one AC Infinity) and GrowVPD Pro uses the tent's primary sensor for automation while displaying all readings for comparison.</p>
+
+                <h3>Scenario 4: Camera Timelapse from Mixed Brands</h3>
+                <p>You have a Tuya camera in Tent A and a Tapo camera in Tent B. Both capture daily snapshots that auto-save to each tent's grow diary. The timelapse generator works with photos from either camera brand.</p>
+
+                <blockquote>
+                    <strong>Key insight:</strong> GrowVPD Pro does not care which brand provides the sensor data or which brand receives the command. A VPD rule is a VPD rule &mdash; the sensor source and the actuator target are independently configurable.
+                </blockquote>
+
+                <h2>Why This Matters for Growers</h2>
+
+                <h3>Buy the Best Equipment for Each Job</h3>
+                <p>Without cross-brand automation, you are locked into one ecosystem. With GrowVPD Pro, you can choose:</p>
+                <ul>
+                    <li>The cheapest WiFi sensors (Tuya, $10&ndash;$20 each)</li>
+                    <li>The best inline fans (AC Infinity for quiet operation)</li>
+                    <li>The best LED lights (Mars Hydro or Spider Farmer for value)</li>
+                    <li>The best cameras (Tapo for reliability and local access)</li>
+                </ul>
+                <p>Mix and match based on price, performance, and availability rather than ecosystem compatibility.</p>
+
+                <h3>Single Dashboard for Everything</h3>
+                <p>Instead of checking three or four apps to monitor your tent, everything is in one place. One VPD chart, one automation rules list, one energy tracker, one diary. Every device from every brand is visible in the Automation tab under the room and tent where it belongs.</p>
+
+                <h3>Unified Energy Tracking</h3>
+                <p>GrowVPD Pro tracks energy consumption across all platforms. You can see the total daily kWh for your tent, broken down by device, regardless of whether each device is from Tuya, Mars Hydro, or AC Infinity. This is impossible when using separate brand apps.</p>
+
+                <h2>Setting Up Cross-Brand Automation</h2>
+                <ol>
+                    <li><strong>Connect all your platform accounts</strong> in Settings &gt; Connected Accounts. You can have Tuya, AC Infinity, Mars Hydro, and Tapo all connected simultaneously.</li>
+                    <li><strong>Discover devices</strong> from each platform in the Automation tab. All devices from all platforms appear in a single discovery list.</li>
+                    <li><strong>Organize into rooms and tents.</strong> A single tent can contain devices from multiple platforms.</li>
+                    <li><strong>Create automation rules.</strong> When creating a rule, the sensor dropdown lists all sensors from all platforms, and the target device dropdown lists all controllable devices from all platforms.</li>
+                    <li><strong>The automation engine handles the rest.</strong> It polls sensors every 15 minutes (via AutomationWorker), evaluates rules, and sends commands to the correct platform API for each target device.</li>
+                </ol>
+
+                <div class="warning-box">
+                    <strong>Note:</strong> Cross-brand automation requires a Pro subscription. All platform connections and automation rules are Pro features. The free version shows device data in demo mode with sample data.
+                </div>
+
+                <h2>Troubleshooting Cross-Brand Rules</h2>
+                <ul>
+                    <li><strong>Rule not triggering:</strong> Check that both the sensor device and the target device show as "online" in the Automation tab. If either is offline, the rule cannot execute.</li>
+                    <li><strong>Delayed response:</strong> GrowVPD Pro polls sensors every 15 minutes. A VPD spike that occurs and resolves within a single polling interval may not trigger a rule. For faster response, ensure your sensor platform reports frequently.</li>
+                    <li><strong>Token expired:</strong> Each platform has its own authentication token. If one expires, devices from that platform go offline. Re-authenticate in Settings &gt; Connected Accounts.</li>
+                    <li><strong>Conflicting rules:</strong> If two rules target the same device with opposing actions, the higher-priority rule wins. Check rule priorities in the Automation tab.</li>
+                </ul>
+
+            </div>
+
+            <!-- Discord CTA -->
+            <div class="discord-cta">
+                <h3>Share Your Cross-Brand Setup</h3>
+                <p>What brands are you mixing? Share your automation rules and help other growers optimize their setups.</p>
+                <a href="https://discord.gg/growvpd" class="btn" target="_blank" rel="noopener noreferrer">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+                    Discuss on Discord
+                </a>
+            </div>
+
+            <!-- Discussion -->
+            <div class="article-discussion">
+                <h2>Discussion</h2>
+                <p>Have questions about this guide? Share your experience or ask for help below.</p>
+                <script src="https://giscus.app/client.js"
+                    data-repo="OWNER/REPO"
+                    data-repo-id="REPO_ID"
+                    data-category="Guides"
+                    data-category-id="CATEGORY_ID"
+                    data-mapping="pathname"
+                    data-strict="0"
+                    data-reactions-enabled="1"
+                    data-emit-metadata="0"
+                    data-input-position="top"
+                    data-theme="light"
+                    data-lang="en"
+                    data-loading="lazy"
+                    crossorigin="anonymous"
+                    async>
+                </script>
+                <p class="giscus-note">Discussions powered by <a href="https://giscus.app" target="_blank" rel="noopener noreferrer">Giscus</a> &amp; GitHub Discussions. <a href="https://discord.gg/growvpd" target="_blank" rel="noopener noreferrer">Prefer Discord?</a></p>
+            </div>
+
+            <!-- Related Guides -->
+            <div class="related-guides">
+                <h3>Related Guides</h3>
+                <div class="related-list">
+                    <a href="connect-tuya.html" class="related-link">
+                        How to Connect Tuya / Smart Life Devices to GrowVPD Pro
+                        <span class="arrow">&rarr;</span>
+                    </a>
+                    <a href="connect-mars-hydro.html" class="related-link">
+                        How to Connect Mars Hydro Devices to GrowVPD Pro
+                        <span class="arrow">&rarr;</span>
+                    </a>
+                    <a href="automation-troubleshooting.html" class="related-link">
+                        Smart Automation Troubleshooting Guide
+                        <span class="arrow">&rarr;</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Article Footer -->
+            <footer class="article-footer">
+                <p>&copy; 2026 <a href="../index.html">GrowVPD Pro</a>. All rights reserved. &middot; <a href="../privacy/index.html">Privacy Policy</a> &middot; <a href="../support/index.html">Support</a></p>
+            </footer>
+
+        </div>
+    </main>
+
+<script src="guide-i18n.js"></script>
+</body>
+</html>

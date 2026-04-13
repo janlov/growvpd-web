@@ -1,0 +1,12 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [{
+      "appID": "TEAM_ID.com.growvpd.pro",
+      "paths": ["*"]
+    }]
+  },
+  "webcredentials": {
+    "apps": ["TEAM_ID.com.growvpd.pro"]
+  }
+}

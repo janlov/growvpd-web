@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://giscus.app; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://giscus.app https://discord.com; connect-src 'self' https://giscus.app; base-uri 'self'; form-action 'self';">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Control Humidity in Your Grow Room — GrowVPD Pro</title>
+    <meta name="description" content="Complete guide to humidity control for indoor growing. Learn when to use humidifiers vs dehumidifiers, sizing guides, VPD-based automation, and DIY tips.">
+
+    <link rel="icon" type="image/png" href="../images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="canonical" href="https://growvpd.pro/guides/humidity-control-guide.html">
+    <link rel="alternate" hreflang="en" href="https://growvpd.pro/guides/humidity-control-guide.html">
+    <link rel="alternate" hreflang="cs" href="https://growvpd.pro/guides/humidity-control-guide.html?lang=cs">
+    <link rel="alternate" hreflang="de" href="https://growvpd.pro/guides/humidity-control-guide.html?lang=de">
+    <link rel="alternate" hreflang="es" href="https://growvpd.pro/guides/humidity-control-guide.html?lang=es">
+    <link rel="alternate" hreflang="nl" href="https://growvpd.pro/guides/humidity-control-guide.html?lang=nl">
+    <link rel="alternate" hreflang="fr" href="https://growvpd.pro/guides/humidity-control-guide.html?lang=fr">
+    <link rel="alternate" hreflang="it" href="https://growvpd.pro/guides/humidity-control-guide.html?lang=it">
+    <link rel="alternate" hreflang="pt" href="https://growvpd.pro/guides/humidity-control-guide.html?lang=pt">
+    <link rel="alternate" hreflang="pl" href="https://growvpd.pro/guides/humidity-control-guide.html?lang=pl">
+    <link rel="alternate" hreflang="th" href="https://growvpd.pro/guides/humidity-control-guide.html?lang=th">
+    <link rel="alternate" hreflang="he" href="https://growvpd.pro/guides/humidity-control-guide.html?lang=he">
+    <link rel="alternate" hreflang="x-default" href="https://growvpd.pro/guides/humidity-control-guide.html">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/forum.css">
+
+    <style>
+        .article-page { padding: 100px 0 60px; background: #fff; min-height: 100vh; }
+        .article-container { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+        .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: .82rem; color: #90A4AE; margin-bottom: 32px; flex-wrap: wrap; }
+        .breadcrumb a { color: #2E7D32; font-weight: 500; transition: color .2s; }
+        .breadcrumb a:hover { color: #1B5E20; }
+        .breadcrumb .sep { color: #CFD8DC; user-select: none; }
+        .article-header { margin-bottom: 40px; }
+        .article-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+        .category-badge { display: inline-block; background: rgba(46,125,50,.08); color: #2E7D32; font-size: .75rem; font-weight: 700; padding: 4px 12px; border-radius: 6px; text-transform: uppercase; letter-spacing: .05em; }
+        .article-date, .article-read-time { font-size: .82rem; color: #90A4AE; }
+        .article-date::before { content: ''; display: inline-block; width: 3px; height: 3px; background: #CFD8DC; border-radius: 50%; vertical-align: middle; margin-right: 12px; }
+        .article-header h1 { font-size: 2.2rem; font-weight: 900; color: #1B5E20; line-height: 1.15; letter-spacing: -.02em; }
+        .article-body h2 { font-size: 1.45rem; font-weight: 800; color: #212121; margin: 40px 0 16px; letter-spacing: -.01em; }
+        .article-body h3 { font-size: 1.1rem; font-weight: 700; color: #37474F; margin: 28px 0 12px; }
+        .article-body p { color: #546E7A; font-size: .95rem; line-height: 1.75; margin-bottom: 16px; }
+        .article-body ul, .article-body ol { color: #546E7A; font-size: .95rem; line-height: 1.75; margin: 0 0 16px 24px; }
+        .article-body ul { list-style: disc; }
+        .article-body ol { list-style: decimal; }
+        .article-body li { margin-bottom: 6px; }
+        .article-body strong { color: #212121; font-weight: 600; }
+        .article-body blockquote { background: #F1F8E9; border-left: 4px solid #4CAF50; padding: 16px 20px; border-radius: 0 12px 12px 0; margin: 24px 0; font-size: .9rem; color: #33691E; line-height: 1.7; }
+        .article-body blockquote strong { color: #1B5E20; }
+        .article-body code { background: #ECEFF1; padding: 2px 6px; border-radius: 4px; font-size: .85rem; color: #37474F; }
+        .step-card { background: #FAFBFC; border: 1px solid #ECEFF1; border-radius: 14px; padding: 24px; margin: 20px 0; }
+        .step-card .step-number { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; background: #2E7D32; color: #fff; font-size: .8rem; font-weight: 800; border-radius: 8px; margin-right: 10px; vertical-align: middle; }
+        .step-card h3 { display: inline; font-size: 1.05rem; font-weight: 700; color: #212121; margin: 0; vertical-align: middle; }
+        .step-card p { margin-top: 12px; margin-bottom: 0; }
+        .step-card ul, .step-card ol { margin-top: 12px; margin-bottom: 0; }
+        .warning-box { background: #FFF8E1; border-left: 4px solid #FFB300; padding: 16px 20px; border-radius: 0 12px 12px 0; margin: 24px 0; font-size: .9rem; color: #5D4037; line-height: 1.7; }
+        .warning-box strong { color: #E65100; }
+        .discord-cta { background: linear-gradient(135deg, #F1F8E9, #E8F5E9); border: 1px solid #C8E6C9; border-radius: 16px; padding: 32px; text-align: center; margin: 48px 0; }
+        .discord-cta h3 { font-size: 1.2rem; font-weight: 800; color: #1B5E20; margin-bottom: 8px; }
+        .discord-cta p { font-size: .9rem; color: #546E7A; margin-bottom: 20px; }
+        .discord-cta .btn { display: inline-flex; align-items: center; gap: 8px; background: #2E7D32; color: #fff; padding: 12px 28px; border-radius: 10px; font-weight: 600; font-size: .9rem; transition: all .25s; border: none; cursor: pointer; text-decoration: none; }
+        .discord-cta .btn:hover { background: #1B5E20; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(46,125,50,.35); }
+        .related-guides { margin: 48px 0; }
+        .related-guides h3 { font-size: 1.1rem; font-weight: 800; color: #212121; margin-bottom: 16px; }
+        .related-list { display: flex; flex-direction: column; gap: 10px; }
+        .related-link { display: flex; align-items: center; gap: 10px; padding: 14px 18px; background: #FAFBFC; border: 1px solid #ECEFF1; border-radius: 12px; transition: all .25s; color: #2E7D32; font-weight: 600; font-size: .9rem; }
+        .related-link:hover { border-color: #C8E6C9; background: #F1F8E9; transform: translateX(4px); }
+        .related-link .arrow { margin-left: auto; color: #90A4AE; transition: color .2s; }
+        .related-link:hover .arrow { color: #2E7D32; }
+        .article-footer { border-top: 1px solid #ECEFF1; padding: 32px 0; margin-top: 48px; text-align: center; font-size: .82rem; color: #90A4AE; }
+        .article-footer a { color: #2E7D32; font-weight: 500; }
+        .article-footer a:hover { color: #1B5E20; }
+        @media (max-width: 768px) {
+            .article-page { padding: 80px 0 40px; }
+            .article-header h1 { font-size: 1.7rem; }
+            .article-body h2 { font-size: 1.25rem; }
+            .discord-cta { padding: 24px 20px; }
+            .step-card { padding: 18px; }
+        }
+        @media (max-width: 480px) {
+            .article-header h1 { font-size: 1.45rem; }
+            .article-meta { gap: 8px; }
+        }
+    </style>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://growvpd.pro/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://growvpd.pro/guides/"},{"@type":"ListItem","position":3,"name":"How to Control Humidity in Your Grow Room"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Article","headline":"How to Control Humidity in Your Grow Room","author":{"@type":"Organization","name":"GrowVPD Pro"},"publisher":{"@type":"Organization","name":"GrowVPD Pro"},"datePublished":"2026-04-05","description":"Complete guide to humidity control for indoor growing. Learn when to use humidifiers vs dehumidifiers, sizing guides, VPD-based automation, and DIY tips.","mainEntityOfPage":"https://growvpd.pro/guides/humidity-control-guide.html"}
+    </script>
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="../index.html" class="nav-brand">
+                <svg class="nav-logo" viewBox="0 0 32 32" width="28" height="28">
+                    <circle cx="16" cy="16" r="16" fill="#2E7D32"/>
+                    <path d="M16 6c0 0-6 4-6 12 0 4 2.5 7 6 8 3.5-1 6-4 6-8 0-8-6-12-6-12z" fill="#81C784"/>
+                    <path d="M16 10c0 0-3 3-3 8 0 2.5 1.2 4.5 3 5.2 1.8-.7 3-2.7 3-5.2 0-5-3-8-3-8z" fill="#A5D6A7"/>
+                </svg>
+                <span>GrowVPD Pro</span>
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="index.html" style="color:#2E7D32;font-weight:700">Guides &amp; Community</a></li>
+                <li><a href="../support/index.html">Support</a></li>
+                <li><a href="../index.html#download" class="nav-cta">Download</a></li>
+            </ul>
+        </div>
+    </nav>
+    <script>
+document.getElementById('navToggle')?.addEventListener('click',function(){this.classList.toggle('active');document.getElementById('navLinks').classList.toggle('active')});
+window.addEventListener('scroll',function(){document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>20)},{passive:true});
+    </script>
+
+    <main class="article-page">
+        <div class="article-container">
+
+            <!-- Breadcrumb -->
+            <div class="breadcrumb">
+                <a href="index.html">Guides &amp; Community</a>
+                <span class="sep">/</span>
+                <a href="index.html">VPD &amp; Climate</a>
+                <span class="sep">/</span>
+                <span>How to Control Humidity</span>
+            </div>
+
+            <!-- Article Header -->
+            <header class="article-header">
+                <div class="article-meta">
+                    <span class="category-badge">VPD &amp; Climate</span>
+                    <span class="article-date">April 2026</span>
+                    <span class="article-read-time">7 min read</span>
+                </div>
+                <h1>How to Control Humidity in Your Grow Room</h1>
+            </header>
+
+            <!-- Article Body -->
+            <div class="article-body">
+
+                <h2>Why Humidity Control Matters</h2>
+                <p>Humidity is half of the VPD equation, and it is the half that most growers struggle to manage. Temperature is relatively easy to control &mdash; lights produce heat, and most rooms have predictable thermal behavior. Humidity, on the other hand, changes constantly as plants transpire, as water evaporates from the growing medium, and as fresh air is exchanged.</p>
+                <p>Poor humidity control leads to VPD swings that stress plants, promote disease, and reduce yields. A tent that swings between 40% and 80% RH throughout the day will never achieve optimal growth, regardless of how perfect everything else is.</p>
+
+                <h2>Humidifiers: When You Need More Moisture</h2>
+                <p>You typically need a humidifier in these scenarios:</p>
+                <ul>
+                    <li><strong>Seedling/clone stage</strong> when you need 75&ndash;85% RH but your room sits at 40&ndash;55%</li>
+                    <li><strong>Dry climate</strong> (arid regions, heated rooms in winter) where ambient RH is consistently below 40%</li>
+                    <li><strong>Small tents with strong exhaust</strong> that pull out moisture faster than plants can produce it</li>
+                    <li><strong>Early vegetative growth</strong> when young plants do not yet transpire enough to raise tent humidity</li>
+                </ul>
+
+                <h3>Types of Humidifiers</h3>
+                <ul>
+                    <li><strong>Ultrasonic (cool mist):</strong> The most common choice for grow rooms. They produce a fine mist using ultrasonic vibrations. Pros: cheap, quiet, adjustable output. Cons: can leave white mineral dust on leaves if using hard water (use distilled or RO water).</li>
+                    <li><strong>Evaporative:</strong> Use a fan to blow air through a wet wick. Pros: no mineral dust, self-regulating (output decreases as RH rises). Cons: bulkier, wicks need regular replacement, slower response.</li>
+                    <li><strong>Steam (warm mist):</strong> Boil water to produce steam. Pros: no minerals in output, kills bacteria. Cons: adds heat to the room, higher energy use, not ideal for grows that already run warm.</li>
+                </ul>
+
+                <h3>Sizing Your Humidifier</h3>
+                <p>Match the humidifier output to your tent volume and target RH increase:</p>
+                <ul>
+                    <li><strong>60x60 cm tent (0.2 m3):</strong> A small 1&ndash;2 L/day humidifier is sufficient</li>
+                    <li><strong>120x120 cm tent (1.7 m3):</strong> 3&ndash;5 L/day output for a 15&ndash;20% RH increase</li>
+                    <li><strong>240x120 cm tent (3.5 m3):</strong> 6&ndash;10 L/day, or two smaller units</li>
+                </ul>
+
+                <blockquote>
+                    <strong>Tip:</strong> Place the humidifier outside the tent and duct the mist in through a passive intake. This prevents water droplets from landing directly on leaves and avoids mineral deposits on plant surfaces.
+                </blockquote>
+
+                <h2>Dehumidifiers: When You Need Less Moisture</h2>
+                <p>Dehumidification becomes critical during:</p>
+                <ul>
+                    <li><strong>Flowering</strong> when mature plants transpire heavily and buds are susceptible to mold</li>
+                    <li><strong>Humid climates</strong> where ambient RH is already 60&ndash;80%</li>
+                    <li><strong>Nighttime</strong> when temperatures drop and RH spikes</li>
+                    <li><strong>Large plant counts</strong> where combined transpiration overwhelms the exhaust system</li>
+                </ul>
+
+                <h3>Types of Dehumidifiers</h3>
+                <ul>
+                    <li><strong>Compressor (refrigerant):</strong> The standard choice. Draws air over cold coils to condense moisture. Pros: effective, widely available, good capacity. Cons: adds heat to the room (the condensation process releases latent heat), struggles below 15&deg;C.</li>
+                    <li><strong>Desiccant:</strong> Uses a desiccant material to absorb moisture, then heats it to release the water into a tank. Pros: works well at low temperatures (below 15&deg;C), quiet. Cons: more expensive, higher energy use, adds even more heat than compressor models.</li>
+                </ul>
+
+                <h3>Sizing Your Dehumidifier</h3>
+                <p>Plants in full flower transpire more water than most growers expect. A single large plant can release 1&ndash;2 liters of water per day through its leaves.</p>
+                <ul>
+                    <li><strong>120x120 cm tent, 4 plants in flower:</strong> Minimum 10&ndash;15 L/day dehumidifier capacity</li>
+                    <li><strong>240x120 cm tent, 8 plants in flower:</strong> 20&ndash;30 L/day capacity</li>
+                    <li><strong>Full room grow (4x4 m+):</strong> 30&ndash;50 L/day commercial unit</li>
+                </ul>
+
+                <div class="warning-box">
+                    <strong>Important:</strong> Dehumidifier ratings are typically measured at 30&deg;C and 80% RH. Real-world extraction at 23&deg;C and 60% RH is often 40&ndash;60% of the rated capacity. Always buy larger than you think you need.
+                </div>
+
+                <h2>VPD-Based Automation</h2>
+                <p>The most effective humidity control uses VPD as the trigger, not raw humidity values. This is because the same humidity percentage produces very different VPD values at different temperatures.</p>
+                <p>For example, 60% RH at 20&deg;C gives VPD = 0.93 kPa, but 60% RH at 28&deg;C gives VPD = 1.51 kPa. Controlling humidity to a fixed percentage ignores temperature and misses the target.</p>
+
+                <h3>Setting Up VPD Automation in GrowVPD Pro</h3>
+                <ol>
+                    <li>Connect your temperature/humidity sensor (Tuya, AC Infinity, or BLE)</li>
+                    <li>Connect your humidifier and dehumidifier to smart plugs</li>
+                    <li>Create two automation rules:
+                        <ul>
+                            <li><strong>Rule 1:</strong> If VPD drops below target minimum (e.g., 0.8 kPa in veg), turn ON the dehumidifier. Turn it OFF when VPD returns above minimum + hysteresis (e.g., 0.9 kPa).</li>
+                            <li><strong>Rule 2:</strong> If VPD rises above target maximum (e.g., 1.3 kPa in veg), turn ON the humidifier. Turn it OFF when VPD returns below maximum - hysteresis (e.g., 1.2 kPa).</li>
+                        </ul>
+                    </li>
+                    <li>Set minimum-off times (5&ndash;10 minutes) to prevent rapid cycling that shortens equipment life</li>
+                </ol>
+
+                <blockquote>
+                    <strong>Tip:</strong> GrowVPD Pro supports hysteresis on all automation rules. Hysteresis prevents the device from turning on and off rapidly when VPD hovers near the trigger point. A hysteresis of 0.1&ndash;0.2 kPa works well for most setups.
+                </blockquote>
+
+                <h2>Ventilation as Humidity Control</h2>
+                <p>Your inline exhaust fan is a powerful humidity control tool, especially when outdoor air is drier than tent air:</p>
+                <ul>
+                    <li><strong>Exhausting humid tent air</strong> and replacing it with drier room or outdoor air is the cheapest form of dehumidification</li>
+                    <li><strong>Variable-speed controllers</strong> (like AC Infinity) let you increase fan speed when RH rises, providing responsive control without a dehumidifier</li>
+                    <li><strong>In humid climates,</strong> this strategy fails because incoming air is already wet. You need a dehumidifier instead.</li>
+                </ul>
+
+                <h2>DIY Tips for Budget Growers</h2>
+
+                <h3>Raising Humidity on a Budget</h3>
+                <ul>
+                    <li><strong>Wet towel method:</strong> Hang a damp towel near the passive intake. The moving air evaporates water from the towel. Replace or re-wet every 8&ndash;12 hours.</li>
+                    <li><strong>Open water containers:</strong> Place trays of water inside the tent. Evaporation slowly raises RH. Works best in warm tents.</li>
+                    <li><strong>Reduce exhaust speed:</strong> Slowing the exhaust fan allows plant transpiration to accumulate, raising humidity. Be careful of heat buildup.</li>
+                </ul>
+
+                <h3>Lowering Humidity on a Budget</h3>
+                <ul>
+                    <li><strong>Increase exhaust speed:</strong> If outdoor air is drier, ramping up the fan exchanges humid air for dry air.</li>
+                    <li><strong>DampRid / calcium chloride buckets:</strong> Passive desiccant containers absorb moisture from the air. They work but have limited capacity &mdash; good for small tents only.</li>
+                    <li><strong>Defoliation:</strong> Removing excess fan leaves reduces transpiration surface area, which lowers the amount of water entering the air.</li>
+                    <li><strong>Water less frequently:</strong> Less water in the medium means less evaporation into the tent air.</li>
+                </ul>
+
+                <h2>Seasonal Challenges</h2>
+
+                <h3>Winter (Heating Season)</h3>
+                <p>Heated indoor air is very dry (often 20&ndash;35% RH). This is great for flowering but makes seedling and veg stages difficult without a humidifier. The temperature differential between the heated room and the tent can also cause condensation on cold tent walls.</p>
+
+                <h3>Summer (Humid Season)</h3>
+                <p>High ambient humidity (60&ndash;80%) makes flowering dangerous. You need a dehumidifier, and your exhaust fan becomes less effective because the incoming air is already humid. In extreme cases, run an AC unit to cool and dehumidify simultaneously.</p>
+
+                <h2>Quick Reference: Equipment by Stage</h2>
+                <ul>
+                    <li><strong>Seedlings/Clones:</strong> Humidity dome + small humidifier (if room is very dry)</li>
+                    <li><strong>Vegetative:</strong> Humidifier OR exhaust control (target 60&ndash;70% RH)</li>
+                    <li><strong>Early Flower:</strong> Dehumidifier on standby, exhaust fan primary control (target 50&ndash;60% RH)</li>
+                    <li><strong>Late Flower:</strong> Dehumidifier running 24/7, strong exhaust (target 40&ndash;50% RH)</li>
+                </ul>
+
+            </div>
+
+            <!-- Discord CTA -->
+            <div class="discord-cta">
+                <h3>Share Your Humidity Setup</h3>
+                <p>What humidifier or dehumidifier works best for your tent size? Share your experience with the community.</p>
+                <a href="https://discord.gg/growvpd" class="btn" target="_blank" rel="noopener noreferrer">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+                    Discuss on Discord
+                </a>
+            </div>
+
+            <!-- Discussion -->
+            <div class="article-discussion">
+                <h2>Discussion</h2>
+                <p>Have questions about this guide? Share your experience or ask for help below.</p>
+                <script src="https://giscus.app/client.js"
+                    data-repo="OWNER/REPO"
+                    data-repo-id="REPO_ID"
+                    data-category="Guides"
+                    data-category-id="CATEGORY_ID"
+                    data-mapping="pathname"
+                    data-strict="0"
+                    data-reactions-enabled="1"
+                    data-emit-metadata="0"
+                    data-input-position="top"
+                    data-theme="light"
+                    data-lang="en"
+                    data-loading="lazy"
+                    crossorigin="anonymous"
+                    async>
+                </script>
+                <p class="giscus-note">Discussions powered by <a href="https://giscus.app" target="_blank" rel="noopener noreferrer">Giscus</a> &amp; GitHub Discussions. <a href="https://discord.gg/growvpd" target="_blank" rel="noopener noreferrer">Prefer Discord?</a></p>
+            </div>
+
+            <!-- Related Guides -->
+            <div class="related-guides">
+                <h3>Related Guides</h3>
+                <div class="related-list">
+                    <a href="vpd-complete-guide.html" class="related-link">
+                        Understanding VPD: The Complete Guide for Indoor Growers
+                        <span class="arrow">&rarr;</span>
+                    </a>
+                    <a href="tent-ventilation-guide.html" class="related-link">
+                        Grow Tent Ventilation: Complete CFM Guide
+                        <span class="arrow">&rarr;</span>
+                    </a>
+                    <a href="cross-brand-automation.html" class="related-link">
+                        Cross-Brand Automation: Mixing Tuya, Mars Hydro &amp; More
+                        <span class="arrow">&rarr;</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Article Footer -->
+            <footer class="article-footer">
+                <p>&copy; 2026 <a href="../index.html">GrowVPD Pro</a>. All rights reserved. &middot; <a href="../privacy/index.html">Privacy Policy</a> &middot; <a href="../support/index.html">Support</a></p>
+            </footer>
+
+        </div>
+    </main>
+
+<script src="guide-i18n.js"></script>
+</body>
+</html>

@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://giscus.app; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://giscus.app https://discord.com; connect-src 'self' https://giscus.app; base-uri 'self'; form-action 'self';">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support & FAQ — GrowVPD Pro</title>
+    <meta name="description" content="Get help with GrowVPD Pro. FAQ, troubleshooting, and contact.">
+    <link rel="icon" type="image/png" href="../images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="canonical" href="https://growvpd.pro/support/">
+    <link rel="alternate" hreflang="en" href="https://growvpd.pro/support/">
+    <link rel="alternate" hreflang="cs" href="https://growvpd.pro/support/?lang=cs">
+    <link rel="alternate" hreflang="de" href="https://growvpd.pro/support/?lang=de">
+    <link rel="alternate" hreflang="es" href="https://growvpd.pro/support/?lang=es">
+    <link rel="alternate" hreflang="nl" href="https://growvpd.pro/support/?lang=nl">
+    <link rel="alternate" hreflang="fr" href="https://growvpd.pro/support/?lang=fr">
+    <link rel="alternate" hreflang="it" href="https://growvpd.pro/support/?lang=it">
+    <link rel="alternate" hreflang="pt" href="https://growvpd.pro/support/?lang=pt">
+    <link rel="alternate" hreflang="pl" href="https://growvpd.pro/support/?lang=pl">
+    <link rel="alternate" hreflang="th" href="https://growvpd.pro/support/?lang=th">
+    <link rel="alternate" hreflang="he" href="https://growvpd.pro/support/?lang=he">
+    <link rel="alternate" hreflang="x-default" href="https://growvpd.pro/support/">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .page-header {
+            padding: 100px 0 40px;
+            background: linear-gradient(135deg, #F1F8E9, #E8F5E9);
+            text-align: center;
+        }
+        .page-header h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #1B5E20;
+            margin-bottom: 8px;
+        }
+        .page-header p {
+            color: #546E7A;
+            font-size: 1.05rem;
+        }
+        .faq-section {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 48px 24px 80px;
+        }
+        .faq-category {
+            margin-bottom: 40px;
+        }
+        .faq-category h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #2E7D32;
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #E8F5E9;
+        }
+        .faq-item {
+            border: 1px solid #f0f0f0;
+            border-radius: 12px;
+            margin-bottom: 12px;
+            overflow: hidden;
+            transition: border-color 0.2s;
+        }
+        .faq-item:hover {
+            border-color: #C8E6C9;
+        }
+        .faq-question {
+            width: 100%;
+            background: #FAFAFA;
+            border: none;
+            padding: 18px 20px;
+            text-align: left;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #212121;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: inherit;
+            transition: background 0.2s;
+        }
+        .faq-question:hover {
+            background: #F1F8E9;
+        }
+        .faq-arrow {
+            font-size: 1.2rem;
+            transition: transform 0.3s;
+            color: #2E7D32;
+        }
+        .faq-item.open .faq-arrow {
+            transform: rotate(180deg);
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s;
+        }
+        .faq-item.open .faq-answer {
+            max-height: 500px;
+            padding: 0 20px 18px;
+        }
+        .faq-answer p {
+            color: #546E7A;
+            font-size: 0.92rem;
+            line-height: 1.7;
+            margin-top: 4px;
+        }
+        .faq-answer a {
+            color: #2E7D32;
+        }
+        .contact-section {
+            background: #F1F8E9;
+            padding: 48px 0;
+            text-align: center;
+        }
+        .contact-section h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #1B5E20;
+            margin-bottom: 12px;
+        }
+        .contact-section p {
+            color: #546E7A;
+            font-size: 1rem;
+            margin-bottom: 24px;
+        }
+        .contact-email {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #fff;
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #2E7D32;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            transition: transform 0.2s;
+        }
+        .contact-email:hover {
+            transform: translateY(-2px);
+        }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is GrowVPD Pro really free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! The core features are completely free: VPD chart, grow diary, templates, equipment database, nutrient calculators, disease gallery, PPFD guide, and more. Pro unlocks advanced features like smart automation, PDF export, BLE sensor support, and more."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does the app need internet?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Almost everything works offline — VPD chart, diary, templates, calculators, equipment database, disease guide, and more. The only feature that needs WiFi is smart device automation (Pro), because devices are controlled through their manufacturer cloud APIs. Ads in the free version also need internet."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What languages are supported?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "11 languages: English, Czech, German, Spanish, Dutch, French, Italian, Portuguese, Polish, Thai, and Hebrew. All text in the app is fully translated."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to create an account?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. There is no sign-up, no login, no cloud. Open the app and start using it immediately. Your data stays on your device."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which smart devices are supported?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Currently supported: Tuya / Smart Life and Mars Hydro. In beta: AC Infinity, Spider Farmer, Vivosun, Bluelab, and SANlight. No extra hub needed — you can mix devices from different brands in one automation rule."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does Pro cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Three options: $3.99/month, $24.99/year (save 48%), or $49.99 lifetime (pay once, keep forever). All through Google Play or App Store."
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="../index.html" class="nav-brand">
+                <svg class="nav-logo" viewBox="0 0 32 32" width="28" height="28">
+                    <circle cx="16" cy="16" r="16" fill="#2E7D32"/>
+                    <path d="M16 6c0 0-6 4-6 12 0 4 2.5 7 6 8 3.5-1 6-4 6-8 0-8-6-12-6-12z" fill="#81C784"/>
+                    <path d="M16 10c0 0-3 3-3 8 0 2.5 1.2 4.5 3 5.2 1.8-.7 3-2.7 3-5.2 0-5-3-8-3-8z" fill="#A5D6A7"/>
+                </svg>
+                <span>GrowVPD Pro</span>
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../index.html" data-i18n="supNavHome">Home</a></li>
+                <li><a href="../guides/index.html" data-i18n="navGuides">Guides &amp; Community</a></li>
+                <li><a href="../support/index.html" style="color:#2E7D32;font-weight:700" data-i18n="navSupport">Support</a></li>
+                <li><a href="../index.html#download" class="nav-cta" data-i18n="navDownload">Download</a></li>
+            </ul>
+        </div>
+    </nav>
+    <script>
+document.getElementById('navToggle')?.addEventListener('click',function(){this.classList.toggle('active');document.getElementById('navLinks').classList.toggle('active')});
+window.addEventListener('scroll',function(){document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>20)},{passive:true});
+    </script>
+
+    <div class="page-header">
+        <div class="container">
+            <h1 data-i18n="supTitle">Support & FAQ</h1>
+            <p data-i18n="supSubtitle">Find answers to common questions or reach out to us</p>
+        </div>
+    </div>
+
+    <div class="faq-section">
+
+        <div class="faq-category">
+            <h2 data-i18n="supCat1">General</h2>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span data-i18n="supQ1">Is GrowVPD Pro really free?</span>
+                    <span class="faq-arrow">&#9660;</span>
+                </button>
+                <div class="faq-answer">
+                    <p data-i18n-html="supA1">Yes! The core features are completely free: VPD chart, grow diary, templates, equipment database, nutrient calculators, disease gallery, PPFD guide, and more. Pro unlocks advanced features like smart automation, PDF export, BLE sensor support, and more.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span data-i18n="supQ2">Does the app need internet?</span>
+                    <span class="faq-arrow">&#9660;</span>
+                </button>
+                <div class="faq-answer">
+                    <p data-i18n-html="supA2">Almost everything works offline &mdash; VPD chart, diary, templates, calculators, equipment database, disease guide, and more. The only feature that needs WiFi is smart device automation (Pro), because devices are controlled through their manufacturer cloud APIs (Tuya Cloud, Mars Hydro MQTT, etc.). Ads in the free version also need internet.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span data-i18n="supQ3">What languages are supported?</span>
+                    <span class="faq-arrow">&#9660;</span>
+                </button>
+                <div class="faq-answer">
+                    <p data-i18n-html="supA3">11 languages: English, Czech, German, Spanish, Dutch, French, Italian, Portuguese, Polish, Thai, and Hebrew. All text in the app is fully translated.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span data-i18n="supQ4">Do I need to create an account?</span>
+                    <span class="faq-arrow">&#9660;</span>
+                </button>
+                <div class="faq-answer">
+                    <p data-i18n-html="supA4">No. There is no sign-up, no login, no cloud. Open the app and start using it immediately. Your data stays on your device.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span data-i18n="supQ5">Is there an iOS version?</span>
+                    <span class="faq-arrow">&#9660;</span>
+                </button>
+                <div class="faq-answer">
+                    <p data-i18n-html="supA5">iOS is coming soon! We're working on it. Follow us on social media for updates.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-category">
+            <h2 data-i18n="supCat2">VPD & Growing</h2>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span data-i18n="supQ6">What is VPD?</span>
+                    <span class="faq-arrow">&#9660;</span>
+                </button>
+                <div class="faq-answer">
+                    <p data-i18n-html="supA6">VPD (Vapor Pressure Deficit) measures the drying power of the air around your plants. It's calculated from temperature and humidity. Optimal VPD ensures your plants transpire at the right rate, leading to better nutrient uptake and growth. GrowVPD Pro shows you the ideal VPD zone for each growth stage.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span data-i18n="supQ7">Can I connect a Bluetooth sensor?</span>
+                    <span class="faq-arrow">&#9660;</span>
+                </button>
+                <div class="faq-answer">
+                    <p data-i18n-html="supA7">Yes (Pro feature). The app supports BLE temperature/humidity sensors for live VPD readings directly on the chart. Compatible sensors include standard BLE environmental sensors.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-category">
+            <h2 data-i18n="supCat3">Smart Automation (Pro)</h2>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span data-i18n="supQ8">Which smart devices are supported?</span>
+                    <span class="faq-arrow">&#9660;</span>
+                </button>
+                <div class="faq-answer">
+                    <p data-i18n-html="supA8">Currently supported: <strong>Tuya / Smart Life</strong> and <strong>Mars Hydro</strong>. In beta: <strong>AC Infinity</strong>, <strong>Spider Farmer</strong>, <strong>Vivosun</strong>, <strong>Bluelab</strong>, and <strong>SANlight</strong>. No extra hub needed &mdash; you can mix devices from different brands in one automation rule. We're actively testing with real devices from every brand. Note: automation requires WiFi since devices are controlled via their cloud APIs.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span data-i18n="supQ9">How does VPD automation work?</span>
+                    <span class="faq-arrow">&#9660;</span>
+                </button>
+                <div class="faq-answer">
+                    <p data-i18n-html="supA9">You create automation rules with conditions (e.g., "if VPD > 1.5 kPa, turn on humidifier"). The app checks your sensors every 15 minutes and triggers actions automatically. 12 condition types are available including temperature, humidity, VPD, CO2, PPFD, and soil moisture.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span data-i18n="supQ10">Do I need to keep the app open?</span>
+                    <span class="faq-arrow">&#9660;</span>
+                </button>
+                <div class="faq-answer">
+                    <p data-i18n-html="supA10">No. Automation runs in the background using Android's WorkManager. The app checks your sensors and executes rules every 15 minutes even when closed.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-category">
+            <h2 data-i18n="supCat4">Pro & Billing</h2>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span data-i18n="supQ11">What does Pro include?</span>
+                    <span class="faq-arrow">&#9660;</span>
+                </button>
+                <div class="faq-answer">
+                    <p data-i18n-html="supA11">Pro unlocks: Smart Device Automation (7 platforms: Tuya, Mars Hydro, AC Infinity, Spider Farmer, Vivosun, Bluelab, SANlight), Light Scheduling, Equipment Profiles, Diary Export (PDF/JSON), BLE Sensor, Analytics & Predictions, Photo Privacy, and ad-free experience.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span data-i18n="supQ12">How much does Pro cost?</span>
+                    <span class="faq-arrow">&#9660;</span>
+                </button>
+                <div class="faq-answer">
+                    <p data-i18n-html="supA12">Three options: <strong>$3.99/month</strong>, <strong>$24.99/year</strong> (save 48%), or <strong>$49.99 lifetime</strong> (pay once, keep forever). All through Google Play or App Store.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span data-i18n="supQ13">Can I cancel my subscription?</span>
+                    <span class="faq-arrow">&#9660;</span>
+                </button>
+                <div class="faq-answer">
+                    <p data-i18n-html="supA13">Yes, anytime. Go to Google Play Store or App Store &rarr; Subscriptions &rarr; GrowVPD Pro &rarr; Cancel. You keep Pro until the end of the billing period.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-category">
+            <h2 data-i18n="supCat5">Data & Privacy</h2>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span data-i18n="supQ14">Where is my data stored?</span>
+                    <span class="faq-arrow">&#9660;</span>
+                </button>
+                <div class="faq-answer">
+                    <p data-i18n-html="supA14">All data is stored locally on your device only. We have no servers, no cloud, no accounts. Your photos, diary entries, and settings never leave your phone. See our <a href="../privacy/index.html">Privacy Policy</a> for details.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span data-i18n="supQ15">How do I backup my data?</span>
+                    <span class="faq-arrow">&#9660;</span>
+                </button>
+                <div class="faq-answer">
+                    <p data-i18n-html="supA15">You can export your diary as PDF or JSON (Pro feature). For full backup, your data is included in Android's standard backup if enabled in your device settings.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span data-i18n="supQ16">Can I hide the app / photos?</span>
+                    <span class="faq-arrow">&#9660;</span>
+                </button>
+                <div class="faq-answer">
+                    <p data-i18n-html="supA16">Yes. GrowVPD Pro offers PIN lock, biometric unlock (fingerprint/face), stealth mode (disguised icon), and photo privacy (hide from gallery). All in Settings.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="contact-section">
+        <div class="container">
+            <h2 data-i18n="supContactTitle">Still Need Help?</h2>
+            <p data-i18n="supContactDesc">We respond to every email within 24 hours.</p>
+            <a href="mailto:growvpdpro@gmail.com" class="contact-email">
+                &#9993; growvpdpro@gmail.com
+            </a>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom" style="border-top: none; padding-top: 0;">
+                <p><span data-i18n="footCopy">&copy; 2026 GrowVPD Pro. All rights reserved.</span> | <a href="../privacy/index.html" style="color:#90A4AE">Privacy Policy</a> | <a href="../terms/index.html" style="color:#90A4AE">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ accordion
+        document.querySelectorAll('.faq-question').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const item = btn.parentElement;
+                const wasOpen = item.classList.contains('open');
+                // Close all
+                document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+                // Toggle clicked
+                if (!wasOpen) item.classList.add('open');
+            });
+        });
+    </script>
+    <script src="../js/translations.js"></script>
+    <script src="../js/i18n.js"></script>
+</body>
+</html>

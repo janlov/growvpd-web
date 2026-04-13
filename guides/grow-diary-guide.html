@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://giscus.app; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://giscus.app https://discord.com; connect-src 'self' https://giscus.app; base-uri 'self'; form-action 'self';">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grow Diary: From Seed to Harvest — Complete Guide | GrowVPD Pro</title>
+    <meta name="description" content="Learn how to track your entire grow with GrowVPD Pro's diary. Record climate, nutrients, photos, and harvest data. Compare grows and export PDF reports.">
+
+    <link rel="icon" type="image/png" href="../images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="canonical" href="https://growvpd.pro/guides/grow-diary-guide.html">
+    <link rel="alternate" hreflang="en" href="https://growvpd.pro/guides/grow-diary-guide.html">
+    <link rel="alternate" hreflang="cs" href="https://growvpd.pro/guides/grow-diary-guide.html?lang=cs">
+    <link rel="alternate" hreflang="de" href="https://growvpd.pro/guides/grow-diary-guide.html?lang=de">
+    <link rel="alternate" hreflang="es" href="https://growvpd.pro/guides/grow-diary-guide.html?lang=es">
+    <link rel="alternate" hreflang="nl" href="https://growvpd.pro/guides/grow-diary-guide.html?lang=nl">
+    <link rel="alternate" hreflang="fr" href="https://growvpd.pro/guides/grow-diary-guide.html?lang=fr">
+    <link rel="alternate" hreflang="it" href="https://growvpd.pro/guides/grow-diary-guide.html?lang=it">
+    <link rel="alternate" hreflang="pt" href="https://growvpd.pro/guides/grow-diary-guide.html?lang=pt">
+    <link rel="alternate" hreflang="pl" href="https://growvpd.pro/guides/grow-diary-guide.html?lang=pl">
+    <link rel="alternate" hreflang="th" href="https://growvpd.pro/guides/grow-diary-guide.html?lang=th">
+    <link rel="alternate" hreflang="he" href="https://growvpd.pro/guides/grow-diary-guide.html?lang=he">
+    <link rel="alternate" hreflang="x-default" href="https://growvpd.pro/guides/grow-diary-guide.html">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/forum.css">
+
+    <style>
+        /* === ARTICLE PAGE === */
+        .article-page {
+            padding-top: 64px;
+            background: #fff;
+            min-height: 100vh;
+        }
+
+        /* === BREADCRUMB (light page version) === */
+        .breadcrumb-light {
+            padding: 16px 0;
+            background: #F7F9F7;
+            border-bottom: 1px solid #ECEFF1;
+        }
+        .breadcrumb-light .breadcrumb-list a {
+            color: #90A4AE;
+        }
+        .breadcrumb-light .breadcrumb-list a:hover {
+            color: #2E7D32;
+        }
+        .breadcrumb-light .breadcrumb-sep {
+            color: #CFD8DC;
+        }
+        .breadcrumb-light .breadcrumb-current {
+            color: #546E7A;
+        }
+
+        /* === ARTICLE HEADER === */
+        .article-header {
+            padding: 48px 0 40px;
+            background: #F7F9F7;
+            border-bottom: 1px solid #ECEFF1;
+        }
+        .article-header-inner {
+            max-width: 760px;
+            margin: 0 auto;
+        }
+        .article-header h1 {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: #1B5E20;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+        }
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+        .article-category {
+            display: inline-block;
+            font-size: .72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .05em;
+            padding: 4px 12px;
+            border-radius: 6px;
+        }
+        .cat-smart {
+            background: rgba(0,137,123,.1);
+            color: #00796B;
+        }
+        .cat-diary {
+            background: rgba(230,81,0,.1);
+            color: #E65100;
+        }
+        .cat-equipment {
+            background: rgba(106,27,154,.1);
+            color: #6A1B9A;
+        }
+        .article-date,
+        .article-readtime {
+            font-size: .85rem;
+            color: #90A4AE;
+        }
+        .article-date::before {
+            content: "";
+            display: inline-block;
+            width: 4px;
+            height: 4px;
+            background: #CFD8DC;
+            border-radius: 50%;
+            margin-right: 0;
+            vertical-align: middle;
+        }
+
+        /* === ARTICLE BODY === */
+        .article-body {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 48px 24px 64px;
+            font-size: 1.02rem;
+            line-height: 1.8;
+            color: #37474F;
+        }
+        .article-body h2 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #1B5E20;
+            margin-top: 48px;
+            margin-bottom: 16px;
+            padding-left: 16px;
+            border-left: 4px solid #2E7D32;
+            line-height: 1.3;
+        }
+        .article-body h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #2E7D32;
+            margin-top: 32px;
+            margin-bottom: 12px;
+        }
+        .article-body p {
+            margin-bottom: 18px;
+        }
+        .article-body ul,
+        .article-body ol {
+            margin-bottom: 18px;
+            padding-left: 24px;
+            list-style: disc;
+        }
+        .article-body ol {
+            list-style: decimal;
+        }
+        .article-body li {
+            margin-bottom: 8px;
+            padding-left: 4px;
+        }
+        .article-body strong {
+            color: #212121;
+            font-weight: 700;
+        }
+        .article-body code {
+            background: #F1F8E9;
+            color: #2E7D32;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: .92em;
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+        }
+        .article-body blockquote {
+            margin: 24px 0;
+            padding: 16px 20px;
+            background: #F1F8E9;
+            border-left: 4px solid #4CAF50;
+            border-radius: 0 10px 10px 0;
+            font-size: .95rem;
+            color: #33691E;
+            line-height: 1.7;
+        }
+        .article-body blockquote strong {
+            color: #1B5E20;
+        }
+
+        /* === DISCORD CTA === */
+        .article-cta {
+            max-width: 760px;
+            margin: 0 auto 48px;
+            padding: 0 24px;
+        }
+        .cta-box {
+            background: linear-gradient(135deg, #5865F2, #2E7D32);
+            border-radius: 18px;
+            padding: 40px 36px;
+            text-align: center;
+            color: #fff;
+        }
+        .cta-box h3 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+        .cta-box p {
+            font-size: .95rem;
+            color: rgba(255,255,255,.8);
+            max-width: 440px;
+            margin: 0 auto 24px;
+            line-height: 1.6;
+        }
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #fff;
+            color: #5865F2;
+            padding: 12px 28px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: .95rem;
+            transition: all .25s;
+            border: 2px solid #fff;
+        }
+        .cta-btn:hover {
+            background: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0,0,0,.2);
+        }
+
+        /* === RELATED GUIDES === */
+        .related-section {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 0 24px 64px;
+        }
+        .related-section h2 {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #212121;
+            margin-bottom: 20px;
+        }
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 14px;
+        }
+        .related-card {
+            background: #FAFBFC;
+            border: 1px solid #ECEFF1;
+            border-radius: 14px;
+            padding: 20px 18px;
+            transition: all .3s;
+            text-decoration: none;
+            display: block;
+        }
+        .related-card:hover {
+            border-color: #C8E6C9;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(46,125,50,.08);
+        }
+        .related-card .guide-tag {
+            font-size: .65rem;
+            margin-bottom: 8px;
+        }
+        .related-card h4 {
+            font-size: .92rem;
+            font-weight: 700;
+            color: #212121;
+            line-height: 1.4;
+            margin-bottom: 6px;
+        }
+        .related-card:hover h4 {
+            color: #1B5E20;
+        }
+        .related-card .related-time {
+            font-size: .75rem;
+            color: #B0BEC5;
+        }
+
+        /* === SIMPLE FOOTER === */
+        .article-footer {
+            padding: 28px 0;
+            background: #060906;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,.04);
+        }
+        .article-footer-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .article-footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255,255,255,.3);
+            font-size: .82rem;
+        }
+        .article-footer-brand strong {
+            color: rgba(255,255,255,.5);
+            font-weight: 700;
+        }
+        .article-footer-links {
+            display: flex;
+            gap: 20px;
+        }
+        .article-footer-links a {
+            color: rgba(255,255,255,.3);
+            font-size: .82rem;
+            transition: color .2s;
+        }
+        .article-footer-links a:hover {
+            color: #81C784;
+        }
+
+        /* === NAV (simplified for article pages) === */
+        .article-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255,255,255,.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0,0,0,.06);
+            height: 64px;
+        }
+        .article-nav .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        .article-nav .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 800;
+            font-size: 1.15rem;
+            color: #1B5E20;
+            text-decoration: none;
+        }
+        .article-nav .nav-simple-links {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+        .article-nav .nav-simple-links a {
+            font-size: .9rem;
+            font-weight: 500;
+            color: #546E7A;
+            transition: color .2s;
+        }
+        .article-nav .nav-simple-links a:hover {
+            color: #2E7D32;
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 768px) {
+            .article-header h1 {
+                font-size: 1.6rem;
+            }
+            .article-body {
+                padding: 32px 20px 48px;
+            }
+            .article-body h2 {
+                font-size: 1.3rem;
+                margin-top: 36px;
+            }
+            .cta-box {
+                padding: 28px 20px;
+            }
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+            .article-footer-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+        @media (max-width: 480px) {
+            .article-header h1 {
+                font-size: 1.35rem;
+            }
+            .article-meta {
+                gap: 8px;
+            }
+        }
+    </style>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://growvpd.pro/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://growvpd.pro/guides/"},{"@type":"ListItem","position":3,"name":"Grow Diary: From Seed to Harvest"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Article","headline":"Grow Diary: From Seed to Harvest","author":{"@type":"Organization","name":"GrowVPD Pro"},"publisher":{"@type":"Organization","name":"GrowVPD Pro"},"datePublished":"2026-04-05","description":"Learn how to track your entire grow with GrowVPD Pro's diary. Record climate, nutrients, photos, and harvest data. Compare grows and export PDF reports.","mainEntityOfPage":"https://growvpd.pro/guides/grow-diary-guide.html"}
+    </script>
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="../index.html" class="nav-brand">
+                <svg class="nav-logo" viewBox="0 0 32 32" width="28" height="28">
+                    <circle cx="16" cy="16" r="16" fill="#2E7D32"/>
+                    <path d="M16 6c0 0-6 4-6 12 0 4 2.5 7 6 8 3.5-1 6-4 6-8 0-8-6-12-6-12z" fill="#81C784"/>
+                    <path d="M16 10c0 0-3 3-3 8 0 2.5 1.2 4.5 3 5.2 1.8-.7 3-2.7 3-5.2 0-5-3-8-3-8z" fill="#A5D6A7"/>
+                </svg>
+                <span>GrowVPD Pro</span>
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="index.html" style="color:#2E7D32;font-weight:700">Guides &amp; Community</a></li>
+                <li><a href="../support/index.html">Support</a></li>
+                <li><a href="../index.html#download" class="nav-cta">Download</a></li>
+            </ul>
+        </div>
+    </nav>
+    <script>
+document.getElementById('navToggle')?.addEventListener('click',function(){this.classList.toggle('active');document.getElementById('navLinks').classList.toggle('active')});
+window.addEventListener('scroll',function(){document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>20)},{passive:true});
+    </script>
+
+    <div class="article-page">
+
+        <!-- Breadcrumb -->
+        <div class="breadcrumb-light">
+            <div class="container">
+                <div class="breadcrumb-list">
+                    <a href="index.html">Guides &amp; Community</a>
+                    <span class="breadcrumb-sep">/</span>
+                    <a href="index.html">Grow Diary</a>
+                    <span class="breadcrumb-sep">/</span>
+                    <span class="breadcrumb-current">From Seed to Harvest</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Article Header -->
+        <div class="article-header">
+            <div class="container">
+                <div class="article-header-inner">
+                    <h1>Grow Diary: From Seed to Harvest &mdash; Complete Guide</h1>
+                    <div class="article-meta">
+                        <span class="article-category cat-diary">Grow Diary</span>
+                        <span class="article-date">April 2026</span>
+                        <span class="article-readtime">5 min read</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Article Body -->
+        <div class="article-body">
+
+            <p>A grow diary is the single most valuable tool for improving your results over time. Every harvest teaches you something &mdash; but only if you recorded what happened along the way. GrowVPD Pro's diary tracks climate, nutrients, photos, and harvest data across your entire grow cycle, then lets you compare grows side by side to see what actually made a difference.</p>
+
+            <h2>Why Track Your Grow?</h2>
+
+            <p>If you have ever wondered why one grow turned out better than another, the answer is usually hidden in the daily details. Growers who keep diaries consistently report better yields because they can:</p>
+
+            <ul>
+                <li><strong>Identify what works</strong> &mdash; correlate specific nutrient schedules, VPD ranges, or training techniques with better outcomes</li>
+                <li><strong>Spot problems early</strong> &mdash; a sudden drop in pH or a week of high VPD shows up clearly in your data history</li>
+                <li><strong>Predict harvest timing</strong> &mdash; by comparing the current grow to past grows of the same strain, you can estimate how many weeks remain</li>
+                <li><strong>Share meaningful results</strong> &mdash; instead of guessing, you can show exact conditions that led to a particular yield</li>
+                <li><strong>Build a personal database</strong> &mdash; over several grows, you develop strain-specific knowledge that no generic guide can provide</li>
+            </ul>
+
+            <h2>Creating a New Grow</h2>
+
+            <p>Open the <strong>Diary tab</strong> and tap <strong>+ New Grow</strong>. You will enter the basic information about your plant:</p>
+
+            <ul>
+                <li><strong>Name</strong> &mdash; give your grow a descriptive name (e.g., "Northern Lights #3 - Summer 2026")</li>
+                <li><strong>Strain</strong> &mdash; the specific cultivar you are growing</li>
+                <li><strong>Type</strong> &mdash; photoperiod or autoflower (this affects stage suggestions and light schedule recommendations)</li>
+                <li><strong>Medium</strong> &mdash; soil, coco coir, DWC, NFT, rockwool, perlite, or custom substrate</li>
+                <li><strong>Pot size</strong> &mdash; in liters or gallons</li>
+                <li><strong>Plant count</strong> &mdash; how many plants in this grow</li>
+                <li><strong>Water type</strong> &mdash; tap, RO, rain, or mixed</li>
+            </ul>
+
+            <h3>Using Grow Templates</h3>
+
+            <p>GrowVPD Pro includes pre-built templates with weekly VPD, temperature, humidity, and light targets for different growing styles. When you create a new grow, you can optionally select a template. The template provides week-by-week guidance: recommended VPD range, PPFD levels, nutrient strength, and more. You are free to deviate from the template &mdash; it serves as a starting reference, not a rigid schedule.</p>
+
+            <h3>Assigning to a Tent</h3>
+
+            <p>If you have created equipment profiles (tent setups) in the Equipment tab or the Automation tab, you can assign your grow to a specific tent. This links the grow to your equipment data and, if you have smart devices connected, enables automatic sensor data collection for that tent.</p>
+
+            <h2>Adding Daily Entries</h2>
+
+            <p>The heart of the diary is the daily entry. You do not need to fill in every field every time &mdash; record what matters to you and what you have time for. Over time, even partial entries build a valuable history.</p>
+
+            <h3>Climate Data</h3>
+
+            <ul>
+                <li><strong>Temperature</strong> &mdash; current air temperature (&deg;C or &deg;F)</li>
+                <li><strong>Night temperature</strong> &mdash; temperature during lights-off (important for the day/night differential)</li>
+                <li><strong>Humidity</strong> &mdash; relative humidity percentage</li>
+                <li><strong>VPD</strong> &mdash; automatically calculated from temperature and humidity; you do not need to enter this manually</li>
+            </ul>
+
+            <blockquote>
+                <strong>Tip:</strong> If you have smart sensors connected (Tuya, AC Infinity, etc.), the app can auto-fill climate data from your last sensor reading. This saves time and ensures accuracy &mdash; no more squinting at a hygrometer across the tent.
+            </blockquote>
+
+            <h3>Light Data</h3>
+
+            <ul>
+                <li><strong>PPFD</strong> &mdash; light intensity at canopy level in &mu;mol/m&sup2;/s</li>
+                <li><strong>Light hours</strong> &mdash; photoperiod (e.g., 18/6, 20/4, or 12/12)</li>
+                <li><strong>Light distance</strong> &mdash; distance from light to canopy in cm or inches</li>
+                <li><strong>Light power</strong> &mdash; dimmer percentage if applicable</li>
+            </ul>
+
+            <h3>Water and Nutrients</h3>
+
+            <ul>
+                <li><strong>Water amount</strong> &mdash; total ml or liters given</li>
+                <li><strong>Water temperature</strong> &mdash; important for hydro setups (ideal: 18&ndash;22&deg;C)</li>
+                <li><strong>pH</strong> &mdash; input pH of your feed water</li>
+                <li><strong>EC / PPM</strong> &mdash; nutrient concentration (the app converts between EC and PPM using the 500/700 scale)</li>
+                <li><strong>Nutrients</strong> &mdash; select from 69+ fertilizers across 7 brands (BioBizz, Canna, Plagron, Advanced Nutrients, General Hydroponics, Hesi, Atami). The built-in calculator computes exact ml dosage based on your water volume and the manufacturer's recommended ratios.</li>
+            </ul>
+
+            <h3>Plant Data</h3>
+
+            <ul>
+                <li><strong>Height</strong> &mdash; plant height in cm (tracking the stretch during flowering is particularly useful)</li>
+                <li><strong>Technique</strong> &mdash; record training methods applied: topping, FIMming, LST, supercropping, defoliation, lollipopping, mainlining, ScrOG</li>
+            </ul>
+
+            <h3>Photos and Videos</h3>
+
+            <p>Add photos directly from your camera or gallery. The diary builds a visual timeline of your grow, which is invaluable for tracking plant health and development. You can also add short video clips. All media is stored locally on your device &mdash; nothing is uploaded to any server.</p>
+
+            <blockquote>
+                <strong>Privacy feature:</strong> GrowVPD Pro (with the Pro upgrade) can hide grow photos from your device's gallery. Photos are stored in the app's private directory and do not appear in Google Photos or any other gallery app. There is also a stealth mode that changes the app icon to something inconspicuous.
+            </blockquote>
+
+            <h3>Notes</h3>
+
+            <p>Free-form text for anything else: observations about leaf color, pest sightings, environmental changes, equipment adjustments, or reminders for next time. Notes are searchable, so write whatever comes to mind.</p>
+
+            <h2>Growth Stages</h2>
+
+            <p>Each entry is tagged with a growth stage. GrowVPD Pro uses six stages:</p>
+
+            <ol>
+                <li><strong>Seedling</strong> &mdash; from germination until the first true leaves develop (typically 1&ndash;2 weeks)</li>
+                <li><strong>Vegetative</strong> &mdash; active foliage growth under long light hours (18/6 or 20/4)</li>
+                <li><strong>Transition</strong> &mdash; the first 1&ndash;2 weeks after flipping to 12/12 (the "stretch" period)</li>
+                <li><strong>Flowering</strong> &mdash; bud development and maturation</li>
+                <li><strong>Late flowering</strong> &mdash; the final weeks including flush and ripening</li>
+                <li><strong>Harvest</strong> &mdash; chop day and drying/curing period</li>
+            </ol>
+
+            <p>The stage affects VPD recommendations (seedlings need higher humidity), template targets, and automation rule filters. You can change the stage at any time as your plant progresses.</p>
+
+            <h2>Harvest Tracking</h2>
+
+            <p>When you reach harvest, GrowVPD Pro provides a dedicated harvest entry with fields for:</p>
+
+            <ul>
+                <li><strong>Wet weight</strong> &mdash; total weight immediately after chop (per plant or total)</li>
+                <li><strong>Dry weight</strong> &mdash; weight after drying (the number that matters)</li>
+                <li><strong>Trim date</strong> &mdash; when you trimmed</li>
+                <li><strong>Flush start date</strong> &mdash; when you began the final flush</li>
+                <li><strong>Trichome assessment</strong> &mdash; percentage of clear, cloudy, and amber trichomes at harvest</li>
+            </ul>
+
+            <p>The app automatically calculates efficiency metrics from your harvest data:</p>
+
+            <ul>
+                <li><strong>Grams per watt</strong> &mdash; dry weight divided by light wattage (the standard efficiency benchmark)</li>
+                <li><strong>Grams per plant</strong> &mdash; average yield per plant</li>
+                <li><strong>Total yield</strong> &mdash; combined dry weight</li>
+                <li><strong>Drying ratio</strong> &mdash; wet-to-dry weight ratio (typically 3:1 to 5:1)</li>
+            </ul>
+
+            <h2>Comparing Grows</h2>
+
+            <p>Once you have completed two or more grows, the <strong>Compare</strong> feature lets you view them side by side. Select any two grows and see their data overlaid week by week: temperature, humidity, VPD, nutrients, height, and yield. This is the fastest way to understand what changed between a good grow and a great one.</p>
+
+            <p>The comparison view highlights significant differences automatically. If one grow had consistently higher VPD during weeks 4&ndash;6 of flowering, the chart makes that obvious at a glance.</p>
+
+            <h2>Week Navigator</h2>
+
+            <p>For long grows, the week navigator lets you jump to any week quickly. It shows a horizontal timeline with color-coded stages, entry counts per week, and thumbnail photos. Tap any week to scroll directly to those entries. This is especially useful during flowering when you want to check back on what happened two weeks ago.</p>
+
+            <h2>Smart Sensor Integration</h2>
+
+            <p>If you have connected smart devices in the Automation tab, your diary benefits automatically:</p>
+
+            <ul>
+                <li><strong>Auto-fill climate data</strong> &mdash; when creating a new entry, the app pre-fills temperature, humidity, and VPD from the most recent sensor reading for your tent</li>
+                <li><strong>PPFD from smart sensors</strong> &mdash; Mars Hydro and Spider Farmer sensors can provide live PPFD readings</li>
+                <li><strong>Camera snapshots</strong> &mdash; Tuya cameras can automatically capture daily photos and save them to your diary</li>
+                <li><strong>Grow-to-tent linking</strong> &mdash; when your grow is assigned to a tent, sensor data is automatically associated with the correct grow</li>
+            </ul>
+
+            <h2>Exporting Your Diary</h2>
+
+            <p>GrowVPD Pro offers two export formats (Pro feature):</p>
+
+            <ul>
+                <li><strong>PDF report</strong> &mdash; a formatted document with all entries, photos, charts, and harvest summary. Ideal for sharing or archiving.</li>
+                <li><strong>JSON data export</strong> &mdash; raw data in JSON format for growers who want to analyze their data in spreadsheets or custom tools.</li>
+            </ul>
+
+            <blockquote>
+                <strong>Tip:</strong> Export a PDF after every completed grow and save it to your cloud storage. Even if you switch phones, you will always have a record of your grow history. The PDF includes all photos at reduced resolution to keep the file size manageable.
+            </blockquote>
+
+        </div>
+
+        <!-- Discord CTA -->
+        <div class="article-cta">
+            <div class="cta-box">
+                <h3>Share your grow diary</h3>
+                <p>Join the GrowVPD community on Discord. Share harvests, compare techniques, and get feedback from experienced growers.</p>
+                <a href="https://discord.gg/growvpd" class="cta-btn" target="_blank" rel="noopener noreferrer">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
+                    Discuss on Discord
+                </a>
+            </div>
+        </div>
+
+        <!-- Discussion -->
+        <div class="article-discussion">
+            <h2>Discussion</h2>
+            <p>Have questions about this guide? Share your experience or ask for help below.</p>
+            <script src="https://giscus.app/client.js"
+                data-repo="OWNER/REPO"
+                data-repo-id="REPO_ID"
+                data-category="Guides"
+                data-category-id="CATEGORY_ID"
+                data-mapping="pathname"
+                data-strict="0"
+                data-reactions-enabled="1"
+                data-emit-metadata="0"
+                data-input-position="top"
+                data-theme="light"
+                data-lang="en"
+                data-loading="lazy"
+                crossorigin="anonymous"
+                async>
+            </script>
+            <p class="giscus-note">Discussions powered by <a href="https://giscus.app" target="_blank" rel="noopener noreferrer">Giscus</a> &amp; GitHub Discussions. <a href="https://discord.gg/growvpd" target="_blank" rel="noopener noreferrer">Prefer Discord?</a></p>
+        </div>
+
+        <!-- Related Guides -->
+        <div class="related-section">
+            <h2>Related Guides</h2>
+            <div class="related-grid">
+                <a href="automation-rules.html" class="related-card">
+                    <span class="guide-tag guide-tag-smart">Smart Automation</span>
+                    <h4>Setting Up Smart Automation Rules</h4>
+                    <span class="related-time">6 min read</span>
+                </a>
+                <a href="ppfd-dli-guide.html" class="related-card">
+                    <span class="guide-tag guide-tag-equipment">Equipment</span>
+                    <h4>PPFD & DLI Guide for Indoor Growing</h4>
+                    <span class="related-time">6 min read</span>
+                </a>
+                <a href="equipment-setup.html" class="related-card">
+                    <span class="guide-tag guide-tag-equipment">Equipment</span>
+                    <h4>Equipment Database & Setup Builder</h4>
+                    <span class="related-time">4 min read</span>
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="article-footer">
+        <div class="container">
+            <div class="article-footer-inner">
+                <div class="article-footer-brand">
+                    <strong>GrowVPD Pro</strong>
+                    <span>&copy; 2026</span>
+                </div>
+                <div class="article-footer-links">
+                    <a href="../index.html">Home</a>
+                    <a href="index.html">Guides &amp; Community</a>
+                    <a href="../support/index.html">Support</a>
+                    <a href="../privacy/index.html">Privacy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+<script src="guide-i18n.js"></script>
+</body>
+</html>
