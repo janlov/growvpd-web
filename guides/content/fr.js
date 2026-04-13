@@ -302,7 +302,7 @@ var GUIDE_CONTENT = {
                 <p>GrowVPD Pro prend en charge la gamme <strong>iConnect</strong> de Mars Hydro : ventilateurs en ligne (0&ndash;100%), lampes LED (variation), capteurs environnementaux et contr&ocirc;leurs.</p>
 
                 <div class="important-box">
-                    <strong>GrowVPD Pro appaire les appareils directement</strong> &mdash; l'application MarsPro n'est PAS n&eacute;cessaire. Le Bluetooth (BLE) est utilis&eacute; une seule fois pendant l'appairage directement dans GrowVPD Pro, ensuite tout le contr&ocirc;le passe par WiFi/MQTT.
+                    <strong>GrowVPD Pro fonctionne comme application compagnon aux c&ocirc;t&eacute;s de MarsPro</strong> &mdash; le Bluetooth (BLE) est utilis&eacute; une seule fois lors de l'appairage, ensuite tout le contr&ocirc;le passe par WiFi/MQTT, le m&ecirc;me protocole cloud qu'utilise MarsPro. Nous sommes de grands fans de Mars Hydro et adorerions collaborer directement avec leur &eacute;quipe.
                 </div>
 
                 <h2>Pr&eacute;requis</h2>
@@ -351,7 +351,7 @@ var GUIDE_CONTENT = {
                         <li>Cr&eacute;ez ou s&eacute;lectionnez une <strong>Tente</strong></li>
                         <li>Attribuez les capteurs et actionneurs Mars Hydro</li>
                     </ul>
-                    <p>Vous pouvez m&eacute;langer des appareils de diff&eacute;rentes marques dans la m&ecirc;me tente &mdash; un capteur Tuya peut piloter un ventilateur Mars Hydro.</p>
+                    <p>Vous pouvez m&eacute;langer des appareils de diff&eacute;rentes marques dans la m&ecirc;me tente &mdash; les lampes Mars Hydro peuvent suivre le m&ecirc;me planning que des LEDs Spider Farmer ou Vivosun, pendant qu'un Bluelab Pulse envoie des alertes de pH &agrave; toute votre installation.</p>
                 </div>
 
                 <div class="step-card">
@@ -389,7 +389,7 @@ var GUIDE_CONTENT = {
                 </ul>
 
                 <h2>Combiner avec d'autres plateformes</h2>
-                <p>Capteur Tuya + ventilateur Mars Hydro, capteur Mars Hydro + prise Tuya, lampe Mars Hydro + ventilateur AC Infinity. Tout depuis le m&ecirc;me onglet Automatisation.</p>
+                <p>Combinaisons sens&eacute;es : le Controller 69/89 Pro d'AC Infinity pilote son propre ventilateur Cloudline par le VPD, pendant que les lampes Mars Hydro, Spider Farmer ou Vivosun tournent sur un planning lever/coucher de soleil synchronis&eacute;. Un Bluelab Pulse surveille le pH racinaire via le cloud Edenic, et une prise connect&eacute;e Tuya sert d'interrupteur simple pour un chauffage &agrave; bain d'huile classique. Tout depuis le m&ecirc;me onglet Automatisation.</p>
 
                 <div class="warning-box">
                     <strong>Rappel :</strong> Les appareils Mars Hydro WiFi n&eacute;cessitent internet. Sans connexion, l'automatisation se met en pause (les appareils continuent avec leurs derni&egrave;res valeurs).
@@ -399,7 +399,7 @@ var GUIDE_CONTENT = {
   "automation-rules": {
     title: "Configurer les règles d'automatisation intelligente dans GrowVPD Pro",
     body: `
-            <p>L'une des fonctionnalités les plus puissantes de GrowVPD Pro est la possibilité de créer des règles d'automatisation qui fonctionnent <strong>entre différentes marques</strong>. Vous pouvez utiliser un capteur de température Tuya pour déclencher un ventilateur d'extraction Mars Hydro, ou un capteur AC Infinity pour activer une prise intelligente Tuya contrôlant votre humidificateur. Aucune autre application de culture ne vous offre ce niveau de contrôle inter-marques.</p>
+            <p>L'une des fonctionnalités les plus puissantes de GrowVPD Pro est la possibilité de créer des règles d'automatisation qui fonctionnent <strong>entre différentes marques</strong>. Chaque marque fonctionne au mieux dans son propre écosystème (le Controller AC Infinity pilote ses Cloudline, le iHub Mars Hydro pilote ses ventilateurs), et GrowVPD Pro les relie : un planning de lumière partagé entre plusieurs marques de lampes, les notifications de pH du Bluelab Pulse via Edenic, et une simple prise Tuya comme interrupteur pour un chauffage ou humidificateur bon marché &mdash; déclenché par n'importe quel capteur de confiance. Aucune autre application de culture ne vous offre ce niveau de contrôle inter-marques.</p>
 
             <h2>Que sont les règles d'automatisation ?</h2>
 
@@ -784,21 +784,24 @@ var GUIDE_CONTENT = {
 
                 <h2>La solution : GrowVPD Pro comme hub central</h2>
                 <p>GrowVPD Pro se connecte à <strong>plusieurs plateformes simultanément</strong> et traite tous les appareils comme faisant partie d'un système unifié.</p>
-                <p>Plateformes prises en charge : Tuya / Smart Life, AC Infinity, Mars Hydro, Spider Farmer, TP-Link Tapo.</p>
+                <p>Plateformes prises en charge : Tuya / Smart Life, AC Infinity, Mars Hydro, Spider Farmer, Vivosun, Bluelab et SANlight.</p>
 
                 <h2>Scénarios réels d'automatisation inter-marques</h2>
-                <h3>Scénario 1 : Capteur Tuya + Ventilateur Mars Hydro</h3>
-                <p>Un capteur WiFi Tuya bon marché dans votre tente et un ventilateur Mars Hydro 6 pouces. Le capteur Tuya alimente les données VPD à GrowVPD Pro, qui envoie des commandes MQTT au ventilateur Mars Hydro.</p>
+                <h3>Scénario 1 : Contrôleur AC Infinity pilotant son propre ventilateur (même marque)</h3>
+                <p>Votre Controller 69/89 Pro AC Infinity lit sa propre sonde de température et d'humidité, calcule le VPD en temps réel et ajuste le ventilateur Cloudline via le câble UIS pour maintenir la plage cible de chaque phase. Même marque, une règle propre &mdash; le contrôleur reste aux commandes, GrowVPD Pro ne fait que fixer l'objectif.</p>
 
-                <h3>Scénario 2 : Contrôleur AC Infinity + Prise Tuya pour humidificateur</h3>
-                <p>Le capteur intégré de votre contrôleur AC Infinity détecte un VPD élevé, la prise Tuya allume l'humidificateur.</p>
+                <h3>Scénario 2 : N'importe quel capteur &rarr; prise Tuya &rarr; chauffage basique</h3>
+                <p>Moins de 18 &deg;C la nuit ? Une prise connectée Tuya allume un chauffage à bain d'huile classique jusqu'à ce que la tente se rétablisse, puis l'éteint. Fonctionne avec n'importe quel capteur fiable &mdash; AC Infinity, Bluelab, SwitchBot ou une sonde Zigbee Tuya d'entrée de gamme &mdash; la prise n'est qu'un interrupteur simple au milieu.</p>
+
+                <h3>Scénario 3 : Bluelab Pulse &rarr; alerte de dérive de pH (notification uniquement)</h3>
+                <p>Un Bluelab Pulse surveille le pH de la zone racinaire via le cloud Edenic. Lorsqu'il sort de votre plage sûre, GrowVPD Pro envoie une notification avec la lecture et la phase en cours &mdash; la correction nutritionnelle reste une décision humaine délibérée, jamais un dosage automatique silencieux.</p>
 
                 <blockquote>
                     <strong>Insight clé :</strong> GrowVPD Pro ne se soucie pas de quelle marque fournit les données du capteur ou quelle marque reçoit la commande. Une règle VPD est une règle VPD.
                 </blockquote>
 
                 <h2>Pourquoi c'est important pour les cultivateurs</h2>
-                <p>Vous pouvez acheter le meilleur équipement pour chaque fonction : les capteurs WiFi les moins chers (Tuya), les meilleurs ventilateurs (AC Infinity), les meilleures lampes LED (Mars Hydro ou Spider Farmer), les meilleures caméras (Tapo). Tout est géré depuis un seul tableau de bord.</p>
+                <p>Vous pouvez choisir le meilleur équipement pour chaque fonction : les capteurs les plus précis (Bluelab Pulse pour le pH/EC, AC Infinity pour la T/HR du couvert), les meilleurs ventilateurs (AC Infinity Cloudline avec UIS), les meilleures lampes LED (Mars Hydro, Spider Farmer, Vivosun ou SANlight) et les caméras Tuya pour les snapshots quotidiens. Tout est géré depuis un seul tableau de bord.</p>
 
                 <div class="warning-box">
                     <strong>Note :</strong> L'automatisation inter-marques nécessite un abonnement Pro.
@@ -949,7 +952,7 @@ var GUIDE_CONTENT = {
                 </ul>
 
                 <h3>Instantanés automatiques</h3>
-                <p>Si vous utilisez une caméra Tuya ou Tapo connectée, l'application peut capturer des instantanés quotidiens automatiques.</p>
+                <p>Si vous utilisez une caméra Tuya connectée, l'application peut capturer des instantanés quotidiens automatiques.</p>
 
                 <h2>Conseils photo pour les espaces de culture</h2>
                 <p>Éteignez la lampe de culture et utilisez une lumière blanche neutre. Maintenez des angles constants. Utilisez le mode macro pour les gros plans.</p>

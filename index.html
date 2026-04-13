@@ -58,7 +58,7 @@
       ],
       "featureList": "VPD Chart, Grow Diary, Smart Automation, PPFD Guide, Equipment Database, Nutrient Calculator, 11 Languages",
       "screenshot": "https://growvpd.pro/images/og-image.png",
-      "author": {"@type": "Organization", "name": "GrowVPD Pro", "email": "growvpdpro@gmail.com"}
+      "author": {"@type": "Organization", "name": "GrowVPD Pro", "email": "support@growvpd.pro"}
     }
     </script>
 </head>
@@ -238,7 +238,7 @@
                             <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2E7D32" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
                         </div>
                         <h3 data-i18n="autoTitle">Smart Automation</h3>
-                        <p data-i18n-html="autoDesc">Connect Tuya, Mars Hydro, AC Infinity, Spider Farmer, Vivosun, Bluelab &amp; SANlight in one system. Mix brands freely &mdash; use a Tuya sensor to trigger your Mars Hydro fan, control Tuya AC units directly (dehumidify, cool, heat, ventilate). No other grow app does this.</p>
+                        <p data-i18n-html="autoDesc">Connect Tuya, Mars Hydro, AC Infinity, Spider Farmer, Vivosun, Bluelab &amp; SANlight in one system. Let an AC Infinity controller tune its own fan from live VPD, run sunrise/sunset schedules across Mars Hydro, Spider Farmer and Vivosun LEDs, or let a Bluelab Pulse flag pH drift before it hurts the plants &mdash; all from the same app.</p>
                         <div class="auto-features-row">
                             <span class="auto-feat" data-i18n="autoFeat1">VPD-based rules</span>
                             <span class="auto-feat" data-i18n="autoFeat2">Light schedules &amp; dimming</span>
@@ -430,78 +430,51 @@
                     </div>
                 </div>
 
-                <!-- USE CASE 2: VPD Fan -->
+                <!-- USE CASE 2: AC Infinity native VPD loop -->
                 <div class="use-case">
                     <div class="uc-flow">
-                        <span class="uc-brand">Tuya Sensor</span>
+                        <span class="uc-brand">AC Infinity Ctrl</span>
                         <span class="uc-arrow">&rarr;</span>
-                        <span class="uc-action" data-i18n="ahUcAction1">VPD too high?</span>
+                        <span class="uc-action" data-i18n="ahUcAction1">VPD drifting?</span>
                         <span class="uc-arrow">&rarr;</span>
-                        <span class="uc-brand">Mars Hydro Fan ON</span>
+                        <span class="uc-brand">AC Infinity Fan</span>
                     </div>
-                    <p data-i18n-html="ahUc1">Tuya sensor detects VPD above 1.5 kPa &mdash; app automatically turns on your Mars Hydro inline fan to bring humidity down. Fan speed adjusts proportionally &mdash; small deviation = low speed, big deviation = full power.</p>
+                    <p data-i18n-html="ahUc1">Your AC Infinity Controller 69/89 Pro reads its own temperature and humidity probe, calculates live VPD, and tunes the Cloudline fan through the UIS cable to stay inside the target band for each growth stage. Same brand, one signed rule &mdash; the controller stays in charge, the app just sets the target.</p>
                 </div>
+                <!-- USE CASE 3: Any temp sensor → Tuya plug → dumb heater -->
                 <div class="use-case">
                     <div class="uc-flow">
-                        <span class="uc-brand">Tuya Temp Sensor</span>
+                        <span class="uc-brand">Any Temp Sensor</span>
                         <span class="uc-arrow">&rarr;</span>
                         <span class="uc-action" data-i18n="ahUcAction2">Night too cold?</span>
                         <span class="uc-arrow">&rarr;</span>
-                        <span class="uc-brand">Tuya Smart Plug ON</span>
+                        <span class="uc-brand">Tuya Plug &rarr; Heater</span>
                     </div>
-                    <p data-i18n-html="ahUc2">Temperature drops below 18&deg;C at night? Your heater on a Tuya smart plug kicks in automatically.</p>
+                    <p data-i18n-html="ahUc2">Below 18&deg;C at night? A Tuya smart plug flips a regular oil heater on until the tent recovers, then backs off. Works with whichever sensor you trust &mdash; AC Infinity, Bluelab, SwitchBot or a cheap Tuya Zigbee probe &mdash; the plug is just the dumb switch in the middle.</p>
                 </div>
+                <!-- USE CASE 4: Vivosun CO2 enrichment -->
                 <div class="use-case">
                     <div class="uc-flow">
-                        <span class="uc-brand">AC Infinity Sensor</span>
+                        <span class="uc-brand">Vivosun GrowHub</span>
                         <span class="uc-arrow">&rarr;</span>
-                        <span class="uc-action" data-i18n="ahUcAction3">CO2 too low?</span>
+                        <span class="uc-action" data-i18n="ahUcAction3">CO2 low during day?</span>
                         <span class="uc-arrow">&rarr;</span>
-                        <span class="uc-brand">Tuya Smart Plug ON</span>
+                        <span class="uc-brand">Vivosun CO2 Outlet</span>
                     </div>
-                    <p data-i18n-html="ahUc3">AC Infinity controller reads CO2 below 800 ppm &mdash; your CO2 generator on a Tuya plug turns on. Different brands, one rule.</p>
+                    <p data-i18n-html="ahUc3">Your Vivosun GrowHub sees CO2 drop under target during the photoperiod, opens a Vivosun smart outlet feeding the CO2 regulator, then closes it once levels recover. The rule only runs with lights on and respects a daily runtime cap so you never dose in the dark.</p>
                 </div>
+                <!-- USE CASE 5: Bluelab pH drift alert -->
                 <div class="use-case">
                     <div class="uc-flow">
-                        <span class="uc-brand">Tuya Sensor</span>
+                        <span class="uc-brand">Bluelab Pulse</span>
                         <span class="uc-arrow">&rarr;</span>
-                        <span class="uc-action" data-i18n="ahUcAction6">Humidity too high?</span>
+                        <span class="uc-action" data-i18n="ahUcAction6">pH drifting?</span>
                         <span class="uc-arrow">&rarr;</span>
-                        <span class="uc-brand">Tuya AC: Dehumidify</span>
+                        <span class="uc-brand">Push Notification</span>
                     </div>
-                    <p data-i18n-html="ahUc6">Humidity above 65% during flowering? The app connects directly to your Tuya-compatible AC unit and switches it to dehumidify mode. No smart plug needed &mdash; the app controls your air conditioner natively. Dehumidify, cool, heat, or ventilate with a single rule.</p>
+                    <p data-i18n-html="ahUc6">A Bluelab Pulse keeps watching root-zone pH through the Edenic cloud. When it drifts outside your safe range, GrowVPD Pro pushes a notification with the reading and current stage &mdash; nutrient correction stays a deliberate human decision, never a silent auto-dose.</p>
                 </div>
-                <div class="use-case">
-                    <div class="uc-flow">
-                        <span class="uc-brand">Tuya Sensor</span>
-                        <span class="uc-arrow">&rarr;</span>
-                        <span class="uc-action" data-i18n="ahUcAction7">Too hot?</span>
-                        <span class="uc-arrow">&rarr;</span>
-                        <span class="uc-brand">Tuya AC: Cool + Fan</span>
-                    </div>
-                    <p data-i18n-html="ahUc7">Temperature rises above 28&deg;C? The app switches your Tuya AC to cooling mode and ramps up the Mars Hydro inline fan &mdash; simultaneously. One sensor, two devices, two brands, fully automatic. Your AC is a native Tuya device, controlled directly without any adapter.</p>
-                </div>
-                <div class="use-case">
-                    <div class="uc-flow">
-                        <span class="uc-brand">Tuya Soil Sensor</span>
-                        <span class="uc-arrow">&rarr;</span>
-                        <span class="uc-action" data-i18n="ahUcAction8">Soil too dry?</span>
-                        <span class="uc-arrow">&rarr;</span>
-                        <span class="uc-brand">Tuya Irrigation ON</span>
-                    </div>
-                    <p data-i18n-html="ahUc8">Tuya soil moisture sensor reads below 40%? The app triggers your Tuya-connected irrigation valve or pump automatically. Perfect for coco, autopots, and drip systems. Combine with soil temperature &amp; EC sensors for complete root zone automation.</p>
-                </div>
-                <div class="use-case">
-                    <div class="uc-flow">
-                        <span class="uc-brand">Tuya Water Level</span>
-                        <span class="uc-arrow">&rarr;</span>
-                        <span class="uc-action" data-i18n="ahUcAction9">Tank empty?</span>
-                        <span class="uc-arrow">&rarr;</span>
-                        <span class="uc-brand">Alert + Pump OFF</span>
-                    </div>
-                    <p data-i18n-html="ahUc9">Running autopots or a reservoir system? A Tuya water level sensor monitors your tank. When the level drops too low, the app sends you an alert and stops the pump &mdash; preventing dry runs and protecting your plants. Ideal for autopot, DWC, and ebb &amp; flow setups.</p>
-                </div>
-                <!-- Light schedule moved to position #1 as featured use case -->
+                <!-- USE CASE 6: Auto diary -->
                 <div class="use-case">
                     <div class="uc-flow">
                         <span class="uc-brand">Any Sensor</span>
@@ -524,7 +497,7 @@
                 </div>
                 <div class="ai-block">
                     <h4 data-i18n="ahInfoT3">Tested Start to Harvest</h4>
-                    <p data-i18n-html="ahInfoD3">Every integration is validated through a complete real growing cycle &mdash; not just on a bench. We spotted a widely-reported Mars Hydro connection issue, traced it to the protocol level, and fixed it. Your devices don't disappear between grows.</p>
+                    <p data-i18n-html="ahInfoD3">Every integration is validated through a full real growing cycle &mdash; not just on a bench. We&rsquo;re big fans of Mars Hydro, AC Infinity, Spider Farmer, Vivosun, Bluelab and SANlight gear, and we&rsquo;d love to work directly with any of these teams to make things even smoother for growers. Until then, we test carefully and ship quiet fixes whenever we find rough edges.</p>
                 </div>
             </div>
             <p class="automation-note" data-i18n-html="ahNote">Smart automation requires internet (WiFi or mobile data) &mdash; devices are controlled through their manufacturer cloud APIs (Tuya Cloud, Mars Hydro MQTT, etc.). All other features in the app work fully offline.</p>
@@ -820,7 +793,7 @@
                         <strong>GrowVPD Pro</strong>
                     </div>
                     <p data-i18n="footTagline">Built by a grower, for growers.</p>
-                    <a href="mailto:growvpdpro@gmail.com" class="footer-email">growvpdpro@gmail.com</a>
+                    <a href="mailto:support@growvpd.pro" class="footer-email">support@growvpd.pro</a>
                 </div>
                 <div class="footer-col">
                     <h4 data-i18n="footProduct">Product</h4>

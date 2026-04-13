@@ -351,7 +351,7 @@ var GUIDE_CONTENT = {
 <p>GrowVPD Pro ondersteunt Mars Hydro's <strong>iConnect</strong>-lijn: inline ventilatoren (0&ndash;100%), LED-kweeklampen (dimbaar), omgevingssensoren en controllers.</p>
 
 <div class="important-box">
-    <strong>GrowVPD Pro koppelt apparaten direct</strong> &mdash; de MarsPro-app is NIET nodig. Bluetooth (BLE) wordt eenmalig gebruikt tijdens het koppelen direct in GrowVPD Pro, daarna verloopt alle besturing via WiFi/MQTT.
+    <strong>GrowVPD Pro werkt als companion-app naast MarsPro</strong> &mdash; Bluetooth (BLE) wordt eenmalig gebruikt tijdens het koppelen, daarna verloopt alle besturing via WiFi/MQTT, hetzelfde cloud-protocol dat MarsPro gebruikt. We zijn grote fans van Mars Hydro en werken graag direct samen met hun team.
 </div>
 
 <h2>Vereisten</h2>
@@ -400,7 +400,7 @@ var GUIDE_CONTENT = {
         <li>Maak een <strong>Tent</strong> aan of selecteer er een</li>
         <li>Wijs Mars Hydro sensoren en actuatoren toe</li>
     </ul>
-    <p>Je kunt apparaten van verschillende merken in dezelfde tent mixen &mdash; een Tuya-sensor kan een Mars Hydro ventilator aansturen.</p>
+    <p>Je kunt apparaten van verschillende merken in dezelfde tent mixen &mdash; een Mars Hydro LED op een zonsopkomst/zonsondergang-schema naast een AC Infinity Controller 69 die zijn eigen Cloudline-ventilator op VPD stuurt.</p>
 </div>
 
 <div class="step-card">
@@ -438,7 +438,7 @@ var GUIDE_CONTENT = {
 </ul>
 
 <h2>Combineren met andere platforms</h2>
-<p>Tuya sensor + Mars Hydro ventilator, Mars Hydro sensor + Tuya stekker, Mars Hydro lamp + AC Infinity ventilator. Alles vanuit hetzelfde tabblad.</p>
+<p>Zinvolle combinaties: de AC Infinity Controller 69/89 Pro stuurt zijn eigen Cloudline-ventilator op VPD, terwijl Mars Hydro, Spider Farmer of Vivosun LEDs op een gedeeld zonsopkomst/zonsondergang-schema lopen. Een Bluelab Pulse bewaakt de wortel-pH via de Edenic-cloud en stuurt meldingen, en een Tuya-stekker dient als eenvoudige schakelaar voor een klassieke oliekachel. Alles vanuit hetzelfde Automatisering-tabblad.</p>
 
 <div class="warning-box">
     <strong>Onthoud:</strong> Mars Hydro WiFi-apparaten vereisen actief internet. Zonder internet pauzeert de automatisering (apparaten draaien door op laatste waarden).
@@ -449,7 +449,7 @@ var GUIDE_CONTENT = {
   "automation-rules": {
     title: "Slimme automatiseringsregels instellen in GrowVPD Pro",
     body: `
-<p>Een van de krachtigste functies in GrowVPD Pro is de mogelijkheid om automatiseringsregels te maken die werken <strong>over verschillende merken heen</strong>. Je kunt een Tuya-temperatuursensor gebruiken om een Mars Hydro afzuigventilator aan te sturen, of een AC Infinity sensor om een Tuya slimme stekker te activeren die je luchtbevochtiger aanstuurt. Geen enkele andere kweek-app biedt je dit niveau van cross-brand controle.</p>
+<p>Een van de krachtigste functies in GrowVPD Pro is de mogelijkheid om automatiseringsregels te maken die werken <strong>over verschillende merken heen</strong>. Elk merk werkt het beste in zijn eigen ecosysteem (AC Infinity Controller stuurt Cloudline, Mars Hydro iHub stuurt eigen ventilatoren), en GrowVPD Pro knoopt ze samen: een gedeeld lichtschema over meerdere LED-merken, Bluelab Pulse pH-meldingen via Edenic, en een eenvoudige Tuya-stekker als schakelaar voor een goedkope kachel of bevochtiger &mdash; getriggerd door welke sensor je ook vertrouwt. Geen enkele andere kweek-app biedt je dit niveau van cross-brand controle.</p>
 <p>Deze gids leidt je door alles wat je moet weten over het instellen van automatiseringsregels, van basisbegrippen tot geavanceerde configuraties.</p>
 
 <h2>Wat zijn automatiseringsregels?</h2>
@@ -877,21 +877,20 @@ var GUIDE_CONTENT = {
     title: "Cross-brand automatisering: Tuya, Mars Hydro & meer combineren",
     body: `
 <h2>Het probleem: gesloten ecosystemen</h2>
-<p>Elk slim apparaatmerk heeft zijn eigen app, eigen cloud en eigen automatiseringssysteem. Maar wat als je een <strong>Tuya-sensor</strong> wilt gebruiken om een <strong>Mars Hydro ventilator</strong> aan te sturen? Of een <strong>AC Infinity temperatuurmeting</strong> om een <strong>Tuya slimme stekker</strong> aan te zetten die je luchtbevochtiger aanstuurt?</p>
-<p>Geen van deze merken praat standaard met elkaar. Hun apps zijn gesloten ecosystemen.</p>
+<p>Elk merk slimme apparaten heeft zijn eigen app, eigen cloud en eigen automatiseringssysteem. Je AC Infinity-controller stuurt alleen AC Infinity-ventilatoren aan, je Mars Hydro iHub praat alleen met zijn eigen LED's, en een Bluelab Pulse leeft in de Edenic-cloud. Allemaal uitstekende apparaten &mdash; maar hun apps praten niet met elkaar.</p>
 
 <h2>De oplossing: GrowVPD Pro als hub</h2>
-<p>GrowVPD Pro verbindt met <strong>meerdere platforms tegelijk</strong> en behandelt alle apparaten als onderdeel van een verenigd systeem. Ondersteunde platforms: Tuya / Smart Life, AC Infinity, Mars Hydro, Spider Farmer, TP-Link Tapo.</p>
+<p>GrowVPD Pro verbindt met <strong>meerdere platforms tegelijk</strong> en behandelt alle apparaten als onderdeel van een verenigd systeem. Ondersteunde platforms: Tuya / Smart Life, AC Infinity, Mars Hydro, Spider Farmer, Vivosun, Bluelab en SANlight.</p>
 
 <h2>Praktische cross-brand scenario's</h2>
-<h3>Scenario 1: Tuya sensor + Mars Hydro afzuigventilator</h3>
-<p>Een goedkope Tuya WiFi sensor in je tent en een Mars Hydro inline ventilator. De ventilator versnelt wanneer VPD je doel overschrijdt.</p>
+<h3>Scenario 1: AC Infinity-controller regelt zijn eigen ventilator (zelfde merk)</h3>
+<p>Je AC Infinity Controller 69/89 Pro leest zijn eigen temperatuur- en vochtigheidssonde, berekent live VPD en stuurt de Cloudline-ventilator via de UIS-kabel aan om het doel van elke groeifase vast te houden. Zelfde merk, &eacute;&eacute;n schone regel &mdash; de controller blijft de baas, GrowVPD Pro stelt alleen het doel in.</p>
 
-<h3>Scenario 2: AC Infinity controller + Tuya slimme stekker</h3>
-<p>AC Infinity controller leest temperatuur en luchtvochtigheid. Tuya stekker bestuurt een externe ontvochtiger op basis van VPD-regels.</p>
+<h3>Scenario 2: Willekeurige sensor &rarr; Tuya-stekker &rarr; domme oliekachel</h3>
+<p>Onder 18 &deg;C 's nachts? Een Tuya smart plug schakelt een gewone oliekachel in tot de tent herstelt en zet hem daarna uit. Werkt met elke sensor die je vertrouwt &mdash; AC Infinity, Bluelab, SwitchBot of een goedkope Tuya Zigbee-sonde &mdash; de stekker is gewoon de simpele schakelaar ertussenin.</p>
 
-<h3>Scenario 3: Mars Hydro lamp + AC Infinity ventilator + Tuya sensor</h3>
-<p>Volledige tent automatisering met apparaten van drie merken, allemaal beheerd vanuit een Automatisering-tabblad.</p>
+<h3>Scenario 3: Bluelab Pulse &rarr; pH-drift alert (alleen notificatie)</h3>
+<p>Een Bluelab Pulse houdt de wortelzone-pH in de gaten via de Edenic-cloud. Zodra het buiten je veilige bereik komt, stuurt GrowVPD Pro een notificatie met de meetwaarde en de huidige fase &mdash; nutriëntencorrectie blijft een bewuste menselijke beslissing, nooit een stille autodoseerdrift.</p>
 
 <h2>Hoe het werkt</h2>
 <p>GrowVPD Pro communiceert met elke cloud-API onafhankelijk. De automatiseringsengine leest sensordata van elk platform en stuurt commando's naar elk doelapparaat, ongeacht het merk.</p>
@@ -1034,7 +1033,7 @@ var GUIDE_CONTENT = {
 </ul>
 
 <h3>Geautomatiseerde camera-snapshots</h3>
-<p>Als je een Tuya of Tapo camera hebt verbonden via GrowVPD Pro, kan de app automatisch dagelijkse snapshots maken en opslaan in het kweekdagboek. De timelapse-functie rijgt deze snapshots vervolgens aan tot een video.</p>
+<p>Als je een Tuya camera hebt verbonden via GrowVPD Pro, kan de app automatisch dagelijkse snapshots maken en opslaan in het kweekdagboek. De timelapse-functie rijgt deze snapshots vervolgens aan tot een video.</p>
 
 <h2>Cameratips voor kweekruimtes</h2>
 <h3>Zet de kweeklamp uit voor foto's</h3>

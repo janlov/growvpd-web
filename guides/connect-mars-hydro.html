@@ -188,11 +188,11 @@ window.addEventListener('scroll',function(){document.getElementById('navbar').cl
                 </ul>
 
                 <h2>How Mars Hydro Connection Works</h2>
-                <p>Unlike some platforms that use simple REST APIs, Mars Hydro uses the <strong>MQTT protocol</strong> for device communication. This is the same protocol their official MarsPro app uses internally. MQTT is a lightweight, real-time messaging protocol &mdash; it is fast and reliable for IoT devices.</p>
-                <p>When you connect your Mars Hydro account in GrowVPD Pro, the app authenticates with Mars Hydro's cloud servers and subscribes to your device channels. Commands (like "set fan to 60%") are sent as MQTT messages and reach the device within seconds.</p>
+                <p>Mars Hydro uses the <strong>MQTT protocol</strong> for device communication &mdash; the same protocol their official MarsPro app uses internally. MQTT is a lightweight, real-time messaging protocol, fast and reliable for IoT devices.</p>
+                <p>When you connect your Mars Hydro account in GrowVPD Pro, the app authenticates with Mars Hydro&rsquo;s cloud servers and subscribes to your device channels. Commands (like &ldquo;set fan to 60%&rdquo;) travel as MQTT messages and reach the device within seconds.</p>
 
                 <div class="important-box">
-                    <strong>Key point:</strong> GrowVPD Pro pairs and sets up Mars Hydro iConnect devices directly &mdash; <strong>no MarsPro app needed</strong>. Bluetooth (BLE) is used once during pairing to send your WiFi credentials to the device. After that, all control happens over WiFi through the Mars Hydro cloud (MQTT).
+                    <strong>How it fits with MarsPro:</strong> We see GrowVPD Pro as a companion to the official <strong>MarsPro</strong> app, not a replacement. The simplest path is to complete the initial device setup in MarsPro the way Mars Hydro intends, then sign in with the same Mars Hydro credentials in GrowVPD Pro to bring your devices alongside the rest of your gear (sensors from other brands, diary logging, cross-brand schedules). If you&rsquo;d rather pair a new device straight from GrowVPD Pro, Bluetooth is used once to hand over your WiFi credentials and everything afterwards flows over WiFi through the Mars Hydro cloud. Either way, we&rsquo;d be delighted to work directly with the Mars Hydro team to make this experience smoother for their customers.
                 </div>
 
                 <h2>Connection Steps</h2>
@@ -242,7 +242,7 @@ window.addEventListener('scroll',function(){document.getElementById('navbar').cl
                         <li>Create or select a <strong>Tent</strong> within that room</li>
                         <li>Assign your Mars Hydro sensor and actuators to the tent</li>
                     </ul>
-                    <p>You can mix devices from different brands in the same tent. For example, a Tuya sensor can trigger a Mars Hydro fan &mdash; GrowVPD Pro handles cross-platform automation seamlessly.</p>
+                    <p>You can mix devices from different brands in the same tent. For example, an AC Infinity controller and a Mars Hydro LED can share the same grow &mdash; GrowVPD Pro handles cross-brand logging and schedules in one place.</p>
                 </div>
 
                 <div class="step-card">
@@ -291,11 +291,11 @@ window.addEventListener('scroll',function(){document.getElementById('navbar').cl
                 </ul>
 
                 <h2>Combining Mars Hydro with Other Platforms</h2>
-                <p>One of GrowVPD Pro's strengths is cross-platform automation. You can mix and match devices from different manufacturers in the same tent. Common setups include:</p>
+                <p>GrowVPD Pro sits above the individual brand apps, so Mars Hydro hardware can live in the same tent as gear from other manufacturers. The realistic setups we recommend:</p>
                 <ul>
-                    <li><strong>Tuya sensor + Mars Hydro fan</strong> &mdash; A Tuya temp/humidity sensor monitors VPD, and automation rules control the Mars Hydro inline fan speed.</li>
-                    <li><strong>Mars Hydro sensor + Tuya smart plug</strong> &mdash; Mars Hydro sensor detects high humidity, Tuya smart plug powers on a dehumidifier.</li>
-                    <li><strong>Mars Hydro light + AC Infinity fan</strong> &mdash; Schedule Mars Hydro LED sunrise/sunset while AC Infinity adjusts ventilation based on temperature.</li>
+                    <li><strong>Mars Hydro iConnect light + AC Infinity Controller</strong> &mdash; let AC Infinity run its native climate loop (own fan, own probe, own VPD target) while GrowVPD Pro schedules the Mars Hydro LED with sunrise/sunset and logs everything to the same grow diary.</li>
+                    <li><strong>Mars Hydro lights + Vivosun or Spider Farmer gear</strong> &mdash; mix LED brands freely in one tent. GrowVPD Pro manages a unified photoperiod plan across all of them with per-light peak brightness for each growth stage.</li>
+                    <li><strong>Mars Hydro + Bluelab Pulse</strong> &mdash; the Pulse tracks root-zone pH/EC through the Edenic cloud and pings you on drift, while Mars Hydro keeps doing the climate/light side. You stay in charge of any nutrient correction.</li>
                 </ul>
                 <p>All platforms are managed from the same Automation tab with the same rule engine. The app handles the protocol differences behind the scenes.</p>
 

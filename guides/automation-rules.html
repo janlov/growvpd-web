@@ -7,7 +7,7 @@
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Setting Up Smart Automation Rules in GrowVPD Pro</title>
-    <meta name="description" content="Learn how to create cross-brand automation rules in GrowVPD Pro. Connect Tuya sensors to Mars Hydro fans, set VPD triggers, and automate your entire grow room.">
+    <meta name="description" content="Learn how to create smart automation rules in GrowVPD Pro. Dial in VPD, temperature and CO2 targets across AC Infinity, Vivosun, Mars Hydro, Bluelab and Tuya devices.">
 
     <link rel="icon" type="image/png" href="../images/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -400,7 +400,7 @@
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://growvpd.pro/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://growvpd.pro/guides/"},{"@type":"ListItem","position":3,"name":"Setting Up Smart Automation Rules in GrowVPD Pro"}]}
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"Article","headline":"Setting Up Smart Automation Rules in GrowVPD Pro","author":{"@type":"Organization","name":"GrowVPD Pro"},"publisher":{"@type":"Organization","name":"GrowVPD Pro"},"datePublished":"2026-04-05","description":"Learn how to create cross-brand automation rules in GrowVPD Pro. Connect Tuya sensors to Mars Hydro fans, set VPD triggers, and automate your entire grow room.","mainEntityOfPage":"https://growvpd.pro/guides/automation-rules.html"}
+    {"@context":"https://schema.org","@type":"Article","headline":"Setting Up Smart Automation Rules in GrowVPD Pro","author":{"@type":"Organization","name":"GrowVPD Pro"},"publisher":{"@type":"Organization","name":"GrowVPD Pro"},"datePublished":"2026-04-05","description":"Learn how to create smart automation rules in GrowVPD Pro. Dial in VPD, temperature and CO2 targets across AC Infinity, Vivosun, Mars Hydro, Bluelab and Tuya devices.","mainEntityOfPage":"https://growvpd.pro/guides/automation-rules.html"}
     </script>
 </head>
 <body>
@@ -462,7 +462,7 @@ window.addEventListener('scroll',function(){document.getElementById('navbar').cl
         <!-- Article Body -->
         <div class="article-body">
 
-            <p>One of the most powerful features in GrowVPD Pro is the ability to create automation rules that work <strong>across different brands</strong>. You can use a Tuya temperature sensor to trigger a Mars Hydro exhaust fan, or an AC Infinity sensor to activate a Tuya smart plug controlling your humidifier. No other grow app gives you this level of cross-brand control.</p>
+            <p>One of the most powerful features in GrowVPD Pro is the ability to create automation rules that work <strong>across every brand you own</strong>. An AC Infinity controller can drive its own Cloudline fan from a live VPD reading, a Bluelab Pulse can push a pH drift alert while a Vivosun GrowHub opens a CO2 outlet during the photoperiod, and a simple Tuya smart plug can sit between any temperature sensor and a dumb oil heater for a cold-night safety net. GrowVPD Pro pulls all of it into one dashboard.</p>
 
             <p>This guide walks you through everything you need to know about setting up automation rules, from basic concepts to advanced configurations.</p>
 
@@ -479,7 +479,7 @@ window.addEventListener('scroll',function(){document.getElementById('navbar').cl
             </ol>
 
             <blockquote>
-                <strong>Key advantage:</strong> Because GrowVPD Pro communicates with each brand's cloud API independently, your automation rules can combine devices from Tuya, AC Infinity, Mars Hydro, Spider Farmer, and Vivosun in any combination. The sensor and the target device do not need to be from the same brand.
+                <strong>Key advantage:</strong> GrowVPD Pro communicates with each brand&rsquo;s cloud or controller independently, so one rule can combine a sensor and a target device from different brands (Tuya, AC Infinity, Mars Hydro, Spider Farmer, Vivosun, Bluelab, SANlight). That said, the cleanest, safest rules are usually <em>inside</em> one brand &mdash; an AC Infinity controller nudging its own fan, a Vivosun GrowHub opening a Vivosun outlet &mdash; because the controller is designed to run that loop. Cross-brand rules shine when you want a simple switch (a Tuya plug) to react to any sensor, or when you want notifications from a sensor that doesn&rsquo;t have its own actuators (like a Bluelab Pulse).
             </blockquote>
 
             <h2>Creating Your First Automation Rule</h2>
@@ -549,58 +549,75 @@ window.addEventListener('scroll',function(){document.getElementById('navbar').cl
 
             <h2>Example Automation Rules</h2>
 
-            <h3>VPD Control with Cross-Brand Devices</h3>
+            <h3>AC Infinity: Native VPD Loop</h3>
 
-            <p>Keep your VPD in the flowering sweet spot by using a humidity response:</p>
+            <p>The single cleanest rule in a tent &mdash; same brand, built-in probe, controller in charge. Keeps your VPD inside the flowering band without the rule ever leaving AC Infinity&rsquo;s own hardware loop.</p>
 
             <ul>
-                <li><strong>Sensor:</strong> Tuya WiFi temperature/humidity sensor</li>
-                <li><strong>Condition:</strong> VPD &gt; 1.4 kPa</li>
+                <li><strong>Sensor:</strong> AC Infinity Controller 69/89 Pro temperature + humidity probe (built-in)</li>
+                <li><strong>Condition:</strong> VPD outside 1.1&ndash;1.4 kPa (flowering band)</li>
                 <li><strong>Hysteresis:</strong> 0.1 kPa</li>
-                <li><strong>Target:</strong> Mars Hydro humidifier (via smart plug)</li>
-                <li><strong>Trigger action:</strong> Turn ON</li>
-                <li><strong>Restore action:</strong> Turn OFF (when VPD drops below 1.3 kPa)</li>
+                <li><strong>Target:</strong> AC Infinity Cloudline fan on the same controller (UIS cable)</li>
+                <li><strong>Trigger action:</strong> Nudge fan speed by &plusmn;2 steps toward target</li>
+                <li><strong>Restore action:</strong> Return to base speed for current stage</li>
+                <li><strong>Growth stage filter:</strong> Flowering only</li>
             </ul>
 
-            <h3>Night Temperature Protection</h3>
+            <h3>Night Temperature Safety Net (Any Sensor &rarr; Tuya Plug &rarr; Dumb Heater)</h3>
 
-            <p>Prevent cold stress during the dark period:</p>
+            <p>A good cross-brand example. The plug is just a switch &mdash; the brains are your real sensor and GrowVPD Pro. Use whichever sensor you already trust.</p>
 
             <ul>
-                <li><strong>Sensor:</strong> Any connected temperature sensor</li>
+                <li><strong>Sensor:</strong> Any connected temp sensor (AC Infinity probe, Bluelab Pulse, SwitchBot, cheap Tuya Zigbee probe&hellip;)</li>
                 <li><strong>Condition:</strong> Temperature &lt; 18&deg;C</li>
                 <li><strong>Hysteresis:</strong> 2&deg;C</li>
-                <li><strong>Target:</strong> Tuya smart plug (controlling a space heater)</li>
+                <li><strong>Target:</strong> Tuya smart plug feeding a regular oil heater</li>
                 <li><strong>Trigger action:</strong> Turn ON</li>
-                <li><strong>Restore action:</strong> Turn OFF (when temperature reaches 20&deg;C)</li>
+                <li><strong>Restore action:</strong> Turn OFF once the tent recovers to 20&deg;C</li>
                 <li><strong>Time restriction:</strong> Lights-off hours only</li>
+                <li><strong>Min off time:</strong> 10 min (protects the heater&rsquo;s internal thermostat from short-cycling)</li>
             </ul>
 
-            <h3>CO2 Enrichment with Safety Limit</h3>
+            <h3>Vivosun GrowHub: Daytime CO2 Enrichment</h3>
 
-            <p>Boost CO2 during lights-on while preventing dangerous concentrations:</p>
+            <p>Same-brand loop again: Vivosun&rsquo;s CO2 sensor trips a Vivosun outlet feeding the regulator &mdash; but only with lights on, and never longer than the hard cap. Dosing CO2 blind is dangerous; this rule is carefully fenced in.</p>
 
             <ul>
-                <li><strong>Sensor:</strong> CO2 sensor</li>
+                <li><strong>Sensor:</strong> Vivosun GrowHub CO2 probe</li>
                 <li><strong>Condition:</strong> CO2 &lt; 800 ppm</li>
                 <li><strong>Hysteresis:</strong> 100 ppm</li>
-                <li><strong>Target:</strong> Smart plug controlling CO2 generator</li>
+                <li><strong>Target:</strong> Vivosun smart outlet controlling the CO2 regulator solenoid</li>
                 <li><strong>Trigger action:</strong> Turn ON</li>
-                <li><strong>Restore action:</strong> Turn OFF (when CO2 reaches 900 ppm)</li>
+                <li><strong>Restore action:</strong> Turn OFF once CO2 reaches 900 ppm</li>
                 <li><strong>Max run time:</strong> 30 minutes</li>
                 <li><strong>Min off time:</strong> 15 minutes</li>
                 <li><strong>Time restriction:</strong> Lights-on hours only</li>
             </ul>
 
-            <h3>Automated Light Schedule</h3>
+            <h3>Bluelab Pulse: pH Drift Notification (No Auto-Dose)</h3>
 
-            <p>Set your grow light to follow a photoperiod schedule:</p>
+            <p>Root-zone pH is a place where we deliberately do <em>not</em> automate the actuator. A bad reading or a stuck dose can hurt plants fast. This rule watches the Pulse and pings you &mdash; you stay in the loop for any nutrient correction.</p>
 
             <ul>
-                <li><strong>Condition:</strong> Time-based (18/6 or 12/12)</li>
-                <li><strong>Target:</strong> Mars Hydro or Spider Farmer smart LED</li>
-                <li><strong>Trigger action:</strong> Turn ON at sunrise time, optionally with sunrise dimming simulation</li>
-                <li><strong>Restore action:</strong> Turn OFF at sunset time</li>
+                <li><strong>Sensor:</strong> Bluelab Pulse meter (via Edenic cloud)</li>
+                <li><strong>Condition:</strong> Root-zone pH outside 5.8&ndash;6.3 (soil/coco) or your custom range</li>
+                <li><strong>Hysteresis:</strong> 0.1 pH</li>
+                <li><strong>Target:</strong> Push notification to your phone (no device action)</li>
+                <li><strong>Trigger action:</strong> Send alert with reading, grow stage and last 24h trend</li>
+                <li><strong>Restore action:</strong> Silent (no &ldquo;all clear&rdquo; spam)</li>
+                <li><strong>Min off time:</strong> 1 hour (prevents alert floods during repeat readings)</li>
+            </ul>
+
+            <h3>Automated Light Schedule (Mars Hydro / Spider Farmer / Vivosun LEDs)</h3>
+
+            <p>Run your photoperiod on a stage-aware schedule, with gradual sunrise and sunset dimming so plants aren&rsquo;t shocked in or out of the day.</p>
+
+            <ul>
+                <li><strong>Condition:</strong> Time-based (e.g. 18/6 veg, 12/12 flower)</li>
+                <li><strong>Target:</strong> Any Mars Hydro iConnect, Spider Farmer or Vivosun LED in the tent</li>
+                <li><strong>Trigger action:</strong> Ramp from 0% to peak brightness across a 15&ndash;60 min sunrise window</li>
+                <li><strong>Restore action:</strong> Ramp back down across a sunset window at lights-off</li>
+                <li><strong>Growth stage filter:</strong> Different peak brightness per stage (Seedling 40%, Veg 80%, Flower 100%)</li>
             </ul>
 
             <h2>Safety Features</h2>

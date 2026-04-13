@@ -7,7 +7,7 @@
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cross-Brand Automation: Mixing Tuya, Mars Hydro & More — GrowVPD Pro</title>
-    <meta name="description" content="Learn how GrowVPD Pro lets you create automation rules across brands. Use a Tuya sensor to trigger a Mars Hydro fan, or an AC Infinity controller with Tuya plugs.">
+    <meta name="description" content="Learn how GrowVPD Pro brings brands together &mdash; AC Infinity, Mars Hydro, Spider Farmer, Vivosun, Bluelab, SANlight and Tuya &mdash; into one unified grow-room dashboard and automation system.">
 
     <link rel="icon" type="image/png" href="../images/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -88,10 +88,10 @@
         }
     </style>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://growvpd.pro/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://growvpd.pro/guides/"},{"@type":"ListItem","position":3,"name":"Cross-Brand Automation: Mixing Tuya, Mars Hydro & More"}]}
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://growvpd.pro/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://growvpd.pro/guides/"},{"@type":"ListItem","position":3,"name":"Cross-Brand Automation: One App for All Your Grow Gear"}]}
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"Article","headline":"Cross-Brand Automation: Mixing Tuya, Mars Hydro & More","author":{"@type":"Organization","name":"GrowVPD Pro"},"publisher":{"@type":"Organization","name":"GrowVPD Pro"},"datePublished":"2026-04-05","description":"Learn how GrowVPD Pro lets you create automation rules across brands. Use a Tuya sensor to trigger a Mars Hydro fan, or an AC Infinity controller with Tuya plugs.","mainEntityOfPage":"https://growvpd.pro/guides/cross-brand-automation.html"}
+    {"@context":"https://schema.org","@type":"Article","headline":"Cross-Brand Automation: One App for All Your Grow Gear","author":{"@type":"Organization","name":"GrowVPD Pro"},"publisher":{"@type":"Organization","name":"GrowVPD Pro"},"datePublished":"2026-04-05","description":"Learn how GrowVPD Pro brings AC Infinity, Mars Hydro, Spider Farmer, Vivosun, Bluelab, SANlight and Tuya devices together into one unified dashboard and automation system.","mainEntityOfPage":"https://growvpd.pro/guides/cross-brand-automation.html"}
     </script>
 </head>
 <body>
@@ -140,102 +140,110 @@ window.addEventListener('scroll',function(){document.getElementById('navbar').cl
                     <span class="article-date">April 2026</span>
                     <span class="article-read-time">6 min read</span>
                 </div>
-                <h1>Cross-Brand Automation: Mixing Tuya, Mars Hydro &amp; More</h1>
+                <h1>Cross-Brand Automation: One App for All Your Grow Gear</h1>
             </header>
 
             <!-- Article Body -->
             <div class="article-body">
 
                 <h2>The Problem: Walled Gardens</h2>
-                <p>Every smart device brand has its own app, its own cloud, and its own automation system. A Tuya sensor can trigger a Tuya plug within the Tuya app. An AC Infinity controller can adjust an AC Infinity fan. But what if you want a <strong>Tuya sensor</strong> to trigger a <strong>Mars Hydro fan</strong>? Or an <strong>AC Infinity temperature reading</strong> to turn on a <strong>Tuya smart plug</strong> connected to your humidifier?</p>
-                <p>None of these brands talk to each other natively. Their apps are walled gardens. This forces growers to either commit to a single ecosystem (limiting their equipment choices) or run multiple apps with manual coordination (which defeats the purpose of automation).</p>
+                <p>Every grow-gear brand ships its own app, its own cloud, and its own automation system. MarsPro, AC Infinity, Vivosun Grow, Spider Farmer and the Bluelab Edenic portal are all excellent at their own hardware &mdash; but they don&rsquo;t see each other, and none of them see the grow journal where you actually track what&rsquo;s happening with your plants.</p>
+                <p>That leaves growers with two bad options: commit to one ecosystem (and lose access to the best gear from the others), or run four or five apps with manual coordination between them (which defeats the point of automation).</p>
 
-                <h2>The Solution: GrowVPD Pro as the Hub</h2>
-                <p>GrowVPD Pro connects to <strong>multiple platforms simultaneously</strong> and treats all devices as part of one unified system. It reads sensor data from any connected platform and can trigger actions on any connected device, regardless of brand. The app acts as the central intelligence layer that sits above all the individual ecosystems.</p>
+                <h2>The Solution: GrowVPD Pro as the Common Layer</h2>
+                <p>GrowVPD Pro signs into each platform with your own credentials and brings all the devices into one room/tent hierarchy. Each brand keeps doing what it does best &mdash; Mars Hydro still flows through Mars Hydro&rsquo;s cloud, AC Infinity still runs over UIS, Bluelab still publishes through Edenic &mdash; but now you see them side-by-side, log them to the same diary, and write rules that mix brands where it genuinely helps.</p>
                 <p>Supported platforms:</p>
                 <ul>
-                    <li><strong>Tuya / Smart Life</strong> &mdash; sensors, smart plugs, switches, cameras, dimmers, AC units, irrigation</li>
-                    <li><strong>AC Infinity</strong> &mdash; inline fans, clip fans, controllers with integrated sensors</li>
-                    <li><strong>Mars Hydro</strong> &mdash; LED drivers, inline fans, clip fans (WiFi + MQTT)</li>
-                    <li><strong>Spider Farmer</strong> &mdash; LED drivers, fans, sensors (WiFi + MQTT, shared protocol with Mars Hydro)</li>
-                    <li><strong>TP-Link Tapo</strong> &mdash; cameras (ONVIF snapshots + RTSP)</li>
+                    <li><strong>AC Infinity</strong> &mdash; Controller 69/89 Pro, Cloudline fans, clip fans (UIS cable + cloud)</li>
+                    <li><strong>Mars Hydro</strong> &mdash; iConnect LED drivers, iHub fans, clip fans (WiFi + MQTT cloud)</li>
+                    <li><strong>Spider Farmer</strong> &mdash; LED drivers, fans, sensors (WiFi + MQTT cloud)</li>
+                    <li><strong>Vivosun</strong> &mdash; GrowHub (CO2, temp, RH), smart outlets, LEDs (cloud)</li>
+                    <li><strong>Bluelab</strong> &mdash; Pulse root-zone meter (pH, EC, temperature) via Edenic cloud, read-only</li>
+                    <li><strong>SANlight</strong> &mdash; Bluetooth Mesh LEDs, optional 0&ndash;10V dimming through AC Infinity</li>
+                    <li><strong>Tuya / Smart Life</strong> &mdash; WiFi / Zigbee sensors, smart plugs, cameras, dimmers, AC units, irrigation valves</li>
                 </ul>
 
-                <h2>Real-World Cross-Brand Scenarios</h2>
+                <h2>Realistic Scenarios</h2>
 
-                <h3>Scenario 1: Tuya Sensor + Mars Hydro Exhaust Fan</h3>
-                <p>You have a cheap Tuya WiFi temperature/humidity sensor ($15) in your tent and a Mars Hydro 6-inch inline fan. You want the fan to speed up when VPD exceeds your target.</p>
+                <h3>Scenario 1: AC Infinity Same-Brand VPD Loop</h3>
+                <p>The AC Infinity Controller 69/89 Pro is designed exactly for this: read its own temp/RH probe, compute VPD, and nudge its own Cloudline fan over the UIS cable. GrowVPD Pro&rsquo;s job here isn&rsquo;t to reinvent that loop &mdash; it&rsquo;s to manage it alongside the rest of your tents, log everything to the diary, and let you set stage-specific VPD targets in one place instead of in the AC Infinity app.</p>
                 <div class="step-card">
                     <span class="step-number">1</span>
                     <h3>Setup</h3>
                     <ul>
-                        <li>Connect your Tuya account in Settings (Access ID + Secret)</li>
-                        <li>Connect your Mars Hydro account in Settings (email + password)</li>
-                        <li>Both the Tuya sensor and Mars Hydro fan appear in the Automation tab</li>
-                        <li>Assign both to the same tent</li>
+                        <li>Connect your AC Infinity account in Settings &gt; Connected Accounts</li>
+                        <li>Controller 69/89 Pro and attached Cloudline fans appear in the Automation tab</li>
+                        <li>Assign them to a tent and pick the current growth stage</li>
                     </ul>
                 </div>
                 <div class="step-card">
                     <span class="step-number">2</span>
                     <h3>Create the Rule</h3>
                     <ul>
-                        <li><strong>Sensor:</strong> Tuya WiFi Sensor (reads temperature + humidity)</li>
-                        <li><strong>Condition:</strong> VPD &gt; 1.4 kPa</li>
-                        <li><strong>Action (trigger):</strong> Set Mars Hydro fan to speed 8</li>
-                        <li><strong>Action (restore):</strong> Set Mars Hydro fan to speed 4</li>
-                        <li><strong>Hysteresis:</strong> 0.15 kPa</li>
+                        <li><strong>Sensor:</strong> AC Infinity Controller temp + RH probe (built-in, computes VPD)</li>
+                        <li><strong>Condition:</strong> VPD outside 1.1&ndash;1.4 kPa (flowering band)</li>
+                        <li><strong>Trigger:</strong> Nudge Cloudline fan &plusmn;2 speed steps toward the target</li>
+                        <li><strong>Restore:</strong> Return to the base speed for the current stage</li>
+                        <li><strong>Hysteresis:</strong> 0.1 kPa</li>
                     </ul>
                 </div>
-                <p>Result: The Tuya sensor feeds VPD data to GrowVPD Pro. When VPD crosses 1.4 kPa, the app sends an MQTT command to the Mars Hydro fan to increase speed. When VPD drops below 1.25 kPa (1.4 - 0.15 hysteresis), it reduces the fan back to speed 4. Two different brands, one seamless rule.</p>
+                <p>Result: your AC Infinity hardware keeps doing the high-frequency climate loop it was designed for &mdash; GrowVPD Pro just owns the targets, the logging, and the stage transitions.</p>
 
-                <h3>Scenario 2: AC Infinity Controller + Tuya Humidifier Plug</h3>
-                <p>Your AC Infinity Controller 69 Pro has a built-in temperature/humidity sensor. Your humidifier is plugged into a Tuya smart plug.</p>
-                <div class="step-card">
-                    <span class="step-number">1</span>
-                    <h3>The Rule</h3>
-                    <ul>
-                        <li><strong>Sensor:</strong> AC Infinity Controller 69 Pro (temp + RH)</li>
-                        <li><strong>Condition:</strong> VPD &gt; 1.2 kPa (air too dry for veg)</li>
-                        <li><strong>Action (trigger):</strong> Turn ON Tuya smart plug (humidifier)</li>
-                        <li><strong>Action (restore):</strong> Turn OFF Tuya smart plug</li>
-                        <li><strong>Min on-time:</strong> 5 minutes (prevents rapid cycling)</li>
-                    </ul>
-                </div>
+                <h3>Scenario 2: Any Temp Sensor &rarr; Tuya Plug &rarr; Dumb Heater</h3>
+                <p>This is where cross-brand really pays off. Your real sensor can be anything you already trust &mdash; an AC Infinity probe, a Bluelab Pulse temperature reading, a SwitchBot, a $10 Tuya Zigbee stick. The actuator is a boring Tuya smart plug with a regular oil heater plugged into it. The plug is just the dumb switch in the middle; GrowVPD Pro is the brains.</p>
+                <ul>
+                    <li><strong>Sensor:</strong> whichever temperature sensor you already trust</li>
+                    <li><strong>Condition:</strong> Temperature &lt; 18&deg;C, lights-off hours only</li>
+                    <li><strong>Target:</strong> Tuya smart plug feeding the heater</li>
+                    <li><strong>Hysteresis:</strong> 2&deg;C (turns OFF at 20&deg;C)</li>
+                    <li><strong>Min off time:</strong> 10 min, to protect the heater&rsquo;s own thermostat from short-cycling</li>
+                </ul>
 
-                <h3>Scenario 3: Multi-Sensor VPD Averaging</h3>
-                <p>Large tents can have significant climate variation between the canopy center and the edges. Place two sensors from different brands (e.g., one Tuya, one AC Infinity) and GrowVPD Pro uses the tent's primary sensor for automation while displaying all readings for comparison.</p>
+                <h3>Scenario 3: Vivosun GrowHub CO2 Enrichment (Same-Brand, Daytime Only)</h3>
+                <p>A same-brand loop again, with safety fences. The GrowHub reads CO2, opens a Vivosun smart outlet feeding your CO2 regulator, and closes it as soon as levels recover. The rule only runs with lights on, caps total runtime per day, and respects a minimum off time so the solenoid isn&rsquo;t hammered.</p>
+                <ul>
+                    <li><strong>Sensor:</strong> Vivosun GrowHub CO2 probe</li>
+                    <li><strong>Condition:</strong> CO2 &lt; 800 ppm, lights-on hours only</li>
+                    <li><strong>Target:</strong> Vivosun smart outlet on the CO2 regulator</li>
+                    <li><strong>Hysteresis:</strong> 100 ppm (closes at 900 ppm)</li>
+                    <li><strong>Max run time:</strong> 30 min &middot; <strong>Min off:</strong> 15 min</li>
+                </ul>
 
-                <h3>Scenario 4: Camera Timelapse from Mixed Brands</h3>
-                <p>You have a Tuya camera in Tent A and a Tapo camera in Tent B. Both capture daily snapshots that auto-save to each tent's grow diary. The timelapse generator works with photos from either camera brand.</p>
+                <h3>Scenario 4: Bluelab Pulse &rarr; pH Drift Alert (Notification Only)</h3>
+                <p>This one is deliberately <em>not</em> automated on the actuator side. pH correction at the root zone is where mistakes hurt plants the fastest &mdash; a stuck dose or a noisy reading can do real damage. So GrowVPD Pro watches your Bluelab Pulse through the Edenic cloud and sends you a notification with the reading and current stage when it drifts out of range. The decision to dose stays with you.</p>
+
+                <h3>Scenario 5: Unified Diary Logging &amp; Camera Timelapse</h3>
+                <p>Every connected sensor from every brand &mdash; AC Infinity probe, Vivosun GrowHub, Bluelab Pulse, Tuya sticks &mdash; writes to the same grow diary every 15 minutes. Cameras (Tuya, ONVIF/RTSP) drop auto-snapshots into the same timeline. One tent, one diary, every brand.</p>
 
                 <blockquote>
-                    <strong>Key insight:</strong> GrowVPD Pro does not care which brand provides the sensor data or which brand receives the command. A VPD rule is a VPD rule &mdash; the sensor source and the actuator target are independently configurable.
+                    <strong>Key insight:</strong> GrowVPD Pro doesn&rsquo;t force cross-brand where same-brand is cleaner. Same-brand rules (AC Infinity controller &rarr; own fan, Vivosun GrowHub &rarr; own outlet) are the cleanest and safest because the controller is designed for that loop. Cross-brand shines when you want a neutral Tuya plug to react to any sensor, or when the sensor you trust doesn&rsquo;t have its own actuators.
                 </blockquote>
 
                 <h2>Why This Matters for Growers</h2>
 
                 <h3>Buy the Best Equipment for Each Job</h3>
-                <p>Without cross-brand automation, you are locked into one ecosystem. With GrowVPD Pro, you can choose:</p>
+                <p>With GrowVPD Pro sitting above the ecosystems, you can pick the best tool for each role:</p>
                 <ul>
-                    <li>The cheapest WiFi sensors (Tuya, $10&ndash;$20 each)</li>
-                    <li>The best inline fans (AC Infinity for quiet operation)</li>
-                    <li>The best LED lights (Mars Hydro or Spider Farmer for value)</li>
-                    <li>The best cameras (Tapo for reliability and local access)</li>
+                    <li>The best climate controllers (AC Infinity Controller 69/89 Pro, Vivosun GrowHub)</li>
+                    <li>The best LED lights (Mars Hydro, Spider Farmer, Vivosun, SANlight)</li>
+                    <li>Precision root-zone sensors (Bluelab Pulse via Edenic)</li>
+                    <li>Cheap, reliable neutral switches for dumb devices (Tuya smart plugs)</li>
+                    <li>Cameras that fit your setup (Tuya, ONVIF/RTSP IP cams)</li>
                 </ul>
-                <p>Mix and match based on price, performance, and availability rather than ecosystem compatibility.</p>
+                <p>Mix and match based on price, performance, and availability &mdash; not ecosystem lock-in.</p>
 
                 <h3>Single Dashboard for Everything</h3>
-                <p>Instead of checking three or four apps to monitor your tent, everything is in one place. One VPD chart, one automation rules list, one energy tracker, one diary. Every device from every brand is visible in the Automation tab under the room and tent where it belongs.</p>
+                <p>Instead of rotating between MarsPro, AC Infinity, Vivosun Grow, Edenic and whatever else you own, everything is in one place. One VPD chart, one automation rules list, one energy tracker, one diary. Every device from every brand lives in the Automation tab under the room and tent where it belongs.</p>
 
                 <h3>Unified Energy Tracking</h3>
-                <p>GrowVPD Pro tracks energy consumption across all platforms. You can see the total daily kWh for your tent, broken down by device, regardless of whether each device is from Tuya, Mars Hydro, or AC Infinity. This is impossible when using separate brand apps.</p>
+                <p>GrowVPD Pro tracks energy across all connected platforms. You can see total daily kWh for your tent broken down by device, regardless of whether each device is from AC Infinity, Mars Hydro, Vivosun, Spider Farmer, SANlight or Tuya. That view is hard to assemble when you bounce between brand apps.</p>
 
                 <h2>Setting Up Cross-Brand Automation</h2>
                 <ol>
-                    <li><strong>Connect all your platform accounts</strong> in Settings &gt; Connected Accounts. You can have Tuya, AC Infinity, Mars Hydro, and Tapo all connected simultaneously.</li>
-                    <li><strong>Discover devices</strong> from each platform in the Automation tab. All devices from all platforms appear in a single discovery list.</li>
-                    <li><strong>Organize into rooms and tents.</strong> A single tent can contain devices from multiple platforms.</li>
-                    <li><strong>Create automation rules.</strong> When creating a rule, the sensor dropdown lists all sensors from all platforms, and the target device dropdown lists all controllable devices from all platforms.</li>
+                    <li><strong>Connect all your platform accounts</strong> in Settings &gt; Connected Accounts. AC Infinity, Mars Hydro, Spider Farmer, Vivosun, Bluelab and Tuya can all be connected side-by-side.</li>
+                    <li><strong>Discover devices</strong> from each platform in the Automation tab. Every brand shows up in a single discovery list.</li>
+                    <li><strong>Organize into rooms and tents.</strong> A single tent can mix devices from multiple platforms.</li>
+                    <li><strong>Create automation rules.</strong> When building a rule, the sensor dropdown lists every sensor across brands, and the target dropdown lists every controllable device.</li>
                     <li><strong>The automation engine handles the rest.</strong> It polls sensors every 15 minutes (via AutomationWorker), evaluates rules, and sends commands to the correct platform API for each target device.</li>
                 </ol>
 

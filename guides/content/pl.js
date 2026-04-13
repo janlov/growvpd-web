@@ -344,7 +344,7 @@ var GUIDE_CONTENT = {
                 <p>GrowVPD Pro obs\u0142uguje lini\u0119 <strong>iConnect</strong> Mars Hydro: wentylatory kana\u0142owe (0&ndash;100%), lampy LED (\u015bciemnianie), czujniki \u015brodowiskowe i kontrolery.</p>
 
                 <div class="important-box">
-                    <strong>GrowVPD Pro paruje urz\u0105dzenia bezpo\u015brednio</strong> &mdash; aplikacja MarsPro NIE jest potrzebna. Bluetooth (BLE) jest u\u017cywany jednorazowo podczas parowania bezpo\u015brednio w GrowVPD Pro, potem ca\u0142e sterowanie odbywa si\u0119 przez WiFi/MQTT.
+                    <strong>GrowVPD Pro dzia\u0142a jako aplikacja towarzysz\u0105ca obok MarsPro</strong> &mdash; Bluetooth (BLE) u\u017cywany jest jednorazowo podczas parowania, potem ca\u0142e sterowanie przechodzi przez WiFi/MQTT, ten sam protok\u00f3\u0142 chmurowy, z kt\u00f3rego korzysta MarsPro. Jeste\u015bmy wielkimi fanami Mars Hydro i ch\u0119tnie nawi\u0105\u017cemy bezpo\u015bredni\u0105 wsp\u00f3\u0142prac\u0119 z ich zespo\u0142em.
                 </div>
 
                 <h2>Wymagania</h2>
@@ -393,7 +393,7 @@ var GUIDE_CONTENT = {
                         <li>Utw\u00f3rz lub wybierz <strong>Namiot</strong></li>
                         <li>Przypisz czujniki i urz\u0105dzenia wykonawcze Mars Hydro</li>
                     </ul>
-                    <p>Mo\u017cesz \u0142\u0105czy\u0107 urz\u0105dzenia r\u00f3\u017cnych marek w tym samym namiocie &mdash; czujnik Tuya mo\u017ce sterowa\u0107 wentylatorem Mars Hydro.</p>
+                    <p>Mo\u017cesz \u0142\u0105czy\u0107 urz\u0105dzenia r\u00f3\u017cnych marek w tym samym namiocie &mdash; lampa Mars Hydro na harmonogramie wsch\u00f3d/zach\u00f3d s\u0142o\u0144ca obok Controllera 69 AC Infinity, kt\u00f3ry pilnuje VPD na w\u0142asnym Cloudline.</p>
                 </div>
 
                 <div class="step-card">
@@ -431,7 +431,7 @@ var GUIDE_CONTENT = {
                 </ul>
 
                 <h2>\u0141\u0105czenie z innymi platformami</h2>
-                <p>Czujnik Tuya + wentylator Mars Hydro, czujnik Mars Hydro + gniazdko Tuya, lampa Mars Hydro + wentylator AC Infinity. Wszystko z tej samej zak\u0142adki.</p>
+                <p>Sensowne kombinacje: Controller 69/89 Pro AC Infinity steruje w\u0142asnym wentylatorem Cloudline przez VPD, podczas gdy lampy Mars Hydro, Spider Farmer lub Vivosun chodz\u0105 na zsynchronizowanym harmonogramie wsch\u00f3d/zach\u00f3d s\u0142o\u0144ca. Bluelab Pulse monitoruje pH korzeni przez chmur\u0119 Edenic, a inteligentne gniazdko Tuya s\u0142u\u017cy jako prosty wy\u0142\u0105cznik dla klasycznego grzejnika olejowego. Wszystko z tej samej zak\u0142adki Automatyzacja.</p>
 
                 <div class="warning-box">
                     <strong>Pami\u0119taj:</strong> Urz\u0105dzenia Mars Hydro WiFi wymagaj\u0105 internetu. Bez internetu automatyzacja si\u0119 wstrzymuje (urz\u0105dzenia dzia\u0142aj\u0105 na ostatnich warto\u015bciach).
@@ -441,7 +441,7 @@ var GUIDE_CONTENT = {
   "automation-rules": {
     title: "Konfiguracja reguł inteligentnej automatyzacji w GrowVPD Pro",
     body: `
-            <p>Jedną z najpotężniejszych funkcji GrowVPD Pro jest możliwość tworzenia reguł automatyzacji, które działają <strong>między różnymi markami</strong>. Możesz użyć czujnika temperatury Tuya do wyzwolenia wentylatora wyciągowego Mars Hydro lub czujnika AC Infinity do aktywacji inteligentnego gniazdka Tuya sterującego nawilżaczem. Żadna inna aplikacja do uprawy nie daje ci tego poziomu kontroli międzymarkowej.</p>
+            <p>Jedną z najpotężniejszych funkcji GrowVPD Pro jest możliwość tworzenia reguł automatyzacji, które działają <strong>między różnymi markami</strong>. Każda marka najlepiej radzi sobie we własnym ekosystemie (AC Infinity Controller napędza swoje Cloudline, Mars Hydro iHub napędza swoje wentylatory), a GrowVPD Pro wiąże je razem: ten sam harmonogram świateł w wielu markach lamp, Bluelab Pulse wysyłający alerty pH przez Edenic i proste gniazdko Tuya przerzucające tani grzejnik lub nawilżacz z dowolnego odczytu czujnika. Żadna inna aplikacja do uprawy nie daje ci tego poziomu kontroli międzymarkowej.</p>
 
             <p>Ten przewodnik prowadzi cię przez wszystko, co musisz wiedzieć o konfigurowaniu reguł automatyzacji, od podstawowych konceptów po zaawansowane konfiguracje.</p>
 
@@ -1036,16 +1036,16 @@ var GUIDE_CONTENT = {
     title: "Automatyzacja cross-brand: Miksowanie Tuya, Mars Hydro i więcej",
     body: `
                 <h2>Problem: Zamknięte ekosystemy</h2>
-                <p>Każda marka inteligentnych urządzeń ma swoją aplikację, swój ekosystem i swoje ograniczenia. Oficjalna aplikacja Tuya nie widzi urządzeń Mars Hydro. MarsPro nie zna AC Infinity. Spider Farmer nie rozmawia z żadnym z nich. GrowVPD Pro rozwiązuje ten problem, łącząc się ze wszystkimi platformami jednocześnie.</p>
+                <p>Każda marka inteligentnych urządzeń ma swoją aplikację, swój ekosystem i swoje ograniczenia. Twój kontroler AC Infinity steruje tylko wentylatorami AC Infinity, iHub Mars Hydro rozmawia tylko z własnymi LEDami, a Bluelab Pulse żyje w chmurze Edenic. Wszystkie to świetny sprzęt &mdash; tylko ich aplikacje nie rozmawiają ze sobą. GrowVPD Pro łączy się ze wszystkimi platformami jednocześnie.</p>
 
                 <h2>Jak to działa</h2>
                 <p>GrowVPD Pro komunikuje się z API chmury każdej platformy niezależnie. Reguły automatyzacji mogą łączyć dowolne podłączone urządzenie jako czujnik lub cel. Silnik reguł nie dba o platformę &mdash; widzi tylko dane i akcje.</p>
 
-                <h2>Popularne konfiguracje cross-brand</h2>
+                <h2>Realistyczne scenariusze cross-brand</h2>
                 <ul>
-                    <li><strong>Czujnik Tuya + wentylator Mars Hydro</strong> &mdash; Czujnik Tuya mierzy VPD, reguły automatyzacji sterują wentylatorem Mars Hydro.</li>
-                    <li><strong>Czujnik AC Infinity + gniazdko Tuya</strong> &mdash; Kontroler AC Infinity wykrywa wysokie VPD, gniazdko Tuya włącza nawilżacz.</li>
-                    <li><strong>Czujnik Mars Hydro + lampa Spider Farmer</strong> &mdash; Czujnik Mars Hydro wykrywa nadmierną temperaturę, lampa Spider Farmer automatycznie przyciemnia.</li>
+                    <li><strong>Kontroler AC Infinity 69/89 Pro steruje własnym wentylatorem Cloudline</strong> &mdash; kontroler czyta wbudowaną sondę T/RH, liczy VPD i reguluje wentylator przez kabel UIS. Ta sama marka, jedna czysta pętla &mdash; GrowVPD Pro tylko ustawia cel dla każdej fazy.</li>
+                    <li><strong>Dowolny czujnik &rarr; gniazdko Tuya &rarr; zwykły grzejnik olejowy</strong> &mdash; gdy temperatura spada poniżej 18 &deg;C, gniazdko Tuya włącza grzejnik do czasu, gdy namiot się zrehabilituje. Działa z dowolnym zaufanym czujnikiem &mdash; AC Infinity, Bluelab, SwitchBot albo tania sonda Zigbee Tuya.</li>
+                    <li><strong>Bluelab Pulse &rarr; alert o dryfie pH (tylko notyfikacja)</strong> &mdash; Pulse obserwuje pH strefy korzeniowej przez chmurę Edenic. Gdy wychodzi z bezpiecznego zakresu, aplikacja wysyła powiadomienie &mdash; korekta nawozów pozostaje świadomą decyzją człowieka, nigdy cichym auto-dawkowaniem.</li>
                 </ul>
 `
   },

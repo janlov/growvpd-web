@@ -1,4 +1,4 @@
-Contact: mailto:growvpdpro@gmail.com
+Contact: mailto:security@growvpd.pro
 Preferred-Languages: en, cs, de
 Policy: https://growvpd.pro/privacy/
 Canonical: https://growvpd.pro/.well-known/security.txt

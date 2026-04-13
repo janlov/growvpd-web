@@ -344,7 +344,7 @@ var GUIDE_CONTENT = {
                 <p>GrowVPD Pro es compatible con la l&iacute;nea <strong>iConnect</strong> de Mars Hydro: ventiladores en l&iacute;nea (0&ndash;100%), luces LED (regulaci&oacute;n), sensores ambientales y controladores.</p>
 
                 <div class="important-box">
-                    <strong>GrowVPD Pro empareja los dispositivos directamente</strong> &mdash; la app MarsPro NO es necesaria. BLE se usa una sola vez durante el emparejamiento en GrowVPD Pro, despu&eacute;s todo funciona por WiFi/MQTT.
+                    <strong>GrowVPD Pro funciona como app complementaria junto a MarsPro</strong> &mdash; el Bluetooth (BLE) se usa una sola vez durante el emparejamiento, despu&eacute;s todo el control pasa por WiFi/MQTT, el mismo protocolo en la nube que utiliza MarsPro. Somos grandes fans de Mars Hydro y nos encantar&iacute;a colaborar directamente con su equipo.
                 </div>
 
                 <h2>Requisitos previos</h2>
@@ -393,7 +393,7 @@ var GUIDE_CONTENT = {
                         <li>Crea o selecciona una <strong>Carpa</strong></li>
                         <li>Asigna sensores y actuadores Mars Hydro</li>
                     </ul>
-                    <p>Puedes mezclar marcas en la misma carpa &mdash; un sensor Tuya puede activar un ventilador Mars Hydro.</p>
+                    <p>Puedes mezclar marcas en la misma carpa &mdash; una l&aacute;mpara Mars Hydro en un horario de amanecer/atardecer junto a un Controller 69 de AC Infinity que gestiona el VPD con su propio Cloudline.</p>
                 </div>
 
                 <div class="step-card">
@@ -431,7 +431,7 @@ var GUIDE_CONTENT = {
                 </ul>
 
                 <h2>Combinar con otras plataformas</h2>
-                <p>Automatizaci&oacute;n multiplataforma: sensor Tuya + ventilador Mars Hydro, sensor Mars Hydro + enchufe Tuya, luz Mars Hydro + ventilador AC Infinity. Todo desde la misma pesta&ntilde;a.</p>
+                <p>Combinaciones sensatas: el Controller 69/89 Pro de AC Infinity pilota su propio ventilador Cloudline por VPD, mientras las l&aacute;mparas Mars Hydro, Spider Farmer o Vivosun corren en un horario compartido de amanecer/atardecer. Un Bluelab Pulse vigila el pH radicular a trav&eacute;s de la nube Edenic y env&iacute;a notificaciones, y un enchufe Tuya sirve como interruptor simple para un calefactor de aceite cl&aacute;sico. Todo desde la misma pesta&ntilde;a Automatizaci&oacute;n.</p>
 
                 <div class="warning-box">
                     <strong>Recuerda:</strong> Los dispositivos Mars Hydro WiFi requieren internet activo. Sin internet, la automatizaci&oacute;n se pausa (los dispositivos contin&uacute;an con sus &uacute;ltimos valores).
@@ -441,7 +441,7 @@ var GUIDE_CONTENT = {
   "automation-rules": {
     title: "Configurar reglas de automatización inteligente en GrowVPD Pro",
     body: `
-            <p>Una de las funciones más poderosas de GrowVPD Pro es la capacidad de crear reglas de automatización que funcionan <strong>entre diferentes marcas</strong>. Puedes usar un sensor de temperatura Tuya para activar un ventilador extractor Mars Hydro, o un sensor AC Infinity para activar un enchufe inteligente Tuya que controla tu humidificador. Ninguna otra app de cultivo te ofrece este nivel de control multiplataforma.</p>
+            <p>Una de las funciones más poderosas de GrowVPD Pro es la capacidad de crear reglas de automatización que funcionan <strong>entre diferentes marcas</strong>. Cada marca funciona mejor dentro de su propio ecosistema (el Controller AC Infinity pilota sus Cloudline, el iHub Mars Hydro pilota sus ventiladores), y GrowVPD Pro las une: un horario de luz compartido entre varias marcas de lámparas, notificaciones de pH del Bluelab Pulse vía Edenic, y un simple enchufe Tuya como interruptor para un calefactor o humidificador barato &mdash; activado por cualquier sensor en el que confíes. Ninguna otra app de cultivo te ofrece este nivel de control multiplataforma.</p>
 
             <p>Esta guía te explica todo lo que necesitas saber sobre la configuración de reglas de automatización, desde conceptos básicos hasta configuraciones avanzadas.</p>
 
@@ -1144,26 +1144,28 @@ var GUIDE_CONTENT = {
     title: "Automatización multiplataforma: Mezclando Tuya, Mars Hydro y más",
     body: `
                 <h2>El problema: Jardines amurallados</h2>
-                <p>Cada marca de dispositivos inteligentes tiene su propia app, su propia nube y su propio sistema de automatización. Un sensor Tuya puede activar un enchufe Tuya dentro de la app Tuya. Pero, ¿qué pasa si quieres que un <strong>sensor Tuya</strong> active un <strong>ventilador Mars Hydro</strong>? Ninguna de estas marcas se comunica entre sí de forma nativa.</p>
+                <p>Cada marca de dispositivos inteligentes tiene su propia app, su propia nube y su propio sistema de automatización. El Controller AC Infinity pilota perfectamente sus Cloudline, el iHub Mars Hydro gestiona sus ventiladores, y la app Tuya maneja sus enchufes. Pero &iquest;qu&eacute; pasa si quieres que <strong>todas estas marcas compartan un horario de luz unificado</strong>, o que un <strong>Bluelab Pulse</strong> te avise del pH mientras una <strong>Tuya plug</strong> dispara un calefactor barato seg&uacute;n cualquier sensor? Ninguna de estas marcas se comunica entre s&iacute; de forma nativa.</p>
 
                 <h2>La solución: GrowVPD Pro como hub central</h2>
                 <p>GrowVPD Pro se conecta a <strong>múltiples plataformas simultáneamente</strong> y trata todos los dispositivos como parte de un sistema unificado. Lee datos de sensores de cualquier plataforma conectada y puede activar acciones en cualquier dispositivo conectado, independientemente de la marca.</p>
                 <p>Plataformas soportadas:</p>
                 <ul>
-                    <li><strong>Tuya / Smart Life</strong> &mdash; sensores, enchufes inteligentes, interruptores, cámaras, reguladores</li>
-                    <li><strong>AC Infinity</strong> &mdash; ventiladores en línea, ventiladores clip, controladores con sensores integrados</li>
-                    <li><strong>Mars Hydro</strong> &mdash; drivers LED, ventiladores en línea, ventiladores clip (WiFi + MQTT)</li>
-                    <li><strong>Spider Farmer</strong> &mdash; drivers LED, ventiladores (WiFi + MQTT)</li>
-                    <li><strong>TP-Link Tapo</strong> &mdash; cámaras (instantáneas ONVIF + RTSP)</li>
+                    <li><strong>Tuya / Smart Life</strong> &mdash; sensores, enchufes inteligentes, interruptores, cámaras, aires acondicionados, riego</li>
+                    <li><strong>AC Infinity</strong> &mdash; Controller 69/89 Pro con sonda T/HR integrada, ventiladores Cloudline UIS</li>
+                    <li><strong>Mars Hydro</strong> &mdash; luces LED, iHub (ventiladores y accesorios) vía WiFi + MQTT</li>
+                    <li><strong>Spider Farmer</strong> &mdash; luces LED, ventiladores (mismo protocolo que Mars Hydro)</li>
+                    <li><strong>Vivosun</strong> &mdash; GrowHub con CO2, enchufes inteligentes, LEDs</li>
+                    <li><strong>Bluelab</strong> &mdash; Pulse pH/EC/temperatura vía Edenic cloud (solo lectura, sin auto-dosificación)</li>
+                    <li><strong>SANlight</strong> &mdash; luces LED profesionales vía BLE Mesh, puente 0&ndash;10 V con AC Infinity</li>
                 </ul>
 
                 <h2>Escenarios reales de automatización multiplataforma</h2>
 
-                <h3>Escenario 1: Sensor Tuya + Ventilador Mars Hydro</h3>
-                <p>Tienes un sensor WiFi Tuya barato ($15) en tu carpa y un ventilador en línea Mars Hydro de 6 pulgadas. Quieres que el ventilador aumente la velocidad cuando el VPD supere tu objetivo.</p>
+                <h3>Escenario 1: Controlador AC Infinity manejando su propio ventilador (misma marca)</h3>
+                <p>Tu AC Infinity Controller 69/89 Pro lee su sonda de temperatura y humedad integrada, calcula el VPD en vivo y ajusta el ventilador Cloudline por cable UIS para mantener el objetivo de cada fase. Misma marca, una regla limpia &mdash; el controlador sigue al mando, GrowVPD Pro solo fija el objetivo.</p>
 
-                <h3>Escenario 2: Controlador AC Infinity + Enchufe Tuya para humidificador</h3>
-                <p>Tu AC Infinity Controller 69 Pro tiene un sensor de temperatura/humedad integrado. Tu humidificador está conectado a un enchufe inteligente Tuya.</p>
+                <h3>Escenario 2: Cualquier sensor &rarr; enchufe Tuya &rarr; calefactor tonto</h3>
+                <p>¿Por debajo de 18 &deg;C por la noche? Un enchufe inteligente Tuya enciende un calefactor de aceite corriente hasta que la carpa se recupera y luego lo apaga. Funciona con cualquier sensor en el que confíes &mdash; AC Infinity, Bluelab, SwitchBot o una sonda Zigbee Tuya barata &mdash; el enchufe es solo el interruptor simple en medio.</p>
 
                 <blockquote>
                     <strong>Dato clave:</strong> A GrowVPD Pro no le importa qué marca proporciona los datos del sensor o qué marca recibe el comando. Una regla de VPD es una regla de VPD &mdash; la fuente del sensor y el dispositivo objetivo se configuran de forma independiente.
@@ -1172,7 +1174,7 @@ var GUIDE_CONTENT = {
                 <h2>Por qué esto importa para los cultivadores</h2>
 
                 <h3>Compra el mejor equipo para cada función</h3>
-                <p>Sin automatización multiplataforma, estás atado a un ecosistema. Con GrowVPD Pro, puedes elegir: los sensores WiFi más baratos (Tuya), los mejores ventiladores (AC Infinity para funcionamiento silencioso), las mejores luces LED (Mars Hydro o Spider Farmer) y las mejores cámaras (Tapo para fiabilidad).</p>
+                <p>Sin automatización multiplataforma, estás atado a un ecosistema. Con GrowVPD Pro, puedes elegir: los sensores más precisos (Bluelab Pulse para pH/EC, AC Infinity para T/HR del dosel), los mejores ventiladores (AC Infinity Cloudline con UIS), las mejores luces LED (Mars Hydro, Spider Farmer, Vivosun o SANlight) y cámaras Tuya para los snapshots diarios.</p>
 
                 <h3>Un solo panel para todo</h3>
                 <p>En lugar de revisar tres o cuatro apps para monitorizar tu carpa, todo está en un solo lugar.</p>
@@ -1379,7 +1381,7 @@ var GUIDE_CONTENT = {
                 </ul>
 
                 <h3>Instantáneas automáticas de cámara</h3>
-                <p>Si usas una cámara Tuya o Tapo conectada a través de GrowVPD Pro, la app puede capturar instantáneas automáticas diarias y guardarlas en el diario. La función de timelapse luego une estas instantáneas en un video.</p>
+                <p>Si usas una cámara Tuya conectada a través de GrowVPD Pro, la app puede capturar instantáneas automáticas diarias y guardarlas en el diario. La función de timelapse luego une estas instantáneas en un video.</p>
 
                 <h2>Consejos de cámara para salas de cultivo</h2>
                 <h3>Apaga el flash de la luz de cultivo</h3>

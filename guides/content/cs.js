@@ -359,7 +359,7 @@ var GUIDE_CONTENT = {
 </ul>
 
 <div class="important-box">
-    <strong>GrowVPD Pro p\u00e1ruje za\u0159\u00edzen\u00ed p\u0159\u00edmo</strong> &mdash; aplikace MarsPro nen\u00ed pot\u0159eba. Bluetooth (BLE) se pou\u017e\u00edv\u00e1 jednor\u00e1zov\u011b b\u011bhem p\u00e1rov\u00e1n\u00ed p\u0159\u00edmo v GrowVPD Pro, pot\u00e9 ve\u0161ker\u00e9 ovl\u00e1d\u00e1n\u00ed prob\u00edh\u00e1 p\u0159es WiFi/MQTT.
+    <strong>GrowVPD Pro funguje jako doprovodn\u00e1 aplikace vedle MarsPro</strong> &mdash; Bluetooth (BLE) se pou\u017e\u00edv\u00e1 jen jednou p\u0159i p\u00e1rov\u00e1n\u00ed, dal\u0161\u00ed ovl\u00e1d\u00e1n\u00ed u\u017e te\u010de p\u0159es WiFi/MQTT, tedy stejn\u00fd cloud, jak\u00fd pou\u017e\u00edv\u00e1 MarsPro. Jsme velk\u00fdmi fanou\u0161ky Mars Hydro a moc bychom si p\u0159\u00e1li spolupr\u00e1ci p\u0159\u00edmo s jejich t\u00fdmem.
 </div>
 
 <h2>P\u0159edpoklady</h2>
@@ -408,7 +408,7 @@ var GUIDE_CONTENT = {
         <li>Vytvo\u0159te nebo vyberte <strong>Stan</strong> v m\u00edstnosti</li>
         <li>P\u0159i\u0159a\u010fte Mars Hydro senzor a aktu\u00e1tory ke stanu</li>
     </ul>
-    <p>M\u016f\u017eete kombinovat za\u0159\u00edzen\u00ed r\u016fzn\u00fdch zna\u010dek ve stejn\u00e9m stanu &mdash; Tuya senzor m\u016f\u017ee spou\u0161t\u011bt Mars Hydro ventil\u00e1tor.</p>
+    <p>M\u016f\u017eete kombinovat za\u0159\u00edzen\u00ed r\u016fzn\u00fdch zna\u010dek ve stejn\u00e9m stanu &mdash; Mars Hydro LED na harmonogramu v\u00fdchod/z\u00e1pad slunce vedle AC Infinity Controlleru 69, kter\u00fd hl\u00edd\u00e1 VPD na vlastn\u00edm Cloudline ventil\u00e1toru.</p>
 </div>
 
 <div class="step-card">
@@ -446,7 +446,7 @@ var GUIDE_CONTENT = {
 </ul>
 
 <h2>Kombinace s jin\u00fdmi platformami</h2>
-<p>Cross-platformov\u00e1 automatizace: Tuya senzor + Mars Hydro ventil\u00e1tor, Mars Hydro senzor + Tuya z\u00e1suvka, Mars Hydro sv\u011btlo + AC Infinity ventil\u00e1tor. V\u0161e ve stejn\u00e9 z\u00e1lo\u017ece Automatizace.</p>
+<p>Typick\u00e9 smyslupln\u00e9 kombinace: AC Infinity Controller 69/89 Pro \u0159\u00edd\u00ed vlastn\u00ed Cloudline ventil\u00e1tor podle VPD, zat\u00edmco Mars Hydro LED b\u011b\u017e\u00ed na sd\u00edlen\u00e9m harmonogramu v\u00fdchodu/z\u00e1padu slunce. Bluelab Pulse hl\u00edd\u00e1 p\u0159es Edenic cloud pH v ko\u0159enov\u00e9 z\u00f3n\u011b a po\u0161le notifikaci, kdy\u017e vyjede ze sv\u00e9ho bezpe\u010dn\u00e9ho p\u00e1sma. Tuya smart plug slou\u017e\u00ed jako levn\u00fd jednoduch\u00fd spou\u0161t\u011b\u010d pro olejov\u00fd topn\u00edk, kter\u00fd m\u016f\u017ee ovl\u00e1dat jak\u00fdkoli senzor, kter\u00e9mu d\u016fv\u011b\u0159ujete. V\u0161e v jednom panelu Automatizace.</p>
 
 <div class="warning-box">
     <strong>Pamatujte:</strong> Mars Hydro WiFi za\u0159\u00edzen\u00ed vy\u017eaduj\u00ed internet. P\u0159i v\u00fdpadku se automatizace pozastav\u00ed (za\u0159\u00edzen\u00ed b\u011b\u017e\u00ed na posledn\u00edch hodnot\u00e1ch). Zva\u017ete z\u00e1lo\u017en\u00ed termostat.
@@ -457,7 +457,7 @@ var GUIDE_CONTENT = {
 "automation-rules": {
   title: "Nastaven\u00ed chytr\u00fdch automatiza\u010dn\u00edch pravidel v GrowVPD Pro",
   body: `
-<p>Jednou z nejsiln\u011bj\u0161\u00edch funkc\u00ed GrowVPD Pro je schopnost vytv\u00e1\u0159et automatiza\u010dn\u00ed pravidla, kter\u00e1 funguj\u00ed <strong>nap\u0159\u00ed\u010d r\u016fzn\u00fdmi zna\u010dkami</strong>. M\u016f\u017eete pou\u017e\u00edt Tuya teplotn\u00ed senzor ke spu\u0161t\u011bn\u00ed Mars Hydro odtahov\u00e9ho ventil\u00e1toru, nebo AC Infinity senzor k aktivaci Tuya chytr\u00e9 z\u00e1suvky ovl\u00e1daj\u00edc\u00ed zvlh\u010dova\u010d. \u017d\u00e1dn\u00e1 jin\u00e1 p\u011bstebn\u00ed aplikace v\u00e1m nenab\u00edz\u00ed tuto \u00farove\u0148 cross-brand ovl\u00e1d\u00e1n\u00ed.</p>
+<p>Jednou z nejsiln\u011bj\u0161\u00edch funkc\u00ed GrowVPD Pro je schopnost vytv\u00e1\u0159et automatiza\u010dn\u00ed pravidla, kter\u00e1 funguj\u00ed <strong>nap\u0159\u00ed\u010d r\u016fzn\u00fdmi zna\u010dkami</strong>. Ka\u017ed\u00e1 zna\u010dka si nejl\u00e9pe rozum\u00ed se sv\u00fdm vlastn\u00edm ekosyst\u00e9mem (AC Infinity Controller ovl\u00e1d\u00e1 sv\u00e9 Cloudline, Mars Hydro iHub sv\u00e9 ventil\u00e1tory) a GrowVPD Pro je propojuje dohromady: sd\u00edlen\u00fd harmonogram sv\u011btel p\u0159es v\u00edce zna\u010dek lamp, Bluelab Pulse posl\u00e1 notifikaci p\u0159i pH mimo rozsah p\u0159es Edenic a prost\u00e1 Tuya z\u00e1suvka sp\u00edn\u00e1 lacin\u00fd topn\u00edk nebo zvlh\u010dova\u010d podle jak\u00e9hokoli senzoru, kter\u00e9mu d\u016fv\u011b\u0159ujete. \u017d\u00e1dn\u00e1 jin\u00e1 p\u011bstebn\u00ed aplikace v\u00e1m nenab\u00edz\u00ed tuto \u00farove\u0148 cross-brand ovl\u00e1d\u00e1n\u00ed.</p>
 
 <p>Tento pr\u016fvodce v\u00e1s provede v\u0161\u00edm, co pot\u0159ebujete v\u011bd\u011bt o nastavov\u00e1n\u00ed automatiza\u010dn\u00edch pravidel, od z\u00e1kladn\u00edch konceptu po pokro\u010dil\u00e9 konfigurace.</p>
 
@@ -851,10 +851,12 @@ var GUIDE_CONTENT = {
 <p>Ka\u017ed\u00e1 zna\u010dka m\u00e1 svou aplikaci, sv\u016fj cloud a svou automatizaci. Nativn\u011b spolu nekomunikuj\u00ed.</p>
 
 <h2>\u0158e\u0161en\u00ed: GrowVPD Pro jako centr\u00e1la</h2>
-<p>Podporovan\u00e9 platformy: Tuya/Smart Life, AC Infinity, Mars Hydro, Spider Farmer, TP-Link Tapo. V\u0161echna za\u0159\u00edzen\u00ed z r\u016fzn\u00fdch platform v jednom stanu, v jednom rozhran\u00ed.</p>
+<p>Podporovan\u00e9 platformy: Tuya/Smart Life, AC Infinity, Mars Hydro, Spider Farmer, Vivosun, Bluelab a SANlight. V\u0161echna za\u0159\u00edzen\u00ed z r\u016fzn\u00fdch platform v jednom stanu, v jednom rozhran\u00ed.</p>
 
 <h2>Re\u00e1ln\u00e9 sc\u00e9n\u00e1\u0159e</h2>
-<p>Tuya senzor + Mars Hydro ventil\u00e1tor, AC Infinity kontrolér + Tuya z\u00e1suvka se zvlh\u010dova\u010dem, kamera timelapse z r\u016fzn\u00fdch zna\u010dek.</p>
+<p><strong>Sc\u00e9n\u00e1\u0159 1 (stejn\u00e1 zna\u010dka):</strong> AC Infinity Controller 69/89 Pro \u010dte vlastn\u00ed sondu teploty a vlhkosti, po\u010d\u00edt\u00e1 VPD a p\u0159es UIS kabel \u0159\u00edd\u00ed Cloudline ventil\u00e1tor. \u010cist\u00e9 a spolehliv\u00e9.</p>
+<p><strong>Sc\u00e9n\u00e1\u0159 2 (libovoln\u00fd senzor &rarr; Tuya plug &rarr; hloup\u00fd topn\u00edk):</strong> Kdy\u017e teplota v noci klesne pod 18 &deg;C, Tuya smart plug sepne b\u011b\u017en\u00fd olejov\u00fd topn\u00edk a po n\u00e1vratu ho vypne. Pracuje s jak\u00fdmkoliv senzorem &mdash; AC Infinity, Bluelab, SwitchBot nebo lacinou Tuya Zigbee sondou.</p>
+<p><strong>Sc\u00e9n\u00e1\u0159 3 (Bluelab Pulse &rarr; notifikace pH driftu):</strong> Pulse hl\u00edd\u00e1 p\u0159es Edenic cloud pH v ko\u0159enov\u00e9 z\u00f3n\u011b. Kdy\u017e vyjede z bezpe\u010dn\u00e9ho p\u00e1sma, aplikace po\u0161le notifikaci s hodnotou a aktu\u00e1ln\u00ed f\u00e1z\u00ed &mdash; korekci \u017eivin nech\u00e1v\u00e1 na v\u011bdom\u00e9m lidsk\u00e9m rozhodnut\u00ed.</p>
 
 <h2>Pro\u010d to je d\u016fle\u017eit\u00e9</h2>
 <p>Kupujte nejlep\u0161\u00ed vybaven\u00ed pro ka\u017ed\u00fd \u00fa\u010del. Jeden dashboard pro v\u0161e. Sjednocen\u00e9 sledov\u00e1n\u00ed energie nap\u0159\u00ed\u010d platformami.</p>

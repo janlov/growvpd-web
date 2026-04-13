@@ -187,7 +187,7 @@ var GUIDE_CONTENT = {
                 <p>GrowVPD Pro תומך בקו <strong>iConnect</strong> של Mars Hydro: מאווררי צינור (0&ndash;100%), תאורת LED (עמעום), חיישנים סביבתיים ובקרים.</p>
 
                 <div class="important-box">
-                    <strong>GrowVPD Pro מצמד מכשירים ישירות</strong> &mdash; אפליקציית MarsPro אינה נדרשת. Bluetooth (BLE) משמש פעם אחת בלבד בזמן הצימוד ישירות ב-GrowVPD Pro, לאחר מכן כל השליטה עוברת דרך WiFi/MQTT.
+                    <strong>GrowVPD Pro פועל כאפליקציה משלימה לצד MarsPro</strong> &mdash; Bluetooth (BLE) משמש פעם אחת בלבד בזמן הצימוד, לאחר מכן כל השליטה עוברת דרך WiFi/MQTT, אותו פרוטוקול ענן ש-MarsPro משתמש בו. אנחנו מעריצים גדולים של Mars Hydro ונשמח לשתף פעולה ישירות עם הצוות שלהם.
                 </div>
 
                 <h2>דרישות מוקדמות</h2>
@@ -236,7 +236,7 @@ var GUIDE_CONTENT = {
                         <li>צור או בחר <strong>אוהל</strong></li>
                         <li>שייך חיישנים ומפעילים של Mars Hydro</li>
                     </ul>
-                    <p>ניתן לשלב מכשירים ממותגים שונים באותו אוהל &mdash; חיישן Tuya יכול להפעיל מאוורר Mars Hydro.</p>
+                    <p>ניתן לשלב מכשירים ממותגים שונים באותו אוהל &mdash; תאורת Mars Hydro על לוח זמנים של זריחה/שקיעה לצד AC Infinity Controller 69 שמנהל VPD על מאוורר Cloudline משלו.</p>
                 </div>
 
                 <div class="step-card">
@@ -274,7 +274,7 @@ var GUIDE_CONTENT = {
                 </ul>
 
                 <h2>שילוב עם פלטפורמות אחרות</h2>
-                <p>חיישן Tuya + מאוורר Mars Hydro, חיישן Mars Hydro + שקע Tuya, תאורת Mars Hydro + מאוורר AC Infinity. הכל מאותה לשונית אוטומציה.</p>
+                <p>שילובים הגיוניים: AC Infinity Controller 69/89 Pro מנהל את מאוורר Cloudline שלו לפי VPD, בעוד תאורות Mars Hydro, Spider Farmer או Vivosun רצות על לוח זמנים משותף של זריחה/שקיעה. Bluelab Pulse עוקב אחר pH בזון השורשים דרך ענן Edenic ושולח התראות, ושקע חכם של Tuya משמש כמתג פשוט לתנור שמן קלאסי. הכל מאותה לשונית אוטומציה.</p>
 
                 <div class="warning-box">
                     <strong>זכור:</strong> מכשירי Mars Hydro WiFi דורשים אינטרנט פעיל. ללא אינטרנט, האוטומציה מושהית (המכשירים ממשיכים עם הערכים האחרונים).
@@ -495,11 +495,11 @@ var GUIDE_CONTENT = {
                 <p>כל מותג יש לו אפליקציה משלו. GrowVPD Pro פותר את זה על ידי חיבור לכל הפלטפורמות בו-זמנית.</p>
                 <h2>איך זה עובד</h2>
                 <p>GrowVPD Pro מתקשר עם API הענן של כל פלטפורמה באופן עצמאי.</p>
-                <h2>הגדרות בין-מותגיות פופולריות</h2>
+                <h2>תרחישים מציאותיים</h2>
                 <ul>
-                    <li><strong>חיישן Tuya + מאוורר Mars Hydro</strong></li>
-                    <li><strong>חיישן AC Infinity + שקע Tuya</strong></li>
-                    <li><strong>חיישן Mars Hydro + תאורת Spider Farmer</strong></li>
+                    <li><strong>בקר AC Infinity 69/89 Pro מנהל את המאוורר שלו עצמו</strong> &mdash; אותו מותג, הבקר קורא את חיישן הטמפרטורה והלחות המובנה, מחשב VPD ומכוון את המאוורר Cloudline דרך כבל UIS כדי לשמור על טווח היעד של כל שלב.</li>
+                    <li><strong>כל חיישן &rarr; שקע Tuya &rarr; תנור בסיסי</strong> &mdash; כשהטמפרטורה יורדת מתחת ל-18 &deg;C בלילה, שקע חכם של Tuya מפעיל תנור שמן רגיל עד שהאוהל מתאושש. עובד עם כל חיישן שאתה סומך עליו.</li>
+                    <li><strong>Bluelab Pulse &rarr; התראת סחף pH (רק התראה)</strong> &mdash; Pulse משגיח על ה-pH באזור השורשים דרך ענן Edenic. כשזה יוצא מהטווח הבטוח, האפליקציה שולחת התראה &mdash; תיקון המזינים נשאר החלטה אנושית מכוונת.</li>
                 </ul>
 `
   },

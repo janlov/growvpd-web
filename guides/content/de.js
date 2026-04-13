@@ -250,7 +250,7 @@ var GUIDE_CONTENT = {
 <p>GrowVPD Pro unterst\u00fctzt die Mars Hydro <strong>iConnect</strong>-Reihe: Inline-L\u00fcfter (0&ndash;100%), LED-Growlampen (Dimmen), Umgebungssensoren und Controller.</p>
 
 <div class="important-box">
-    <strong>GrowVPD Pro koppelt Ger\u00e4te direkt</strong> &mdash; die MarsPro-App wird NICHT ben\u00f6tigt. Bluetooth (BLE) wird einmalig beim Pairing direkt in GrowVPD Pro verwendet, danach l\u00e4uft alles \u00fcber WiFi/MQTT.
+    <strong>GrowVPD Pro l\u00e4uft als Companion-App neben MarsPro</strong> &mdash; Bluetooth (BLE) wird einmalig beim Pairing genutzt, danach l\u00e4uft die Steuerung \u00fcber WiFi/MQTT, also dasselbe Cloud-Protokoll, das auch MarsPro verwendet. Wir sind gro\u00dfe Fans von Mars Hydro und w\u00fcrden sehr gerne direkt mit dem Team zusammenarbeiten.
 </div>
 
 <h2>Voraussetzungen</h2>
@@ -299,7 +299,7 @@ var GUIDE_CONTENT = {
         <li>Erstelle oder w\u00e4hle ein <strong>Zelt</strong></li>
         <li>Weise Mars Hydro Sensoren und Aktoren zu</li>
     </ul>
-    <p>Ger\u00e4te verschiedener Marken im selben Zelt mischbar &mdash; ein Tuya-Sensor kann einen Mars Hydro-L\u00fcfter steuern.</p>
+    <p>Ger\u00e4te verschiedener Marken im selben Zelt mischbar &mdash; eine Mars Hydro LED auf Sonnenauf-/untergangsplan neben einem AC Infinity Controller 69, der seinen eigenen Cloudline-L\u00fcfter per VPD steuert.</p>
 </div>
 
 <div class="step-card">
@@ -337,7 +337,7 @@ var GUIDE_CONTENT = {
 </ul>
 
 <h2>Mit anderen Plattformen kombinieren</h2>
-<p>Cross-Plattform-Automatisierung: Tuya-Sensor + Mars Hydro-L\u00fcfter, Mars Hydro-Sensor + Tuya-Steckdose, Mars Hydro-Lampe + AC Infinity-L\u00fcfter. Alles im selben Tab.</p>
+<p>Sinnvolle Kombinationen: Der AC Infinity Controller 69/89 Pro steuert seinen eigenen Cloudline-L\u00fcfter per VPD, w\u00e4hrend Mars Hydro, Spider Farmer oder Vivosun LEDs auf einem gemeinsamen Sonnenauf-/untergangsplan laufen. Ein Bluelab Pulse \u00fcberwacht den Wurzel-pH \u00fcber die Edenic-Cloud und schickt Benachrichtigungen, eine Tuya-Steckdose dient als simpler Ein-/Ausschalter f\u00fcr einen klassischen \u00d6lradiator. Alles im selben Automatisierungs-Tab.</p>
 
 <div class="warning-box">
     <strong>Denke daran:</strong> Mars Hydro WiFi-Ger\u00e4te brauchen aktives Internet. Bei Ausfall pausiert die Automatisierung (Ger\u00e4te laufen mit letzten Werten weiter).
@@ -348,7 +348,7 @@ var GUIDE_CONTENT = {
 "automation-rules": {
   title: "Smart-Automatisierungsregeln in GrowVPD Pro einrichten",
   body: `
-<p>Eine der leistungsst\u00e4rksten Funktionen ist die F\u00e4higkeit, Automatisierungsregeln zu erstellen, die <strong>marken\u00fcbergreifend</strong> funktionieren. Kein anderes Grow-Tool bietet dieses Level an Cross-Brand-Steuerung.</p>
+<p>Eine der leistungsst\u00e4rksten Funktionen ist die F\u00e4higkeit, Automatisierungsregeln zu erstellen, die <strong>marken\u00fcbergreifend</strong> funktionieren. Jede Marke ist in ihrem eigenen \u00d6kosystem am besten (AC Infinity Controller f\u00fcr Cloudline, Mars Hydro iHub f\u00fcr eigene L\u00fcfter), und GrowVPD Pro verbindet sie: ein gemeinsamer Lichtzeitplan \u00fcber mehrere LED-Marken, Bluelab Pulse pH-Benachrichtigungen \u00fcber Edenic, und eine einfache Tuya-Steckdose als Schalter f\u00fcr einen billigen Heizer oder Befeuchter \u2014 ausgel\u00f6st von jedem Sensor, dem du vertraust. Kein anderes Grow-Tool bietet dieses Level an Cross-Brand-Steuerung.</p>
 
 <h2>Was sind Automatisierungsregeln?</h2>
 <p>Eine einfache Ursache-Wirkungs-Anweisung: <strong>Wenn eine Bedingung erf\u00fcllt ist, f\u00fchre eine Aktion aus</strong>. GrowVPD Pro pr\u00fcft Regeln alle 15 Minuten im Hintergrund.</p>
@@ -375,11 +375,14 @@ var GUIDE_CONTENT = {
 <p>Zeitbeschr\u00e4nkungen, Phasenfilter, max. Laufzeit, min. Aus-Zeit, min. Ein-Zeit, Priorit\u00e4t.</p>
 
 <h2>Beispiel-Regeln</h2>
-<h3>VPD-Steuerung mit Cross-Brand-Ger\u00e4ten</h3>
-<p>Tuya-Sensor, VPD &gt; 1,4 kPa, Hysterese 0,1, Ziel: Mars Hydro Luftbefeuchter, Ein/Aus.</p>
+<h3>VPD-Regelkreis mit AC Infinity</h3>
+<p>AC Infinity Controller 69/89 Pro misst Temperatur und Luftfeuchtigkeit mit seiner eingebauten Sonde, und steuert seinen eigenen UIS Cloudline-L\u00fcfter, wenn das VPD \u00fcber 1,4 kPa driftet (Hysterese 0,1). Alles innerhalb einer Marke &mdash; am zuverl\u00e4ssigsten.</p>
 
-<h3>Nacht-Temperaturschutz</h3>
-<p>Temperatur &lt; 18&deg;C, Hysterese 2&deg;C, Tuya-Steckdose mit Heizer, nur nachts.</p>
+<h3>Nacht-Temperaturschutz mit Tuya-Steckdose</h3>
+<p>Jeder Temperatursensor (AC Infinity, Mars Hydro, SwitchBot) &lt; 18&deg;C, Hysterese 2&deg;C, Ziel: Tuya-Steckdose mit billigem \u00d6lradiator, aktiv 20:00&ndash;06:00. Der WiFi-Stecker ist hier ein dummer Schalter &mdash; der eigentliche Sensor muss nicht von Tuya sein.</p>
+
+<h3>Bluelab Pulse pH-Benachrichtigung</h3>
+<p>Bluelab Pulse pH &lt; 5,6 oder &gt; 6,4 (Hysterese 0,1), Aktion: Benachrichtigung senden. Bluelab via Edenic-Cloud ist lesen-only &mdash; also gibt es keinen Aktor, aber der Alarm kommt sofort beim \u00dcberschreiten.</p>
 
 <h2>Sicherheitsfunktionen</h2>
 <p>Hysterese, Mindest-Aus-Zeit, Maximal-Laufzeit, Priorit\u00e4tsstufen, Anti-Konflikt-Erkennung.</p>
@@ -606,13 +609,15 @@ var GUIDE_CONTENT = {
 <p>Jede Smart-Device-Marke hat ihre eigene App, eigene Cloud, eigene Automatisierung. Nativ reden sie nicht miteinander.</p>
 
 <h2>Die L\u00f6sung: GrowVPD Pro als Hub</h2>
-<p>Unterst\u00fctzte Plattformen: Tuya/Smart Life, AC Infinity, Mars Hydro, Spider Farmer, TP-Link Tapo. Alle Ger\u00e4te von verschiedenen Plattformen in einem Zelt, einer Oberfl\u00e4che.</p>
+<p>Unterst\u00fctzte Plattformen: Tuya/Smart Life, AC Infinity, Mars Hydro, Spider Farmer, Vivosun, Bluelab und SANlight. Alle Ger\u00e4te von verschiedenen Plattformen in einem Zelt, einer Oberfl\u00e4che.</p>
 
 <h2>Praxisnahe Cross-Brand-Szenarien</h2>
-<p>Tuya-Sensor + Mars Hydro-L\u00fcfter, AC Infinity-Controller + Tuya-Befeuchter-Steckdose, Kamera-Timelapse von verschiedenen Marken.</p>
+<p><strong>Szenario 1 (gleiche Marke):</strong> Dein AC Infinity Controller 69/89 Pro liest seine eigene Temperatur- und Feuchtesonde, berechnet live den VPD und regelt den Cloudline-L\u00fcfter \u00fcber das UIS-Kabel, um den Zielwert jeder Phase zu halten. Gleiche Marke, eine saubere Regel &mdash; der Controller bleibt Chef, GrowVPD Pro gibt nur das Ziel vor.</p>
+<p><strong>Szenario 2 (beliebiger Sensor &rarr; Tuya-Steckdose &rarr; einfacher Heizer):</strong> Unter 18 &deg;C nachts? Eine Tuya-Smart-Steckdose schaltet einen gew\u00f6hnlichen \u00d6lradiator ein, bis sich das Zelt erholt hat, und schaltet ihn dann aus. Funktioniert mit jedem Sensor, dem du vertraust &mdash; AC Infinity, Bluelab, SwitchBot oder eine g\u00fcnstige Tuya-Zigbee-Sonde.</p>
+<p><strong>Szenario 3 (Bluelab Pulse &rarr; pH-Drift-Alarm, nur Benachrichtigung):</strong> Ein Bluelab Pulse \u00fcberwacht den Wurzelbereich-pH \u00fcber die Edenic-Cloud. Wenn er aus deinem sicheren Bereich l\u00e4uft, schickt GrowVPD Pro eine Benachrichtigung mit Messwert und aktueller Phase &mdash; die N\u00e4hrstoffkorrektur bleibt eine bewusste menschliche Entscheidung, nie eine stille Auto-Dosierung.</p>
 
 <h2>Warum das f\u00fcr Grower wichtig ist</h2>
-<p>Kaufe die beste Ausr\u00fcstung f\u00fcr jeden Job. Ein Dashboard f\u00fcr alles. Einheitliche Energieverfolgung \u00fcber alle Plattformen.</p>
+<p>W\u00e4hle die beste Ausr\u00fcstung f\u00fcr jeden Job: die pr\u00e4zisesten Sensoren (Bluelab Pulse f\u00fcr pH/EC, AC Infinity f\u00fcr T/RH im Bestand), die besten L\u00fcfter (AC Infinity Cloudline mit UIS), die besten LEDs (Mars Hydro, Spider Farmer, Vivosun oder SANlight) und Tuya-Kameras f\u00fcr t\u00e4gliche Snapshots. Ein Dashboard f\u00fcr alles, einheitliche Energieverfolgung \u00fcber alle Plattformen.</p>
 
 <div class="warning-box">
     <strong>Hinweis:</strong> Cross-Brand-Automatisierung erfordert ein Pro-Abonnement.
