@@ -303,6 +303,26 @@ ul{list-style:none}
 .why-unit{font-size:1rem;font-weight:700;color:#78909C;text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px}
 .why-card p{font-size:.88rem;color:#90A4AE;line-height:1.5}
 
+/* === STORY (indie narrative) === */
+.story{padding:110px 0;background:linear-gradient(180deg,#fff 0%,#F1F8E9 60%,#E8F5E9 100%);position:relative;overflow:hidden}
+.story::before{content:"";position:absolute;top:-120px;right:-120px;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(46,125,50,.08),transparent 70%);pointer-events:none}
+.story::after{content:"";position:absolute;bottom:-140px;left:-140px;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(129,199,132,.12),transparent 70%);pointer-events:none}
+.story .container{position:relative;z-index:1}
+.story-content{max-width:760px;margin:0 auto 64px;text-align:start}
+.story-para{font-size:1.06rem;line-height:1.85;color:#37474F;margin-bottom:26px;text-align:start}
+.story-para:last-child{margin-bottom:0}
+.story-para strong{color:#1B5E20;font-weight:700}
+.story-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:760px;margin:0 auto;padding-top:48px;border-top:1px solid rgba(46,125,50,.18)}
+.story-stat{text-align:center;padding:8px 4px}
+.story-stat-value{font-size:3.2rem;font-weight:900;color:#2E7D32;line-height:1;letter-spacing:-.02em;margin-bottom:10px;font-variant-numeric:tabular-nums}
+.story-stat-label{font-size:.86rem;color:#546E7A;font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+@media (max-width:760px){
+.story{padding:80px 0}
+.story-para{font-size:1rem;line-height:1.78;margin-bottom:22px}
+.story-stats{grid-template-columns:1fr;gap:32px;padding-top:36px}
+.story-stat-value{font-size:2.6rem}
+}
+
 /* === COMMUNITY === */
 .community{padding:100px 0;background:#fff}
 .community-hero{margin-bottom:40px}
