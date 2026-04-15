@@ -699,422 +699,1668 @@ var GUIDE_CONTENT = {
 },
 
 "equipment-setup": {
-  title: "Datab\u00e1ze vybaven\u00ed a pr\u016fvodce sestavou",
+  title: "Databáze vybavení a průvodce sestavením stanu",
   body: `
-<p>V\u00fdb\u011br spr\u00e1vn\u00e9ho vybaven\u00ed je jedním z nejd\u016fle\u017eit\u011bj\u0161\u00edch rozhodnut\u00ed. GrowVPD Pro obsahuje datab\u00e1zi <strong>200+ produkt\u016f od 47 zna\u010dek</strong>, kalkula\u010dky \u017eivin a ventilace, a pr\u016fvodce sestavou.</p>
+<p>Volba správného vybavení je jedno z nejdůležitějších rozhodnutí, které jako indoor pěstitel uděláš. Příliš málo světla a rostliny budou podávat slabý výkon; příliš velká ventilace pro malý stan zbytečně plýtvá penězi; špatné poměry živin způsobují deficity. Karta Vybavení v GrowVPD Pro spojuje databázi produktů, kalkulačky a stavitele sestavy, které ti pomohou naplánovat a optimalizovat tvůj pěstební prostor.</p>
 
-<h2>Datab\u00e1ze vybaven\u00ed</h2>
-<p>Zahrnuje LED sv\u011btla, p\u011bstebn\u00ed stany, ventilaci, senzory a kontroléry s detailn\u00edmi technick\u00fdmi specifikacemi.</p>
+<h2>Databáze vybavení</h2>
 
-<h2>Kalkula\u010dka \u017eivin</h2>
-<p>Podporuje <strong>69+ hnojiv od 7 v\u00fdrobc\u016f</strong>: BioBizz, Canna, Plagron, Advanced Nutrients, General Hydroponics, Hesi, Atami. Vypo\u010d\u00edt\u00e1 p\u0159esn\u00e9 ml ka\u017ed\u00e9ho hnojiva na z\u00e1klad\u011b objemu vody a f\u00e1ze r\u016fstu.</p>
+<p>GrowVPD Pro obsahuje pečlivě sestavenou databázi s <strong>200+ produkty od 47 značek</strong>, pokrývající vše od LED světel až po kompletní ventilační sady. Nejedná se o obecný katalog produktů &mdash; každý záznam obsahuje technická data, která pro pěstování skutečně mají význam.</p>
 
-<h2>M\u00edcha\u010d substr\u00e1t\u016f</h2>
-<p>Vytvo\u0159te a ulo\u017ete vlastn\u00ed recepty substr\u00e1t\u016f s vypo\u010dten\u00fdmi objemy komponent.</p>
+<h3>Co je součástí</h3>
 
-<h2>Kalkula\u010dka ventilace</h2>
-<p>Zadejte rozm\u011bry stanu a z\u00edskejte doporu\u010den\u00ed minim\u00e1ln\u00edho CFM s ohledem na uhl\u00edkov\u00fd filtr, d\u00e9lku potrub\u00ed a tepeln\u00fd v\u00fdkon.</p>
+<ul>
+    <li><strong>LED pěstební světla</strong> &mdash; příkon, PPE (fotonová účinnost v &mu;mol/J), PPFD v různých výškách, pokrytí podle velikosti stanu, typ spektra, rozsah stmívání</li>
+    <li><strong>Pěstební stany</strong> &mdash; rozměry, tloušťka materiálu, počet a velikost portů, odrazivost, nosnost vzpěr</li>
+    <li><strong>Ventilace</strong> &mdash; inline ventilátory (CFM hodnocení, hlučnost v dB, typ regulátoru otáček), uhlíkové filtry (kapacita CFM, hloubka uhlíkového lože), vzduchotechnické hadice</li>
+    <li><strong>Senzory prostředí</strong> &mdash; měřené parametry (teplota, RH, CO2, PPFD, půda), konektivita (WiFi, BLE, cloudová platforma), přesnost</li>
+    <li><strong>Ovladače</strong> &mdash; AC Infinity controllery, Tuya smart plugy, Mars Hydro iConnect zařízení, počet zásuvek, možnosti automatizace</li>
+</ul>
 
-<h2>Pr\u016fvodce sestavou</h2>
-<p>Provede v\u00e1s navr\u017een\u00edm kompletn\u00edho p\u011bstebn\u00edho prostoru od nuly: v\u00fdb\u011br stanu, doporu\u010den\u00ed sv\u011btla, dimenzov\u00e1n\u00ed ventilace a celkov\u00fd v\u00fdpo\u010det p\u0159\u00edkonu.</p>
+<h3>Vyhledávání a filtrování</h3>
 
-<h2>Profily vybaven\u00ed</h2>
-<p>Ulo\u017ete si cel\u00e9 nastaven\u00ed stanu jako znovu pou\u017eiteln\u00fd profil (Pro funkce). Profily jsou sd\u00edleny mezi z\u00e1lo\u017ekami Vybaven\u00ed a Automatizace.</p>
+<p>Databázi můžeš procházet podle kategorie nebo vyhledávat podle názvu značky, názvu produktu nebo specifikací. Filtry ti umožní zúžit výsledky podle:</p>
 
-<h2>Odhad v\u00fdnosu</h2>
-<p>Poskytuje p\u0159ibli\u017en\u00fd odhad na z\u00e1klad\u011b p\u0159\u00edkonu sv\u011btla, velikosti stanu, p\u011bstebn\u00ed metody a \u00farovn\u011b zku\u0161enost\u00ed. Typick\u00fd rozsah: 0,5&ndash;1,0 g/W za\u010d\u00e1te\u010dn\u00edk, 1,0&ndash;1,5+ g/W zku\u0161en\u00fd p\u011bstitel.</p>
+<ul>
+    <li><strong>Značky</strong> &mdash; Mars Hydro, Spider Farmer, AC Infinity, Lumatek, Gavita, SANlight a 40+ dalších</li>
+    <li><strong>Kategorie</strong> &mdash; světla, stany, ventilace, senzory, ovladače, příslušenství</li>
+    <li><strong>Kompatibility s velikostí stanu</strong> &mdash; vybereš rozměry svého stanu a databáze ti ukáže vhodně dimenzované produkty</li>
+    <li><strong>Cenového rozpětí</strong> &mdash; filtr podle rozpočtu</li>
+</ul>
+
+<blockquote>
+    <strong>Tip:</strong> Při porovnávání LED světel se zaměř na PPE (&mu;mol/J), ne na příkon. Světlo s účinností 2,7 &mu;mol/J přemění více elektřiny na využitelné světlo pro rostliny než světlo s 2,0 &mu;mol/J. 240W světlo s PPE 2,7 překoná 320W světlo s PPE 2,0 při nižší spotřebě i nižší tvorbě tepla.
+</blockquote>
+
+<h2>Kalkulačka živin</h2>
+
+<p>Vestavěná kalkulačka živin odstraňuje hádání při míchání krmné roztoku. Podporuje <strong>69+ hnojiv od 7 hlavních značek</strong>:</p>
+
+<ul>
+    <li><strong>BioBizz</strong> &mdash; Bio-Grow, Bio-Bloom, Top-Max, Root-Juice atd.</li>
+    <li><strong>Canna</strong> &mdash; Terra Vega/Flores, Coco A/B, Cannazym, PK 13/14 atd.</li>
+    <li><strong>Plagron</strong> &mdash; Alga Grow/Bloom, Terra Grow/Bloom, Green Sensation atd.</li>
+    <li><strong>Advanced Nutrients</strong> &mdash; pH Perfect Grow/Micro/Bloom, Big Bud, Overdrive atd.</li>
+    <li><strong>General Hydroponics</strong> &mdash; Flora řada, CaliMagic atd.</li>
+    <li><strong>Hesi</strong> &mdash; TNT Complex, Bloom Complex, Phosphorus Plus atd.</li>
+    <li><strong>Atami</strong> &mdash; Bloombastic, Rootbastic, ATA řada atd.</li>
+</ul>
+
+<h3>Jak ji používat</h3>
+
+<ol>
+    <li>Vyber z databáze živiny, které používáš</li>
+    <li>Zadej objem vody (litry nebo galony)</li>
+    <li>Vyber aktuální růstovou fázi (kalkulačka upraví doporučené koncentrace)</li>
+    <li>Aplikace spočítá <strong>přesné množství ml každé živiny</strong> k přidání do nádrže</li>
+</ol>
+
+<p>Kalkulačka dodržuje doporučené krmné plány každého výrobce se správnými poměry. Můžeš upravit sílu dávkování (např. 50 % pro sazenice, 100 % pro plnou květovou dávku) a aplikace proporčně přeškáluje všechny živiny.</p>
+
+<h2>Mixér substrátů</h2>
+
+<p>Pokud si mícháš vlastní pěstební médium, mixér substrátů ti pomůže vytvořit a uložit vlastní recepty. Definuj komponenty (rašelina, perlit, vermikulit, kokosové vlákno, kaly z kompostu atd.), nastav poměr pro každou a ulož recept. Mixér spočítá skutečný objem každé složky podle celkového cílového objemu.</p>
+
+<p>Uložené recepty jsou dostupné při vytváření každého nového growu v deníku, takže můžeš zaznamenat přesně jakou substrátovou směs jsi použil. Postupně napříč grovy uvidíš, která směs přinesla nejlepší výsledky pro konkrétní odrůdu.</p>
+
+<h2>Ventilační kalkulačka</h2>
+
+<p>Správná výměna vzduchu je kritická pro řízení teploty, správu vlhkosti a doplňování CO2. Ventilační kalkulačka ti pomůže správně dimenzovat odtahový systém.</p>
+
+<h3>Zadej rozměry stanu</h3>
+
+<p>Zadej délku, šířku a výšku svého stanu. Kalkulačka spočítá objem v kubických stopách a určí základní CFM (kubických stop za minutu) potřebných pro dostatečnou výměnu vzduchu.</p>
+
+<h3>Korekční faktory</h3>
+
+<p>Kalkulačka používá korekční faktory podle tvé sestavy:</p>
+
+<ul>
+    <li><strong>Uhlíkový filtr</strong> &mdash; snižuje efektivní CFM zhruba o 25 % (kalkulačka tuto rezervu přidá)</li>
+    <li><strong>Délka a ohyby vzduchotechniky</strong> &mdash; každý ohyb a každý metr hadice navíc přidává odpor; kalkulačka s tím počítá</li>
+    <li><strong>Teplota</strong> &mdash; pokud je okolní teplota vysoká, potřebuješ větší průtok vzduchu, abys udržel cílovou teplotu; kalkulačka navrhne vyšší násobitel CFM</li>
+    <li><strong>Tepelný výkon světla</strong> &mdash; na základě příkonu světla (z databáze vybavení nebo ručně zadaného)</li>
+</ul>
+
+<p>Výsledkem je <strong>doporučená minimální hodnota CFM</strong> pro tvůj inline ventilátor. Kalkulačka pak navrhne vhodné ventilátory z databáze vybavení.</p>
+
+<blockquote>
+    <strong>Tip:</strong> Vždy dimenzuj ventilátor o jeden stupeň nad minimální doporučení. 6palcový ventilátor běžící na 60 % je tišší a lépe regulovatelný než 4palcový, který řve na 100 %. Extra rezerva také znamená, že si tvůj ventilátor poradí s dodatečným statickým tlakem z uhlíkového filtru bez přetížení.
+</blockquote>
+
+<h2>Stavitel sestavy</h2>
+
+<p>Stavitel sestavy tě provede návrhem kompletního pěstebního prostoru od nuly. Je zvlášť užitečný pro začínající pěstitele nebo kohokoli, kdo buduje nový stan.</p>
+
+<ol>
+    <li><strong>Vyber velikost stanu</strong> &mdash; vyber ze standardních velikostí (60x60, 80x80, 100x100, 120x120 cm atd.) nebo zadej vlastní rozměry</li>
+    <li><strong>Doporučení světla</strong> &mdash; aplikace navrhne LED světla z databáze, která poskytují dostatečné pokrytí PPFD pro zvolenou velikost stanu, seřazená podle účinnosti</li>
+    <li><strong>Dimenzování ventilace</strong> &mdash; na základě objemu stanu a tepelného výstupu vybraného světla aplikace doporučí kombinace ventilátoru a filtru</li>
+    <li><strong>Výpočet celkového příkonu</strong> &mdash; uvidíš součet příkonu všeho zvoleného vybavení a odhadovanou měsíční spotřebu elektřiny</li>
+    <li><strong>Odhad tepelného výkonu</strong> &mdash; stavitel spočítá celkové generované teplo, abys mohl naplánovat chlazení, pokud je potřeba</li>
+    <li><strong>Seznam vybavení</strong> &mdash; zkontroluj svou kompletní sestavu a volitelně ji ulož jako profil vybavení</li>
+</ol>
+
+<h2>Profily vybavení</h2>
+
+<p>Profily vybavení (Pro funkce) ti umožní uložit celou sestavu stanu &mdash; světlo, ventilátor, filtr, senzory, květináče a substrát &mdash; jako opakovaně použitelnou konfiguraci. To je užitečné, když:</p>
+
+<ul>
+    <li><strong>Provozuješ více stanů</strong> &mdash; každý stan má svůj profil, takže si můžeš zaznamenat, které vybavení je ve kterém stanu</li>
+    <li><strong>Přepínáš mezi grovy</strong> &mdash; při startu nového growu vybereš profil a všechny informace o vybavení se automaticky předvyplní do deníku</li>
+    <li><strong>Upgraduješ vybavení</strong> &mdash; porovnej svůj starý profil s novým, abys viděl, co se změnilo</li>
+</ul>
+
+<p>Profily vybavení jsou sdílené mezi kartou Vybavení a kartou Automatizace. Když vytvoříš stan na kartě Automatizace pro správu chytrých zařízení, automaticky se vytvoří profil vybavení. Když v deníku přiřadíš grow k tomuto stanu, informace o vybavení se přenesou.</p>
+
+<h2>Odhadovač výnosu</h2>
+
+<p>Odhadovač výnosu poskytuje hrubou predikci toho, co bys mohl sklidit, na základě několika faktorů:</p>
+
+<ul>
+    <li><strong>Příkon světla</strong> &mdash; hlavní hybatel potenciálu výnosu</li>
+    <li><strong>Velikost stanu</strong> &mdash; dostupná plocha koruny</li>
+    <li><strong>Metoda pěstování</strong> &mdash; SOG, ScrOG, mainlining, přirozený růst (techniky tvarování obecně zvyšují výnos na jednotku plochy)</li>
+    <li><strong>Úroveň zkušeností</strong> &mdash; odhadovač upravuje očekávání pro začínajícího, středně pokročilého a pokročilého pěstitele</li>
+</ul>
+
+<p>Výstupem je <strong>odhad gramů na watt</strong> a celkový rozsah výnosu. Pro typickou moderní LED sestavu očekávej 0,5&ndash;1,0 g/W jako začátečník a 1,0&ndash;1,5+ g/W jako zkušený pěstitel s optimalizovanými podmínkami.</p>
+
+<blockquote>
+    <strong>Pamatuj:</strong> Odhady výnosu jsou ze své podstaty hrubé. Genetika, kontrola VPD, správa živin, tréninkové techniky a nespočet dalších faktorů ovlivňují konečné číslo. Používej odhadovač jako obecné měřítko, ne jako záruku. Nejpřesnější prediktor tvého výnosu jsou tvá vlastní data z deníku z minulých sklizní stejné odrůdy.
+</blockquote>
 `
 },
 
 "vpd-seedling-clone": {
-  title: "VPD pro sazenice a \u0159\u00edzky: Jak na to spr\u00e1vn\u011b",
+  title: "VPD pro semenáčky a klony: Jak to udělat správně",
   body: `
-<h2>Pro\u010d sazenice a \u0159\u00edzky pot\u0159ebuj\u00ed zvl\u00e1\u0161tn\u00ed pozornost</h2>
-<p>Sazenice a \u010derstv\u00e9 \u0159\u00edzky jsou nejzraniteln\u011bj\u0161\u00ed f\u00e1z\u00ed. Ko\u0159enov\u00fd syst\u00e9m je bu\u010f nevyvinut\u00fd (sazenice) nebo neexistuj\u00edc\u00ed (\u0159\u00edzky). Pokud je vzduch p\u0159\u00edli\u0161 such\u00fd, ztr\u00e1c\u00ed vodu rychleji, ne\u017e dok\u00e1\u017e\u00ed nahradit.</p>
+<h2>Proč semenáčky a klony potřebují zvláštní pozornost</h2>
+<p>Semenáčky a čerstvě řezané klony jsou nejzranitelnější fází každého pěstování. Jejich kořenový systém je buď nevyvinutý (semenáčky), nebo neexistující (klony), což znamená, že se téměř úplně spoléhají na své listy pro absorpci vlhkosti z okolního vzduchu. Pokud je vzduch příliš suchý, ztrácejí vodu rychleji, než ji dokáží nahradit. Pokud je příliš vlhký bez proudění vzduchu, může je přes noc zničit houba způsobující padání klíčních rostlin (damping-off).</p>
+<p>VPD &mdash; Vapor Pressure Deficit (deficit tlaku vodní páry) &mdash; je jediné číslo, které vystihuje vztah mezi teplotou a vlhkostí tak, jak ho vnímá rostlina. Správné nastavení VPD v prvních 1&ndash;2 týdnech pokládá základ pro zdravé a vitální pěstování.</p>
 
-<h2>Ide\u00e1ln\u00ed rozsah VPD: 0,4&ndash;0,8 kPa</h2>
-<p>Praktick\u00e9 kombinace teploty a vlhkosti:</p>
+<h2>Ideální rozsah VPD: 0,4&ndash;0,8 kPa</h2>
+<p>Pro semenáčky a nezakořeněné klony chceš VPD mezi <strong>0,4 a 0,8 kPa</strong>. To je výrazně méně než 0,8&ndash;1,2 používaných ve vegetativní fázi, protože potřebuješ minimalizovat transpiraci, dokud kořeny nestačí pokrýt poptávku po vodě.</p>
+<p>Tady jsou praktické kombinace teploty a vlhkosti, které produkují VPD v tomto rozsahu:</p>
 <ul>
-    <li><strong>24&deg;C p\u0159i 80% RH</strong> &rarr; VPD ~0,60 kPa (ide\u00e1ln\u00ed)</li>
-    <li><strong>25&deg;C p\u0159i 85% RH</strong> &rarr; VPD ~0,48 kPa (dobr\u00e9 pro \u0159\u00edzky)</li>
-    <li><strong>23&deg;C p\u0159i 75% RH</strong> &rarr; VPD ~0,70 kPa (horn\u00ed konec)</li>
+    <li><strong>24&deg;C / 75&deg;F při 80% RH</strong> &rarr; VPD ~0,60 kPa (ideální sweet spot)</li>
+    <li><strong>25&deg;C / 77&deg;F při 85% RH</strong> &rarr; VPD ~0,48 kPa (vhodné pro čerstvé klony)</li>
+    <li><strong>23&deg;C / 73&deg;F při 75% RH</strong> &rarr; VPD ~0,70 kPa (horní hranice, semenáčky s nějakými kořeny)</li>
+    <li><strong>26&deg;C / 79&deg;F při 80% RH</strong> &rarr; VPD ~0,67 kPa (teplejší místnost, stále bezpečné)</li>
 </ul>
 
-<h2>Zvlh\u010dovac\u00ed kop\u016flky: V\u00e1\u0161 nejlep\u0161\u00ed p\u0159\u00edtel</h2>
-<p>Za\u010dn\u011bte zcela uzav\u0159en\u00e9, postupn\u011b otv\u00edrejte ventily od 3. dne, odstra\u0148te kop\u016flek v etap\u00e1ch kolem 7.&ndash;14. dne.</p>
+<blockquote>
+    <strong>Tip:</strong> Použij VPD graf v GrowVPD Pro k nalezení přesného průsečíku tvojí teploty a vlhkosti. Zelená zóna v grafu se mění podle fáze růstu &mdash; vyber "Semenáček/Klon" a uvidíš zvýrazněný správný cílový rozsah.
+</blockquote>
 
-<h2>\u0158\u00edzky vs. sazenice</h2>
-<p><strong>\u0158\u00edzky:</strong> C\u00edlov\u00e9 VPD 0,4&ndash;0,6 kPa, RH 80&ndash;90%, teplota 24&ndash;26&deg;C.</p>
-<p><strong>Sazenice:</strong> C\u00edlov\u00e9 VPD 0,5&ndash;0,8 kPa, RH 70&ndash;80%, teplota 23&ndash;26&deg;C.</p>
+<h2>Vlhčící kopule: Tvůj nejlepší přítel</h2>
+<p>Vlhčící kopule je nejjednodušším a nejefektivnějším nástrojem pro udržení vysoké vlhkosti kolem semenáčků a klonů. Vytváří mikroklima, kde se vlhkost ze substrátu a samotných rostlin udržuje uzavřená uvnitř, což udržuje RH na 80&ndash;90% i když tvoje místnost má 50&ndash;60%.</p>
 
-<h2>B\u011b\u017en\u00e9 chyby</h2>
+<h3>Nejlepší postupy pro vlhčící kopule</h3>
 <ul>
-    <li>P\u0159\u00edli\u0161 such\u00e1 m\u00edstnost bez kop\u016flky</li>
-    <li>P\u0159\u00edli\u0161 vysok\u00e1 teplota pod kop\u016flkou</li>
-    <li>P\u0159\u00edli\u0161 rychl\u00e9 odstra\u0148ov\u00e1n\u00ed kop\u016flky</li>
-    <li>\u017d\u00e1dn\u00fd pohyb vzduchu pod kop\u016flkou</li>
+    <li><strong>Začni úplně zavřenou.</strong> Prvních 2&ndash;3 dny po zasazení semen nebo řezání klonů udržuj kopuli úplně uzavřenou. Tím maximalizuješ vlhkost.</li>
+    <li><strong>Otevírej ventily postupně.</strong> Většina propagačních kopulí má nastavitelné ventily nahoře. Po 3. dni je mírně pootevři. Do 5.&ndash;7. dne je otevři napůl.</li>
+    <li><strong>Odstraňuj kopuli ve fázích.</strong> Kolem 7.&ndash;10. dne (nebo když uvidíš nové kořeny u klonů) odstraň kopuli na několik hodin denně. Do 10.&ndash;14. dne by kopule měla být úplně pryč.</li>
+    <li><strong>Denně stírej kondenzaci.</strong> Silná kondenzace kapající na semenáčky může způsobit damping-off. Každé ráno vytři vnitřek kopule.</li>
+    <li><strong>Vyhni se přímému světlu na kopuli.</strong> Kopule funguje jako skleník. Pod silným světlem může teplota uvnitř nebezpečně stoupat. Používej nižší intenzitu světla (200&ndash;300 PPFD) nebo zvedni světlo výš.</li>
 </ul>
 
-<h2>P\u0159echod do vegetace</h2>
-<p>Postupn\u00fd p\u0159echod na VPD 0,8&ndash;1,2 kPa b\u011bhem 3&ndash;5 dn\u00ed. Sni\u017ete RH na 60&ndash;70% a zvy\u0161te PPFD na 400&ndash;600.</p>
+<h2>Klony vs. semenáčky: Klíčové rozdíly</h2>
+
+<h3>Klony (řízky)</h3>
+<p>Klony nemají při čerstvém řezu žádné kořeny. Transpirují přes listy, ale mají nulovou schopnost absorbovat vodu ze substrátu. To je dělá extrémně citlivými na nízkou vlhkost.</p>
+<ul>
+    <li>Cílové VPD: <strong>0,4&ndash;0,6 kPa</strong> (spodní hranice rozsahu)</li>
+    <li>RH: <strong>80&ndash;90%</strong> pod kopulí</li>
+    <li>Teplota: <strong>24&ndash;26&deg;C</strong> (topná podložka pod podnosem pomáhá rozvoji kořenů)</li>
+    <li>Světlo: Jemné &mdash; 150&ndash;250 PPFD, režim 18/6</li>
+    <li>Rosit listy 1&ndash;2× denně, pokud RH klesne pod 75% pod kopulí</li>
+</ul>
+
+<h3>Semenáčky</h3>
+<p>Semenáčky mají od začátku maličký kůlový kořen, takže jsou o něco méně křehké než klony. Jejich kořenový systém je však stále minimální.</p>
+<ul>
+    <li>Cílové VPD: <strong>0,5&ndash;0,8 kPa</strong></li>
+    <li>RH: <strong>70&ndash;80%</strong></li>
+    <li>Teplota: <strong>23&ndash;26&deg;C</strong></li>
+    <li>Světlo: Střední &mdash; 200&ndash;400 PPFD, režim 18/6</li>
+    <li>Nepřelévej &mdash; udržuj substrát vlhký, ale ne promočený</li>
+</ul>
+
+<h2>Běžné chyby</h2>
+
+<h3>1. Příliš suchá místnost bez kopule</h3>
+<p>Mnoho začátečníků vynechá vlhčící kopuli a diví se, proč jejich klony během 48 hodin zvadnou a umřou. V typické pěstírně s 50&ndash;60% RH a 25&deg;C se VPD pohybuje kolem 1,2&ndash;1,6 kPa &mdash; což je daleko příliš vysoké pro bezkořenné řízky. Rostliny ztrácejí vodu rychleji, než ji stačí absorbovat.</p>
+
+<h3>2. Příliš vysoká teplota pod kopulí</h3>
+<p>Uzavřená kopule pod silným světlem může dosáhnout 35&deg;C a více. I při 90% RH to posune VPD na 0,56 kPa, ale samotné teplo způsobuje stres, protahování a poškození buněk. Udržuj kopuli mimo přímé intenzivní světlo a sleduj teplotu uvnitř.</p>
+
+<h3>3. Příliš rychlé odstranění kopule</h3>
+<p>Přechod z 85% RH uvnitř kopule na 55% RH ve volné místnosti je šok. VPD okamžitě skočí z ~0,5 na ~1,4 kPa. Přecházej postupně během 3&ndash;5 dnů postupným otevíráním ventilů a poté odstraňováním kopule na postupně delší časy.</p>
+
+<h3>4. Žádné proudění vzduchu pod kopulí</h3>
+<p>Stagnující, nasycený vzduch podporuje plíseň a damping-off. Velmi mírná výměna vzduchu &mdash; pootevřený ventil nebo krátké denní odstranění &mdash; udržuje vzduch zdravý, aniž by způsobila kolaps vlhkosti.</p>
+
+<div class="warning-box">
+    <strong>Pozor na damping-off:</strong> Pokud stonky semenáčků začnou být tenké, průsvitné a zhroutí se u země, příčinou je houba damping-off. Prospívá ve velmi vysoké vlhkosti se špatným prouděním vzduchu. Zajisti nějakou ventilaci i pod kopulemi a vyhýbej se přelévání.
+</div>
+
+<h2>Přechod do vegetativní fáze</h2>
+<p>Jakmile mají semenáčky 3&ndash;4 páry pravých listů nebo klony ukazují viditelný růst kořenů (obvykle 7&ndash;14 dnů), je čas přejít na vegetativní cílové hodnoty VPD <strong>0,8&ndash;1,2 kPa</strong>.</p>
+<p>Přechod by měl být postupný, ne náhlý:</p>
+<ol>
+    <li><strong>Dny 10&ndash;12:</strong> Odstraň kopuli. Sniž RH na 70&ndash;75% zvýšením ventilace nebo snížením výkonu zvlhčovače.</li>
+    <li><strong>Dny 12&ndash;14:</strong> Sniž RH na 65&ndash;70%. Rostliny by měly aktivně růst a více transpirovat.</li>
+    <li><strong>Den 14+:</strong> Cílová hodnota 60&ndash;70% RH při 24&ndash;26&deg;C. VPD by se mělo nyní pohybovat kolem 0,9&ndash;1,1 kPa. Zvyš intenzitu světla na 400&ndash;600 PPFD.</li>
+</ol>
+
+<blockquote>
+    <strong>Tip:</strong> GrowVPD Pro ti umožňuje nastavit různé cílové hodnoty VPD pro každou fázi růstu. Když změníš fázi v pěstitelském deníku ze "Semenáček" na "Vegetace", VPD graf automaticky aktualizuje cílový pás, takže vždy víš, jestli jsi v rozsahu.
+</blockquote>
+
+<h2>Monitoring s GrowVPD Pro</h2>
+<p>VPD graf v GrowVPD Pro vypočítává VPD v reálném čase z dat tvého senzoru. Pro semenáčky a klony je postup jednoduchý:</p>
+<ul>
+    <li>Umísti senzor teploty/vlhkosti dovnitř kopule nebo propagačního podnosu, na úrovni vrchlíku.</li>
+    <li>Nastav fázi růstu na "Semenáček" nebo "Klon", aby graf zvýraznil správnou cílovou zónu VPD.</li>
+    <li>Pokud používáš chytrou automatizaci, vytvoř pravidlo: když VPD stoupne nad 0,8, zapni zvlhčovač. Když VPD klesne pod 0,4, vypni ho. Tím udržíš své semenáčky v perfektní zóně 24/7.</li>
+    <li>Zaznamenávej denní údaje do pěstitelského deníku, abys sledoval, jak rychle se prostředí stabilizuje.</li>
+</ul>
 `
 },
 
 "vpd-flowering": {
-  title: "VPD b\u011bhem kv\u011bten\u00ed: Prevence hniloby palic a maximalizace v\u00fdnosu",
+  title: "VPD během kvetení: Zabraň hnilobě květů a maximalizuj výnos",
   body: `
-<h2>Pro\u010d kv\u011bten\u00ed vy\u017eaduje vy\u0161\u0161\u00ed VPD</h2>
-<p>Hust\u00e9 palice vytv\u00e1\u0159\u00ed kapsy zadr\u017een\u00e9 vlhkosti. Pokud z\u016fstane vlhkost p\u0159\u00edli\u0161 vysok\u00e1, voda kondenzuje uvnit\u0159 palic &mdash; v\u00fdsledkem je <strong>botrytis</strong> (hniloba palic).</p>
+<h2>Proč kvetení vyžaduje vyšší VPD</h2>
+<p>Během kvetení vytvářejí husté květy kapsy zadržené vlhkosti mezi kalichy a cukernatými listy. Pokud zůstává relativní vlhkost příliš vysoká, voda kondenzuje uvnitř těchto květů tam, kam se nedostane proudění vzduchu. Výsledkem je <strong>botrytida</strong> (hniloba květů) &mdash; šedá plíseň, která dokáže zničit týdny práce během pár dnů.</p>
+<p>Vyšší VPD znamená sušší vzduch, který vytahuje vlhkost z květů a přes listové průduchy rychleji. Tím udržuje vnitřní prostředí květu suché a zároveň umožňuje rostlině transpirovat a transportovat živiny. Výzva je najít rovnováhu: dostatečně suché pro zabránění plísni, ale ne tak suché, aby rostlina zavřela průduchy a přestala růst.</p>
 
-<h2>Ide\u00e1ln\u00ed VPD podle t\u00fddne kv\u011bten\u00ed</h2>
-<h3>\u010casn\u00e9 kv\u011bten\u00ed (t\u00fddny 1&ndash;3): VPD 1,0&ndash;1,3 kPa</h3>
-<h3>St\u0159edn\u00ed kv\u011bten\u00ed (t\u00fddny 3&ndash;6): VPD 1,2&ndash;1,5 kPa</h3>
-<h3>Pozdn\u00ed kv\u011bten\u00ed (t\u00fddny 6&ndash;9+): VPD 1,3&ndash;1,6 kPa</h3>
+<h2>Ideální VPD podle týdne kvetení</h2>
+<p>Kvetení není jediná statická fáze. Cílové hodnoty VPD by se měly měnit s tím, jak se vyvíjejí květy:</p>
 
-<h2>Probl\u00e9m hniloby palic</h2>
-<p>Podm\u00ednky podporuj\u00edc\u00ed hnilobu: vlhkost nad 60%, \u0161patn\u00e1 cirkulace, velk\u00e9 teplotn\u00ed v\u00fdkyvy, hust\u00e9 palice s mrtv\u00fdmi listy.</p>
+<h3>Rané kvetení (týdny 1&ndash;3): Fáze protahování</h3>
+<ul>
+    <li><strong>Cílové VPD:</strong> 1,0&ndash;1,3 kPa</li>
+    <li><strong>Teplota:</strong> 24&ndash;27&deg;C (75&ndash;80&deg;F)</li>
+    <li><strong>Vlhkost:</strong> 55&ndash;65% RH</li>
+    <li>Rostliny se stále protahují a rychle rostou. Potřebují aktivní transpiraci k dodávání živin na všechna nová růstová místa. Mírné VPD udržuje vitální růst.</li>
+</ul>
+
+<h3>Střední kvetení (týdny 3&ndash;6): Vývoj květů</h3>
+<ul>
+    <li><strong>Cílové VPD:</strong> 1,2&ndash;1,5 kPa</li>
+    <li><strong>Teplota:</strong> 23&ndash;26&deg;C (73&ndash;79&deg;F)</li>
+    <li><strong>Vlhkost:</strong> 45&ndash;55% RH</li>
+    <li>Květy nabývají a houstnou. To je okamžik, kdy začíná stoupat riziko hniloby květů. Sniž vlhkost a udržuj teploty mírné. Mírně nižší teplota také pomáhá zachování terpenů.</li>
+</ul>
+
+<h3>Pozdní kvetení (týdny 6&ndash;9+): Zrání a dokončování</h3>
+<ul>
+    <li><strong>Cílové VPD:</strong> 1,3&ndash;1,6 kPa</li>
+    <li><strong>Teplota:</strong> 21&ndash;24&deg;C (70&ndash;75&deg;F)</li>
+    <li><strong>Vlhkost:</strong> 40&ndash;50% RH</li>
+    <li>Maximální prevence hniloby květů. Květy jsou nejhustší. Sniž teplotu i vlhkost. Chladnější teploty podporují produkci anthokyanů (fialové barvy) a zachovávají těkavé terpeny, které se vypařují při vyšších teplotách.</li>
+</ul>
+
+<blockquote>
+    <strong>Tip:</strong> V GrowVPD Pro měň každý týden fázi růstu v záznamu deníku. VPD graf automaticky aktualizuje cílový pás a ukáže ti přesně, kde máš být v každé fázi kvetení.
+</blockquote>
+
+<h2>Problém hniloby květů</h2>
+<p>Botrytis cinerea (hniloba květů) je jednou z největších environmentálních hrozeb během kvetení. Vstupuje přes mrtvé nebo umírající tkáně &mdash; uschlý list uvězněný uvnitř husté koly je perfektním vstupním bodem.</p>
+
+<h3>Podmínky, které podporují hnilobu květů</h3>
+<ul>
+    <li>Vlhkost nad 60% během středního a pozdního kvetení</li>
+    <li>Špatná cirkulace vzduchu, zejména uvnitř vrchlíku</li>
+    <li>Velké výkyvy teploty mezi rozsvícením a zhasnutím světel (tvoří se kondenzace)</li>
+    <li>Husté koly s mrtvými listy uvězněnými uvnitř</li>
+    <li>Voda stojící na květech (foliární postřik během kvetení je rizikový)</li>
+</ul>
+
+<h3>Jak jí management VPD zabraňuje</h3>
+<p>Udržováním VPD nad 1,2 kPa ve středním a pozdním kvetení zajistíš, že vzduch aktivně odvádí vlhkost z povrchu rostlin. I uvnitř hustých květů znamená vyšší gradient VPD, že se vlhkost pohybuje směrem ven, místo aby kondenzovala dovnitř.</p>
 
 <div class="warning-box">
-    <strong>Kritick\u00e9:</strong> Nikdy nest\u0159\u00edkejte vodu ani list\u00e1tn\u00ed \u017eiviny na palice b\u011bhem kv\u011bten\u00ed.
+    <strong>Kritické:</strong> Během kvetení nikdy nestříkej vodu ani foliární živiny na květy. Zadržená vlhkost uvnitř hustých květů se nevypaří rychle a vytvoří perfektní podmínky pro botrytidu bez ohledu na VPD místnosti.
 </div>
 
-<h2>Probl\u00e9m no\u010dn\u00edho v\u00fdkyvu</h2>
-<p>Nejnebezpe\u010dn\u011bj\u0161\u00ed \u010das pro hnilobu je prvn\u00ed hodina po zhasnut\u00ed sv\u011btel. Teplota rychle kles\u00e1, vlhkost ne. VPD se z\u0159\u00edt\u00ed.</p>
-<p>\u0158e\u0161en\u00ed: Provozujte odvlh\u010dova\u010d 24/7, pou\u017eijte mal\u00fd oh\u0159\u00edva\u010d, automatizujte pomoc\u00ed VPD pravidel v GrowVPD Pro.</p>
+<h2>Řízení VPD bez stresování rostlin</h2>
+<p>Posunutí VPD příliš vysoko (nad 1,6 kPa) způsobuje vlastní problémy. Rostlina zavírá průduchy, aby šetřila vodu, což zastavuje transpiraci, transport živin a fotosyntézu. Okraje listů se kroutí nahoru (tvoří "taco"), a růst se zpomaluje.</p>
 
-<h2>Kontroln\u00ed seznam klimatu pro kv\u011bten\u00ed</h2>
+<h3>Strategie pro bezpečné řízení VPD</h3>
 <ul>
-    <li>Odvlh\u010dova\u010d dimenzovan\u00fd pro v\u00e1\u0161 stan</li>
-    <li>Osciluj\u00edc\u00ed ventil\u00e1tory pro nep\u0159\u00edm\u00e9 proud\u011bn\u00ed</li>
-    <li>Inline odtah b\u011b\u017e\u00edc\u00ed nep\u0159etr\u017eit\u011b</li>
-    <li>Senzor na \u00farovni koruny</li>
-    <li>VPD c\u00edl upravovan\u00fd t\u00fddn\u011b</li>
-    <li>No\u010dn\u00ed strategie vlhkosti</li>
-    <li>Pravideln\u00e1 kontrola palic</li>
+    <li><strong>Dimenzování odvlhčovače:</strong> Tvůj odvlhčovač musí být dostatečně silný pro objem stanu a počet rostlin. Stan 120×120 cm se 4 velkými rostlinami v plném kvetení může transpirovat 3&ndash;6 litrů vody denně. Malý 10 L/den odvlhčovač nemusí stačit.</li>
+    <li><strong>Cirkulace vzduchu:</strong> Oscilující ventilátory uvnitř stanu udržují pohyb vzduchu vrchlíkem a zabraňují kapsám vlhkosti. Nemiřte ventilátory přímo na květy &mdash; používej nepřímé proudění.</li>
+    <li><strong>Řízení odtahu:</strong> Tvůj inline odtahový ventilátor by měl běžet nepřetržitě nebo v krátkém cyklu. Výměna čerstvého vzduchu nahrazuje vlhký vzduch ve stanu sušším vnějším vzduchem.</li>
+    <li><strong>Noční management:</strong> Když se světla vypnou, teplota klesá, ale rostliny uvolňují vlhkost ještě 30&ndash;60 minut. Tehdy RH skokově stoupá a riziko hniloby květů vrcholí. Spusť odvlhčovač na časovači, který překrývá vypnutí světel alespoň o 30 minut.</li>
+    <li><strong>Zastrkávání listů a defoliace:</strong> Odstraňování velkých slunečních listů, které stíní květy, zlepšuje proudění vzduchu a snižuje povrch pro transpiraci. To přirozeně snižuje vlhkost stanu.</li>
+</ul>
+
+<h2>Problém noční špičky</h2>
+<p>Nejnebezpečnější dobou pro hnilobu květů je první hodina po vypnutí světel. Teplota rychle klesá (světla produkují značné teplo), ale vlhkost neklesá tak rychle. VPD se propadá, někdy na 0,5&ndash;0,7 kPa, i když bylo při rozsvícených světlech 1,4 kPa.</p>
+<p>Řešení:</p>
+<ol>
+    <li><strong>Spusť odvlhčovač 24/7</strong> během pozdního kvetení, ne jen během rozsvícených světel.</li>
+    <li><strong>Používej malý ohřívač</strong> k mírnému zpomalení poklesu teploty v noci. I udržování teploty o 2&ndash;3&deg;C vyšší, než by přirozeně klesla, má velký vliv na VPD.</li>
+    <li><strong>Stupňuj zhasínání světel</strong> u vícestanových sestav, aby odtahový systém nebyl přetížen.</li>
+    <li><strong>Automatizuj pomocí GrowVPD Pro:</strong> Nastav pravidlo založené na VPD, které spustí odvlhčovač, když VPD klesne pod 1,1 kPa, a vypne ho, když VPD překročí 1,5 kPa.</li>
+</ol>
+
+<blockquote>
+    <strong>Tip:</strong> Použij záznam noční teploty v GrowVPD Pro ke sledování denního/nočního rozdílu VPD. Pokud je rozdíl větší než 0,5 kPa mezi rozsvícenými a zhasnutými světly, tvá noční strategie potřebuje zlepšit.
+</blockquote>
+
+<h2>Padlí vs. hniloba květů</h2>
+<p>Zatímco hniloba květů prospívá ve vysoké vlhkosti, <strong>padlí</strong> (powdery mildew, PM) je složitější. PM se ve skutečnosti šíří nejrychleji při střední vlhkosti (50&ndash;70%) s kolísajícími teplotami. Nepotřebuje mokré povrchy &mdash; stačí mu stagnující vzduch a teplotní výkyvy.</p>
+<p>Dobrá zpráva: stejné postupy řízení VPD, které zabraňují hnilobě květů, také snižují riziko PM. Stálé teploty, dobré proudění vzduchu a vyhýbání se výkyvům vlhkosti řeší obě hrozby.</p>
+
+<h2>Kontrolní seznam: Nastavení klimatu pro kvetení</h2>
+<ul>
+    <li>Odvlhčovač dimenzovaný na objem stanu (minimum 20 L/den pro stan 120×120)</li>
+    <li>Oscilující ventilátory poskytující nepřímé proudění vzduchu vrchlíkem</li>
+    <li>Inline odtah běžící nepřetržitě nebo v cyklech 5 min zapnuto / 5 min vypnuto</li>
+    <li>Senzor teploty/vlhkosti na úrovni vrchlíku (ne u světel nebo stěn)</li>
+    <li>Cílové VPD se upravuje každý týden s vývojem květů</li>
+    <li>Strategie pro noční vlhkost (odvlhčovač překrývající vypnutí světel)</li>
+    <li>Pravidelná kontrola květů na rané známky šedé plísně</li>
 </ul>
 `
 },
 
 "night-temperature-vpd": {
-  title: "No\u010dn\u00ed teplota a VPD: P\u0159ehl\u00ed\u017een\u00fd faktor",
+  title: "Noční teplota a VPD: Přehlížený faktor",
   body: `
-<h2>Denn\u00ed/no\u010dn\u00ed teplotn\u00ed diferenci\u00e1l</h2>
-<p>Rozd\u00edl den/noc (DIF) p\u0159\u00edmo ovliv\u0148uje protahov\u00e1n\u00ed, v\u00fdraz barev, uchov\u00e1n\u00ed terpen\u016f a riziko chorob.</p>
+<h2>Denní/noční teplotní rozdíl</h2>
+<p>Většina pěstitelů se posedle zabývá svým denním VPD, ale úplně ignoruje, co se děje, když se zhasnou světla. To je kritická chyba. <strong>Denní/noční teplotní rozdíl</strong> &mdash; běžně nazývaný DIF &mdash; přímo ovlivňuje protahování rostlin, vyjádření barev, zachování terpenů a riziko nemocí.</p>
+<p>Když se světla vypnou, zdroj tepla zmizí, ale rostliny transpirují dál ještě 30&ndash;60 minut. Teplota klesá, vlhkost stoupá a VPD se propadá. Pochopení a řízení tohoto přechodu je to, co odlišuje dobré pěstitele od vynikajících.</p>
 
-<h2>Jak DIF ovliv\u0148uje rostliny</h2>
-<p><strong>Pozitivn\u00ed DIF</strong> (den teplej\u0161\u00ed o 5&ndash;10&deg;C): podporuje protahov\u00e1n\u00ed. <strong>Nulov\u00fd DIF</strong>: vyv\u00e1\u017een\u00fd r\u016fst. <strong>Negativn\u00ed DIF</strong> (noc teplej\u0161\u00ed o 2&ndash;4&deg;C): kompaktn\u00ed rostliny.</p>
-<p>Chladn\u00e9 no\u010dn\u00ed teploty pod 18&deg;C spou\u0161t\u011bj\u00ed antokyaniny (fialov\u00e9 barvy). Ni\u017e\u0161\u00ed teploty tak\u00e9 zachov\u00e1vaj\u00ed terpeny.</p>
+<h2>Jak DIF ovlivňuje tvé rostliny</h2>
 
-<h2>Ide\u00e1ln\u00ed no\u010dn\u00ed teplota podle f\u00e1ze</h2>
-<p><strong>Sazenice:</strong> noc 22&ndash;24&deg;C, DIF 2&ndash;3&deg;C. <strong>Vegetace:</strong> noc 20&ndash;23&deg;C, DIF 3&ndash;5&deg;C. <strong>Kv\u011bten\u00ed:</strong> noc 18&ndash;21&deg;C, DIF 4&ndash;6&deg;C.</p>
+<h3>Protahování stonků (mezičlánková vzdálenost)</h3>
+<p>Výzkumy trvale ukázaly, že rozdíl mezi denní a noční teplotou ovlivňuje délku internodií více než obě teploty samostatně:</p>
+<ul>
+    <li><strong>Pozitivní DIF</strong> (den o 5&ndash;10&deg;C teplejší než noc): Podporuje protahování. Delší internodia, vyšší rostliny. Užitečné v rané vegetaci, pokud chceš rychlý vertikální růst.</li>
+    <li><strong>Nulový DIF</strong> (den a noc stejná teplota): Mírný, vyrovnaný růst.</li>
+    <li><strong>Negativní DIF</strong> (noc teplejší než den o 2&ndash;4&deg;C): Snižuje protahování, produkuje kompaktní rostliny s krátkými internodii. Někteří pokročilí pěstitelé používají tuto techniku v prvních 2 týdnech kvetení k minimalizaci fáze protahování.</li>
+</ul>
+
+<blockquote>
+    <strong>Tip:</strong> GrowVPD Pro zaznamenává denní i noční teplotu v každém záznamu deníku. Časem můžeš korelovat svá nastavení DIF s údaji o výšce rostlin a najít optimální rozdíl pro svou genetiku.
+</blockquote>
+
+<h3>Vyjádření barev (anthokyany)</h3>
+<p>Fialové, modré a tmavé zbarvení rostlin je způsobeno pigmenty anthokyanů. Tyto pigmenty jsou spouštěny <strong>chladnými nočními teplotami</strong>, obvykle pod 18&deg;C (64&deg;F). Pokud pěstuješ odrůdy s fialovou genetikou, noční pokles na 15&ndash;18&deg;C během posledních 2&ndash;3 týdnů kvetení dramaticky zvýrazní barevné vyjádření.</p>
+<p>Pod 15&deg;C však hrozí zpomalení metabolických procesů a stres rostliny. Sweet spot pro barvu bez stresu je 16&ndash;18&deg;C v noci.</p>
+
+<h3>Zachování terpenů</h3>
+<p>Terpeny jsou těkavé aromatické sloučeniny, které se vypařují při vyšších teplotách. Nejcitlivější terpeny (linalool, myrcen, terpinolen) se začínají odpařovat nad 25&deg;C. Udržováním nočních teplot na 18&ndash;21&deg;C snížíš ztrátu terpenů během 12 hodin tmy.</p>
+<p>Někteří pěstitelé také v posledním týdnu kvetení snižují denní teploty na 22&ndash;24&deg;C pro maximální zachování terpenů, přičemž přijímají mírně sníženou fotosyntézu výměnou za lepší aroma a chuť.</p>
+
+<h2>Ideální noční teplota podle fáze růstu</h2>
+
+<h3>Fáze semenáček/klon</h3>
+<ul>
+    <li><strong>Den:</strong> 24&ndash;26&deg;C</li>
+    <li><strong>Noc:</strong> 22&ndash;24&deg;C</li>
+    <li><strong>DIF:</strong> pokles o 2&ndash;3&deg;C</li>
+    <li>Minimální teplotní výkyv. Semenáčky a klony jsou křehké a těží ze stability.</li>
+</ul>
+
+<h3>Vegetativní fáze</h3>
+<ul>
+    <li><strong>Den:</strong> 24&ndash;28&deg;C</li>
+    <li><strong>Noc:</strong> 20&ndash;23&deg;C</li>
+    <li><strong>DIF:</strong> pokles o 3&ndash;5&deg;C</li>
+    <li>Mírné DIF podporuje zdravý růst. Vyhni se nočním teplotám pod 18&deg;C ve vegetaci, protože zpomaluje rozvoj kořenů.</li>
+</ul>
+
+<h3>Fáze kvetení</h3>
+<ul>
+    <li><strong>Den:</strong> 23&ndash;26&deg;C</li>
+    <li><strong>Noc:</strong> 18&ndash;21&deg;C</li>
+    <li><strong>DIF:</strong> pokles o 4&ndash;6&deg;C</li>
+    <li>Tento rozsah vyvažuje vývoj květů, zachování terpenů a vyjádření barev. V posledních 2 týdnech můžeš posunout noční teploty na 16&ndash;18&deg;C pro zvýraznění barev.</li>
+</ul>
 
 <div class="warning-box">
-    <strong>Pozor:</strong> Pokles v\u011bt\u0161\u00ed ne\u017e 8&ndash;10&deg;C m\u016f\u017ee zp\u016fsobit kondenzaci na povrchu rostlin a uvnit\u0159 palic, co\u017e dramaticky zvy\u0161uje riziko hniloby.
+    <strong>Upozornění:</strong> Noční pokles větší než 8&ndash;10&deg;C může způsobit kondenzaci na povrchu rostlin a uvnitř květů. To dramaticky zvyšuje riziko hniloby květů. Velké teplotní poklesy vždy doprovázej aktivním odvlhčováním.
 </div>
 
-<h2>P\u00e1d VPD p\u0159i vypnut\u00ed sv\u011btel</h2>
-<p>Typick\u00fd sc\u00e9n\u00e1\u0159: VPD klesne z 1,53 na 0,62 kPa b\u011bhem jedn\u00e9 hodiny po zhasnut\u00ed. Strategie: odvlh\u010dova\u010d 24/7, oh\u0159\u00edva\u010d, VPD automatizace, rozlo\u017een\u00e9 sv\u011bteln\u00e9 rozvrhy.</p>
+<h2>Propad VPD při vypnutí světel</h2>
+<p>Tady je, co se stane v typickém stanu, když se světla vypnou ve 20:00:</p>
+<ul>
+    <li><strong>20:00:</strong> Světla vypnuta. Teplota 26&deg;C, RH 55%, VPD = 1,53 kPa</li>
+    <li><strong>20:30:</strong> Teplota klesá na 23&deg;C. Rostliny stále transpirují. RH stoupá na 68%. VPD = 0,90 kPa</li>
+    <li><strong>21:00:</strong> Teplota se ustálí na 21&deg;C. RH vrcholí na 75%. VPD = 0,62 kPa</li>
+    <li><strong>22:00:</strong> Transpirace se zpomaluje. RH klesá na 70%. VPD = 0,74 kPa</li>
+</ul>
+<p>Za jednu hodinu VPD kleslo ze zdravých 1,53 na nebezpečně nízkých 0,62 &mdash; hluboko do zóny rizika hniloby květů. Tento noční propad VPD je důvod, proč mnoho pěstitelů ztrácí koly kvůli botrytidě, i když denní podmínky vypadají perfektně.</p>
+
+<h2>Strategie pro noční management VPD</h2>
+
+<h3>1. Spusť odvlhčovač 24/7</h3>
+<p>Nedávej odvlhčovač na časovač, který odpovídá tvým světlům. Musí běžet nejtvrději v prvních 60 minutách po zhasnutí světel &mdash; přesně tehdy, kdy ho většina pěstitelů vypíná.</p>
+
+<h3>2. Použij malý prostorový ohřívač</h3>
+<p>Ohřívač řízený termostatem nastavený na udržování 20&ndash;21&deg;C brání propadu teploty a zároveň udržuje noční pokles v prospěšném rozsahu 4&ndash;5&deg;C. To samo o sobě dokáže udržet VPD nad 1,0 kPa v noci.</p>
+
+<h3>3. Automatizuj pomocí pravidel založených na VPD</h3>
+<p>V GrowVPD Pro vytvoř automatizační pravidla, která reagují přímo na VPD, nikoli jen na teplotu nebo vlhkost:</p>
+<ul>
+    <li>Pokud VPD klesne pod 1,0 kPa, zapni odvlhčovač A ohřívač</li>
+    <li>Pokud VPD stoupne nad 1,5 kPa, vypni ohřívač</li>
+    <li>Pokud teplota klesne pod 18&deg;C, zapni ohřívač bez ohledu na VPD</li>
+</ul>
+
+<h3>4. Stupňuj rozvrhy světel</h3>
+<p>Pokud provozuješ více stanů na stejném odtahovém systému, rozlož jejich rozvrhy světel o 2&ndash;4 hodiny. Tímto způsobem nikdy nemáš všechny stany současně vypouštět vlhkost při zhasnutí světel.</p>
+
+<blockquote>
+    <strong>Tip:</strong> GrowVPD Pro zaznamenává noční teplotu odděleně od denní teploty v každém záznamu deníku. Kontroluj svoje záznamy týdně a sleduj, jestli je tvé noční VPD konzistentně v rozsahu nebo jestli potřebuješ upravit svou sestavu.
+</blockquote>
+
+<h2>Monitorovací sestava</h2>
+<p>K řádnému sledování denních/nočních rozdílů potřebuješ senzor, který zaznamenává nepřetržitě, nejen bodové čtení, když kontroluješ stan:</p>
+<ul>
+    <li>Použij WiFi senzor (Tuya, AC Infinity), který hlásí do GrowVPD Pro každých 15 minut</li>
+    <li>Umísti senzor ve výšce vrchlíku, dál od stěny a ne přímo pod světlem</li>
+    <li>Každé ráno kontroluj min/max údaje a zjisti noční extrémy</li>
+    <li>Použij historii VPD grafu k identifikaci vzorců a úpravě sestavy</li>
+</ul>
 `
 },
 
 "humidity-control-guide": {
-  title: "Jak ovl\u00e1dat vlhkost v p\u011bstebn\u00ed m\u00edstnosti",
+  title: "Jak ovládat vlhkost v pěstírně",
   body: `
-<h2>Pro\u010d je ovládání vlhkosti d\u016fle\u017eit\u00e9</h2>
-<p>Vlhkost je polovina rovnice VPD. \u0160patn\u00e9 ovládání vlhkosti vede k v\u00fdkyv\u016fm VPD, kter\u00e9 stresuj\u00ed rostliny a sni\u017euj\u00ed v\u00fdnosy.</p>
+<h2>Proč je řízení vlhkosti důležité</h2>
+<p>Vlhkost je jedna polovina rovnice VPD a je to ta polovina, kterou se většina pěstitelů potýká řídit. Teplota je relativně snadno ovladatelná &mdash; světla produkují teplo a většina místností má předvídatelné tepelné chování. Vlhkost se naproti tomu neustále mění, jak rostliny transpirují, jak se voda odpařuje ze substrátu a jak se vyměňuje čerstvý vzduch.</p>
+<p>Špatné řízení vlhkosti vede k výkyvům VPD, které rostliny stresují, podporují nemoci a snižují výnosy. Stan, který kolísá mezi 40% a 80% RH během dne, nikdy nedosáhne optimálního růstu, bez ohledu na to, jak je vše ostatní perfektní.</p>
 
-<h2>Zvlh\u010dova\u010de</h2>
-<p>Typy: Ultrazvukov\u00e9 (chladn\u00e1 mlha), Odpa\u0159ovac\u00ed, Parn\u00ed (tepl\u00e1 mlha). Dimenzov\u00e1n\u00ed: 60x60 stan 1&ndash;2 L/den, 120x120 stan 3&ndash;5 L/den.</p>
+<h2>Zvlhčovače: Kdy potřebuješ více vlhkosti</h2>
+<p>Zvlhčovač obvykle potřebuješ v těchto scénářích:</p>
+<ul>
+    <li><strong>Fáze semenáček/klon</strong>, kdy potřebuješ 75&ndash;85% RH, ale tvá místnost má 40&ndash;55%</li>
+    <li><strong>Suché klima</strong> (aridní oblasti, vyhřívané místnosti v zimě), kde je okolní RH trvale pod 40%</li>
+    <li><strong>Malé stany se silným odtahem</strong>, které odvádějí vlhkost rychleji, než ji rostliny dokáží produkovat</li>
+    <li><strong>Raná vegetativní fáze</strong>, kdy mladé rostliny ještě dostatečně nestranspirují ke zvýšení vlhkosti stanu</li>
+</ul>
 
-<h2>Odvlh\u010dova\u010de</h2>
-<p>Typy: Kompresorov\u00e9, Desikantov\u00e9. Pro 120x120 stan se 4 rostlinami v kv\u011btu: minimum 10&ndash;15 L/den.</p>
+<h3>Typy zvlhčovačů</h3>
+<ul>
+    <li><strong>Ultrazvukové (studená mlha):</strong> Nejběžnější volba pro pěstírny. Produkují jemnou mlhu pomocí ultrazvukových vibrací. Klady: levné, tiché, nastavitelný výkon. Zápory: mohou zanechávat bílý minerální prach na listech, pokud používáš tvrdou vodu (použij destilovanou nebo RO vodu).</li>
+    <li><strong>Odpařovací:</strong> Používají ventilátor k profukování vzduchu skrze mokrý knot. Klady: žádný minerální prach, samoregulační (výkon klesá s rostoucí RH). Zápory: objemné, knoty vyžadují pravidelnou výměnu, pomalejší odezva.</li>
+    <li><strong>Parní (teplá mlha):</strong> Vaří vodu k produkci páry. Klady: žádné minerály ve výstupu, zabíjí bakterie. Zápory: přidává teplo do místnosti, vyšší spotřeba energie, není ideální pro pěstování, která již běží teple.</li>
+</ul>
+
+<h3>Dimenzování zvlhčovače</h3>
+<p>Přizpůsob výkon zvlhčovače objemu stanu a cílovému zvýšení RH:</p>
+<ul>
+    <li><strong>Stan 60×60 cm (0,2 m3):</strong> Malý 1&ndash;2 L/den zvlhčovač stačí</li>
+    <li><strong>Stan 120×120 cm (1,7 m3):</strong> Výkon 3&ndash;5 L/den pro zvýšení RH o 15&ndash;20%</li>
+    <li><strong>Stan 240×120 cm (3,5 m3):</strong> 6&ndash;10 L/den nebo dvě menší jednotky</li>
+</ul>
+
+<blockquote>
+    <strong>Tip:</strong> Umísti zvlhčovač mimo stan a veď mlhu dovnitř pasivním vstupem. Tím zabráníš tomu, aby kapky vody dopadaly přímo na listy, a zamezíš minerálním usazeninám na povrchu rostlin.
+</blockquote>
+
+<h2>Odvlhčovače: Kdy potřebuješ méně vlhkosti</h2>
+<p>Odvlhčování se stává kritickým během:</p>
+<ul>
+    <li><strong>Kvetení</strong>, kdy dospělé rostliny silně transpirují a květy jsou náchylné k plísni</li>
+    <li><strong>Vlhkého klimatu</strong>, kde je okolní RH již 60&ndash;80%</li>
+    <li><strong>Noci</strong>, kdy teplota klesá a RH skokově stoupá</li>
+    <li><strong>Velkého počtu rostlin</strong>, kde kombinovaná transpirace přetěžuje odtahový systém</li>
+</ul>
+
+<h3>Typy odvlhčovačů</h3>
+<ul>
+    <li><strong>Kompresorové (chladivové):</strong> Standardní volba. Nasává vzduch přes studené výměníky a kondenzuje vlhkost. Klady: efektivní, široce dostupné, dobrá kapacita. Zápory: přidává teplo do místnosti (proces kondenzace uvolňuje latentní teplo), má problémy pod 15&deg;C.</li>
+    <li><strong>Desikační (sorpční):</strong> Používají desikační materiál k absorbování vlhkosti, poté ho ohřívají k uvolnění vody do nádrže. Klady: funguje dobře při nízkých teplotách (pod 15&deg;C), tiché. Zápory: dražší, vyšší spotřeba energie, přidává ještě více tepla než kompresorové modely.</li>
+</ul>
+
+<h3>Dimenzování odvlhčovače</h3>
+<p>Rostliny v plném květu transpirují více vody, než většina pěstitelů očekává. Jedna velká rostlina může listy uvolnit 1&ndash;2 litry vody denně.</p>
+<ul>
+    <li><strong>Stan 120×120 cm, 4 rostliny v květu:</strong> Minimální kapacita odvlhčovače 10&ndash;15 L/den</li>
+    <li><strong>Stan 240×120 cm, 8 rostlin v květu:</strong> Kapacita 20&ndash;30 L/den</li>
+    <li><strong>Plná místnost (4×4 m a více):</strong> 30&ndash;50 L/den komerční jednotka</li>
+</ul>
 
 <div class="warning-box">
-    <strong>D\u016fle\u017eit\u00e9:</strong> Hodnocen\u00ed odvlh\u010dova\u010d\u016f se m\u011b\u0159\u00ed p\u0159i 30&deg;C a 80% RH. Re\u00e1ln\u00e1 extrakce je \u010dasto 40&ndash;60% udávan\u00e9 kapacity. V\u017edy kupujte v\u011bt\u0161\u00ed.
+    <strong>Důležité:</strong> Údaje o odvlhčovačích jsou obvykle měřeny při 30&deg;C a 80% RH. Reálná extrakce při 23&deg;C a 60% RH je často 40&ndash;60% jmenovité kapacity. Vždy kupuj větší, než si myslíš, že potřebuješ.
 </div>
 
-<h2>Automatizace na b\u00e1zi VPD</h2>
-<p>Nejefektivn\u011bj\u0161\u00ed ovládání vlhkosti pou\u017e\u00edv\u00e1 VPD jako spoušt\u011b\u010d, ne surovou hodnotu vlhkosti. Nastavte dv\u011b pravidla v GrowVPD Pro pro zvlh\u010dova\u010d a odvlh\u010dova\u010d.</p>
+<h2>Automatizace založená na VPD</h2>
+<p>Nejefektivnější řízení vlhkosti používá VPD jako spouštěč, ne surové hodnoty vlhkosti. Je to proto, že stejné procento vlhkosti produkuje velmi odlišné hodnoty VPD při různých teplotách.</p>
+<p>Například 60% RH při 20&deg;C dává VPD = 0,93 kPa, ale 60% RH při 28&deg;C dává VPD = 1,51 kPa. Řízení vlhkosti na pevné procento ignoruje teplotu a míjí cíl.</p>
 
-<h2>Ventilace jako ovládání vlhkosti</h2>
-<p>Odtahov\u00fd ventil\u00e1tor je siln\u00fd n\u00e1stroj, zvl\u00e1\u0161t\u011b kdy\u017e je venkovn\u00ed vzduch su\u0161\u0161\u00ed. V vlhk\u00e9m klimatu ov\u0161em nefunguje.</p>
+<h3>Nastavení VPD automatizace v GrowVPD Pro</h3>
+<ol>
+    <li>Připoj svůj senzor teploty/vlhkosti (Tuya, AC Infinity nebo BLE)</li>
+    <li>Připoj svůj zvlhčovač a odvlhčovač k chytrým zásuvkám</li>
+    <li>Vytvoř dvě automatizační pravidla:
+        <ul>
+            <li><strong>Pravidlo 1:</strong> Pokud VPD klesne pod cílové minimum (např. 0,8 kPa ve vegetaci), zapni odvlhčovač. Vypni ho, když se VPD vrátí nad minimum + hystereze (např. 0,9 kPa).</li>
+            <li><strong>Pravidlo 2:</strong> Pokud VPD stoupne nad cílové maximum (např. 1,3 kPa ve vegetaci), zapni zvlhčovač. Vypni ho, když se VPD vrátí pod maximum - hystereze (např. 1,2 kPa).</li>
+        </ul>
+    </li>
+    <li>Nastav minimální časy vypnutí (5&ndash;10 minut), aby se zabránilo rychlému cyklování, které zkracuje životnost zařízení</li>
+</ol>
 
-<h2>S\u00e9z\u00f3nn\u00ed v\u00fdzvy</h2>
-<p><strong>Zima:</strong> Vyt\u00e1p\u011bn\u00fd vzduch je very such\u00fd (20&ndash;35% RH). <strong>L\u00e9to:</strong> Vysok\u00e1 ambient vlhkost (60&ndash;80%) \u010din\u00ed kv\u011bten\u00ed nebezpe\u010dn\u00fdm.</p>
+<blockquote>
+    <strong>Tip:</strong> GrowVPD Pro podporuje hysterezi u všech automatizačních pravidel. Hystereze brání tomu, aby se zařízení rychle zapínalo a vypínalo, když VPD krouží kolem spouštěcího bodu. Hystereze 0,1&ndash;0,2 kPa funguje dobře pro většinu sestav.
+</blockquote>
+
+<h2>Ventilace jako řízení vlhkosti</h2>
+<p>Tvůj inline odtahový ventilátor je silný nástroj pro řízení vlhkosti, zejména když je venkovní vzduch sušší než vzduch ve stanu:</p>
+<ul>
+    <li><strong>Odvětrávání vlhkého vzduchu ze stanu</strong> a jeho nahrazování sušším vzduchem z místnosti nebo venku je nejlevnější formou odvlhčování</li>
+    <li><strong>Regulátory s variabilní rychlostí</strong> (jako AC Infinity) ti umožňují zvýšit rychlost ventilátoru, když RH stoupne, a poskytují tak responzivní řízení bez odvlhčovače</li>
+    <li><strong>Ve vlhkých klimatech</strong> tato strategie selhává, protože příchozí vzduch je již vlhký. Namísto toho potřebuješ odvlhčovač.</li>
+</ul>
+
+<h2>DIY tipy pro pěstitele s omezeným rozpočtem</h2>
+
+<h3>Zvýšení vlhkosti na rozpočet</h3>
+<ul>
+    <li><strong>Metoda mokrého ručníku:</strong> Pověs vlhký ručník u pasivního vstupu. Proudící vzduch odpařuje vodu z ručníku. Vyměň nebo znovu navlhči každých 8&ndash;12 hodin.</li>
+    <li><strong>Otevřené nádoby s vodou:</strong> Umísti podnosy s vodou dovnitř stanu. Odpařování pomalu zvyšuje RH. Funguje nejlépe v teplých stanech.</li>
+    <li><strong>Sniž rychlost odtahu:</strong> Zpomalení odtahového ventilátoru umožňuje akumulaci rostlinné transpirace, čímž se zvyšuje vlhkost. Dávej pozor na hromadění tepla.</li>
+</ul>
+
+<h3>Snížení vlhkosti na rozpočet</h3>
+<ul>
+    <li><strong>Zvyš rychlost odtahu:</strong> Pokud je venkovní vzduch sušší, zesílení ventilátoru vyměňuje vlhký vzduch za suchý.</li>
+    <li><strong>DampRid / nádoby s chloridem vápenatým:</strong> Pasivní desikační nádoby absorbují vlhkost ze vzduchu. Fungují, ale mají omezenou kapacitu &mdash; dobré pouze pro malé stany.</li>
+    <li><strong>Defoliace:</strong> Odstraňování přebytečných slunečních listů snižuje povrch pro transpiraci, což snižuje množství vody vstupující do vzduchu.</li>
+    <li><strong>Zalévej méně často:</strong> Méně vody v substrátu znamená méně odpařování do vzduchu ve stanu.</li>
+</ul>
+
+<h2>Sezónní výzvy</h2>
+
+<h3>Zima (topná sezóna)</h3>
+<p>Vytápěný vnitřní vzduch je velmi suchý (často 20&ndash;35% RH). To je skvělé pro kvetení, ale dělá fáze semenáčků a vegetace obtížnými bez zvlhčovače. Teplotní rozdíl mezi vytápěnou místností a stanem může také způsobit kondenzaci na chladných stěnách stanu.</p>
+
+<h3>Léto (vlhká sezóna)</h3>
+<p>Vysoká okolní vlhkost (60&ndash;80%) dělá kvetení nebezpečným. Potřebuješ odvlhčovač a tvůj odtahový ventilátor je méně efektivní, protože příchozí vzduch je již vlhký. V extrémních případech spusť klimatizaci k současnému chlazení a odvlhčování.</p>
+
+<h2>Rychlý přehled: Vybavení podle fáze</h2>
+<ul>
+    <li><strong>Semenáčky/klony:</strong> Vlhčící kopule + malý zvlhčovač (pokud je místnost velmi suchá)</li>
+    <li><strong>Vegetativní:</strong> Zvlhčovač NEBO řízení odtahu (cíl 60&ndash;70% RH)</li>
+    <li><strong>Rané kvetení:</strong> Odvlhčovač v pohotovosti, odtahový ventilátor jako primární řízení (cíl 50&ndash;60% RH)</li>
+    <li><strong>Pozdní kvetení:</strong> Odvlhčovač běžící 24/7, silný odtah (cíl 40&ndash;50% RH)</li>
+</ul>
 `
 },
 
 "cross-brand-automation": {
-  title: "Cross-brand automatizace: M\u00edch\u00e1n\u00ed Tuya, Mars Hydro a dal\u0161\u00edch",
+  title: "Automatizace napříč značkami: Jedna aplikace pro všechno vybavení",
   body: `
-<h2>Probl\u00e9m: Uzav\u0159en\u00e9 ekosyst\u00e9my</h2>
-<p>Ka\u017ed\u00e1 zna\u010dka m\u00e1 svou aplikaci, sv\u016fj cloud a svou automatizaci. Nativn\u011b spolu nekomunikuj\u00ed.</p>
+<h2>Problém: Uzavřené ekosystémy</h2>
+<p>Každá značka pěstebního vybavení dodává vlastní aplikaci, vlastní cloud a vlastní systém automatizace. MarsPro, AC Infinity, Vivosun Grow, Spider Farmer a portál Bluelab Edenic jsou všechny skvělé pro svůj vlastní hardware &mdash; ale navzájem se nevidí a žádná z nich nevidí pěstební deník, kde doopravdy sleduješ, co se děje s tvými rostlinami.</p>
+<p>Pěstitelům tak zbývají dvě špatné možnosti: zavázat se jednomu ekosystému (a ztratit přístup k tomu nejlepšímu vybavení od ostatních), nebo provozovat čtyři až pět aplikací s ruční koordinací mezi nimi (což popírá smysl automatizace).</p>
 
-<h2>\u0158e\u0161en\u00ed: GrowVPD Pro jako centr\u00e1la</h2>
-<p>Podporovan\u00e9 platformy: Tuya/Smart Life, AC Infinity, Mars Hydro, Spider Farmer, Vivosun, Bluelab a SANlight. V\u0161echna za\u0159\u00edzen\u00ed z r\u016fzn\u00fdch platform v jednom stanu, v jednom rozhran\u00ed.</p>
+<h2>Řešení: GrowVPD Pro jako společná vrstva</h2>
+<p>GrowVPD Pro se přihlašuje ke každé platformě tvými vlastními přihlašovacími údaji a sjednocuje všechna zařízení do jedné hierarchie místnost/stan. Každá značka nadále dělá to, co umí nejlépe &mdash; Mars Hydro stále prochází cloudem Mars Hydro, AC Infinity stále funguje přes UIS, Bluelab stále publikuje přes Edenic &mdash; ale nyní je vidíš vedle sebe, zapisuješ je do stejného deníku a píšeš pravidla, která mísí značky tam, kde to skutečně pomáhá.</p>
+<p>Podporované platformy:</p>
+<ul>
+    <li><strong>AC Infinity</strong> &mdash; Controller 69/89 Pro, ventilátory Cloudline, clip ventilátory (UIS kabel + cloud)</li>
+    <li><strong>Mars Hydro</strong> &mdash; LED drivery iConnect, ventilátory iHub, clip ventilátory (WiFi + MQTT cloud)</li>
+    <li><strong>Spider Farmer</strong> &mdash; LED drivery, ventilátory, senzory (WiFi + MQTT cloud)</li>
+    <li><strong>Vivosun</strong> &mdash; GrowHub (CO2, teplota, RH), chytré zásuvky, LED (cloud)</li>
+    <li><strong>Bluelab</strong> &mdash; Pulse měřič kořenové zóny (pH, EC, teplota) přes Edenic cloud, pouze čtení</li>
+    <li><strong>SANlight</strong> &mdash; Bluetooth Mesh LED, volitelné 0&ndash;10V stmívání přes AC Infinity</li>
+    <li><strong>Tuya / Smart Life</strong> &mdash; WiFi / Zigbee senzory, chytré zásuvky, kamery, stmívače, klimatizace, zavlažovací ventily</li>
+</ul>
 
-<h2>Re\u00e1ln\u00e9 sc\u00e9n\u00e1\u0159e</h2>
-<p><strong>Sc\u00e9n\u00e1\u0159 1 (stejn\u00e1 zna\u010dka):</strong> AC Infinity Controller 69/89 Pro \u010dte vlastn\u00ed sondu teploty a vlhkosti, po\u010d\u00edt\u00e1 VPD a p\u0159es UIS kabel \u0159\u00edd\u00ed Cloudline ventil\u00e1tor. \u010cist\u00e9 a spolehliv\u00e9.</p>
-<p><strong>Sc\u00e9n\u00e1\u0159 2 (libovoln\u00fd senzor &rarr; Tuya plug &rarr; hloup\u00fd topn\u00edk):</strong> Kdy\u017e teplota v noci klesne pod 18 &deg;C, Tuya smart plug sepne b\u011b\u017en\u00fd olejov\u00fd topn\u00edk a po n\u00e1vratu ho vypne. Pracuje s jak\u00fdmkoliv senzorem &mdash; AC Infinity, Bluelab, SwitchBot nebo lacinou Tuya Zigbee sondou.</p>
-<p><strong>Sc\u00e9n\u00e1\u0159 3 (Bluelab Pulse &rarr; notifikace pH driftu):</strong> Pulse hl\u00edd\u00e1 p\u0159es Edenic cloud pH v ko\u0159enov\u00e9 z\u00f3n\u011b. Kdy\u017e vyjede z bezpe\u010dn\u00e9ho p\u00e1sma, aplikace po\u0161le notifikaci s hodnotou a aktu\u00e1ln\u00ed f\u00e1z\u00ed &mdash; korekci \u017eivin nech\u00e1v\u00e1 na v\u011bdom\u00e9m lidsk\u00e9m rozhodnut\u00ed.</p>
+<h2>Realistické scénáře</h2>
 
-<h2>Pro\u010d to je d\u016fle\u017eit\u00e9</h2>
-<p>Kupujte nejlep\u0161\u00ed vybaven\u00ed pro ka\u017ed\u00fd \u00fa\u010del. Jeden dashboard pro v\u0161e. Sjednocen\u00e9 sledov\u00e1n\u00ed energie nap\u0159\u00ed\u010d platformami.</p>
+<h3>Scénář 1: VPD smyčka AC Infinity v rámci jedné značky</h3>
+<p>AC Infinity Controller 69/89 Pro je přesně pro tohle navržený: čte svou vlastní teplotní/RH sondu, počítá VPD a plynule doladí svůj vlastní Cloudline ventilátor přes UIS kabel. Úkolem GrowVPD Pro tady není tuhle smyčku znovu vymýšlet &mdash; je to spravovat ji spolu s ostatními tvými stany, zapisovat vše do deníku a umožnit ti nastavit VPD cíle pro jednotlivé fáze na jednom místě namísto v aplikaci AC Infinity.</p>
+<div class="step-card">
+    <span class="step-number">1</span>
+    <h3>Nastavení</h3>
+    <ul>
+        <li>Připoj svůj účet AC Infinity v Nastavení &gt; Připojené účty</li>
+        <li>Controller 69/89 Pro a připojené ventilátory Cloudline se objeví v záložce Automatizace</li>
+        <li>Přiřaď je ke stanu a vyber aktuální fázi růstu</li>
+    </ul>
+</div>
+<div class="step-card">
+    <span class="step-number">2</span>
+    <h3>Vytvoř pravidlo</h3>
+    <ul>
+        <li><strong>Senzor:</strong> teplotní + RH sonda AC Infinity Controller (vestavěná, počítá VPD)</li>
+        <li><strong>Podmínka:</strong> VPD mimo 1,1&ndash;1,4 kPa (pásmo květu)</li>
+        <li><strong>Spouštěč:</strong> posuň ventilátor Cloudline o &plusmn;2 rychlostní kroky směrem k cíli</li>
+        <li><strong>Obnova:</strong> návrat na základní rychlost pro aktuální fázi</li>
+        <li><strong>Hystereze:</strong> 0,1 kPa</li>
+    </ul>
+</div>
+<p>Výsledek: tvůj hardware AC Infinity dál dělá vysokofrekvenční klimatickou smyčku, pro kterou byl navržen &mdash; GrowVPD Pro jen vlastní cíle, zápis a přechody mezi fázemi.</p>
+
+<h3>Scénář 2: Jakýkoli teplotní senzor &rarr; zásuvka Tuya &rarr; obyčejný ohřívač</h3>
+<p>Tady se napříč značkami opravdu vyplatí. Tvůj skutečný senzor může být cokoli, čemu už věříš &mdash; sonda AC Infinity, teplotní čtení z Bluelab Pulse, SwitchBot, Tuya Zigbee klíčenka za 10 $. Akčním členem je nudná chytrá zásuvka Tuya s běžným olejovým ohřívačem zapojeným do ní. Zásuvka je jen hloupý spínač uprostřed; GrowVPD Pro je mozek.</p>
+<ul>
+    <li><strong>Senzor:</strong> jakýkoli teplotní senzor, kterému už věříš</li>
+    <li><strong>Podmínka:</strong> teplota &lt; 18&deg;C, pouze hodiny bez světla</li>
+    <li><strong>Cíl:</strong> chytrá zásuvka Tuya napájející ohřívač</li>
+    <li><strong>Hystereze:</strong> 2&deg;C (vypne při 20&deg;C)</li>
+    <li><strong>Minimální doba vypnutí:</strong> 10 min, aby se ochránil vlastní termostat ohřívače před krátkým cyklováním</li>
+</ul>
+
+<h3>Scénář 3: Obohacení CO2 přes Vivosun GrowHub (jedna značka, pouze přes den)</h3>
+<p>Opět smyčka v rámci jedné značky, ale s bezpečnostními mantinely. GrowHub čte CO2, otevírá chytrou zásuvku Vivosun napájející regulátor CO2 a uzavírá ji jakmile se hladina obnoví. Pravidlo běží pouze při rozsvícených světlech, omezuje celkovou denní dobu provozu a respektuje minimální dobu vypnutí, aby se solenoid nepoškozoval.</p>
+<ul>
+    <li><strong>Senzor:</strong> sonda CO2 Vivosun GrowHub</li>
+    <li><strong>Podmínka:</strong> CO2 &lt; 800 ppm, pouze během hodin se světlem</li>
+    <li><strong>Cíl:</strong> chytrá zásuvka Vivosun na regulátoru CO2</li>
+    <li><strong>Hystereze:</strong> 100 ppm (zavírá při 900 ppm)</li>
+    <li><strong>Maximální doba běhu:</strong> 30 min &middot; <strong>Minimální doba vypnutí:</strong> 15 min</li>
+</ul>
+
+<h3>Scénář 4: Bluelab Pulse &rarr; upozornění na posun pH (pouze notifikace)</h3>
+<p>Tohle záměrně <em>není</em> automatizováno na straně akčního členu. Korekce pH v kořenové zóně je místo, kde chyby poškozují rostliny nejrychleji &mdash; zaseknutá dávka nebo zašuměné čtení může způsobit skutečné škody. GrowVPD Pro tedy sleduje tvůj Bluelab Pulse přes Edenic cloud a pošle ti notifikaci s naměřenou hodnotou a aktuální fází, když se posune mimo rozsah. Rozhodnutí o dávkování zůstává na tobě.</p>
+
+<h3>Scénář 5: Sjednocený zápis do deníku a časosběr kamery</h3>
+<p>Každý připojený senzor z každé značky &mdash; sonda AC Infinity, Vivosun GrowHub, Bluelab Pulse, Tuya klíčenky &mdash; zapisuje do stejného pěstebního deníku každých 15 minut. Kamery (Tuya, ONVIF/RTSP) ukládají automatické snímky na stejnou časovou osu. Jeden stan, jeden deník, každá značka.</p>
+
+<blockquote>
+    <strong>Klíčový poznatek:</strong> GrowVPD Pro nenutí automatizaci napříč značkami tam, kde je jedna značka čistší. Pravidla v rámci jedné značky (AC Infinity controller &rarr; vlastní ventilátor, Vivosun GrowHub &rarr; vlastní zásuvka) jsou nejčistší a nejbezpečnější, protože controller je pro tu smyčku navržený. Automatizace napříč značkami září tehdy, když chceš, aby neutrální zásuvka Tuya reagovala na jakýkoli senzor, nebo když senzor, kterému věříš, nemá své vlastní akční členy.
+</blockquote>
+
+<h2>Proč je to pro pěstitele důležité</h2>
+
+<h3>Kup si nejlepší vybavení pro každou úlohu</h3>
+<p>Když GrowVPD Pro sedí nad ekosystémy, můžeš si vybrat ten nejlepší nástroj pro každou roli:</p>
+<ul>
+    <li>Nejlepší klimatické controllery (AC Infinity Controller 69/89 Pro, Vivosun GrowHub)</li>
+    <li>Nejlepší LED světla (Mars Hydro, Spider Farmer, Vivosun, SANlight)</li>
+    <li>Přesné senzory kořenové zóny (Bluelab Pulse přes Edenic)</li>
+    <li>Levné a spolehlivé neutrální spínače pro hloupá zařízení (chytré zásuvky Tuya)</li>
+    <li>Kamery, které pasují k tvému setupu (Tuya, ONVIF/RTSP IP kamery)</li>
+</ul>
+<p>Kombinuj podle ceny, výkonu a dostupnosti &mdash; ne kvůli ekosystémovému uzamčení.</p>
+
+<h3>Jeden přehled pro všechno</h3>
+<p>Místo přepínání mezi MarsPro, AC Infinity, Vivosun Grow, Edenic a čímkoli dalším, co vlastníš, je všechno na jednom místě. Jeden VPD graf, jeden seznam pravidel automatizace, jeden sledovač energie, jeden deník. Každé zařízení z každé značky žije v záložce Automatizace pod místností a stanem, kam patří.</p>
+
+<h3>Sjednocené sledování energie</h3>
+<p>GrowVPD Pro sleduje spotřebu energie napříč všemi připojenými platformami. Můžeš vidět celkové denní kWh svého stanu rozděleného podle zařízení, bez ohledu na to, zda je každé zařízení od AC Infinity, Mars Hydro, Vivosun, Spider Farmer, SANlight nebo Tuya. Tento pohled je těžké sestavit, když přeskakuješ mezi aplikacemi jednotlivých značek.</p>
+
+<h2>Nastavení automatizace napříč značkami</h2>
+<ol>
+    <li><strong>Připoj všechny své platformové účty</strong> v Nastavení &gt; Připojené účty. AC Infinity, Mars Hydro, Spider Farmer, Vivosun, Bluelab a Tuya lze všechny připojit vedle sebe.</li>
+    <li><strong>Objev zařízení</strong> z každé platformy v záložce Automatizace. Každá značka se objeví v jednom společném seznamu objevování.</li>
+    <li><strong>Uspořádej do místností a stanů.</strong> Jeden stan může kombinovat zařízení z více platforem.</li>
+    <li><strong>Vytvoř pravidla automatizace.</strong> Při vytváření pravidla rozbalovací nabídka senzoru zobrazí všechny senzory napříč značkami a nabídka cíle zobrazí všechna ovladatelná zařízení.</li>
+    <li><strong>Zbytek zařídí engine automatizace.</strong> Každých 15 minut se dotazuje na senzory (přes AutomationWorker), vyhodnocuje pravidla a posílá příkazy na správné API platformy pro každé cílové zařízení.</li>
+</ol>
 
 <div class="warning-box">
-    <strong>Pozn\u00e1mka:</strong> Cross-brand automatizace vy\u017eaduje Pro p\u0159edplatn\u00e9.
+    <strong>Poznámka:</strong> Automatizace napříč značkami vyžaduje Pro předplatné. Všechna připojení platforem a pravidla automatizace jsou Pro funkce. Bezplatná verze zobrazuje data zařízení v demo režimu s ukázkovými daty.
 </div>
+
+<h2>Odstraňování problémů s pravidly napříč značkami</h2>
+<ul>
+    <li><strong>Pravidlo se nespouští:</strong> Zkontroluj, zda senzorové i cílové zařízení zobrazují v záložce Automatizace stav "online". Pokud je jedno z nich offline, pravidlo nemůže proběhnout.</li>
+    <li><strong>Zpožděná odezva:</strong> GrowVPD Pro se dotazuje senzorů každých 15 minut. Špička VPD, která vznikne a zmizí během jednoho dotazovacího intervalu, nemusí pravidlo spustit. Pro rychlejší odezvu se ujisti, že tvá senzorová platforma hlásí často.</li>
+    <li><strong>Expirovaný token:</strong> Každá platforma má svůj vlastní autentizační token. Pokud jeden vyprší, zařízení z této platformy přejdou do offline stavu. Znovu se přihlas v Nastavení &gt; Připojené účty.</li>
+    <li><strong>Konfliktní pravidla:</strong> Pokud dvě pravidla cílí na stejné zařízení s opačnými akcemi, vyhrává pravidlo s vyšší prioritou. Zkontroluj priority pravidel v záložce Automatizace.</li>
+</ul>
 `
 },
 
 "automation-troubleshooting": {
-  title: "Pr\u016fvodce \u0159e\u0161en\u00edm probl\u00e9m\u016f chytr\u00e9 automatizace",
+  title: "Průvodce odstraňováním problémů chytré automatizace",
   body: `
-<h2>Probl\u00e9m 1: Za\u0159\u00edzen\u00ed zobrazuje \u201eOffline\u201c</h2>
-<p>Zkontrolujte nap\u00e1jen\u00ed, WiFi p\u0159ipojen\u00ed, restartujte za\u0159\u00edzen\u00ed, ov\u011b\u0159te limit klient\u016f routeru, zkontrolujte WiFi p\u00e1smo (2,4 GHz), p\u0159\u00edpadn\u011b znovu sp\u00e1rujte.</p>
+<h2>Problém 1: Zařízení ukazuje "Offline"</h2>
+<p>Tohle je nejčastější problém. Zařízení se objeví v GrowVPD Pro, ale zobrazuje šedou značku "Offline" a nereaguje na příkazy.</p>
 
-<h2>Probl\u00e9m 2: Pravidlo se nespu\u0161t\u00ed</h2>
-<p>Zkontrolujte \u010dten\u00ed senzoru, ov\u011b\u0159te spln\u011bn\u00ed podm\u00ednky, rozvrh pravidla, min. dobu vypnut\u00ed, stav c\u00edlov\u00e9ho za\u0159\u00edzen\u00ed, konfliktn\u00ed pravidla.</p>
+<h3>Řešení krok za krokem</h3>
+<ol>
+    <li><strong>Zkontroluj fyzické napájení.</strong> Je zařízení zapojené a pod proudem? Svítí LED? Zní to samozřejmě, ale prodlužovačky bývají vyražené a jističe vypadnou.</li>
+    <li><strong>Zkontroluj WiFi připojení.</strong> Otevři nativní aplikaci zařízení (Tuya, AC Infinity, Mars Hydro) a podívej se, zda se tam zobrazuje jako online. Pokud je offline i ve své vlastní aplikaci, problém je mezi zařízením a tvým WiFi routerem, ne v GrowVPD Pro.</li>
+    <li><strong>Restartuj zařízení.</strong> Odpoj ho, počkej 10 sekund a zapoj zpátky. Mnoho WiFi zařízení potřebuje po zapnutí 30&ndash;60 sekund na znovupřipojení ke cloudu.</li>
+    <li><strong>Zkontroluj svůj router.</strong> Některé routery mají limity na počet zařízení nebo odpojují nečinná zařízení. Ujisti se, že tvůj router zvládne počet připojených zařízení, která máš. Pěstírny s 5&ndash;10 chytrými zařízeními mohou tlačit spotřebitelské routery na jejich limity.</li>
+    <li><strong>Ověř WiFi pásmo.</strong> Většina chytrých pěstebních zařízení podporuje pouze 2,4 GHz WiFi, ne 5 GHz. Pokud tvůj router kombinuje obě pásma pod jedním SSID, zařízení se mohlo při nastavení připojit na 5 GHz, ale nedokáže to udržet. Pokud je to možné, vynuť zařízení na 2,4 GHz.</li>
+    <li><strong>V případě potřeby znovu spáruj.</strong> Pokud zařízení po všem výše uvedeném zůstává v nativní aplikaci offline, odstraň ho z nativní aplikace a znovu spáruj. Poté ho znovu objev v GrowVPD Pro.</li>
+</ol>
 
-<h2>Probl\u00e9m 3: \u010cten\u00ed senzoru se zdaj\u00ed \u0161patn\u00e1</h2>
-<p>Zkontrolujte um\u00edst\u011bn\u00ed, drift senzoru, p\u0159\u00edm\u00e9 sv\u011btlo, kondenzaci. Pou\u017eijte kalibra\u010dn\u00ed offsety v nastaven\u00ed za\u0159\u00edzen\u00ed.</p>
+<h2>Problém 2: Pravidlo automatizace se nespouští</h2>
+<p>Pravidlo je zapnuté, senzor zobrazuje data, ale cílové zařízení se nikdy nezapne ani nezmění stav.</p>
 
-<h2>Probl\u00e9m 4: P\u0159ipojen\u00ed opakovan\u011b vypad\u00e1v\u00e1</h2>
-<p>Slab\u00fd WiFi sign\u00e1l, p\u0159et\u00ed\u017een\u00fd router, konflikty IP adres, probl\u00e9my cloudov\u00e9 slu\u017eby.</p>
-
-<h2>Probl\u00e9m 5: Vypr\u0161el\u00fd token</h2>
-<p>Tuya tokeny expiruj\u00ed ka\u017ed\u00e9 2 hodiny (automatick\u00fd refresh). P\u0159i selh\u00e1n\u00ed se znovu autentizujte v Settings.</p>
-
-<h2>Probl\u00e9m 6: Automatizace b\u011b\u017e\u00ed, ale nem\u00e1 efekt</h2>
-<p>Aktualizace firmwaru, fyzick\u00e9 p\u0159epnut\u00ed do manu\u00e1ln\u00edho re\u017eimu, nepodporovan\u00e1 hodnota p\u0159\u00edkazu.</p>
-`
-},
-
-"energy-monitoring": {
-  title: "Monitorov\u00e1n\u00ed energie a sledov\u00e1n\u00ed n\u00e1klad\u016f",
-  body: `
-<h2>Pro\u010d sledovat energii?</h2>
-<p>Elekt\u0159ina je nejv\u011bt\u0161\u00ed pr\u016fb\u011b\u017en\u00fd n\u00e1klad indoor p\u011bstov\u00e1n\u00ed. Jeden stan 120x120 m\u016f\u017ee spot\u0159ebovat 8&ndash;15 kWh denn\u011b.</p>
-
-<h2>Jak GrowVPD Pro sleduje energii</h2>
-<p>Dv\u011b metody: p\u0159\u00edm\u00e9 hl\u00e1\u0161en\u00ed z chytr\u00fdch z\u00e1suvek nebo odhad z nomin\u00e1ln\u00edho p\u0159\u00edkonu a doby b\u011bhu.</p>
-
-<h2>Typick\u00e9 rozlo\u017een\u00ed energie</h2>
-<p>LED sv\u011btlo: 50&ndash;65%, Odvlh\u010dova\u010d: 15&ndash;25%, Odtahov\u00fd ventil\u00e1tor: 5&ndash;10%, Zvlh\u010dova\u010d: 3&ndash;5%.</p>
-
-<h2>Optimalizace spot\u0159eby</h2>
-<ul>
-    <li>Ztlumte sv\u011btla, kdy\u017e je to mo\u017en\u00e9</li>
-    <li>Spr\u00e1vn\u011b dimenzujte odvlh\u010dova\u010d</li>
-    <li>Pou\u017eijte ventil\u00e1tory s prom\u011bnnou rychlost\u00ed</li>
-    <li>Pl\u00e1nujte sv\u011btla na mimo\u0161pi\u010dkov\u00e9 hodiny</li>
-</ul>
-
-<h2>Porovn\u00e1n\u00ed efektivity</h2>
-<p>Kone\u010dn\u00e1 metrika: <strong>gramy na kWh</strong>. Za\u010d\u00e1te\u010dn\u00edk: 0,5&ndash;0,8 g/kWh. Optimalizovan\u00fd: 1,0&ndash;1,5 g/kWh.</p>
-`
-},
-
-"harvest-tracking": {
-  title: "Sledov\u00e1n\u00ed sklizn\u011b: Mokr\u00e1 v\u00e1ha, such\u00e1 v\u00e1ha a efektivita",
-  body: `
-<h2>Pro\u010d zaznamen\u00e1vat \u00fadaje o sklizni?</h2>
-<p>Bez z\u00e1znamu v\u00fdsledk\u016f nem\u00e1te \u017e\u00e1dn\u00fd zp\u016fsob objektivn\u011b porovn\u00e1vat p\u011bstov\u00e1n\u00ed. \u201e487g sucha ze 4 rostlin pod 480W za 63 dn\u00ed kv\u011btu\u201c &mdash; to jsou data, ze kter\u00fdch se m\u016f\u017eete u\u010dit.</p>
-
-<h2>Kl\u00ed\u010dov\u00e9 metriky efektivity</h2>
-<p><strong>Gramy na watt (g/W):</strong> Pod 0,5 = prostor ke zlep\u0161en\u00ed. 0,5&ndash;1,0 = dobr\u00e9. 1,0&ndash;1,5 = vynikaj\u00edc\u00ed. Nad 1,5 = v\u00fdjime\u010dn\u00e9.</p>
-<p><strong>Gramy na rostlinu</strong>, <strong>Gramy na m2</strong>, <strong>Dny do sklizn\u011b</strong>.</p>
-
-<h2>Tipy na su\u0161en\u00ed</h2>
-<p>Teplota 18&ndash;21&deg;C, vlhkost 55&ndash;65% RH, jemn\u00e9 proud\u011bn\u00ed, 7&ndash;14 dn\u00ed, tma.</p>
-
-<div class="warning-box">
-    <strong>Neuspe\u010dhejte su\u0161en\u00ed.</strong> Rychl\u00e9 su\u0161en\u00ed za 3&ndash;4 dny ni\u010d\u00ed terpeny a produkuje drsn\u00fd, trav\u00e1cky chutící kv\u011bt.
-</div>
-`
-},
-
-"comparing-grows": {
-  title: "Jak porovn\u00e1vat p\u011bstov\u00e1n\u00ed a u\u010dit se z dat",
-  body: `
-<h2>S\u00edla porovn\u00e1n\u00ed</h2>
-<p>Jeden den\u00edk v\u00e1m \u0159ekne, co se stalo. <strong>Dva den\u00edky vedle sebe</strong> v\u00e1m \u0159eknou pro\u010d.</p>
-
-<h2>Pou\u017eit\u00ed funkce porovn\u00e1n\u00ed</h2>
-<p>Otev\u0159ete Den\u00edk, klepn\u011bte na ikonu porovn\u00e1n\u00ed, vyberte dv\u011b p\u011bstov\u00e1n\u00ed.</p>
-
-<h2>Co porovn\u00e1vat</h2>
-<p>V\u00fdnosov\u00e9 metriky, konzistenci VPD, rychlost r\u016fstu, \u00farovn\u011b PPFD, hnojiv\u00e9 pl\u00e1ny, tr\u00e9ninkov\u00e9 techniky.</p>
+<h3>Řešení krok za krokem</h3>
+<ol>
+    <li><strong>Zkontroluj čtení senzoru.</strong> Otevři přehled stanu a ověř, že senzor hlásí aktuální data. Pokud je časová značka posledního čtení zastaralá (starší než 30 minut), senzor může být offline nebo mohl vypršet token.</li>
+    <li><strong>Ověř, že je podmínka skutečně splněná.</strong> U pravidla VPD zkontroluj aktuální hodnotu VPD proti prahu pravidla. Pamatuj, že GrowVPD Pro počítá VPD z teploty listu (odhadované z teploty vzduchu), takže zobrazené VPD se může mírně lišit od toho, co očekáváš.</li>
+    <li><strong>Zkontroluj rozvrh pravidla.</strong> Pokud jsi nastavil aktivní časová okna (např. spouštět pouze mezi 8:00 a 20:00), pravidlo mimo tyto hodiny nespustí.</li>
+    <li><strong>Zkontroluj minimální dobu vypnutí.</strong> Pokud jsi nastavil <code>minOffMinutes</code> na 10 a pravidlo bylo obnoveno (vypnuto) před méně než 10 minutami, znovu se nespustí, dokud cooldown nevyprší. To zabraňuje poškození kompresoru u odvlhčovačů a klimatizací.</li>
+    <li><strong>Zkontroluj cílové zařízení.</strong> Je cílové zařízení online? Můžeš ho ručně přepnout z záložky Automatizace? Pokud ruční ovládání funguje, ale pravidlo se nespouští, problém je v konfiguraci pravidla, ne v připojení zařízení.</li>
+    <li><strong>Zkontroluj konfliktní pravidla.</strong> Pokud dvě pravidla cílí na stejné zařízení s opačnými akcemi, vyhrává pravidlo s vyšší prioritou. Pravidlo "vypnout" s prioritou 10 přepíše pravidlo "zapnout" s prioritou 5.</li>
+</ol>
 
 <blockquote>
-    <strong>Tip:</strong> Pro nejsmyslupln\u011bj\u0161\u00ed porovn\u00e1n\u00ed m\u011b\u0148te jen jednu prom\u011bnnou mezi p\u011bstov\u00e1n\u00edmi.
+    <strong>Tip:</strong> GrowVPD Pro loguje každou akci automatizace s časovou značkou a důvodem. Zkontroluj historii akcí zařízení, abys viděl, zda se pravidlo v minulosti spustilo a co způsobilo jeho obnovu. Tento log je pro debugging neocenitelný.
 </blockquote>
 
-<h2>Pou\u017eit\u00ed \u0161ablon ke standardizaci</h2>
-<p>Ulo\u017ete \u00fasp\u011b\u0161n\u00e9 p\u011bstov\u00e1n\u00ed jako \u0161ablonu. \u0160ablony se \u010dasem vyv\u00edj\u00ed v optimalizovan\u00e9 recepty pro ka\u017edou odr\u016fdu.</p>
-`
-},
+<h2>Problém 3: Čtení senzoru vypadá špatně</h2>
+<p>Senzor hlásí teplotu nebo vlhkost, které neodpovídají tvému ručnímu měřiči nebo tomu, co cítíš, když vstoupíš do stanu.</p>
 
-"photo-documentation": {
-  title: "Foto dokumentace: Budov\u00e1n\u00ed vizuáln\u00ed \u010dasov\u00e9 osy p\u011bstov\u00e1n\u00ed",
-  body: `
-<h2>Pro\u010d fotky z\u00e1le\u017e\u00ed</h2>
-<p>\u010c\u00edsla vypr\u00e1v\u00ed \u010d\u00e1st p\u0159\u00edb\u011bhu. Fotky vypr\u00e1v\u00ed zbytek.</p>
+<h3>Běžné příčiny</h3>
+<ul>
+    <li><strong>Umístění senzoru.</strong> Senzor umístěný vysoko na stěně stanu u výfuku bude měřit jinak než ten na úrovni canopy. Vždy umisťuj senzory ve výšce canopy rostliny, daleko od stěn, světel a ventilátorů.</li>
+    <li><strong>Drift senzoru.</strong> Levné WiFi senzory (zejména ty značky Tuya) mohou časem driftovat o 1&ndash;3&deg;C a 3&ndash;8% RH. Při té ceně je to normální.</li>
+    <li><strong>Přímé vystavení světlu.</strong> Pokud je senzor v přímém světle tvé pěstební lampy, obal absorbuje sálavé teplo a hlásí teploty o 2&ndash;5&deg;C vyšší, než je skutečná teplota vzduchu. Senzor zastiň nebo ho přesuň do stínu.</li>
+    <li><strong>Kondenzace na senzoru.</strong> Vysoká vlhkost může způsobit kondenzaci na senzorovém prvku, kdy hlásí 100% RH, dokud neoschne.</li>
+</ul>
 
-<h2>Kdy fotografovat</h2>
-<p>Den 1, prvn\u00ed prav\u00e9 listy, za\u010d\u00e1tek ka\u017ed\u00e9ho t\u00fddne, jak\u00fdkoli probl\u00e9m, tr\u00e9ninkov\u00e9 ud\u00e1losti, p\u0159epnut\u00ed na kv\u011bten\u00ed, t\u00fddn\u011b b\u011bhem kv\u011btu, den sklizn\u011b, po usu\u0161en\u00ed.</p>
+<h3>Řešení: Kalibrační offsety</h3>
+<p>V GrowVPD Pro má každý senzor nastavení kalibračního offsetu. Porovnej svůj senzor proti ověřenému referenčnímu měřiči po dobu 30&ndash;60 minut na stejném místě. Poté aplikuj offsety:</p>
+<ul>
+    <li>Pokud chytrý senzor čte o 2&deg;C více, nastav teplotní offset -2,0</li>
+    <li>Pokud chytrý senzor čte o 5% RH méně, nastav vlhkostní offset +5,0</li>
+</ul>
+<p>Tyto offsety se aplikují na všechna čtení z daného senzoru před výpočtem VPD a vyhodnocením automatizace.</p>
 
-<h2>Tipy pro fotografov\u00e1n\u00ed</h2>
-<p>Vypn\u011bte p\u011bstebn\u00ed sv\u011btlo, pou\u017eijte neutr\u00e1ln\u00ed b\u00edl\u00e9 sv\u011btlo. Konzistentn\u00ed \u00fahly. Makro re\u017eim pro diagnostiku.</p>
+<h2>Problém 4: Opakovaně padá připojení</h2>
+<p>Zařízení se připojí a chvíli fungují, ale pak se během dne náhodně odpojují a znovu připojují.</p>
 
-<h2>Funkce timelapse</h2>
-<p>GrowVPD Pro generuje timelapse video ze v\u0161ech fotek v den\u00edku.</p>
+<h3>Pravděpodobné příčiny</h3>
+<ul>
+    <li><strong>Slabý WiFi signál.</strong> Pěstební stany z reflexního mylarového materiálu mohou částečně stínit WiFi signály. Pokud je router v jiné místnosti, signál uvnitř stanu může být hraniční. Použij aplikaci pro měření síly WiFi signálu. Hodnoty pod -70 dBm jsou nespolehlivé.</li>
+    <li><strong>Přetížený router.</strong> Každé chytré zařízení udržuje trvalé připojení ke svému cloudu. 10+ zařízení na základním spotřebitelském routeru může způsobit, že pod zátěží padají spojení.</li>
+    <li><strong>Konflikty IP adres.</strong> Pokud je DHCP pool routeru příliš malý, zařízení mohou selhat při obnovení své IP zápůjčky a dočasně přejít do offline stavu.</li>
+    <li><strong>Problémy cloudových služeb.</strong> Tuya, AC Infinity i Mars Hydro všechny spoléhají na cloudové servery. Občasné výpadky na jejich straně způsobí, že všechna zařízení z této platformy dočasně vypadají offline.</li>
+</ul>
 
-<h2>Re\u017eim soukrom\u00ed</h2>
-<p>Fotky skryty z galerie, p\u0159\u00edstupn\u00e9 pouze v aplikaci. Kombinujte s PIN z\u00e1mkem a stealth re\u017eimem.</p>
-`
-},
+<h3>Řešení</h3>
+<ul>
+    <li>Přesuň WiFi router blíže k pěstební oblasti nebo přidej WiFi extender/mesh uzel</li>
+    <li>Přiřaď svým chytrým zařízením statické IP adresy přes nastavení DHCP rezervace routeru</li>
+    <li>Pokud tvůj router podporuje více SSID, použij pro IoT zařízení dedikovanou 2,4 GHz síť</li>
+    <li>Upgraduj na mesh WiFi systém, pokud máš více než 15 chytrých zařízení</li>
+</ul>
 
-"nutrient-deficiency-guide": {
-  title: "Pr\u016fvodce identifikac\u00ed nedostatku \u017eivin",
-  body: `
-<h2>P\u0159ed diagnostikou: Zkontrolujte z\u00e1klady</h2>
-<p>Vylou\u010dete pH nerovnov\u00e1hu (5,8&ndash;6,5 hydro/kokos, 6,0&ndash;7,0 zem\u011b) a p\u0159el\u00e9v\u00e1n\u00ed.</p>
+<h2>Problém 5: Token vypršel / Autentizace selhala</h2>
+<p>GrowVPD Pro zobrazuje chybu autentizace pro platformu a všechna zařízení z této platformy přestanou reagovat.</p>
 
-<h2>Mobiln\u00ed vs. nemobiln\u00ed \u017eiviny</h2>
-<p><strong>Mobiln\u00ed</strong> (N, P, K, Mg): p\u0159\u00edznaky na star\u0161\u00edch/spodn\u00edch listech. <strong>Nemobiln\u00ed</strong> (Ca, Fe, Zn, Mn): p\u0159\u00edznaky na nov\u011bj\u0161\u00edch/horn\u00edch listech.</p>
+<h3>Podle platformy</h3>
 
-<h2>Dus\u00edk (N)</h2>
-<p>Rovnom\u011brn\u00e9 \u017eloutnut\u00ed spodn\u00edch list\u016f. Oprava: zvy\u0161te dus\u00edk v hnojivu.</p>
-
-<h2>Fosfor (P)</h2>
-<p>Fialov\u00e9 stonky, tmav\u011b zelen\u00e9 listy. Oprava: zkontrolujte teplotu ko\u0159en\u016f, pH, zvy\u0161te fosfor.</p>
-
-<h2>Drasl\u00edk (K)</h2>
-<p>Hn\u011bd\u00e9, k\u0159ehk\u00e9 okraje star\u0161\u00edch list\u016f. Oprava: p\u0159idejte drasl\u00edk, zkontrolujte pom\u011br Ca/Mg.</p>
-
-<h2>V\u00e1pn\u00edk (Ca)</h2>
-<p>Hn\u011bd\u00e9 skvrny na nov\u011bj\u0161\u00edch listech. Oprava: p\u0159idejte cal-mag, pH nad 6,0.</p>
-
-<h2>Ho\u0159\u010d\u00edk (Mg)</h2>
-<p>Interven\u00e1ln\u00ed chlor\u00f3za na star\u0161\u00edch listech. Oprava: Epsomsk\u00e1 s\u016fl 1&ndash;2 g/L.</p>
-
-<h2>\u017delezo (Fe)</h2>
-<p>Interven\u00e1ln\u00ed chlor\u00f3za na NOV\u00ddCH listech. Oprava: sni\u017ete pH, chelátov\u00e9 \u017eelezo.</p>
-
-<h2>Diagnostick\u00fd v\u00fdvojov\u00fd diagram</h2>
+<h3>Tuya</h3>
+<p>Tuya tokeny vyprší každé 2 hodiny, ale jsou automaticky obnovovány. Pokud obnovení selže (obvykle kvůli síťovým problémům během obnovovacího okna), musíš:</p>
 <ol>
-    <li>Kde jsou p\u0159\u00edznaky? Spodn\u00ed = mobiln\u00ed. Horn\u00ed = nemobiln\u00ed.</li>
-    <li>Jak\u00fd typ? \u017dloutnut\u00ed = N. Hn\u011bd\u00e9 okraje = K. Interven\u00e1ln\u00ed = Mg/Fe.</li>
-    <li>Zkontrolujte pH. 80% probl\u00e9m\u016f je pH lockout.</li>
-    <li>Zkontrolujte EC/PPM.</li>
-    <li>Vyfo\u0165te a pou\u017eijte pr\u016fvodce chorob v GrowVPD Pro.</li>
+    <li>Jít do Nastavení &gt; Připojené účty &gt; Tuya</li>
+    <li>Klepnout na Odpojit a poté znovu zadat své Access ID a Access Secret</li>
+    <li>Ověřit, že region odpovídá datacentru tvé Tuya IoT Platform</li>
+</ol>
+
+<h3>AC Infinity</h3>
+<p>AC Infinity tokeny mají dlouhou životnost, ale mohou být zneplatněny, pokud změníš heslo nebo se přihlásíš z příliš mnoha zařízení. Znovu se autentizuj svým e-mailem a heslem v Nastavení.</p>
+
+<h3>Mars Hydro / Spider Farmer</h3>
+<p>Tyto platformy používají MQTT připojení, která mohou spadnout, pokud je aplikace násilně ukončena nebo se telefon restartuje. Otevři GrowVPD Pro a nech ho automaticky obnovit MQTT připojení. Pokud to selže, znovu se autentizuj v Nastavení.</p>
+
+<div class="warning-box">
+    <strong>Důležité:</strong> Nikdy veřejně ani s třetími stranami nesdílej své platformové přihlašovací údaje (Access ID, Access Secret, API klíče). GrowVPD Pro ukládá přihlašovací údaje lokálně na tvém zařízení a přenáší je pouze na oficiální API platforem.
+</div>
+
+<h2>Problém 6: Automatizace běží, ale nemá žádný efekt</h2>
+<p>Log akcí zobrazuje, že pravidlo bylo spuštěno a příkaz byl odeslán, ale fyzické zařízení nezměnilo stav.</p>
+<ul>
+    <li><strong>Potřebná aktualizace firmwaru zařízení.</strong> Některá zařízení přestanou reagovat na cloudové příkazy po aktualizaci firmwaru, která změnila API. Aktualizuj zařízení přes jeho nativní aplikaci.</li>
+    <li><strong>Aktivní fyzické přepsání.</strong> Některá zařízení (zejména ventilátory AC Infinity a světla Mars Hydro) mají fyzická tlačítka, která mohou přepsat cloudové příkazy. Zkontroluj, zda není zařízení v "manuálním" režimu.</li>
+    <li><strong>Nepodporovaný příkaz.</strong> Pokud se pravidlo pokouší nastavit ventilátor na rychlost 10, ale zařízení podporuje pouze rychlosti 1&ndash;8, příkaz může být tiše odmítnut. Ověř, že hodnota příkazu je v podporovaném rozsahu zařízení.</li>
+</ul>
+
+<h2>Stále zaseknutí?</h2>
+<p>Pokud žádné z výše uvedených řešení tvůj problém nevyřeší:</p>
+<ol>
+    <li>Udělej screenshot záložky Automatizace se zobrazením problematického pravidla a stavu zařízení</li>
+    <li>Poznač si přesné chybové hlášení (pokud nějaké je)</li>
+    <li>Zkontroluj Discord komunitu &mdash; někdo pravděpodobně narazil na stejný problém</li>
+    <li>Kontaktuj podporu přes Nastavení &gt; Podpora s popisem a screenshoty</li>
 </ol>
 `
 },
 
-"substrate-mixing": {
-  title: "Pr\u016fvodce m\u00edch\u00e1n\u00edm substr\u00e1t\u016f: Zem\u011b, kokos a vlastn\u00ed sm\u011bsi",
+"energy-monitoring": {
+  title: "Sledování energie a nákladů pro tvou pěstírnu",
   body: `
-<h2>Pro\u010d substr\u00e1t z\u00e1le\u017e\u00ed</h2>
-<p>Substr\u00e1t ur\u010duje zadr\u017eov\u00e1n\u00ed vody, dren\u00e1\u017e, provzdu\u0161n\u011bn\u00ed, dostupnost \u017eivin a zdrav\u00ed ko\u0159en\u016f.</p>
+<h2>Proč sledovat energii?</h2>
+<p>Elektřina je největší průběžný náklad indoor pěstování. Jeden stan 120x120 cm s 480W LED, potrubním ventilátorem, clip ventilátory, zvlhčovačem a odvlhčovačem může spotřebovat <strong>8&ndash;15 kWh za den</strong>, což se v závislosti na sazbě za elektřinu převádí na 30&ndash;80 $ měsíčně. Za 4měsíční pěstební cyklus mohou náklady na energii překročit hodnotu sklizně, pokud se s nimi pečlivě nezachází.</p>
+<p>Přesné znalosti, kam tvá energie teče, ti umožňují informovaná rozhodnutí: Neběží odvlhčovač příliš? Mohl bys ztlumit světlo během posledního týdne? Je levnější provozovat výfuk konstantně na nízké rychlosti nebo cyklicky zapínat a vypínat?</p>
 
-<h2>Typy substr\u00e1t\u016f</h2>
-<p><strong>Zem\u011b:</strong> Nejshovívav\u011bj\u0161\u00ed, pH 6,0&ndash;7,0. <strong>Kokos:</strong> V\u00fdborn\u00e1 rovnov\u00e1ha, pH 5,8&ndash;6,2. <strong>Perlit:</strong> Dren\u00e1\u017e a provzdu\u0161n\u011bn\u00ed. <strong>Vermikulit:</strong> Zadr\u017eov\u00e1n\u00ed vody. <strong>Ker\u00e1mkul:</strong> Hydroponie.</p>
+<h2>Jak GrowVPD Pro sleduje energii</h2>
+<p>GrowVPD Pro sleduje spotřebu energie dvěma metodami:</p>
 
-<h2>Popul\u00e1rn\u00ed sm\u011bsi</h2>
-<p>Standardn\u00ed kokos/perlit 70/30, vysokofrekven\u010dn\u00ed 50/50, \u017eiv\u00e1 p\u016fda, sm\u011bs pro sazenice.</p>
+<h3>1. Hlášení výkonu z chytré zásuvky</h3>
+<p>Některé chytré zásuvky Tuya hlásí spotřebu výkonu v reálném čase (watty) a kumulativní spotřebu energie (kWh). Když je zařízení připojeno přes jednu z těchto zásuvek, GrowVPD Pro čte data o výkonu přímo. Tohle je nejpřesnější metoda.</p>
+<p>Hledej Tuya zásuvky s <strong>monitorováním energie</strong> v popisu produktu. Ne všechny chytré zásuvky hlásí výkon &mdash; nejlevnější modely poskytují pouze ovládání on/off.</p>
 
-<h2>P\u0159\u00edprava kokosu</h2>
-<p>Hydratujte, propl\u00e1chn\u011bte (EC pod 0,5), pufrujte cal-mag roztokem (8&ndash;12 hodin), p\u0159im\u00edchejte perlit.</p>
+<h3>2. Odhadovaná energie z nominálního výkonu</h3>
+<p>Pro zařízení, která nehlásí výkon přímo, GrowVPD Pro používá <strong>nominální výkon</strong>, který zadáš v nastavení zařízení (např. 480W pro LED, 250W pro odvlhčovač). Vynásobí ho zaznamenanou dobou zapnutí a odhadne tak spotřebu energie.</p>
+<p>U zařízení s proměnnou rychlostí, jako jsou ventilátory, je odhad méně přesný, protože skutečný výkon při rychlosti 3 je mnohem nižší než při rychlosti 10. Aplikace používá lineární aproximaci na základě nastavené rychlosti relativně k maximu.</p>
+
+<blockquote>
+    <strong>Tip:</strong> Pro nejpřesnější sledování nastav nominální výkon pro každé zařízení v nastavení zařízení. I odhadové sledování je mnohem lepší než žádné sledování.
+</blockquote>
+
+<h2>Porozumění rozdělení tvé spotřeby</h2>
+<p>Přehled energie v záložce Automatizace zobrazuje spotřebu podle zařízení, podle stanu a podle místnosti:</p>
+<ul>
+    <li><strong>Denní kWh:</strong> Celková energie použitá za posledních 24 hodin, rozdělená podle zařízení</li>
+    <li><strong>Doba zapnutí zařízení:</strong> Kolik hodin každé zařízení běželo, což ti pomůže identifikovat, která zařízení dominují tvému účtu za elektřinu</li>
+    <li><strong>Trend v čase:</strong> Viz, jak se spotřeba energie mění, jak rostliny rostou (zvyšuje se transpirace, odvlhčovač běží více atd.)</li>
+</ul>
+
+<h3>Typické rozdělení energie</h3>
+<p>U standardního setupu stanu se energie obvykle dělí takto:</p>
+<ul>
+    <li><strong>LED pěstební světlo:</strong> 50&ndash;65% celkové energie (největší jednotlivý spotřebič)</li>
+    <li><strong>Odvlhčovač:</strong> 15&ndash;25% (běží hodně během květu)</li>
+    <li><strong>Potrubní výfukový ventilátor:</strong> 5&ndash;10%</li>
+    <li><strong>Zvlhčovač:</strong> 3&ndash;5% (převážně během klíčení/vegetace)</li>
+    <li><strong>Clip ventilátory, ohřívače, ostatní:</strong> 5&ndash;10%</li>
+</ul>
+
+<h2>Odhad nákladů</h2>
+<p>Jakmile znáš své denní kWh, výpočet nákladů je přímočarý:</p>
+<p><strong>Denní náklady = denní kWh x sazba za elektřinu (na kWh)</strong></p>
+<p>Příklad: 12 kWh/den při 0,15 $/kWh = 1,80 $/den = 54 $/měsíc = 216 $ za 4měsíční cyklus.</p>
+<p>Analytický engine GrowVPD Pro to umí vypočítat automaticky, pokud zadáš svou sazbu za elektřinu. Zohledňuje také celkové náklady na pěstební cyklus při výpočtu metrik efektivity jako <strong>náklady na gram</strong> sušené sklizně.</p>
+
+<h2>Optimalizace spotřeby energie</h2>
+
+<h3>1. Stmívej světla, kdykoli je to možné</h3>
+<p>Většina moderních LED driverů podporuje stmívání. Provoz na 75% výkonu místo 100% ušetří 25% tvého největšího spotřebiče energie. Mnoho odrůd nepotřebuje plný výkon během prvních 2 týdnů květu (fáze stretch) nebo v pozdním květu, kdy rostlina zraje místo aktivní fotosyntézy.</p>
+
+<h3>2. Zvol správnou velikost odvlhčovače</h3>
+<p>Předimenzovaný odvlhčovač se často zapíná a vypíná a plýtvá energií při každém startu. Správně dimenzovaná jednotka běží déle s nižší intenzitou, což je efektivnější. Doporučení pro dimenzování najdeš v průvodci řízením vlhkosti.</p>
+
+<h3>3. Používej ventilátory s proměnnou rychlostí</h3>
+<p>Provoz potrubního ventilátoru na rychlost 4 místo rychlosti 10 může snížit jeho spotřebu výkonu o 60&ndash;70%. Ventilátory AC Infinity s vestavěnými kontroléry automaticky upravují rychlost podle podmínek a běží na minimální rychlosti potřebné k udržení tvého cíle.</p>
+
+<h3>4. Plánuj na hodiny mimo špičku</h3>
+<p>Pokud tvůj dodavatel elektřiny účtuje různé sazby v různých časech (tarif podle denní doby), naplánuj období zapnutých světel během hodin mimo špičku. V mnoha regionech je elektřina nejlevnější mezi 23:00 a 7:00. Provozování 12/12 květového rozvrhu od půlnoci do poledne místo od 6:00 do 18:00 může ušetřit 20&ndash;40% za elektřinu.</p>
+
+<blockquote>
+    <strong>Tip:</strong> Funkce světelného rozvrhu v GrowVPD Pro umožňuje nastavit přesné časy zapnutí/vypnutí pro každý stan. Spáruj to s tarify podle denní doby pro maximální úspory.
+</blockquote>
+
+<h3>5. Zlepši izolaci stanu</h3>
+<p>Pokud je tvůj stan ve studené garáži nebo sklepě, ohřívač běží neustále, aby udržel teplotu. Izolace podlahy (pěnové podložky), utěsnění vzduchových netěsností a použití lépe izolovaného pláště stanu výrazně snižuje náklady na topení.</p>
+
+<h2>Porovnávání pěstování podle energetické efektivity</h2>
+<p>Konečnou energetickou metrikou je <strong>gramy na kWh</strong> &mdash; kolik suché květeny vyprodukuješ za každou kilowatthodinu spotřebovanou. GrowVPD Pro to vypočítává automaticky, když zaznamenáš údaje o sklizni.</p>
+<p>Typické rozsahy:</p>
+<ul>
+    <li><strong>Začátečnický setup:</strong> 0,5&ndash;0,8 g/kWh</li>
+    <li><strong>Optimalizovaný setup:</strong> 1,0&ndash;1,5 g/kWh</li>
+    <li><strong>Pokročilý/komerční:</strong> 1,5&ndash;2,5 g/kWh</li>
+</ul>
+<p>Sledování této metriky napříč několika pěstováními ti ukáže, zda se tvá efektivita zlepšuje a které změny měly největší dopad.</p>
+`
+},
+
+"harvest-tracking": {
+  title: "Sledování sklizně: mokrá váha, suchá váha a efektivita",
+  body: `
+<h2>Proč zaznamenávat údaje o sklizni?</h2>
+<p>Sklizeň je vyvrcholením týdnů nebo měsíců práce. Bez zaznamenání výsledků nemáš jak objektivně porovnávat pěstování, měřit vliv provedených změn nebo zjistit, co pro tvůj setup funguje nejlépe. „Tohle pěstování mi připadalo lepší než to minulé" není data. <strong>487 g sušiny ze 4 rostlin pod 480 W za 63 dní květu</strong> &mdash; to už jsou data, ze kterých se dá učit.</p>
+
+<h2>Záznam sklizně v GrowVPD Pro</h2>
+<p>Když jsi připraven sklízet, změň ve svém záznamu v deníku fázi na „Sklizeň". Aplikace ti zobrazí specifická pole pro data o sklizni:</p>
+
+<h3>Mokrá váha</h3>
+<p>Zvaž čerstvě sestříhané a natrimované topy hned po sklizni, ještě před sušením. To je mokrá váha. Dává ti okamžitou představu o objemu, ale není to konečné číslo &mdash; zhruba 75&ndash;80 % mokré váhy tvoří voda.</p>
+
+<h3>Suchá váha</h3>
+<p>Po usušení (obvykle 7&ndash;14 dní při 60 % RH a 18&ndash;21 &deg;C) topy znovu zvaž. To je suchá váha &mdash; skutečný výnos. Toto číslo se používá pro všechny výpočty efektivity.</p>
+
+<blockquote>
+    <strong>Tip:</strong> Zdravý poměr mokré k suché váze je 4:1 až 5:1. Pokud je tvá suchá váha nižší než 20 % mokré, možná jsi přesušil nebo máš malé vzdušné topy. Pokud je vyšší než 30 %, topy pravděpodobně nejsou úplně suché a hrozí plíseň při skladování.
+</blockquote>
+
+<h2>Klíčové ukazatele efektivity</h2>
+<p>GrowVPD Pro tyto ukazatele automaticky spočítá, když zadáš data o sklizni:</p>
+
+<h3>Gramy na watt (g/W)</h3>
+<p>Nejběžnější ukazatel efektivity výnosu. Celkovou suchou váhu vyděl příkonem svého pěstebního světla.</p>
+<p><strong>Příklad:</strong> 450 g sušiny / 480 W LED = 0,94 g/W</p>
+<ul>
+    <li><strong>Pod 0,5 g/W:</strong> Je co zlepšovat. Zkontroluj VPD, vzdálenost světla, výživu a tréninkové techniky.</li>
+    <li><strong>0,5&ndash;1,0 g/W:</strong> Dobrý výsledek. Většina hobby pěstitelů se pohybuje zde.</li>
+    <li><strong>1,0&ndash;1,5 g/W:</strong> Výborný výsledek. Optimalizované prostředí a genetika.</li>
+    <li><strong>Nad 1,5 g/W:</strong> Výjimečné. Obvykle vyžaduje suplementaci CO2 a dokonalou kontrolu prostředí.</li>
+</ul>
+
+<h3>Gramy na rostlinu (g/rostlinu)</h3>
+<p>Celková suchá váha vydělená počtem rostlin. Užitečné pro porovnávání různého počtu rostlin ve stejném stanu.</p>
+<p><strong>Příklad:</strong> 450 g / 4 rostliny = 112,5 g/rostlinu</p>
+<p>Tento ukazatel silně ovlivňuje tréninková metoda, doba vegetativní fáze a velikost květináče. Jedna rostlina pěstovaná 8 týdnů ve vegetaci s intenzivním LST může dát stejný výnos jako 4 rostliny se 3 týdny vegetace.</p>
+
+<h3>Gramy na metr čtvereční (g/m2)</h3>
+<p>Celková suchá váha vydělená plochou pěstebního prostoru. Tento ukazatel normalizuje výnos podle velikosti stanu a umožňuje porovnávat efektivitu napříč různými setupy.</p>
+<p><strong>Příklad:</strong> 450 g / 1,44 m2 (stan 120x120 cm) = 312 g/m2</p>
+
+<h3>Dny do sklizně</h3>
+<p>Celkový počet dní od semene (nebo klonu) po řez. GrowVPD Pro to vypočítá automaticky od data začátku pěstování po datum záznamu sklizně. Porovnej napříč odrůdami, abys zjistil, které genetiky dozrávají rychleji.</p>
+
+<h2>Co ti data říkají</h2>
+
+<h3>Porovnání mezi pěstováními</h3>
+<p>Po 3&ndash;4 dokončených pěstováních začnou vycházet najevo vzorce. Můžeš zjistit, že:</p>
+<ul>
+    <li>Tvé výnosy jsou vždy lepší v zimě (nižší okolní teplota = lepší podmínky v pozdním květu)</li>
+    <li>Konkrétní odrůda soustavně překonává ostatní ve tvém setupu</li>
+    <li>Přechod ze 4 rostlin na 2 rostliny s delší vegetací vyprodukoval stejný výnos s menší námahou</li>
+    <li>Tvé g/W se zlepšilo poté, co jsi začal sledovat VPD a udržovat ho v cílovém rozmezí</li>
+</ul>
+
+<h3>Identifikace vlivu provedených změn</h3>
+<p>Když mezi pěstováními změníš jednu proměnnou (nové světlo, jiný substrát, přidání CO2), data ze sklizně ti ukážou, jestli změna pomohla. Funguje to jen tehdy, když zaznamenáváš i všechno ostatní &mdash; proto jsou konzistentní záznamy v deníku po celou dobu pěstování nezbytné.</p>
+
+<blockquote>
+    <strong>Tip:</strong> Použij funkci porovnání pěstování v GrowVPD Pro a polož dvě pěstování vedle sebe. Aplikace ti na jedné obrazovce ukáže rozdíly v průměrech VPD, úrovních PPFD, výživě a metrikách sklizně, což usnadňuje odhalení toho, co se změnilo.
+</blockquote>
+
+<h2>Tipy pro sušení, které ochrání tvůj výnos</h2>
+<p>Sušení je součástí sklizně a když ho zkazíš, můžeš zničit i jinak vynikající pěstování:</p>
+<ul>
+    <li><strong>Teplota:</strong> 18&ndash;21 &deg;C (64&ndash;70 &deg;F). Nižší teploty zachovávají terpeny.</li>
+    <li><strong>Vlhkost:</strong> 55&ndash;65 % RH. Příliš sucho (pod 50 %) způsobí, že topy uschnou příliš rychle, zachytí se chlorofyl a kouř bude ostrý. Příliš vlhko (nad 70 %) hrozí plísní.</li>
+    <li><strong>Proudění vzduchu:</strong> Jemné, nepřímé. Nemiř ventilátory přímo na topy. Chceš cirkulaci vzduchu v místnosti, ne větrný tunel.</li>
+    <li><strong>Délka:</strong> 7&ndash;14 dní. Topy jsou hotové, když se drobné stonky lámou místo ohýbání a povrch je suchý, ale top ještě lehce povoluje pod stiskem.</li>
+    <li><strong>Tma:</strong> Suš v tmavé místnosti. Světlo rozkládá THC a terpeny.</li>
+</ul>
 
 <div class="warning-box">
-    <strong>D\u016fle\u017eit\u00e9:</strong> Nikdy nepou\u017e\u00edvejte kokos p\u0159\u00edmo z cihly bez proplachov\u00e1n\u00ed a pufrov\u00e1n\u00ed.
+    <strong>Nespěchej se sušením.</strong> Rychlé sušení za 3&ndash;4 dny (zvýšením teploty nebo snížením vlhkosti) zničí terpeny a vyprodukuje ostré, travnatě chutnající květy. Kvalita se rodí právě v pomalém sušení.
 </div>
 
-<h2>Velikost kv\u011btin\u00e1\u010de</h2>
-<p>Sazenice 0,5&ndash;1 L. Autoflower 7&ndash;15 L. Fotoperiodn\u00ed 11&ndash;30 L. L\u00e1tkov\u00e9 kv\u011btin\u00e1\u010de siln\u011b doporu\u010deny.</p>
+<h2>Záznam v aplikaci</h2>
+<ol>
+    <li>Vytvoř v den sklizně nový záznam v deníku a nastav fázi na „Sklizeň"</li>
+    <li>Zadej mokrou váhu a pořiď fotky čerstvé sklizně</li>
+    <li>Po usušení (7&ndash;14 dní) záznam uprav a přidej suchou váhu</li>
+    <li>Označ pěstování jako dokončené, aby se spustily finální výpočty analytiky</li>
+    <li>Projdi si souhrn sklizně se všemi ukazateli efektivity</li>
+</ol>
+`
+},
+
+"comparing-grows": {
+  title: "Jak porovnávat pěstování a učit se ze svých dat",
+  body: `
+<h2>Síla porovnání</h2>
+<p>Jeden pěstební deník ti řekne, co se stalo. <strong>Dva pěstební deníky vedle sebe</strong> ti řeknou proč. Když vidíš, že Pěstování A drželo VPD na 1,1&ndash;1,3 kPa po celý květ a dalo 0,95 g/W, zatímco Pěstování B kolísalo mezi 0,7 a 1,6 kPa a dalo 0,62 g/W, vztah mezi konzistencí VPD a výnosem se stane nepopiratelným.</p>
+<p>GrowVPD Pro obsahuje vyhrazenou obrazovku pro porovnání pěstování, která umístí dvě dokončená (nebo aktivní) pěstování vedle sebe a zvýrazní rozdíly v prostředí, výživě, technikách a výsledcích sklizně.</p>
+
+<h2>Použití funkce porovnání</h2>
+<ol>
+    <li>Otevři záložku <strong>Deník</strong></li>
+    <li>Klepni na ikonu porovnání (dva překrývající se obdélníky) v horní liště</li>
+    <li>Vyber první pěstování ze seznamu</li>
+    <li>Vyber druhé pěstování pro porovnání</li>
+    <li>Obrazovka porovnání zobrazí obě pěstování s paralelními časovými osami</li>
+</ol>
+
+<h2>Co porovnávat</h2>
+
+<h3>Metriky výnosu</h3>
+<p>Nejzjevnější body porovnání: suchá váha, g/W, g/rostlinu a g/m2. Pokud obě pěstování používala stejný stan a světlo, rozdíly ve výnosu jsou způsobené genetikou, prostředím, výživou nebo technikou.</p>
+
+<h3>Konzistence VPD</h3>
+<p>Podívej se na průměrné VPD na týden napříč oběma pěstováními. Pěstování s konzistentnějším VPD (menší odchylka týden po týdnu) skoro vždy vede k lepším výsledkům. Velké výkyvy VPD stresují rostliny a snižují fotosyntetickou efektivitu.</p>
+<p>GrowVPD Pro zobrazuje trendovou křivku VPD pro každé pěstování, což usnadňuje odhalení týdnů, kdy se prostředí vymklo kontrole.</p>
+
+<h3>Rychlost růstu</h3>
+<p>Porovnej časovou osu od semene/klonu po sklizeň. Dokončilo jedno pěstování dřív? Zkontroluj, co bylo jiného v prvních týdnech &mdash; rychlejší zakořenění v prvních 2 týdnech často vede k dřívějšímu datu sklizně.</p>
+
+<h3>Úrovně PPFD</h3>
+<p>Pokud jsi do záznamů v deníku zapisoval PPFD, porovnej intenzitu světla mezi pěstováními. Vyšší PPFD se správným VPD a CO2 vede k rychlejšímu růstu a vyšším výnosům, až do bodu saturace světlem u dané rostliny.</p>
+
+<h3>Hnojivové rozvrhy</h3>
+<p>Porovnej hodnoty EC/PPM týden po týdnu. Dostávalo jedno pěstování vyšší dávky? Byla hnojiva nasazena dřív, nebo později? Dej to do souvislosti s rozdílem ve výnosu, abys porozuměl apetitu svých rostlin.</p>
+
+<h3>Tréninkové techniky</h3>
+<p>Pokud jedno pěstování používalo LST a druhé topping, nebo bylo jedno SOG a druhé ScrOG, porovnání ukáže, jak si tyto techniky vedly v tvém konkrétním setupu.</p>
+
+<blockquote>
+    <strong>Tip:</strong> Pro nejsmysluplnější porovnání měň mezi pěstováními jen jednu proměnnou. Pokud najednou změníš světlo, odrůdu a upravíš hnojivový rozvrh, nebudeš vědět, která změna způsobila rozdíl ve výnosu.
+</blockquote>
+
+<h2>Učení se z rozdílů</h2>
+
+<h3>Rozpoznávání vzorců</h3>
+<p>Po 3&ndash;5 pěstováních se zaznamenanými daty se objeví vzorce, které jsou z jediného pěstování neviditelné:</p>
+<ul>
+    <li><strong>Sezónní vzorce:</strong> Pěstování zahájená v listopadu soustavně dávají vyšší výnosy než ta zahájená v červenci (chladnější okolní teploty pomáhají pozdnímu květu)</li>
+    <li><strong>Chování odrůdy:</strong> Odrůda A vždy dozraje za 8 týdnů květu; Odrůda B potřebuje 10 týdnů a pokud ji odřízneš v 8 týdnech, výnos klesne o 20 %</li>
+    <li><strong>Vliv vybavení:</strong> Upgrade z blurple LED na Samsung LM301H board zvýšil výnos o 35 % při stejném příkonu</li>
+    <li><strong>Korelace VPD:</strong> Každé pěstování, kde průměrné VPD v květu zůstalo mezi 1,1&ndash;1,3 kPa, produkovalo nadprůměrné výnosy</li>
+</ul>
+
+<h3>Vědecká metoda pro pěstitele</h3>
+<ol>
+    <li><strong>Pozoruj:</strong> Projdi si data z předchozích pěstování a najdi nejslabší metriku</li>
+    <li><strong>Vytvoř hypotézu:</strong> „Pokud udržím vyšší VPD v týdnech 4&ndash;6 květu, zlepší se hustota topů"</li>
+    <li><strong>Otestuj:</strong> Spusť další pěstování s touto jednou změnou a nech vše ostatní stejné</li>
+    <li><strong>Porovnej:</strong> Použij funkci porovnání k vyhodnocení výsledku</li>
+    <li><strong>Opakuj:</strong> Přejdi k další proměnné</li>
+</ol>
+
+<h2>Použití šablon pro standardizaci</h2>
+<p>Systém šablon v GrowVPD Pro ti umožní uložit úspěšné pěstování jako šablonu. Při dalším pěstování šablonu načteš a předvyplníš odrůdu, médium, velikost květináče, hnojivový rozvrh a cílové hodnoty VPD. To standardizuje tvou základní úroveň a porovnání se tak stávají smysluplnější.</p>
+<p>Když pěstování založené na šabloně překoná výchozí hodnoty šablony, šablonu aktualizuj. V průběhu času se tvé šablony vyvinou v optimalizované recepty pro každou odrůdu ve tvém setupu.</p>
+
+<blockquote>
+    <strong>Tip:</strong> Pojmenuj svá pěstování popisně. Místo „Pěstování 7" použij „Northern Lights Auto - 120x120 - Kokos - 480W - únor 2026". Díky tomu bude seznam pro porovnání okamžitě informativní, aniž bys musel každé pěstování otevírat.
+</blockquote>
+`
+},
+
+"photo-documentation": {
+  title: "Fotodokumentace: budování vizuální časové osy pěstování",
+  body: `
+<h2>Proč na fotkách záleží</h2>
+<p>Čísla vyprávějí část příběhu. Fotky zbytek. Záznam v deníku „rostliny vypadají zdravě, mírné žloutnutí na spodních listech" je užitečný. Fotka těch samých spodních listů je desetkrát užitečnější &mdash; můžeš si ji přiblížit, porovnat s průvodci nemocemi a sdílet ji s ostatními pro diagnózu.</p>
+<p>Během celého pěstebního cyklu pravidelné fotky vytvoří vizuální časovou osu, která ukáže rychlost růstu, vývoj canopy, postup deficiencí a proměnu od sazenice po sklizeň. Tento vizuální záznam je nenahraditelný pro učení i pro porovnávání pěstování.</p>
+
+<h2>Kdy fotit</h2>
+
+<h3>Okamžiky, které musíš zachytit</h3>
+<ul>
+    <li><strong>Den 1:</strong> Semena zasazena nebo klony přesazeny. Zdokumentuj výchozí bod.</li>
+    <li><strong>První pravé listy / viditelné kořeny:</strong> Označuje přechod od klíčení k růstu.</li>
+    <li><strong>Začátek každého týdne:</strong> Konzistentní týdenní fotka ze stejného úhlu tvoří páteř tvé časové osy.</li>
+    <li><strong>Jakýkoli problém:</strong> Žloutnutí, skvrny, kroucení, škůdci, vadnutí &mdash; okamžitě vyfoť pro diagnózu.</li>
+    <li><strong>Tréninkové zásahy:</strong> Před a po toppingu, LST, defoliaci, lollipoppingu. Ukazuje reakci rostliny.</li>
+    <li><strong>Přepnutí do květu:</strong> Den, kdy přepneš na 12/12. Porovnávej s následujícími týdny pro sledování natažení.</li>
+    <li><strong>Týdně během květu:</strong> Vývoj topů, detailní makrosnímky trichomů, tvorba col.</li>
+    <li><strong>Den sklizně:</strong> Celá rostlina před řezem, jednotlivé coly, celá mokrá sklizeň rozložená.</li>
+    <li><strong>Po usušení:</strong> Finální produkt ve sklenicích. Toto je tvá výsledná fotka.</li>
+</ul>
+
+<h3>Automatické snímky z kamery</h3>
+<p>Pokud používáš kameru Tuya nebo Tapo připojenou přes GrowVPD Pro, aplikace může pořizovat automatické denní snímky a ukládat je do pěstebního deníku. To poskytne dokonale konzistentní časovou osu bez jakéhokoli manuálního úsilí. Funkce timelapse pak tyto snímky sešije do videa zobrazujícího celé pěstování během několika sekund.</p>
+
+<h2>Tipy pro focení v grow roomech</h2>
+
+<h3>Vypni pěstební světlo a blesk</h3>
+<p>Tohle je naprosto nejdůležitější tip pro focení u pěstitelů. Moderní LED pěstební světla produkují intenzivní fialové, červené nebo plnospektrální bílé světlo, které přehltí kamery v telefonech. Výsledkem jsou fotky s fialovým nádechem, kde nelze přesně rozeznat barvu listů.</p>
+<p>Řešení:</p>
+<ul>
+    <li><strong>Vypni pěstební světlo</strong> a použij neutrální bílé osvětlení (běžné pokojové světlo nebo svítilnu v telefonu) pro focení. To zajistí věrné podání barev.</li>
+    <li><strong>Použij zelenou LED čelovku</strong> během temné periody. Zelené světlo nenarušuje fotoperiodu a poskytuje dostatek osvětlení pro focení.</li>
+    <li><strong>Vyhni se blesku kamery.</strong> Blesk vytváří ostré stíny a přepaly, které skryjí detaily. Použij místo toho okolní osvětlení.</li>
+</ul>
+
+<h3>Konzistentní úhly</h3>
+<p>Pro smysluplné týdenní porovnávání pořizuj svou hlavní týdenní fotku pokaždé ze stejné pozice:</p>
+<ul>
+    <li>Označ si místo na podlaze, kde stojíš (páska nebo malá samolepka)</li>
+    <li>Drž telefon ve stejné výšce (výška hrudi dobře funguje pro pohledy shora na canopy)</li>
+    <li>Zahrň do každé fotky stejný referenční bod (tyč stanu, senzor, pravítko upevněné na zdi)</li>
+</ul>
+
+<h3>Technika detailních snímků</h3>
+<p>Pro diagnostiku problémů nebo kontrolu trichomů:</p>
+<ul>
+    <li>Použij makro režim svého telefonu, pokud je k dispozici, nebo investuj do levného makroobjektivu s klipem ($10&ndash;$20)</li>
+    <li>Opři telefon o konstrukci stanu nebo použij malý stativ, abys zabránil rozmazání</li>
+    <li>Zaměř se na postižené místo a pořiď několik snímků &mdash; makrofotografie má malou hloubku ostrosti</li>
+</ul>
+
+<blockquote>
+    <strong>Tip:</strong> GrowVPD Pro podporuje více fotek na jeden záznam v deníku. Připoj snímek celé canopy plus detaily problémů do jednoho záznamu. Všechno tak zůstane uspořádané podle data a týdne.
+</blockquote>
+
+<h2>Funkce timelapse</h2>
+<p>Po dokončení pěstování (nebo kdykoli během něj) dokáže GrowVPD Pro vygenerovat timelapse video ze všech fotek v deníku. Každá fotka se stane snímkem a vytvoří plynulou animaci, která ukáže celý pěstební cyklus za pár sekund.</p>
+<p>Pro nejlepší výsledky timelapse:</p>
+<ul>
+    <li>Pořizuj fotky z konzistentního úhlu (automatická kamera je na to ideální)</li>
+    <li>Foť ve stejnou denní dobu (stejné světelné podmínky)</li>
+    <li>Zahrň fotky z každého týdne &mdash; mezery v časové ose vytváří skoky ve videu</li>
+</ul>
+
+<h2>Režim soukromí</h2>
+<p>GrowVPD Pro chápe, že ne každý chce mít pěstební fotky viditelné v galerii telefonu. Funkce <strong>Soukromí fotek</strong> (Pro) skryje pěstební fotky před systémovou galerií a skenerem médií. Fotky se ukládají do privátního adresáře aplikace a jsou viditelné pouze uvnitř GrowVPD Pro.</p>
+<p>V kombinaci s PIN zámkem a maskovanou ikonou aplikace (Stealth režim) zůstává tvá pěstební dokumentace zcela soukromá.</p>
+
+<div class="warning-box">
+    <strong>Připomínka zálohy:</strong> Fotky uložené v privátním režimu nezálohují Google Photos ani iCloud. Použij funkci exportu v GrowVPD Pro pro vytváření záloh, nebo pravidelně ručně kopíruj fotky do bezpečného úložiště.
+</div>
+`
+},
+
+"nutrient-deficiency-guide": {
+  title: "Průvodce identifikací deficitů živin",
+  body: `
+<h2>Než začneš diagnostikovat: ověř základy</h2>
+<p>Než budeš předpokládat deficit živin, vyluč dva nejčastější viníky, kteří napodobují symptomy deficitu:</p>
+<ul>
+    <li><strong>Nerovnováha pH:</strong> Pokud je pH v kořenové zóně mimo rozsah 5,8&ndash;6,5 (hydro/kokos) nebo 6,0&ndash;7,0 (půda), živiny se stávají nedostupné, i když jsou v roztoku přítomné. "Deficit" vápníku při pH 5,0 je ve skutečnosti pH lockout. Nejprve oprav pH.</li>
+    <li><strong>Přelévání:</strong> Zaplavené kořeny nedokážou absorbovat živiny. Svěšené rostliny se žloutnutím listů často jen potřebují vyschnout, ne víc hnojiva.</li>
+</ul>
+
+<blockquote>
+    <strong>Tip:</strong> Průvodce nemocemi a škůdci v GrowVPD Pro obsahuje vizuální diagnostický nástroj s referenčními obrázky pro všechny běžné deficity. Použij ho spolu s tímto článkem pro nejpřesnější identifikaci.
+</blockquote>
+
+<h2>Mobilní vs. nemobilní živiny</h2>
+<p>Pochopení mobility živin ti řekne, kde se symptomy objeví:</p>
+<ul>
+    <li><strong>Mobilní živiny</strong> (N, P, K, Mg) mohou být přerozdělovány ze starých listů do nového růstu. Symptomy deficitu se projevují <strong>nejprve na spodních/starších listech</strong>, protože rostlina z nich stahuje živiny, aby vyživila nový růst.</li>
+    <li><strong>Nemobilní živiny</strong> (Ca, Fe, Mn, Zn, S, B, Cu) se po uložení nedokážou pohybovat. Symptomy deficitu se projevují <strong>nejprve na horních/mladších listech</strong>, protože nový růst nemůže získat to, co potřebuje.</li>
+</ul>
+
+<h2>Dusík (N) &mdash; mobilní</h2>
+<h3>Symptomy</h3>
+<ul>
+    <li>Rovnoměrné žloutnutí <strong>spodních/starších listů</strong>, začínající od špiček a postupující dovnitř</li>
+    <li>Listy nakonec zcela zblednou do žluta, pak do běla, pak odumírají a opadávají</li>
+    <li>Postupuje zdola rostliny nahoru</li>
+    <li>Celkově se rostlina jeví světle zelená, růst se zpomaluje</li>
+</ul>
+<h3>Časté příčiny</h3>
+<ul>
+    <li>Nedostatek dusíku v krmném roztoku, zvlášť během vrcholu vegetativního růstu</li>
+    <li>Silně vyplavované médium (nadměrný odtok vyplavuje dusík)</li>
+    <li>Přirozené vyčerpání dusíku v organické půdě po 4&ndash;6 týdnech</li>
+</ul>
+<h3>Oprava</h3>
+<p>Zvyš dusík v krmení. Pro okamžitou korekci použij tekuté hnojivo s vyšším obsahem dusíku (rybí emulze, dusičnan vápenatý nebo živiny vegetativní fáze). Postižené spodní listy se nezotaví, ale nový růst by měl do 5&ndash;7 dnů zezelenat.</p>
+
+<h2>Fosfor (P) &mdash; mobilní</h2>
+<h3>Symptomy</h3>
+<ul>
+    <li><strong>Fialové nebo načervenalé stonky</strong> a řapíky (stopky listů)</li>
+    <li>Tmavě zelené listy, které získávají namodralé nebo fialové nádechy</li>
+    <li>Starší listy mohou vyvíjet tmavě hnědé nebo bronzové odumřelé skvrny</li>
+    <li>Pomalý celkový růst, zaostalý vývoj kořenů</li>
+    <li>V květu: malá, řídká poupata, která se vyvíjejí pomalu</li>
+</ul>
+<h3>Časté příčiny</h3>
+<ul>
+    <li>Chladné teploty kořenové zóny (pod 18&deg;C) snižují příjem fosforu</li>
+    <li>Příliš vysoké pH (nad 7,0) blokuje fosfor</li>
+    <li>Nedostatek fosforu v krmení během květu, kdy poptávka vrcholí</li>
+</ul>
+<h3>Oprava</h3>
+<p>Nejprve zkontroluj teplotu kořenové zóny. Pokud je studená, přidej topnou rohož. Pokud je pH správné a teplota v pořádku, zvyš fosfor. Živiny pro fázi květu mají typicky zvýšený fosfor. Kostní moučka je pomalu uvolňovaná organická alternativa.</p>
+
+<div class="warning-box">
+    <strong>Poznámka:</strong> Některé odrůdy přirozeně produkují fialové stonky bez ohledu na hladinu fosforu. Pokud jsou fialové pouze stonky, ale listy jsou zdravě zelené, může jít o genetiku, ne o deficit.
+</div>
+
+<h2>Draslík (K) &mdash; mobilní</h2>
+<h3>Symptomy</h3>
+<ul>
+    <li><strong>Hnědé, křupavé okraje</strong> na starších/spodních listech (spálení okrajů listů)</li>
+    <li>Okraje se před zhnědnutím mohou stáčet nahoru</li>
+    <li>Žloutnutí mezi žilkami starších listů, přičemž žilky zůstávají zpočátku zelené</li>
+    <li>Slabé stonky, rostliny náchylné k přelomení</li>
+    <li>V květu: poupata jsou lehká a rozvolněná</li>
+</ul>
+<h3>Časté příčiny</h3>
+<ul>
+    <li>Vysoký obsah vápníku nebo hořčíku může blokovat příjem draslíku (antagonismus)</li>
+    <li>Velmi vysoké EC krmení blokující konkrétní ionty</li>
+    <li>Nedostatek draslíku v krmení během středního až pozdního květu, kdy poptávka vrcholí</li>
+</ul>
+<h3>Oprava</h3>
+<p>Přidej krmení bohaté na draslík (křemičitan draselný, výtažek z mořských řas nebo květové boostery se zvýšeným K). Zkontroluj, zda není vápník a hořčík příliš vysoký. Sniž celkové EC, pokud je nad 2,0 mS/cm, a znovu vyvažuj poměr živin.</p>
+
+<h2>Vápník (Ca) &mdash; nemobilní</h2>
+<h3>Symptomy</h3>
+<ul>
+    <li><strong>Hnědé skvrny</strong> na novějších/horních listech, často nepravidelně tvarované</li>
+    <li>Špičky nových listů se mohou stáčet a odumírat (spálení špiček, které se vzorem liší od spálení živinami)</li>
+    <li>Okraje listů se stávají roztřepené a zvrásněné</li>
+    <li>V těžkých případech je nový růst deformovaný a zakrslý</li>
+    <li>Stonky jsou slabé a duté</li>
+</ul>
+<h3>Časté příčiny</h3>
+<ul>
+    <li>Používání RO nebo destilované vody bez doplnění cal-mag</li>
+    <li>pH pod 6,0 (začíná blokování vápníku)</li>
+    <li>Nadbytek draslíku blokující příjem vápníku</li>
+    <li>Vysoká vlhkost snižující transpiraci (vápník se pohybuje s tokem vody skrz rostlinu)</li>
+</ul>
+<h3>Oprava</h3>
+<p>Přidej cal-mag doplněk. Pokud používáš RO vodu, vždy přidávej cal-mag na 0,3&ndash;0,5 EC před přidáním základních živin. Zajisti, že pH je nad 6,0. Pokud je vlhkost velmi vysoká (nad 80 %), zvyš proudění vzduchu pro podporu transpirace.</p>
+
+<h2>Hořčík (Mg) &mdash; mobilní</h2>
+<h3>Symptomy</h3>
+<ul>
+    <li><strong>Intervenální chloróza na starších/spodních listech</strong>: tkáň mezi žilkami žloutne, zatímco samotné žilky zůstávají zelené, což vytváří charakteristický pruhovaný vzor</li>
+    <li>Postižené listy mohou nakonec vyvinout rezivé skvrny</li>
+    <li>Listy se stáčí nahoru a okraje mohou křehnout</li>
+    <li>Postupuje od spodních k horním listům</li>
+</ul>
+<h3>Časté příčiny</h3>
+<ul>
+    <li>Vysoký draslík nebo vápník blokující příjem hořčíku</li>
+    <li>pH pod 6,0 v půdě (hořčík se stává méně dostupným)</li>
+    <li>RO voda bez doplnění</li>
+    <li>Zdá se, že LED pěstování zvyšuje poptávku po hořčíku ve srovnání s HPS</li>
+</ul>
+<h3>Oprava</h3>
+<p>Epsomská sůl (síran hořečnatý) je nejrychlejší oprava: 1&ndash;2 g/l v krmení nebo jako foliární postřik. Cal-mag produkty také obsahují hořčík. Zajisti, že pH je v rozsahu. Reakce je viditelná do 7&ndash;10 dnů na novém růstu; postižené listy se zřídka plně zotaví.</p>
+
+<h2>Železo (Fe) &mdash; nemobilní</h2>
+<h3>Symptomy</h3>
+<ul>
+    <li><strong>Intervenální chloróza na nových/horních listech</strong> (podobná hořčíku, ale na NOVÉM růstu, ne na starém)</li>
+    <li>Nové listy se objevují bledě žluté nebo téměř bílé, se zelenými žilkami</li>
+    <li>V těžkých případech jsou celé nové listy žluté/bílé</li>
+</ul>
+<h3>Časté příčiny</h3>
+<ul>
+    <li>Příliš vysoké pH (nad 6,5 v hydro, nad 7,0 v půdě) &mdash; toto je nejčastější příčina</li>
+    <li>Nadbytek manganu, zinku nebo mědi blokující příjem železa</li>
+    <li>Chladné teploty kořenové zóny</li>
+</ul>
+<h3>Oprava</h3>
+<p>Sniž pH do správného rozsahu. Železo je extrémně citlivé na pH. Pokud je pH správné, aplikuj chelatované železo (Fe-EDDHA nebo Fe-DTPA) jako doplněk ke krmení. Foliární aplikace chelátu železa může poskytnout rychlejší úlevu, zatímco kořenové krmení dohání.</p>
+
+<h2>Zinek (Zn) &mdash; nemobilní</h2>
+<h3>Symptomy</h3>
+<ul>
+    <li>Nové listy jsou malé, tenké a shluknuté dohromady (krátká internodia na vršku)</li>
+    <li>Intervenální chloróza na mladých listech</li>
+    <li>Špičky listů se mohou kroutit nebo stáčet</li>
+    <li>Celkově růst vypadá zakrsle a "naštosovaně" na vršku</li>
+</ul>
+<h3>Oprava</h3>
+<p>Zkontroluj pH (zinek se blokuje nad 7,0). Aplikuj doplněk mikroživin obsahující zinek. Výtažek z mořských řas obsahuje stopový zinek. Většina kompletních řad živin obsahuje zinek, takže deficit obvykle ukazuje na pH lockout, ne na jeho absenci v krmení.</p>
+
+<h2>Mangan (Mn) &mdash; nemobilní</h2>
+<h3>Symptomy</h3>
+<ul>
+    <li>Intervenální chloróza na mladých listech (podobná železu, ale s malými hnědými nebo béžovými skvrnami rozesetými mezi žilkami)</li>
+    <li>Odumřelé skvrny jsou typicky menší a početnější než skvrny vápníku</li>
+    <li>Okraje listů mohou zůstat zelené, zatímco střed žloutne</li>
+</ul>
+<h3>Oprava</h3>
+<p>Sniž pH, pokud je příliš vysoké. Síran manganatý lze přidat do krmení, ale většina deficitů je způsobena pH. Zajisti, že tvá základní řada živin obsahuje mangan (prakticky všechny ano).</p>
+
+<h2>Diagnostický postup</h2>
+<ol>
+    <li><strong>Kde jsou symptomy?</strong> Spodní/staré listy = mobilní živina (N, P, K, Mg). Horní/nové listy = nemobilní živina (Ca, Fe, Zn, Mn).</li>
+    <li><strong>Jaký typ symptomu?</strong> Rovnoměrné žloutnutí = dusík. Hnědé okraje = draslík. Intervenální = hořčík (staré) nebo železo (nové). Skvrny = vápník nebo mangan. Fialové stonky = fosfor.</li>
+    <li><strong>Nejprve zkontroluj pH.</strong> 80 % zjevných deficitů je pH lockout.</li>
+    <li><strong>Zkontroluj EC/PPM.</strong> Příliš nízké = podkrmování. Příliš vysoké = nutrient burn nebo lockout z nadbytku.</li>
+    <li><strong>Udělej fotky.</strong> Použij průvodce nemocemi v GrowVPD Pro k porovnání s referenčními obrázky.</li>
+</ol>
+
+<blockquote>
+    <strong>Tip:</strong> AI diagnostika nemocí v GrowVPD Pro (Pro funkce) dokáže analyzovat fotky postižených listů a navrhnout nejpravděpodobnější deficit nebo nemoc včetně doporučených nápravných opatření.
+</blockquote>
+`
+},
+
+"substrate-mixing": {
+  title: "Průvodce mícháním substrátů: Zemina, kokos a vlastní směsi",
+  body: `
+<h2>Proč na substrátu záleží</h2>
+<p>Substrát je místo, kde tvá rostlina žije. Určuje zadržování vody, drenáž, provzdušnění, dostupnost živin a zdraví kořenů. Nejlepší řízení prostředí na světě nedokáže kompenzovat kořenovou zónu, která je zamokřená, zhutněná nebo vyčerpaná živinami. Výběr a smíchání správného substrátu je jedním z nejzásadnějších rozhodnutí, která učiníš ještě předtím, než pěstování vůbec začne.</p>
+
+<h2>Typy substrátů</h2>
+
+<h3>Zemina (pěstební směs)</h3>
+<p>Zemina je pro začátečníky nejodpouštivější médium. Kvalitní pěstební směs obsahuje organickou hmotu, která pufruje pH a pomalu uvolňuje živiny, čímž snižuje potřebu přesného krmení v prvních týdnech.</p>
+<ul>
+    <li><strong>Výhody:</strong> odpouštivá, pufruje pH, obsahuje nějaké živiny, přirozený mikrobiální ekosystém</li>
+    <li><strong>Nevýhody:</strong> těžší, pomalejší drenáž, obtížnější přesné řízení kořenové zóny, v organické hmotě mohou žít škůdci</li>
+    <li><strong>Nejlepší pro:</strong> začátečníky, organické pěstitele, nenáročné pěstování</li>
+    <li><strong>Rozsah pH:</strong> 6,0&ndash;7,0</li>
+</ul>
+
+<h3>Kokosové vlákno</h3>
+<p>Kokosové vlákno se vyrábí z kokosových slupek a poskytuje vynikající rovnováhu mezi zadržováním vody a provzdušněním. Je inertní (neobsahuje žádné živiny), což ti dává úplnou kontrolu nad krmením. Je to nejpopulárnější substrát mezi zkušenými pěstiteli.</p>
+<ul>
+    <li><strong>Výhody:</strong> vynikající zadržování vody + drenáž, opakovatelně použitelné, lehké, stabilní pH, rychlý růst kořenů</li>
+    <li><strong>Nevýhody:</strong> vyžaduje živiny od prvního dne, potřebuje doplnění cal-mag (kokos přirozeně váže vápník), vyžaduje časté zalévání</li>
+    <li><strong>Nejlepší pro:</strong> středně pokročilé až pokročilé pěstitele, ty, kteří chtějí maximální kontrolu</li>
+    <li><strong>Rozsah pH:</strong> 5,8&ndash;6,2</li>
+</ul>
+
+<h3>Perlit</h3>
+<p>Sopečné sklo roztažené do lehkých bílých granulí. Perlit poskytuje vynikající drenáž a provzdušnění, ale drží téměř žádnou vodu. Zřídka se používá samotný &mdash; místo toho se mísí se zeminou nebo kokosem pro zlepšení drenáže a zabránění zhutnění.</p>
+
+<h3>Vermikulit</h3>
+<p>Expandovaný slídový minerál, který drží 3&ndash;4krát svou váhu ve vodě. Používá se pro zvýšení zadržování vody ve směsích, které odtékají příliš rychle. Užitečný pro směsi pro semenáčky nebo suchá klimata.</p>
+
+<h3>Jílové kuličky (LECA / Hydroton)</h3>
+<p>Lehké expandované jílové kamínky. Poskytují provzdušnění a drenáž s minimálním zadržováním vody. Používají se v hydroponických systémech (DWC, ebb-and-flow) nebo jako drenážní vrstva na dně květináčů.</p>
+
+<h2>Populární směsi</h2>
+
+<div class="step-card">
+    <span class="step-number">1</span>
+    <h3>Standardní kokos/perlit (70/30)</h3>
+    <p>Nejpopulárnější směs mezi indoor pěstiteli. 70% kokosové vlákno + 30% perlit. Poskytuje vynikající zadržování vody pro každodenní zalévání a současně brání zamokření. Vhodná pro všechny růstové fáze.</p>
+    <ul>
+        <li>Zadržování vody: vysoké</li>
+        <li>Drenáž: velmi dobrá</li>
+        <li>Frekvence zalévání: 1&ndash;2krát denně v květu</li>
+        <li>Nejlepší pro: ruční zalévání nebo kapkové systémy</li>
+    </ul>
+</div>
+
+<div class="step-card">
+    <span class="step-number">2</span>
+    <h3>Vysokofrekvenční kokos/perlit (50/50)</h3>
+    <p>50% kokos + 50% perlit. Odtéká rychleji a drží méně vody, což vyžaduje častější zavlažování. Oblíbená u automatizovaných kapkových systémů, kde chce pěstitel krmit 3&ndash;5krát denně pro maximální rychlost růstu.</p>
+    <ul>
+        <li>Zadržování vody: střední</li>
+        <li>Drenáž: vynikající</li>
+        <li>Frekvence zalévání: 3&ndash;5krát denně</li>
+        <li>Nejlepší pro: automatizované kapkové systémy, zkušené pěstitele</li>
+    </ul>
+</div>
+
+<div class="step-card">
+    <span class="step-number">3</span>
+    <h3>Živá půda (organická super zemina)</h3>
+    <p>Živinově bohatá organická směs, která krmí rostlinu prostřednictvím půdní biologie spíše než lahvových živin. Typicky: základní zemina (30%) + kompost/žížalí humus (30%) + provzdušnění (perlit/pemza 20%) + přídavky (kostní moučka, mletá řasa, netopýří guáno, dolomitové vápno 20%).</p>
+    <ul>
+        <li>Zadržování vody: vysoké</li>
+        <li>Drenáž: střední (závisí na obsahu perlitu)</li>
+        <li>Frekvence zalévání: každé 2&ndash;4 dny (pouze voda, žádné lahvové živiny)</li>
+        <li>Nejlepší pro: organické pěstitele, přístup "pouze voda", pěstování zaměřené na chuť</li>
+    </ul>
+</div>
+
+<div class="step-card">
+    <span class="step-number">4</span>
+    <h3>Směs pro semenáčky</h3>
+    <p>Lehká a načechraná směs pro klíčení a raný růst. 40% kokos + 30% perlit + 30% vermikulit. Vermikulit drží extra vlhkost kolem drobné kořenové zóny a lehká textura zabraňuje zhutnění, které by mohlo zadusit kořeny semenáčků.</p>
+</div>
+
+<blockquote>
+    <strong>Tip:</strong> Kalkulačka Substrate Mixer v GrowVPD Pro ti umožňuje zadat procentuální zastoupení jednotlivých komponent a vypočítá výsledné zadržování vody, rychlost drenáže a kapacitu provzdušnění. Můžeš upravovat poměry a vidět dopad v reálném čase ještě před mícháním.
+</blockquote>
+
+<h2>Zadržování vody vs. drenáž</h2>
+<p>Zásadní kompromis v návrhu substrátu je mezi zadržováním vody (aby měla rostlina rezervoár mezi zálivkami) a odtékáním vody (aby kořeny měly přístup ke kyslíku). Kořeny potřebují jak vodu, tak vzduch. Substrát, který zůstává nasycený příliš dlouho, kořeny dusí. Ten, který odtéká příliš rychle, vyschne před další zálivkou.</p>
+<p>Ideální rovnováha závisí na tvé metodě zalévání:</p>
+<ul>
+    <li><strong>Ruční zalévání 1x/den:</strong> vyšší zadržování vody (70/30 kokos/perlit nebo zemina)</li>
+    <li><strong>Automatizovaný kapkový 3&ndash;5x/den:</strong> vyšší drenáž (50/50 nebo dokonce 40/60 kokos/perlit)</li>
+    <li><strong>Zalévání zespodu (flood and drain):</strong> velmi vysoká drenáž (jílové kuličky nebo 30/70 kokos/perlit)</li>
+</ul>
+
+<h2>Příprava kokosového vlákna</h2>
+<p>Surové kokosové vlákno vyžaduje před použitím přípravu:</p>
+<ol>
+    <li><strong>Hydratace:</strong> Rozbal stlačené kokosové brikety teplou vodou. Standardní briketa 5 kg se rozpíná na ~70 litrů.</li>
+    <li><strong>Proplachování:</strong> Proplachuj vodou s upraveným pH, dokud EC odtoku nebude pod 0,5 mS/cm. Tím se odstraní přebytečné sodíkové a draselné soli.</li>
+    <li><strong>Pufrování:</strong> Namoč v roztoku cal-mag (EC 0,8&ndash;1,0) na 8&ndash;12 hodin. Tím se předem nabije výměnná kapacita kationtů vápníkem a hořčíkem, což brání tomu, aby kokos kradl tyto živiny z tvého krmení později.</li>
+    <li><strong>Odvodni a smíchej:</strong> Odvodni přebytečnou vodu, přidej perlit ve zvoleném poměru a důkladně promíchej.</li>
+</ol>
+
+<div class="warning-box">
+    <strong>Důležité:</strong> Nikdy nepoužívej kokosové vlákno přímo z brikety bez proplachování a pufrování. Nepufrované kokosové vlákno bude krást vápník a hořčík z tvého živinového roztoku během prvních 2&ndash;3 týdnů, což způsobí příznaky nedostatku, které je obtížné diagnostikovat.
+</div>
+
+<h2>Doporučení pro velikost květináče</h2>
+<ul>
+    <li><strong>Semenáčky:</strong> Začni v květináčích 0,5&ndash;1 L nebo solo kelímcích</li>
+    <li><strong>Autoflowery:</strong> Konečný květináč 7&ndash;15 L (transplantační šok je u autoflowerů rizikový, takže mnoho pěstitelů začíná rovnou v konečném květináči)</li>
+    <li><strong>Fotoperiodické (malý stan):</strong> 11&ndash;15 L konečný květináč</li>
+    <li><strong>Fotoperiodické (větší stan, dlouhá vegetace):</strong> 20&ndash;30 L</li>
+    <li><strong>Textilní květináče</strong> se silně doporučují: vzduchově prořezávají kořeny a zabraňují stavu kořenové vazby, který vytvářejí tvrdé plastové květináče</li>
+</ul>
 `
 },
 
 "tent-ventilation-guide": {
-  title: "Ventilace p\u011bstebn\u00edho stanu: Kompletn\u00ed pr\u016fvodce CFM",
+  title: "Ventilace pěstebního stanu: kompletní průvodce CFM",
   body: `
-<h2>Pro\u010d ventilace z\u00e1le\u017e\u00ed</h2>
-<p>\u010cty\u0159i funkce: odvod tepla, v\u00fdm\u011bna vzduchu (CO2), ovládání vlhkosti, udr\u017eov\u00e1n\u00ed podtlaku pro zachycen\u00ed z\u00e1pachu.</p>
+<h2>Proč je ventilace důležitá</h2>
+<p>Ventilace je páteří klimatu tvého stanu. Plní čtyři kritické funkce: odvádí nadměrné teplo generované pěstebními světly, vyměňuje vydýchaný vzduch za čerstvý bohatý na CO2, reguluje vlhkost nahrazováním vlhkého vzduchu ve stanu sušším venkovním vzduchem a udržuje podtlak pro zachycení pachu v uhlíkovém filtru.</p>
+<p>Bez dostatečné ventilace nekontrolovatelně stoupají teploty, CO2 se vyčerpává (rostliny ho spotřebovávají rychleji, než se přirozeně difunduje), vlhkost roste do nebezpečných hodnot a pach uniká každým švem a zipem.</p>
 
-<h2>V\u00fdpo\u010det CFM</h2>
-<p>Objem stanu (kubick\u00e9 stopy) &times; multiplik\u00e1tory: uhl\u00edkov\u00fd filtr (&times;1,25), potrub\u00ed a ohyby (&times;1,2), teplo (&times;1,2).</p>
-<p>P\u0159\u00edklad: 120x120x200 stan = 100 ft3 &times; 1,25 &times; 1,2 &times; 1,2 = <strong>180 CFM pot\u0159eba</strong></p>
+<h2>Výpočet požadavků na CFM</h2>
+<p>CFM (Cubic Feet per Minute &mdash; kubické stopy za minutu) měří, kolik vzduchu tvůj ventilátor přemístí. Cílem je vyměnit veškerý vzduch ve stanu alespoň jednou za 1&ndash;3 minuty.</p>
+
+<h3>Krok 1: Vypočítej objem stanu</h3>
+<p>Vynásob délku x šířku x výšku (vše ve stopách). U metrických stanů nejdřív převedeš na stopy nebo použiješ kubické metry a vynásobíš 35,3, abys získal kubické stopy.</p>
+<ul>
+    <li><strong>Stan 60x60x160 cm:</strong> 2 x 2 x 5,2 = 20,8 ft3</li>
+    <li><strong>Stan 120x120x200 cm:</strong> 3,9 x 3,9 x 6,6 = 100 ft3</li>
+    <li><strong>Stan 240x120x200 cm:</strong> 7,9 x 3,9 x 6,6 = 203 ft3</li>
+</ul>
+
+<h3>Krok 2: Aplikuj násobitele</h3>
+<p>Základní CFM se rovná objemu stanu (pro jednu výměnu vzduchu za minutu). Poté aplikuj násobitele pro reálné podmínky:</p>
+<ul>
+    <li><strong>Uhlíkový filtr:</strong> Přidej 25 % (filtr omezuje průtok vzduchu). Vynásob 1,25.</li>
+    <li><strong>Délka a ohyby vzduchotechniky:</strong> Přidej 10 % na každý 90stupňový ohyb a 5 % na metr hadice. Typická sestava s jedním ohybem a 2 metry hadice: vynásob 1,2.</li>
+    <li><strong>Vysoké teplo (silná světla v malém stanu):</strong> Přidej dalších 20 %. Vynásob 1,2.</li>
+    <li><strong>Vlhké klima:</strong> Přidej 15 %. Vynásob 1,15.</li>
+</ul>
+
+<h3>Příklad výpočtu</h3>
+<p>Stan 120x120x200 cm, uhlíkový filtr, 1 ohyb hadice, 2m hadice, 480W LED:</p>
+<p>100 ft3 x 1,25 (filtr) x 1,2 (hadice) x 1,2 (teplo) = <strong>180 CFM potřebných</strong></p>
+
+<blockquote>
+    <strong>Tip:</strong> Ventilační kalkulačka GrowVPD Pro na kartě Vybavení za tebe udělá tuhle matematiku. Zadej rozměry stanu, délku hadice, počet ohybů a zda máš uhlíkový filtr. Výstupem je minimální CFM a doporučené velikosti ventilátoru.
+</blockquote>
 
 <h2>Podtlak</h2>
-<p>Odtahov\u00fd ventil\u00e1tor stahuje v\u00edce vzduchu, ne\u017e vtéká. St\u011bny stanu se m\u00edrn\u011b proh\u00edbaj\u00ed dovnit\u0159 &mdash; to je norm\u00e1ln\u00ed.</p>
-
-<h2>Doporu\u010den\u00e9 ventil\u00e1tory podle velikosti stanu</h2>
-<p>60x60: 4\u201c, 100&ndash;150 CFM. 120x120: 6\u201c, 300&ndash;400 CFM. 240x120: 8\u201c, 500&ndash;750 CFM.</p>
-
-<h2>Cirkulace uvnit\u0159 stanu</h2>
-<p>Osciluj\u00edc\u00ed clip ventil\u00e1tory. Nesm\u011brujte p\u0159\u00edmo na rostliny. Proud\u011bn\u00ed i pod korunou.</p>
-
-<h2>B\u011b\u017en\u00e9 chyby ventilace</h2>
+<p>Podtlak znamená, že odtahový ventilátor vytahuje ze stanu víc vzduchu, než jím proudí pasivními vstupy. To vytváří mírné vakuum, které:</p>
 <ul>
-    <li>Odtah na \u010dasova\u010di m\u00edsto nep\u0159etr\u017eit\u00e9ho b\u011bhu</li>
-    <li>Zat\u011bsn\u011bn\u00ed v\u0161ech pasivn\u00edch vstupu</li>
-    <li>Uhl\u00edkov\u00fd filtr vn\u011b stanu</li>
-    <li>Ignorov\u00e1n\u00ed no\u010dn\u00ed ventilace</li>
+    <li><strong>Zajišťuje, že veškerý vzduch projde uhlíkovým filtrem</strong> před opuštěním stanu, čímž eliminuje úniky pachu skrz zipy a švy</li>
+    <li><strong>Přitahuje čerstvý vzduch</strong> skrz vstupní otvory, což poskytuje pasivní přívod vzduchu bez nutnosti druhého ventilátoru</li>
+    <li><strong>Stabilizuje stěny stanu.</strong> Pokud se tvé stěny stanu jemně vtahují dovnitř, máš podtlak. To je normální a žádoucí.</li>
+</ul>
+
+<div class="warning-box">
+    <strong>Příliš velký podtlak</strong> způsobí, že stěny stanu se výrazně zhroutí dovnitř, což snižuje využitelný prostor a potenciálně drtí rostliny. Pokud se to stane, otevři další pasivní vstupní otvor nebo mírně sniž otáčky ventilátoru.
+</div>
+
+<h2>Dimenzování uhlíkového filtru</h2>
+<p>Uhlíkový filtr musí odpovídat CFM hodnotě tvého ventilátoru. Poddimenzovaný filtr omezuje průtok vzduchu (snižuje efektivní CFM) a může propouštět pach. Nadměrně dimenzovaný filtr je v pořádku &mdash; jen vydrží déle.</p>
+<ul>
+    <li><strong>4palcové (100mm) filtry:</strong> Typicky dimenzované pro 150&ndash;200 CFM. Vhodné pro stany 60x60 a malé 120x60.</li>
+    <li><strong>6palcové (150mm) filtry:</strong> Typicky dimenzované pro 300&ndash;400 CFM. Standardní volba pro stany 120x120.</li>
+    <li><strong>8palcové (200mm) filtry:</strong> Dimenzované pro 500&ndash;750 CFM. Pro stany 240x120 nebo větší, případně multi-stanové sestavy s jedním odtahem.</li>
+</ul>
+<p>Uhlíkové filtry vydrží 12&ndash;24 měsíců v závislosti na vlhkosti a využití. Vyměň je, když zaznamenáš unikání pachu nebo když průtok vzduchu skrz filtr znatelně klesne.</p>
+
+<h2>Dimenzování a vedení hadic</h2>
+<ul>
+    <li><strong>Průměr hadice odpovídá průměru ventilátoru.</strong> 6palcový ventilátor potřebuje 6palcovou hadici. Použití redukce (6palcový ventilátor na 4palcovou hadici) dramaticky snižuje průtok vzduchu.</li>
+    <li><strong>Udržuj hadice krátké a rovné.</strong> Každý ohyb a každý metr hadice přidává odpor. Nejkratší, nejrovnější cesta od ventilátoru k výstupu je nejlepší.</li>
+    <li><strong>Používej izolovanou hadici</strong> pro snížení přenosu hluku a zabránění kondenzaci na chladných površích hadice.</li>
+    <li><strong>Vyhni se zlomení pružné hadice.</strong> Zlomené úseky vytvářejí turbulence a snižují průtok vzduchu. Plně roztáhni hadici a používej jemné oblouky místo ostrých ohybů.</li>
+</ul>
+
+<h2>Doporučení ventilátoru podle velikosti stanu</h2>
+<ul>
+    <li><strong>60x60 cm:</strong> 4palcový ventilátor, 100&ndash;150 CFM (AC Infinity Cloudline T4, Mars Hydro 4")</li>
+    <li><strong>120x120 cm:</strong> 6palcový ventilátor, 300&ndash;400 CFM (AC Infinity Cloudline T6, Mars Hydro 6")</li>
+    <li><strong>240x120 cm:</strong> 8palcový ventilátor, 500&ndash;750 CFM, nebo dva 6palcové ventilátory</li>
+    <li><strong>Větší místnosti:</strong> Komerční inline ventilátory nebo vícero 8palcových jednotek</li>
+</ul>
+
+<h2>Cirkulační ventilátory (uvnitř stanu)</h2>
+<p>Odtahový ventilátor zajišťuje výměnu vzduchu, ale uvnitř stanu potřebuješ také cirkulační ventilátory, aby se zabránilo stagnujícím vzduchovým kapsám:</p>
+<ul>
+    <li><strong>Oscilující klipové ventilátory:</strong> Připevňují se na tyče stanu a poskytují zametavý průtok vzduchu přes korunu. Jeden do každého rohu stanu u velkých stanů.</li>
+    <li><strong>Nesměřuj ventilátory přímo na rostliny.</strong> Neustálý přímý vítr způsobuje "wind burn" &mdash; stočené, vysušené okraje listů. Používej nepřímý, oscilující průtok.</li>
+    <li><strong>Průtok pod korunou:</strong> Umísti malý ventilátor pod korunu, aby cirkuloval vzduch kolem báze rostlin. To zabraňuje hromadění vlhkosti ve spodní koruně a snižuje prostředí pro škůdce.</li>
+</ul>
+
+<blockquote>
+    <strong>Tip:</strong> Pokud používáš ventilátory AC Infinity nebo Mars Hydro připojené skrz GrowVPD Pro, aplikace dokáže automaticky upravovat otáčky ventilátoru podle hodnot teploty, vlhkosti nebo VPD. To poskytuje dynamickou ventilaci, která se přizpůsobuje měnícím se podmínkám během dne.
+</blockquote>
+
+<h2>Časté chyby ve ventilaci</h2>
+<ul>
+    <li><strong>Spouštění odtahového ventilátoru na časovač místo nepřetržitě.</strong> Když je ventilátor vypnutý, teplo a vlhkost rychle stoupají. Nechej ventilátor běžet nepřetržitě na regulovaných otáčkách.</li>
+    <li><strong>Utěsnění všech pasivních vstupů.</strong> Odtahový ventilátor potřebuje, aby vzduch dovnitř vstupoval. Pokud jsou všechny vstupy utěsněné, ventilátor pracuje proti vakuu a nedokáže efektivně přemísťovat vzduch.</li>
+    <li><strong>Umístění uhlíkového filtru mimo stan.</strong> Filtr by měl být uvnitř stanu, připojený přímo k ventilátoru. Vzduch proudí: vzduch ze stanu &rarr; uhlíkový filtr &rarr; ventilátor &rarr; hadice &rarr; ven. To zajišťuje, že veškerý páchnoucí vzduch projde filtrem.</li>
+    <li><strong>Ignorování noční ventilace.</strong> Když se vypnou světla, mnoho pěstitelů snižuje nebo zastavuje ventilaci. Ale v tomto období vlhkost skokově stoupá. Nechej odtah běžet, jen na nižších otáčkách.</li>
 </ul>
 `
 },
 
 "privacy-security-guide": {
-  title: "Soukrom\u00ed a bezpe\u010dnost: PIN z\u00e1mek, stealth re\u017eim a soukrom\u00ed fotek",
+  title: "Soukromí a zabezpečení: PIN lock, stealth mód a ochrana fotek",
   body: `
-<h2>Pro\u010d soukrom\u00ed z\u00e1le\u017e\u00ed</h2>
-<p>GrowVPD Pro poskytuje v\u00edce vrstev ochrany soukrom\u00ed pro va\u0161e p\u011bstebn\u00ed data.</p>
+<h2>Proč je soukromí pro pěstitele důležité</h2>
+<p>Pěstování uvnitř je na mnoha místech legální, ale to neznamená, že chceš, aby každý, kdo vezme do ruky tvůj telefon, viděl tvůj pěstební deník, data o sklizni a každodenní fotky. Ať už se staráš o spolubydlící, kolegy nebo kohokoli, kdo si může tvůj telefon půjčit, GrowVPD Pro poskytuje několik vrstev ochrany soukromí.</p>
 
-<h2>PIN z\u00e1mek a biometrick\u00e1 autentizace</h2>
-<p>Nastavte 4&ndash;6 m\u00edstn\u00fd PIN v Settings &gt; Bezpe\u010dnost. Aplikace se zamkne p\u0159i p\u0159echodu na pozad\u00ed.</p>
+<h2>PIN lock a biometrická autentizace</h2>
+<p>Nejzákladnější bezpečnostní funkcí je zamknutí aplikace za PIN nebo biometrickou autentizaci (otisk prstu nebo rozpoznání obličeje).</p>
 
-<h2>Soukrom\u00ed fotek</h2>
-<p>Fotky ulo\u017eeny v soukrom\u00e9m adres\u00e1\u0159i aplikace. Neobjev\u00ed se v galerii, Google Photos ani jin\u00e9 aplikaci.</p>
+<h3>Nastavení PIN locku</h3>
+<ol>
+    <li>Otevři <strong>Nastavení</strong> v GrowVPD Pro</li>
+    <li>Posuň se do sekce <strong>Zabezpečení</strong></li>
+    <li>Klepni na <strong>Nastavit PIN kód</strong></li>
+    <li>Zadej 4&ndash;6místný PIN a potvrď ho</li>
+    <li>Aplikace bude nyní tento PIN vyžadovat pokaždé, když je otevřena nebo přinesena zpět z pozadí</li>
+</ol>
+
+<h3>Biometrická autentizace</h3>
+<p>Pokud tvůj telefon podporuje otisk prstu nebo rozpoznání obličeje, můžeš povolit biometrické odemčení jako doplněk (nebo náhradu) PINu. To je rychlejší a pohodlnější při zachování stejné úrovně zabezpečení.</p>
+<ol>
+    <li>V Nastavení &gt; Zabezpečení povol <strong>Biometrickou autentizaci</strong></li>
+    <li>Aplikace použije vestavěný biometrický systém telefonu</li>
+    <li>Pokud biometrie selže (mokré prsty, rouška), aplikace se vrátí k PINu</li>
+</ol>
+
+<h3>Zamčení na pozadí</h3>
+<p>GrowVPD Pro se automaticky zamkne, když přepneš na jinou aplikaci nebo se obrazovka telefonu vypne. Když se vrátíš do aplikace, musíš se znovu autentizovat. To zabraňuje tomu, aby někdo získal přístup k aplikaci, pokud necháš telefon odemčený a bez dozoru.</p>
+
+<blockquote>
+    <strong>Tip:</strong> Zámek se aktivuje okamžitě, když aplikace přejde do pozadí. Neexistuje žádné zpoždění. I kdyby někdo chytil tvůj telefon ve chvíli, kdy přepínáš aplikace, pěstební deník je už zamčený.
+</blockquote>
+
+<h2>Ochrana fotek</h2>
+<p>Ve výchozím nastavení mohou být fotky pořízené v GrowVPD Pro (nebo přidané do záznamů deníku) viditelné v galerii telefonu, v Google Photos a ve službách pro zálohování v cloudu. Funkce <strong>Photo Privacy</strong> (Pro) tomu zabraňuje.</p>
+
+<h3>Jak to funguje</h3>
+<ul>
+    <li>Když je Photo Privacy povolená, pěstební fotky se ukládají do soukromé interní složky aplikace</li>
+    <li>Tyto soubory jsou vyloučeny ze systémového media scanneru, takže se neobjevují v galerii, Google Photos ani v žádné jiné media aplikaci</li>
+    <li>Fotky jsou viditelné pouze v samotné GrowVPD Pro &mdash; v záznamech deníku, timelapse a funkcích exportu</li>
+    <li>Pokud někdo otevře galerii telefonu, neuvidí žádnou stopu tvých pěstebních fotek</li>
+</ul>
+
+<h3>Povolení ochrany fotek</h3>
+<ol>
+    <li>Jdi do <strong>Nastavení &gt; Soukromí</strong></li>
+    <li>Povol <strong>Skrýt fotky z galerie</strong></li>
+    <li>Existující fotky budou přesunuty do soukromé složky</li>
+    <li>Všechny budoucí fotky pořízené skrz aplikaci budou ve výchozím nastavení ukládány soukromě</li>
+</ol>
 
 <div class="warning-box">
-    <strong>Z\u00e1lohov\u00e1n\u00ed:</strong> Fotky v soukrom\u00e9m re\u017eimu nejsou z\u00e1lohov\u00e1ny Google Photos. Pou\u017eijte export funkci GrowVPD Pro.
+    <strong>Upozornění k zálohám:</strong> Fotky v soukromém režimu nejsou zálohovány Google Photos, iCloudem ani žádnou automatickou zálohovací službou. Pro ochranu proti ztrátě dat použij vestavěnou funkci exportu v GrowVPD Pro pro ruční zálohy nebo exportuj konkrétní growy jako PDF/JSON.
 </div>
 
-<h2>Stealth re\u017eim</h2>
-<p>Zm\u011bn\u00ed ikonu a n\u00e1zev aplikace na domovsk\u00e9 obrazovce na n\u011bco neutr\u00e1ln\u00edho. Funkce z\u016fst\u00e1v\u00e1 identick\u00e1.</p>
+<h2>Stealth mód (maskovaná ikona aplikace)</h2>
+<p>Pro maximální diskrétnost Stealth mód mění ikonu a název aplikace na domovské obrazovce tak, že vůbec nevypadá jako pěstební aplikace.</p>
 
-<h2>Bezpe\u010dnost dat</h2>
-<p>V\u0161echna data ulo\u017eena lok\u00e1ln\u011b. \u017d\u00e1dn\u00e9 cloudov\u00e9 \u00fa\u010dty. \u017d\u00e1dn\u00e9 analytick\u00e9 sledov\u00e1n\u00ed. Nen\u00ed pot\u0159eba \u00fa\u010det.</p>
+<h3>Co se změní</h3>
+<ul>
+    <li>Ikona aplikace se změní na obecný, nenápadný design (kalkulačka, počasí nebo užitková ikona)</li>
+    <li>Název aplikace na domovské obrazovce se změní na něco neutrálního</li>
+    <li>Aplikace funguje stejně identicky &mdash; mění se pouze vnější vzhled</li>
+    <li>Při otevření se objeví normální rozhraní GrowVPD Pro (za PIN lockem, samozřejmě)</li>
+</ul>
+
+<h3>Povolení Stealth módu</h3>
+<ol>
+    <li>Jdi do <strong>Nastavení &gt; Soukromí</strong></li>
+    <li>Povol <strong>Stealth mód</strong></li>
+    <li>Vyber styl maskování z dostupných možností</li>
+    <li>Změna ikony může trvat několik vteřin, protože Android aktualizuje launcher</li>
+</ol>
+
+<blockquote>
+    <strong>Tip:</strong> Zkombinuj všechny tři funkce pro maximální soukromí: PIN lock (zabraňuje neoprávněnému přístupu) + Photo Privacy (skrývá fotky z galerie) + Stealth mód (skrývá samotnou aplikaci). Dohromady na tvém telefonu nezbude žádná viditelná stopa pěstební aktivity.
+</blockquote>
+
+<h2>Zabezpečení dat</h2>
+<p>GrowVPD Pro ukládá veškerá data lokálně ve tvém zařízení. Nejsou zde žádné cloudové účty, žádné servery ukládající tvá pěstební data a žádné analytické nástroje sledující záznamy tvého deníku. Tvá data nikdy neopustí telefon, pokud je explicitně neexportuješ.</p>
+<ul>
+    <li><strong>Databáze:</strong> Uložená lokálně v soukromém úložišti aplikace (Room databáze)</li>
+    <li><strong>Fotky:</strong> Uložené lokálně v zařízení (soukromá složka, pokud je Photo Privacy povolená)</li>
+    <li><strong>Přihlašovací údaje chytrých zařízení:</strong> Uložené lokálně, přenášené pouze do příslušných API platforem (Tuya, AC Infinity atd.) přes šifrovaná spojení</li>
+    <li><strong>Není potřeba žádný účet:</strong> GrowVPD Pro nevyžaduje, aby sis vytvořil účet nebo se přihlásil</li>
+</ul>
+
+<h2>Kontrolní seznam zabezpečení</h2>
+<ul>
+    <li>Povolený PIN nebo biometrický zámek</li>
+    <li>Povolená ochrana fotek (fotky skryté z galerie)</li>
+    <li>Povolený Stealth mód (maskovaná ikona)</li>
+    <li>Pravidelné exporty pro zálohu (protože soukromé fotky nejsou zálohovány v cloudu)</li>
+    <li>Zabezpečení na úrovni telefonu (zámek obrazovky, šifrování) jako první linie obrany</li>
+</ul>
 `
 },
 
 "language-setup": {
-  title: "Nastaven\u00ed jazyka: 11 jazyk\u016f k dispozici",
+  title: "Nastavení jazyka: k dispozici 11 jazyků",
   body: `
-<h2>Pln\u00e1 lokalizace, ne \u010d\u00e1ste\u010dn\u00fd p\u0159eklad</h2>
-<p>V\u0161ech <strong>1 390+ textov\u00fdch \u0159et\u011bzc\u016f</strong> je pln\u011b p\u0159elo\u017eeno do v\u0161ech 11 podporovan\u00fdch jazyk\u016f.</p>
+<h2>Plná lokalizace, ne jen částečný překlad</h2>
+<p>Mnoho aplikací tvrdí, že podporují více jazyků, ale překládají pouze hlavní menu a ponechávají nápovědu, průvodce, chybové hlášení a technické termíny v angličtině. GrowVPD Pro přistupuje k věci jinak: <strong>přeloženo je všechno</strong>. Každé tlačítko, každý popisek, každý průvodce, každá bublina s nápovědou, každý popis rostlinné nemoci, každý popisek v kalkulačce hnojiv &mdash; všech 1 390+ textových řetězců je plně přeloženo do všech 11 podporovaných jazyků.</p>
 
-<h2>Dostupn\u00e9 jazyky</h2>
+<h2>Dostupné jazyky</h2>
 <ul>
-    <li>English (EN), \u010ce\u0161tina (CS), Deutsch (DE), Espa\u00f1ol (ES), Nederlands (NL), Fran\u00e7ais (FR), Italiano (IT), Portugu\u00eas (PT), Polski (PL), \u0e44\u0e17\u0e22 (TH), \u05e2\u05d1\u05e8\u05d9\u05ea (HE)</li>
+    <li><strong>Angličtina (EN)</strong> &mdash; Výchozí jazyk</li>
+    <li><strong>Čeština (CS)</strong> &mdash; Plná čeština se správnou diakritikou (ěščřžýáíéúůďťňó)</li>
+    <li><strong>Němčina (DE)</strong> &mdash; Deutsch</li>
+    <li><strong>Španělština (ES)</strong> &mdash; Espa&ntilde;ol</li>
+    <li><strong>Nizozemština (NL)</strong> &mdash; Nederlands</li>
+    <li><strong>Francouzština (FR)</strong> &mdash; Fran&ccedil;ais</li>
+    <li><strong>Italština (IT)</strong> &mdash; Italiano</li>
+    <li><strong>Portugalština (PT)</strong> &mdash; Portugu&ecirc;s</li>
+    <li><strong>Polština (PL)</strong> &mdash; Polski</li>
+    <li><strong>Thajština (TH)</strong> &mdash; ไทย</li>
+    <li><strong>Hebrejština (HE)</strong> &mdash; עברית (s plnou podporou rozložení zprava doleva)</li>
 </ul>
 
-<h2>Jak zm\u011bnit jazyk</h2>
-<p>Settings &gt; Obecn\u00e9 &gt; Jazyk. Cel\u00e9 rozhran\u00ed se okam\u017eit\u011b aktualizuje &mdash; bez restartu.</p>
+<h2>Jak změnit jazyk</h2>
 
-<h2>Co se p\u0159ekl\u00e1d\u00e1</h2>
-<p>V\u0161echny UI prvky, VPD graf, PPFD pr\u016fvodce, den\u00edk, pr\u016fvodce chorobami, kalkula\u010dka \u017eivin, vybaven\u00ed, automatizace, nastaven\u00ed, notifikace, \u0161ablony, chybov\u00e9 hl\u00e1\u0161ky.</p>
+<div class="step-card">
+    <span class="step-number">1</span>
+    <h3>Otevři Nastavení</h3>
+    <p>Klepni na záložku <strong>Nastavení</strong> (ikona ozubeného kolečka) ve spodní části obrazovky.</p>
+</div>
 
-<h2>Podpora RTL pro hebrej\u0161tinu</h2>
-<p>Pln\u011b zrcadlen\u00e9 UI rozlo\u017een\u00ed p\u0159i v\u00fdb\u011bru hebrej\u0161tiny.</p>
+<div class="step-card">
+    <span class="step-number">2</span>
+    <h3>Najdi možnost jazyka</h3>
+    <p>Sroluj dolů do sekce <strong>Obecné</strong>. Klepni na <strong>Jazyk</strong>. Zobrazí se výběr jazyka se všemi 11 dostupnými jazyky.</p>
+</div>
 
-<h2>Jazyk a data</h2>
-<p>Zm\u011bna jazyka <strong>neovliv\u0148uje</strong> existuj\u00edc\u00ed data. M\u011bn\u00ed se jen popisky rozhran\u00ed.</p>
+<div class="step-card">
+    <span class="step-number">3</span>
+    <h3>Vyber svůj jazyk</h3>
+    <p>Klepni na preferovaný jazyk. Celé rozhraní aplikace se okamžitě aktualizuje &mdash; restart není potřeba. Všechny záložky, menu, průvodci, kalkulačky a popisy se přepnou do zvoleného jazyka.</p>
+</div>
 
 <blockquote>
-    <strong>Chcete pomoci zlep\u0161it p\u0159eklady?</strong> Pokud najdete chybu nebo m\u00e1te n\u00e1vrh na lep\u0161\u00ed formulaci, ozv\u011bte se na Discordu.
+    <strong>Tip:</strong> Nastavení jazyka je nezávislé na systémovém jazyku telefonu. Můžeš mít telefon v angličtině, ale GrowVPD Pro spouštět v němčině, nebo v jakékoli jiné kombinaci.
+</blockquote>
+
+<h2>Co všechno se přeloží</h2>
+<p>Když přepneš jazyk, aktualizuje se následující:</p>
+<ul>
+    <li><strong>Všechny prvky UI:</strong> Názvy záložek, tlačítka, popisky, menu, dialogy</li>
+    <li><strong>VPD graf:</strong> Popisky os, názvy fází, bubliny s nápovědou</li>
+    <li><strong>PPFD průvodce:</strong> Doporučení pro světlo, výpočty DLI, rady specifické pro fázi</li>
+    <li><strong>Pěstební deník:</strong> Názvy fází (Sazenice, Vegetace, Květ, Sklizeň), popisky polí, zástupné texty</li>
+    <li><strong>Průvodce nemocemi a škůdci:</strong> Všechny názvy nemocí, popisy, symptomy a doporučení k ošetření</li>
+    <li><strong>Průvodce rostlinami:</strong> Pěstební techniky, tréninkové metody, popisy substrátů</li>
+    <li><strong>Kalkulačka hnojiv:</strong> Názvy prvků, popisky jednotek, instrukce k míchání</li>
+    <li><strong>Záložka Vybavení:</strong> Kategorie vybavení, pole profilů, kalkulačka ventilace</li>
+    <li><strong>Záložka Automatizace:</strong> Správa místností/stanů, typy zařízení, podmínky pravidel, popisy akcí</li>
+    <li><strong>Nastavení:</strong> Všechny popisky možností a popisy</li>
+    <li><strong>Notifikace:</strong> Text připomenutí, upozornění automatizace, denní souhrny</li>
+    <li><strong>Pěstební šablony:</strong> Popisy šablon, přednastavené fáze, hnojivové rozvrhy</li>
+    <li><strong>Chybové hlášení a texty nápovědy</strong></li>
+</ul>
+
+<h2>Podpora zprava doleva (RTL) pro hebrejštinu</h2>
+<p>Hebrejština je jazyk psaný zprava doleva, což vyžaduje zrcadlení celého rozložení UI. GrowVPD Pro plně podporuje RTL rozložení, když je vybrána hebrejština:</p>
+<ul>
+    <li>Text je zarovnán vpravo</li>
+    <li>Navigační prvky se zrcadlí (tlačítko zpět se přesune na pravou stranu)</li>
+    <li>Seznamy a karty otáčí směr svého rozložení</li>
+    <li>Grafy a vizualizace dat se přizpůsobují pořadí čtení RTL</li>
+</ul>
+<p>Nejde o prostou výměnu textu &mdash; celý UI framework se přizpůsobí, aby hebrejským mluvčím poskytl přirozený zážitek ze čtení.</p>
+
+<h2>Podpora thajského jazyka</h2>
+<p>Thajština používá složité písmo s tónovými značkami, polohou samohlásek nad a pod souhláskami a bez mezer mezi slovy. GrowVPD Pro si s tím vším správně poradí, včetně správného zalamování textu a zobrazení kombinovaných znaků.</p>
+
+<h2>Jazyk a data</h2>
+<p>Změna jazyka <strong>neovlivní</strong> tvá stávající data. Tvé záznamy v pěstebním deníku, senzorová data, pravidla automatizace a všechna zaznamenaná data zůstanou přesně tak, jak jsou. Mění se pouze popisky rozhraní. Pokud jsi zapsal poznámky v deníku v angličtině a přepneš do němčiny, tvé poznámky zůstanou v angličtině &mdash; změní se pouze popisky polí kolem nich do němčiny.</p>
+
+<h2>Kvalita překladu</h2>
+<p>Všechny překlady udržuje vývojový tým za vstupu rodilých mluvčích z pěstitelské komunity. Technická pěstitelská terminologie (VPD, PPFD, DLI, EC, pH) je ponechána v mezinárodně uznávané formě napříč všemi jazyky, protože jde o univerzální vědecké termíny, které používají pěstitelé v každém jazyce.</p>
+
+<blockquote>
+    <strong>Chceš pomoci zlepšit překlady?</strong> Pokud narazíš na chybu v překladu nebo máš lepší návrh formulace ve svém jazyce, ozvi se na Discordu. Komunitní příspěvky významně zlepšily kvalitu překladů napříč všemi 11 jazyky.
 </blockquote>
 `
 }
