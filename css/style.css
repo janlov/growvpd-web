@@ -72,6 +72,8 @@ ul{list-style:none}
 
 .hero-tagline{font-size:1.15rem;color:rgba(255,255,255,.55);max-width:480px;margin-bottom:36px;line-height:1.7}
 
+.hero-early-note{font-size:.85rem;color:rgba(255,255,255,.4);max-width:480px;margin-bottom:32px;line-height:1.7;padding:16px 20px;border-left:2px solid rgba(76,175,80,.35);background:rgba(76,175,80,.04);border-radius:0 8px 8px 0}
+
 .hero-buttons{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:36px}
 
 .hero-trust{display:flex;gap:20px;flex-wrap:wrap}
@@ -419,6 +421,7 @@ ul{list-style:none}
     .hero-content{grid-template-columns:1fr;text-align:center;gap:48px}
     .hero h1{font-size:2.4rem}
     .hero-tagline{margin:0 auto 32px}
+    .hero-early-note{margin:0 auto 28px}
     .hero-buttons{justify-content:center}
     .hero-trust{justify-content:center}
     .hero-visual{order:1}

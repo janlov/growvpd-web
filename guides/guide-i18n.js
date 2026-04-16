@@ -42,6 +42,8 @@
         en: {
             breadcrumbHome:    'Home',
             breadcrumbGuides:  'Guides & Community',
+            navSupport:        'Support',
+            navDownload:       'Download',
             relatedTitle:      'Related Guides',
             discussTitle:      'Discussion',
             discussDesc:       'Have questions about this guide? Share your experience or ask for help.',
@@ -59,6 +61,8 @@
         cs: {
             breadcrumbHome:    'Dom\u016f',
             breadcrumbGuides:  'N\u00e1vody & komunita',
+            navSupport:        'Podpora',
+            navDownload:       'St\u00e1hnout',
             relatedTitle:      'Souvisej\u00edc\u00ed n\u00e1vody',
             discussTitle:      'Diskuze',
             discussDesc:       'M\u00e1te ot\u00e1zky k tomuto n\u00e1vodu? Pod\u011blte se o zku\u0161enosti nebo po\u017e\u00e1dejte o pomoc.',
@@ -76,6 +80,8 @@
         de: {
             breadcrumbHome:    'Startseite',
             breadcrumbGuides:  'Anleitungen & Community',
+            navSupport:        'Hilfe',
+            navDownload:       'Herunterladen',
             relatedTitle:      'Verwandte Anleitungen',
             discussTitle:      'Diskussion',
             discussDesc:       'Fragen zu dieser Anleitung? Teilen Sie Ihre Erfahrungen oder bitten Sie um Hilfe.',
@@ -93,6 +99,8 @@
         es: {
             breadcrumbHome:    'Inicio',
             breadcrumbGuides:  'Gu\u00edas y comunidad',
+            navSupport:        'Soporte',
+            navDownload:       'Descargar',
             relatedTitle:      'Gu\u00edas relacionadas',
             discussTitle:      'Discusi\u00f3n',
             discussDesc:       '\u00bfPreguntas sobre esta gu\u00eda? Comparte tu experiencia o pide ayuda.',
@@ -110,6 +118,8 @@
         nl: {
             breadcrumbHome:    'Home',
             breadcrumbGuides:  'Gidsen & community',
+            navSupport:        'Ondersteuning',
+            navDownload:       'Downloaden',
             relatedTitle:      'Gerelateerde handleidingen',
             discussTitle:      'Discussie',
             discussDesc:       'Vragen over deze handleiding? Deel je ervaring of vraag om hulp.',
@@ -127,6 +137,8 @@
         fr: {
             breadcrumbHome:    'Accueil',
             breadcrumbGuides:  'Guides et communaut\u00e9',
+            navSupport:        'Assistance',
+            navDownload:       'T\u00e9l\u00e9charger',
             relatedTitle:      'Guides associ\u00e9s',
             discussTitle:      'Discussion',
             discussDesc:       'Des questions sur ce guide ? Partagez votre exp\u00e9rience ou demandez de l\u2019aide.',
@@ -144,6 +156,8 @@
         it: {
             breadcrumbHome:    'Home',
             breadcrumbGuides:  'Guide e community',
+            navSupport:        'Supporto',
+            navDownload:       'Scarica',
             relatedTitle:      'Guide correlate',
             discussTitle:      'Discussione',
             discussDesc:       'Domande su questa guida? Condividi la tua esperienza o chiedi aiuto.',
@@ -161,6 +175,8 @@
         pt: {
             breadcrumbHome:    'In\u00edcio',
             breadcrumbGuides:  'Guias e comunidade',
+            navSupport:        'Suporte',
+            navDownload:       'Baixar',
             relatedTitle:      'Guias relacionados',
             discussTitle:      'Discuss\u00e3o',
             discussDesc:       'Perguntas sobre este guia? Compartilhe sua experi\u00eancia ou pe\u00e7a ajuda.',
@@ -178,6 +194,8 @@
         pl: {
             breadcrumbHome:    'Strona g\u0142\u00f3wna',
             breadcrumbGuides:  'Poradniki i spo\u0142eczno\u015b\u0107',
+            navSupport:        'Wsparcie',
+            navDownload:       'Pobierz',
             relatedTitle:      'Powi\u0105zane poradniki',
             discussTitle:      'Dyskusja',
             discussDesc:       'Pytania do tego poradnika? Podziel si\u0119 do\u015bwiadczeniem lub popro\u015b o pomoc.',
@@ -195,6 +213,8 @@
         th: {
             breadcrumbHome:    '\u0e2b\u0e19\u0e49\u0e32\u0e2b\u0e25\u0e31\u0e01',
             breadcrumbGuides:  '\u0e04\u0e39\u0e48\u0e21\u0e37\u0e2d\u0e41\u0e25\u0e30\u0e0a\u0e38\u0e21\u0e0a\u0e19',
+            navSupport:        '\u0e2a\u0e19\u0e31\u0e1a\u0e2a\u0e19\u0e38\u0e19',
+            navDownload:       '\u0e14\u0e32\u0e27\u0e19\u0e4c\u0e42\u0e2b\u0e25\u0e14',
             relatedTitle:      '\u0e04\u0e39\u0e48\u0e21\u0e37\u0e2d\u0e17\u0e35\u0e48\u0e40\u0e01\u0e35\u0e48\u0e22\u0e27\u0e02\u0e49\u0e2d\u0e07',
             discussTitle:      '\u0e01\u0e32\u0e23\u0e2a\u0e19\u0e17\u0e19\u0e32',
             discussDesc:       '\u0e21\u0e35\u0e04\u0e33\u0e16\u0e32\u0e21\u0e40\u0e01\u0e35\u0e48\u0e22\u0e27\u0e01\u0e31\u0e1a\u0e04\u0e39\u0e48\u0e21\u0e37\u0e2d\u0e19\u0e35\u0e49? \u0e41\u0e0a\u0e23\u0e4c\u0e1b\u0e23\u0e30\u0e2a\u0e1a\u0e01\u0e32\u0e23\u0e13\u0e4c\u0e2b\u0e23\u0e37\u0e2d\u0e02\u0e2d\u0e04\u0e27\u0e32\u0e21\u0e0a\u0e48\u0e27\u0e22\u0e40\u0e2b\u0e25\u0e37\u0e2d',
@@ -212,6 +232,8 @@
         he: {
             breadcrumbHome:    '\u05d3\u05e3 \u05d4\u05d1\u05d9\u05ea',
             breadcrumbGuides:  '\u05de\u05d3\u05e8\u05d9\u05db\u05d9\u05dd \u05d5\u05e7\u05d4\u05d9\u05dc\u05d4',
+            navSupport:        '\u05ea\u05de\u05d9\u05db\u05d4',
+            navDownload:       '\u05d4\u05d5\u05e8\u05d3\u05d4',
             relatedTitle:      '\u05de\u05d3\u05e8\u05d9\u05db\u05d9\u05dd \u05e7\u05e9\u05d5\u05e8\u05d9\u05dd',
             discussTitle:      '\u05d3\u05d9\u05d5\u05df',
             discussDesc:       '\u05e9\u05d0\u05dc\u05d5\u05ea \u05e2\u05dc \u05d4\u05de\u05d3\u05e8\u05d9\u05da \u05d4\u05d6\u05d4? \u05e9\u05ea\u05e4\u05d5 \u05d0\u05ea \u05d4\u05e0\u05d9\u05e1\u05d9\u05d5\u05df \u05e9\u05dc\u05db\u05dd \u05d0\u05d5 \u05d1\u05e7\u05e9\u05d5 \u05e2\u05d6\u05e8\u05d4.',
@@ -232,6 +254,16 @@
     // -------------------------------------------------------------------------
 
     function detectLang() {
+        // Check URL parameter first (for hreflang SEO links and cross-page navigation)
+        try {
+            var urlParams = new URLSearchParams(window.location.search);
+            var urlLang = urlParams.get('lang');
+            if (urlLang && SUPPORTED.indexOf(urlLang) !== -1) {
+                try { localStorage.setItem('growvpd-lang', urlLang); } catch (e) { /* ignore */ }
+                return urlLang;
+            }
+        } catch (e) { /* URLSearchParams not supported — fall through */ }
+
         var stored = null;
         try { stored = localStorage.getItem('growvpd-lang'); } catch (e) { /* private browsing */ }
         if (stored && SUPPORTED.indexOf(stored) !== -1) return stored;
@@ -428,6 +460,10 @@
                 navLinks[i].textContent = t.breadcrumbHome;
             } else if (linkText === 'Guides & Community' || linkText === 'Guides') {
                 navLinks[i].textContent = t.breadcrumbGuides;
+            } else if (linkText === 'Support') {
+                navLinks[i].textContent = t.navSupport;
+            } else if (linkText === 'Download') {
+                navLinks[i].textContent = t.navDownload;
             }
         }
 
@@ -508,7 +544,16 @@
             }
         }
 
-        // -- Article footer --
+        // -- Article footer links --
+        var footerLinks = document.querySelectorAll('.article-footer-links a');
+        for (var fl = 0; fl < footerLinks.length; fl++) {
+            var flText = footerLinks[fl].textContent.trim();
+            if (flText === 'Home') footerLinks[fl].textContent = t.breadcrumbHome;
+            else if (flText === 'Guides & Community') footerLinks[fl].textContent = t.breadcrumbGuides;
+            else if (flText === 'Support') footerLinks[fl].textContent = t.navSupport;
+        }
+
+        // -- Article footer rights --
         var footers = document.querySelectorAll('.article-footer p');
         for (var f = 0; f < footers.length; f++) {
             // Replace "All rights reserved." portion while keeping the rest of the HTML
@@ -546,9 +591,13 @@
 
     function getArticleSlug() {
         var path = window.location.pathname;
+        // Try with .html extension first
         var match = path.match(/\/([^\/]+)\.html$/);
         if (match) return match[1];
-        // Fallback: try filename from href
+        // Clean URL (GitHub Pages serves without .html): /guides/grow-diary-guide
+        match = path.match(/\/([^\/]+)\/?$/);
+        if (match && match[1] !== 'guides') return match[1];
+        // Fallback: try filename from href (with .html)
         var href = window.location.href;
         match = href.match(/\/([^\/]+)\.html/);
         return match ? match[1] : null;
@@ -596,14 +645,112 @@
     }
 
     // -------------------------------------------------------------------------
+    // Language switcher (reuses CSS from style.css)
+    // -------------------------------------------------------------------------
+
+    function buildLangSwitcher(currentLang) {
+        var wrapper = document.createElement('div');
+        wrapper.className = 'lang-switcher';
+
+        var btn = document.createElement('button');
+        btn.className = 'lang-btn';
+        btn.setAttribute('aria-label', 'Change language');
+        btn.innerHTML = '<span class="lang-flag">' + currentLang.toUpperCase() + '</span>';
+        wrapper.appendChild(btn);
+
+        var dropdown = document.createElement('div');
+        dropdown.className = 'lang-dropdown';
+
+        var allLangs = {en:'English',cs:'Cestina',de:'Deutsch',es:'Espanol',nl:'Nederlands',fr:'Francais',it:'Italiano',pt:'Portugues',pl:'Polski',th:'Thai',he:'Hebrew'};
+
+        for (var i = 0; i < SUPPORTED.length; i++) {
+            var code = SUPPORTED[i];
+            var opt = document.createElement('button');
+            opt.className = 'lang-option' + (code === currentLang ? ' lang-active' : '');
+            opt.setAttribute('data-lang', code);
+            opt.textContent = code.toUpperCase() + ' \u2014 ' + allLangs[code];
+            (function(c) {
+                opt.addEventListener('click', function() {
+                    try { localStorage.setItem('growvpd-lang', c); } catch (e) { /* ignore */ }
+                    // Reload with ?lang= parameter
+                    var url = window.location.pathname;
+                    var hash = window.location.hash || '';
+                    if (c === 'en') {
+                        window.location.href = url + hash;
+                    } else {
+                        window.location.href = url + '?lang=' + c + hash;
+                    }
+                });
+            })(code);
+            dropdown.appendChild(opt);
+        }
+
+        wrapper.appendChild(dropdown);
+
+        btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            dropdown.classList.toggle('lang-open');
+        });
+
+        document.addEventListener('click', function() {
+            dropdown.classList.remove('lang-open');
+        });
+
+        // Insert into nav before Download CTA
+        var nav = document.querySelector('.nav-links');
+        if (nav) {
+            var li = document.createElement('li');
+            li.appendChild(wrapper);
+            var ctaParent = nav.querySelector('.nav-cta');
+            if (ctaParent) ctaParent = ctaParent.parentElement;
+            nav.insertBefore(li, ctaParent || null);
+        }
+    }
+
+    // -------------------------------------------------------------------------
+    // Propagate ?lang= to all internal links
+    // -------------------------------------------------------------------------
+
+    function updateNavLinks(lang) {
+        var links = document.querySelectorAll('a[href]');
+        for (var i = 0; i < links.length; i++) {
+            var href = links[i].getAttribute('href');
+            if (!href) continue;
+            // Skip external, mailto, hash-only links
+            if (href.indexOf('http') === 0 || href.indexOf('mailto') === 0 || href.indexOf('//') === 0 || href.charAt(0) === '#') continue;
+
+            // Split on # to preserve hash
+            var hashIdx = href.indexOf('#');
+            var path = hashIdx >= 0 ? href.slice(0, hashIdx) : href;
+            var hash = hashIdx >= 0 ? href.slice(hashIdx) : '';
+
+            var newPath;
+            if (/[?&]lang=/.test(path)) {
+                newPath = path.replace(/([?&])lang=[^&#]*/g, '$1lang=' + lang);
+            } else if (path.indexOf('?') !== -1) {
+                newPath = path + '&lang=' + lang;
+            } else {
+                newPath = path + '?lang=' + lang;
+            }
+            links[i].setAttribute('href', newPath + hash);
+        }
+    }
+
+    // -------------------------------------------------------------------------
     // Init
     // -------------------------------------------------------------------------
 
     function init() {
         var lang = detectLang();
 
-        // English is the default — nothing to do
+        // Always build the language switcher (even for English)
+        buildLangSwitcher(lang);
+
+        // English is the default — only translate if non-English
         if (lang === 'en') return;
+
+        // Set html lang attribute and RTL
+        document.documentElement.lang = lang;
 
         var t = UI[lang];
         if (!t) return;
@@ -611,11 +758,18 @@
         // Translate all UI chrome
         translateUI(lang, t);
 
+        // Propagate ?lang= to all internal links
+        updateNavLinks(lang);
+
         // Try to load translated article content
         var slug = getArticleSlug();
         if (slug && slug !== 'index') {
             loadTranslatedContent(lang, function(content) {
                 var translated = applyTranslatedContent(content, slug);
+                // Re-propagate links after body content swap (new <a> tags)
+                if (translated) {
+                    updateNavLinks(lang);
+                }
                 if (!translated) {
                     // No translation available — show banner with Google Translate
                     var banner = createBanner(lang, t);
@@ -624,9 +778,9 @@
                         if (articlePage) {
                             articlePage.insertBefore(banner, articlePage.firstChild);
                         } else {
-                            var nav = document.querySelector('.navbar');
-                            if (nav && nav.nextSibling) {
-                                nav.parentNode.insertBefore(banner, nav.nextSibling);
+                            var navEl = document.querySelector('.navbar');
+                            if (navEl && navEl.nextSibling) {
+                                navEl.parentNode.insertBefore(banner, navEl.nextSibling);
                             }
                         }
                     }
