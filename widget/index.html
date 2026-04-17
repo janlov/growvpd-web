@@ -308,20 +308,20 @@
         <div class="container" style="position:relative;z-index:1;">
             <div class="hero-badge">
                 <span class="badge-dot"></span>
-                <span>Free &amp; Open</span>
+                <span data-i18n="wgBadge">Free &amp; Open</span>
             </div>
-            <h1>
+            <h1 data-i18n-html="wgHeroTitle">
                 <span>Free </span><span class="text-gradient">VPD Calculator</span><br>
                 <span>Widget</span>
             </h1>
-            <p class="hero-tagline">
+            <p class="hero-tagline" data-i18n="wgHeroTagline">
                 Add a professional VPD calculator to your grow blog, forum, or website. One line of code. Free forever.
             </p>
 
             <div class="hero-embed-bar">
-                <span class="hero-embed-label">Embed</span>
+                <span class="hero-embed-label" data-i18n="wgEmbed">Embed</span>
                 <span class="hero-embed-code" id="heroEmbedCode">&lt;script src="https://growvpd.pro/widget.js"&gt;&lt;/script&gt;</span>
-                <button class="hero-embed-copy" onclick="copyEmbed('heroEmbedCode', this)">Copy</button>
+                <button class="hero-embed-copy" onclick="copyEmbed('heroEmbedCode', this)" data-i18n="wgCopy">Copy</button>
             </div>
         </div>
     </section>
@@ -330,14 +330,14 @@
     <section class="section">
         <div class="container">
             <div class="text-center">
-                <span class="section-label">Live Preview</span>
-                <h2 class="section-title">Try the Widget</h2>
-                <p class="section-sub text-center">This is exactly how the widget looks and works when embedded on your site. Fully interactive, responsive, and ready to use.</p>
+                <span class="section-label" data-i18n="wgDemoLabel">Live Preview</span>
+                <h2 class="section-title" data-i18n="wgDemoTitle">Try the Widget</h2>
+                <p class="section-sub text-center" data-i18n="wgDemoSub">This is exactly how the widget looks and works when embedded on your site. Fully interactive, responsive, and ready to use.</p>
             </div>
             <div class="demo-wrapper">
                 <div class="demo-label">
                     <span class="demo-dot"></span>
-                    Live Demo
+                    <span data-i18n="wgLiveDemo">Live Demo</span>
                 </div>
                 <div id="vpd-widget-demo">
                     <script src="../widget.js"></script>
@@ -351,18 +351,18 @@
         <div class="container">
             <div class="embed-section">
                 <div class="text-center">
-                    <span class="section-label">Quick Start</span>
-                    <h2 class="section-title">How to Embed</h2>
-                    <p class="section-sub text-center">Add this single line of code anywhere in your HTML. The widget will render automatically.</p>
+                    <span class="section-label" data-i18n="wgEmbedLabel">Quick Start</span>
+                    <h2 class="section-title" data-i18n="wgEmbedTitle">How to Embed</h2>
+                    <p class="section-sub text-center" data-i18n="wgEmbedSub">Add this single line of code anywhere in your HTML. The widget will render automatically.</p>
                 </div>
 
                 <div class="code-block" style="margin-top: 32px;">
                     <span class="code-block-label">HTML</span>
-                    <button class="copy-btn" onclick="copyEmbed('embedCode1', this)">Copy</button>
+                    <button class="copy-btn" onclick="copyEmbed('embedCode1', this)" data-i18n="wgCopy">Copy</button>
                     <code id="embedCode1">&lt;script src="https://growvpd.pro/widget.js"&gt;&lt;/script&gt;</code>
                 </div>
 
-                <p style="font-size:.9rem;color:#546E7A;margin-top:20px;line-height:1.7;text-align:center;">
+                <p style="font-size:.9rem;color:#546E7A;margin-top:20px;line-height:1.7;text-align:center;" data-i18n="wgEmbedHint">
                     Paste this into your page's HTML where you want the calculator to appear. No registration, no API key, no dependencies.
                 </p>
             </div>
@@ -373,9 +373,9 @@
     <section class="section">
         <div class="container">
             <div class="text-center">
-                <span class="section-label">Customize</span>
-                <h2 class="section-title">Configuration Options</h2>
-                <p class="section-sub text-center">Use data attributes to customize the widget's behavior and appearance.</p>
+                <span class="section-label" data-i18n="wgConfigLabel">Customize</span>
+                <h2 class="section-title" data-i18n="wgConfigTitle">Configuration Options</h2>
+                <p class="section-sub text-center" data-i18n="wgConfigSub">Use data attributes to customize the widget's behavior and appearance.</p>
             </div>
 
             <div class="config-grid">
@@ -383,10 +383,10 @@
                 <!-- Dark mode -->
                 <div class="config-card">
                     <span class="config-attr">data-theme="dark"</span>
-                    <h3>Dark Mode</h3>
-                    <p>Switch the widget to a dark color scheme. Ideal for forums and sites with dark backgrounds.</p>
+                    <h3 data-i18n="wgDarkTitle">Dark Mode</h3>
+                    <p data-i18n="wgDarkDesc">Switch the widget to a dark color scheme. Ideal for forums and sites with dark backgrounds.</p>
                     <div class="code-block">
-                        <button class="copy-btn" onclick="copyEmbed('embedDark', this)">Copy</button>
+                        <button class="copy-btn" onclick="copyEmbed('embedDark', this)" data-i18n="wgCopy">Copy</button>
                         <code id="embedDark">&lt;script src="https://growvpd.pro/widget.js" data-theme="dark"&gt;&lt;/script&gt;</code>
                     </div>
                 </div>
@@ -394,10 +394,10 @@
                 <!-- Custom target -->
                 <div class="config-card">
                     <span class="config-attr">data-target="vpd"</span>
-                    <h3>Custom Container</h3>
-                    <p>Render the widget inside a specific element by providing its ID. This gives you full control over placement and layout.</p>
+                    <h3 data-i18n="wgTargetTitle">Custom Container</h3>
+                    <p data-i18n="wgTargetDesc">Render the widget inside a specific element by providing its ID. This gives you full control over placement and layout.</p>
                     <div class="code-block">
-                        <button class="copy-btn" onclick="copyEmbed('embedTarget', this)">Copy</button>
+                        <button class="copy-btn" onclick="copyEmbed('embedTarget', this)" data-i18n="wgCopy">Copy</button>
                         <code id="embedTarget">&lt;div id="vpd"&gt;&lt;/div&gt;
 &lt;script src="https://growvpd.pro/widget.js" data-target="vpd"&gt;&lt;/script&gt;</code>
                     </div>
@@ -411,9 +411,9 @@
     <section class="section section-dark">
         <div class="container">
             <div class="text-center">
-                <span class="section-label">Benefits</span>
-                <h2 class="section-title section-title-light">Why Add This Widget?</h2>
-                <p class="section-sub section-sub-light text-center">Give your visitors a genuinely useful tool, and keep them on your site longer.</p>
+                <span class="section-label" data-i18n="wgBenefitsLabel">Benefits</span>
+                <h2 class="section-title section-title-light" data-i18n="wgBenefitsTitle">Why Add This Widget?</h2>
+                <p class="section-sub section-sub-light text-center" data-i18n="wgBenefitsSub">Give your visitors a genuinely useful tool, and keep them on your site longer.</p>
             </div>
 
             <div class="benefits-grid">
@@ -423,8 +423,8 @@
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#81C784" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12l2.5 2.5L16 9"/></svg>
                     </div>
                     <div>
-                        <h3>Free Forever, No API Key</h3>
-                        <p>No sign-up, no authentication, no usage limits. Embed it and forget about it.</p>
+                        <h3 data-i18n="wgB1Title">Free Forever, No API Key</h3>
+                        <p data-i18n="wgB1Desc">No sign-up, no authentication, no usage limits. Embed it and forget about it.</p>
                     </div>
                 </div>
 
@@ -433,8 +433,8 @@
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#81C784" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
                     </div>
                     <div>
-                        <h3>Adds Value to Your Content</h3>
-                        <p>Turn passive readers into engaged visitors with an interactive tool they will actually use and bookmark.</p>
+                        <h3 data-i18n="wgB2Title">Adds Value to Your Content</h3>
+                        <p data-i18n="wgB2Desc">Turn passive readers into engaged visitors with an interactive tool they will actually use and bookmark.</p>
                     </div>
                 </div>
 
@@ -443,8 +443,8 @@
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#81C784" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
                     </div>
                     <div>
-                        <h3>Beautiful, Responsive Design</h3>
-                        <p>Looks great on desktop, tablet, and mobile. Adapts to light and dark themes seamlessly.</p>
+                        <h3 data-i18n="wgB3Title">Beautiful, Responsive Design</h3>
+                        <p data-i18n="wgB3Desc">Looks great on desktop, tablet, and mobile. Adapts to light and dark themes seamlessly.</p>
                     </div>
                 </div>
 
@@ -453,8 +453,8 @@
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#81C784" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
                     </div>
                     <div>
-                        <h3>Real-Time VPD Calculation</h3>
-                        <p>Instant VPD results with grow stage analysis. Covers seedling, vegetative, and flowering phases.</p>
+                        <h3 data-i18n="wgB4Title">Real-Time VPD Calculation</h3>
+                        <p data-i18n="wgB4Desc">Instant VPD results with grow stage analysis. Covers seedling, vegetative, and flowering phases.</p>
                     </div>
                 </div>
 
@@ -463,8 +463,8 @@
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#81C784" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
                     </div>
                     <div>
-                        <h3>Links to Growing Guides</h3>
-                        <p>Connects visitors to comprehensive VPD and growing resources, driving deeper engagement.</p>
+                        <h3 data-i18n="wgB5Title">Links to Growing Guides</h3>
+                        <p data-i18n="wgB5Desc">Connects visitors to comprehensive VPD and growing resources, driving deeper engagement.</p>
                     </div>
                 </div>
 
@@ -473,8 +473,8 @@
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#81C784" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
                     </div>
                     <div>
-                        <h3>Lightweight &amp; Fast</h3>
-                        <p>Minimal footprint. Loads asynchronously so it never slows down your page.</p>
+                        <h3 data-i18n-html="wgB6Title">Lightweight &amp; Fast</h3>
+                        <p data-i18n="wgB6Desc">Minimal footprint. Loads asynchronously so it never slows down your page.</p>
                     </div>
                 </div>
 
@@ -485,11 +485,11 @@
     <!-- ══════════════ ALSO AVAILABLE: FREE API ══════════════ -->
     <section class="api-link-section">
         <div class="container">
-            <h2>Also Available: Free API</h2>
-            <p>Need more control? Our REST API gives you 18 endpoints for VPD, light/DLI, diagnostics, nutrients, equipment, and more. No API key required.</p>
+            <h2 data-i18n="wgApiTitle">Also Available: Free API</h2>
+            <p data-i18n="wgApiDesc">Need more control? Our REST API gives you 18 endpoints for VPD, light/DLI, diagnostics, nutrients, equipment, and more. No API key required.</p>
             <a href="../docs/index.html" class="btn-outline-light">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-                Explore API Documentation
+                <span data-i18n="wgApiBtn">Explore API Documentation</span>
             </a>
         </div>
     </section>
@@ -500,7 +500,7 @@
             <div class="widget-footer-brand">
                 <svg viewBox="0 0 32 32" width="22" height="22"><circle cx="16" cy="16" r="16" fill="#2E7D32"/><path d="M16 6c0 0-6 4-6 12 0 4 2.5 7 6 8 3.5-1 6-4 6-8 0-8-6-12-6-12z" fill="#81C784"/></svg>
                 <strong>GrowVPD Pro</strong>
-                <span>&mdash; Built by growers, for growers.</span>
+                <span data-i18n-html="wgFootTagline">&mdash; Built by growers, for growers.</span>
             </div>
             <div class="widget-footer-links">
                 <a href="../index.html" data-i18n="footHome">Home</a>
@@ -525,11 +525,576 @@
         if (!el) return;
         var text = el.textContent;
         navigator.clipboard.writeText(text).then(function() {
-            var original = btn.textContent;
-            btn.textContent = 'Copied!';
-            setTimeout(function() { btn.textContent = original; }, 1500);
+            var orig = btn.getAttribute('data-i18n') ? btn.textContent : 'Copy';
+            btn.textContent = (typeof WIDGET_I18N !== 'undefined' && (WIDGET_I18N[document.documentElement.lang] || WIDGET_I18N.en).wgCopied) || 'Copied!';
+            setTimeout(function() { btn.textContent = orig; }, 1500);
         });
     }
+    </script>
+
+    <!-- Widget page translations -->
+    <script>
+    var WIDGET_I18N = {
+      en: {
+        wgBadge: "Free & Open",
+        wgHeroTitle: '<span>Free </span><span class="text-gradient">VPD Calculator</span><br><span>Widget</span>',
+        wgHeroTagline: "Add a professional VPD calculator to your grow blog, forum, or website. One line of code. Free forever.",
+        wgEmbed: "Embed",
+        wgCopy: "Copy",
+        wgCopied: "Copied!",
+        wgDemoLabel: "Live Preview",
+        wgDemoTitle: "Try the Widget",
+        wgDemoSub: "This is exactly how the widget looks and works when embedded on your site. Fully interactive, responsive, and ready to use.",
+        wgLiveDemo: "Live Demo",
+        wgEmbedLabel: "Quick Start",
+        wgEmbedTitle: "How to Embed",
+        wgEmbedSub: "Add this single line of code anywhere in your HTML. The widget will render automatically.",
+        wgEmbedHint: "Paste this into your page\u2019s HTML where you want the calculator to appear. No registration, no API key, no dependencies.",
+        wgConfigLabel: "Customize",
+        wgConfigTitle: "Configuration Options",
+        wgConfigSub: "Use data attributes to customize the widget\u2019s behavior and appearance.",
+        wgDarkTitle: "Dark Mode",
+        wgDarkDesc: "Switch the widget to a dark color scheme. Ideal for forums and sites with dark backgrounds.",
+        wgTargetTitle: "Custom Container",
+        wgTargetDesc: "Render the widget inside a specific element by providing its ID. This gives you full control over placement and layout.",
+        wgBenefitsLabel: "Benefits",
+        wgBenefitsTitle: "Why Add This Widget?",
+        wgBenefitsSub: "Give your visitors a genuinely useful tool, and keep them on your site longer.",
+        wgB1Title: "Free Forever, No API Key",
+        wgB1Desc: "No sign-up, no authentication, no usage limits. Embed it and forget about it.",
+        wgB2Title: "Adds Value to Your Content",
+        wgB2Desc: "Turn passive readers into engaged visitors with an interactive tool they will actually use and bookmark.",
+        wgB3Title: "Beautiful, Responsive Design",
+        wgB3Desc: "Looks great on desktop, tablet, and mobile. Adapts to light and dark themes seamlessly.",
+        wgB4Title: "Real-Time VPD Calculation",
+        wgB4Desc: "Instant VPD results with grow stage analysis. Covers seedling, vegetative, and flowering phases.",
+        wgB5Title: "Links to Growing Guides",
+        wgB5Desc: "Connects visitors to comprehensive VPD and growing resources, driving deeper engagement.",
+        wgB6Title: "Lightweight &amp; Fast",
+        wgB6Desc: "Minimal footprint. Loads asynchronously so it never slows down your page.",
+        wgApiTitle: "Also Available: Free API",
+        wgApiDesc: "Need more control? Our REST API gives you 18 endpoints for VPD, light/DLI, diagnostics, nutrients, equipment, and more. No API key required.",
+        wgApiBtn: "Explore API Documentation",
+        wgFootTagline: "&mdash; Built by growers, for growers.",
+        footHome: "Home",
+        wgMetaTitle: "Free VPD Calculator Widget \u2014 GrowVPD Pro",
+        wgMetaDesc: "Add a free, professional VPD calculator widget to your grow blog, forum, or website. One line of code, no API key, beautiful responsive design. Free forever."
+      },
+      cs: {
+        wgBadge: "Zdarma a otev\u0159en\u00e9",
+        wgHeroTitle: '<span>Bezplatn\u00fd </span><span class="text-gradient">VPD kalkul\u00e1tor</span><br><span>Widget</span>',
+        wgHeroTagline: "P\u0159idejte profesion\u00e1ln\u00ed VPD kalkul\u00e1tor na sv\u016fj grow blog, f\u00f3rum nebo web. Jeden \u0159\u00e1dek k\u00f3du. Zdarma nav\u017edy.",
+        wgEmbed: "Vlo\u017eit",
+        wgCopy: "Kop\u00edrovat",
+        wgCopied: "Zkop\u00edrov\u00e1no!",
+        wgDemoLabel: "\u017div\u00fd n\u00e1hled",
+        wgDemoTitle: "Vyzkou\u0161ejte widget",
+        wgDemoSub: "Takto p\u0159esn\u011b widget vypad\u00e1 a funguje na va\u0161em webu. Pln\u011b interaktivn\u00ed, responzivn\u00ed a p\u0159ipraven\u00fd k pou\u017eit\u00ed.",
+        wgLiveDemo: "\u017div\u00e9 demo",
+        wgEmbedLabel: "Rychl\u00fd start",
+        wgEmbedTitle: "Jak vlo\u017eit",
+        wgEmbedSub: "P\u0159idejte tento jedin\u00fd \u0159\u00e1dek k\u00f3du kamkoli do va\u0161eho HTML. Widget se vykresl\u00ed automaticky.",
+        wgEmbedHint: "Vlo\u017ete tento k\u00f3d do HTML str\u00e1nky na m\u00edsto, kde chcete kalkul\u00e1tor zobrazit. \u017d\u00e1dn\u00e1 registrace, \u017e\u00e1dn\u00fd API kl\u00ed\u010d, \u017e\u00e1dn\u00e9 z\u00e1vislosti.",
+        wgConfigLabel: "P\u0159izp\u016fsobit",
+        wgConfigTitle: "Mo\u017enosti konfigurace",
+        wgConfigSub: "Pou\u017eijte data atributy k p\u0159izp\u016fsoben\u00ed chov\u00e1n\u00ed a vzhledu widgetu.",
+        wgDarkTitle: "Tmav\u00fd re\u017eim",
+        wgDarkDesc: "P\u0159epn\u011bte widget do tmav\u00e9ho barevn\u00e9ho sch\u00e9matu. Ide\u00e1ln\u00ed pro f\u00f3ra a weby s tmav\u00fdm pozad\u00edm.",
+        wgTargetTitle: "Vlastn\u00ed kontejner",
+        wgTargetDesc: "Vykreslete widget uvnit\u0159 konkr\u00e9tn\u00edho elementu pomoc\u00ed jeho ID. Z\u00edsk\u00e1te plnou kontrolu nad um\u00edst\u011bn\u00edm a rozlo\u017een\u00edm.",
+        wgBenefitsLabel: "V\u00fdhody",
+        wgBenefitsTitle: "Pro\u010d p\u0159idat tento widget?",
+        wgBenefitsSub: "Dejte sv\u00fdm n\u00e1v\u0161t\u011bvn\u00edk\u016fm opravdu u\u017eite\u010dn\u00fd n\u00e1stroj a udr\u017ete je na webu d\u00e9le.",
+        wgB1Title: "Zdarma nav\u017edy, bez API kl\u00ed\u010de",
+        wgB1Desc: "\u017d\u00e1dn\u00e1 registrace, \u017e\u00e1dn\u00e9 ov\u011b\u0159ov\u00e1n\u00ed, \u017e\u00e1dn\u00e9 limity. Vlo\u017ete a zapome\u0148te.",
+        wgB2Title: "P\u0159id\u00e1v\u00e1 hodnotu va\u0161emu obsahu",
+        wgB2Desc: "Prom\u011b\u0148te pasivn\u00ed \u010dten\u00e1\u0159e v zapojen\u00e9 n\u00e1v\u0161t\u011bvn\u00edky d\u00edky interaktivn\u00edmu n\u00e1stroji, kter\u00fd skute\u010dn\u011b pou\u017eij\u00ed.",
+        wgB3Title: "Kr\u00e1sn\u00fd, responzivn\u00ed design",
+        wgB3Desc: "Vypad\u00e1 skv\u011ble na po\u010d\u00edta\u010di, tabletu i mobilu. Plynule se p\u0159izp\u016fsob\u00ed sv\u011btl\u00e9mu i tmav\u00e9mu motivu.",
+        wgB4Title: "V\u00fdpo\u010det VPD v re\u00e1ln\u00e9m \u010dase",
+        wgB4Desc: "Okam\u017eit\u00e9 v\u00fdsledky VPD s anal\u00fdzou f\u00e1ze r\u016fstu. Pokr\u00fdv\u00e1 kl\u00ed\u010den\u00ed, vegetaci i kv\u011bt.",
+        wgB5Title: "Odkazy na p\u011bstitelsk\u00e9 pr\u016fvodce",
+        wgB5Desc: "Propojte n\u00e1v\u0161t\u011bvn\u00edky s komplexn\u00edmi zdroji o VPD a p\u011bstov\u00e1n\u00ed pro hlub\u0161\u00ed zapojen\u00ed.",
+        wgB6Title: "Lehk\u00fd &amp; rychl\u00fd",
+        wgB6Desc: "Minim\u00e1ln\u00ed velikost. Na\u010d\u00edt\u00e1 se asynchronn\u011b, tak\u017ee nikdy nezpomal\u00ed va\u0161i str\u00e1nku.",
+        wgApiTitle: "K dispozici tak\u00e9: Bezplatn\u00e9 API",
+        wgApiDesc: "Pot\u0159ebujete v\u00edce kontroly? Na\u0161e REST API nab\u00edz\u00ed 18 endpoint\u016f pro VPD, sv\u011btlo/DLI, diagnostiku, \u017eiviny, vybaven\u00ed a dal\u0161\u00ed. Bez API kl\u00ed\u010de.",
+        wgApiBtn: "Prohl\u00e9dnout dokumentaci API",
+        wgFootTagline: "&mdash; Od p\u011bstitel\u016f, pro p\u011bstitele.",
+        footHome: "Domov\u030c",
+        wgMetaTitle: "Bezplatn\u00fd VPD kalkul\u00e1tor widget \u2014 GrowVPD Pro",
+        wgMetaDesc: "P\u0159idejte bezplatn\u00fd, profesion\u00e1ln\u00ed VPD kalkul\u00e1tor na sv\u016fj grow blog, f\u00f3rum nebo web. Jeden \u0159\u00e1dek k\u00f3du, bez API kl\u00ed\u010de, kr\u00e1sn\u00fd responzivn\u00ed design. Zdarma nav\u017edy."
+      },
+      de: {
+        wgBadge: "Kostenlos & offen",
+        wgHeroTitle: '<span>Kostenloses </span><span class="text-gradient">VPD-Rechner</span><br><span>Widget</span>',
+        wgHeroTagline: "F\u00fcgen Sie einen professionellen VPD-Rechner zu Ihrem Grow-Blog, Forum oder Website hinzu. Eine Zeile Code. F\u00fcr immer kostenlos.",
+        wgEmbed: "Einbetten",
+        wgCopy: "Kopieren",
+        wgCopied: "Kopiert!",
+        wgDemoLabel: "Live-Vorschau",
+        wgDemoTitle: "Widget ausprobieren",
+        wgDemoSub: "So sieht das Widget aus und funktioniert, wenn es auf Ihrer Seite eingebettet ist. Voll interaktiv, responsiv und sofort einsatzbereit.",
+        wgLiveDemo: "Live-Demo",
+        wgEmbedLabel: "Schnellstart",
+        wgEmbedTitle: "So betten Sie ein",
+        wgEmbedSub: "F\u00fcgen Sie diese einzelne Zeile Code irgendwo in Ihr HTML ein. Das Widget wird automatisch gerendert.",
+        wgEmbedHint: "F\u00fcgen Sie diesen Code in das HTML Ihrer Seite ein, wo der Rechner erscheinen soll. Keine Registrierung, kein API-Schl\u00fcssel, keine Abh\u00e4ngigkeiten.",
+        wgConfigLabel: "Anpassen",
+        wgConfigTitle: "Konfigurationsoptionen",
+        wgConfigSub: "Verwenden Sie Data-Attribute, um Verhalten und Aussehen des Widgets anzupassen.",
+        wgDarkTitle: "Dunkelmodus",
+        wgDarkDesc: "Wechseln Sie das Widget in ein dunkles Farbschema. Ideal f\u00fcr Foren und Seiten mit dunklem Hintergrund.",
+        wgTargetTitle: "Eigener Container",
+        wgTargetDesc: "Rendern Sie das Widget in einem bestimmten Element \u00fcber dessen ID. Damit haben Sie volle Kontrolle \u00fcber Platzierung und Layout.",
+        wgBenefitsLabel: "Vorteile",
+        wgBenefitsTitle: "Warum dieses Widget hinzuf\u00fcgen?",
+        wgBenefitsSub: "Bieten Sie Ihren Besuchern ein wirklich n\u00fctzliches Tool und halten Sie sie l\u00e4nger auf Ihrer Seite.",
+        wgB1Title: "F\u00fcr immer kostenlos, kein API-Schl\u00fcssel",
+        wgB1Desc: "Keine Anmeldung, keine Authentifizierung, keine Nutzungslimits. Einbetten und vergessen.",
+        wgB2Title: "Mehrwert f\u00fcr Ihre Inhalte",
+        wgB2Desc: "Verwandeln Sie passive Leser in engagierte Besucher mit einem interaktiven Tool, das sie tats\u00e4chlich nutzen und als Lesezeichen speichern.",
+        wgB3Title: "Sch\u00f6nes, responsives Design",
+        wgB3Desc: "Sieht auf Desktop, Tablet und Handy gro\u00dfartig aus. Passt sich nahtlos an helle und dunkle Themes an.",
+        wgB4Title: "VPD-Berechnung in Echtzeit",
+        wgB4Desc: "Sofortige VPD-Ergebnisse mit Wachstumsphasen-Analyse. Deckt Keimling, Vegetation und Bl\u00fcte ab.",
+        wgB5Title: "Links zu Grow-Anleitungen",
+        wgB5Desc: "Verbinden Sie Besucher mit umfassenden VPD- und Grow-Ressourcen f\u00fcr tieferes Engagement.",
+        wgB6Title: "Leichtgewichtig &amp; schnell",
+        wgB6Desc: "Minimaler Fu\u00dfabdruck. L\u00e4dt asynchron und verlangsamt Ihre Seite nie.",
+        wgApiTitle: "Auch verf\u00fcgbar: Kostenloses API",
+        wgApiDesc: "Mehr Kontrolle ben\u00f6tigt? Unser REST API bietet 18 Endpunkte f\u00fcr VPD, Licht/DLI, Diagnostik, N\u00e4hrstoffe, Ausr\u00fcstung und mehr. Kein API-Schl\u00fcssel erforderlich.",
+        wgApiBtn: "API-Dokumentation erkunden",
+        wgFootTagline: "&mdash; Von Growern, f\u00fcr Grower.",
+        footHome: "Startseite",
+        wgMetaTitle: "Kostenloses VPD-Rechner Widget \u2014 GrowVPD Pro",
+        wgMetaDesc: "F\u00fcgen Sie ein kostenloses, professionelles VPD-Rechner-Widget zu Ihrem Grow-Blog, Forum oder Website hinzu. Eine Zeile Code, kein API-Schl\u00fcssel, sch\u00f6nes responsives Design. F\u00fcr immer kostenlos."
+      },
+      es: {
+        wgBadge: "Gratis y abierto",
+        wgHeroTitle: '<span>Calculadora </span><span class="text-gradient">VPD gratuita</span><br><span>Widget</span>',
+        wgHeroTagline: "A\u00f1ade una calculadora VPD profesional a tu blog de cultivo, foro o sitio web. Una l\u00ednea de c\u00f3digo. Gratis para siempre.",
+        wgEmbed: "Insertar",
+        wgCopy: "Copiar",
+        wgCopied: "\u00a1Copiado!",
+        wgDemoLabel: "Vista previa",
+        wgDemoTitle: "Prueba el widget",
+        wgDemoSub: "As\u00ed es exactamente como el widget se ve y funciona cuando est\u00e1 incrustado en tu sitio. Totalmente interactivo, adaptable y listo para usar.",
+        wgLiveDemo: "Demo en vivo",
+        wgEmbedLabel: "Inicio r\u00e1pido",
+        wgEmbedTitle: "C\u00f3mo insertar",
+        wgEmbedSub: "A\u00f1ade esta \u00fanica l\u00ednea de c\u00f3digo en cualquier parte de tu HTML. El widget se renderizar\u00e1 autom\u00e1ticamente.",
+        wgEmbedHint: "Pega este c\u00f3digo en el HTML de tu p\u00e1gina donde quieras que aparezca la calculadora. Sin registro, sin clave API, sin dependencias.",
+        wgConfigLabel: "Personalizar",
+        wgConfigTitle: "Opciones de configuraci\u00f3n",
+        wgConfigSub: "Usa atributos data para personalizar el comportamiento y la apariencia del widget.",
+        wgDarkTitle: "Modo oscuro",
+        wgDarkDesc: "Cambia el widget a un esquema de colores oscuro. Ideal para foros y sitios con fondos oscuros.",
+        wgTargetTitle: "Contenedor personalizado",
+        wgTargetDesc: "Renderiza el widget dentro de un elemento espec\u00edfico proporcionando su ID. Te da control total sobre la ubicaci\u00f3n y el dise\u00f1o.",
+        wgBenefitsLabel: "Ventajas",
+        wgBenefitsTitle: "\u00bfPor qu\u00e9 a\u00f1adir este widget?",
+        wgBenefitsSub: "Ofrece a tus visitantes una herramienta realmente \u00fatil y mant\u00e9nlos m\u00e1s tiempo en tu sitio.",
+        wgB1Title: "Gratis para siempre, sin clave API",
+        wgB1Desc: "Sin registro, sin autenticaci\u00f3n, sin l\u00edmites de uso. Ins\u00e9rtalo y olv\u00eddate.",
+        wgB2Title: "A\u00f1ade valor a tu contenido",
+        wgB2Desc: "Convierte lectores pasivos en visitantes comprometidos con una herramienta interactiva que realmente usar\u00e1n y guardar\u00e1n.",
+        wgB3Title: "Dise\u00f1o bonito y adaptable",
+        wgB3Desc: "Se ve genial en escritorio, tablet y m\u00f3vil. Se adapta a temas claros y oscuros sin problemas.",
+        wgB4Title: "C\u00e1lculo de VPD en tiempo real",
+        wgB4Desc: "Resultados VPD instant\u00e1neos con an\u00e1lisis por fase de crecimiento. Cubre pl\u00e1ntula, vegetaci\u00f3n y floraci\u00f3n.",
+        wgB5Title: "Enlaces a gu\u00edas de cultivo",
+        wgB5Desc: "Conecta a tus visitantes con recursos completos sobre VPD y cultivo para un mayor engagement.",
+        wgB6Title: "Ligero &amp; r\u00e1pido",
+        wgB6Desc: "Huella m\u00ednima. Se carga de forma as\u00edncrona para no ralentizar tu p\u00e1gina.",
+        wgApiTitle: "Tambi\u00e9n disponible: API gratuita",
+        wgApiDesc: "\u00bfNecesitas m\u00e1s control? Nuestra API REST ofrece 18 endpoints para VPD, luz/DLI, diagn\u00f3sticos, nutrientes, equipos y m\u00e1s. Sin clave API.",
+        wgApiBtn: "Explorar documentaci\u00f3n API",
+        wgFootTagline: "&mdash; Hecho por cultivadores, para cultivadores.",
+        footHome: "Inicio",
+        wgMetaTitle: "Widget calculadora VPD gratuita \u2014 GrowVPD Pro",
+        wgMetaDesc: "A\u00f1ade una calculadora VPD gratuita y profesional a tu blog de cultivo, foro o sitio web. Una l\u00ednea de c\u00f3digo, sin clave API, dise\u00f1o adaptable. Gratis para siempre."
+      },
+      nl: {
+        wgBadge: "Gratis & open",
+        wgHeroTitle: '<span>Gratis </span><span class="text-gradient">VPD-calculator</span><br><span>Widget</span>',
+        wgHeroTagline: "Voeg een professionele VPD-calculator toe aan je growblog, forum of website. E\u00e9n regel code. Voor altijd gratis.",
+        wgEmbed: "Insluiten",
+        wgCopy: "Kopi\u00ebren",
+        wgCopied: "Gekopieerd!",
+        wgDemoLabel: "Live voorbeeld",
+        wgDemoTitle: "Probeer de widget",
+        wgDemoSub: "Zo ziet de widget er precies uit en werkt hij wanneer deze op je site is ingesloten. Volledig interactief, responsief en klaar voor gebruik.",
+        wgLiveDemo: "Live demo",
+        wgEmbedLabel: "Snelstart",
+        wgEmbedTitle: "Hoe insluiten",
+        wgEmbedSub: "Voeg deze enkele regel code ergens in je HTML toe. De widget wordt automatisch weergegeven.",
+        wgEmbedHint: "Plak deze code in de HTML van je pagina waar je de calculator wilt tonen. Geen registratie, geen API-sleutel, geen afhankelijkheden.",
+        wgConfigLabel: "Aanpassen",
+        wgConfigTitle: "Configuratieopties",
+        wgConfigSub: "Gebruik data-attributen om het gedrag en uiterlijk van de widget aan te passen.",
+        wgDarkTitle: "Donkere modus",
+        wgDarkDesc: "Schakel de widget over naar een donker kleurenschema. Ideaal voor forums en sites met donkere achtergronden.",
+        wgTargetTitle: "Eigen container",
+        wgTargetDesc: "Render de widget in een specifiek element via het ID. Dit geeft je volledige controle over plaatsing en lay-out.",
+        wgBenefitsLabel: "Voordelen",
+        wgBenefitsTitle: "Waarom deze widget toevoegen?",
+        wgBenefitsSub: "Geef je bezoekers een echt nuttig hulpmiddel en houd ze langer op je site.",
+        wgB1Title: "Voor altijd gratis, geen API-sleutel",
+        wgB1Desc: "Geen aanmelding, geen authenticatie, geen gebruikslimieten. Insluiten en vergeten.",
+        wgB2Title: "Voegt waarde toe aan je content",
+        wgB2Desc: "Verander passieve lezers in betrokken bezoekers met een interactieve tool die ze echt zullen gebruiken en opslaan.",
+        wgB3Title: "Mooi, responsief ontwerp",
+        wgB3Desc: "Ziet er geweldig uit op desktop, tablet en mobiel. Past zich naadloos aan lichte en donkere thema\u2019s aan.",
+        wgB4Title: "Realtime VPD-berekening",
+        wgB4Desc: "Directe VPD-resultaten met groeifase-analyse. Dekt zaailing, vegetatief en bloei.",
+        wgB5Title: "Links naar kweekgidsen",
+        wgB5Desc: "Verbind bezoekers met uitgebreide VPD- en kweekbronnen voor diepere betrokkenheid.",
+        wgB6Title: "Lichtgewicht &amp; snel",
+        wgB6Desc: "Minimale voetafdruk. Laadt asynchroon zodat je pagina nooit vertraagt.",
+        wgApiTitle: "Ook beschikbaar: Gratis API",
+        wgApiDesc: "Meer controle nodig? Onze REST API biedt 18 endpoints voor VPD, licht/DLI, diagnostiek, voedingsstoffen, apparatuur en meer. Geen API-sleutel nodig.",
+        wgApiBtn: "API-documentatie verkennen",
+        wgFootTagline: "&mdash; Gemaakt door kwekers, voor kwekers.",
+        footHome: "Home",
+        wgMetaTitle: "Gratis VPD-calculator widget \u2014 GrowVPD Pro",
+        wgMetaDesc: "Voeg een gratis, professionele VPD-calculator widget toe aan je growblog, forum of website. E\u00e9n regel code, geen API-sleutel, mooi responsief ontwerp. Voor altijd gratis."
+      },
+      fr: {
+        wgBadge: "Gratuit et ouvert",
+        wgHeroTitle: '<span>Calculateur </span><span class="text-gradient">VPD gratuit</span><br><span>Widget</span>',
+        wgHeroTagline: "Ajoutez un calculateur VPD professionnel \u00e0 votre blog de culture, forum ou site web. Une seule ligne de code. Gratuit pour toujours.",
+        wgEmbed: "Int\u00e9grer",
+        wgCopy: "Copier",
+        wgCopied: "Copi\u00e9 !",
+        wgDemoLabel: "Aper\u00e7u en direct",
+        wgDemoTitle: "Essayez le widget",
+        wgDemoSub: "Voici exactement \u00e0 quoi ressemble le widget et comment il fonctionne une fois int\u00e9gr\u00e9 \u00e0 votre site. Enti\u00e8rement interactif, responsive et pr\u00eat \u00e0 l\u2019emploi.",
+        wgLiveDemo: "D\u00e9mo en direct",
+        wgEmbedLabel: "D\u00e9marrage rapide",
+        wgEmbedTitle: "Comment int\u00e9grer",
+        wgEmbedSub: "Ajoutez cette seule ligne de code n\u2019importe o\u00f9 dans votre HTML. Le widget s\u2019affichera automatiquement.",
+        wgEmbedHint: "Collez ce code dans le HTML de votre page \u00e0 l\u2019endroit o\u00f9 vous souhaitez afficher le calculateur. Aucune inscription, aucune cl\u00e9 API, aucune d\u00e9pendance.",
+        wgConfigLabel: "Personnaliser",
+        wgConfigTitle: "Options de configuration",
+        wgConfigSub: "Utilisez les attributs data pour personnaliser le comportement et l\u2019apparence du widget.",
+        wgDarkTitle: "Mode sombre",
+        wgDarkDesc: "Passez le widget en mode sombre. Id\u00e9al pour les forums et les sites \u00e0 fond sombre.",
+        wgTargetTitle: "Conteneur personnalis\u00e9",
+        wgTargetDesc: "Affichez le widget dans un \u00e9l\u00e9ment sp\u00e9cifique via son ID. Vous gardez le contr\u00f4le total sur le placement et la mise en page.",
+        wgBenefitsLabel: "Avantages",
+        wgBenefitsTitle: "Pourquoi ajouter ce widget ?",
+        wgBenefitsSub: "Offrez \u00e0 vos visiteurs un outil vraiment utile et gardez-les plus longtemps sur votre site.",
+        wgB1Title: "Gratuit pour toujours, sans cl\u00e9 API",
+        wgB1Desc: "Aucune inscription, aucune authentification, aucune limite d\u2019utilisation. Int\u00e9grez-le et oubliez-le.",
+        wgB2Title: "Valorise votre contenu",
+        wgB2Desc: "Transformez des lecteurs passifs en visiteurs engag\u00e9s avec un outil interactif qu\u2019ils utiliseront et ajouteront en favoris.",
+        wgB3Title: "Design \u00e9l\u00e9gant et responsive",
+        wgB3Desc: "Superbe rendu sur ordinateur, tablette et mobile. S\u2019adapte parfaitement aux th\u00e8mes clairs et sombres.",
+        wgB4Title: "Calcul du VPD en temps r\u00e9el",
+        wgB4Desc: "R\u00e9sultats VPD instantan\u00e9s avec analyse par phase de croissance. Couvre semis, v\u00e9g\u00e9tation et floraison.",
+        wgB5Title: "Liens vers des guides de culture",
+        wgB5Desc: "Connectez vos visiteurs \u00e0 des ressources compl\u00e8tes sur le VPD et la culture pour un engagement accru.",
+        wgB6Title: "L\u00e9ger &amp; rapide",
+        wgB6Desc: "Empreinte minimale. Se charge de mani\u00e8re asynchrone pour ne jamais ralentir votre page.",
+        wgApiTitle: "\u00c9galement disponible : API gratuite",
+        wgApiDesc: "Besoin de plus de contr\u00f4le ? Notre API REST propose 18 endpoints pour VPD, lumi\u00e8re/DLI, diagnostics, nutriments, \u00e9quipement et plus. Aucune cl\u00e9 API requise.",
+        wgApiBtn: "Explorer la documentation API",
+        wgFootTagline: "&mdash; Fait par des cultivateurs, pour des cultivateurs.",
+        footHome: "Accueil",
+        wgMetaTitle: "Widget calculateur VPD gratuit \u2014 GrowVPD Pro",
+        wgMetaDesc: "Ajoutez un widget calculateur VPD gratuit et professionnel \u00e0 votre blog de culture, forum ou site web. Une ligne de code, sans cl\u00e9 API, design responsive. Gratuit pour toujours."
+      },
+      it: {
+        wgBadge: "Gratuito e aperto",
+        wgHeroTitle: '<span>Calcolatore </span><span class="text-gradient">VPD gratuito</span><br><span>Widget</span>',
+        wgHeroTagline: "Aggiungi un calcolatore VPD professionale al tuo blog di coltivazione, forum o sito web. Una riga di codice. Gratuito per sempre.",
+        wgEmbed: "Incorpora",
+        wgCopy: "Copia",
+        wgCopied: "Copiato!",
+        wgDemoLabel: "Anteprima dal vivo",
+        wgDemoTitle: "Prova il widget",
+        wgDemoSub: "Ecco esattamente come appare e funziona il widget quando \u00e8 incorporato nel tuo sito. Completamente interattivo, responsive e pronto all\u2019uso.",
+        wgLiveDemo: "Demo dal vivo",
+        wgEmbedLabel: "Avvio rapido",
+        wgEmbedTitle: "Come incorporare",
+        wgEmbedSub: "Aggiungi questa singola riga di codice ovunque nel tuo HTML. Il widget si render\u00e0 automaticamente.",
+        wgEmbedHint: "Incolla questo codice nell\u2019HTML della tua pagina dove vuoi che appaia il calcolatore. Nessuna registrazione, nessuna chiave API, nessuna dipendenza.",
+        wgConfigLabel: "Personalizza",
+        wgConfigTitle: "Opzioni di configurazione",
+        wgConfigSub: "Usa gli attributi data per personalizzare il comportamento e l\u2019aspetto del widget.",
+        wgDarkTitle: "Modalit\u00e0 scura",
+        wgDarkDesc: "Passa il widget a uno schema di colori scuro. Ideale per forum e siti con sfondi scuri.",
+        wgTargetTitle: "Contenitore personalizzato",
+        wgTargetDesc: "Renderizza il widget all\u2019interno di un elemento specifico tramite il suo ID. Hai il pieno controllo su posizionamento e layout.",
+        wgBenefitsLabel: "Vantaggi",
+        wgBenefitsTitle: "Perch\u00e9 aggiungere questo widget?",
+        wgBenefitsSub: "Offri ai tuoi visitatori uno strumento davvero utile e trattienili pi\u00f9 a lungo sul tuo sito.",
+        wgB1Title: "Gratuito per sempre, senza chiave API",
+        wgB1Desc: "Nessuna registrazione, nessuna autenticazione, nessun limite di utilizzo. Incorporalo e dimenticalo.",
+        wgB2Title: "Aggiunge valore ai tuoi contenuti",
+        wgB2Desc: "Trasforma i lettori passivi in visitatori coinvolti con uno strumento interattivo che useranno davvero e salveranno nei preferiti.",
+        wgB3Title: "Design bello e responsive",
+        wgB3Desc: "Splendido su desktop, tablet e mobile. Si adatta perfettamente ai temi chiari e scuri.",
+        wgB4Title: "Calcolo VPD in tempo reale",
+        wgB4Desc: "Risultati VPD istantanei con analisi per fase di crescita. Copre piantina, vegetativa e fioritura.",
+        wgB5Title: "Link a guide di coltivazione",
+        wgB5Desc: "Collega i visitatori a risorse complete su VPD e coltivazione per un coinvolgimento pi\u00f9 profondo.",
+        wgB6Title: "Leggero &amp; veloce",
+        wgB6Desc: "Impatto minimo. Si carica in modo asincrono per non rallentare mai la tua pagina.",
+        wgApiTitle: "Disponibile anche: API gratuita",
+        wgApiDesc: "Serve pi\u00f9 controllo? La nostra API REST offre 18 endpoint per VPD, luce/DLI, diagnostica, nutrienti, attrezzature e altro. Nessuna chiave API richiesta.",
+        wgApiBtn: "Esplora la documentazione API",
+        wgFootTagline: "&mdash; Fatto da coltivatori, per coltivatori.",
+        footHome: "Home",
+        wgMetaTitle: "Widget calcolatore VPD gratuito \u2014 GrowVPD Pro",
+        wgMetaDesc: "Aggiungi un widget calcolatore VPD gratuito e professionale al tuo blog di coltivazione, forum o sito web. Una riga di codice, senza chiave API, design responsive. Gratuito per sempre."
+      },
+      pt: {
+        wgBadge: "Gr\u00e1tis e aberto",
+        wgHeroTitle: '<span>Calculadora </span><span class="text-gradient">VPD gr\u00e1tis</span><br><span>Widget</span>',
+        wgHeroTagline: "Adicione uma calculadora VPD profissional ao seu blog de cultivo, f\u00f3rum ou site. Uma linha de c\u00f3digo. Gr\u00e1tis para sempre.",
+        wgEmbed: "Incorporar",
+        wgCopy: "Copiar",
+        wgCopied: "Copiado!",
+        wgDemoLabel: "Pr\u00e9via ao vivo",
+        wgDemoTitle: "Experimente o widget",
+        wgDemoSub: "\u00c9 exatamente assim que o widget fica e funciona quando incorporado no seu site. Totalmente interativo, responsivo e pronto para usar.",
+        wgLiveDemo: "Demo ao vivo",
+        wgEmbedLabel: "In\u00edcio r\u00e1pido",
+        wgEmbedTitle: "Como incorporar",
+        wgEmbedSub: "Adicione esta \u00fanica linha de c\u00f3digo em qualquer lugar do seu HTML. O widget ser\u00e1 renderizado automaticamente.",
+        wgEmbedHint: "Cole este c\u00f3digo no HTML da sua p\u00e1gina onde voc\u00ea quer que a calculadora apare\u00e7a. Sem cadastro, sem chave API, sem depend\u00eancias.",
+        wgConfigLabel: "Personalizar",
+        wgConfigTitle: "Op\u00e7\u00f5es de configura\u00e7\u00e3o",
+        wgConfigSub: "Use atributos data para personalizar o comportamento e a apar\u00eancia do widget.",
+        wgDarkTitle: "Modo escuro",
+        wgDarkDesc: "Alterne o widget para um esquema de cores escuro. Ideal para f\u00f3runs e sites com fundos escuros.",
+        wgTargetTitle: "Container personalizado",
+        wgTargetDesc: "Renderize o widget dentro de um elemento espec\u00edfico usando seu ID. Isso d\u00e1 controle total sobre posicionamento e layout.",
+        wgBenefitsLabel: "Benef\u00edcios",
+        wgBenefitsTitle: "Por que adicionar este widget?",
+        wgBenefitsSub: "Ofere\u00e7a aos seus visitantes uma ferramenta realmente \u00fatil e mantenha-os mais tempo no seu site.",
+        wgB1Title: "Gr\u00e1tis para sempre, sem chave API",
+        wgB1Desc: "Sem cadastro, sem autentica\u00e7\u00e3o, sem limites de uso. Incorpore e esque\u00e7a.",
+        wgB2Title: "Agrega valor ao seu conte\u00fado",
+        wgB2Desc: "Transforme leitores passivos em visitantes engajados com uma ferramenta interativa que eles realmente v\u00e3o usar e salvar.",
+        wgB3Title: "Design bonito e responsivo",
+        wgB3Desc: "Fica \u00f3timo no desktop, tablet e celular. Adapta-se perfeitamente a temas claros e escuros.",
+        wgB4Title: "C\u00e1lculo de VPD em tempo real",
+        wgB4Desc: "Resultados VPD instant\u00e2neos com an\u00e1lise por fase de crescimento. Cobre muda, vegetativo e flora\u00e7\u00e3o.",
+        wgB5Title: "Links para guias de cultivo",
+        wgB5Desc: "Conecte seus visitantes a recursos completos sobre VPD e cultivo para maior engajamento.",
+        wgB6Title: "Leve &amp; r\u00e1pido",
+        wgB6Desc: "Pegada m\u00ednima. Carrega de forma ass\u00edncrona para nunca atrasar sua p\u00e1gina.",
+        wgApiTitle: "Tamb\u00e9m dispon\u00edvel: API gr\u00e1tis",
+        wgApiDesc: "Precisa de mais controle? Nossa API REST oferece 18 endpoints para VPD, luz/DLI, diagn\u00f3sticos, nutrientes, equipamentos e mais. Sem chave API.",
+        wgApiBtn: "Explorar documenta\u00e7\u00e3o da API",
+        wgFootTagline: "&mdash; Feito por cultivadores, para cultivadores.",
+        footHome: "In\u00edcio",
+        wgMetaTitle: "Widget calculadora VPD gr\u00e1tis \u2014 GrowVPD Pro",
+        wgMetaDesc: "Adicione um widget calculadora VPD gr\u00e1tis e profissional ao seu blog de cultivo, f\u00f3rum ou site. Uma linha de c\u00f3digo, sem chave API, design responsivo. Gr\u00e1tis para sempre."
+      },
+      pl: {
+        wgBadge: "Darmowy i otwarty",
+        wgHeroTitle: '<span>Darmowy </span><span class="text-gradient">kalkulator VPD</span><br><span>Widget</span>',
+        wgHeroTagline: "Dodaj profesjonalny kalkulator VPD do swojego bloga o uprawie, forum lub strony. Jedna linia kodu. Darmowy na zawsze.",
+        wgEmbed: "Osad\u017a",
+        wgCopy: "Kopiuj",
+        wgCopied: "Skopiowano!",
+        wgDemoLabel: "Podgl\u0105d na \u017cywo",
+        wgDemoTitle: "Wypr\u00f3buj widget",
+        wgDemoSub: "Tak dok\u0142adnie wygl\u0105da i dzia\u0142a widget osadzony na Twojej stronie. W pe\u0142ni interaktywny, responsywny i gotowy do u\u017cycia.",
+        wgLiveDemo: "Demo na \u017cywo",
+        wgEmbedLabel: "Szybki start",
+        wgEmbedTitle: "Jak osadzi\u0107",
+        wgEmbedSub: "Dodaj t\u0119 jedn\u0105 lini\u0119 kodu gdziekolwiek w swoim HTML. Widget wyrenderuje si\u0119 automatycznie.",
+        wgEmbedHint: "Wklej ten kod do HTML strony w miejscu, gdzie chcesz wy\u015bwietli\u0107 kalkulator. Bez rejestracji, bez klucza API, bez zale\u017cno\u015bci.",
+        wgConfigLabel: "Dostosuj",
+        wgConfigTitle: "Opcje konfiguracji",
+        wgConfigSub: "U\u017cyj atrybut\u00f3w data, aby dostosowa\u0107 zachowanie i wygl\u0105d widgetu.",
+        wgDarkTitle: "Tryb ciemny",
+        wgDarkDesc: "Prze\u0142\u0105cz widget na ciemny schemat kolor\u00f3w. Idealny dla for\u00f3w i stron z ciemnym t\u0142em.",
+        wgTargetTitle: "W\u0142asny kontener",
+        wgTargetDesc: "Wyrenderuj widget wewn\u0105trz konkretnego elementu podaj\u0105c jego ID. Daje pe\u0142n\u0105 kontrol\u0119 nad rozmieszczeniem i uk\u0142adem.",
+        wgBenefitsLabel: "Korzy\u015bci",
+        wgBenefitsTitle: "Dlaczego doda\u0107 ten widget?",
+        wgBenefitsSub: "Daj swoim odwiedzaj\u0105cym naprawd\u0119 przydatne narz\u0119dzie i zatrzymaj ich d\u0142u\u017cej na stronie.",
+        wgB1Title: "Darmowy na zawsze, bez klucza API",
+        wgB1Desc: "Bez rejestracji, bez uwierzytelniania, bez limit\u00f3w u\u017cycia. Osad\u017a i zapomnij.",
+        wgB2Title: "Dodaje warto\u015b\u0107 do Twoich tre\u015bci",
+        wgB2Desc: "Zamie\u0144 biernych czytelnik\u00f3w w zaanga\u017cowanych odwiedzaj\u0105cych dzi\u0119ki interaktywnemu narz\u0119dziu, kt\u00f3re naprawd\u0119 wykorzystaj\u0105.",
+        wgB3Title: "Pi\u0119kny, responsywny design",
+        wgB3Desc: "\u015awietnie wygl\u0105da na komputerze, tablecie i telefonie. P\u0142ynnie dostosowuje si\u0119 do jasnych i ciemnych motyw\u00f3w.",
+        wgB4Title: "Obliczanie VPD w czasie rzeczywistym",
+        wgB4Desc: "Natychmiastowe wyniki VPD z analiz\u0105 fazy wzrostu. Obejmuje sadzonk\u0119, wegetacj\u0119 i kwitnienie.",
+        wgB5Title: "Linki do przewodnik\u00f3w uprawy",
+        wgB5Desc: "Po\u0142\u0105cz odwiedzaj\u0105cych z kompleksowymi zasobami o VPD i uprawie dla g\u0142\u0119bszego zaanga\u017cowania.",
+        wgB6Title: "Lekki &amp; szybki",
+        wgB6Desc: "Minimalny \u015blad. \u0141aduje si\u0119 asynchronicznie, wi\u0119c nigdy nie spowalnia Twojej strony.",
+        wgApiTitle: "Dost\u0119pne tak\u017ce: Darmowe API",
+        wgApiDesc: "Potrzebujesz wi\u0119cej kontroli? Nasze REST API oferuje 18 endpoint\u00f3w dla VPD, \u015bwiat\u0142a/DLI, diagnostyki, sk\u0142adnik\u00f3w od\u017cywczych, sprz\u0119tu i wi\u0119cej. Bez klucza API.",
+        wgApiBtn: "Przegl\u0105daj dokumentacj\u0119 API",
+        wgFootTagline: "&mdash; Stworzone przez hodowc\u00f3w, dla hodowc\u00f3w.",
+        footHome: "Strona g\u0142\u00f3wna",
+        wgMetaTitle: "Darmowy widget kalkulator VPD \u2014 GrowVPD Pro",
+        wgMetaDesc: "Dodaj darmowy, profesjonalny widget kalkulatora VPD do swojego bloga o uprawie, forum lub strony. Jedna linia kodu, bez klucza API, pi\u0119kny responsywny design. Darmowy na zawsze."
+      },
+      th: {
+        wgBadge: "\u0e1f\u0e23\u0e35\u0e41\u0e25\u0e30\u0e40\u0e1b\u0e34\u0e14",
+        wgHeroTitle: '<span>\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e04\u0e33\u0e19\u0e27\u0e13 </span><span class="text-gradient">VPD \u0e1f\u0e23\u0e35</span><br><span>\u0e27\u0e34\u0e14\u0e40\u0e08\u0e47\u0e15</span>',
+        wgHeroTagline: "\u0e40\u0e1e\u0e34\u0e48\u0e21\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e04\u0e33\u0e19\u0e27\u0e13 VPD \u0e23\u0e30\u0e14\u0e31\u0e1a\u0e21\u0e37\u0e2d\u0e2d\u0e32\u0e0a\u0e35\u0e1e\u0e25\u0e07\u0e43\u0e19\u0e1a\u0e25\u0e47\u0e2d\u0e01\u0e1b\u0e25\u0e39\u0e01 \u0e1f\u0e2d\u0e23\u0e31\u0e21 \u0e2b\u0e23\u0e37\u0e2d\u0e40\u0e27\u0e47\u0e1a\u0e44\u0e0b\u0e15\u0e4c\u0e02\u0e2d\u0e07\u0e04\u0e38\u0e13 \u0e42\u0e04\u0e49\u0e14\u0e1a\u0e23\u0e23\u0e17\u0e31\u0e14\u0e40\u0e14\u0e35\u0e22\u0e27 \u0e1f\u0e23\u0e35\u0e15\u0e25\u0e2d\u0e14\u0e44\u0e1b",
+        wgEmbed: "\u0e1d\u0e31\u0e07",
+        wgCopy: "\u0e04\u0e31\u0e14\u0e25\u0e2d\u0e01",
+        wgCopied: "\u0e04\u0e31\u0e14\u0e25\u0e2d\u0e01\u0e41\u0e25\u0e49\u0e27!",
+        wgDemoLabel: "\u0e15\u0e31\u0e27\u0e2d\u0e22\u0e48\u0e32\u0e07\u0e2a\u0e14",
+        wgDemoTitle: "\u0e17\u0e14\u0e25\u0e2d\u0e07\u0e27\u0e34\u0e14\u0e40\u0e08\u0e47\u0e15",
+        wgDemoSub: "\u0e19\u0e35\u0e48\u0e04\u0e37\u0e2d\u0e25\u0e31\u0e01\u0e29\u0e13\u0e30\u0e41\u0e25\u0e30\u0e01\u0e32\u0e23\u0e17\u0e33\u0e07\u0e32\u0e19\u0e02\u0e2d\u0e07\u0e27\u0e34\u0e14\u0e40\u0e08\u0e47\u0e15\u0e40\u0e21\u0e37\u0e48\u0e2d\u0e1d\u0e31\u0e07\u0e1a\u0e19\u0e40\u0e27\u0e47\u0e1a\u0e44\u0e0b\u0e15\u0e4c\u0e02\u0e2d\u0e07\u0e04\u0e38\u0e13 \u0e42\u0e15\u0e49\u0e15\u0e2d\u0e1a\u0e44\u0e14\u0e49\u0e40\u0e15\u0e47\u0e21\u0e17\u0e35\u0e48 \u0e23\u0e35\u0e2a\u0e1b\u0e2d\u0e19\u0e0b\u0e35\u0e1f \u0e41\u0e25\u0e30\u0e1e\u0e23\u0e49\u0e2d\u0e21\u0e43\u0e0a\u0e49\u0e07\u0e32\u0e19",
+        wgLiveDemo: "\u0e40\u0e14\u0e42\u0e21\u0e2a\u0e14",
+        wgEmbedLabel: "\u0e40\u0e23\u0e34\u0e48\u0e21\u0e15\u0e49\u0e19\u0e40\u0e23\u0e47\u0e27",
+        wgEmbedTitle: "\u0e27\u0e34\u0e18\u0e35\u0e1d\u0e31\u0e07",
+        wgEmbedSub: "\u0e40\u0e1e\u0e34\u0e48\u0e21\u0e42\u0e04\u0e49\u0e14\u0e1a\u0e23\u0e23\u0e17\u0e31\u0e14\u0e40\u0e14\u0e35\u0e22\u0e27\u0e19\u0e35\u0e49\u0e17\u0e35\u0e48\u0e43\u0e14\u0e01\u0e47\u0e44\u0e14\u0e49\u0e43\u0e19 HTML \u0e02\u0e2d\u0e07\u0e04\u0e38\u0e13 \u0e27\u0e34\u0e14\u0e40\u0e08\u0e47\u0e15\u0e08\u0e30\u0e41\u0e2a\u0e14\u0e07\u0e2d\u0e31\u0e15\u0e42\u0e19\u0e21\u0e31\u0e15\u0e34",
+        wgEmbedHint: "\u0e27\u0e32\u0e07\u0e42\u0e04\u0e49\u0e14\u0e19\u0e35\u0e49\u0e43\u0e19 HTML \u0e02\u0e2d\u0e07\u0e2b\u0e19\u0e49\u0e32\u0e40\u0e27\u0e47\u0e1a\u0e15\u0e23\u0e07\u0e17\u0e35\u0e48\u0e04\u0e38\u0e13\u0e15\u0e49\u0e2d\u0e07\u0e01\u0e32\u0e23\u0e41\u0e2a\u0e14\u0e07\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e04\u0e33\u0e19\u0e27\u0e13 \u0e44\u0e21\u0e48\u0e15\u0e49\u0e2d\u0e07\u0e25\u0e07\u0e17\u0e30\u0e40\u0e1a\u0e35\u0e22\u0e19 \u0e44\u0e21\u0e48\u0e15\u0e49\u0e2d\u0e07\u0e43\u0e0a\u0e49 API key \u0e44\u0e21\u0e48\u0e21\u0e35\u0e04\u0e27\u0e32\u0e21\u0e15\u0e49\u0e2d\u0e07\u0e01\u0e32\u0e23\u0e2d\u0e37\u0e48\u0e19",
+        wgConfigLabel: "\u0e1b\u0e23\u0e31\u0e1a\u0e41\u0e15\u0e48\u0e07",
+        wgConfigTitle: "\u0e15\u0e31\u0e27\u0e40\u0e25\u0e37\u0e2d\u0e01\u0e01\u0e32\u0e23\u0e15\u0e31\u0e49\u0e07\u0e04\u0e48\u0e32",
+        wgConfigSub: "\u0e43\u0e0a\u0e49 data attributes \u0e40\u0e1e\u0e37\u0e48\u0e2d\u0e1b\u0e23\u0e31\u0e1a\u0e41\u0e15\u0e48\u0e07\u0e1e\u0e24\u0e15\u0e34\u0e01\u0e23\u0e23\u0e21\u0e41\u0e25\u0e30\u0e23\u0e39\u0e1b\u0e25\u0e31\u0e01\u0e29\u0e13\u0e4c\u0e02\u0e2d\u0e07\u0e27\u0e34\u0e14\u0e40\u0e08\u0e47\u0e15",
+        wgDarkTitle: "\u0e42\u0e2b\u0e21\u0e14\u0e21\u0e37\u0e14",
+        wgDarkDesc: "\u0e40\u0e1b\u0e25\u0e35\u0e48\u0e22\u0e19\u0e27\u0e34\u0e14\u0e40\u0e08\u0e47\u0e15\u0e40\u0e1b\u0e47\u0e19\u0e42\u0e17\u0e19\u0e2a\u0e35\u0e21\u0e37\u0e14 \u0e40\u0e2b\u0e21\u0e32\u0e30\u0e2a\u0e33\u0e2b\u0e23\u0e31\u0e1a\u0e1f\u0e2d\u0e23\u0e31\u0e21\u0e41\u0e25\u0e30\u0e40\u0e27\u0e47\u0e1a\u0e44\u0e0b\u0e15\u0e4c\u0e1e\u0e37\u0e49\u0e19\u0e2b\u0e25\u0e31\u0e07\u0e21\u0e37\u0e14",
+        wgTargetTitle: "\u0e04\u0e2d\u0e19\u0e40\u0e17\u0e19\u0e40\u0e19\u0e2d\u0e23\u0e4c\u0e01\u0e33\u0e2b\u0e19\u0e14\u0e40\u0e2d\u0e07",
+        wgTargetDesc: "\u0e41\u0e2a\u0e14\u0e07\u0e27\u0e34\u0e14\u0e40\u0e08\u0e47\u0e15\u0e20\u0e32\u0e22\u0e43\u0e19\u0e2d\u0e07\u0e04\u0e4c\u0e1b\u0e23\u0e30\u0e01\u0e2d\u0e1a\u0e40\u0e09\u0e1e\u0e32\u0e30\u0e42\u0e14\u0e22\u0e23\u0e30\u0e1a\u0e38 ID \u0e04\u0e27\u0e1a\u0e04\u0e38\u0e21\u0e15\u0e33\u0e41\u0e2b\u0e19\u0e48\u0e07\u0e41\u0e25\u0e30\u0e40\u0e25\u0e22\u0e4c\u0e40\u0e2d\u0e32\u0e15\u0e4c\u0e44\u0e14\u0e49\u0e40\u0e15\u0e47\u0e21\u0e17\u0e35\u0e48",
+        wgBenefitsLabel: "\u0e1b\u0e23\u0e30\u0e42\u0e22\u0e0a\u0e19\u0e4c",
+        wgBenefitsTitle: "\u0e17\u0e33\u0e44\u0e21\u0e15\u0e49\u0e2d\u0e07\u0e40\u0e1e\u0e34\u0e48\u0e21\u0e27\u0e34\u0e14\u0e40\u0e08\u0e47\u0e15\u0e19\u0e35\u0e49?",
+        wgBenefitsSub: "\u0e21\u0e2d\u0e1a\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e21\u0e37\u0e2d\u0e17\u0e35\u0e48\u0e21\u0e35\u0e1b\u0e23\u0e30\u0e42\u0e22\u0e0a\u0e19\u0e4c\u0e08\u0e23\u0e34\u0e07\u0e43\u0e2b\u0e49\u0e1c\u0e39\u0e49\u0e40\u0e22\u0e35\u0e48\u0e22\u0e21\u0e0a\u0e21 \u0e41\u0e25\u0e30\u0e17\u0e33\u0e43\u0e2b\u0e49\u0e1e\u0e27\u0e01\u0e40\u0e02\u0e32\u0e2d\u0e22\u0e39\u0e48\u0e1a\u0e19\u0e40\u0e27\u0e47\u0e1a\u0e02\u0e2d\u0e07\u0e04\u0e38\u0e13\u0e19\u0e32\u0e19\u0e02\u0e36\u0e49\u0e19",
+        wgB1Title: "\u0e1f\u0e23\u0e35\u0e15\u0e25\u0e2d\u0e14\u0e44\u0e1b \u0e44\u0e21\u0e48\u0e15\u0e49\u0e2d\u0e07\u0e43\u0e0a\u0e49 API key",
+        wgB1Desc: "\u0e44\u0e21\u0e48\u0e15\u0e49\u0e2d\u0e07\u0e25\u0e07\u0e17\u0e30\u0e40\u0e1a\u0e35\u0e22\u0e19 \u0e44\u0e21\u0e48\u0e15\u0e49\u0e2d\u0e07\u0e22\u0e37\u0e19\u0e22\u0e31\u0e19\u0e15\u0e31\u0e27 \u0e44\u0e21\u0e48\u0e21\u0e35\u0e02\u0e35\u0e14\u0e08\u0e33\u0e01\u0e31\u0e14\u0e01\u0e32\u0e23\u0e43\u0e0a\u0e49\u0e07\u0e32\u0e19 \u0e1d\u0e31\u0e07\u0e41\u0e25\u0e30\u0e25\u0e37\u0e21\u0e44\u0e1b\u0e44\u0e14\u0e49\u0e40\u0e25\u0e22",
+        wgB2Title: "\u0e40\u0e1e\u0e34\u0e48\u0e21\u0e04\u0e38\u0e13\u0e04\u0e48\u0e32\u0e43\u0e2b\u0e49\u0e04\u0e2d\u0e19\u0e40\u0e17\u0e19\u0e15\u0e4c\u0e02\u0e2d\u0e07\u0e04\u0e38\u0e13",
+        wgB2Desc: "\u0e40\u0e1b\u0e25\u0e35\u0e48\u0e22\u0e19\u0e1c\u0e39\u0e49\u0e2d\u0e48\u0e32\u0e19\u0e40\u0e09\u0e22\u0e46 \u0e40\u0e1b\u0e47\u0e19\u0e1c\u0e39\u0e49\u0e40\u0e22\u0e35\u0e48\u0e22\u0e21\u0e0a\u0e21\u0e17\u0e35\u0e48\u0e21\u0e35\u0e2a\u0e48\u0e27\u0e19\u0e23\u0e48\u0e27\u0e21\u0e14\u0e49\u0e27\u0e22\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e21\u0e37\u0e2d\u0e42\u0e15\u0e49\u0e15\u0e2d\u0e1a\u0e17\u0e35\u0e48\u0e1e\u0e27\u0e01\u0e40\u0e02\u0e32\u0e08\u0e30\u0e43\u0e0a\u0e49\u0e08\u0e23\u0e34\u0e07\u0e41\u0e25\u0e30\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e44\u0e27\u0e49",
+        wgB3Title: "\u0e14\u0e35\u0e44\u0e0b\u0e19\u0e4c\u0e2a\u0e27\u0e22\u0e07\u0e32\u0e21 \u0e23\u0e35\u0e2a\u0e1b\u0e2d\u0e19\u0e0b\u0e35\u0e1f",
+        wgB3Desc: "\u0e2a\u0e27\u0e22\u0e07\u0e32\u0e21\u0e17\u0e31\u0e49\u0e07\u0e1a\u0e19\u0e04\u0e2d\u0e21\u0e1e\u0e34\u0e27\u0e40\u0e15\u0e2d\u0e23\u0e4c \u0e41\u0e17\u0e47\u0e1a\u0e40\u0e25\u0e47\u0e15 \u0e41\u0e25\u0e30\u0e21\u0e37\u0e2d\u0e16\u0e37\u0e2d \u0e1b\u0e23\u0e31\u0e1a\u0e15\u0e31\u0e27\u0e40\u0e02\u0e49\u0e32\u0e01\u0e31\u0e1a\u0e18\u0e35\u0e21\u0e2a\u0e27\u0e48\u0e32\u0e07\u0e41\u0e25\u0e30\u0e21\u0e37\u0e14\u0e44\u0e14\u0e49\u0e2d\u0e22\u0e48\u0e32\u0e07\u0e25\u0e37\u0e48\u0e19\u0e44\u0e2b\u0e25",
+        wgB4Title: "\u0e04\u0e33\u0e19\u0e27\u0e13 VPD \u0e41\u0e1a\u0e1a\u0e40\u0e23\u0e35\u0e22\u0e25\u0e44\u0e17\u0e21\u0e4c",
+        wgB4Desc: "\u0e1c\u0e25\u0e25\u0e31\u0e1e\u0e18\u0e4c VPD \u0e17\u0e31\u0e19\u0e17\u0e35\u0e1e\u0e23\u0e49\u0e2d\u0e21\u0e01\u0e32\u0e23\u0e27\u0e34\u0e40\u0e04\u0e23\u0e32\u0e30\u0e2b\u0e4c\u0e15\u0e32\u0e21\u0e23\u0e30\u0e22\u0e30\u0e01\u0e32\u0e23\u0e40\u0e15\u0e34\u0e1a\u0e42\u0e15 \u0e04\u0e23\u0e2d\u0e1a\u0e04\u0e25\u0e38\u0e21\u0e15\u0e49\u0e19\u0e01\u0e25\u0e49\u0e32 \u0e40\u0e27\u0e08 \u0e41\u0e25\u0e30\u0e2d\u0e2d\u0e01\u0e14\u0e2d\u0e01",
+        wgB5Title: "\u0e25\u0e34\u0e07\u0e01\u0e4c\u0e44\u0e1b\u0e04\u0e39\u0e48\u0e21\u0e37\u0e2d\u0e01\u0e32\u0e23\u0e1b\u0e25\u0e39\u0e01",
+        wgB5Desc: "\u0e40\u0e0a\u0e37\u0e48\u0e2d\u0e21\u0e15\u0e48\u0e2d\u0e1c\u0e39\u0e49\u0e40\u0e22\u0e35\u0e48\u0e22\u0e21\u0e0a\u0e21\u0e01\u0e31\u0e1a\u0e41\u0e2b\u0e25\u0e48\u0e07\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25 VPD \u0e41\u0e25\u0e30\u0e01\u0e32\u0e23\u0e1b\u0e25\u0e39\u0e01\u0e2d\u0e22\u0e48\u0e32\u0e07\u0e04\u0e23\u0e1a\u0e16\u0e49\u0e27\u0e19\u0e40\u0e1e\u0e37\u0e48\u0e2d\u0e01\u0e32\u0e23\u0e21\u0e35\u0e2a\u0e48\u0e27\u0e19\u0e23\u0e48\u0e27\u0e21\u0e17\u0e35\u0e48\u0e25\u0e36\u0e01\u0e22\u0e34\u0e48\u0e07\u0e02\u0e36\u0e49\u0e19",
+        wgB6Title: "\u0e40\u0e1a\u0e32 &amp; \u0e40\u0e23\u0e47\u0e27",
+        wgB6Desc: "\u0e43\u0e0a\u0e49\u0e17\u0e23\u0e31\u0e1e\u0e22\u0e32\u0e01\u0e23\u0e19\u0e49\u0e2d\u0e22\u0e17\u0e35\u0e48\u0e2a\u0e38\u0e14 \u0e42\u0e2b\u0e25\u0e14\u0e41\u0e1a\u0e1a\u0e2d\u0e30\u0e0b\u0e34\u0e07\u0e42\u0e04\u0e23\u0e19\u0e31\u0e2a\u0e08\u0e36\u0e07\u0e44\u0e21\u0e48\u0e17\u0e33\u0e43\u0e2b\u0e49\u0e2b\u0e19\u0e49\u0e32\u0e40\u0e27\u0e47\u0e1a\u0e0a\u0e49\u0e32\u0e25\u0e07",
+        wgApiTitle: "\u0e22\u0e31\u0e07\u0e21\u0e35\u0e2d\u0e35\u0e01: API \u0e1f\u0e23\u0e35",
+        wgApiDesc: "\u0e15\u0e49\u0e2d\u0e07\u0e01\u0e32\u0e23\u0e04\u0e27\u0e1a\u0e04\u0e38\u0e21\u0e21\u0e32\u0e01\u0e02\u0e36\u0e49\u0e19? REST API \u0e02\u0e2d\u0e07\u0e40\u0e23\u0e32\u0e21\u0e35 18 endpoints \u0e2a\u0e33\u0e2b\u0e23\u0e31\u0e1a VPD \u0e41\u0e2a\u0e07/DLI \u0e27\u0e34\u0e19\u0e34\u0e08\u0e09\u0e31\u0e22 \u0e2a\u0e32\u0e23\u0e2d\u0e32\u0e2b\u0e32\u0e23 \u0e2d\u0e38\u0e1b\u0e01\u0e23\u0e13\u0e4c\u0e41\u0e25\u0e30\u0e2d\u0e37\u0e48\u0e19\u0e46 \u0e44\u0e21\u0e48\u0e15\u0e49\u0e2d\u0e07\u0e43\u0e0a\u0e49 API key",
+        wgApiBtn: "\u0e14\u0e39\u0e40\u0e2d\u0e01\u0e2a\u0e32\u0e23 API",
+        wgFootTagline: "&mdash; \u0e2a\u0e23\u0e49\u0e32\u0e07\u0e42\u0e14\u0e22\u0e19\u0e31\u0e01\u0e1b\u0e25\u0e39\u0e01 \u0e40\u0e1e\u0e37\u0e48\u0e2d\u0e19\u0e31\u0e01\u0e1b\u0e25\u0e39\u0e01",
+        footHome: "\u0e2b\u0e19\u0e49\u0e32\u0e41\u0e23\u0e01",
+        wgMetaTitle: "\u0e27\u0e34\u0e14\u0e40\u0e08\u0e47\u0e15\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e04\u0e33\u0e19\u0e27\u0e13 VPD \u0e1f\u0e23\u0e35 \u2014 GrowVPD Pro",
+        wgMetaDesc: "\u0e40\u0e1e\u0e34\u0e48\u0e21\u0e27\u0e34\u0e14\u0e40\u0e08\u0e47\u0e15\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e04\u0e33\u0e19\u0e27\u0e13 VPD \u0e1f\u0e23\u0e35\u0e23\u0e30\u0e14\u0e31\u0e1a\u0e21\u0e37\u0e2d\u0e2d\u0e32\u0e0a\u0e35\u0e1e\u0e25\u0e07\u0e43\u0e19\u0e1a\u0e25\u0e47\u0e2d\u0e01\u0e1b\u0e25\u0e39\u0e01 \u0e1f\u0e2d\u0e23\u0e31\u0e21 \u0e2b\u0e23\u0e37\u0e2d\u0e40\u0e27\u0e47\u0e1a\u0e44\u0e0b\u0e15\u0e4c \u0e42\u0e04\u0e49\u0e14\u0e1a\u0e23\u0e23\u0e17\u0e31\u0e14\u0e40\u0e14\u0e35\u0e22\u0e27 \u0e14\u0e35\u0e44\u0e0b\u0e19\u0e4c\u0e23\u0e35\u0e2a\u0e1b\u0e2d\u0e19\u0e0b\u0e35\u0e1f \u0e1f\u0e23\u0e35\u0e15\u0e25\u0e2d\u0e14\u0e44\u0e1b"
+      },
+      he: {
+        wgBadge: "\u05d7\u05d9\u05e0\u05dd \u05d5\u05e4\u05ea\u05d5\u05d7",
+        wgHeroTitle: '<span>\u05de\u05d7\u05e9\u05d1\u05d5\u05df </span><span class="text-gradient">VPD \u05d7\u05d9\u05e0\u05dd</span><br><span>\u05d5\u05d9\u05d3\u05d2\u05d8</span>',
+        wgHeroTagline: "\u05d4\u05d5\u05e1\u05d9\u05e4\u05d5 \u05de\u05d7\u05e9\u05d1\u05d5\u05df VPD \u05de\u05e7\u05e6\u05d5\u05e2\u05d9 \u05dc\u05d1\u05dc\u05d5\u05d2 \u05d4\u05d2\u05d9\u05d3\u05d5\u05dc, \u05e4\u05d5\u05e8\u05d5\u05dd \u05d0\u05d5 \u05d0\u05ea\u05e8 \u05e9\u05dc\u05db\u05dd. \u05e9\u05d5\u05e8\u05ea \u05e7\u05d5\u05d3 \u05d0\u05d7\u05ea. \u05d7\u05d9\u05e0\u05dd \u05dc\u05e0\u05e6\u05d7.",
+        wgEmbed: "\u05d4\u05d8\u05de\u05e2\u05d4",
+        wgCopy: "\u05d4\u05e2\u05ea\u05e7\u05d4",
+        wgCopied: "\u05d4\u05d5\u05e2\u05ea\u05e7!",
+        wgDemoLabel: "\u05ea\u05e6\u05d5\u05d2\u05d4 \u05d7\u05d9\u05d4",
+        wgDemoTitle: "\u05e0\u05e1\u05d5 \u05d0\u05ea \u05d4\u05d5\u05d5\u05d9\u05d3\u05d2\u05d8",
+        wgDemoSub: "\u05db\u05da \u05d1\u05d3\u05d9\u05d5\u05e7 \u05e0\u05e8\u05d0\u05d4 \u05d5\u05e2\u05d5\u05d1\u05d3 \u05d4\u05d5\u05d5\u05d9\u05d3\u05d2\u05d8 \u05db\u05e9\u05d4\u05d5\u05d0 \u05de\u05d5\u05d8\u05de\u05e2 \u05d1\u05d0\u05ea\u05e8 \u05e9\u05dc\u05db\u05dd. \u05d0\u05d9\u05e0\u05d8\u05e8\u05d0\u05e7\u05d8\u05d9\u05d1\u05d9, \u05e8\u05e1\u05e4\u05d5\u05e0\u05e1\u05d9\u05d1\u05d9 \u05d5\u05de\u05d5\u05db\u05df \u05dc\u05e9\u05d9\u05de\u05d5\u05e9.",
+        wgLiveDemo: "\u05d4\u05d3\u05d2\u05de\u05d4 \u05d7\u05d9\u05d4",
+        wgEmbedLabel: "\u05d4\u05ea\u05d7\u05dc\u05d4 \u05de\u05d4\u05d9\u05e8\u05d4",
+        wgEmbedTitle: "\u05d0\u05d9\u05da \u05dc\u05d4\u05d8\u05de\u05d9\u05e2",
+        wgEmbedSub: "\u05d4\u05d5\u05e1\u05d9\u05e4\u05d5 \u05e9\u05d5\u05e8\u05ea \u05e7\u05d5\u05d3 \u05d0\u05d7\u05ea \u05d1\u05db\u05dc \u05de\u05e7\u05d5\u05dd \u05d1-HTML \u05e9\u05dc\u05db\u05dd. \u05d4\u05d5\u05d5\u05d9\u05d3\u05d2\u05d8 \u05d9\u05d5\u05e6\u05d2 \u05d0\u05d5\u05d8\u05d5\u05de\u05d8\u05d9\u05ea.",
+        wgEmbedHint: "\u05d4\u05d3\u05d1\u05d9\u05e7\u05d5 \u05d0\u05ea \u05d4\u05e7\u05d5\u05d3 \u05d1-HTML \u05e9\u05dc \u05d4\u05d3\u05e3 \u05d1\u05de\u05e7\u05d5\u05dd \u05e9\u05d1\u05d5 \u05d0\u05ea\u05dd \u05e8\u05d5\u05e6\u05d9\u05dd \u05e9\u05d4\u05de\u05d7\u05e9\u05d1\u05d5\u05df \u05d9\u05d5\u05e4\u05d9\u05e2. \u05dc\u05dc\u05d0 \u05d4\u05e8\u05e9\u05de\u05d4, \u05dc\u05dc\u05d0 \u05de\u05e4\u05ea\u05d7 API, \u05dc\u05dc\u05d0 \u05ea\u05dc\u05d5\u05d9\u05d5\u05ea.",
+        wgConfigLabel: "\u05d4\u05ea\u05d0\u05de\u05d4 \u05d0\u05d9\u05e9\u05d9\u05ea",
+        wgConfigTitle: "\u05d0\u05e4\u05e9\u05e8\u05d5\u05d9\u05d5\u05ea \u05ea\u05e6\u05d5\u05e8\u05d4",
+        wgConfigSub: "\u05d4\u05e9\u05ea\u05de\u05e9\u05d5 \u05d1\u05ea\u05db\u05d5\u05e0\u05d5\u05ea data \u05dc\u05d4\u05ea\u05d0\u05de\u05d4 \u05d0\u05d9\u05e9\u05d9\u05ea \u05e9\u05dc \u05d4\u05ea\u05e0\u05d4\u05d2\u05d5\u05ea \u05d5\u05d4\u05de\u05e8\u05d0\u05d4 \u05e9\u05dc \u05d4\u05d5\u05d5\u05d9\u05d3\u05d2\u05d8.",
+        wgDarkTitle: "\u05de\u05e6\u05d1 \u05db\u05d4\u05d4",
+        wgDarkDesc: "\u05d4\u05e2\u05d1\u05d9\u05e8\u05d5 \u05d0\u05ea \u05d4\u05d5\u05d5\u05d9\u05d3\u05d2\u05d8 \u05dc\u05e2\u05e8\u05db\u05ea \u05e6\u05d1\u05e2\u05d9\u05dd \u05db\u05d4\u05d4. \u05d0\u05d9\u05d3\u05d9\u05d0\u05dc\u05d9 \u05dc\u05e4\u05d5\u05e8\u05d5\u05de\u05d9\u05dd \u05d5\u05d0\u05ea\u05e8\u05d9\u05dd \u05e2\u05dd \u05e8\u05e7\u05e2 \u05db\u05d4\u05d4.",
+        wgTargetTitle: "\u05de\u05d9\u05db\u05dc \u05de\u05d5\u05ea\u05d0\u05dd \u05d0\u05d9\u05e9\u05d9\u05ea",
+        wgTargetDesc: "\u05d4\u05e6\u05d9\u05d2\u05d5 \u05d0\u05ea \u05d4\u05d5\u05d5\u05d9\u05d3\u05d2\u05d8 \u05d1\u05ea\u05d5\u05da \u05d0\u05dc\u05de\u05e0\u05d8 \u05e1\u05e4\u05e6\u05d9\u05e4\u05d9 \u05dc\u05e4\u05d9 \u05d4-ID \u05e9\u05dc\u05d5. \u05e9\u05dc\u05d9\u05d8\u05d4 \u05de\u05dc\u05d0\u05d4 \u05e2\u05dc \u05de\u05d9\u05e7\u05d5\u05dd \u05d5\u05e4\u05e8\u05d9\u05e1\u05d4.",
+        wgBenefitsLabel: "\u05d9\u05ea\u05e8\u05d5\u05e0\u05d5\u05ea",
+        wgBenefitsTitle: "\u05dc\u05de\u05d4 \u05dc\u05d4\u05d5\u05e1\u05d9\u05e3 \u05d0\u05ea \u05d4\u05d5\u05d5\u05d9\u05d3\u05d2\u05d8 \u05d4\u05d6\u05d4?",
+        wgBenefitsSub: "\u05ea\u05e0\u05d5 \u05dc\u05de\u05d1\u05e7\u05e8\u05d9\u05dd \u05e9\u05dc\u05db\u05dd \u05db\u05dc\u05d9 \u05e9\u05d9\u05de\u05d5\u05e9\u05d9 \u05d0\u05de\u05d9\u05ea\u05d9 \u05d5\u05e9\u05de\u05e8\u05d5 \u05e2\u05dc\u05d9\u05d4\u05dd \u05d9\u05d5\u05ea\u05e8 \u05d6\u05de\u05df \u05d1\u05d0\u05ea\u05e8.",
+        wgB1Title: "\u05d7\u05d9\u05e0\u05dd \u05dc\u05e0\u05e6\u05d7, \u05dc\u05dc\u05d0 \u05de\u05e4\u05ea\u05d7 API",
+        wgB1Desc: "\u05dc\u05dc\u05d0 \u05d4\u05e8\u05e9\u05de\u05d4, \u05dc\u05dc\u05d0 \u05d0\u05d9\u05de\u05d5\u05ea, \u05dc\u05dc\u05d0 \u05de\u05d2\u05d1\u05dc\u05d5\u05ea \u05e9\u05d9\u05de\u05d5\u05e9. \u05d4\u05d8\u05de\u05d9\u05e2\u05d5 \u05d5\u05e9\u05db\u05d7\u05d5.",
+        wgB2Title: "\u05de\u05d5\u05e1\u05d9\u05e3 \u05e2\u05e8\u05da \u05dc\u05ea\u05d5\u05db\u05df \u05e9\u05dc\u05db\u05dd",
+        wgB2Desc: "\u05d4\u05e4\u05db\u05d5 \u05e7\u05d5\u05e8\u05d0\u05d9\u05dd \u05e4\u05e1\u05d9\u05d1\u05d9\u05d9\u05dd \u05dc\u05de\u05d1\u05e7\u05e8\u05d9\u05dd \u05de\u05e2\u05d5\u05e8\u05d1\u05d9\u05dd \u05e2\u05dd \u05db\u05dc\u05d9 \u05d0\u05d9\u05e0\u05d8\u05e8\u05d0\u05e7\u05d8\u05d9\u05d1\u05d9 \u05e9\u05d4\u05dd \u05d1\u05d0\u05de\u05ea \u05d9\u05e9\u05ea\u05de\u05e9\u05d5 \u05d1\u05d5 \u05d5\u05d9\u05e9\u05de\u05e8\u05d5.",
+        wgB3Title: "\u05e2\u05d9\u05e6\u05d5\u05d1 \u05d9\u05e4\u05d4 \u05d5\u05e8\u05e1\u05e4\u05d5\u05e0\u05e1\u05d9\u05d1\u05d9",
+        wgB3Desc: "\u05e0\u05e8\u05d0\u05d4 \u05de\u05e2\u05d5\u05dc\u05d4 \u05d1\u05de\u05d7\u05e9\u05d1, \u05d8\u05d0\u05d1\u05dc\u05d8 \u05d5\u05e0\u05d9\u05d9\u05d3. \u05de\u05ea\u05d0\u05d9\u05dd \u05d1\u05e6\u05d5\u05e8\u05d4 \u05d7\u05dc\u05e7\u05d4 \u05dc\u05e2\u05e8\u05db\u05d5\u05ea \u05e0\u05d5\u05e9\u05d0 \u05d1\u05d4\u05d9\u05e8\u05d5\u05ea \u05d5\u05db\u05d4\u05d5\u05ea.",
+        wgB4Title: "\u05d7\u05d9\u05e9\u05d5\u05d1 VPD \u05d1\u05d6\u05de\u05df \u05d0\u05de\u05ea",
+        wgB4Desc: "\u05ea\u05d5\u05e6\u05d0\u05d5\u05ea VPD \u05de\u05d9\u05d9\u05d3\u05d9\u05d5\u05ea \u05e2\u05dd \u05e0\u05d9\u05ea\u05d5\u05d7 \u05dc\u05e4\u05d9 \u05e9\u05dc\u05d1 \u05d2\u05d9\u05d3\u05d5\u05dc. \u05de\u05db\u05e1\u05d4 \u05e9\u05ea\u05d9\u05dc, \u05e6\u05de\u05d9\u05d7\u05d4 \u05d5\u05e4\u05e8\u05d9\u05d7\u05d4.",
+        wgB5Title: "\u05e7\u05d9\u05e9\u05d5\u05e8\u05d9\u05dd \u05dc\u05de\u05d3\u05e8\u05d9\u05db\u05d9 \u05d2\u05d9\u05d3\u05d5\u05dc",
+        wgB5Desc: "\u05d7\u05d1\u05e8\u05d5 \u05de\u05d1\u05e7\u05e8\u05d9\u05dd \u05dc\u05de\u05e9\u05d0\u05d1\u05d9 VPD \u05d5\u05d2\u05d9\u05d3\u05d5\u05dc \u05de\u05e7\u05d9\u05e4\u05d9\u05dd \u05dc\u05de\u05e2\u05d5\u05e8\u05d1\u05d5\u05ea \u05e2\u05de\u05d5\u05e7\u05d4 \u05d9\u05d5\u05ea\u05e8.",
+        wgB6Title: "\u05e7\u05dc &amp; \u05de\u05d4\u05d9\u05e8",
+        wgB6Desc: "\u05d8\u05d1\u05d9\u05e2\u05ea \u05e8\u05d2\u05dc \u05de\u05d9\u05e0\u05d9\u05de\u05dc\u05d9\u05ea. \u05e0\u05d8\u05e2\u05df \u05d1\u05d0\u05d5\u05e4\u05df \u05d0\u05e1\u05d9\u05e0\u05db\u05e8\u05d5\u05e0\u05d9 \u05d5\u05dc\u05e2\u05d5\u05dc\u05dd \u05dc\u05d0 \u05de\u05d0\u05d8 \u05d0\u05ea \u05d4\u05d3\u05e3 \u05e9\u05dc\u05db\u05dd.",
+        wgApiTitle: "\u05d6\u05de\u05d9\u05df \u05d2\u05dd: API \u05d7\u05d9\u05e0\u05dd",
+        wgApiDesc: "\u05e6\u05e8\u05d9\u05db\u05d9\u05dd \u05d9\u05d5\u05ea\u05e8 \u05e9\u05dc\u05d9\u05d8\u05d4? \u05d4-REST API \u05e9\u05dc\u05e0\u05d5 \u05de\u05e6\u05d9\u05e2 18 \u05e0\u05e7\u05d5\u05d3\u05d5\u05ea \u05e7\u05e6\u05d4 \u05e2\u05d1\u05d5\u05e8 VPD, \u05d0\u05d5\u05e8/DLI, \u05d0\u05d1\u05d7\u05d5\u05df, \u05d3\u05e9\u05df, \u05e6\u05d9\u05d5\u05d3 \u05d5\u05e2\u05d5\u05d3. \u05dc\u05dc\u05d0 \u05de\u05e4\u05ea\u05d7 API.",
+        wgApiBtn: "\u05e2\u05d9\u05d9\u05e0\u05d5 \u05d1\u05ea\u05d9\u05e2\u05d5\u05d3 \u05d4-API",
+        wgFootTagline: "&mdash; \u05e0\u05d1\u05e0\u05d4 \u05e2\u05dc \u05d9\u05d3\u05d9 \u05de\u05d2\u05d3\u05dc\u05d9\u05dd, \u05e2\u05d1\u05d5\u05e8 \u05de\u05d2\u05d3\u05dc\u05d9\u05dd.",
+        footHome: "\u05d3\u05e3 \u05d4\u05d1\u05d9\u05ea",
+        wgMetaTitle: "\u05d5\u05d9\u05d3\u05d2\u05d8 \u05de\u05d7\u05e9\u05d1\u05d5\u05df VPD \u05d7\u05d9\u05e0\u05dd \u2014 GrowVPD Pro",
+        wgMetaDesc: "\u05d4\u05d5\u05e1\u05d9\u05e4\u05d5 \u05d5\u05d9\u05d3\u05d2\u05d8 \u05de\u05d7\u05e9\u05d1\u05d5\u05df VPD \u05d7\u05d9\u05e0\u05dd \u05d5\u05de\u05e7\u05e6\u05d5\u05e2\u05d9 \u05dc\u05d1\u05dc\u05d5\u05d2 \u05d4\u05d2\u05d9\u05d3\u05d5\u05dc, \u05e4\u05d5\u05e8\u05d5\u05dd \u05d0\u05d5 \u05d0\u05ea\u05e8. \u05e9\u05d5\u05e8\u05ea \u05e7\u05d5\u05d3 \u05d0\u05d7\u05ea, \u05dc\u05dc\u05d0 \u05de\u05e4\u05ea\u05d7 API, \u05e2\u05d9\u05e6\u05d5\u05d1 \u05e8\u05e1\u05e4\u05d5\u05e0\u05e1\u05d9\u05d1\u05d9. \u05d7\u05d9\u05e0\u05dd \u05dc\u05e0\u05e6\u05d7."
+      }
+    };
+
+    /* Apply widget-specific translations after the main i18n system runs */
+    (function() {
+      function applyWidgetI18n() {
+        var lang = document.documentElement.lang || 'en';
+        if (!WIDGET_I18N[lang]) lang = 'en';
+        var t = WIDGET_I18N[lang];
+        var fallback = WIDGET_I18N.en;
+
+        /* Text translations */
+        document.querySelectorAll('[data-i18n]').forEach(function(el) {
+          var key = el.getAttribute('data-i18n');
+          if (t[key] != null) el.textContent = t[key];
+          else if (fallback[key] != null) el.textContent = fallback[key];
+        });
+
+        /* HTML translations (hero title with spans) */
+        document.querySelectorAll('[data-i18n-html]').forEach(function(el) {
+          var key = el.getAttribute('data-i18n-html');
+          if (t[key] != null) el.innerHTML = t[key];
+          else if (fallback[key] != null) el.innerHTML = fallback[key];
+        });
+
+        /* Meta tags */
+        if (t.wgMetaTitle) document.title = t.wgMetaTitle;
+        var descMeta = document.querySelector('meta[name="description"]');
+        if (descMeta && t.wgMetaDesc) descMeta.setAttribute('content', t.wgMetaDesc);
+        var ogTitle = document.querySelector('meta[property="og:title"]');
+        if (ogTitle && t.wgMetaTitle) ogTitle.setAttribute('content', t.wgMetaTitle);
+        var ogDesc = document.querySelector('meta[property="og:description"]');
+        if (ogDesc && t.wgMetaDesc) ogDesc.setAttribute('content', t.wgMetaDesc);
+      }
+
+      /* Run after main i18n has applied (it fires on DOMContentLoaded) */
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function() {
+          setTimeout(applyWidgetI18n, 10);
+        });
+      } else {
+        setTimeout(applyWidgetI18n, 10);
+      }
+
+      /* Re-apply when user changes language via the switcher */
+      var origApplyLang = window.applyLang;
+      if (typeof origApplyLang === 'function') {
+        window.applyLang = function(lang) {
+          origApplyLang(lang);
+          setTimeout(applyWidgetI18n, 10);
+        };
+      } else {
+        /* If i18n.js hasn't loaded yet, patch it once it does */
+        var checkInterval = setInterval(function() {
+          if (typeof window.applyLang === 'function' && window.applyLang !== arguments.callee) {
+            origApplyLang = window.applyLang;
+            window.applyLang = function(lang) {
+              origApplyLang(lang);
+              setTimeout(applyWidgetI18n, 10);
+            };
+            clearInterval(checkInterval);
+          }
+        }, 50);
+        setTimeout(function() { clearInterval(checkInterval); }, 5000);
+      }
+    })();
     </script>
 </body>
 </html>

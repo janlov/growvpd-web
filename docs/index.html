@@ -332,14 +332,14 @@ window.addEventListener('scroll',function(){document.getElementById('navbar').cl
             <p class="subtitle" data-i18n="apiSubtitle">Free, open API for indoor growing science. No API key required.</p>
             <div class="hero-badges">
                 <span class="hero-badge-pill version">v2.0</span>
-                <span class="hero-badge-pill"><span class="dot"></span> 18 endpoints</span>
+                <span class="hero-badge-pill"><span class="dot"></span> <span data-i18n="apiBadgeEndpoints">18 endpoints</span></span>
                 <span class="hero-badge-pill">REST / JSON</span>
-                <span class="hero-badge-pill">No auth required</span>
+                <span class="hero-badge-pill" data-i18n="apiBadgeNoAuth">No auth required</span>
             </div>
             <div class="base-url-bar">
                 <span class="base-url-label">Base URL</span>
                 <code class="base-url-value" id="baseUrl">https://api.growvpd.pro</code>
-                <button class="base-url-copy" onclick="copyBase()" id="copyBaseBtn">Copy</button>
+                <button class="base-url-copy" onclick="copyBase()" id="copyBaseBtn" data-i18n="apiCopy">Copy</button>
             </div>
         </div>
     </section>
@@ -354,41 +354,41 @@ window.addEventListener('scroll',function(){document.getElementById('navbar').cl
                     <a href="#quickstart" class="sidebar-link active">Quick Start</a>
                 </div>
                 <div class="sidebar-group">
-                    <div class="sidebar-group-title">Core VPD</div>
+                    <div class="sidebar-group-title" data-i18n="apiSidebarCoreVpd">Core VPD</div>
                     <a href="#vpd" class="sidebar-link"><span class="sidebar-method get">GET</span> /v1/vpd</a>
                     <a href="#target" class="sidebar-link"><span class="sidebar-method get">GET</span> /v1/target</a>
                     <a href="#chart" class="sidebar-link"><span class="sidebar-method get">GET</span> /v1/chart</a>
                     <a href="#batch" class="sidebar-link"><span class="sidebar-method get">GET</span> /v1/batch</a>
                 </div>
                 <div class="sidebar-group">
-                    <div class="sidebar-group-title">Light &amp; DLI</div>
+                    <div class="sidebar-group-title" data-i18n="apiSidebarLight">Light &amp; DLI</div>
                     <a href="#dli" class="sidebar-link"><span class="sidebar-method get">GET</span> /v1/dli</a>
                     <a href="#light" class="sidebar-link"><span class="sidebar-method get">GET</span> /v1/light</a>
                 </div>
                 <div class="sidebar-group">
-                    <div class="sidebar-group-title">Growing Stages</div>
+                    <div class="sidebar-group-title" data-i18n="apiSidebarStages">Growing Stages</div>
                     <a href="#stage" class="sidebar-link"><span class="sidebar-method get">GET</span> /v1/stage</a>
                     <a href="#schedule" class="sidebar-link"><span class="sidebar-method get">GET</span> /v1/schedule</a>
                 </div>
                 <div class="sidebar-group">
-                    <div class="sidebar-group-title">Diagnostics</div>
+                    <div class="sidebar-group-title" data-i18n="apiSidebarDiag">Diagnostics</div>
                     <a href="#diagnose" class="sidebar-link"><span class="sidebar-method get">GET</span> /v1/diagnose</a>
                     <a href="#deficit" class="sidebar-link"><span class="sidebar-method get">GET</span> /v1/deficit</a>
                     <a href="#dewpoint" class="sidebar-link"><span class="sidebar-method get">GET</span> /v1/dewpoint</a>
                 </div>
                 <div class="sidebar-group">
-                    <div class="sidebar-group-title">Nutrients &amp; Feeding</div>
+                    <div class="sidebar-group-title" data-i18n="apiSidebarNutrients">Nutrients &amp; Feeding</div>
                     <a href="#nutrient" class="sidebar-link"><span class="sidebar-method get">GET</span> /v1/nutrient</a>
                     <a href="#co2" class="sidebar-link"><span class="sidebar-method get">GET</span> /v1/co2</a>
                     <a href="#irrigation" class="sidebar-link"><span class="sidebar-method get">GET</span> /v1/irrigation</a>
                 </div>
                 <div class="sidebar-group">
-                    <div class="sidebar-group-title">Equipment</div>
+                    <div class="sidebar-group-title" data-i18n="apiSidebarEquip">Equipment</div>
                     <a href="#room" class="sidebar-link"><span class="sidebar-method get">GET</span> /v1/room</a>
                     <a href="#dry" class="sidebar-link"><span class="sidebar-method get">GET</span> /v1/dry</a>
                 </div>
                 <div class="sidebar-group">
-                    <div class="sidebar-group-title">Utilities</div>
+                    <div class="sidebar-group-title" data-i18n="apiSidebarUtil">Utilities</div>
                     <a href="#convert" class="sidebar-link"><span class="sidebar-method get">GET</span> /v1/convert</a>
                     <a href="#health" class="sidebar-link"><span class="sidebar-method get">GET</span> /health</a>
                 </div>
@@ -418,7 +418,7 @@ window.addEventListener('scroll',function(){document.getElementById('navbar').cl
                     <div class="qs-code-block active" id="tab-curl">
                         <div class="example-header">
                             <span class="example-label">Terminal</span>
-                            <button class="copy-btn" onclick="copyCode('code-curl')">Copy</button>
+                            <button class="copy-btn" data-i18n="apiCopy" onclick="copyCode('code-curl')">Copy</button>
                         </div>
                         <pre class="example-pre" id="code-curl"><span class="comment"># Calculate VPD for 25C and 60% humidity</span>
 curl "https://api.growvpd.pro/v1/vpd?temp=25&humidity=60"
@@ -429,7 +429,7 @@ curl "https://api.growvpd.pro/v1/stage?stage=mid_flower&medium=coco"</pre>
                     <div class="qs-code-block" id="tab-js">
                         <div class="example-header">
                             <span class="example-label">JavaScript</span>
-                            <button class="copy-btn" onclick="copyCode('code-js')">Copy</button>
+                            <button class="copy-btn" data-i18n="apiCopy" onclick="copyCode('code-js')">Copy</button>
                         </div>
                         <pre class="example-pre" id="code-js"><span class="key">const</span> BASE = <span class="str">"https://api.growvpd.pro"</span>;
 
@@ -448,7 +448,7 @@ console.<span class="num">log</span>(data.status);  <span class="comment">// "sl
                     <div class="qs-code-block" id="tab-python">
                         <div class="example-header">
                             <span class="example-label">Python</span>
-                            <button class="copy-btn" onclick="copyCode('code-python')">Copy</button>
+                            <button class="copy-btn" data-i18n="apiCopy" onclick="copyCode('code-python')">Copy</button>
                         </div>
                         <pre class="example-pre" id="code-python"><span class="key">import</span> requests
 
@@ -468,14 +468,14 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
 
                     <div class="info-box tip" style="margin-top: 20px;">
                         <span class="info-icon">&#9889;</span>
-                        <div><strong>Rate limits:</strong> Currently none. Be reasonable with requests. If you plan to make high-volume calls, please reach out at <a href="mailto:support@growvpd.pro" style="color:#2E7D32;font-weight:600;">support@growvpd.pro</a>.</div>
+                        <div data-i18n-html="apiRateLimits"><strong>Rate limits:</strong> Currently none. Be reasonable with requests. If you plan to make high-volume calls, please reach out at <a href="mailto:support@growvpd.pro" style="color:#2E7D32;font-weight:600;">support@growvpd.pro</a>.</div>
                     </div>
                 </section>
 
 
                 <!-- ========== CORE VPD ========== -->
                 <div class="section-header" id="section-vpd">
-                    <h2><span class="section-icon vpd">&#127793;</span> Core VPD</h2>
+                    <h2><span class="section-icon vpd">&#127793;</span> <span data-i18n="apiSecCoreVpd">Core VPD</span></h2>
                 </div>
 
                 <!-- /v1/vpd -->
@@ -486,7 +486,7 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                     </div>
                     <p class="endpoint-desc">Calculate VPD (Vapor Pressure Deficit) from temperature and humidity. Returns VPD value, leaf VPD, status classification, and optimal ranges for all growth stages.</p>
                     <table class="params-table">
-                        <thead><tr><th>Parameter</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+                        <thead><tr><th data-i18n="apiThParam">Parameter</th><th data-i18n="apiThType">Type</th><th data-i18n="apiThDefault">Default</th><th data-i18n="apiThDesc">Description</th></tr></thead>
                         <tbody>
                             <tr><td><span class="param-name">temp</span><span class="param-required">required</span></td><td>number</td><td>-</td><td>Air temperature</td></tr>
                             <tr><td><span class="param-name">humidity</span><span class="param-required">required</span></td><td>number</td><td>-</td><td>Relative humidity (%)</td></tr>
@@ -495,13 +495,13 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                         </tbody>
                     </table>
                     <div class="endpoint-actions">
-                        <a href="https://api.growvpd.pro/v1/vpd?temp=25&humidity=60" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Try it</a>
-                        <button class="example-toggle" onclick="toggleExample(this)"><span class="chevron">&#9654;</span> Example response</button>
+                        <a href="https://api.growvpd.pro/v1/vpd?temp=25&humidity=60" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> <span data-i18n="apiTryIt">Try it</span></a>
+                        <button class="example-toggle" onclick="toggleExample(this)"><span class="chevron">&#9654;</span> <span data-i18n="apiShowResponse">Show response</span></button>
                     </div>
                     <div class="example-content">
                         <div class="example-header">
                             <span class="example-label">GET /v1/vpd?temp=25&amp;humidity=60</span>
-                            <button class="copy-btn" onclick="copyCode('ex-vpd')">Copy</button>
+                            <button class="copy-btn" data-i18n="apiCopy" onclick="copyCode('ex-vpd')">Copy</button>
                         </div>
                         <pre class="example-pre" id="ex-vpd">{
   <span class="key">"vpd"</span>: <span class="num">1.27</span>,
@@ -532,7 +532,7 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                     </div>
                     <p class="endpoint-desc">Reverse VPD calculator. Given a target VPD (or growth stage) and either temperature or humidity, calculates the missing variable. Useful for finding what humidity to aim for at a given temperature.</p>
                     <table class="params-table">
-                        <thead><tr><th>Parameter</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+                        <thead><tr><th data-i18n="apiThParam">Parameter</th><th data-i18n="apiThType">Type</th><th data-i18n="apiThDefault">Default</th><th data-i18n="apiThDesc">Description</th></tr></thead>
                         <tbody>
                             <tr><td><span class="param-name">vpd</span></td><td>number</td><td>-</td><td>Target VPD value (kPa). Provide this or <code>stage</code>.</td></tr>
                             <tr><td><span class="param-name">stage</span></td><td>string</td><td>-</td><td>Growth stage (uses midpoint VPD). One of: <span class="stage-list">clone_seedling, early_veg, late_veg, early_flower, mid_flower, late_flower</span></td></tr>
@@ -543,13 +543,13 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                         </tbody>
                     </table>
                     <div class="endpoint-actions">
-                        <a href="https://api.growvpd.pro/v1/target?vpd=1.2&temp=25" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Try it</a>
-                        <button class="example-toggle" onclick="toggleExample(this)"><span class="chevron">&#9654;</span> Example response</button>
+                        <a href="https://api.growvpd.pro/v1/target?vpd=1.2&temp=25" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> <span data-i18n="apiTryIt">Try it</span></a>
+                        <button class="example-toggle" onclick="toggleExample(this)"><span class="chevron">&#9654;</span> <span data-i18n="apiShowResponse">Show response</span></button>
                     </div>
                     <div class="example-content">
                         <div class="example-header">
                             <span class="example-label">GET /v1/target?vpd=1.2&amp;temp=25</span>
-                            <button class="copy-btn" onclick="copyCode('ex-target')">Copy</button>
+                            <button class="copy-btn" data-i18n="apiCopy" onclick="copyCode('ex-target')">Copy</button>
                         </div>
                         <pre class="example-pre" id="ex-target">{
   <span class="key">"target_vpd"</span>: <span class="num">1.2</span>,
@@ -575,7 +575,7 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                     </div>
                     <p class="endpoint-desc">Generate a VPD heatmap data matrix. Returns a 2D grid of VPD values across a temperature and humidity range, with zone classifications. Perfect for building visual VPD charts.</p>
                     <table class="params-table">
-                        <thead><tr><th>Parameter</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+                        <thead><tr><th data-i18n="apiThParam">Parameter</th><th data-i18n="apiThType">Type</th><th data-i18n="apiThDefault">Default</th><th data-i18n="apiThDesc">Description</th></tr></thead>
                         <tbody>
                             <tr><td><span class="param-name">temp_min</span></td><td>number</td><td><span class="param-default">15</span></td><td>Minimum temperature</td></tr>
                             <tr><td><span class="param-name">temp_max</span></td><td>number</td><td><span class="param-default">35</span></td><td>Maximum temperature</td></tr>
@@ -588,13 +588,13 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                         </tbody>
                     </table>
                     <div class="endpoint-actions">
-                        <a href="https://api.growvpd.pro/v1/chart?temp_min=18&temp_max=30&stage=mid_flower" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Try it</a>
-                        <button class="example-toggle" onclick="toggleExample(this)"><span class="chevron">&#9654;</span> Example response</button>
+                        <a href="https://api.growvpd.pro/v1/chart?temp_min=18&temp_max=30&stage=mid_flower" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> <span data-i18n="apiTryIt">Try it</span></a>
+                        <button class="example-toggle" onclick="toggleExample(this)"><span class="chevron">&#9654;</span> <span data-i18n="apiShowResponse">Show response</span></button>
                     </div>
                     <div class="example-content">
                         <div class="example-header">
                             <span class="example-label">GET /v1/chart?temp_min=18&amp;temp_max=30&amp;stage=mid_flower</span>
-                            <button class="copy-btn" onclick="copyCode('ex-chart')">Copy</button>
+                            <button class="copy-btn" data-i18n="apiCopy" onclick="copyCode('ex-chart')">Copy</button>
                         </div>
                         <pre class="example-pre" id="ex-chart">{
   <span class="key">"temp_range"</span>: [<span class="num">18</span>, <span class="num">19</span>, <span class="num">20</span>, <span class="str">...</span>, <span class="num">30</span>],
@@ -625,20 +625,20 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                     </div>
                     <p class="endpoint-desc">Batch VPD calculations with aggregated statistics. Submit multiple temperature/humidity readings and receive individual VPD values plus min, max, average, and standard deviation across the set.</p>
                     <table class="params-table">
-                        <thead><tr><th>Parameter</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+                        <thead><tr><th data-i18n="apiThParam">Parameter</th><th data-i18n="apiThType">Type</th><th data-i18n="apiThDefault">Default</th><th data-i18n="apiThDesc">Description</th></tr></thead>
                         <tbody>
                             <tr><td><span class="param-name">readings</span><span class="param-required">required</span></td><td>JSON array</td><td>-</td><td>Array of <code>{"temp":N, "humidity":N}</code> objects (URL-encoded)</td></tr>
                             <tr><td><span class="param-name">leaf_offset</span></td><td>number</td><td><span class="param-default">2.0</span></td><td>Leaf temperature offset</td></tr>
                         </tbody>
                     </table>
                     <div class="endpoint-actions">
-                        <a href="https://api.growvpd.pro/v1/batch?readings=[{%22temp%22:25,%22humidity%22:60},{%22temp%22:26,%22humidity%22:55}]" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Try it</a>
-                        <button class="example-toggle" onclick="toggleExample(this)"><span class="chevron">&#9654;</span> Example response</button>
+                        <a href="https://api.growvpd.pro/v1/batch?readings=[{%22temp%22:25,%22humidity%22:60},{%22temp%22:26,%22humidity%22:55}]" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> <span data-i18n="apiTryIt">Try it</span></a>
+                        <button class="example-toggle" onclick="toggleExample(this)"><span class="chevron">&#9654;</span> <span data-i18n="apiShowResponse">Show response</span></button>
                     </div>
                     <div class="example-content">
                         <div class="example-header">
                             <span class="example-label">GET /v1/batch?readings=[{"temp":25,"humidity":60},{"temp":26,"humidity":55}]</span>
-                            <button class="copy-btn" onclick="copyCode('ex-batch')">Copy</button>
+                            <button class="copy-btn" data-i18n="apiCopy" onclick="copyCode('ex-batch')">Copy</button>
                         </div>
                         <pre class="example-pre" id="ex-batch">{
   <span class="key">"readings"</span>: [
@@ -671,7 +671,7 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
 
                 <!-- ========== LIGHT & DLI ========== -->
                 <div class="section-header" id="section-light">
-                    <h2><span class="section-icon light">&#9728;</span> Light &amp; DLI</h2>
+                    <h2><span class="section-icon light">&#9728;</span> <span data-i18n="apiSecLight">Light &amp; DLI</span></h2>
                 </div>
 
                 <!-- /v1/dli -->
@@ -682,7 +682,7 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                     </div>
                     <p class="endpoint-desc">Daily Light Integral calculator. Compute DLI from PPFD and photoperiod (forward), or find the required PPFD to hit a target DLI (reverse). Includes optimal DLI ranges per growth stage.</p>
                     <table class="params-table">
-                        <thead><tr><th>Parameter</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+                        <thead><tr><th data-i18n="apiThParam">Parameter</th><th data-i18n="apiThType">Type</th><th data-i18n="apiThDefault">Default</th><th data-i18n="apiThDesc">Description</th></tr></thead>
                         <tbody>
                             <tr><td><span class="param-name">ppfd</span></td><td>number</td><td>-</td><td>Photosynthetic Photon Flux Density (umol/m2/s)</td></tr>
                             <tr><td><span class="param-name">hours</span></td><td>number</td><td>-</td><td>Photoperiod in hours</td></tr>
@@ -690,13 +690,13 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                         </tbody>
                     </table>
                     <div class="endpoint-actions">
-                        <a href="https://api.growvpd.pro/v1/dli?ppfd=600&hours=12" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Try it</a>
-                        <button class="example-toggle" onclick="toggleExample(this)"><span class="chevron">&#9654;</span> Example response</button>
+                        <a href="https://api.growvpd.pro/v1/dli?ppfd=600&hours=12" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> <span data-i18n="apiTryIt">Try it</span></a>
+                        <button class="example-toggle" onclick="toggleExample(this)"><span class="chevron">&#9654;</span> <span data-i18n="apiShowResponse">Show response</span></button>
                     </div>
                     <div class="example-content">
                         <div class="example-header">
                             <span class="example-label">GET /v1/dli?ppfd=600&amp;hours=12</span>
-                            <button class="copy-btn" onclick="copyCode('ex-dli')">Copy</button>
+                            <button class="copy-btn" data-i18n="apiCopy" onclick="copyCode('ex-dli')">Copy</button>
                         </div>
                         <pre class="example-pre" id="ex-dli">{
   <span class="key">"ppfd"</span>: <span class="num">600</span>,
@@ -723,7 +723,7 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                     </div>
                     <p class="endpoint-desc">Comprehensive light calculator. Estimates PPFD from wattage and area, calculates DLI, evaluates light intensity for a given growth stage, and provides efficiency metrics.</p>
                     <table class="params-table">
-                        <thead><tr><th>Parameter</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+                        <thead><tr><th data-i18n="apiThParam">Parameter</th><th data-i18n="apiThType">Type</th><th data-i18n="apiThDefault">Default</th><th data-i18n="apiThDesc">Description</th></tr></thead>
                         <tbody>
                             <tr><td><span class="param-name">ppfd</span></td><td>number</td><td>-</td><td>Known PPFD (if available)</td></tr>
                             <tr><td><span class="param-name">hours</span></td><td>number</td><td>-</td><td>Photoperiod in hours</td></tr>
@@ -735,13 +735,13 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                         </tbody>
                     </table>
                     <div class="endpoint-actions">
-                        <a href="https://api.growvpd.pro/v1/light?watts=600&area=1.44&hours=12&stage=mid_flower" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Try it</a>
-                        <button class="example-toggle" onclick="toggleExample(this)"><span class="chevron">&#9654;</span> Example response</button>
+                        <a href="https://api.growvpd.pro/v1/light?watts=600&area=1.44&hours=12&stage=mid_flower" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> <span data-i18n="apiTryIt">Try it</span></a>
+                        <button class="example-toggle" onclick="toggleExample(this)"><span class="chevron">&#9654;</span> <span data-i18n="apiShowResponse">Show response</span></button>
                     </div>
                     <div class="example-content">
                         <div class="example-header">
                             <span class="example-label">GET /v1/light?watts=600&amp;area=1.44&amp;hours=12&amp;stage=mid_flower</span>
-                            <button class="copy-btn" onclick="copyCode('ex-light')">Copy</button>
+                            <button class="copy-btn" data-i18n="apiCopy" onclick="copyCode('ex-light')">Copy</button>
                         </div>
                         <pre class="example-pre" id="ex-light">{
   <span class="key">"ppfd_estimated"</span>: <span class="num">1041.7</span>,
@@ -766,7 +766,7 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
 
                 <!-- ========== GROWING STAGES ========== -->
                 <div class="section-header" id="section-stages">
-                    <h2><span class="section-icon stage">&#127807;</span> Growing Stages</h2>
+                    <h2><span class="section-icon stage">&#127807;</span> <span data-i18n="apiSecStages">Growing Stages</span></h2>
                 </div>
 
                 <!-- /v1/stage -->
@@ -777,20 +777,20 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                     </div>
                     <p class="endpoint-desc">Get comprehensive environment targets for a growth stage. Returns optimal ranges for VPD, temperature, humidity, PPFD, DLI, CO2, EC, pH, and watering frequency. Optionally tailored to a growing medium.</p>
                     <table class="params-table">
-                        <thead><tr><th>Parameter</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+                        <thead><tr><th data-i18n="apiThParam">Parameter</th><th data-i18n="apiThType">Type</th><th data-i18n="apiThDefault">Default</th><th data-i18n="apiThDesc">Description</th></tr></thead>
                         <tbody>
                             <tr><td><span class="param-name">stage</span></td><td>string</td><td>-</td><td>Stage name or <code>"all"</code> for every stage. Options: <span class="stage-list">clone_seedling, early_veg, late_veg, early_flower, mid_flower, late_flower</span></td></tr>
                             <tr><td><span class="param-name">medium</span></td><td>string</td><td>-</td><td>Growing medium: <code>soil</code>, <code>coco</code>, <code>hydro</code>, <code>dwc</code></td></tr>
                         </tbody>
                     </table>
                     <div class="endpoint-actions">
-                        <a href="https://api.growvpd.pro/v1/stage?stage=mid_flower&medium=coco" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Try it</a>
-                        <button class="example-toggle" onclick="toggleExample(this)"><span class="chevron">&#9654;</span> Example response</button>
+                        <a href="https://api.growvpd.pro/v1/stage?stage=mid_flower&medium=coco" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> <span data-i18n="apiTryIt">Try it</span></a>
+                        <button class="example-toggle" onclick="toggleExample(this)"><span class="chevron">&#9654;</span> <span data-i18n="apiShowResponse">Show response</span></button>
                     </div>
                     <div class="example-content">
                         <div class="example-header">
                             <span class="example-label">GET /v1/stage?stage=mid_flower&amp;medium=coco</span>
-                            <button class="copy-btn" onclick="copyCode('ex-stage')">Copy</button>
+                            <button class="copy-btn" data-i18n="apiCopy" onclick="copyCode('ex-stage')">Copy</button>
                         </div>
                         <pre class="example-pre" id="ex-stage">{
   <span class="key">"stage"</span>: <span class="str">"mid_flower"</span>,
@@ -826,20 +826,20 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                     </div>
                     <p class="endpoint-desc">Generate a full grow timeline with week-by-week stage progression. Returns duration and environment targets for each stage, customized by plant type and growing medium.</p>
                     <table class="params-table">
-                        <thead><tr><th>Parameter</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+                        <thead><tr><th data-i18n="apiThParam">Parameter</th><th data-i18n="apiThType">Type</th><th data-i18n="apiThDefault">Default</th><th data-i18n="apiThDesc">Description</th></tr></thead>
                         <tbody>
                             <tr><td><span class="param-name">type</span></td><td>string</td><td>-</td><td>Plant type: <code>photo</code> (photoperiod) or <code>auto</code> (autoflower)</td></tr>
                             <tr><td><span class="param-name">medium</span></td><td>string</td><td>-</td><td>Growing medium: <code>soil</code>, <code>coco</code>, <code>hydro</code>, <code>dwc</code></td></tr>
                         </tbody>
                     </table>
                     <div class="endpoint-actions">
-                        <a href="https://api.growvpd.pro/v1/schedule?type=auto&medium=coco" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Try it</a>
-                        <button class="example-toggle" onclick="toggleExample(this)"><span class="chevron">&#9654;</span> Example response</button>
+                        <a href="https://api.growvpd.pro/v1/schedule?type=auto&medium=coco" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> <span data-i18n="apiTryIt">Try it</span></a>
+                        <button class="example-toggle" onclick="toggleExample(this)"><span class="chevron">&#9654;</span> <span data-i18n="apiShowResponse">Show response</span></button>
                     </div>
                     <div class="example-content">
                         <div class="example-header">
                             <span class="example-label">GET /v1/schedule?type=auto&amp;medium=coco</span>
-                            <button class="copy-btn" onclick="copyCode('ex-schedule')">Copy</button>
+                            <button class="copy-btn" data-i18n="apiCopy" onclick="copyCode('ex-schedule')">Copy</button>
                         </div>
                         <pre class="example-pre" id="ex-schedule">{
   <span class="key">"type"</span>: <span class="str">"auto"</span>,
@@ -872,7 +872,7 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
 
                 <!-- ========== DIAGNOSTICS ========== -->
                 <div class="section-header" id="section-diagnostics">
-                    <h2><span class="section-icon diag">&#128269;</span> Diagnostics</h2>
+                    <h2><span class="section-icon diag">&#128269;</span> <span data-i18n="apiSecDiag">Diagnostics</span></h2>
                 </div>
 
                 <!-- /v1/diagnose -->
@@ -883,7 +883,7 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                     </div>
                     <p class="endpoint-desc">Full environment diagnosis with a 0-100 health score. Analyzes temperature, humidity, VPD, pH, EC, PPFD, CO2, and night temperature. Returns issues found, severity levels, and actionable recommendations.</p>
                     <table class="params-table">
-                        <thead><tr><th>Parameter</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+                        <thead><tr><th data-i18n="apiThParam">Parameter</th><th data-i18n="apiThType">Type</th><th data-i18n="apiThDefault">Default</th><th data-i18n="apiThDesc">Description</th></tr></thead>
                         <tbody>
                             <tr><td><span class="param-name">temp</span><span class="param-required">required</span></td><td>number</td><td>-</td><td>Air temperature</td></tr>
                             <tr><td><span class="param-name">humidity</span><span class="param-required">required</span></td><td>number</td><td>-</td><td>Relative humidity (%)</td></tr>
@@ -898,13 +898,13 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                         </tbody>
                     </table>
                     <div class="endpoint-actions">
-                        <a href="https://api.growvpd.pro/v1/diagnose?temp=32&humidity=75&stage=late_flower&ph=7.5" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Try it</a>
-                        <button class="example-toggle" onclick="toggleExample(this)"><span class="chevron">&#9654;</span> Example response</button>
+                        <a href="https://api.growvpd.pro/v1/diagnose?temp=32&humidity=75&stage=late_flower&ph=7.5" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> <span data-i18n="apiTryIt">Try it</span></a>
+                        <button class="example-toggle" onclick="toggleExample(this)"><span class="chevron">&#9654;</span> <span data-i18n="apiShowResponse">Show response</span></button>
                     </div>
                     <div class="example-content">
                         <div class="example-header">
                             <span class="example-label">GET /v1/diagnose?temp=32&amp;humidity=75&amp;stage=late_flower&amp;ph=7.5</span>
-                            <button class="copy-btn" onclick="copyCode('ex-diagnose')">Copy</button>
+                            <button class="copy-btn" data-i18n="apiCopy" onclick="copyCode('ex-diagnose')">Copy</button>
                         </div>
                         <pre class="example-pre" id="ex-diagnose">{
   <span class="key">"health_score"</span>: <span class="num">35</span>,
@@ -947,7 +947,7 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                     </div>
                     <p class="endpoint-desc">Symptom-based nutrient deficiency diagnosis. Describe visible plant symptoms and get ranked possible deficiencies with confidence scores, affected nutrients, and treatment recommendations.</p>
                     <table class="params-table">
-                        <thead><tr><th>Parameter</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+                        <thead><tr><th data-i18n="apiThParam">Parameter</th><th data-i18n="apiThType">Type</th><th data-i18n="apiThDefault">Default</th><th data-i18n="apiThDesc">Description</th></tr></thead>
                         <tbody>
                             <tr><td><span class="param-name">symptoms</span><span class="param-required">required</span></td><td>string</td><td>-</td><td>Comma-separated symptom keywords. Examples: <code>yellow_lower_leaves</code>, <code>brown_spots</code>, <code>curling_up</code>, <code>purple_stems</code>, <code>slow_growth</code>, <code>burnt_tips</code></td></tr>
                             <tr><td><span class="param-name">ph</span></td><td>number</td><td>-</td><td>Current pH (helps narrow diagnosis)</td></tr>
@@ -955,13 +955,13 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                         </tbody>
                     </table>
                     <div class="endpoint-actions">
-                        <a href="https://api.growvpd.pro/v1/deficit?symptoms=yellow_lower_leaves,brown_spots&ph=7.2" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Try it</a>
-                        <button class="example-toggle" onclick="toggleExample(this)"><span class="chevron">&#9654;</span> Example response</button>
+                        <a href="https://api.growvpd.pro/v1/deficit?symptoms=yellow_lower_leaves,brown_spots&ph=7.2" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> <span data-i18n="apiTryIt">Try it</span></a>
+                        <button class="example-toggle" onclick="toggleExample(this)"><span class="chevron">&#9654;</span> <span data-i18n="apiShowResponse">Show response</span></button>
                     </div>
                     <div class="example-content">
                         <div class="example-header">
                             <span class="example-label">GET /v1/deficit?symptoms=yellow_lower_leaves,brown_spots&amp;ph=7.2</span>
-                            <button class="copy-btn" onclick="copyCode('ex-deficit')">Copy</button>
+                            <button class="copy-btn" data-i18n="apiCopy" onclick="copyCode('ex-deficit')">Copy</button>
                         </div>
                         <pre class="example-pre" id="ex-deficit">{
   <span class="key">"symptoms"</span>: [<span class="str">"yellow_lower_leaves"</span>, <span class="str">"brown_spots"</span>],
@@ -1006,7 +1006,7 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                     </div>
                     <p class="endpoint-desc">Calculate dewpoint temperature, mold/condensation risk assessment, and safe night temperature minimum. Essential for preventing bud rot and mildew.</p>
                     <table class="params-table">
-                        <thead><tr><th>Parameter</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+                        <thead><tr><th data-i18n="apiThParam">Parameter</th><th data-i18n="apiThType">Type</th><th data-i18n="apiThDefault">Default</th><th data-i18n="apiThDesc">Description</th></tr></thead>
                         <tbody>
                             <tr><td><span class="param-name">temp</span><span class="param-required">required</span></td><td>number</td><td>-</td><td>Air temperature</td></tr>
                             <tr><td><span class="param-name">humidity</span><span class="param-required">required</span></td><td>number</td><td>-</td><td>Relative humidity (%)</td></tr>
@@ -1014,13 +1014,13 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                         </tbody>
                     </table>
                     <div class="endpoint-actions">
-                        <a href="https://api.growvpd.pro/v1/dewpoint?temp=25&humidity=70" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Try it</a>
-                        <button class="example-toggle" onclick="toggleExample(this)"><span class="chevron">&#9654;</span> Example response</button>
+                        <a href="https://api.growvpd.pro/v1/dewpoint?temp=25&humidity=70" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> <span data-i18n="apiTryIt">Try it</span></a>
+                        <button class="example-toggle" onclick="toggleExample(this)"><span class="chevron">&#9654;</span> <span data-i18n="apiShowResponse">Show response</span></button>
                     </div>
                     <div class="example-content">
                         <div class="example-header">
                             <span class="example-label">GET /v1/dewpoint?temp=25&amp;humidity=70</span>
-                            <button class="copy-btn" onclick="copyCode('ex-dewpoint')">Copy</button>
+                            <button class="copy-btn" data-i18n="apiCopy" onclick="copyCode('ex-dewpoint')">Copy</button>
                         </div>
                         <pre class="example-pre" id="ex-dewpoint">{
   <span class="key">"temperature"</span>: <span class="num">25</span>,
@@ -1042,7 +1042,7 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
 
                 <!-- ========== NUTRIENTS & FEEDING ========== -->
                 <div class="section-header" id="section-nutrients">
-                    <h2><span class="section-icon nutrient">&#129395;</span> Nutrients &amp; Feeding</h2>
+                    <h2><span class="section-icon nutrient">&#129395;</span> <span data-i18n="apiSecNutrients">Nutrients &amp; Feeding</span></h2>
                 </div>
 
                 <!-- /v1/nutrient -->
@@ -1053,7 +1053,7 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                     </div>
                     <p class="endpoint-desc">Get EC, pH, and PPM targets for a given growth stage and medium. Includes medium-specific tips, flush schedules, and adjustments based on your water source EC.</p>
                     <table class="params-table">
-                        <thead><tr><th>Parameter</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+                        <thead><tr><th data-i18n="apiThParam">Parameter</th><th data-i18n="apiThType">Type</th><th data-i18n="apiThDefault">Default</th><th data-i18n="apiThDesc">Description</th></tr></thead>
                         <tbody>
                             <tr><td><span class="param-name">stage</span><span class="param-required">required</span></td><td>string</td><td>-</td><td>Growth stage</td></tr>
                             <tr><td><span class="param-name">medium</span></td><td>string</td><td>-</td><td>Growing medium: <code>soil</code>, <code>coco</code>, <code>hydro</code>, <code>dwc</code></td></tr>
@@ -1061,13 +1061,13 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                         </tbody>
                     </table>
                     <div class="endpoint-actions">
-                        <a href="https://api.growvpd.pro/v1/nutrient?stage=mid_flower&medium=coco&water_ec=0.3" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Try it</a>
-                        <button class="example-toggle" onclick="toggleExample(this)"><span class="chevron">&#9654;</span> Example response</button>
+                        <a href="https://api.growvpd.pro/v1/nutrient?stage=mid_flower&medium=coco&water_ec=0.3" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> <span data-i18n="apiTryIt">Try it</span></a>
+                        <button class="example-toggle" onclick="toggleExample(this)"><span class="chevron">&#9654;</span> <span data-i18n="apiShowResponse">Show response</span></button>
                     </div>
                     <div class="example-content">
                         <div class="example-header">
                             <span class="example-label">GET /v1/nutrient?stage=mid_flower&amp;medium=coco&amp;water_ec=0.3</span>
-                            <button class="copy-btn" onclick="copyCode('ex-nutrient')">Copy</button>
+                            <button class="copy-btn" data-i18n="apiCopy" onclick="copyCode('ex-nutrient')">Copy</button>
                         </div>
                         <pre class="example-pre" id="ex-nutrient">{
   <span class="key">"stage"</span>: <span class="str">"mid_flower"</span>,
@@ -1099,7 +1099,7 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                     </div>
                     <p class="endpoint-desc">CO2 enrichment calculator. Determine how much CO2 gas is needed to reach a target concentration in your grow room, and get stage-appropriate CO2 recommendations.</p>
                     <table class="params-table">
-                        <thead><tr><th>Parameter</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+                        <thead><tr><th data-i18n="apiThParam">Parameter</th><th data-i18n="apiThType">Type</th><th data-i18n="apiThDefault">Default</th><th data-i18n="apiThDesc">Description</th></tr></thead>
                         <tbody>
                             <tr><td><span class="param-name">room_m3</span></td><td>number</td><td>-</td><td>Room volume in cubic meters</td></tr>
                             <tr><td><span class="param-name">target_ppm</span></td><td>number</td><td><span class="param-default">1200</span></td><td>Target CO2 concentration (ppm)</td></tr>
@@ -1108,13 +1108,13 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                         </tbody>
                     </table>
                     <div class="endpoint-actions">
-                        <a href="https://api.growvpd.pro/v1/co2?room_m3=2.5&target_ppm=1200&stage=mid_flower" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Try it</a>
-                        <button class="example-toggle" onclick="toggleExample(this)"><span class="chevron">&#9654;</span> Example response</button>
+                        <a href="https://api.growvpd.pro/v1/co2?room_m3=2.5&target_ppm=1200&stage=mid_flower" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> <span data-i18n="apiTryIt">Try it</span></a>
+                        <button class="example-toggle" onclick="toggleExample(this)"><span class="chevron">&#9654;</span> <span data-i18n="apiShowResponse">Show response</span></button>
                     </div>
                     <div class="example-content">
                         <div class="example-header">
                             <span class="example-label">GET /v1/co2?room_m3=2.5&amp;target_ppm=1200&amp;stage=mid_flower</span>
-                            <button class="copy-btn" onclick="copyCode('ex-co2')">Copy</button>
+                            <button class="copy-btn" data-i18n="apiCopy" onclick="copyCode('ex-co2')">Copy</button>
                         </div>
                         <pre class="example-pre" id="ex-co2">{
   <span class="key">"room_m3"</span>: <span class="num">2.5</span>,
@@ -1149,7 +1149,7 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                     </div>
                     <p class="endpoint-desc">Watering volume and frequency calculator. Computes optimal water volume per pot based on pot size, medium, growth stage, and current environment conditions. Supports multiple plants.</p>
                     <table class="params-table">
-                        <thead><tr><th>Parameter</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+                        <thead><tr><th data-i18n="apiThParam">Parameter</th><th data-i18n="apiThType">Type</th><th data-i18n="apiThDefault">Default</th><th data-i18n="apiThDesc">Description</th></tr></thead>
                         <tbody>
                             <tr><td><span class="param-name">pot_size</span><span class="param-required">required</span></td><td>number</td><td>-</td><td>Pot volume in liters</td></tr>
                             <tr><td><span class="param-name">medium</span></td><td>string</td><td>-</td><td>Growing medium: <code>soil</code>, <code>coco</code>, <code>hydro</code>, <code>dwc</code></td></tr>
@@ -1160,13 +1160,13 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                         </tbody>
                     </table>
                     <div class="endpoint-actions">
-                        <a href="https://api.growvpd.pro/v1/irrigation?pot_size=11&medium=coco&stage=mid_flower&vpd=1.3&plants=4" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Try it</a>
-                        <button class="example-toggle" onclick="toggleExample(this)"><span class="chevron">&#9654;</span> Example response</button>
+                        <a href="https://api.growvpd.pro/v1/irrigation?pot_size=11&medium=coco&stage=mid_flower&vpd=1.3&plants=4" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> <span data-i18n="apiTryIt">Try it</span></a>
+                        <button class="example-toggle" onclick="toggleExample(this)"><span class="chevron">&#9654;</span> <span data-i18n="apiShowResponse">Show response</span></button>
                     </div>
                     <div class="example-content">
                         <div class="example-header">
                             <span class="example-label">GET /v1/irrigation?pot_size=11&amp;medium=coco&amp;stage=mid_flower&amp;vpd=1.3&amp;plants=4</span>
-                            <button class="copy-btn" onclick="copyCode('ex-irrigation')">Copy</button>
+                            <button class="copy-btn" data-i18n="apiCopy" onclick="copyCode('ex-irrigation')">Copy</button>
                         </div>
                         <pre class="example-pre" id="ex-irrigation">{
   <span class="key">"pot_size_liters"</span>: <span class="num">11</span>,
@@ -1199,7 +1199,7 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
 
                 <!-- ========== EQUIPMENT & ENVIRONMENT ========== -->
                 <div class="section-header" id="section-equipment">
-                    <h2><span class="section-icon equip">&#128296;</span> Equipment &amp; Environment</h2>
+                    <h2><span class="section-icon equip">&#128296;</span> <span data-i18n="apiSecEquip">Equipment &amp; Environment</span></h2>
                 </div>
 
                 <!-- /v1/room -->
@@ -1210,7 +1210,7 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                     </div>
                     <p class="endpoint-desc">Room equipment sizing calculator. Given your tent/room dimensions and light wattage, get recommended ventilation (CFM), humidifier/dehumidifier capacity, and fan sizing. Accounts for heat load from lights.</p>
                     <table class="params-table">
-                        <thead><tr><th>Parameter</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+                        <thead><tr><th data-i18n="apiThParam">Parameter</th><th data-i18n="apiThType">Type</th><th data-i18n="apiThDefault">Default</th><th data-i18n="apiThDesc">Description</th></tr></thead>
                         <tbody>
                             <tr><td><span class="param-name">length</span><span class="param-required">required</span></td><td>number</td><td>-</td><td>Room length in meters</td></tr>
                             <tr><td><span class="param-name">width</span><span class="param-required">required</span></td><td>number</td><td>-</td><td>Room width in meters</td></tr>
@@ -1223,13 +1223,13 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                         </tbody>
                     </table>
                     <div class="endpoint-actions">
-                        <a href="https://api.growvpd.pro/v1/room?length=1.2&width=1.2&lights_watts=600&plants=4" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Try it</a>
-                        <button class="example-toggle" onclick="toggleExample(this)"><span class="chevron">&#9654;</span> Example response</button>
+                        <a href="https://api.growvpd.pro/v1/room?length=1.2&width=1.2&lights_watts=600&plants=4" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> <span data-i18n="apiTryIt">Try it</span></a>
+                        <button class="example-toggle" onclick="toggleExample(this)"><span class="chevron">&#9654;</span> <span data-i18n="apiShowResponse">Show response</span></button>
                     </div>
                     <div class="example-content">
                         <div class="example-header">
                             <span class="example-label">GET /v1/room?length=1.2&amp;width=1.2&amp;lights_watts=600&amp;plants=4</span>
-                            <button class="copy-btn" onclick="copyCode('ex-room')">Copy</button>
+                            <button class="copy-btn" data-i18n="apiCopy" onclick="copyCode('ex-room')">Copy</button>
                         </div>
                         <pre class="example-pre" id="ex-room">{
   <span class="key">"room"</span>: {
@@ -1272,7 +1272,7 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                     </div>
                     <p class="endpoint-desc">Drying and curing calculator. Estimate dry weight yield, optimal drying duration, and get step-by-step curing instructions based on wet harvest weight, environment, and trim method.</p>
                     <table class="params-table">
-                        <thead><tr><th>Parameter</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+                        <thead><tr><th data-i18n="apiThParam">Parameter</th><th data-i18n="apiThType">Type</th><th data-i18n="apiThDefault">Default</th><th data-i18n="apiThDesc">Description</th></tr></thead>
                         <tbody>
                             <tr><td><span class="param-name">wet_weight</span><span class="param-required">required</span></td><td>number</td><td>-</td><td>Wet harvest weight in grams</td></tr>
                             <tr><td><span class="param-name">temp</span></td><td>number</td><td>-</td><td>Drying room temperature</td></tr>
@@ -1281,13 +1281,13 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                         </tbody>
                     </table>
                     <div class="endpoint-actions">
-                        <a href="https://api.growvpd.pro/v1/dry?wet_weight=500&temp=20&humidity=60" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Try it</a>
-                        <button class="example-toggle" onclick="toggleExample(this)"><span class="chevron">&#9654;</span> Example response</button>
+                        <a href="https://api.growvpd.pro/v1/dry?wet_weight=500&temp=20&humidity=60" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> <span data-i18n="apiTryIt">Try it</span></a>
+                        <button class="example-toggle" onclick="toggleExample(this)"><span class="chevron">&#9654;</span> <span data-i18n="apiShowResponse">Show response</span></button>
                     </div>
                     <div class="example-content">
                         <div class="example-header">
                             <span class="example-label">GET /v1/dry?wet_weight=500&amp;temp=20&amp;humidity=60</span>
-                            <button class="copy-btn" onclick="copyCode('ex-dry')">Copy</button>
+                            <button class="copy-btn" data-i18n="apiCopy" onclick="copyCode('ex-dry')">Copy</button>
                         </div>
                         <pre class="example-pre" id="ex-dry">{
   <span class="key">"wet_weight_g"</span>: <span class="num">500</span>,
@@ -1317,7 +1317,7 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
 
                 <!-- ========== UTILITIES ========== -->
                 <div class="section-header" id="section-utilities">
-                    <h2><span class="section-icon util">&#128295;</span> Utilities</h2>
+                    <h2><span class="section-icon util">&#128295;</span> <span data-i18n="apiSecUtil">Utilities</span></h2>
                 </div>
 
                 <!-- /v1/convert -->
@@ -1328,7 +1328,7 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                     </div>
                     <p class="endpoint-desc">Multi-purpose unit converter for grow-related measurements. Converts between Celsius/Fahrenheit, EC/PPM (both 500 and 700 scale), PPFD/Lux, and VPD units. Provide any input and get all conversions.</p>
                     <table class="params-table">
-                        <thead><tr><th>Parameter</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+                        <thead><tr><th data-i18n="apiThParam">Parameter</th><th data-i18n="apiThType">Type</th><th data-i18n="apiThDefault">Default</th><th data-i18n="apiThDesc">Description</th></tr></thead>
                         <tbody>
                             <tr><td><span class="param-name">temp</span></td><td>number</td><td>-</td><td>Temperature value to convert</td></tr>
                             <tr><td><span class="param-name">from</span></td><td>string</td><td>-</td><td>Source unit for temp: <code>c</code> or <code>f</code></td></tr>
@@ -1341,13 +1341,13 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                         </tbody>
                     </table>
                     <div class="endpoint-actions">
-                        <a href="https://api.growvpd.pro/v1/convert?ec=1.5" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Try it</a>
-                        <button class="example-toggle" onclick="toggleExample(this)"><span class="chevron">&#9654;</span> Example response</button>
+                        <a href="https://api.growvpd.pro/v1/convert?ec=1.5" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> <span data-i18n="apiTryIt">Try it</span></a>
+                        <button class="example-toggle" onclick="toggleExample(this)"><span class="chevron">&#9654;</span> <span data-i18n="apiShowResponse">Show response</span></button>
                     </div>
                     <div class="example-content">
                         <div class="example-header">
                             <span class="example-label">GET /v1/convert?ec=1.5</span>
-                            <button class="copy-btn" onclick="copyCode('ex-convert')">Copy</button>
+                            <button class="copy-btn" data-i18n="apiCopy" onclick="copyCode('ex-convert')">Copy</button>
                         </div>
                         <pre class="example-pre" id="ex-convert">{
   <span class="key">"conversions"</span>: {
@@ -1375,19 +1375,19 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                     </div>
                     <p class="endpoint-desc">API health check endpoint. Returns current API status, version, uptime, and endpoint count. Use this to verify the API is operational before making other calls.</p>
                     <table class="params-table">
-                        <thead><tr><th>Parameter</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+                        <thead><tr><th data-i18n="apiThParam">Parameter</th><th data-i18n="apiThType">Type</th><th data-i18n="apiThDefault">Default</th><th data-i18n="apiThDesc">Description</th></tr></thead>
                         <tbody>
                             <tr><td colspan="4" style="color:#90A4AE;font-style:italic;">No parameters required</td></tr>
                         </tbody>
                     </table>
                     <div class="endpoint-actions">
-                        <a href="https://api.growvpd.pro/health" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Try it</a>
-                        <button class="example-toggle" onclick="toggleExample(this)"><span class="chevron">&#9654;</span> Example response</button>
+                        <a href="https://api.growvpd.pro/health" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> <span data-i18n="apiTryIt">Try it</span></a>
+                        <button class="example-toggle" onclick="toggleExample(this)"><span class="chevron">&#9654;</span> <span data-i18n="apiShowResponse">Show response</span></button>
                     </div>
                     <div class="example-content">
                         <div class="example-header">
                             <span class="example-label">GET /health</span>
-                            <button class="copy-btn" onclick="copyCode('ex-health')">Copy</button>
+                            <button class="copy-btn" data-i18n="apiCopy" onclick="copyCode('ex-health')">Copy</button>
                         </div>
                         <pre class="example-pre" id="ex-health">{
   <span class="key">"status"</span>: <span class="str">"healthy"</span>,
@@ -1408,7 +1408,7 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
             <div class="api-footer-brand">
                 <svg viewBox="0 0 32 32" width="22" height="22"><circle cx="16" cy="16" r="16" fill="#2E7D32"/><path d="M16 6c0 0-6 4-6 12 0 4 2.5 7 6 8 3.5-1 6-4 6-8 0-8-6-12-6-12z" fill="#81C784"/></svg>
                 <strong>GrowVPD Pro</strong>
-                <span>&mdash; Built by growers, for growers.</span>
+                <span data-i18n="apiFooterTagline">&mdash; Built by growers, for growers.</span>
             </div>
             <div class="api-footer-links">
                 <a href="../index.html" data-i18n="footHome">Home</a>
@@ -1536,6 +1536,548 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
             }
         });
     });
+    </script>
+
+    <!-- API Docs localization -->
+    <script>
+    (function() {
+        var API_DOC_TRANSLATIONS = {
+            en: {
+                apiTitle: "GrowVPD Pro API",
+                apiSubtitle: "Free, open API for indoor growing science. No API key required.",
+                apiBadgeEndpoints: "18 endpoints",
+                apiBadgeNoAuth: "No auth required",
+                apiCopy: "Copy",
+                apiCopied: "Copied!",
+                apiGettingStarted: "Getting Started",
+                apiQuickStart: "Quick Start",
+                apiQuickStartDesc: "The GrowVPD Pro API is completely free and requires no authentication. All endpoints return JSON. Just send a GET request and you are ready to go.",
+                apiRateLimits: '<strong>Rate limits:</strong> Currently none. Be reasonable with requests. If you plan to make high-volume calls, please reach out at <a href="mailto:support@growvpd.pro" style="color:#2E7D32;font-weight:600;">support@growvpd.pro</a>.',
+                apiSidebarCoreVpd: "Core VPD",
+                apiSidebarLight: "Light & DLI",
+                apiSidebarStages: "Growing Stages",
+                apiSidebarDiag: "Diagnostics",
+                apiSidebarNutrients: "Nutrients & Feeding",
+                apiSidebarEquip: "Equipment",
+                apiSidebarUtil: "Utilities",
+                apiSecCoreVpd: "Core VPD",
+                apiSecLight: "Light & DLI",
+                apiSecStages: "Growing Stages",
+                apiSecDiag: "Diagnostics",
+                apiSecNutrients: "Nutrients & Feeding",
+                apiSecEquip: "Equipment & Environment",
+                apiSecUtil: "Utilities",
+                apiTryIt: "Try it",
+                apiShowResponse: "Show response",
+                apiHideResponse: "Hide response",
+                apiThParam: "Parameter",
+                apiThType: "Type",
+                apiThDefault: "Default",
+                apiThDesc: "Description",
+                apiFooterTagline: "\u2014 Built by growers, for growers.",
+                footHome: "Home",
+                footGuides: "Guides",
+                footFaq: "Support",
+                footCopy: "\u00a9 2026 GrowVPD Pro. All rights reserved."
+            },
+            cs: {
+                apiTitle: "GrowVPD Pro API",
+                apiSubtitle: "Bezplatn\u00e9, otev\u0159en\u00e9 API pro indoor p\u011bstov\u00e1n\u00ed. Bez API kl\u00ed\u010de.",
+                apiBadgeEndpoints: "18 endpoint\u016f",
+                apiBadgeNoAuth: "Bez autentizace",
+                apiCopy: "Kop\u00edrovat",
+                apiCopied: "Zkop\u00edrov\u00e1no!",
+                apiGettingStarted: "Za\u010d\u00edn\u00e1me",
+                apiQuickStart: "Rychl\u00fd start",
+                apiQuickStartDesc: "GrowVPD Pro API je zcela zdarma a nevy\u017eaduje autentizaci. V\u0161echny endpointy vrac\u00ed JSON. Sta\u010d\u00ed poslat GET po\u017eadavek a m\u016f\u017eete za\u010d\u00edt.",
+                apiRateLimits: '<strong>Limity po\u017eadavk\u016f:</strong> Aktu\u00e1ln\u011b \u017e\u00e1dn\u00e9. Bu\u010fte rozumn\u00ed s po\u010dtem po\u017eadavk\u016f. Pokud pl\u00e1nujete velk\u00fd objem vol\u00e1n\u00ed, kontaktujte n\u00e1s na <a href="mailto:support@growvpd.pro" style="color:#2E7D32;font-weight:600;">support@growvpd.pro</a>.',
+                apiSidebarCoreVpd: "Z\u00e1kladn\u00ed VPD",
+                apiSidebarLight: "Sv\u011btlo a DLI",
+                apiSidebarStages: "R\u016fstov\u00e9 f\u00e1ze",
+                apiSidebarDiag: "Diagnostika",
+                apiSidebarNutrients: "Hnojiva a v\u00fd\u017eiva",
+                apiSidebarEquip: "Vybaven\u00ed",
+                apiSidebarUtil: "N\u00e1stroje",
+                apiSecCoreVpd: "Z\u00e1kladn\u00ed VPD",
+                apiSecLight: "Sv\u011btlo a DLI",
+                apiSecStages: "R\u016fstov\u00e9 f\u00e1ze",
+                apiSecDiag: "Diagnostika",
+                apiSecNutrients: "Hnojiva a v\u00fd\u017eiva",
+                apiSecEquip: "Vybaven\u00ed a prost\u0159ed\u00ed",
+                apiSecUtil: "N\u00e1stroje",
+                apiTryIt: "Vyzkou\u0161et",
+                apiShowResponse: "Zobrazit odpov\u011b\u010f",
+                apiHideResponse: "Skr\u00fdt odpov\u011b\u010f",
+                apiThParam: "Parametr",
+                apiThType: "Typ",
+                apiThDefault: "V\u00fdchoz\u00ed",
+                apiThDesc: "Popis",
+                apiFooterTagline: "\u2014 Od p\u011bstitel\u016f pro p\u011bstitele.",
+                footHome: "Dom\u016f",
+                footGuides: "Pr\u016fvodci",
+                footFaq: "Podpora",
+                footCopy: "\u00a9 2026 GrowVPD Pro. V\u0161echna pr\u00e1va vyhrazena."
+            },
+            de: {
+                apiTitle: "GrowVPD Pro API",
+                apiSubtitle: "Kostenlose, offene API f\u00fcr Indoor-Growing. Kein API-Schl\u00fcssel erforderlich.",
+                apiBadgeEndpoints: "18 Endpunkte",
+                apiBadgeNoAuth: "Keine Authentifizierung",
+                apiCopy: "Kopieren",
+                apiCopied: "Kopiert!",
+                apiGettingStarted: "Erste Schritte",
+                apiQuickStart: "Schnellstart",
+                apiQuickStartDesc: "Die GrowVPD Pro API ist v\u00f6llig kostenlos und erfordert keine Authentifizierung. Alle Endpunkte liefern JSON. Senden Sie einfach eine GET-Anfrage und schon kann es losgehen.",
+                apiRateLimits: '<strong>Ratenlimits:</strong> Derzeit keine. Gehen Sie vern\u00fcnftig mit Anfragen um. Wenn Sie viele Aufrufe planen, kontaktieren Sie uns unter <a href="mailto:support@growvpd.pro" style="color:#2E7D32;font-weight:600;">support@growvpd.pro</a>.',
+                apiSidebarCoreVpd: "Kern-VPD",
+                apiSidebarLight: "Licht & DLI",
+                apiSidebarStages: "Wachstumsphasen",
+                apiSidebarDiag: "Diagnose",
+                apiSidebarNutrients: "N\u00e4hrstoffe & D\u00fcngung",
+                apiSidebarEquip: "Ausr\u00fcstung",
+                apiSidebarUtil: "Werkzeuge",
+                apiSecCoreVpd: "Kern-VPD",
+                apiSecLight: "Licht & DLI",
+                apiSecStages: "Wachstumsphasen",
+                apiSecDiag: "Diagnose",
+                apiSecNutrients: "N\u00e4hrstoffe & D\u00fcngung",
+                apiSecEquip: "Ausr\u00fcstung & Umgebung",
+                apiSecUtil: "Werkzeuge",
+                apiTryIt: "Ausprobieren",
+                apiShowResponse: "Antwort anzeigen",
+                apiHideResponse: "Antwort ausblenden",
+                apiThParam: "Parameter",
+                apiThType: "Typ",
+                apiThDefault: "Standard",
+                apiThDesc: "Beschreibung",
+                apiFooterTagline: "\u2014 Von Growern, f\u00fcr Grower.",
+                footHome: "Startseite",
+                footGuides: "Anleitungen",
+                footFaq: "Support",
+                footCopy: "\u00a9 2026 GrowVPD Pro. Alle Rechte vorbehalten."
+            },
+            es: {
+                apiTitle: "GrowVPD Pro API",
+                apiSubtitle: "API gratuita y abierta para cultivo interior. Sin clave de API.",
+                apiBadgeEndpoints: "18 endpoints",
+                apiBadgeNoAuth: "Sin autenticaci\u00f3n",
+                apiCopy: "Copiar",
+                apiCopied: "\u00a1Copiado!",
+                apiGettingStarted: "Primeros pasos",
+                apiQuickStart: "Inicio r\u00e1pido",
+                apiQuickStartDesc: "La API de GrowVPD Pro es completamente gratuita y no requiere autenticaci\u00f3n. Todos los endpoints devuelven JSON. Solo env\u00eda una solicitud GET y listo.",
+                apiRateLimits: '<strong>L\u00edmites de uso:</strong> Actualmente ninguno. S\u00e9 razonable con las solicitudes. Si planeas hacer llamadas de alto volumen, cont\u00e1ctanos en <a href="mailto:support@growvpd.pro" style="color:#2E7D32;font-weight:600;">support@growvpd.pro</a>.',
+                apiSidebarCoreVpd: "VPD b\u00e1sico",
+                apiSidebarLight: "Luz y DLI",
+                apiSidebarStages: "Fases de crecimiento",
+                apiSidebarDiag: "Diagn\u00f3stico",
+                apiSidebarNutrients: "Nutrientes y alimentaci\u00f3n",
+                apiSidebarEquip: "Equipamiento",
+                apiSidebarUtil: "Utilidades",
+                apiSecCoreVpd: "VPD b\u00e1sico",
+                apiSecLight: "Luz y DLI",
+                apiSecStages: "Fases de crecimiento",
+                apiSecDiag: "Diagn\u00f3stico",
+                apiSecNutrients: "Nutrientes y alimentaci\u00f3n",
+                apiSecEquip: "Equipamiento y entorno",
+                apiSecUtil: "Utilidades",
+                apiTryIt: "Probar",
+                apiShowResponse: "Mostrar respuesta",
+                apiHideResponse: "Ocultar respuesta",
+                apiThParam: "Par\u00e1metro",
+                apiThType: "Tipo",
+                apiThDefault: "Predeterminado",
+                apiThDesc: "Descripci\u00f3n",
+                apiFooterTagline: "\u2014 Hecho por cultivadores, para cultivadores.",
+                footHome: "Inicio",
+                footGuides: "Gu\u00edas",
+                footFaq: "Soporte",
+                footCopy: "\u00a9 2026 GrowVPD Pro. Todos los derechos reservados."
+            },
+            nl: {
+                apiTitle: "GrowVPD Pro API",
+                apiSubtitle: "Gratis, open API voor indoor kweek. Geen API-sleutel nodig.",
+                apiBadgeEndpoints: "18 eindpunten",
+                apiBadgeNoAuth: "Geen authenticatie nodig",
+                apiCopy: "Kopi\u00ebren",
+                apiCopied: "Gekopieerd!",
+                apiGettingStarted: "Aan de slag",
+                apiQuickStart: "Snelstart",
+                apiQuickStartDesc: "De GrowVPD Pro API is volledig gratis en vereist geen authenticatie. Alle eindpunten retourneren JSON. Stuur gewoon een GET-verzoek en je bent klaar.",
+                apiRateLimits: '<strong>Limieten:</strong> Momenteel geen. Wees redelijk met verzoeken. Als je veel aanroepen plant, neem contact op via <a href="mailto:support@growvpd.pro" style="color:#2E7D32;font-weight:600;">support@growvpd.pro</a>.',
+                apiSidebarCoreVpd: "Basis VPD",
+                apiSidebarLight: "Licht & DLI",
+                apiSidebarStages: "Groeifasen",
+                apiSidebarDiag: "Diagnose",
+                apiSidebarNutrients: "Voeding & bemesting",
+                apiSidebarEquip: "Apparatuur",
+                apiSidebarUtil: "Hulpmiddelen",
+                apiSecCoreVpd: "Basis VPD",
+                apiSecLight: "Licht & DLI",
+                apiSecStages: "Groeifasen",
+                apiSecDiag: "Diagnose",
+                apiSecNutrients: "Voeding & bemesting",
+                apiSecEquip: "Apparatuur & omgeving",
+                apiSecUtil: "Hulpmiddelen",
+                apiTryIt: "Probeer het",
+                apiShowResponse: "Toon antwoord",
+                apiHideResponse: "Verberg antwoord",
+                apiThParam: "Parameter",
+                apiThType: "Type",
+                apiThDefault: "Standaard",
+                apiThDesc: "Beschrijving",
+                apiFooterTagline: "\u2014 Gemaakt door kwekers, voor kwekers.",
+                footHome: "Home",
+                footGuides: "Gidsen",
+                footFaq: "Ondersteuning",
+                footCopy: "\u00a9 2026 GrowVPD Pro. Alle rechten voorbehouden."
+            },
+            fr: {
+                apiTitle: "GrowVPD Pro API",
+                apiSubtitle: "API gratuite et ouverte pour la culture en int\u00e9rieur. Aucune cl\u00e9 API requise.",
+                apiBadgeEndpoints: "18 points d'acc\u00e8s",
+                apiBadgeNoAuth: "Sans authentification",
+                apiCopy: "Copier",
+                apiCopied: "Copi\u00e9 !",
+                apiGettingStarted: "Pour commencer",
+                apiQuickStart: "D\u00e9marrage rapide",
+                apiQuickStartDesc: "L'API GrowVPD Pro est enti\u00e8rement gratuite et ne n\u00e9cessite aucune authentification. Tous les points d'acc\u00e8s renvoient du JSON. Envoyez simplement une requ\u00eate GET et c'est parti.",
+                apiRateLimits: '<strong>Limites de d\u00e9bit :</strong> Aucune actuellement. Soyez raisonnable avec les requ\u00eates. Si vous pr\u00e9voyez des appels \u00e0 haut volume, contactez-nous \u00e0 <a href="mailto:support@growvpd.pro" style="color:#2E7D32;font-weight:600;">support@growvpd.pro</a>.',
+                apiSidebarCoreVpd: "VPD de base",
+                apiSidebarLight: "Lumi\u00e8re et DLI",
+                apiSidebarStages: "Phases de croissance",
+                apiSidebarDiag: "Diagnostic",
+                apiSidebarNutrients: "Nutriments et alimentation",
+                apiSidebarEquip: "\u00c9quipement",
+                apiSidebarUtil: "Utilitaires",
+                apiSecCoreVpd: "VPD de base",
+                apiSecLight: "Lumi\u00e8re et DLI",
+                apiSecStages: "Phases de croissance",
+                apiSecDiag: "Diagnostic",
+                apiSecNutrients: "Nutriments et alimentation",
+                apiSecEquip: "\u00c9quipement et environnement",
+                apiSecUtil: "Utilitaires",
+                apiTryIt: "Essayer",
+                apiShowResponse: "Afficher la r\u00e9ponse",
+                apiHideResponse: "Masquer la r\u00e9ponse",
+                apiThParam: "Param\u00e8tre",
+                apiThType: "Type",
+                apiThDefault: "D\u00e9faut",
+                apiThDesc: "Description",
+                apiFooterTagline: "\u2014 Con\u00e7u par des cultivateurs, pour des cultivateurs.",
+                footHome: "Accueil",
+                footGuides: "Guides",
+                footFaq: "Assistance",
+                footCopy: "\u00a9 2026 GrowVPD Pro. Tous droits r\u00e9serv\u00e9s."
+            },
+            it: {
+                apiTitle: "GrowVPD Pro API",
+                apiSubtitle: "API gratuita e aperta per la coltivazione indoor. Nessuna chiave API richiesta.",
+                apiBadgeEndpoints: "18 endpoint",
+                apiBadgeNoAuth: "Nessuna autenticazione",
+                apiCopy: "Copia",
+                apiCopied: "Copiato!",
+                apiGettingStarted: "Per iniziare",
+                apiQuickStart: "Avvio rapido",
+                apiQuickStartDesc: "L'API GrowVPD Pro \u00e8 completamente gratuita e non richiede autenticazione. Tutti gli endpoint restituiscono JSON. Basta inviare una richiesta GET e sei pronto.",
+                apiRateLimits: '<strong>Limiti di utilizzo:</strong> Attualmente nessuno. Sii ragionevole con le richieste. Se prevedi chiamate ad alto volume, contattaci a <a href="mailto:support@growvpd.pro" style="color:#2E7D32;font-weight:600;">support@growvpd.pro</a>.',
+                apiSidebarCoreVpd: "VPD di base",
+                apiSidebarLight: "Luce e DLI",
+                apiSidebarStages: "Fasi di crescita",
+                apiSidebarDiag: "Diagnostica",
+                apiSidebarNutrients: "Nutrienti e fertilizzazione",
+                apiSidebarEquip: "Attrezzatura",
+                apiSidebarUtil: "Strumenti",
+                apiSecCoreVpd: "VPD di base",
+                apiSecLight: "Luce e DLI",
+                apiSecStages: "Fasi di crescita",
+                apiSecDiag: "Diagnostica",
+                apiSecNutrients: "Nutrienti e fertilizzazione",
+                apiSecEquip: "Attrezzatura e ambiente",
+                apiSecUtil: "Strumenti",
+                apiTryIt: "Prova",
+                apiShowResponse: "Mostra risposta",
+                apiHideResponse: "Nascondi risposta",
+                apiThParam: "Parametro",
+                apiThType: "Tipo",
+                apiThDefault: "Predefinito",
+                apiThDesc: "Descrizione",
+                apiFooterTagline: "\u2014 Creato da coltivatori, per coltivatori.",
+                footHome: "Home",
+                footGuides: "Guide",
+                footFaq: "Assistenza",
+                footCopy: "\u00a9 2026 GrowVPD Pro. Tutti i diritti riservati."
+            },
+            pt: {
+                apiTitle: "GrowVPD Pro API",
+                apiSubtitle: "API gratuita e aberta para cultivo indoor. Sem chave de API.",
+                apiBadgeEndpoints: "18 endpoints",
+                apiBadgeNoAuth: "Sem autentica\u00e7\u00e3o",
+                apiCopy: "Copiar",
+                apiCopied: "Copiado!",
+                apiGettingStarted: "Come\u00e7ando",
+                apiQuickStart: "In\u00edcio r\u00e1pido",
+                apiQuickStartDesc: "A API do GrowVPD Pro \u00e9 totalmente gratuita e n\u00e3o requer autentica\u00e7\u00e3o. Todos os endpoints retornam JSON. Basta enviar uma requisi\u00e7\u00e3o GET e pronto.",
+                apiRateLimits: '<strong>Limites de uso:</strong> Nenhum no momento. Seja razo\u00e1vel com as requisi\u00e7\u00f5es. Se planeja fazer chamadas em grande volume, entre em contato em <a href="mailto:support@growvpd.pro" style="color:#2E7D32;font-weight:600;">support@growvpd.pro</a>.',
+                apiSidebarCoreVpd: "VPD b\u00e1sico",
+                apiSidebarLight: "Luz e DLI",
+                apiSidebarStages: "Fases de crescimento",
+                apiSidebarDiag: "Diagn\u00f3stico",
+                apiSidebarNutrients: "Nutrientes e alimenta\u00e7\u00e3o",
+                apiSidebarEquip: "Equipamentos",
+                apiSidebarUtil: "Utilit\u00e1rios",
+                apiSecCoreVpd: "VPD b\u00e1sico",
+                apiSecLight: "Luz e DLI",
+                apiSecStages: "Fases de crescimento",
+                apiSecDiag: "Diagn\u00f3stico",
+                apiSecNutrients: "Nutrientes e alimenta\u00e7\u00e3o",
+                apiSecEquip: "Equipamentos e ambiente",
+                apiSecUtil: "Utilit\u00e1rios",
+                apiTryIt: "Testar",
+                apiShowResponse: "Mostrar resposta",
+                apiHideResponse: "Ocultar resposta",
+                apiThParam: "Par\u00e2metro",
+                apiThType: "Tipo",
+                apiThDefault: "Padr\u00e3o",
+                apiThDesc: "Descri\u00e7\u00e3o",
+                apiFooterTagline: "\u2014 Feito por cultivadores, para cultivadores.",
+                footHome: "In\u00edcio",
+                footGuides: "Guias",
+                footFaq: "Suporte",
+                footCopy: "\u00a9 2026 GrowVPD Pro. Todos os direitos reservados."
+            },
+            pl: {
+                apiTitle: "GrowVPD Pro API",
+                apiSubtitle: "Darmowe, otwarte API do uprawy indoor. Bez klucza API.",
+                apiBadgeEndpoints: "18 endpoint\u00f3w",
+                apiBadgeNoAuth: "Bez uwierzytelniania",
+                apiCopy: "Kopiuj",
+                apiCopied: "Skopiowano!",
+                apiGettingStarted: "Pierwsze kroki",
+                apiQuickStart: "Szybki start",
+                apiQuickStartDesc: "API GrowVPD Pro jest ca\u0142kowicie darmowe i nie wymaga uwierzytelniania. Wszystkie endpointy zwracaj\u0105 JSON. Wy\u015blij zapytanie GET i gotowe.",
+                apiRateLimits: '<strong>Limity zapyta\u0144:</strong> Obecnie brak. B\u0105d\u017a rozs\u0105dny z ilo\u015bci\u0105 zapyta\u0144. Je\u015bli planujesz du\u017cy wolumen wywo\u0142a\u0144, skontaktuj si\u0119 z nami pod <a href="mailto:support@growvpd.pro" style="color:#2E7D32;font-weight:600;">support@growvpd.pro</a>.',
+                apiSidebarCoreVpd: "Podstawowe VPD",
+                apiSidebarLight: "\u015awiat\u0142o i DLI",
+                apiSidebarStages: "Fazy wzrostu",
+                apiSidebarDiag: "Diagnostyka",
+                apiSidebarNutrients: "Sk\u0142adniki i nawo\u017cenie",
+                apiSidebarEquip: "Wyposa\u017cenie",
+                apiSidebarUtil: "Narz\u0119dzia",
+                apiSecCoreVpd: "Podstawowe VPD",
+                apiSecLight: "\u015awiat\u0142o i DLI",
+                apiSecStages: "Fazy wzrostu",
+                apiSecDiag: "Diagnostyka",
+                apiSecNutrients: "Sk\u0142adniki i nawo\u017cenie",
+                apiSecEquip: "Wyposa\u017cenie i \u015brodowisko",
+                apiSecUtil: "Narz\u0119dzia",
+                apiTryIt: "Wypr\u00f3buj",
+                apiShowResponse: "Poka\u017c odpowied\u017a",
+                apiHideResponse: "Ukryj odpowied\u017a",
+                apiThParam: "Parametr",
+                apiThType: "Typ",
+                apiThDefault: "Domy\u015blnie",
+                apiThDesc: "Opis",
+                apiFooterTagline: "\u2014 Stworzone przez hodowc\u00f3w, dla hodowc\u00f3w.",
+                footHome: "Strona g\u0142\u00f3wna",
+                footGuides: "Poradniki",
+                footFaq: "Wsparcie",
+                footCopy: "\u00a9 2026 GrowVPD Pro. Wszelkie prawa zastrze\u017cone."
+            },
+            th: {
+                apiTitle: "GrowVPD Pro API",
+                apiSubtitle: "API \u0e1f\u0e23\u0e35\u0e41\u0e25\u0e30\u0e40\u0e1b\u0e34\u0e14\u0e2a\u0e33\u0e2b\u0e23\u0e31\u0e1a\u0e01\u0e32\u0e23\u0e1b\u0e25\u0e39\u0e01\u0e43\u0e19\u0e23\u0e48\u0e21 \u0e44\u0e21\u0e48\u0e15\u0e49\u0e2d\u0e07\u0e43\u0e0a\u0e49\u0e04\u0e35\u0e22\u0e4c API",
+                apiBadgeEndpoints: "18 \u0e08\u0e38\u0e14\u0e40\u0e0a\u0e37\u0e48\u0e2d\u0e21\u0e15\u0e48\u0e2d",
+                apiBadgeNoAuth: "\u0e44\u0e21\u0e48\u0e15\u0e49\u0e2d\u0e07\u0e22\u0e37\u0e19\u0e22\u0e31\u0e19\u0e15\u0e31\u0e27\u0e15\u0e19",
+                apiCopy: "\u0e04\u0e31\u0e14\u0e25\u0e2d\u0e01",
+                apiCopied: "\u0e04\u0e31\u0e14\u0e25\u0e2d\u0e01\u0e41\u0e25\u0e49\u0e27!",
+                apiGettingStarted: "\u0e40\u0e23\u0e34\u0e48\u0e21\u0e15\u0e49\u0e19\u0e43\u0e0a\u0e49\u0e07\u0e32\u0e19",
+                apiQuickStart: "\u0e40\u0e23\u0e34\u0e48\u0e21\u0e15\u0e49\u0e19\u0e2d\u0e22\u0e48\u0e32\u0e07\u0e23\u0e27\u0e14\u0e40\u0e23\u0e47\u0e27",
+                apiQuickStartDesc: "GrowVPD Pro API \u0e1f\u0e23\u0e35\u0e17\u0e31\u0e49\u0e07\u0e2b\u0e21\u0e14\u0e41\u0e25\u0e30\u0e44\u0e21\u0e48\u0e15\u0e49\u0e2d\u0e07\u0e22\u0e37\u0e19\u0e22\u0e31\u0e19\u0e15\u0e31\u0e27\u0e15\u0e19 \u0e17\u0e38\u0e01\u0e08\u0e38\u0e14\u0e40\u0e0a\u0e37\u0e48\u0e2d\u0e21\u0e15\u0e48\u0e2d\u0e2a\u0e48\u0e07\u0e04\u0e37\u0e19\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25 JSON \u0e40\u0e1e\u0e35\u0e22\u0e07\u0e2a\u0e48\u0e07\u0e04\u0e33\u0e02\u0e2d GET \u0e41\u0e25\u0e49\u0e27\u0e1e\u0e23\u0e49\u0e2d\u0e21\u0e43\u0e0a\u0e49\u0e07\u0e32\u0e19",
+                apiRateLimits: '<strong>\u0e02\u0e35\u0e14\u0e08\u0e33\u0e01\u0e31\u0e14\u0e01\u0e32\u0e23\u0e43\u0e0a\u0e49\u0e07\u0e32\u0e19:</strong> \u0e22\u0e31\u0e07\u0e44\u0e21\u0e48\u0e21\u0e35\u0e43\u0e19\u0e02\u0e13\u0e30\u0e19\u0e35\u0e49 \u0e42\u0e1b\u0e23\u0e14\u0e43\u0e0a\u0e49\u0e07\u0e32\u0e19\u0e2d\u0e22\u0e48\u0e32\u0e07\u0e2a\u0e21\u0e40\u0e2b\u0e15\u0e38\u0e2a\u0e21\u0e1c\u0e25 \u0e2b\u0e32\u0e01\u0e04\u0e38\u0e13\u0e27\u0e32\u0e07\u0e41\u0e1c\u0e19\u0e40\u0e23\u0e35\u0e22\u0e01\u0e43\u0e0a\u0e49\u0e07\u0e32\u0e19\u0e08\u0e33\u0e19\u0e27\u0e19\u0e21\u0e32\u0e01 \u0e01\u0e23\u0e38\u0e13\u0e32\u0e15\u0e34\u0e14\u0e15\u0e48\u0e2d\u0e17\u0e35\u0e48 <a href="mailto:support@growvpd.pro" style="color:#2E7D32;font-weight:600;">support@growvpd.pro</a>',
+                apiSidebarCoreVpd: "VPD \u0e1e\u0e37\u0e49\u0e19\u0e10\u0e32\u0e19",
+                apiSidebarLight: "\u0e41\u0e2a\u0e07\u0e41\u0e25\u0e30 DLI",
+                apiSidebarStages: "\u0e23\u0e30\u0e22\u0e30\u0e01\u0e32\u0e23\u0e40\u0e08\u0e23\u0e34\u0e0d\u0e40\u0e15\u0e34\u0e1a\u0e42\u0e15",
+                apiSidebarDiag: "\u0e01\u0e32\u0e23\u0e27\u0e34\u0e19\u0e34\u0e08\u0e09\u0e31\u0e22",
+                apiSidebarNutrients: "\u0e18\u0e32\u0e15\u0e38\u0e2d\u0e32\u0e2b\u0e32\u0e23\u0e41\u0e25\u0e30\u0e01\u0e32\u0e23\u0e43\u0e2b\u0e49\u0e1b\u0e38\u0e4b\u0e22",
+                apiSidebarEquip: "\u0e2d\u0e38\u0e1b\u0e01\u0e23\u0e13\u0e4c",
+                apiSidebarUtil: "\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e21\u0e37\u0e2d",
+                apiSecCoreVpd: "VPD \u0e1e\u0e37\u0e49\u0e19\u0e10\u0e32\u0e19",
+                apiSecLight: "\u0e41\u0e2a\u0e07\u0e41\u0e25\u0e30 DLI",
+                apiSecStages: "\u0e23\u0e30\u0e22\u0e30\u0e01\u0e32\u0e23\u0e40\u0e08\u0e23\u0e34\u0e0d\u0e40\u0e15\u0e34\u0e1a\u0e42\u0e15",
+                apiSecDiag: "\u0e01\u0e32\u0e23\u0e27\u0e34\u0e19\u0e34\u0e08\u0e09\u0e31\u0e22",
+                apiSecNutrients: "\u0e18\u0e32\u0e15\u0e38\u0e2d\u0e32\u0e2b\u0e32\u0e23\u0e41\u0e25\u0e30\u0e01\u0e32\u0e23\u0e43\u0e2b\u0e49\u0e1b\u0e38\u0e4b\u0e22",
+                apiSecEquip: "\u0e2d\u0e38\u0e1b\u0e01\u0e23\u0e13\u0e4c\u0e41\u0e25\u0e30\u0e2a\u0e20\u0e32\u0e1e\u0e41\u0e27\u0e14\u0e25\u0e49\u0e2d\u0e21",
+                apiSecUtil: "\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e21\u0e37\u0e2d",
+                apiTryIt: "\u0e25\u0e2d\u0e07\u0e43\u0e0a\u0e49",
+                apiShowResponse: "\u0e41\u0e2a\u0e14\u0e07\u0e01\u0e32\u0e23\u0e15\u0e2d\u0e1a\u0e01\u0e25\u0e31\u0e1a",
+                apiHideResponse: "\u0e0b\u0e48\u0e2d\u0e19\u0e01\u0e32\u0e23\u0e15\u0e2d\u0e1a\u0e01\u0e25\u0e31\u0e1a",
+                apiThParam: "\u0e1e\u0e32\u0e23\u0e32\u0e21\u0e34\u0e40\u0e15\u0e2d\u0e23\u0e4c",
+                apiThType: "\u0e1b\u0e23\u0e30\u0e40\u0e20\u0e17",
+                apiThDefault: "\u0e04\u0e48\u0e32\u0e40\u0e23\u0e34\u0e48\u0e21\u0e15\u0e49\u0e19",
+                apiThDesc: "\u0e04\u0e33\u0e2d\u0e18\u0e34\u0e1a\u0e32\u0e22",
+                apiFooterTagline: "\u2014 \u0e2a\u0e23\u0e49\u0e32\u0e07\u0e42\u0e14\u0e22\u0e1c\u0e39\u0e49\u0e1b\u0e25\u0e39\u0e01 \u0e40\u0e1e\u0e37\u0e48\u0e2d\u0e1c\u0e39\u0e49\u0e1b\u0e25\u0e39\u0e01",
+                footHome: "\u0e2b\u0e19\u0e49\u0e32\u0e41\u0e23\u0e01",
+                footGuides: "\u0e04\u0e39\u0e48\u0e21\u0e37\u0e2d",
+                footFaq: "\u0e2a\u0e19\u0e31\u0e1a\u0e2a\u0e19\u0e38\u0e19",
+                footCopy: "\u00a9 2026 GrowVPD Pro. \u0e2a\u0e07\u0e27\u0e19\u0e25\u0e34\u0e02\u0e2a\u0e34\u0e17\u0e18\u0e34\u0e4c\u0e17\u0e31\u0e49\u0e07\u0e2b\u0e21\u0e14"
+            },
+            he: {
+                apiTitle: "GrowVPD Pro API",
+                apiSubtitle: "API \u05d7\u05d9\u05e0\u05de\u05d9 \u05d5\u05e4\u05ea\u05d5\u05d7 \u05dc\u05d2\u05d9\u05d3\u05d5\u05dc \u05e4\u05e0\u05d9\u05de\u05d9. \u05dc\u05dc\u05d0 \u05de\u05e4\u05ea\u05d7 API.",
+                apiBadgeEndpoints: "18 \u05e0\u05e7\u05d5\u05d3\u05d5\u05ea \u05e7\u05e6\u05d4",
+                apiBadgeNoAuth: "\u05dc\u05dc\u05d0 \u05d0\u05d9\u05de\u05d5\u05ea",
+                apiCopy: "\u05d4\u05e2\u05ea\u05e7",
+                apiCopied: "\u05d4\u05d5\u05e2\u05ea\u05e7!",
+                apiGettingStarted: "\u05ea\u05d7\u05d9\u05dc\u05ea \u05d4\u05e2\u05d1\u05d5\u05d3\u05d4",
+                apiQuickStart: "\u05d4\u05ea\u05d7\u05dc\u05d4 \u05de\u05d4\u05d9\u05e8\u05d4",
+                apiQuickStartDesc: "\u05d4-API \u05e9\u05dc GrowVPD Pro \u05d7\u05d9\u05e0\u05de\u05d9 \u05dc\u05d7\u05dc\u05d5\u05d8\u05d9\u05df \u05d5\u05dc\u05d0 \u05d3\u05d5\u05e8\u05e9 \u05d0\u05d9\u05de\u05d5\u05ea. \u05db\u05dc \u05e0\u05e7\u05d5\u05d3\u05d5\u05ea \u05d4\u05e7\u05e6\u05d4 \u05de\u05d7\u05d6\u05d9\u05e8\u05d5\u05ea JSON. \u05e4\u05e9\u05d5\u05d8 \u05e9\u05dc\u05d7 \u05d1\u05e7\u05e9\u05ea GET \u05d5\u05d0\u05ea\u05d4 \u05de\u05d5\u05db\u05df.",
+                apiRateLimits: '<strong>\u05de\u05d2\u05d1\u05dc\u05d5\u05ea \u05e9\u05d9\u05de\u05d5\u05e9:</strong> \u05d0\u05d9\u05df \u05db\u05e8\u05d2\u05e2. \u05d4\u05d9\u05d5 \u05e1\u05d1\u05d9\u05e8\u05d9\u05dd \u05e2\u05dd \u05d4\u05d1\u05e7\u05e9\u05d5\u05ea. \u05d0\u05dd \u05d0\u05ea\u05dd \u05de\u05ea\u05db\u05e0\u05e0\u05d9\u05dd \u05e9\u05d9\u05de\u05d5\u05e9 \u05de\u05d0\u05e1\u05d9\u05d1\u05d9, \u05e6\u05e8\u05d5 \u05e7\u05e9\u05e8 \u05d1 <a href="mailto:support@growvpd.pro" style="color:#2E7D32;font-weight:600;">support@growvpd.pro</a>.',
+                apiSidebarCoreVpd: "VPD \u05d1\u05e1\u05d9\u05e1\u05d9",
+                apiSidebarLight: "\u05ea\u05d0\u05d5\u05e8\u05d4 \u05d5-DLI",
+                apiSidebarStages: "\u05e9\u05dc\u05d1\u05d9 \u05d2\u05d9\u05d3\u05d5\u05dc",
+                apiSidebarDiag: "\u05d0\u05d1\u05d7\u05d5\u05df",
+                apiSidebarNutrients: "\u05d3\u05e9\u05df \u05d5\u05d4\u05d6\u05e0\u05d4",
+                apiSidebarEquip: "\u05e6\u05d9\u05d5\u05d3",
+                apiSidebarUtil: "\u05db\u05dc\u05d9 \u05e2\u05d6\u05e8",
+                apiSecCoreVpd: "VPD \u05d1\u05e1\u05d9\u05e1\u05d9",
+                apiSecLight: "\u05ea\u05d0\u05d5\u05e8\u05d4 \u05d5-DLI",
+                apiSecStages: "\u05e9\u05dc\u05d1\u05d9 \u05d2\u05d9\u05d3\u05d5\u05dc",
+                apiSecDiag: "\u05d0\u05d1\u05d7\u05d5\u05df",
+                apiSecNutrients: "\u05d3\u05e9\u05df \u05d5\u05d4\u05d6\u05e0\u05d4",
+                apiSecEquip: "\u05e6\u05d9\u05d5\u05d3 \u05d5\u05e1\u05d1\u05d9\u05d1\u05d4",
+                apiSecUtil: "\u05db\u05dc\u05d9 \u05e2\u05d6\u05e8",
+                apiTryIt: "\u05e0\u05e1\u05d4",
+                apiShowResponse: "\u05d4\u05e6\u05d2 \u05ea\u05d2\u05d5\u05d1\u05d4",
+                apiHideResponse: "\u05d4\u05e1\u05ea\u05e8 \u05ea\u05d2\u05d5\u05d1\u05d4",
+                apiThParam: "\u05e4\u05e8\u05de\u05d8\u05e8",
+                apiThType: "\u05e1\u05d5\u05d2",
+                apiThDefault: "\u05d1\u05e8\u05d9\u05e8\u05ea \u05de\u05d7\u05d3\u05dc",
+                apiThDesc: "\u05ea\u05d9\u05d0\u05d5\u05e8",
+                apiFooterTagline: "\u2014 \u05e0\u05d1\u05e0\u05d4 \u05e2\u05dc \u05d9\u05d3\u05d9 \u05de\u05d2\u05d3\u05dc\u05d9\u05dd, \u05dc\u05de\u05d2\u05d3\u05dc\u05d9\u05dd.",
+                footHome: "\u05d3\u05e3 \u05d4\u05d1\u05d9\u05ea",
+                footGuides: "\u05de\u05d3\u05e8\u05d9\u05db\u05d9\u05dd",
+                footFaq: "\u05ea\u05de\u05d9\u05db\u05d4",
+                footCopy: "\u00a9 2026 GrowVPD Pro. \u05db\u05dc \u05d4\u05d6\u05db\u05d5\u05d9\u05d5\u05ea \u05e9\u05de\u05d5\u05e8\u05d5\u05ea."
+            }
+        };
+
+        // Apply API docs translations on top of the main i18n system
+        function applyApiDocTranslations() {
+            var lang = 'en';
+            var urlParams = new URLSearchParams(window.location.search);
+            var urlLang = urlParams.get('lang');
+            if (urlLang && API_DOC_TRANSLATIONS[urlLang]) {
+                lang = urlLang;
+            } else {
+                var stored = localStorage.getItem('growvpd-lang');
+                if (stored && API_DOC_TRANSLATIONS[stored]) {
+                    lang = stored;
+                } else {
+                    var nav = (navigator.language || navigator.userLanguage || 'en').split('-')[0].toLowerCase();
+                    if (API_DOC_TRANSLATIONS[nav]) lang = nav;
+                }
+            }
+
+            var t = API_DOC_TRANSLATIONS[lang];
+            var fallback = API_DOC_TRANSLATIONS['en'];
+            if (!t) t = fallback;
+
+            // Apply text translations to data-i18n elements
+            document.querySelectorAll('[data-i18n]').forEach(function(el) {
+                var key = el.getAttribute('data-i18n');
+                if (t[key] != null) el.textContent = t[key];
+                else if (fallback[key] != null) el.textContent = fallback[key];
+            });
+
+            // Apply HTML translations to data-i18n-html elements
+            document.querySelectorAll('[data-i18n-html]').forEach(function(el) {
+                var key = el.getAttribute('data-i18n-html');
+                if (t[key] != null) el.innerHTML = t[key];
+                else if (fallback[key] != null) el.innerHTML = fallback[key];
+            });
+
+            // Store the current language translations for use by copy/toggle functions
+            window._apiDocLang = t;
+            window._apiDocFallback = fallback;
+
+            // Handle RTL for Hebrew
+            if (lang === 'he') {
+                document.documentElement.dir = 'rtl';
+            }
+        }
+
+        // Override the copyBase function to use translated "Copied!" text
+        var origCopyBase = window.copyBase;
+        window.copyBase = function() {
+            var url = document.getElementById('baseUrl').textContent;
+            var t = window._apiDocLang || {};
+            var fb = window._apiDocFallback || {};
+            var copiedText = t.apiCopied || fb.apiCopied || 'Copied!';
+            var copyText = t.apiCopy || fb.apiCopy || 'Copy';
+            navigator.clipboard.writeText(url).then(function() {
+                var btn = document.getElementById('copyBaseBtn');
+                btn.textContent = copiedText;
+                setTimeout(function() { btn.textContent = copyText; }, 1500);
+            });
+        };
+
+        // Override the copyCode function to use translated "Copied!" text
+        var origCopyCode = window.copyCode;
+        window.copyCode = function(id) {
+            var el = document.getElementById(id);
+            if (!el) return;
+            var text = el.textContent;
+            var t = window._apiDocLang || {};
+            var fb = window._apiDocFallback || {};
+            var copiedText = t.apiCopied || fb.apiCopied || 'Copied!';
+            var copyText = t.apiCopy || fb.apiCopy || 'Copy';
+            navigator.clipboard.writeText(text).then(function() {
+                var btn = el.closest('.example-content, .qs-code-block').querySelector('.copy-btn');
+                if (btn) {
+                    btn.textContent = copiedText;
+                    setTimeout(function() { btn.textContent = copyText; }, 1500);
+                }
+            });
+        };
+
+        // Override the toggleExample function to swap Show/Hide text
+        var origToggleExample = window.toggleExample;
+        window.toggleExample = function(btn) {
+            btn.classList.toggle('open');
+            var content = btn.closest('.endpoint-card').querySelector('.example-content');
+            if (content) content.classList.toggle('open');
+            var t = window._apiDocLang || {};
+            var fb = window._apiDocFallback || {};
+            var span = btn.querySelector('[data-i18n="apiShowResponse"]');
+            if (span) {
+                if (btn.classList.contains('open')) {
+                    span.textContent = t.apiHideResponse || fb.apiHideResponse || 'Hide response';
+                } else {
+                    span.textContent = t.apiShowResponse || fb.apiShowResponse || 'Show response';
+                }
+            }
+        };
+
+        // Run after the main i18n system has initialized, or on DOMContentLoaded
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', function() {
+                // Delay slightly so main i18n.js runs first
+                setTimeout(applyApiDocTranslations, 10);
+            });
+        } else {
+            setTimeout(applyApiDocTranslations, 10);
+        }
+
+        // Also re-apply when language changes via the switcher
+        var origApplyLang = window.applyLang;
+        if (typeof origApplyLang === 'function') {
+            window.applyLang = function(lang) {
+                origApplyLang(lang);
+                applyApiDocTranslations();
+            };
+        }
+    })();
     </script>
 </body>
 </html>
