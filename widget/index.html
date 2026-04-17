@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://growvpd.pro; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://api.growvpd.pro; base-uri 'self'; form-action 'self';">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free VPD Calculator Widget — GrowVPD Pro</title>
+    <meta name="description" content="Add a free, professional VPD calculator widget to your grow blog, forum, or website. One line of code, no API key, beautiful responsive design. Free forever.">
+    <meta name="keywords" content="vpd calculator widget, vpd widget, embeddable vpd chart, grow blog widget, free vpd tool, vpd calculator embed">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Free VPD Calculator Widget — GrowVPD Pro">
+    <meta property="og:description" content="Add a professional VPD calculator to your grow blog, forum, or website. One line of code. Free forever.">
+    <meta property="og:image" content="https://growvpd.pro/images/og-image.png">
+    <meta property="og:url" content="https://growvpd.pro/widget/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="icon" type="image/png" href="../images/favicon.png">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="canonical" href="https://growvpd.pro/widget/">
+    <link rel="alternate" hreflang="en" href="https://growvpd.pro/widget/">
+    <link rel="alternate" hreflang="cs" href="https://growvpd.pro/widget/?lang=cs">
+    <link rel="alternate" hreflang="de" href="https://growvpd.pro/widget/?lang=de">
+    <link rel="alternate" hreflang="es" href="https://growvpd.pro/widget/?lang=es">
+    <link rel="alternate" hreflang="nl" href="https://growvpd.pro/widget/?lang=nl">
+    <link rel="alternate" hreflang="fr" href="https://growvpd.pro/widget/?lang=fr">
+    <link rel="alternate" hreflang="it" href="https://growvpd.pro/widget/?lang=it">
+    <link rel="alternate" hreflang="pt" href="https://growvpd.pro/widget/?lang=pt">
+    <link rel="alternate" hreflang="pl" href="https://growvpd.pro/widget/?lang=pl">
+    <link rel="alternate" hreflang="th" href="https://growvpd.pro/widget/?lang=th">
+    <link rel="alternate" hreflang="he" href="https://growvpd.pro/widget/?lang=he">
+    <link rel="alternate" hreflang="x-default" href="https://growvpd.pro/widget/">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/forum.css">
+
+    <style>
+        /* ── Widget page styles ── */
+        .widget-hero {
+            position: relative;
+            padding: 130px 0 90px;
+            background: #080C08;
+            overflow: hidden;
+            text-align: center;
+        }
+        .widget-hero .hero-glow { position: absolute; border-radius: 50%; filter: blur(140px); pointer-events: none; }
+        .widget-hero .hero-glow-1 { width: 700px; height: 700px; top: -250px; right: -150px; background: radial-gradient(circle, rgba(46,125,50,.3), transparent 70%); }
+        .widget-hero .hero-glow-2 { width: 600px; height: 600px; bottom: -300px; left: -200px; background: radial-gradient(circle, rgba(0,137,123,.2), transparent 70%); }
+        .widget-hero .hero-grid-bg { position: absolute; inset: 0; background-image: linear-gradient(rgba(46,125,50,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(46,125,50,.05) 1px, transparent 1px); background-size: 60px 60px; pointer-events: none; }
+
+        .widget-hero .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(46,125,50,.12); border: 1px solid rgba(46,125,50,.2); color: #81C784; padding: 6px 18px; border-radius: 100px; font-size: .82rem; font-weight: 600; margin-bottom: 22px; }
+        .widget-hero .badge-dot { width: 6px; height: 6px; border-radius: 50%; background: #4CAF50; animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .4; } }
+
+        .widget-hero h1 { font-size: clamp(2.4rem, 5vw, 3.8rem); font-weight: 900; color: #fff; line-height: 1.1; margin-bottom: 22px; letter-spacing: -.02em; position: relative; z-index: 1; }
+        .widget-hero .hero-tagline { font-size: 1.12rem; color: rgba(255,255,255,.55); max-width: 680px; margin: 0 auto 0; line-height: 1.75; position: relative; z-index: 1; }
+
+        /* Sections */
+        .section { padding: 80px 0; }
+        .section-alt { background: #F8FBF8; }
+        .section-dark { background: #0D140D; }
+        .section-label { display: inline-block; font-size: .78rem; font-weight: 700; color: #2E7D32; text-transform: uppercase; letter-spacing: .12em; background: rgba(46,125,50,.08); padding: 5px 14px; border-radius: 100px; margin-bottom: 14px; }
+        .section-title { font-size: clamp(1.6rem, 3vw, 2.3rem); font-weight: 800; color: #1B5E20; margin-bottom: 14px; }
+        .section-title-light { color: #fff; }
+        .section-sub { font-size: 1rem; color: #546E7A; max-width: 640px; line-height: 1.7; }
+        .section-sub-light { color: rgba(255,255,255,.55); }
+        .text-center { text-align: center; margin-left: auto; margin-right: auto; }
+
+        /* Live demo area */
+        .demo-wrapper {
+            max-width: 800px;
+            margin: 48px auto 0;
+            background: #fff;
+            border: 2px solid #E8F5E9;
+            border-radius: 20px;
+            padding: 32px;
+            box-shadow: 0 20px 60px rgba(46,125,50,.08);
+        }
+        .demo-label {
+            display: inline-flex; align-items: center; gap: 6px;
+            font-size: .75rem; font-weight: 700; color: #2E7D32;
+            text-transform: uppercase; letter-spacing: .1em;
+            margin-bottom: 20px;
+        }
+        .demo-dot { width: 8px; height: 8px; border-radius: 50%; background: #4CAF50; animation: pulse 2s infinite; }
+
+        /* Code blocks */
+        .code-block {
+            position: relative;
+            background: #0D1A0D;
+            border: 1px solid rgba(46,125,50,.2);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin-top: 16px;
+            overflow-x: auto;
+        }
+        .code-block code {
+            font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+            font-size: .88rem;
+            color: #A5D6A7;
+            line-height: 1.7;
+            white-space: pre;
+            display: block;
+        }
+        .code-block .copy-btn {
+            position: absolute;
+            top: 12px; right: 12px;
+            background: rgba(255,255,255,.08);
+            border: 1px solid rgba(255,255,255,.12);
+            color: rgba(255,255,255,.7);
+            padding: 5px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: .75rem;
+            font-weight: 600;
+            transition: all .2s;
+        }
+        .code-block .copy-btn:hover { background: rgba(255,255,255,.15); color: #fff; }
+        .code-block-label {
+            font-size: .72rem; font-weight: 700; color: #81C784;
+            text-transform: uppercase; letter-spacing: .08em;
+            margin-bottom: 8px;
+        }
+
+        /* Configuration options */
+        .config-grid { display: grid; grid-template-columns: 1fr; gap: 32px; margin-top: 40px; max-width: 800px; margin-left: auto; margin-right: auto; }
+        .config-card {
+            background: #fff;
+            border: 1.5px solid #E8F5E9;
+            border-radius: 16px;
+            padding: 28px;
+            transition: all .2s;
+        }
+        .config-card:hover { border-color: #A5D6A7; box-shadow: 0 8px 30px rgba(46,125,50,.08); }
+        .config-card h3 { font-size: 1.05rem; font-weight: 700; color: #1B5E20; margin-bottom: 8px; }
+        .config-card p { font-size: .9rem; color: #546E7A; line-height: 1.6; margin-bottom: 16px; }
+        .config-attr {
+            display: inline-block;
+            font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+            font-size: .82rem; font-weight: 600;
+            background: rgba(46,125,50,.06);
+            color: #2E7D32;
+            padding: 2px 10px;
+            border-radius: 6px;
+            margin-bottom: 12px;
+        }
+
+        /* Benefits grid */
+        .benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-top: 46px; }
+        .benefit-card {
+            background: rgba(255,255,255,.04);
+            border: 1px solid rgba(255,255,255,.08);
+            border-radius: 16px;
+            padding: 28px 24px;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            transition: all .2s;
+        }
+        .benefit-card:hover { border-color: rgba(76,175,80,.3); background: rgba(46,125,50,.06); }
+        .benefit-icon {
+            width: 44px; height: 44px; min-width: 44px;
+            border-radius: 12px;
+            background: rgba(46,125,50,.15);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.2rem;
+        }
+        .benefit-card h3 { font-size: .95rem; font-weight: 700; color: #fff; margin-bottom: 6px; }
+        .benefit-card p { font-size: .87rem; color: rgba(255,255,255,.5); line-height: 1.65; }
+
+        /* API link section */
+        .api-link-section {
+            background: linear-gradient(135deg, #1B5E20, #0D3B14);
+            padding: 80px 0;
+            text-align: center;
+        }
+        .api-link-section h2 {
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 14px;
+        }
+        .api-link-section p {
+            font-size: 1.05rem;
+            color: rgba(255,255,255,.6);
+            max-width: 560px;
+            margin: 0 auto 36px;
+            line-height: 1.7;
+        }
+        .btn-outline-light {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 14px 32px;
+            border: 2px solid rgba(255,255,255,.25);
+            border-radius: 12px;
+            color: #fff;
+            font-size: .95rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all .2s;
+            background: rgba(255,255,255,.05);
+        }
+        .btn-outline-light:hover { background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.4); }
+
+        /* Embed intro code block in hero area */
+        .hero-embed-bar {
+            max-width: 560px; margin: 36px auto 0; display: flex; align-items: center;
+            background: rgba(0,0,0,.35); border: 1px solid rgba(255,255,255,.1);
+            border-radius: 12px; padding: 14px 18px; gap: 10px; backdrop-filter: blur(10px);
+            position: relative; z-index: 1;
+        }
+        .hero-embed-label { font-size: .72rem; font-weight: 700; color: #81C784; text-transform: uppercase; letter-spacing: .08em; white-space: nowrap; }
+        .hero-embed-code {
+            font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+            font-size: .82rem; color: rgba(255,255,255,.85); word-break: break-all; flex: 1;
+        }
+        .hero-embed-copy {
+            background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.12);
+            color: rgba(255,255,255,.7); padding: 6px 12px; border-radius: 6px; cursor: pointer;
+            font-size: .75rem; font-weight: 600; transition: all .2s; white-space: nowrap; margin-left: auto;
+        }
+        .hero-embed-copy:hover { background: rgba(255,255,255,.15); color: #fff; }
+
+        /* Footer */
+        .widget-footer {
+            background: #080C08;
+            border-top: 1px solid rgba(46,125,50,.12);
+            padding: 40px 0 32px;
+            text-align: center;
+        }
+        .widget-footer-brand {
+            display: flex; align-items: center; justify-content: center;
+            gap: 10px; margin-bottom: 20px; color: #fff; font-size: .95rem;
+        }
+        .widget-footer-brand strong { font-weight: 700; }
+        .widget-footer-brand span { color: rgba(255,255,255,.4); }
+        .widget-footer-links {
+            display: flex; flex-wrap: wrap; justify-content: center;
+            gap: 8px 24px; margin-bottom: 20px;
+        }
+        .widget-footer-links a {
+            font-size: .85rem; color: rgba(255,255,255,.45);
+            text-decoration: none; transition: color .15s;
+        }
+        .widget-footer-links a:hover { color: #81C784; }
+        .widget-footer-copy { font-size: .78rem; color: rgba(255,255,255,.25); }
+
+        /* Primary embed code section */
+        .embed-section { max-width: 800px; margin: 0 auto; }
+        .embed-section .section-title { margin-bottom: 10px; }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            .widget-hero { padding: 110px 0 60px; }
+            .demo-wrapper { padding: 16px; margin-top: 32px; }
+            .hero-embed-bar { flex-direction: column; align-items: stretch; gap: 8px; padding: 12px 14px; }
+            .hero-embed-copy { margin-left: 0; text-align: center; }
+            .config-card { padding: 20px; }
+            .benefits-grid { grid-template-columns: 1fr; }
+        }
+
+        /* RTL support */
+        [dir="rtl"] .hero-embed-copy { margin-left: 0; margin-right: auto; }
+        [dir="rtl"] .code-block .copy-btn { right: auto; left: 12px; }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="../index.html" class="nav-brand">
+                <svg class="nav-logo" viewBox="0 0 32 32" width="28" height="28">
+                    <circle cx="16" cy="16" r="16" fill="#2E7D32"/>
+                    <path d="M16 6c0 0-6 4-6 12 0 4 2.5 7 6 8 3.5-1 6-4 6-8 0-8-6-12-6-12z" fill="#81C784"/>
+                    <path d="M16 10c0 0-3 3-3 8 0 2.5 1.2 4.5 3 5.2 1.8-.7 3-2.7 3-5.2 0-5-3-8-3-8z" fill="#A5D6A7"/>
+                </svg>
+                <span>GrowVPD Pro</span>
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../index.html#features" data-i18n="navFeatures">Features</a></li>
+                <li><a href="../guides/index.html" data-i18n="navGuides">Guides</a></li>
+                <li><a href="../docs/index.html" data-i18n="navApi">API</a></li>
+                <li><a href="../partnership/index.html" data-i18n="navPartnership">Partnerships</a></li>
+                <li><a href="../support/index.html" data-i18n="navFaq">FAQ</a></li>
+                <li><a href="../index.html#download" class="nav-cta" data-i18n="navDownload">Download</a></li>
+            </ul>
+        </div>
+    </nav>
+    <script>
+    document.getElementById('navToggle')?.addEventListener('click',function(){this.classList.toggle('active');document.getElementById('navLinks').classList.toggle('active')});
+    window.addEventListener('scroll',function(){document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>20)},{passive:true});
+    </script>
+
+    <!-- ══════════════ HERO ══════════════ -->
+    <section class="widget-hero">
+        <div class="hero-glow hero-glow-1"></div>
+        <div class="hero-glow hero-glow-2"></div>
+        <div class="hero-grid-bg"></div>
+        <div class="container" style="position:relative;z-index:1;">
+            <div class="hero-badge">
+                <span class="badge-dot"></span>
+                <span>Free &amp; Open</span>
+            </div>
+            <h1>
+                <span>Free </span><span class="text-gradient">VPD Calculator</span><br>
+                <span>Widget</span>
+            </h1>
+            <p class="hero-tagline">
+                Add a professional VPD calculator to your grow blog, forum, or website. One line of code. Free forever.
+            </p>
+
+            <div class="hero-embed-bar">
+                <span class="hero-embed-label">Embed</span>
+                <span class="hero-embed-code" id="heroEmbedCode">&lt;script src="https://growvpd.pro/widget.js"&gt;&lt;/script&gt;</span>
+                <button class="hero-embed-copy" onclick="copyEmbed('heroEmbedCode', this)">Copy</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════ LIVE DEMO ══════════════ -->
+    <section class="section">
+        <div class="container">
+            <div class="text-center">
+                <span class="section-label">Live Preview</span>
+                <h2 class="section-title">Try the Widget</h2>
+                <p class="section-sub text-center">This is exactly how the widget looks and works when embedded on your site. Fully interactive, responsive, and ready to use.</p>
+            </div>
+            <div class="demo-wrapper">
+                <div class="demo-label">
+                    <span class="demo-dot"></span>
+                    Live Demo
+                </div>
+                <div id="vpd-widget-demo">
+                    <script src="../widget.js"></script>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════ HOW TO EMBED ══════════════ -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="embed-section">
+                <div class="text-center">
+                    <span class="section-label">Quick Start</span>
+                    <h2 class="section-title">How to Embed</h2>
+                    <p class="section-sub text-center">Add this single line of code anywhere in your HTML. The widget will render automatically.</p>
+                </div>
+
+                <div class="code-block" style="margin-top: 32px;">
+                    <span class="code-block-label">HTML</span>
+                    <button class="copy-btn" onclick="copyEmbed('embedCode1', this)">Copy</button>
+                    <code id="embedCode1">&lt;script src="https://growvpd.pro/widget.js"&gt;&lt;/script&gt;</code>
+                </div>
+
+                <p style="font-size:.9rem;color:#546E7A;margin-top:20px;line-height:1.7;text-align:center;">
+                    Paste this into your page's HTML where you want the calculator to appear. No registration, no API key, no dependencies.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════ CONFIGURATION OPTIONS ══════════════ -->
+    <section class="section">
+        <div class="container">
+            <div class="text-center">
+                <span class="section-label">Customize</span>
+                <h2 class="section-title">Configuration Options</h2>
+                <p class="section-sub text-center">Use data attributes to customize the widget's behavior and appearance.</p>
+            </div>
+
+            <div class="config-grid">
+
+                <!-- Dark mode -->
+                <div class="config-card">
+                    <span class="config-attr">data-theme="dark"</span>
+                    <h3>Dark Mode</h3>
+                    <p>Switch the widget to a dark color scheme. Ideal for forums and sites with dark backgrounds.</p>
+                    <div class="code-block">
+                        <button class="copy-btn" onclick="copyEmbed('embedDark', this)">Copy</button>
+                        <code id="embedDark">&lt;script src="https://growvpd.pro/widget.js" data-theme="dark"&gt;&lt;/script&gt;</code>
+                    </div>
+                </div>
+
+                <!-- Custom target -->
+                <div class="config-card">
+                    <span class="config-attr">data-target="vpd"</span>
+                    <h3>Custom Container</h3>
+                    <p>Render the widget inside a specific element by providing its ID. This gives you full control over placement and layout.</p>
+                    <div class="code-block">
+                        <button class="copy-btn" onclick="copyEmbed('embedTarget', this)">Copy</button>
+                        <code id="embedTarget">&lt;div id="vpd"&gt;&lt;/div&gt;
+&lt;script src="https://growvpd.pro/widget.js" data-target="vpd"&gt;&lt;/script&gt;</code>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════ WHY ADD THIS WIDGET (dark) ══════════════ -->
+    <section class="section section-dark">
+        <div class="container">
+            <div class="text-center">
+                <span class="section-label">Benefits</span>
+                <h2 class="section-title section-title-light">Why Add This Widget?</h2>
+                <p class="section-sub section-sub-light text-center">Give your visitors a genuinely useful tool, and keep them on your site longer.</p>
+            </div>
+
+            <div class="benefits-grid">
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#81C784" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12l2.5 2.5L16 9"/></svg>
+                    </div>
+                    <div>
+                        <h3>Free Forever, No API Key</h3>
+                        <p>No sign-up, no authentication, no usage limits. Embed it and forget about it.</p>
+                    </div>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#81C784" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                    </div>
+                    <div>
+                        <h3>Adds Value to Your Content</h3>
+                        <p>Turn passive readers into engaged visitors with an interactive tool they will actually use and bookmark.</p>
+                    </div>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#81C784" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+                    </div>
+                    <div>
+                        <h3>Beautiful, Responsive Design</h3>
+                        <p>Looks great on desktop, tablet, and mobile. Adapts to light and dark themes seamlessly.</p>
+                    </div>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#81C784" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                    </div>
+                    <div>
+                        <h3>Real-Time VPD Calculation</h3>
+                        <p>Instant VPD results with grow stage analysis. Covers seedling, vegetative, and flowering phases.</p>
+                    </div>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#81C784" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+                    </div>
+                    <div>
+                        <h3>Links to Growing Guides</h3>
+                        <p>Connects visitors to comprehensive VPD and growing resources, driving deeper engagement.</p>
+                    </div>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#81C784" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                    </div>
+                    <div>
+                        <h3>Lightweight &amp; Fast</h3>
+                        <p>Minimal footprint. Loads asynchronously so it never slows down your page.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════ ALSO AVAILABLE: FREE API ══════════════ -->
+    <section class="api-link-section">
+        <div class="container">
+            <h2>Also Available: Free API</h2>
+            <p>Need more control? Our REST API gives you 18 endpoints for VPD, light/DLI, diagnostics, nutrients, equipment, and more. No API key required.</p>
+            <a href="../docs/index.html" class="btn-outline-light">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                Explore API Documentation
+            </a>
+        </div>
+    </section>
+
+    <!-- ══════════════ FOOTER ══════════════ -->
+    <footer class="widget-footer">
+        <div class="container">
+            <div class="widget-footer-brand">
+                <svg viewBox="0 0 32 32" width="22" height="22"><circle cx="16" cy="16" r="16" fill="#2E7D32"/><path d="M16 6c0 0-6 4-6 12 0 4 2.5 7 6 8 3.5-1 6-4 6-8 0-8-6-12-6-12z" fill="#81C784"/></svg>
+                <strong>GrowVPD Pro</strong>
+                <span>&mdash; Built by growers, for growers.</span>
+            </div>
+            <div class="widget-footer-links">
+                <a href="../index.html" data-i18n="footHome">Home</a>
+                <a href="../index.html#download" data-i18n="navDownload">Download App</a>
+                <a href="../docs/index.html" data-i18n="navApi">API Docs</a>
+                <a href="../guides/index.html" data-i18n="footGuides">Guides</a>
+                <a href="../support/index.html" data-i18n="footFaq">Support</a>
+                <a href="https://discord.gg/growvpd" target="_blank" rel="noopener noreferrer">Discord</a>
+                <a href="https://t.me/growvpd" target="_blank" rel="noopener noreferrer">Telegram</a>
+                <a href="mailto:support@growvpd.pro">support@growvpd.pro</a>
+            </div>
+            <div class="widget-footer-copy" data-i18n="footCopy">&copy; 2026 GrowVPD Pro. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <script src="../js/translations.js"></script>
+    <script src="../js/i18n.js"></script>
+    <script>
+    /* Copy embed code to clipboard */
+    function copyEmbed(id, btn) {
+        var el = document.getElementById(id);
+        if (!el) return;
+        var text = el.textContent;
+        navigator.clipboard.writeText(text).then(function() {
+            var original = btn.textContent;
+            btn.textContent = 'Copied!';
+            setTimeout(function() { btn.textContent = original; }, 1500);
+        });
+    }
+    </script>
+</body>
+</html>
