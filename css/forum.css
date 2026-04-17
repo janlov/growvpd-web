@@ -382,11 +382,26 @@
 }
 
 /* === GENERAL DISCUSSION (Giscus) === */
+/* === FULL-WIDTH SECTION (Discussion + Testing) === */
+.forum-fullwidth {
+    margin-top: 40px;
+    padding-top: 40px;
+    border-top: 1px solid #ECEFF1;
+}
+.forum-fullwidth-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    align-items: start;
+}
 .general-discussion {
     background: #fff;
     border: 1px solid #ECEFF1;
     border-radius: 16px;
-    padding: 24px;
+    padding: 28px 32px;
+}
+.general-discussion .section-title h2 {
+    font-size: 1.15rem;
 }
 .giscus-container {
     min-height: 200px;
@@ -798,6 +813,9 @@
     }
     .discord-widget-card {
         grid-column: 1 / -1;
+    }
+    .forum-fullwidth-grid {
+        grid-template-columns: 1fr;
     }
 }
 
