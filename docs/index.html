@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://giscus.app; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://giscus.app https://discord.com; connect-src 'self' https://giscus.app http://129.153.159.197:8080; base-uri 'self'; form-action 'self';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://giscus.app; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://giscus.app https://discord.com; connect-src 'self' https://giscus.app https://api.growvpd.pro; base-uri 'self'; form-action 'self';">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -338,7 +338,7 @@ window.addEventListener('scroll',function(){document.getElementById('navbar').cl
             </div>
             <div class="base-url-bar">
                 <span class="base-url-label">Base URL</span>
-                <code class="base-url-value" id="baseUrl">http://129.153.159.197:8080</code>
+                <code class="base-url-value" id="baseUrl">https://api.growvpd.pro</code>
                 <button class="base-url-copy" onclick="copyBase()" id="copyBaseBtn">Copy</button>
             </div>
         </div>
@@ -407,7 +407,7 @@ window.addEventListener('scroll',function(){document.getElementById('navbar').cl
 
                     <div class="info-box note">
                         <span class="info-icon">&#9432;</span>
-                        <div>The API is currently served at <code>http://129.153.159.197:8080</code>. This will transition to <code>https://api.growvpd.pro</code> in the near future. All endpoint paths will remain identical.</div>
+                        <div>The API is currently served at <code>https://api.growvpd.pro</code>. This will transition to <code>https://api.growvpd.pro</code> in the near future. All endpoint paths will remain identical.</div>
                     </div>
 
                     <div class="quickstart-tabs">
@@ -421,17 +421,17 @@ window.addEventListener('scroll',function(){document.getElementById('navbar').cl
                             <button class="copy-btn" onclick="copyCode('code-curl')">Copy</button>
                         </div>
                         <pre class="example-pre" id="code-curl"><span class="comment"># Calculate VPD for 25C and 60% humidity</span>
-curl "http://129.153.159.197:8080/v1/vpd?temp=25&humidity=60"
+curl "https://api.growvpd.pro/v1/vpd?temp=25&humidity=60"
 
 <span class="comment"># Get environment targets for mid-flower stage</span>
-curl "http://129.153.159.197:8080/v1/stage?stage=mid_flower&medium=coco"</pre>
+curl "https://api.growvpd.pro/v1/stage?stage=mid_flower&medium=coco"</pre>
                     </div>
                     <div class="qs-code-block" id="tab-js">
                         <div class="example-header">
                             <span class="example-label">JavaScript</span>
                             <button class="copy-btn" onclick="copyCode('code-js')">Copy</button>
                         </div>
-                        <pre class="example-pre" id="code-js"><span class="key">const</span> BASE = <span class="str">"http://129.153.159.197:8080"</span>;
+                        <pre class="example-pre" id="code-js"><span class="key">const</span> BASE = <span class="str">"https://api.growvpd.pro"</span>;
 
 <span class="key">async function</span> <span class="num">getVPD</span>(temp, humidity) {
   <span class="key">const</span> res = <span class="key">await</span> <span class="num">fetch</span>(
@@ -452,7 +452,7 @@ console.<span class="num">log</span>(data.status);  <span class="comment">// "sl
                         </div>
                         <pre class="example-pre" id="code-python"><span class="key">import</span> requests
 
-BASE = <span class="str">"http://129.153.159.197:8080"</span>
+BASE = <span class="str">"https://api.growvpd.pro"</span>
 
 <span class="key">def</span> <span class="num">get_vpd</span>(temp, humidity):
     r = requests.<span class="num">get</span>(f<span class="str">"{BASE}/v1/vpd"</span>, params={
@@ -495,7 +495,7 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                         </tbody>
                     </table>
                     <div class="endpoint-actions">
-                        <a href="http://129.153.159.197:8080/v1/vpd?temp=25&humidity=60" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Try it</a>
+                        <a href="https://api.growvpd.pro/v1/vpd?temp=25&humidity=60" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Try it</a>
                         <button class="example-toggle" onclick="toggleExample(this)"><span class="chevron">&#9654;</span> Example response</button>
                     </div>
                     <div class="example-content">
@@ -543,7 +543,7 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                         </tbody>
                     </table>
                     <div class="endpoint-actions">
-                        <a href="http://129.153.159.197:8080/v1/target?vpd=1.2&temp=25" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Try it</a>
+                        <a href="https://api.growvpd.pro/v1/target?vpd=1.2&temp=25" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Try it</a>
                         <button class="example-toggle" onclick="toggleExample(this)"><span class="chevron">&#9654;</span> Example response</button>
                     </div>
                     <div class="example-content">
@@ -588,7 +588,7 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                         </tbody>
                     </table>
                     <div class="endpoint-actions">
-                        <a href="http://129.153.159.197:8080/v1/chart?temp_min=18&temp_max=30&stage=mid_flower" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Try it</a>
+                        <a href="https://api.growvpd.pro/v1/chart?temp_min=18&temp_max=30&stage=mid_flower" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Try it</a>
                         <button class="example-toggle" onclick="toggleExample(this)"><span class="chevron">&#9654;</span> Example response</button>
                     </div>
                     <div class="example-content">
@@ -632,7 +632,7 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                         </tbody>
                     </table>
                     <div class="endpoint-actions">
-                        <a href="http://129.153.159.197:8080/v1/batch?readings=[{%22temp%22:25,%22humidity%22:60},{%22temp%22:26,%22humidity%22:55}]" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Try it</a>
+                        <a href="https://api.growvpd.pro/v1/batch?readings=[{%22temp%22:25,%22humidity%22:60},{%22temp%22:26,%22humidity%22:55}]" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Try it</a>
                         <button class="example-toggle" onclick="toggleExample(this)"><span class="chevron">&#9654;</span> Example response</button>
                     </div>
                     <div class="example-content">
@@ -690,7 +690,7 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                         </tbody>
                     </table>
                     <div class="endpoint-actions">
-                        <a href="http://129.153.159.197:8080/v1/dli?ppfd=600&hours=12" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Try it</a>
+                        <a href="https://api.growvpd.pro/v1/dli?ppfd=600&hours=12" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Try it</a>
                         <button class="example-toggle" onclick="toggleExample(this)"><span class="chevron">&#9654;</span> Example response</button>
                     </div>
                     <div class="example-content">
@@ -735,7 +735,7 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                         </tbody>
                     </table>
                     <div class="endpoint-actions">
-                        <a href="http://129.153.159.197:8080/v1/light?watts=600&area=1.44&hours=12&stage=mid_flower" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Try it</a>
+                        <a href="https://api.growvpd.pro/v1/light?watts=600&area=1.44&hours=12&stage=mid_flower" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Try it</a>
                         <button class="example-toggle" onclick="toggleExample(this)"><span class="chevron">&#9654;</span> Example response</button>
                     </div>
                     <div class="example-content">
@@ -784,7 +784,7 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                         </tbody>
                     </table>
                     <div class="endpoint-actions">
-                        <a href="http://129.153.159.197:8080/v1/stage?stage=mid_flower&medium=coco" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Try it</a>
+                        <a href="https://api.growvpd.pro/v1/stage?stage=mid_flower&medium=coco" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Try it</a>
                         <button class="example-toggle" onclick="toggleExample(this)"><span class="chevron">&#9654;</span> Example response</button>
                     </div>
                     <div class="example-content">
@@ -833,7 +833,7 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                         </tbody>
                     </table>
                     <div class="endpoint-actions">
-                        <a href="http://129.153.159.197:8080/v1/schedule?type=auto&medium=coco" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Try it</a>
+                        <a href="https://api.growvpd.pro/v1/schedule?type=auto&medium=coco" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Try it</a>
                         <button class="example-toggle" onclick="toggleExample(this)"><span class="chevron">&#9654;</span> Example response</button>
                     </div>
                     <div class="example-content">
@@ -898,7 +898,7 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                         </tbody>
                     </table>
                     <div class="endpoint-actions">
-                        <a href="http://129.153.159.197:8080/v1/diagnose?temp=32&humidity=75&stage=late_flower&ph=7.5" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Try it</a>
+                        <a href="https://api.growvpd.pro/v1/diagnose?temp=32&humidity=75&stage=late_flower&ph=7.5" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Try it</a>
                         <button class="example-toggle" onclick="toggleExample(this)"><span class="chevron">&#9654;</span> Example response</button>
                     </div>
                     <div class="example-content">
@@ -955,7 +955,7 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                         </tbody>
                     </table>
                     <div class="endpoint-actions">
-                        <a href="http://129.153.159.197:8080/v1/deficit?symptoms=yellow_lower_leaves,brown_spots&ph=7.2" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Try it</a>
+                        <a href="https://api.growvpd.pro/v1/deficit?symptoms=yellow_lower_leaves,brown_spots&ph=7.2" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Try it</a>
                         <button class="example-toggle" onclick="toggleExample(this)"><span class="chevron">&#9654;</span> Example response</button>
                     </div>
                     <div class="example-content">
@@ -1014,7 +1014,7 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                         </tbody>
                     </table>
                     <div class="endpoint-actions">
-                        <a href="http://129.153.159.197:8080/v1/dewpoint?temp=25&humidity=70" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Try it</a>
+                        <a href="https://api.growvpd.pro/v1/dewpoint?temp=25&humidity=70" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Try it</a>
                         <button class="example-toggle" onclick="toggleExample(this)"><span class="chevron">&#9654;</span> Example response</button>
                     </div>
                     <div class="example-content">
@@ -1061,7 +1061,7 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                         </tbody>
                     </table>
                     <div class="endpoint-actions">
-                        <a href="http://129.153.159.197:8080/v1/nutrient?stage=mid_flower&medium=coco&water_ec=0.3" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Try it</a>
+                        <a href="https://api.growvpd.pro/v1/nutrient?stage=mid_flower&medium=coco&water_ec=0.3" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Try it</a>
                         <button class="example-toggle" onclick="toggleExample(this)"><span class="chevron">&#9654;</span> Example response</button>
                     </div>
                     <div class="example-content">
@@ -1108,7 +1108,7 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                         </tbody>
                     </table>
                     <div class="endpoint-actions">
-                        <a href="http://129.153.159.197:8080/v1/co2?room_m3=2.5&target_ppm=1200&stage=mid_flower" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Try it</a>
+                        <a href="https://api.growvpd.pro/v1/co2?room_m3=2.5&target_ppm=1200&stage=mid_flower" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Try it</a>
                         <button class="example-toggle" onclick="toggleExample(this)"><span class="chevron">&#9654;</span> Example response</button>
                     </div>
                     <div class="example-content">
@@ -1160,7 +1160,7 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                         </tbody>
                     </table>
                     <div class="endpoint-actions">
-                        <a href="http://129.153.159.197:8080/v1/irrigation?pot_size=11&medium=coco&stage=mid_flower&vpd=1.3&plants=4" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Try it</a>
+                        <a href="https://api.growvpd.pro/v1/irrigation?pot_size=11&medium=coco&stage=mid_flower&vpd=1.3&plants=4" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Try it</a>
                         <button class="example-toggle" onclick="toggleExample(this)"><span class="chevron">&#9654;</span> Example response</button>
                     </div>
                     <div class="example-content">
@@ -1223,7 +1223,7 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                         </tbody>
                     </table>
                     <div class="endpoint-actions">
-                        <a href="http://129.153.159.197:8080/v1/room?length=1.2&width=1.2&lights_watts=600&plants=4" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Try it</a>
+                        <a href="https://api.growvpd.pro/v1/room?length=1.2&width=1.2&lights_watts=600&plants=4" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Try it</a>
                         <button class="example-toggle" onclick="toggleExample(this)"><span class="chevron">&#9654;</span> Example response</button>
                     </div>
                     <div class="example-content">
@@ -1281,7 +1281,7 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                         </tbody>
                     </table>
                     <div class="endpoint-actions">
-                        <a href="http://129.153.159.197:8080/v1/dry?wet_weight=500&temp=20&humidity=60" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Try it</a>
+                        <a href="https://api.growvpd.pro/v1/dry?wet_weight=500&temp=20&humidity=60" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Try it</a>
                         <button class="example-toggle" onclick="toggleExample(this)"><span class="chevron">&#9654;</span> Example response</button>
                     </div>
                     <div class="example-content">
@@ -1341,7 +1341,7 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                         </tbody>
                     </table>
                     <div class="endpoint-actions">
-                        <a href="http://129.153.159.197:8080/v1/convert?ec=1.5" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Try it</a>
+                        <a href="https://api.growvpd.pro/v1/convert?ec=1.5" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Try it</a>
                         <button class="example-toggle" onclick="toggleExample(this)"><span class="chevron">&#9654;</span> Example response</button>
                     </div>
                     <div class="example-content">
@@ -1381,7 +1381,7 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                         </tbody>
                     </table>
                     <div class="endpoint-actions">
-                        <a href="http://129.153.159.197:8080/health" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Try it</a>
+                        <a href="https://api.growvpd.pro/health" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Try it</a>
                         <button class="example-toggle" onclick="toggleExample(this)"><span class="chevron">&#9654;</span> Example response</button>
                     </div>
                     <div class="example-content">
