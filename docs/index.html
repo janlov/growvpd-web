@@ -1,0 +1,1541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://giscus.app; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://giscus.app https://discord.com; connect-src 'self' https://giscus.app http://129.153.159.197:8080; base-uri 'self'; form-action 'self';">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Documentation — GrowVPD Pro</title>
+    <meta name="description" content="Free, open REST API for indoor growing science. 18 endpoints for VPD calculation, light/DLI, diagnostics, nutrients, equipment sizing, and more. No API key required.">
+
+    <meta property="og:title" content="GrowVPD Pro API Documentation">
+    <meta property="og:description" content="Free, open REST API for indoor growing science. 18 endpoints covering VPD, light, diagnostics, nutrients, and equipment.">
+    <meta property="og:url" content="https://growvpd.pro/docs/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+
+    <link rel="icon" type="image/png" href="../images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="canonical" href="https://growvpd.pro/docs/">
+    <link rel="alternate" hreflang="en" href="https://growvpd.pro/docs/">
+    <link rel="alternate" hreflang="cs" href="https://growvpd.pro/docs/?lang=cs">
+    <link rel="alternate" hreflang="de" href="https://growvpd.pro/docs/?lang=de">
+    <link rel="alternate" hreflang="es" href="https://growvpd.pro/docs/?lang=es">
+    <link rel="alternate" hreflang="nl" href="https://growvpd.pro/docs/?lang=nl">
+    <link rel="alternate" hreflang="fr" href="https://growvpd.pro/docs/?lang=fr">
+    <link rel="alternate" hreflang="it" href="https://growvpd.pro/docs/?lang=it">
+    <link rel="alternate" hreflang="pt" href="https://growvpd.pro/docs/?lang=pt">
+    <link rel="alternate" hreflang="pl" href="https://growvpd.pro/docs/?lang=pl">
+    <link rel="alternate" hreflang="th" href="https://growvpd.pro/docs/?lang=th">
+    <link rel="alternate" hreflang="he" href="https://growvpd.pro/docs/?lang=he">
+    <link rel="alternate" hreflang="x-default" href="https://growvpd.pro/docs/">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/forum.css">
+
+    <style>
+        /* API docs layout */
+        .api-page { padding: 0; background: #fff; min-height: 100vh; }
+
+        /* Hero */
+        .api-hero {
+            padding: 120px 0 60px;
+            background: linear-gradient(165deg, #080C08 0%, #0D1A0D 40%, #132913 70%, #1B5E20 100%);
+            color: #fff;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .api-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background:
+                radial-gradient(ellipse 600px 400px at 30% 60%, rgba(46,125,50,.15) 0%, transparent 70%),
+                radial-gradient(ellipse 500px 350px at 70% 40%, rgba(76,175,80,.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .api-hero .container { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; padding: 0 24px; }
+        .api-hero h1 { font-size: 3rem; font-weight: 900; letter-spacing: -.03em; margin-bottom: 12px; line-height: 1.1; }
+        .api-hero h1 .text-gradient { background: linear-gradient(135deg, #81C784, #4CAF50, #66BB6A); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .api-hero .subtitle { font-size: 1.15rem; color: rgba(255,255,255,.7); margin-bottom: 28px; line-height: 1.5; }
+        .hero-badges { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+        .hero-badge-pill {
+            display: inline-flex; align-items: center; gap: 6px;
+            background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.12);
+            padding: 8px 18px; border-radius: 100px; font-size: .85rem; font-weight: 600;
+            color: rgba(255,255,255,.9); backdrop-filter: blur(10px);
+        }
+        .hero-badge-pill .dot { width: 8px; height: 8px; border-radius: 50%; background: #4CAF50; box-shadow: 0 0 8px rgba(76,175,80,.6); }
+        .hero-badge-pill.version { color: #81C784; border-color: rgba(129,199,132,.25); background: rgba(129,199,132,.08); }
+
+        /* Base URL bar */
+        .base-url-bar {
+            max-width: 520px; margin: 28px auto 0; display: flex; align-items: center;
+            background: rgba(0,0,0,.35); border: 1px solid rgba(255,255,255,.1);
+            border-radius: 12px; padding: 12px 18px; gap: 10px; backdrop-filter: blur(10px);
+        }
+        .base-url-label { font-size: .72rem; font-weight: 700; color: #81C784; text-transform: uppercase; letter-spacing: .08em; white-space: nowrap; }
+        .base-url-value { font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; font-size: .85rem; color: rgba(255,255,255,.85); word-break: break-all; }
+        .base-url-copy {
+            background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.12);
+            color: rgba(255,255,255,.7); padding: 6px 10px; border-radius: 6px; cursor: pointer;
+            font-size: .75rem; font-weight: 600; transition: all .2s; white-space: nowrap; margin-left: auto;
+        }
+        .base-url-copy:hover { background: rgba(255,255,255,.15); color: #fff; }
+
+        /* Nav sidebar + content layout */
+        .api-layout { display: flex; max-width: 1200px; margin: 0 auto; gap: 0; }
+
+        /* Sidebar */
+        .api-sidebar {
+            width: 260px; min-width: 260px; padding: 32px 24px 32px 24px;
+            position: sticky; top: 64px; height: calc(100vh - 64px); overflow-y: auto;
+            border-right: 1px solid #ECEFF1; background: #FAFBFC;
+        }
+        .api-sidebar::-webkit-scrollbar { width: 4px; }
+        .api-sidebar::-webkit-scrollbar-thumb { background: #CFD8DC; border-radius: 4px; }
+        .sidebar-group { margin-bottom: 24px; }
+        .sidebar-group-title {
+            font-size: .68rem; font-weight: 800; color: #90A4AE; text-transform: uppercase;
+            letter-spacing: .1em; margin-bottom: 8px; padding: 0 8px;
+        }
+        .sidebar-link {
+            display: flex; align-items: center; gap: 8px;
+            padding: 6px 8px; border-radius: 6px; font-size: .82rem; color: #546E7A;
+            font-weight: 500; transition: all .15s; text-decoration: none; margin-bottom: 2px;
+        }
+        .sidebar-link:hover { background: #E8F5E9; color: #2E7D32; }
+        .sidebar-link.active { background: rgba(46,125,50,.08); color: #2E7D32; font-weight: 700; }
+        .sidebar-method {
+            font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; font-size: .65rem;
+            font-weight: 700; padding: 2px 5px; border-radius: 3px; min-width: 30px; text-align: center;
+        }
+        .sidebar-method.get { background: rgba(46,125,50,.1); color: #2E7D32; }
+
+        /* Main content */
+        .api-content { flex: 1; min-width: 0; padding: 40px 48px 80px; }
+
+        /* Section headers */
+        .section-header { margin: 56px 0 24px; padding-bottom: 12px; border-bottom: 2px solid #E8F5E9; }
+        .section-header:first-child { margin-top: 0; }
+        .section-header h2 { font-size: 1.5rem; font-weight: 900; color: #1B5E20; letter-spacing: -.02em; display: flex; align-items: center; gap: 10px; }
+        .section-icon { width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; }
+        .section-icon.vpd { background: rgba(46,125,50,.1); }
+        .section-icon.light { background: rgba(255,179,0,.1); }
+        .section-icon.stage { background: rgba(0,150,136,.1); }
+        .section-icon.diag { background: rgba(244,67,54,.1); }
+        .section-icon.nutrient { background: rgba(156,39,176,.1); }
+        .section-icon.equip { background: rgba(33,150,243,.1); }
+        .section-icon.util { background: rgba(96,125,139,.1); }
+
+        /* Endpoint card */
+        .endpoint-card {
+            background: #fff; border: 1px solid #ECEFF1; border-left: 4px solid #4CAF50;
+            border-radius: 0 12px 12px 0; padding: 28px 28px 24px;
+            margin-bottom: 24px; transition: box-shadow .25s;
+        }
+        .endpoint-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,.06); }
+        .endpoint-header { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px; flex-wrap: wrap; }
+        .method-badge {
+            font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; font-size: .75rem;
+            font-weight: 800; padding: 4px 10px; border-radius: 6px; letter-spacing: .03em;
+        }
+        .method-badge.get { background: #E8F5E9; color: #2E7D32; }
+        .endpoint-path {
+            font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; font-size: .95rem;
+            font-weight: 600; color: #212121; word-break: break-all;
+        }
+        .endpoint-desc { color: #546E7A; font-size: .9rem; line-height: 1.65; margin-bottom: 20px; }
+
+        /* Params table */
+        .params-table { width: 100%; border-collapse: collapse; margin-bottom: 20px; font-size: .85rem; }
+        .params-table th {
+            text-align: left; padding: 8px 12px; background: #FAFBFC;
+            border-bottom: 2px solid #ECEFF1; color: #37474F; font-weight: 700; font-size: .75rem;
+            text-transform: uppercase; letter-spacing: .05em;
+        }
+        .params-table td { padding: 8px 12px; border-bottom: 1px solid #F5F5F5; color: #546E7A; vertical-align: top; }
+        .params-table tr:last-child td { border-bottom: none; }
+        .param-name {
+            font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; font-weight: 600;
+            color: #212121; font-size: .82rem; white-space: nowrap;
+        }
+        .param-required {
+            display: inline-block; font-size: .6rem; font-weight: 800; color: #E53935;
+            text-transform: uppercase; letter-spacing: .05em; margin-left: 4px; vertical-align: super;
+        }
+        .param-default { font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; font-size: .78rem; color: #78909C; }
+
+        /* Try it / example */
+        .endpoint-actions { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+        .try-btn {
+            display: inline-flex; align-items: center; gap: 6px;
+            background: #2E7D32; color: #fff; padding: 8px 18px; border-radius: 8px;
+            font-size: .82rem; font-weight: 700; text-decoration: none; transition: all .2s;
+            border: none; cursor: pointer;
+        }
+        .try-btn:hover { background: #1B5E20; transform: translateY(-1px); box-shadow: 0 4px 14px rgba(46,125,50,.35); }
+        .try-btn svg { width: 14px; height: 14px; }
+
+        /* Collapsible example */
+        .example-toggle {
+            display: inline-flex; align-items: center; gap: 6px;
+            background: none; border: 1px solid #E0E0E0; color: #546E7A; padding: 8px 16px;
+            border-radius: 8px; font-size: .82rem; font-weight: 600; cursor: pointer; transition: all .2s;
+        }
+        .example-toggle:hover { border-color: #4CAF50; color: #2E7D32; background: rgba(46,125,50,.03); }
+        .example-toggle .chevron { transition: transform .2s; font-size: .7rem; }
+        .example-toggle.open .chevron { transform: rotate(90deg); }
+        .example-content {
+            display: none; margin-top: 16px; background: #1a1a2e; border-radius: 10px;
+            overflow: hidden; border: 1px solid rgba(255,255,255,.06);
+        }
+        .example-content.open { display: block; }
+        .example-header {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 10px 16px; background: rgba(255,255,255,.04); border-bottom: 1px solid rgba(255,255,255,.06);
+        }
+        .example-label { font-size: .7rem; font-weight: 700; color: #81C784; text-transform: uppercase; letter-spacing: .08em; }
+        .copy-btn {
+            background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.1);
+            color: rgba(255,255,255,.6); padding: 4px 10px; border-radius: 4px;
+            font-size: .7rem; font-weight: 600; cursor: pointer; transition: all .2s;
+        }
+        .copy-btn:hover { background: rgba(255,255,255,.15); color: #fff; }
+        .example-pre {
+            margin: 0; padding: 16px; overflow-x: auto; font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+            font-size: .8rem; line-height: 1.6; color: #E0E0E0;
+        }
+        .example-pre .key { color: #81C784; }
+        .example-pre .str { color: #FFD54F; }
+        .example-pre .num { color: #90CAF9; }
+        .example-pre .bool { color: #CE93D8; }
+        .example-pre .null { color: #78909C; }
+        .example-pre .comment { color: #546E7A; }
+
+        /* Quick start */
+        .quickstart { background: #FAFBFC; border-radius: 16px; padding: 36px; margin-bottom: 48px; border: 1px solid #ECEFF1; }
+        .quickstart h2 { font-size: 1.3rem; font-weight: 900; color: #1B5E20; margin-bottom: 8px; }
+        .quickstart .desc { color: #546E7A; font-size: .9rem; margin-bottom: 24px; line-height: 1.6; }
+        .quickstart-tabs { display: flex; gap: 4px; margin-bottom: 0; }
+        .qs-tab {
+            padding: 8px 16px; border-radius: 8px 8px 0 0; font-size: .8rem; font-weight: 700;
+            cursor: pointer; border: 1px solid #ECEFF1; border-bottom: none;
+            background: #fff; color: #90A4AE; transition: all .2s;
+        }
+        .qs-tab.active { background: #1a1a2e; color: #81C784; border-color: #1a1a2e; }
+        .qs-code-block {
+            display: none; background: #1a1a2e; border-radius: 0 10px 10px 10px;
+            overflow: hidden; border: 1px solid rgba(255,255,255,.06);
+        }
+        .qs-code-block.active { display: block; }
+
+        /* Info boxes */
+        .info-box {
+            display: flex; gap: 12px; padding: 16px 20px; border-radius: 10px;
+            margin-bottom: 24px; font-size: .85rem; line-height: 1.6;
+        }
+        .info-box.note { background: #E3F2FD; border: 1px solid #BBDEFB; color: #1565C0; }
+        .info-box.tip { background: #F1F8E9; border: 1px solid #C8E6C9; color: #33691E; }
+        .info-box .info-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 1px; }
+
+        /* Footer adjustments for sub-page */
+        .api-footer { border-top: 1px solid #ECEFF1; padding: 40px 0; background: #FAFBFC; }
+        .api-footer .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+        .api-footer-brand { display: flex; align-items: center; gap: 10px; }
+        .api-footer-brand strong { font-size: .9rem; color: #212121; }
+        .api-footer-brand span { font-size: .8rem; color: #90A4AE; }
+        .api-footer-links { display: flex; gap: 20px; }
+        .api-footer-links a { font-size: .82rem; color: #546E7A; font-weight: 500; transition: color .2s; }
+        .api-footer-links a:hover { color: #2E7D32; }
+        .api-footer-copy { font-size: .75rem; color: #90A4AE; width: 100%; text-align: center; margin-top: 12px; }
+
+        /* Stage values inside tables */
+        .stage-list { font-size: .78rem; color: #78909C; line-height: 1.5; }
+
+        /* Responsive */
+        @media (max-width: 960px) {
+            .api-sidebar { display: none; }
+            .api-content { padding: 32px 24px 60px; }
+            .api-hero h1 { font-size: 2.2rem; }
+        }
+        @media (max-width: 600px) {
+            .api-hero { padding: 100px 0 40px; }
+            .api-hero h1 { font-size: 1.8rem; }
+            .api-hero .subtitle { font-size: 1rem; }
+            .endpoint-card { padding: 20px 16px 18px; }
+            .params-table { font-size: .78rem; }
+            .params-table th, .params-table td { padding: 6px 8px; }
+            .quickstart { padding: 24px 18px; }
+            .base-url-bar { flex-wrap: wrap; gap: 6px; padding: 10px 14px; }
+        }
+
+        /* Mobile sidebar toggle */
+        .mobile-sidebar-toggle {
+            display: none; position: fixed; bottom: 24px; right: 24px; z-index: 50;
+            background: #2E7D32; color: #fff; border: none; border-radius: 50%;
+            width: 48px; height: 48px; cursor: pointer; box-shadow: 0 4px 20px rgba(0,0,0,.2);
+            font-size: 1.2rem; align-items: center; justify-content: center;
+        }
+        @media (max-width: 960px) {
+            .mobile-sidebar-toggle { display: flex; }
+            .api-sidebar.mobile-open {
+                display: block; position: fixed; top: 0; left: 0; z-index: 100;
+                width: 280px; height: 100vh; box-shadow: 4px 0 30px rgba(0,0,0,.15);
+            }
+            .sidebar-overlay {
+                display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+                background: rgba(0,0,0,.3); z-index: 99;
+            }
+            .sidebar-overlay.open { display: block; }
+        }
+    </style>
+
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebPage","name":"GrowVPD Pro API Documentation","description":"Free, open REST API for indoor growing science. 18 endpoints for VPD, light, diagnostics, nutrients, and equipment.","url":"https://growvpd.pro/docs/","publisher":{"@type":"Organization","name":"GrowVPD Pro"}}
+    </script>
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="../index.html" class="nav-brand">
+                <svg class="nav-logo" viewBox="0 0 32 32" width="28" height="28">
+                    <circle cx="16" cy="16" r="16" fill="#2E7D32"/>
+                    <path d="M16 6c0 0-6 4-6 12 0 4 2.5 7 6 8 3.5-1 6-4 6-8 0-8-6-12-6-12z" fill="#81C784"/>
+                    <path d="M16 10c0 0-3 3-3 8 0 2.5 1.2 4.5 3 5.2 1.8-.7 3-2.7 3-5.2 0-5-3-8-3-8z" fill="#A5D6A7"/>
+                </svg>
+                <span>GrowVPD Pro</span>
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../index.html#features" data-i18n="navFeatures">Features</a></li>
+                <li><a href="../guides/index.html" data-i18n="navGuides">Guides</a></li>
+                <li><a href="../support/index.html" data-i18n="navFaq">Support</a></li>
+                <li><a href="../index.html#download" class="nav-cta" data-i18n="navDownload">Download</a></li>
+            </ul>
+        </div>
+    </nav>
+    <script>
+document.getElementById('navToggle')?.addEventListener('click',function(){this.classList.toggle('active');document.getElementById('navLinks').classList.toggle('active')});
+window.addEventListener('scroll',function(){document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>20)},{passive:true});
+    </script>
+
+    <!-- Hero -->
+    <section class="api-hero">
+        <div class="container">
+            <h1><span class="text-gradient" data-i18n="apiTitle">GrowVPD Pro API</span></h1>
+            <p class="subtitle" data-i18n="apiSubtitle">Free, open API for indoor growing science. No API key required.</p>
+            <div class="hero-badges">
+                <span class="hero-badge-pill version">v2.0</span>
+                <span class="hero-badge-pill"><span class="dot"></span> 18 endpoints</span>
+                <span class="hero-badge-pill">REST / JSON</span>
+                <span class="hero-badge-pill">No auth required</span>
+            </div>
+            <div class="base-url-bar">
+                <span class="base-url-label">Base URL</span>
+                <code class="base-url-value" id="baseUrl">http://129.153.159.197:8080</code>
+                <button class="base-url-copy" onclick="copyBase()" id="copyBaseBtn">Copy</button>
+            </div>
+        </div>
+    </section>
+
+    <main class="api-page">
+        <div class="api-layout">
+
+            <!-- Sidebar navigation -->
+            <aside class="api-sidebar" id="apiSidebar">
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title" data-i18n="apiGettingStarted">Getting Started</div>
+                    <a href="#quickstart" class="sidebar-link active">Quick Start</a>
+                </div>
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">Core VPD</div>
+                    <a href="#vpd" class="sidebar-link"><span class="sidebar-method get">GET</span> /v1/vpd</a>
+                    <a href="#target" class="sidebar-link"><span class="sidebar-method get">GET</span> /v1/target</a>
+                    <a href="#chart" class="sidebar-link"><span class="sidebar-method get">GET</span> /v1/chart</a>
+                    <a href="#batch" class="sidebar-link"><span class="sidebar-method get">GET</span> /v1/batch</a>
+                </div>
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">Light &amp; DLI</div>
+                    <a href="#dli" class="sidebar-link"><span class="sidebar-method get">GET</span> /v1/dli</a>
+                    <a href="#light" class="sidebar-link"><span class="sidebar-method get">GET</span> /v1/light</a>
+                </div>
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">Growing Stages</div>
+                    <a href="#stage" class="sidebar-link"><span class="sidebar-method get">GET</span> /v1/stage</a>
+                    <a href="#schedule" class="sidebar-link"><span class="sidebar-method get">GET</span> /v1/schedule</a>
+                </div>
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">Diagnostics</div>
+                    <a href="#diagnose" class="sidebar-link"><span class="sidebar-method get">GET</span> /v1/diagnose</a>
+                    <a href="#deficit" class="sidebar-link"><span class="sidebar-method get">GET</span> /v1/deficit</a>
+                    <a href="#dewpoint" class="sidebar-link"><span class="sidebar-method get">GET</span> /v1/dewpoint</a>
+                </div>
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">Nutrients &amp; Feeding</div>
+                    <a href="#nutrient" class="sidebar-link"><span class="sidebar-method get">GET</span> /v1/nutrient</a>
+                    <a href="#co2" class="sidebar-link"><span class="sidebar-method get">GET</span> /v1/co2</a>
+                    <a href="#irrigation" class="sidebar-link"><span class="sidebar-method get">GET</span> /v1/irrigation</a>
+                </div>
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">Equipment</div>
+                    <a href="#room" class="sidebar-link"><span class="sidebar-method get">GET</span> /v1/room</a>
+                    <a href="#dry" class="sidebar-link"><span class="sidebar-method get">GET</span> /v1/dry</a>
+                </div>
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">Utilities</div>
+                    <a href="#convert" class="sidebar-link"><span class="sidebar-method get">GET</span> /v1/convert</a>
+                    <a href="#health" class="sidebar-link"><span class="sidebar-method get">GET</span> /health</a>
+                </div>
+            </aside>
+
+            <!-- Overlay for mobile sidebar -->
+            <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+            <!-- Main content -->
+            <div class="api-content">
+
+                <!-- Quick Start -->
+                <section id="quickstart" class="quickstart">
+                    <h2 data-i18n="apiQuickStart">Quick Start</h2>
+                    <p class="desc" data-i18n="apiQuickStartDesc">The GrowVPD Pro API is completely free and requires no authentication. All endpoints return JSON. Just send a GET request and you are ready to go.</p>
+
+                    <div class="info-box note">
+                        <span class="info-icon">&#9432;</span>
+                        <div>The API is currently served at <code>http://129.153.159.197:8080</code>. This will transition to <code>https://api.growvpd.pro</code> in the near future. All endpoint paths will remain identical.</div>
+                    </div>
+
+                    <div class="quickstart-tabs">
+                        <button class="qs-tab active" onclick="switchTab('curl')">cURL</button>
+                        <button class="qs-tab" onclick="switchTab('js')">JavaScript</button>
+                        <button class="qs-tab" onclick="switchTab('python')">Python</button>
+                    </div>
+                    <div class="qs-code-block active" id="tab-curl">
+                        <div class="example-header">
+                            <span class="example-label">Terminal</span>
+                            <button class="copy-btn" onclick="copyCode('code-curl')">Copy</button>
+                        </div>
+                        <pre class="example-pre" id="code-curl"><span class="comment"># Calculate VPD for 25C and 60% humidity</span>
+curl "http://129.153.159.197:8080/v1/vpd?temp=25&humidity=60"
+
+<span class="comment"># Get environment targets for mid-flower stage</span>
+curl "http://129.153.159.197:8080/v1/stage?stage=mid_flower&medium=coco"</pre>
+                    </div>
+                    <div class="qs-code-block" id="tab-js">
+                        <div class="example-header">
+                            <span class="example-label">JavaScript</span>
+                            <button class="copy-btn" onclick="copyCode('code-js')">Copy</button>
+                        </div>
+                        <pre class="example-pre" id="code-js"><span class="key">const</span> BASE = <span class="str">"http://129.153.159.197:8080"</span>;
+
+<span class="key">async function</span> <span class="num">getVPD</span>(temp, humidity) {
+  <span class="key">const</span> res = <span class="key">await</span> <span class="num">fetch</span>(
+    <span class="str">`${BASE}/v1/vpd?temp=${temp}&humidity=${humidity}`</span>
+  );
+  <span class="key">return</span> res.<span class="num">json</span>();
+}
+
+<span class="comment">// Usage</span>
+<span class="key">const</span> data = <span class="key">await</span> <span class="num">getVPD</span>(<span class="num">25</span>, <span class="num">60</span>);
+console.<span class="num">log</span>(data.vpd);     <span class="comment">// 1.27</span>
+console.<span class="num">log</span>(data.status);  <span class="comment">// "slightly_high"</span></pre>
+                    </div>
+                    <div class="qs-code-block" id="tab-python">
+                        <div class="example-header">
+                            <span class="example-label">Python</span>
+                            <button class="copy-btn" onclick="copyCode('code-python')">Copy</button>
+                        </div>
+                        <pre class="example-pre" id="code-python"><span class="key">import</span> requests
+
+BASE = <span class="str">"http://129.153.159.197:8080"</span>
+
+<span class="key">def</span> <span class="num">get_vpd</span>(temp, humidity):
+    r = requests.<span class="num">get</span>(f<span class="str">"{BASE}/v1/vpd"</span>, params={
+        <span class="str">"temp"</span>: temp,
+        <span class="str">"humidity"</span>: humidity
+    })
+    <span class="key">return</span> r.<span class="num">json</span>()
+
+data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class="num">60</span>)
+<span class="num">print</span>(data[<span class="str">"vpd"</span>])     <span class="comment"># 1.27</span>
+<span class="num">print</span>(data[<span class="str">"status"</span>])  <span class="comment"># "slightly_high"</span></pre>
+                    </div>
+
+                    <div class="info-box tip" style="margin-top: 20px;">
+                        <span class="info-icon">&#9889;</span>
+                        <div><strong>Rate limits:</strong> Currently none. Be reasonable with requests. If you plan to make high-volume calls, please reach out at <a href="mailto:support@growvpd.pro" style="color:#2E7D32;font-weight:600;">support@growvpd.pro</a>.</div>
+                    </div>
+                </section>
+
+
+                <!-- ========== CORE VPD ========== -->
+                <div class="section-header" id="section-vpd">
+                    <h2><span class="section-icon vpd">&#127793;</span> Core VPD</h2>
+                </div>
+
+                <!-- /v1/vpd -->
+                <div class="endpoint-card" id="vpd">
+                    <div class="endpoint-header">
+                        <span class="method-badge get">GET</span>
+                        <span class="endpoint-path">/v1/vpd</span>
+                    </div>
+                    <p class="endpoint-desc">Calculate VPD (Vapor Pressure Deficit) from temperature and humidity. Returns VPD value, leaf VPD, status classification, and optimal ranges for all growth stages.</p>
+                    <table class="params-table">
+                        <thead><tr><th>Parameter</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+                        <tbody>
+                            <tr><td><span class="param-name">temp</span><span class="param-required">required</span></td><td>number</td><td>-</td><td>Air temperature</td></tr>
+                            <tr><td><span class="param-name">humidity</span><span class="param-required">required</span></td><td>number</td><td>-</td><td>Relative humidity (%)</td></tr>
+                            <tr><td><span class="param-name">leaf_offset</span></td><td>number</td><td><span class="param-default">2.0</span></td><td>Leaf temperature offset below air temp</td></tr>
+                            <tr><td><span class="param-name">unit</span></td><td>string</td><td><span class="param-default">c</span></td><td>Temperature unit: <code>c</code> (Celsius) or <code>f</code> (Fahrenheit)</td></tr>
+                        </tbody>
+                    </table>
+                    <div class="endpoint-actions">
+                        <a href="http://129.153.159.197:8080/v1/vpd?temp=25&humidity=60" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Try it</a>
+                        <button class="example-toggle" onclick="toggleExample(this)"><span class="chevron">&#9654;</span> Example response</button>
+                    </div>
+                    <div class="example-content">
+                        <div class="example-header">
+                            <span class="example-label">GET /v1/vpd?temp=25&amp;humidity=60</span>
+                            <button class="copy-btn" onclick="copyCode('ex-vpd')">Copy</button>
+                        </div>
+                        <pre class="example-pre" id="ex-vpd">{
+  <span class="key">"vpd"</span>: <span class="num">1.27</span>,
+  <span class="key">"vpd_leaf"</span>: <span class="num">1.09</span>,
+  <span class="key">"status"</span>: <span class="str">"slightly_high"</span>,
+  <span class="key">"temperature"</span>: <span class="num">25</span>,
+  <span class="key">"humidity"</span>: <span class="num">60</span>,
+  <span class="key">"leaf_temperature"</span>: <span class="num">23</span>,
+  <span class="key">"dewpoint"</span>: <span class="num">16.7</span>,
+  <span class="key">"unit"</span>: <span class="str">"celsius"</span>,
+  <span class="key">"stages"</span>: {
+    <span class="key">"clone_seedling"</span>: { <span class="key">"min"</span>: <span class="num">0.4</span>, <span class="key">"max"</span>: <span class="num">0.8</span>, <span class="key">"status"</span>: <span class="str">"too_high"</span> },
+    <span class="key">"early_veg"</span>: { <span class="key">"min"</span>: <span class="num">0.6</span>, <span class="key">"max"</span>: <span class="num">1.0</span>, <span class="key">"status"</span>: <span class="str">"too_high"</span> },
+    <span class="key">"late_veg"</span>: { <span class="key">"min"</span>: <span class="num">0.8</span>, <span class="key">"max"</span>: <span class="num">1.2</span>, <span class="key">"status"</span>: <span class="str">"slightly_high"</span> },
+    <span class="key">"early_flower"</span>: { <span class="key">"min"</span>: <span class="num">1.0</span>, <span class="key">"max"</span>: <span class="num">1.4</span>, <span class="key">"status"</span>: <span class="str">"optimal"</span> },
+    <span class="key">"mid_flower"</span>: { <span class="key">"min"</span>: <span class="num">1.2</span>, <span class="key">"max"</span>: <span class="num">1.5</span>, <span class="key">"status"</span>: <span class="str">"optimal"</span> },
+    <span class="key">"late_flower"</span>: { <span class="key">"min"</span>: <span class="num">1.2</span>, <span class="key">"max"</span>: <span class="num">1.6</span>, <span class="key">"status"</span>: <span class="str">"optimal"</span> }
+  }
+}</pre>
+                    </div>
+                </div>
+
+                <!-- /v1/target -->
+                <div class="endpoint-card" id="target">
+                    <div class="endpoint-header">
+                        <span class="method-badge get">GET</span>
+                        <span class="endpoint-path">/v1/target</span>
+                    </div>
+                    <p class="endpoint-desc">Reverse VPD calculator. Given a target VPD (or growth stage) and either temperature or humidity, calculates the missing variable. Useful for finding what humidity to aim for at a given temperature.</p>
+                    <table class="params-table">
+                        <thead><tr><th>Parameter</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+                        <tbody>
+                            <tr><td><span class="param-name">vpd</span></td><td>number</td><td>-</td><td>Target VPD value (kPa). Provide this or <code>stage</code>.</td></tr>
+                            <tr><td><span class="param-name">stage</span></td><td>string</td><td>-</td><td>Growth stage (uses midpoint VPD). One of: <span class="stage-list">clone_seedling, early_veg, late_veg, early_flower, mid_flower, late_flower</span></td></tr>
+                            <tr><td><span class="param-name">temp</span></td><td>number</td><td>-</td><td>Known temperature (solves for humidity)</td></tr>
+                            <tr><td><span class="param-name">humidity</span></td><td>number</td><td>-</td><td>Known humidity (solves for temperature)</td></tr>
+                            <tr><td><span class="param-name">leaf_offset</span></td><td>number</td><td><span class="param-default">2.0</span></td><td>Leaf temperature offset</td></tr>
+                            <tr><td><span class="param-name">unit</span></td><td>string</td><td><span class="param-default">c</span></td><td>Temperature unit: <code>c</code> or <code>f</code></td></tr>
+                        </tbody>
+                    </table>
+                    <div class="endpoint-actions">
+                        <a href="http://129.153.159.197:8080/v1/target?vpd=1.2&temp=25" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Try it</a>
+                        <button class="example-toggle" onclick="toggleExample(this)"><span class="chevron">&#9654;</span> Example response</button>
+                    </div>
+                    <div class="example-content">
+                        <div class="example-header">
+                            <span class="example-label">GET /v1/target?vpd=1.2&amp;temp=25</span>
+                            <button class="copy-btn" onclick="copyCode('ex-target')">Copy</button>
+                        </div>
+                        <pre class="example-pre" id="ex-target">{
+  <span class="key">"target_vpd"</span>: <span class="num">1.2</span>,
+  <span class="key">"known_variable"</span>: <span class="str">"temperature"</span>,
+  <span class="key">"known_value"</span>: <span class="num">25</span>,
+  <span class="key">"solved_variable"</span>: <span class="str">"humidity"</span>,
+  <span class="key">"solved_value"</span>: <span class="num">62.1</span>,
+  <span class="key">"leaf_offset"</span>: <span class="num">2.0</span>,
+  <span class="key">"unit"</span>: <span class="str">"celsius"</span>,
+  <span class="key">"verification"</span>: {
+    <span class="key">"actual_vpd"</span>: <span class="num">1.2</span>,
+    <span class="key">"vpd_leaf"</span>: <span class="num">1.03</span>
+  }
+}</pre>
+                    </div>
+                </div>
+
+                <!-- /v1/chart -->
+                <div class="endpoint-card" id="chart">
+                    <div class="endpoint-header">
+                        <span class="method-badge get">GET</span>
+                        <span class="endpoint-path">/v1/chart</span>
+                    </div>
+                    <p class="endpoint-desc">Generate a VPD heatmap data matrix. Returns a 2D grid of VPD values across a temperature and humidity range, with zone classifications. Perfect for building visual VPD charts.</p>
+                    <table class="params-table">
+                        <thead><tr><th>Parameter</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+                        <tbody>
+                            <tr><td><span class="param-name">temp_min</span></td><td>number</td><td><span class="param-default">15</span></td><td>Minimum temperature</td></tr>
+                            <tr><td><span class="param-name">temp_max</span></td><td>number</td><td><span class="param-default">35</span></td><td>Maximum temperature</td></tr>
+                            <tr><td><span class="param-name">temp_step</span></td><td>number</td><td><span class="param-default">1</span></td><td>Temperature step size</td></tr>
+                            <tr><td><span class="param-name">rh_min</span></td><td>number</td><td><span class="param-default">30</span></td><td>Minimum relative humidity (%)</td></tr>
+                            <tr><td><span class="param-name">rh_max</span></td><td>number</td><td><span class="param-default">90</span></td><td>Maximum relative humidity (%)</td></tr>
+                            <tr><td><span class="param-name">rh_step</span></td><td>number</td><td><span class="param-default">5</span></td><td>Humidity step size</td></tr>
+                            <tr><td><span class="param-name">leaf_offset</span></td><td>number</td><td><span class="param-default">2</span></td><td>Leaf temperature offset</td></tr>
+                            <tr><td><span class="param-name">stage</span></td><td>string</td><td>-</td><td>Growth stage for zone classification</td></tr>
+                        </tbody>
+                    </table>
+                    <div class="endpoint-actions">
+                        <a href="http://129.153.159.197:8080/v1/chart?temp_min=18&temp_max=30&stage=mid_flower" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Try it</a>
+                        <button class="example-toggle" onclick="toggleExample(this)"><span class="chevron">&#9654;</span> Example response</button>
+                    </div>
+                    <div class="example-content">
+                        <div class="example-header">
+                            <span class="example-label">GET /v1/chart?temp_min=18&amp;temp_max=30&amp;stage=mid_flower</span>
+                            <button class="copy-btn" onclick="copyCode('ex-chart')">Copy</button>
+                        </div>
+                        <pre class="example-pre" id="ex-chart">{
+  <span class="key">"temp_range"</span>: [<span class="num">18</span>, <span class="num">19</span>, <span class="num">20</span>, <span class="str">...</span>, <span class="num">30</span>],
+  <span class="key">"rh_range"</span>: [<span class="num">30</span>, <span class="num">35</span>, <span class="num">40</span>, <span class="str">...</span>, <span class="num">90</span>],
+  <span class="key">"stage"</span>: <span class="str">"mid_flower"</span>,
+  <span class="key">"stage_range"</span>: { <span class="key">"min"</span>: <span class="num">1.2</span>, <span class="key">"max"</span>: <span class="num">1.5</span> },
+  <span class="key">"leaf_offset"</span>: <span class="num">2</span>,
+  <span class="key">"matrix"</span>: [
+    {
+      <span class="key">"temp"</span>: <span class="num">18</span>,
+      <span class="key">"values"</span>: [
+        { <span class="key">"rh"</span>: <span class="num">30</span>, <span class="key">"vpd"</span>: <span class="num">1.44</span>, <span class="key">"zone"</span>: <span class="str">"optimal"</span> },
+        { <span class="key">"rh"</span>: <span class="num">35</span>, <span class="key">"vpd"</span>: <span class="num">1.34</span>, <span class="key">"zone"</span>: <span class="str">"optimal"</span> },
+        <span class="comment">// ... more humidity values</span>
+      ]
+    },
+    <span class="comment">// ... more temperature rows</span>
+  ]
+}</pre>
+                    </div>
+                </div>
+
+                <!-- /v1/batch -->
+                <div class="endpoint-card" id="batch">
+                    <div class="endpoint-header">
+                        <span class="method-badge get">GET</span>
+                        <span class="endpoint-path">/v1/batch</span>
+                    </div>
+                    <p class="endpoint-desc">Batch VPD calculations with aggregated statistics. Submit multiple temperature/humidity readings and receive individual VPD values plus min, max, average, and standard deviation across the set.</p>
+                    <table class="params-table">
+                        <thead><tr><th>Parameter</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+                        <tbody>
+                            <tr><td><span class="param-name">readings</span><span class="param-required">required</span></td><td>JSON array</td><td>-</td><td>Array of <code>{"temp":N, "humidity":N}</code> objects (URL-encoded)</td></tr>
+                            <tr><td><span class="param-name">leaf_offset</span></td><td>number</td><td><span class="param-default">2.0</span></td><td>Leaf temperature offset</td></tr>
+                        </tbody>
+                    </table>
+                    <div class="endpoint-actions">
+                        <a href="http://129.153.159.197:8080/v1/batch?readings=[{%22temp%22:25,%22humidity%22:60},{%22temp%22:26,%22humidity%22:55}]" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Try it</a>
+                        <button class="example-toggle" onclick="toggleExample(this)"><span class="chevron">&#9654;</span> Example response</button>
+                    </div>
+                    <div class="example-content">
+                        <div class="example-header">
+                            <span class="example-label">GET /v1/batch?readings=[{"temp":25,"humidity":60},{"temp":26,"humidity":55}]</span>
+                            <button class="copy-btn" onclick="copyCode('ex-batch')">Copy</button>
+                        </div>
+                        <pre class="example-pre" id="ex-batch">{
+  <span class="key">"readings"</span>: [
+    {
+      <span class="key">"temperature"</span>: <span class="num">25</span>,
+      <span class="key">"humidity"</span>: <span class="num">60</span>,
+      <span class="key">"vpd"</span>: <span class="num">1.27</span>,
+      <span class="key">"vpd_leaf"</span>: <span class="num">1.09</span>,
+      <span class="key">"status"</span>: <span class="str">"slightly_high"</span>
+    },
+    {
+      <span class="key">"temperature"</span>: <span class="num">26</span>,
+      <span class="key">"humidity"</span>: <span class="num">55</span>,
+      <span class="key">"vpd"</span>: <span class="num">1.51</span>,
+      <span class="key">"vpd_leaf"</span>: <span class="num">1.31</span>,
+      <span class="key">"status"</span>: <span class="str">"high"</span>
+    }
+  ],
+  <span class="key">"statistics"</span>: {
+    <span class="key">"count"</span>: <span class="num">2</span>,
+    <span class="key">"vpd_min"</span>: <span class="num">1.27</span>,
+    <span class="key">"vpd_max"</span>: <span class="num">1.51</span>,
+    <span class="key">"vpd_avg"</span>: <span class="num">1.39</span>,
+    <span class="key">"vpd_std_dev"</span>: <span class="num">0.12</span>
+  }
+}</pre>
+                    </div>
+                </div>
+
+
+                <!-- ========== LIGHT & DLI ========== -->
+                <div class="section-header" id="section-light">
+                    <h2><span class="section-icon light">&#9728;</span> Light &amp; DLI</h2>
+                </div>
+
+                <!-- /v1/dli -->
+                <div class="endpoint-card" id="dli">
+                    <div class="endpoint-header">
+                        <span class="method-badge get">GET</span>
+                        <span class="endpoint-path">/v1/dli</span>
+                    </div>
+                    <p class="endpoint-desc">Daily Light Integral calculator. Compute DLI from PPFD and photoperiod (forward), or find the required PPFD to hit a target DLI (reverse). Includes optimal DLI ranges per growth stage.</p>
+                    <table class="params-table">
+                        <thead><tr><th>Parameter</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+                        <tbody>
+                            <tr><td><span class="param-name">ppfd</span></td><td>number</td><td>-</td><td>Photosynthetic Photon Flux Density (umol/m2/s)</td></tr>
+                            <tr><td><span class="param-name">hours</span></td><td>number</td><td>-</td><td>Photoperiod in hours</td></tr>
+                            <tr><td><span class="param-name">dli</span></td><td>number</td><td>-</td><td>Target DLI (mol/m2/day) for reverse calculation</td></tr>
+                        </tbody>
+                    </table>
+                    <div class="endpoint-actions">
+                        <a href="http://129.153.159.197:8080/v1/dli?ppfd=600&hours=12" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Try it</a>
+                        <button class="example-toggle" onclick="toggleExample(this)"><span class="chevron">&#9654;</span> Example response</button>
+                    </div>
+                    <div class="example-content">
+                        <div class="example-header">
+                            <span class="example-label">GET /v1/dli?ppfd=600&amp;hours=12</span>
+                            <button class="copy-btn" onclick="copyCode('ex-dli')">Copy</button>
+                        </div>
+                        <pre class="example-pre" id="ex-dli">{
+  <span class="key">"ppfd"</span>: <span class="num">600</span>,
+  <span class="key">"hours"</span>: <span class="num">12</span>,
+  <span class="key">"dli"</span>: <span class="num">25.92</span>,
+  <span class="key">"mode"</span>: <span class="str">"forward"</span>,
+  <span class="key">"stage_targets"</span>: {
+    <span class="key">"clone_seedling"</span>: { <span class="key">"dli_min"</span>: <span class="num">6</span>, <span class="key">"dli_max"</span>: <span class="num">12</span> },
+    <span class="key">"early_veg"</span>: { <span class="key">"dli_min"</span>: <span class="num">15</span>, <span class="key">"dli_max"</span>: <span class="num">25</span> },
+    <span class="key">"late_veg"</span>: { <span class="key">"dli_min"</span>: <span class="num">25</span>, <span class="key">"dli_max"</span>: <span class="num">35</span> },
+    <span class="key">"early_flower"</span>: { <span class="key">"dli_min"</span>: <span class="num">30</span>, <span class="key">"dli_max"</span>: <span class="num">40</span> },
+    <span class="key">"mid_flower"</span>: { <span class="key">"dli_min"</span>: <span class="num">35</span>, <span class="key">"dli_max"</span>: <span class="num">50</span> },
+    <span class="key">"late_flower"</span>: { <span class="key">"dli_min"</span>: <span class="num">30</span>, <span class="key">"dli_max"</span>: <span class="num">45</span> }
+  }
+}</pre>
+                    </div>
+                </div>
+
+                <!-- /v1/light -->
+                <div class="endpoint-card" id="light">
+                    <div class="endpoint-header">
+                        <span class="method-badge get">GET</span>
+                        <span class="endpoint-path">/v1/light</span>
+                    </div>
+                    <p class="endpoint-desc">Comprehensive light calculator. Estimates PPFD from wattage and area, calculates DLI, evaluates light intensity for a given growth stage, and provides efficiency metrics.</p>
+                    <table class="params-table">
+                        <thead><tr><th>Parameter</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+                        <tbody>
+                            <tr><td><span class="param-name">ppfd</span></td><td>number</td><td>-</td><td>Known PPFD (if available)</td></tr>
+                            <tr><td><span class="param-name">hours</span></td><td>number</td><td>-</td><td>Photoperiod in hours</td></tr>
+                            <tr><td><span class="param-name">watts</span></td><td>number</td><td>-</td><td>Light wattage (for PPFD estimation)</td></tr>
+                            <tr><td><span class="param-name">efficiency</span></td><td>number</td><td><span class="param-default">2.5</span></td><td>LED efficiency (umol/J)</td></tr>
+                            <tr><td><span class="param-name">area</span></td><td>number</td><td>-</td><td>Grow area in m2</td></tr>
+                            <tr><td><span class="param-name">height</span></td><td>number</td><td>-</td><td>Light height in meters</td></tr>
+                            <tr><td><span class="param-name">stage</span></td><td>string</td><td>-</td><td>Growth stage for evaluation</td></tr>
+                        </tbody>
+                    </table>
+                    <div class="endpoint-actions">
+                        <a href="http://129.153.159.197:8080/v1/light?watts=600&area=1.44&hours=12&stage=mid_flower" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Try it</a>
+                        <button class="example-toggle" onclick="toggleExample(this)"><span class="chevron">&#9654;</span> Example response</button>
+                    </div>
+                    <div class="example-content">
+                        <div class="example-header">
+                            <span class="example-label">GET /v1/light?watts=600&amp;area=1.44&amp;hours=12&amp;stage=mid_flower</span>
+                            <button class="copy-btn" onclick="copyCode('ex-light')">Copy</button>
+                        </div>
+                        <pre class="example-pre" id="ex-light">{
+  <span class="key">"ppfd_estimated"</span>: <span class="num">1041.7</span>,
+  <span class="key">"dli"</span>: <span class="num">45.0</span>,
+  <span class="key">"watts"</span>: <span class="num">600</span>,
+  <span class="key">"area_m2"</span>: <span class="num">1.44</span>,
+  <span class="key">"watts_per_m2"</span>: <span class="num">416.7</span>,
+  <span class="key">"efficiency_umol_j"</span>: <span class="num">2.5</span>,
+  <span class="key">"hours"</span>: <span class="num">12</span>,
+  <span class="key">"stage"</span>: <span class="str">"mid_flower"</span>,
+  <span class="key">"stage_evaluation"</span>: {
+    <span class="key">"ppfd_status"</span>: <span class="str">"optimal"</span>,
+    <span class="key">"ppfd_target"</span>: { <span class="key">"min"</span>: <span class="num">600</span>, <span class="key">"max"</span>: <span class="num">1200</span> },
+    <span class="key">"dli_status"</span>: <span class="str">"optimal"</span>,
+    <span class="key">"dli_target"</span>: { <span class="key">"min"</span>: <span class="num">35</span>, <span class="key">"max"</span>: <span class="num">50</span> }
+  },
+  <span class="key">"daily_energy_kwh"</span>: <span class="num">7.2</span>
+}</pre>
+                    </div>
+                </div>
+
+
+                <!-- ========== GROWING STAGES ========== -->
+                <div class="section-header" id="section-stages">
+                    <h2><span class="section-icon stage">&#127807;</span> Growing Stages</h2>
+                </div>
+
+                <!-- /v1/stage -->
+                <div class="endpoint-card" id="stage">
+                    <div class="endpoint-header">
+                        <span class="method-badge get">GET</span>
+                        <span class="endpoint-path">/v1/stage</span>
+                    </div>
+                    <p class="endpoint-desc">Get comprehensive environment targets for a growth stage. Returns optimal ranges for VPD, temperature, humidity, PPFD, DLI, CO2, EC, pH, and watering frequency. Optionally tailored to a growing medium.</p>
+                    <table class="params-table">
+                        <thead><tr><th>Parameter</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+                        <tbody>
+                            <tr><td><span class="param-name">stage</span></td><td>string</td><td>-</td><td>Stage name or <code>"all"</code> for every stage. Options: <span class="stage-list">clone_seedling, early_veg, late_veg, early_flower, mid_flower, late_flower</span></td></tr>
+                            <tr><td><span class="param-name">medium</span></td><td>string</td><td>-</td><td>Growing medium: <code>soil</code>, <code>coco</code>, <code>hydro</code>, <code>dwc</code></td></tr>
+                        </tbody>
+                    </table>
+                    <div class="endpoint-actions">
+                        <a href="http://129.153.159.197:8080/v1/stage?stage=mid_flower&medium=coco" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Try it</a>
+                        <button class="example-toggle" onclick="toggleExample(this)"><span class="chevron">&#9654;</span> Example response</button>
+                    </div>
+                    <div class="example-content">
+                        <div class="example-header">
+                            <span class="example-label">GET /v1/stage?stage=mid_flower&amp;medium=coco</span>
+                            <button class="copy-btn" onclick="copyCode('ex-stage')">Copy</button>
+                        </div>
+                        <pre class="example-pre" id="ex-stage">{
+  <span class="key">"stage"</span>: <span class="str">"mid_flower"</span>,
+  <span class="key">"medium"</span>: <span class="str">"coco"</span>,
+  <span class="key">"targets"</span>: {
+    <span class="key">"vpd"</span>: { <span class="key">"min"</span>: <span class="num">1.2</span>, <span class="key">"max"</span>: <span class="num">1.5</span>, <span class="key">"ideal"</span>: <span class="num">1.35</span> },
+    <span class="key">"temperature"</span>: { <span class="key">"day_min"</span>: <span class="num">24</span>, <span class="key">"day_max"</span>: <span class="num">28</span>, <span class="key">"night_min"</span>: <span class="num">18</span>, <span class="key">"night_max"</span>: <span class="num">22</span> },
+    <span class="key">"humidity"</span>: { <span class="key">"min"</span>: <span class="num">40</span>, <span class="key">"max"</span>: <span class="num">50</span> },
+    <span class="key">"ppfd"</span>: { <span class="key">"min"</span>: <span class="num">600</span>, <span class="key">"max"</span>: <span class="num">1200</span> },
+    <span class="key">"dli"</span>: { <span class="key">"min"</span>: <span class="num">35</span>, <span class="key">"max"</span>: <span class="num">50</span> },
+    <span class="key">"co2"</span>: { <span class="key">"min"</span>: <span class="num">800</span>, <span class="key">"max"</span>: <span class="num">1200</span> },
+    <span class="key">"ec"</span>: { <span class="key">"min"</span>: <span class="num">1.6</span>, <span class="key">"max"</span>: <span class="num">2.2</span> },
+    <span class="key">"ph"</span>: { <span class="key">"min"</span>: <span class="num">5.8</span>, <span class="key">"max"</span>: <span class="num">6.2</span> }
+  },
+  <span class="key">"watering"</span>: {
+    <span class="key">"frequency"</span>: <span class="str">"2-4 times daily"</span>,
+    <span class="key">"runoff_target"</span>: <span class="str">"10-20%"</span>
+  },
+  <span class="key">"notes"</span>: [
+    <span class="str">"Peak nutrient uptake period"</span>,
+    <span class="str">"Coco requires more frequent fertigation than soil"</span>,
+    <span class="str">"Monitor trichome development closely"</span>
+  ]
+}</pre>
+                    </div>
+                </div>
+
+                <!-- /v1/schedule -->
+                <div class="endpoint-card" id="schedule">
+                    <div class="endpoint-header">
+                        <span class="method-badge get">GET</span>
+                        <span class="endpoint-path">/v1/schedule</span>
+                    </div>
+                    <p class="endpoint-desc">Generate a full grow timeline with week-by-week stage progression. Returns duration and environment targets for each stage, customized by plant type and growing medium.</p>
+                    <table class="params-table">
+                        <thead><tr><th>Parameter</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+                        <tbody>
+                            <tr><td><span class="param-name">type</span></td><td>string</td><td>-</td><td>Plant type: <code>photo</code> (photoperiod) or <code>auto</code> (autoflower)</td></tr>
+                            <tr><td><span class="param-name">medium</span></td><td>string</td><td>-</td><td>Growing medium: <code>soil</code>, <code>coco</code>, <code>hydro</code>, <code>dwc</code></td></tr>
+                        </tbody>
+                    </table>
+                    <div class="endpoint-actions">
+                        <a href="http://129.153.159.197:8080/v1/schedule?type=auto&medium=coco" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Try it</a>
+                        <button class="example-toggle" onclick="toggleExample(this)"><span class="chevron">&#9654;</span> Example response</button>
+                    </div>
+                    <div class="example-content">
+                        <div class="example-header">
+                            <span class="example-label">GET /v1/schedule?type=auto&amp;medium=coco</span>
+                            <button class="copy-btn" onclick="copyCode('ex-schedule')">Copy</button>
+                        </div>
+                        <pre class="example-pre" id="ex-schedule">{
+  <span class="key">"type"</span>: <span class="str">"auto"</span>,
+  <span class="key">"medium"</span>: <span class="str">"coco"</span>,
+  <span class="key">"total_weeks"</span>: <span class="num">10</span>,
+  <span class="key">"light_schedule"</span>: <span class="str">"20/4 or 18/6 throughout"</span>,
+  <span class="key">"stages"</span>: [
+    {
+      <span class="key">"stage"</span>: <span class="str">"clone_seedling"</span>,
+      <span class="key">"weeks"</span>: <span class="str">"1-1"</span>,
+      <span class="key">"duration_weeks"</span>: <span class="num">1</span>,
+      <span class="key">"vpd"</span>: { <span class="key">"min"</span>: <span class="num">0.4</span>, <span class="key">"max"</span>: <span class="num">0.8</span> },
+      <span class="key">"temp"</span>: { <span class="key">"min"</span>: <span class="num">22</span>, <span class="key">"max"</span>: <span class="num">26</span> },
+      <span class="key">"humidity"</span>: { <span class="key">"min"</span>: <span class="num">65</span>, <span class="key">"max"</span>: <span class="num">80</span> }
+    },
+    {
+      <span class="key">"stage"</span>: <span class="str">"early_veg"</span>,
+      <span class="key">"weeks"</span>: <span class="str">"2-3"</span>,
+      <span class="key">"duration_weeks"</span>: <span class="num">2</span>,
+      <span class="key">"vpd"</span>: { <span class="key">"min"</span>: <span class="num">0.6</span>, <span class="key">"max"</span>: <span class="num">1.0</span> },
+      <span class="key">"temp"</span>: { <span class="key">"min"</span>: <span class="num">22</span>, <span class="key">"max"</span>: <span class="num">28</span> },
+      <span class="key">"humidity"</span>: { <span class="key">"min"</span>: <span class="num">55</span>, <span class="key">"max"</span>: <span class="num">70</span> }
+    },
+    <span class="comment">// ... remaining stages</span>
+  ]
+}</pre>
+                    </div>
+                </div>
+
+
+                <!-- ========== DIAGNOSTICS ========== -->
+                <div class="section-header" id="section-diagnostics">
+                    <h2><span class="section-icon diag">&#128269;</span> Diagnostics</h2>
+                </div>
+
+                <!-- /v1/diagnose -->
+                <div class="endpoint-card" id="diagnose">
+                    <div class="endpoint-header">
+                        <span class="method-badge get">GET</span>
+                        <span class="endpoint-path">/v1/diagnose</span>
+                    </div>
+                    <p class="endpoint-desc">Full environment diagnosis with a 0-100 health score. Analyzes temperature, humidity, VPD, pH, EC, PPFD, CO2, and night temperature. Returns issues found, severity levels, and actionable recommendations.</p>
+                    <table class="params-table">
+                        <thead><tr><th>Parameter</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+                        <tbody>
+                            <tr><td><span class="param-name">temp</span><span class="param-required">required</span></td><td>number</td><td>-</td><td>Air temperature</td></tr>
+                            <tr><td><span class="param-name">humidity</span><span class="param-required">required</span></td><td>number</td><td>-</td><td>Relative humidity (%)</td></tr>
+                            <tr><td><span class="param-name">stage</span></td><td>string</td><td>-</td><td>Growth stage for context-aware diagnosis</td></tr>
+                            <tr><td><span class="param-name">medium</span></td><td>string</td><td>-</td><td>Growing medium</td></tr>
+                            <tr><td><span class="param-name">ppfd</span></td><td>number</td><td>-</td><td>Current PPFD</td></tr>
+                            <tr><td><span class="param-name">ph</span></td><td>number</td><td>-</td><td>Nutrient solution pH</td></tr>
+                            <tr><td><span class="param-name">ec</span></td><td>number</td><td>-</td><td>Nutrient solution EC (mS/cm)</td></tr>
+                            <tr><td><span class="param-name">co2</span></td><td>number</td><td>-</td><td>CO2 level (ppm)</td></tr>
+                            <tr><td><span class="param-name">night_temp</span></td><td>number</td><td>-</td><td>Night temperature</td></tr>
+                            <tr><td><span class="param-name">unit</span></td><td>string</td><td><span class="param-default">c</span></td><td>Temperature unit: <code>c</code> or <code>f</code></td></tr>
+                        </tbody>
+                    </table>
+                    <div class="endpoint-actions">
+                        <a href="http://129.153.159.197:8080/v1/diagnose?temp=32&humidity=75&stage=late_flower&ph=7.5" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Try it</a>
+                        <button class="example-toggle" onclick="toggleExample(this)"><span class="chevron">&#9654;</span> Example response</button>
+                    </div>
+                    <div class="example-content">
+                        <div class="example-header">
+                            <span class="example-label">GET /v1/diagnose?temp=32&amp;humidity=75&amp;stage=late_flower&amp;ph=7.5</span>
+                            <button class="copy-btn" onclick="copyCode('ex-diagnose')">Copy</button>
+                        </div>
+                        <pre class="example-pre" id="ex-diagnose">{
+  <span class="key">"health_score"</span>: <span class="num">35</span>,
+  <span class="key">"overall_status"</span>: <span class="str">"critical"</span>,
+  <span class="key">"vpd"</span>: <span class="num">1.19</span>,
+  <span class="key">"temperature"</span>: <span class="num">32</span>,
+  <span class="key">"humidity"</span>: <span class="num">75</span>,
+  <span class="key">"stage"</span>: <span class="str">"late_flower"</span>,
+  <span class="key">"issues"</span>: [
+    {
+      <span class="key">"parameter"</span>: <span class="str">"temperature"</span>,
+      <span class="key">"severity"</span>: <span class="str">"high"</span>,
+      <span class="key">"message"</span>: <span class="str">"Temperature too high for late flower (32C, target 20-26C)"</span>,
+      <span class="key">"recommendation"</span>: <span class="str">"Increase ventilation, consider AC. High temps degrade terpenes and potency."</span>
+    },
+    {
+      <span class="key">"parameter"</span>: <span class="str">"humidity"</span>,
+      <span class="key">"severity"</span>: <span class="str">"critical"</span>,
+      <span class="key">"message"</span>: <span class="str">"Humidity critically high for late flower (75%, target 35-45%)"</span>,
+      <span class="key">"recommendation"</span>: <span class="str">"Immediate action: run dehumidifier, increase airflow. Botrytis (bud rot) risk is extreme."</span>
+    },
+    {
+      <span class="key">"parameter"</span>: <span class="str">"ph"</span>,
+      <span class="key">"severity"</span>: <span class="str">"medium"</span>,
+      <span class="key">"message"</span>: <span class="str">"pH too high (7.5, target 6.0-6.5)"</span>,
+      <span class="key">"recommendation"</span>: <span class="str">"Lower pH with pH Down. Nutrient lockout likely at this pH."</span>
+    }
+  ],
+  <span class="key">"mold_risk"</span>: <span class="str">"extreme"</span>,
+  <span class="key">"dewpoint"</span>: <span class="num">27.3</span>
+}</pre>
+                    </div>
+                </div>
+
+                <!-- /v1/deficit -->
+                <div class="endpoint-card" id="deficit">
+                    <div class="endpoint-header">
+                        <span class="method-badge get">GET</span>
+                        <span class="endpoint-path">/v1/deficit</span>
+                    </div>
+                    <p class="endpoint-desc">Symptom-based nutrient deficiency diagnosis. Describe visible plant symptoms and get ranked possible deficiencies with confidence scores, affected nutrients, and treatment recommendations.</p>
+                    <table class="params-table">
+                        <thead><tr><th>Parameter</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+                        <tbody>
+                            <tr><td><span class="param-name">symptoms</span><span class="param-required">required</span></td><td>string</td><td>-</td><td>Comma-separated symptom keywords. Examples: <code>yellow_lower_leaves</code>, <code>brown_spots</code>, <code>curling_up</code>, <code>purple_stems</code>, <code>slow_growth</code>, <code>burnt_tips</code></td></tr>
+                            <tr><td><span class="param-name">ph</span></td><td>number</td><td>-</td><td>Current pH (helps narrow diagnosis)</td></tr>
+                            <tr><td><span class="param-name">medium</span></td><td>string</td><td>-</td><td>Growing medium</td></tr>
+                        </tbody>
+                    </table>
+                    <div class="endpoint-actions">
+                        <a href="http://129.153.159.197:8080/v1/deficit?symptoms=yellow_lower_leaves,brown_spots&ph=7.2" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Try it</a>
+                        <button class="example-toggle" onclick="toggleExample(this)"><span class="chevron">&#9654;</span> Example response</button>
+                    </div>
+                    <div class="example-content">
+                        <div class="example-header">
+                            <span class="example-label">GET /v1/deficit?symptoms=yellow_lower_leaves,brown_spots&amp;ph=7.2</span>
+                            <button class="copy-btn" onclick="copyCode('ex-deficit')">Copy</button>
+                        </div>
+                        <pre class="example-pre" id="ex-deficit">{
+  <span class="key">"symptoms"</span>: [<span class="str">"yellow_lower_leaves"</span>, <span class="str">"brown_spots"</span>],
+  <span class="key">"ph"</span>: <span class="num">7.2</span>,
+  <span class="key">"ph_warning"</span>: <span class="str">"pH is above optimal range. Nutrient lockout likely contributing to symptoms."</span>,
+  <span class="key">"possible_deficiencies"</span>: [
+    {
+      <span class="key">"nutrient"</span>: <span class="str">"Calcium"</span>,
+      <span class="key">"symbol"</span>: <span class="str">"Ca"</span>,
+      <span class="key">"confidence"</span>: <span class="num">0.85</span>,
+      <span class="key">"mobility"</span>: <span class="str">"immobile"</span>,
+      <span class="key">"symptoms_matched"</span>: [<span class="str">"brown_spots"</span>],
+      <span class="key">"treatment"</span>: <span class="str">"Add Cal-Mag supplement. Lower pH to 6.0-6.5 for better uptake."</span>
+    },
+    {
+      <span class="key">"nutrient"</span>: <span class="str">"Nitrogen"</span>,
+      <span class="key">"symbol"</span>: <span class="str">"N"</span>,
+      <span class="key">"confidence"</span>: <span class="num">0.78</span>,
+      <span class="key">"mobility"</span>: <span class="str">"mobile"</span>,
+      <span class="key">"symptoms_matched"</span>: [<span class="str">"yellow_lower_leaves"</span>],
+      <span class="key">"treatment"</span>: <span class="str">"Increase nitrogen in feed. Mobile nutrient: lower leaves affected first."</span>
+    },
+    {
+      <span class="key">"nutrient"</span>: <span class="str">"Potassium"</span>,
+      <span class="key">"symbol"</span>: <span class="str">"K"</span>,
+      <span class="key">"confidence"</span>: <span class="num">0.52</span>,
+      <span class="key">"mobility"</span>: <span class="str">"mobile"</span>,
+      <span class="key">"symptoms_matched"</span>: [<span class="str">"brown_spots"</span>, <span class="str">"yellow_lower_leaves"</span>],
+      <span class="key">"treatment"</span>: <span class="str">"Increase K in bloom nutrients. Check for salt buildup in medium."</span>
+    }
+  ],
+  <span class="key">"general_advice"</span>: <span class="str">"Priority: lower pH to 6.0-6.5 first, then reassess after 3-5 days."</span>
+}</pre>
+                    </div>
+                </div>
+
+                <!-- /v1/dewpoint -->
+                <div class="endpoint-card" id="dewpoint">
+                    <div class="endpoint-header">
+                        <span class="method-badge get">GET</span>
+                        <span class="endpoint-path">/v1/dewpoint</span>
+                    </div>
+                    <p class="endpoint-desc">Calculate dewpoint temperature, mold/condensation risk assessment, and safe night temperature minimum. Essential for preventing bud rot and mildew.</p>
+                    <table class="params-table">
+                        <thead><tr><th>Parameter</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+                        <tbody>
+                            <tr><td><span class="param-name">temp</span><span class="param-required">required</span></td><td>number</td><td>-</td><td>Air temperature</td></tr>
+                            <tr><td><span class="param-name">humidity</span><span class="param-required">required</span></td><td>number</td><td>-</td><td>Relative humidity (%)</td></tr>
+                            <tr><td><span class="param-name">unit</span></td><td>string</td><td><span class="param-default">c</span></td><td>Temperature unit: <code>c</code> or <code>f</code></td></tr>
+                        </tbody>
+                    </table>
+                    <div class="endpoint-actions">
+                        <a href="http://129.153.159.197:8080/v1/dewpoint?temp=25&humidity=70" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Try it</a>
+                        <button class="example-toggle" onclick="toggleExample(this)"><span class="chevron">&#9654;</span> Example response</button>
+                    </div>
+                    <div class="example-content">
+                        <div class="example-header">
+                            <span class="example-label">GET /v1/dewpoint?temp=25&amp;humidity=70</span>
+                            <button class="copy-btn" onclick="copyCode('ex-dewpoint')">Copy</button>
+                        </div>
+                        <pre class="example-pre" id="ex-dewpoint">{
+  <span class="key">"temperature"</span>: <span class="num">25</span>,
+  <span class="key">"humidity"</span>: <span class="num">70</span>,
+  <span class="key">"dewpoint"</span>: <span class="num">19.2</span>,
+  <span class="key">"unit"</span>: <span class="str">"celsius"</span>,
+  <span class="key">"mold_risk"</span>: <span class="str">"moderate"</span>,
+  <span class="key">"condensation_risk"</span>: <span class="str">"low"</span>,
+  <span class="key">"safe_night_temp_min"</span>: <span class="num">21.2</span>,
+  <span class="key">"margin_to_dewpoint"</span>: <span class="num">5.8</span>,
+  <span class="key">"recommendations"</span>: [
+    <span class="str">"Night temperature must stay above 21.2C to prevent condensation"</span>,
+    <span class="str">"Consider dehumidification if humidity rises above 75%"</span>
+  ]
+}</pre>
+                    </div>
+                </div>
+
+
+                <!-- ========== NUTRIENTS & FEEDING ========== -->
+                <div class="section-header" id="section-nutrients">
+                    <h2><span class="section-icon nutrient">&#129395;</span> Nutrients &amp; Feeding</h2>
+                </div>
+
+                <!-- /v1/nutrient -->
+                <div class="endpoint-card" id="nutrient">
+                    <div class="endpoint-header">
+                        <span class="method-badge get">GET</span>
+                        <span class="endpoint-path">/v1/nutrient</span>
+                    </div>
+                    <p class="endpoint-desc">Get EC, pH, and PPM targets for a given growth stage and medium. Includes medium-specific tips, flush schedules, and adjustments based on your water source EC.</p>
+                    <table class="params-table">
+                        <thead><tr><th>Parameter</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+                        <tbody>
+                            <tr><td><span class="param-name">stage</span><span class="param-required">required</span></td><td>string</td><td>-</td><td>Growth stage</td></tr>
+                            <tr><td><span class="param-name">medium</span></td><td>string</td><td>-</td><td>Growing medium: <code>soil</code>, <code>coco</code>, <code>hydro</code>, <code>dwc</code></td></tr>
+                            <tr><td><span class="param-name">water_ec</span></td><td>number</td><td>-</td><td>Base water EC (mS/cm) for adjusted targets</td></tr>
+                        </tbody>
+                    </table>
+                    <div class="endpoint-actions">
+                        <a href="http://129.153.159.197:8080/v1/nutrient?stage=mid_flower&medium=coco&water_ec=0.3" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Try it</a>
+                        <button class="example-toggle" onclick="toggleExample(this)"><span class="chevron">&#9654;</span> Example response</button>
+                    </div>
+                    <div class="example-content">
+                        <div class="example-header">
+                            <span class="example-label">GET /v1/nutrient?stage=mid_flower&amp;medium=coco&amp;water_ec=0.3</span>
+                            <button class="copy-btn" onclick="copyCode('ex-nutrient')">Copy</button>
+                        </div>
+                        <pre class="example-pre" id="ex-nutrient">{
+  <span class="key">"stage"</span>: <span class="str">"mid_flower"</span>,
+  <span class="key">"medium"</span>: <span class="str">"coco"</span>,
+  <span class="key">"water_ec"</span>: <span class="num">0.3</span>,
+  <span class="key">"targets"</span>: {
+    <span class="key">"ec"</span>: { <span class="key">"min"</span>: <span class="num">1.6</span>, <span class="key">"max"</span>: <span class="num">2.2</span>, <span class="key">"adjusted_min"</span>: <span class="num">1.3</span>, <span class="key">"adjusted_max"</span>: <span class="num">1.9</span> },
+    <span class="key">"ph"</span>: { <span class="key">"min"</span>: <span class="num">5.8</span>, <span class="key">"max"</span>: <span class="num">6.2</span> },
+    <span class="key">"ppm_500"</span>: { <span class="key">"min"</span>: <span class="num">800</span>, <span class="key">"max"</span>: <span class="num">1100</span> },
+    <span class="key">"ppm_700"</span>: { <span class="key">"min"</span>: <span class="num">1120</span>, <span class="key">"max"</span>: <span class="num">1540</span> }
+  },
+  <span class="key">"npk_ratio"</span>: <span class="str">"1-3-2 (bloom focus)"</span>,
+  <span class="key">"tips"</span>: [
+    <span class="str">"Coco is inert - all nutrients must come from solution"</span>,
+    <span class="str">"Always include Cal-Mag with coco (0.3-0.5 EC)"</span>,
+    <span class="str">"Feed every watering, no plain water days"</span>,
+    <span class="str">"Target 10-20% runoff to prevent salt buildup"</span>
+  ],
+  <span class="key">"flush_schedule"</span>: <span class="str">"Flush with pH'd water at EC 0.3 every 2 weeks"</span>
+}</pre>
+                    </div>
+                </div>
+
+                <!-- /v1/co2 -->
+                <div class="endpoint-card" id="co2">
+                    <div class="endpoint-header">
+                        <span class="method-badge get">GET</span>
+                        <span class="endpoint-path">/v1/co2</span>
+                    </div>
+                    <p class="endpoint-desc">CO2 enrichment calculator. Determine how much CO2 gas is needed to reach a target concentration in your grow room, and get stage-appropriate CO2 recommendations.</p>
+                    <table class="params-table">
+                        <thead><tr><th>Parameter</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+                        <tbody>
+                            <tr><td><span class="param-name">room_m3</span></td><td>number</td><td>-</td><td>Room volume in cubic meters</td></tr>
+                            <tr><td><span class="param-name">target_ppm</span></td><td>number</td><td><span class="param-default">1200</span></td><td>Target CO2 concentration (ppm)</td></tr>
+                            <tr><td><span class="param-name">current_ppm</span></td><td>number</td><td><span class="param-default">400</span></td><td>Current ambient CO2 (ppm)</td></tr>
+                            <tr><td><span class="param-name">stage</span></td><td>string</td><td>-</td><td>Growth stage for recommendations</td></tr>
+                        </tbody>
+                    </table>
+                    <div class="endpoint-actions">
+                        <a href="http://129.153.159.197:8080/v1/co2?room_m3=2.5&target_ppm=1200&stage=mid_flower" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Try it</a>
+                        <button class="example-toggle" onclick="toggleExample(this)"><span class="chevron">&#9654;</span> Example response</button>
+                    </div>
+                    <div class="example-content">
+                        <div class="example-header">
+                            <span class="example-label">GET /v1/co2?room_m3=2.5&amp;target_ppm=1200&amp;stage=mid_flower</span>
+                            <button class="copy-btn" onclick="copyCode('ex-co2')">Copy</button>
+                        </div>
+                        <pre class="example-pre" id="ex-co2">{
+  <span class="key">"room_m3"</span>: <span class="num">2.5</span>,
+  <span class="key">"current_ppm"</span>: <span class="num">400</span>,
+  <span class="key">"target_ppm"</span>: <span class="num">1200</span>,
+  <span class="key">"co2_needed_liters"</span>: <span class="num">2.0</span>,
+  <span class="key">"co2_needed_grams"</span>: <span class="num">3.93</span>,
+  <span class="key">"stage"</span>: <span class="str">"mid_flower"</span>,
+  <span class="key">"stage_recommendation"</span>: {
+    <span class="key">"optimal_ppm"</span>: { <span class="key">"min"</span>: <span class="num">800</span>, <span class="key">"max"</span>: <span class="num">1200</span> },
+    <span class="key">"benefit"</span>: <span class="str">"10-30% yield increase with adequate light (>600 PPFD)"</span>
+  },
+  <span class="key">"safety"</span>: {
+    <span class="key">"human_safe"</span>: <span class="bool">true</span>,
+    <span class="key">"osha_limit"</span>: <span class="num">5000</span>,
+    <span class="key">"note"</span>: <span class="str">"Target level is safe for humans. Ensure ventilation during lights-off."</span>
+  },
+  <span class="key">"tips"</span>: [
+    <span class="str">"CO2 only benefits plants during lights-on period"</span>,
+    <span class="str">"Seal room and disable exhaust during CO2 injection"</span>,
+    <span class="str">"Higher CO2 allows higher temperatures (up to 30C)"</span>
+  ]
+}</pre>
+                    </div>
+                </div>
+
+                <!-- /v1/irrigation -->
+                <div class="endpoint-card" id="irrigation">
+                    <div class="endpoint-header">
+                        <span class="method-badge get">GET</span>
+                        <span class="endpoint-path">/v1/irrigation</span>
+                    </div>
+                    <p class="endpoint-desc">Watering volume and frequency calculator. Computes optimal water volume per pot based on pot size, medium, growth stage, and current environment conditions. Supports multiple plants.</p>
+                    <table class="params-table">
+                        <thead><tr><th>Parameter</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+                        <tbody>
+                            <tr><td><span class="param-name">pot_size</span><span class="param-required">required</span></td><td>number</td><td>-</td><td>Pot volume in liters</td></tr>
+                            <tr><td><span class="param-name">medium</span></td><td>string</td><td>-</td><td>Growing medium: <code>soil</code>, <code>coco</code>, <code>hydro</code>, <code>dwc</code></td></tr>
+                            <tr><td><span class="param-name">stage</span></td><td>string</td><td>-</td><td>Growth stage</td></tr>
+                            <tr><td><span class="param-name">vpd</span></td><td>number</td><td>-</td><td>Current VPD (affects transpiration rate)</td></tr>
+                            <tr><td><span class="param-name">temp</span></td><td>number</td><td>-</td><td>Current temperature</td></tr>
+                            <tr><td><span class="param-name">plants</span></td><td>number</td><td>-</td><td>Number of plants (multiplies total)</td></tr>
+                        </tbody>
+                    </table>
+                    <div class="endpoint-actions">
+                        <a href="http://129.153.159.197:8080/v1/irrigation?pot_size=11&medium=coco&stage=mid_flower&vpd=1.3&plants=4" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Try it</a>
+                        <button class="example-toggle" onclick="toggleExample(this)"><span class="chevron">&#9654;</span> Example response</button>
+                    </div>
+                    <div class="example-content">
+                        <div class="example-header">
+                            <span class="example-label">GET /v1/irrigation?pot_size=11&amp;medium=coco&amp;stage=mid_flower&amp;vpd=1.3&amp;plants=4</span>
+                            <button class="copy-btn" onclick="copyCode('ex-irrigation')">Copy</button>
+                        </div>
+                        <pre class="example-pre" id="ex-irrigation">{
+  <span class="key">"pot_size_liters"</span>: <span class="num">11</span>,
+  <span class="key">"medium"</span>: <span class="str">"coco"</span>,
+  <span class="key">"stage"</span>: <span class="str">"mid_flower"</span>,
+  <span class="key">"plants"</span>: <span class="num">4</span>,
+  <span class="key">"per_plant"</span>: {
+    <span class="key">"water_ml"</span>: <span class="num">2750</span>,
+    <span class="key">"frequency"</span>: <span class="str">"2-4 times daily"</span>,
+    <span class="key">"runoff_target_pct"</span>: <span class="num">15</span>
+  },
+  <span class="key">"total"</span>: {
+    <span class="key">"water_ml"</span>: <span class="num">11000</span>,
+    <span class="key">"water_liters"</span>: <span class="num">11.0</span>,
+    <span class="key">"daily_total_liters"</span>: <span class="num">33.0</span>
+  },
+  <span class="key">"adjustments"</span>: {
+    <span class="key">"vpd_factor"</span>: <span class="str">"VPD 1.3 is optimal, no adjustment needed"</span>,
+    <span class="key">"temp_factor"</span>: <span class="null">null</span>
+  },
+  <span class="key">"tips"</span>: [
+    <span class="str">"Water until 10-20% runoff each time"</span>,
+    <span class="str">"Never let coco dry out completely"</span>,
+    <span class="str">"Check runoff EC to monitor salt buildup"</span>
+  ]
+}</pre>
+                    </div>
+                </div>
+
+
+                <!-- ========== EQUIPMENT & ENVIRONMENT ========== -->
+                <div class="section-header" id="section-equipment">
+                    <h2><span class="section-icon equip">&#128296;</span> Equipment &amp; Environment</h2>
+                </div>
+
+                <!-- /v1/room -->
+                <div class="endpoint-card" id="room">
+                    <div class="endpoint-header">
+                        <span class="method-badge get">GET</span>
+                        <span class="endpoint-path">/v1/room</span>
+                    </div>
+                    <p class="endpoint-desc">Room equipment sizing calculator. Given your tent/room dimensions and light wattage, get recommended ventilation (CFM), humidifier/dehumidifier capacity, and fan sizing. Accounts for heat load from lights.</p>
+                    <table class="params-table">
+                        <thead><tr><th>Parameter</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+                        <tbody>
+                            <tr><td><span class="param-name">length</span><span class="param-required">required</span></td><td>number</td><td>-</td><td>Room length in meters</td></tr>
+                            <tr><td><span class="param-name">width</span><span class="param-required">required</span></td><td>number</td><td>-</td><td>Room width in meters</td></tr>
+                            <tr><td><span class="param-name">height</span></td><td>number</td><td><span class="param-default">2</span></td><td>Room height in meters</td></tr>
+                            <tr><td><span class="param-name">lights_watts</span></td><td>number</td><td>-</td><td>Total light wattage</td></tr>
+                            <tr><td><span class="param-name">target_temp</span></td><td>number</td><td><span class="param-default">25</span></td><td>Target temperature</td></tr>
+                            <tr><td><span class="param-name">ambient_temp</span></td><td>number</td><td><span class="param-default">22</span></td><td>Ambient/intake temperature</td></tr>
+                            <tr><td><span class="param-name">plants</span></td><td>number</td><td><span class="param-default">4</span></td><td>Number of plants</td></tr>
+                            <tr><td><span class="param-name">target_humidity</span></td><td>number</td><td><span class="param-default">55</span></td><td>Target humidity (%)</td></tr>
+                        </tbody>
+                    </table>
+                    <div class="endpoint-actions">
+                        <a href="http://129.153.159.197:8080/v1/room?length=1.2&width=1.2&lights_watts=600&plants=4" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Try it</a>
+                        <button class="example-toggle" onclick="toggleExample(this)"><span class="chevron">&#9654;</span> Example response</button>
+                    </div>
+                    <div class="example-content">
+                        <div class="example-header">
+                            <span class="example-label">GET /v1/room?length=1.2&amp;width=1.2&amp;lights_watts=600&amp;plants=4</span>
+                            <button class="copy-btn" onclick="copyCode('ex-room')">Copy</button>
+                        </div>
+                        <pre class="example-pre" id="ex-room">{
+  <span class="key">"room"</span>: {
+    <span class="key">"length_m"</span>: <span class="num">1.2</span>,
+    <span class="key">"width_m"</span>: <span class="num">1.2</span>,
+    <span class="key">"height_m"</span>: <span class="num">2</span>,
+    <span class="key">"area_m2"</span>: <span class="num">1.44</span>,
+    <span class="key">"volume_m3"</span>: <span class="num">2.88</span>
+  },
+  <span class="key">"ventilation"</span>: {
+    <span class="key">"cfm_min"</span>: <span class="num">102</span>,
+    <span class="key">"cfm_recommended"</span>: <span class="num">152</span>,
+    <span class="key">"exchanges_per_hour"</span>: <span class="num">3</span>,
+    <span class="key">"fan_size_inches"</span>: <span class="num">4</span>
+  },
+  <span class="key">"climate"</span>: {
+    <span class="key">"heat_output_btu"</span>: <span class="num">2047</span>,
+    <span class="key">"cooling_needed"</span>: <span class="bool">true</span>,
+    <span class="key">"dehumidifier_pints_per_day"</span>: <span class="num">8</span>
+  },
+  <span class="key">"lighting"</span>: {
+    <span class="key">"watts_per_m2"</span>: <span class="num">416.7</span>,
+    <span class="key">"estimated_ppfd"</span>: <span class="num">1042</span>,
+    <span class="key">"assessment"</span>: <span class="str">"Excellent - suitable for flower"</span>
+  },
+  <span class="key">"plants"</span>: {
+    <span class="key">"count"</span>: <span class="num">4</span>,
+    <span class="key">"area_per_plant_m2"</span>: <span class="num">0.36</span>,
+    <span class="key">"density_assessment"</span>: <span class="str">"Good spacing"</span>
+  }
+}</pre>
+                    </div>
+                </div>
+
+                <!-- /v1/dry -->
+                <div class="endpoint-card" id="dry">
+                    <div class="endpoint-header">
+                        <span class="method-badge get">GET</span>
+                        <span class="endpoint-path">/v1/dry</span>
+                    </div>
+                    <p class="endpoint-desc">Drying and curing calculator. Estimate dry weight yield, optimal drying duration, and get step-by-step curing instructions based on wet harvest weight, environment, and trim method.</p>
+                    <table class="params-table">
+                        <thead><tr><th>Parameter</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+                        <tbody>
+                            <tr><td><span class="param-name">wet_weight</span><span class="param-required">required</span></td><td>number</td><td>-</td><td>Wet harvest weight in grams</td></tr>
+                            <tr><td><span class="param-name">temp</span></td><td>number</td><td>-</td><td>Drying room temperature</td></tr>
+                            <tr><td><span class="param-name">humidity</span></td><td>number</td><td>-</td><td>Drying room humidity (%)</td></tr>
+                            <tr><td><span class="param-name">method</span></td><td>string</td><td>-</td><td>Drying method: <code>hang</code>, <code>rack</code>, or <code>wet_trim</code></td></tr>
+                        </tbody>
+                    </table>
+                    <div class="endpoint-actions">
+                        <a href="http://129.153.159.197:8080/v1/dry?wet_weight=500&temp=20&humidity=60" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Try it</a>
+                        <button class="example-toggle" onclick="toggleExample(this)"><span class="chevron">&#9654;</span> Example response</button>
+                    </div>
+                    <div class="example-content">
+                        <div class="example-header">
+                            <span class="example-label">GET /v1/dry?wet_weight=500&amp;temp=20&amp;humidity=60</span>
+                            <button class="copy-btn" onclick="copyCode('ex-dry')">Copy</button>
+                        </div>
+                        <pre class="example-pre" id="ex-dry">{
+  <span class="key">"wet_weight_g"</span>: <span class="num">500</span>,
+  <span class="key">"estimated_dry_weight_g"</span>: { <span class="key">"min"</span>: <span class="num">100</span>, <span class="key">"max"</span>: <span class="num">125</span> },
+  <span class="key">"dry_ratio"</span>: <span class="str">"4:1 to 5:1"</span>,
+  <span class="key">"drying"</span>: {
+    <span class="key">"duration_days"</span>: { <span class="key">"min"</span>: <span class="num">7</span>, <span class="key">"max"</span>: <span class="num">14</span> },
+    <span class="key">"optimal_temp"</span>: { <span class="key">"min"</span>: <span class="num">18</span>, <span class="key">"max"</span>: <span class="num">21</span> },
+    <span class="key">"optimal_humidity"</span>: { <span class="key">"min"</span>: <span class="num">55</span>, <span class="key">"max"</span>: <span class="num">62</span> },
+    <span class="key">"environment_status"</span>: <span class="str">"good"</span>,
+    <span class="key">"stem_snap_test"</span>: <span class="str">"Ready when small stems snap, not bend"</span>
+  },
+  <span class="key">"curing"</span>: {
+    <span class="key">"duration_weeks"</span>: { <span class="key">"min"</span>: <span class="num">2</span>, <span class="key">"max"</span>: <span class="num">8</span> },
+    <span class="key">"jar_humidity_target"</span>: <span class="str">"58-62%"</span>,
+    <span class="key">"burping_schedule"</span>: [
+      <span class="str">"Week 1: Open jars 2-3 times daily for 15 min"</span>,
+      <span class="str">"Week 2: Open jars once daily for 10 min"</span>,
+      <span class="str">"Week 3-4: Open jars every 2-3 days"</span>,
+      <span class="str">"Week 5+: Open once weekly"</span>
+    ]
+  }
+}</pre>
+                    </div>
+                </div>
+
+
+                <!-- ========== UTILITIES ========== -->
+                <div class="section-header" id="section-utilities">
+                    <h2><span class="section-icon util">&#128295;</span> Utilities</h2>
+                </div>
+
+                <!-- /v1/convert -->
+                <div class="endpoint-card" id="convert">
+                    <div class="endpoint-header">
+                        <span class="method-badge get">GET</span>
+                        <span class="endpoint-path">/v1/convert</span>
+                    </div>
+                    <p class="endpoint-desc">Multi-purpose unit converter for grow-related measurements. Converts between Celsius/Fahrenheit, EC/PPM (both 500 and 700 scale), PPFD/Lux, and VPD units. Provide any input and get all conversions.</p>
+                    <table class="params-table">
+                        <thead><tr><th>Parameter</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+                        <tbody>
+                            <tr><td><span class="param-name">temp</span></td><td>number</td><td>-</td><td>Temperature value to convert</td></tr>
+                            <tr><td><span class="param-name">from</span></td><td>string</td><td>-</td><td>Source unit for temp: <code>c</code> or <code>f</code></td></tr>
+                            <tr><td><span class="param-name">ec</span></td><td>number</td><td>-</td><td>EC value (mS/cm) to convert to PPM</td></tr>
+                            <tr><td><span class="param-name">ppm</span></td><td>number</td><td>-</td><td>PPM value to convert to EC</td></tr>
+                            <tr><td><span class="param-name">ppm_scale</span></td><td>string</td><td>-</td><td>PPM scale: <code>500</code> or <code>700</code></td></tr>
+                            <tr><td><span class="param-name">ppfd</span></td><td>number</td><td>-</td><td>PPFD to convert to Lux</td></tr>
+                            <tr><td><span class="param-name">lux</span></td><td>number</td><td>-</td><td>Lux to convert to PPFD</td></tr>
+                            <tr><td><span class="param-name">vpd</span></td><td>number</td><td>-</td><td>VPD value for unit info</td></tr>
+                        </tbody>
+                    </table>
+                    <div class="endpoint-actions">
+                        <a href="http://129.153.159.197:8080/v1/convert?ec=1.5" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Try it</a>
+                        <button class="example-toggle" onclick="toggleExample(this)"><span class="chevron">&#9654;</span> Example response</button>
+                    </div>
+                    <div class="example-content">
+                        <div class="example-header">
+                            <span class="example-label">GET /v1/convert?ec=1.5</span>
+                            <button class="copy-btn" onclick="copyCode('ex-convert')">Copy</button>
+                        </div>
+                        <pre class="example-pre" id="ex-convert">{
+  <span class="key">"conversions"</span>: {
+    <span class="key">"ec"</span>: {
+      <span class="key">"ec_ms_cm"</span>: <span class="num">1.5</span>,
+      <span class="key">"ppm_500"</span>: <span class="num">750</span>,
+      <span class="key">"ppm_700"</span>: <span class="num">1050</span>,
+      <span class="key">"us_cm"</span>: <span class="num">1500</span>,
+      <span class="key">"cf"</span>: <span class="num">15</span>
+    }
+  },
+  <span class="key">"notes"</span>: {
+    <span class="key">"ppm_500"</span>: <span class="str">"Hanna, Milwaukee scale (EC x 500)"</span>,
+    <span class="key">"ppm_700"</span>: <span class="str">"Eutech, Truncheon scale (EC x 700)"</span>
+  }
+}</pre>
+                    </div>
+                </div>
+
+                <!-- /health -->
+                <div class="endpoint-card" id="health">
+                    <div class="endpoint-header">
+                        <span class="method-badge get">GET</span>
+                        <span class="endpoint-path">/health</span>
+                    </div>
+                    <p class="endpoint-desc">API health check endpoint. Returns current API status, version, uptime, and endpoint count. Use this to verify the API is operational before making other calls.</p>
+                    <table class="params-table">
+                        <thead><tr><th>Parameter</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+                        <tbody>
+                            <tr><td colspan="4" style="color:#90A4AE;font-style:italic;">No parameters required</td></tr>
+                        </tbody>
+                    </table>
+                    <div class="endpoint-actions">
+                        <a href="http://129.153.159.197:8080/health" target="_blank" rel="noopener" class="try-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Try it</a>
+                        <button class="example-toggle" onclick="toggleExample(this)"><span class="chevron">&#9654;</span> Example response</button>
+                    </div>
+                    <div class="example-content">
+                        <div class="example-header">
+                            <span class="example-label">GET /health</span>
+                            <button class="copy-btn" onclick="copyCode('ex-health')">Copy</button>
+                        </div>
+                        <pre class="example-pre" id="ex-health">{
+  <span class="key">"status"</span>: <span class="str">"healthy"</span>,
+  <span class="key">"version"</span>: <span class="str">"2.0.0"</span>,
+  <span class="key">"endpoints"</span>: <span class="num">18</span>,
+  <span class="key">"uptime"</span>: <span class="str">"15d 4h 22m"</span>
+}</pre>
+                    </div>
+                </div>
+
+            </div><!-- /.api-content -->
+        </div><!-- /.api-layout -->
+    </main>
+
+    <!-- Footer -->
+    <footer class="api-footer">
+        <div class="container">
+            <div class="api-footer-brand">
+                <svg viewBox="0 0 32 32" width="22" height="22"><circle cx="16" cy="16" r="16" fill="#2E7D32"/><path d="M16 6c0 0-6 4-6 12 0 4 2.5 7 6 8 3.5-1 6-4 6-8 0-8-6-12-6-12z" fill="#81C784"/></svg>
+                <strong>GrowVPD Pro</strong>
+                <span>&mdash; Built by growers, for growers.</span>
+            </div>
+            <div class="api-footer-links">
+                <a href="../index.html" data-i18n="footHome">Home</a>
+                <a href="../guides/index.html" data-i18n="footGuides">Guides</a>
+                <a href="../support/index.html" data-i18n="footFaq">Support</a>
+                <a href="https://discord.gg/growvpd" target="_blank" rel="noopener noreferrer">Discord</a>
+                <a href="https://t.me/growvpd" target="_blank" rel="noopener noreferrer">Telegram</a>
+                <a href="mailto:support@growvpd.pro">support@growvpd.pro</a>
+            </div>
+            <div class="api-footer-copy" data-i18n="footCopy">&copy; 2026 GrowVPD Pro. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <!-- Mobile sidebar toggle button -->
+    <button class="mobile-sidebar-toggle" id="mobileSidebarToggle" aria-label="Toggle endpoint navigation">&#9776;</button>
+
+    <script src="../js/translations.js"></script>
+    <script src="../js/i18n.js"></script>
+    <script>
+    // Copy base URL
+    function copyBase() {
+        var url = document.getElementById('baseUrl').textContent;
+        navigator.clipboard.writeText(url).then(function() {
+            var btn = document.getElementById('copyBaseBtn');
+            btn.textContent = 'Copied!';
+            setTimeout(function() { btn.textContent = 'Copy'; }, 1500);
+        });
+    }
+
+    // Copy code block
+    function copyCode(id) {
+        var el = document.getElementById(id);
+        if (!el) return;
+        var text = el.textContent;
+        navigator.clipboard.writeText(text).then(function() {
+            var btn = el.closest('.example-content, .qs-code-block').querySelector('.copy-btn');
+            if (btn) {
+                btn.textContent = 'Copied!';
+                setTimeout(function() { btn.textContent = 'Copy'; }, 1500);
+            }
+        });
+    }
+
+    // Toggle example response
+    function toggleExample(btn) {
+        btn.classList.toggle('open');
+        var content = btn.closest('.endpoint-card').querySelector('.example-content');
+        if (content) content.classList.toggle('open');
+    }
+
+    // Quick start tab switching
+    function switchTab(tab) {
+        var tabs = document.querySelectorAll('.qs-tab');
+        var blocks = document.querySelectorAll('.qs-code-block');
+        tabs.forEach(function(t) { t.classList.remove('active'); });
+        blocks.forEach(function(b) { b.classList.remove('active'); });
+        var activeTab = Array.from(tabs).find(function(t) { return t.textContent.toLowerCase().indexOf(tab) !== -1; });
+        if (activeTab) activeTab.classList.add('active');
+        var activeBlock = document.getElementById('tab-' + tab);
+        if (activeBlock) activeBlock.classList.add('active');
+    }
+
+    // Sidebar active link tracking on scroll
+    (function() {
+        var sidebarLinks = document.querySelectorAll('.api-sidebar .sidebar-link[href^="#"]');
+        var sections = [];
+        sidebarLinks.forEach(function(link) {
+            var id = link.getAttribute('href').substring(1);
+            var el = document.getElementById(id);
+            if (el) sections.push({ id: id, el: el, link: link });
+        });
+
+        function updateActive() {
+            var scrollY = window.scrollY + 120;
+            var current = null;
+            for (var i = sections.length - 1; i >= 0; i--) {
+                if (sections[i].el.offsetTop <= scrollY) {
+                    current = sections[i];
+                    break;
+                }
+            }
+            sidebarLinks.forEach(function(l) { l.classList.remove('active'); });
+            if (current) current.link.classList.add('active');
+        }
+
+        window.addEventListener('scroll', updateActive, { passive: true });
+        updateActive();
+    })();
+
+    // Mobile sidebar
+    (function() {
+        var toggle = document.getElementById('mobileSidebarToggle');
+        var sidebar = document.getElementById('apiSidebar');
+        var overlay = document.getElementById('sidebarOverlay');
+
+        function openSidebar() {
+            sidebar.classList.add('mobile-open');
+            overlay.classList.add('open');
+        }
+        function closeSidebar() {
+            sidebar.classList.remove('mobile-open');
+            overlay.classList.remove('open');
+        }
+
+        if (toggle) toggle.addEventListener('click', function() {
+            if (sidebar.classList.contains('mobile-open')) closeSidebar();
+            else openSidebar();
+        });
+        if (overlay) overlay.addEventListener('click', closeSidebar);
+
+        // Close sidebar when clicking a link on mobile
+        sidebar.querySelectorAll('.sidebar-link').forEach(function(link) {
+            link.addEventListener('click', closeSidebar);
+        });
+    })();
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+        a.addEventListener('click', function(e) {
+            var target = document.getElementById(this.getAttribute('href').substring(1));
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                history.replaceState(null, null, this.getAttribute('href'));
+            }
+        });
+    });
+    </script>
+</body>
+</html>
