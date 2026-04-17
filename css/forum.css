@@ -407,6 +407,13 @@
     min-height: 200px;
     margin-bottom: 16px;
 }
+.giscus-container .giscus,
+.giscus-container .giscus iframe,
+.giscus,
+.giscus iframe {
+    width: 100% !important;
+    max-width: 100% !important;
+}
 .giscus-note {
     font-size: .8rem;
     color: #90A4AE;
@@ -655,6 +662,11 @@
     color: #78909C;
     margin-bottom: 20px;
     line-height: 1.6;
+}
+.article-discussion .giscus,
+.article-discussion .giscus iframe {
+    width: 100% !important;
+    max-width: 100% !important;
 }
 .article-discussion .giscus-note {
     margin-top: 16px;
