@@ -487,14 +487,14 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                         <span class="method-badge get">GET</span>
                         <span class="endpoint-path">/v1/vpd</span>
                     </div>
-                    <p class="endpoint-desc">Calculate VPD (Vapor Pressure Deficit) from temperature and humidity. Returns VPD value, leaf VPD, status classification, and optimal ranges for all growth stages.</p>
+                    <p class="endpoint-desc" data-i18n="apiDescVpd">Calculate VPD (Vapor Pressure Deficit) from temperature and humidity. Returns VPD value, leaf VPD, status classification, and optimal ranges for all growth stages.</p>
                     <table class="params-table">
                         <thead><tr><th data-i18n="apiThParam">Parameter</th><th data-i18n="apiThType">Type</th><th data-i18n="apiThDefault">Default</th><th data-i18n="apiThDesc">Description</th></tr></thead>
                         <tbody>
-                            <tr><td><span class="param-name">temp</span><span class="param-required">required</span></td><td>number</td><td>-</td><td>Air temperature</td></tr>
-                            <tr><td><span class="param-name">humidity</span><span class="param-required">required</span></td><td>number</td><td>-</td><td>Relative humidity (%)</td></tr>
-                            <tr><td><span class="param-name">leaf_offset</span></td><td>number</td><td><span class="param-default">2.0</span></td><td>Leaf temperature offset below air temp</td></tr>
-                            <tr><td><span class="param-name">unit</span></td><td>string</td><td><span class="param-default">c</span></td><td>Temperature unit: <code>c</code> (Celsius) or <code>f</code> (Fahrenheit)</td></tr>
+                            <tr><td><span class="param-name">temp</span><span class="param-required">required</span></td><td>number</td><td>-</td><td data-i18n="apiParamTemp">Air temperature</td></tr>
+                            <tr><td><span class="param-name">humidity</span><span class="param-required">required</span></td><td>number</td><td>-</td><td data-i18n="apiParamHumidity">Relative humidity (%)</td></tr>
+                            <tr><td><span class="param-name">leaf_offset</span></td><td>number</td><td><span class="param-default">2.0</span></td><td data-i18n="apiParamLeafOffset">Leaf temperature offset below air temp</td></tr>
+                            <tr><td><span class="param-name">unit</span></td><td>string</td><td><span class="param-default">c</span></td><td data-i18n="apiParamUnit">Temperature unit: <code>c</code> (Celsius) or <code>f</code> (Fahrenheit)</td></tr>
                         </tbody>
                     </table>
                     <div class="endpoint-actions">
@@ -533,16 +533,16 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                         <span class="method-badge get">GET</span>
                         <span class="endpoint-path">/v1/target</span>
                     </div>
-                    <p class="endpoint-desc">Reverse VPD calculator. Given a target VPD (or growth stage) and either temperature or humidity, calculates the missing variable. Useful for finding what humidity to aim for at a given temperature.</p>
+                    <p class="endpoint-desc" data-i18n="apiDescTarget">Reverse VPD calculator. Given a target VPD (or growth stage) and either temperature or humidity, calculates the missing variable. Useful for finding what humidity to aim for at a given temperature.</p>
                     <table class="params-table">
                         <thead><tr><th data-i18n="apiThParam">Parameter</th><th data-i18n="apiThType">Type</th><th data-i18n="apiThDefault">Default</th><th data-i18n="apiThDesc">Description</th></tr></thead>
                         <tbody>
-                            <tr><td><span class="param-name">vpd</span></td><td>number</td><td>-</td><td>Target VPD value (kPa). Provide this or <code>stage</code>.</td></tr>
-                            <tr><td><span class="param-name">stage</span></td><td>string</td><td>-</td><td>Growth stage (uses midpoint VPD). One of: <span class="stage-list">clone_seedling, early_veg, late_veg, early_flower, mid_flower, late_flower</span></td></tr>
-                            <tr><td><span class="param-name">temp</span></td><td>number</td><td>-</td><td>Known temperature (solves for humidity)</td></tr>
-                            <tr><td><span class="param-name">humidity</span></td><td>number</td><td>-</td><td>Known humidity (solves for temperature)</td></tr>
-                            <tr><td><span class="param-name">leaf_offset</span></td><td>number</td><td><span class="param-default">2.0</span></td><td>Leaf temperature offset</td></tr>
-                            <tr><td><span class="param-name">unit</span></td><td>string</td><td><span class="param-default">c</span></td><td>Temperature unit: <code>c</code> or <code>f</code></td></tr>
+                            <tr><td><span class="param-name">vpd</span></td><td>number</td><td>-</td><td data-i18n="apiParamTargetVpd">Target VPD value (kPa). Provide this or <code>stage</code>.</td></tr>
+                            <tr><td><span class="param-name">stage</span></td><td>string</td><td>-</td><td data-i18n="apiParamStageVpd">Growth stage (uses midpoint VPD). One of: <span class="stage-list">clone_seedling, early_veg, late_veg, early_flower, mid_flower, late_flower</span></td></tr>
+                            <tr><td><span class="param-name">temp</span></td><td>number</td><td>-</td><td data-i18n="apiParamKnownTemp">Known temperature (solves for humidity)</td></tr>
+                            <tr><td><span class="param-name">humidity</span></td><td>number</td><td>-</td><td data-i18n="apiParamKnownHumidity">Known humidity (solves for temperature)</td></tr>
+                            <tr><td><span class="param-name">leaf_offset</span></td><td>number</td><td><span class="param-default">2.0</span></td><td data-i18n="apiParamLeafOffsetShort">Leaf temperature offset</td></tr>
+                            <tr><td><span class="param-name">unit</span></td><td>string</td><td><span class="param-default">c</span></td><td data-i18n="apiParamUnitShort">Temperature unit: <code>c</code> or <code>f</code></td></tr>
                         </tbody>
                     </table>
                     <div class="endpoint-actions">
@@ -576,18 +576,18 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                         <span class="method-badge get">GET</span>
                         <span class="endpoint-path">/v1/chart</span>
                     </div>
-                    <p class="endpoint-desc">Generate a VPD heatmap data matrix. Returns a 2D grid of VPD values across a temperature and humidity range, with zone classifications. Perfect for building visual VPD charts.</p>
+                    <p class="endpoint-desc" data-i18n="apiDescChart">Generate a VPD heatmap data matrix. Returns a 2D grid of VPD values across a temperature and humidity range, with zone classifications. Perfect for building visual VPD charts.</p>
                     <table class="params-table">
                         <thead><tr><th data-i18n="apiThParam">Parameter</th><th data-i18n="apiThType">Type</th><th data-i18n="apiThDefault">Default</th><th data-i18n="apiThDesc">Description</th></tr></thead>
                         <tbody>
-                            <tr><td><span class="param-name">temp_min</span></td><td>number</td><td><span class="param-default">15</span></td><td>Minimum temperature</td></tr>
-                            <tr><td><span class="param-name">temp_max</span></td><td>number</td><td><span class="param-default">35</span></td><td>Maximum temperature</td></tr>
-                            <tr><td><span class="param-name">temp_step</span></td><td>number</td><td><span class="param-default">1</span></td><td>Temperature step size</td></tr>
-                            <tr><td><span class="param-name">rh_min</span></td><td>number</td><td><span class="param-default">30</span></td><td>Minimum relative humidity (%)</td></tr>
-                            <tr><td><span class="param-name">rh_max</span></td><td>number</td><td><span class="param-default">90</span></td><td>Maximum relative humidity (%)</td></tr>
-                            <tr><td><span class="param-name">rh_step</span></td><td>number</td><td><span class="param-default">5</span></td><td>Humidity step size</td></tr>
-                            <tr><td><span class="param-name">leaf_offset</span></td><td>number</td><td><span class="param-default">2</span></td><td>Leaf temperature offset</td></tr>
-                            <tr><td><span class="param-name">stage</span></td><td>string</td><td>-</td><td>Growth stage for zone classification</td></tr>
+                            <tr><td><span class="param-name">temp_min</span></td><td>number</td><td><span class="param-default">15</span></td><td data-i18n="apiParamTempMin">Minimum temperature</td></tr>
+                            <tr><td><span class="param-name">temp_max</span></td><td>number</td><td><span class="param-default">35</span></td><td data-i18n="apiParamTempMax">Maximum temperature</td></tr>
+                            <tr><td><span class="param-name">temp_step</span></td><td>number</td><td><span class="param-default">1</span></td><td data-i18n="apiParamTempStep">Temperature step size</td></tr>
+                            <tr><td><span class="param-name">rh_min</span></td><td>number</td><td><span class="param-default">30</span></td><td data-i18n="apiParamRhMin">Minimum relative humidity (%)</td></tr>
+                            <tr><td><span class="param-name">rh_max</span></td><td>number</td><td><span class="param-default">90</span></td><td data-i18n="apiParamRhMax">Maximum relative humidity (%)</td></tr>
+                            <tr><td><span class="param-name">rh_step</span></td><td>number</td><td><span class="param-default">5</span></td><td data-i18n="apiParamRhStep">Humidity step size</td></tr>
+                            <tr><td><span class="param-name">leaf_offset</span></td><td>number</td><td><span class="param-default">2</span></td><td data-i18n="apiParamLeafOffsetShort">Leaf temperature offset</td></tr>
+                            <tr><td><span class="param-name">stage</span></td><td>string</td><td>-</td><td data-i18n="apiParamStageZone">Growth stage for zone classification</td></tr>
                         </tbody>
                     </table>
                     <div class="endpoint-actions">
@@ -626,12 +626,12 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                         <span class="method-badge get">GET</span>
                         <span class="endpoint-path">/v1/batch</span>
                     </div>
-                    <p class="endpoint-desc">Batch VPD calculations with aggregated statistics. Submit multiple temperature/humidity readings and receive individual VPD values plus min, max, average, and standard deviation across the set.</p>
+                    <p class="endpoint-desc" data-i18n="apiDescBatch">Batch VPD calculations with aggregated statistics. Submit multiple temperature/humidity readings and receive individual VPD values plus min, max, average, and standard deviation across the set.</p>
                     <table class="params-table">
                         <thead><tr><th data-i18n="apiThParam">Parameter</th><th data-i18n="apiThType">Type</th><th data-i18n="apiThDefault">Default</th><th data-i18n="apiThDesc">Description</th></tr></thead>
                         <tbody>
-                            <tr><td><span class="param-name">readings</span><span class="param-required">required</span></td><td>JSON array</td><td>-</td><td>Array of <code>{"temp":N, "humidity":N}</code> objects (URL-encoded)</td></tr>
-                            <tr><td><span class="param-name">leaf_offset</span></td><td>number</td><td><span class="param-default">2.0</span></td><td>Leaf temperature offset</td></tr>
+                            <tr><td><span class="param-name">readings</span><span class="param-required">required</span></td><td>JSON array</td><td>-</td><td data-i18n="apiParamReadings">Array of <code>{"temp":N, "humidity":N}</code> objects (URL-encoded)</td></tr>
+                            <tr><td><span class="param-name">leaf_offset</span></td><td>number</td><td><span class="param-default">2.0</span></td><td data-i18n="apiParamLeafOffsetShort">Leaf temperature offset</td></tr>
                         </tbody>
                     </table>
                     <div class="endpoint-actions">
@@ -683,13 +683,13 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                         <span class="method-badge get">GET</span>
                         <span class="endpoint-path">/v1/dli</span>
                     </div>
-                    <p class="endpoint-desc">Daily Light Integral calculator. Compute DLI from PPFD and photoperiod (forward), or find the required PPFD to hit a target DLI (reverse). Includes optimal DLI ranges per growth stage.</p>
+                    <p class="endpoint-desc" data-i18n="apiDescDli">Daily Light Integral calculator. Compute DLI from PPFD and photoperiod (forward), or find the required PPFD to hit a target DLI (reverse). Includes optimal DLI ranges per growth stage.</p>
                     <table class="params-table">
                         <thead><tr><th data-i18n="apiThParam">Parameter</th><th data-i18n="apiThType">Type</th><th data-i18n="apiThDefault">Default</th><th data-i18n="apiThDesc">Description</th></tr></thead>
                         <tbody>
-                            <tr><td><span class="param-name">ppfd</span></td><td>number</td><td>-</td><td>Photosynthetic Photon Flux Density (umol/m2/s)</td></tr>
-                            <tr><td><span class="param-name">hours</span></td><td>number</td><td>-</td><td>Photoperiod in hours</td></tr>
-                            <tr><td><span class="param-name">dli</span></td><td>number</td><td>-</td><td>Target DLI (mol/m2/day) for reverse calculation</td></tr>
+                            <tr><td><span class="param-name">ppfd</span></td><td>number</td><td>-</td><td data-i18n="apiParamPpfd">Photosynthetic Photon Flux Density (umol/m2/s)</td></tr>
+                            <tr><td><span class="param-name">hours</span></td><td>number</td><td>-</td><td data-i18n="apiParamHours">Photoperiod in hours</td></tr>
+                            <tr><td><span class="param-name">dli</span></td><td>number</td><td>-</td><td data-i18n="apiParamDli">Target DLI (mol/m2/day) for reverse calculation</td></tr>
                         </tbody>
                     </table>
                     <div class="endpoint-actions">
@@ -724,17 +724,17 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                         <span class="method-badge get">GET</span>
                         <span class="endpoint-path">/v1/light</span>
                     </div>
-                    <p class="endpoint-desc">Comprehensive light calculator. Estimates PPFD from wattage and area, calculates DLI, evaluates light intensity for a given growth stage, and provides efficiency metrics.</p>
+                    <p class="endpoint-desc" data-i18n="apiDescLight">Comprehensive light calculator. Estimates PPFD from wattage and area, calculates DLI, evaluates light intensity for a given growth stage, and provides efficiency metrics.</p>
                     <table class="params-table">
                         <thead><tr><th data-i18n="apiThParam">Parameter</th><th data-i18n="apiThType">Type</th><th data-i18n="apiThDefault">Default</th><th data-i18n="apiThDesc">Description</th></tr></thead>
                         <tbody>
-                            <tr><td><span class="param-name">ppfd</span></td><td>number</td><td>-</td><td>Known PPFD (if available)</td></tr>
-                            <tr><td><span class="param-name">hours</span></td><td>number</td><td>-</td><td>Photoperiod in hours</td></tr>
-                            <tr><td><span class="param-name">watts</span></td><td>number</td><td>-</td><td>Light wattage (for PPFD estimation)</td></tr>
-                            <tr><td><span class="param-name">efficiency</span></td><td>number</td><td><span class="param-default">2.5</span></td><td>LED efficiency (umol/J)</td></tr>
-                            <tr><td><span class="param-name">area</span></td><td>number</td><td>-</td><td>Grow area in m2</td></tr>
-                            <tr><td><span class="param-name">height</span></td><td>number</td><td>-</td><td>Light height in meters</td></tr>
-                            <tr><td><span class="param-name">stage</span></td><td>string</td><td>-</td><td>Growth stage for evaluation</td></tr>
+                            <tr><td><span class="param-name">ppfd</span></td><td>number</td><td>-</td><td data-i18n="apiParamPpfdKnown">Known PPFD (if available)</td></tr>
+                            <tr><td><span class="param-name">hours</span></td><td>number</td><td>-</td><td data-i18n="apiParamHours">Photoperiod in hours</td></tr>
+                            <tr><td><span class="param-name">watts</span></td><td>number</td><td>-</td><td data-i18n="apiParamWatts">Light wattage (for PPFD estimation)</td></tr>
+                            <tr><td><span class="param-name">efficiency</span></td><td>number</td><td><span class="param-default">2.5</span></td><td data-i18n="apiParamEfficiency">LED efficiency (umol/J)</td></tr>
+                            <tr><td><span class="param-name">area</span></td><td>number</td><td>-</td><td data-i18n="apiParamArea">Grow area in m2</td></tr>
+                            <tr><td><span class="param-name">height</span></td><td>number</td><td>-</td><td data-i18n="apiParamLightHeight">Light height in meters</td></tr>
+                            <tr><td><span class="param-name">stage</span></td><td>string</td><td>-</td><td data-i18n="apiParamStageEval">Growth stage for evaluation</td></tr>
                         </tbody>
                     </table>
                     <div class="endpoint-actions">
@@ -778,12 +778,12 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                         <span class="method-badge get">GET</span>
                         <span class="endpoint-path">/v1/stage</span>
                     </div>
-                    <p class="endpoint-desc">Get comprehensive environment targets for a growth stage. Returns optimal ranges for VPD, temperature, humidity, PPFD, DLI, CO2, EC, pH, and watering frequency. Optionally tailored to a growing medium.</p>
+                    <p class="endpoint-desc" data-i18n="apiDescStage">Get comprehensive environment targets for a growth stage. Returns optimal ranges for VPD, temperature, humidity, PPFD, DLI, CO2, EC, pH, and watering frequency. Optionally tailored to a growing medium.</p>
                     <table class="params-table">
                         <thead><tr><th data-i18n="apiThParam">Parameter</th><th data-i18n="apiThType">Type</th><th data-i18n="apiThDefault">Default</th><th data-i18n="apiThDesc">Description</th></tr></thead>
                         <tbody>
-                            <tr><td><span class="param-name">stage</span></td><td>string</td><td>-</td><td>Stage name or <code>"all"</code> for every stage. Options: <span class="stage-list">clone_seedling, early_veg, late_veg, early_flower, mid_flower, late_flower</span></td></tr>
-                            <tr><td><span class="param-name">medium</span></td><td>string</td><td>-</td><td>Growing medium: <code>soil</code>, <code>coco</code>, <code>hydro</code>, <code>dwc</code></td></tr>
+                            <tr><td><span class="param-name">stage</span></td><td>string</td><td>-</td><td data-i18n="apiParamStageName">Stage name or <code>"all"</code> for every stage. Options: <span class="stage-list">clone_seedling, early_veg, late_veg, early_flower, mid_flower, late_flower</span></td></tr>
+                            <tr><td><span class="param-name">medium</span></td><td>string</td><td>-</td><td data-i18n="apiParamMedium">Growing medium: <code>soil</code>, <code>coco</code>, <code>hydro</code>, <code>dwc</code></td></tr>
                         </tbody>
                     </table>
                     <div class="endpoint-actions">
@@ -827,12 +827,12 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                         <span class="method-badge get">GET</span>
                         <span class="endpoint-path">/v1/schedule</span>
                     </div>
-                    <p class="endpoint-desc">Generate a full grow timeline with week-by-week stage progression. Returns duration and environment targets for each stage, customized by plant type and growing medium.</p>
+                    <p class="endpoint-desc" data-i18n="apiDescSchedule">Generate a full grow timeline with week-by-week stage progression. Returns duration and environment targets for each stage, customized by plant type and growing medium.</p>
                     <table class="params-table">
                         <thead><tr><th data-i18n="apiThParam">Parameter</th><th data-i18n="apiThType">Type</th><th data-i18n="apiThDefault">Default</th><th data-i18n="apiThDesc">Description</th></tr></thead>
                         <tbody>
-                            <tr><td><span class="param-name">type</span></td><td>string</td><td>-</td><td>Plant type: <code>photo</code> (photoperiod) or <code>auto</code> (autoflower)</td></tr>
-                            <tr><td><span class="param-name">medium</span></td><td>string</td><td>-</td><td>Growing medium: <code>soil</code>, <code>coco</code>, <code>hydro</code>, <code>dwc</code></td></tr>
+                            <tr><td><span class="param-name">type</span></td><td>string</td><td>-</td><td data-i18n="apiParamPlantType">Plant type: <code>photo</code> (photoperiod) or <code>auto</code> (autoflower)</td></tr>
+                            <tr><td><span class="param-name">medium</span></td><td>string</td><td>-</td><td data-i18n="apiParamMedium">Growing medium: <code>soil</code>, <code>coco</code>, <code>hydro</code>, <code>dwc</code></td></tr>
                         </tbody>
                     </table>
                     <div class="endpoint-actions">
@@ -884,20 +884,20 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                         <span class="method-badge get">GET</span>
                         <span class="endpoint-path">/v1/diagnose</span>
                     </div>
-                    <p class="endpoint-desc">Full environment diagnosis with a 0-100 health score. Analyzes temperature, humidity, VPD, pH, EC, PPFD, CO2, and night temperature. Returns issues found, severity levels, and actionable recommendations.</p>
+                    <p class="endpoint-desc" data-i18n="apiDescDiagnose">Full environment diagnosis with a 0-100 health score. Analyzes temperature, humidity, VPD, pH, EC, PPFD, CO2, and night temperature. Returns issues found, severity levels, and actionable recommendations.</p>
                     <table class="params-table">
                         <thead><tr><th data-i18n="apiThParam">Parameter</th><th data-i18n="apiThType">Type</th><th data-i18n="apiThDefault">Default</th><th data-i18n="apiThDesc">Description</th></tr></thead>
                         <tbody>
-                            <tr><td><span class="param-name">temp</span><span class="param-required">required</span></td><td>number</td><td>-</td><td>Air temperature</td></tr>
-                            <tr><td><span class="param-name">humidity</span><span class="param-required">required</span></td><td>number</td><td>-</td><td>Relative humidity (%)</td></tr>
-                            <tr><td><span class="param-name">stage</span></td><td>string</td><td>-</td><td>Growth stage for context-aware diagnosis</td></tr>
-                            <tr><td><span class="param-name">medium</span></td><td>string</td><td>-</td><td>Growing medium</td></tr>
-                            <tr><td><span class="param-name">ppfd</span></td><td>number</td><td>-</td><td>Current PPFD</td></tr>
-                            <tr><td><span class="param-name">ph</span></td><td>number</td><td>-</td><td>Nutrient solution pH</td></tr>
-                            <tr><td><span class="param-name">ec</span></td><td>number</td><td>-</td><td>Nutrient solution EC (mS/cm)</td></tr>
-                            <tr><td><span class="param-name">co2</span></td><td>number</td><td>-</td><td>CO2 level (ppm)</td></tr>
-                            <tr><td><span class="param-name">night_temp</span></td><td>number</td><td>-</td><td>Night temperature</td></tr>
-                            <tr><td><span class="param-name">unit</span></td><td>string</td><td><span class="param-default">c</span></td><td>Temperature unit: <code>c</code> or <code>f</code></td></tr>
+                            <tr><td><span class="param-name">temp</span><span class="param-required">required</span></td><td>number</td><td>-</td><td data-i18n="apiParamTemp">Air temperature</td></tr>
+                            <tr><td><span class="param-name">humidity</span><span class="param-required">required</span></td><td>number</td><td>-</td><td data-i18n="apiParamHumidity">Relative humidity (%)</td></tr>
+                            <tr><td><span class="param-name">stage</span></td><td>string</td><td>-</td><td data-i18n="apiParamStageDiag">Growth stage for context-aware diagnosis</td></tr>
+                            <tr><td><span class="param-name">medium</span></td><td>string</td><td>-</td><td data-i18n="apiParamMediumShort">Growing medium</td></tr>
+                            <tr><td><span class="param-name">ppfd</span></td><td>number</td><td>-</td><td data-i18n="apiParamCurrentPpfd">Current PPFD</td></tr>
+                            <tr><td><span class="param-name">ph</span></td><td>number</td><td>-</td><td data-i18n="apiParamPh">Nutrient solution pH</td></tr>
+                            <tr><td><span class="param-name">ec</span></td><td>number</td><td>-</td><td data-i18n="apiParamEc">Nutrient solution EC (mS/cm)</td></tr>
+                            <tr><td><span class="param-name">co2</span></td><td>number</td><td>-</td><td data-i18n="apiParamCo2Level">CO2 level (ppm)</td></tr>
+                            <tr><td><span class="param-name">night_temp</span></td><td>number</td><td>-</td><td data-i18n="apiParamNightTemp">Night temperature</td></tr>
+                            <tr><td><span class="param-name">unit</span></td><td>string</td><td><span class="param-default">c</span></td><td data-i18n="apiParamUnitShort">Temperature unit: <code>c</code> or <code>f</code></td></tr>
                         </tbody>
                     </table>
                     <div class="endpoint-actions">
@@ -948,13 +948,13 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                         <span class="method-badge get">GET</span>
                         <span class="endpoint-path">/v1/deficit</span>
                     </div>
-                    <p class="endpoint-desc">Symptom-based nutrient deficiency diagnosis. Describe visible plant symptoms and get ranked possible deficiencies with confidence scores, affected nutrients, and treatment recommendations.</p>
+                    <p class="endpoint-desc" data-i18n="apiDescDeficit">Symptom-based nutrient deficiency diagnosis. Describe visible plant symptoms and get ranked possible deficiencies with confidence scores, affected nutrients, and treatment recommendations.</p>
                     <table class="params-table">
                         <thead><tr><th data-i18n="apiThParam">Parameter</th><th data-i18n="apiThType">Type</th><th data-i18n="apiThDefault">Default</th><th data-i18n="apiThDesc">Description</th></tr></thead>
                         <tbody>
-                            <tr><td><span class="param-name">symptoms</span><span class="param-required">required</span></td><td>string</td><td>-</td><td>Comma-separated symptom keywords. Examples: <code>yellow_lower_leaves</code>, <code>brown_spots</code>, <code>curling_up</code>, <code>purple_stems</code>, <code>slow_growth</code>, <code>burnt_tips</code></td></tr>
-                            <tr><td><span class="param-name">ph</span></td><td>number</td><td>-</td><td>Current pH (helps narrow diagnosis)</td></tr>
-                            <tr><td><span class="param-name">medium</span></td><td>string</td><td>-</td><td>Growing medium</td></tr>
+                            <tr><td><span class="param-name">symptoms</span><span class="param-required">required</span></td><td>string</td><td>-</td><td data-i18n="apiParamSymptoms">Comma-separated symptom keywords. Examples: <code>yellow_lower_leaves</code>, <code>brown_spots</code>, <code>curling_up</code>, <code>purple_stems</code>, <code>slow_growth</code>, <code>burnt_tips</code></td></tr>
+                            <tr><td><span class="param-name">ph</span></td><td>number</td><td>-</td><td data-i18n="apiParamPhDiag">Current pH (helps narrow diagnosis)</td></tr>
+                            <tr><td><span class="param-name">medium</span></td><td>string</td><td>-</td><td data-i18n="apiParamMediumShort">Growing medium</td></tr>
                         </tbody>
                     </table>
                     <div class="endpoint-actions">
@@ -1007,13 +1007,13 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                         <span class="method-badge get">GET</span>
                         <span class="endpoint-path">/v1/dewpoint</span>
                     </div>
-                    <p class="endpoint-desc">Calculate dewpoint temperature, mold/condensation risk assessment, and safe night temperature minimum. Essential for preventing bud rot and mildew.</p>
+                    <p class="endpoint-desc" data-i18n="apiDescDewpoint">Calculate dewpoint temperature, mold/condensation risk assessment, and safe night temperature minimum. Essential for preventing bud rot and mildew.</p>
                     <table class="params-table">
                         <thead><tr><th data-i18n="apiThParam">Parameter</th><th data-i18n="apiThType">Type</th><th data-i18n="apiThDefault">Default</th><th data-i18n="apiThDesc">Description</th></tr></thead>
                         <tbody>
-                            <tr><td><span class="param-name">temp</span><span class="param-required">required</span></td><td>number</td><td>-</td><td>Air temperature</td></tr>
-                            <tr><td><span class="param-name">humidity</span><span class="param-required">required</span></td><td>number</td><td>-</td><td>Relative humidity (%)</td></tr>
-                            <tr><td><span class="param-name">unit</span></td><td>string</td><td><span class="param-default">c</span></td><td>Temperature unit: <code>c</code> or <code>f</code></td></tr>
+                            <tr><td><span class="param-name">temp</span><span class="param-required">required</span></td><td>number</td><td>-</td><td data-i18n="apiParamTemp">Air temperature</td></tr>
+                            <tr><td><span class="param-name">humidity</span><span class="param-required">required</span></td><td>number</td><td>-</td><td data-i18n="apiParamHumidity">Relative humidity (%)</td></tr>
+                            <tr><td><span class="param-name">unit</span></td><td>string</td><td><span class="param-default">c</span></td><td data-i18n="apiParamUnitShort">Temperature unit: <code>c</code> or <code>f</code></td></tr>
                         </tbody>
                     </table>
                     <div class="endpoint-actions">
@@ -1054,13 +1054,13 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                         <span class="method-badge get">GET</span>
                         <span class="endpoint-path">/v1/nutrient</span>
                     </div>
-                    <p class="endpoint-desc">Get EC, pH, and PPM targets for a given growth stage and medium. Includes medium-specific tips, flush schedules, and adjustments based on your water source EC.</p>
+                    <p class="endpoint-desc" data-i18n="apiDescNutrient">Get EC, pH, and PPM targets for a given growth stage and medium. Includes medium-specific tips, flush schedules, and adjustments based on your water source EC.</p>
                     <table class="params-table">
                         <thead><tr><th data-i18n="apiThParam">Parameter</th><th data-i18n="apiThType">Type</th><th data-i18n="apiThDefault">Default</th><th data-i18n="apiThDesc">Description</th></tr></thead>
                         <tbody>
-                            <tr><td><span class="param-name">stage</span><span class="param-required">required</span></td><td>string</td><td>-</td><td>Growth stage</td></tr>
-                            <tr><td><span class="param-name">medium</span></td><td>string</td><td>-</td><td>Growing medium: <code>soil</code>, <code>coco</code>, <code>hydro</code>, <code>dwc</code></td></tr>
-                            <tr><td><span class="param-name">water_ec</span></td><td>number</td><td>-</td><td>Base water EC (mS/cm) for adjusted targets</td></tr>
+                            <tr><td><span class="param-name">stage</span><span class="param-required">required</span></td><td>string</td><td>-</td><td data-i18n="apiParamStage">Growth stage</td></tr>
+                            <tr><td><span class="param-name">medium</span></td><td>string</td><td>-</td><td data-i18n="apiParamMedium">Growing medium: <code>soil</code>, <code>coco</code>, <code>hydro</code>, <code>dwc</code></td></tr>
+                            <tr><td><span class="param-name">water_ec</span></td><td>number</td><td>-</td><td data-i18n="apiParamWaterEc">Base water EC (mS/cm) for adjusted targets</td></tr>
                         </tbody>
                     </table>
                     <div class="endpoint-actions">
@@ -1100,14 +1100,14 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                         <span class="method-badge get">GET</span>
                         <span class="endpoint-path">/v1/co2</span>
                     </div>
-                    <p class="endpoint-desc">CO2 enrichment calculator. Determine how much CO2 gas is needed to reach a target concentration in your grow room, and get stage-appropriate CO2 recommendations.</p>
+                    <p class="endpoint-desc" data-i18n="apiDescCo2">CO2 enrichment calculator. Determine how much CO2 gas is needed to reach a target concentration in your grow room, and get stage-appropriate CO2 recommendations.</p>
                     <table class="params-table">
                         <thead><tr><th data-i18n="apiThParam">Parameter</th><th data-i18n="apiThType">Type</th><th data-i18n="apiThDefault">Default</th><th data-i18n="apiThDesc">Description</th></tr></thead>
                         <tbody>
-                            <tr><td><span class="param-name">room_m3</span></td><td>number</td><td>-</td><td>Room volume in cubic meters</td></tr>
-                            <tr><td><span class="param-name">target_ppm</span></td><td>number</td><td><span class="param-default">1200</span></td><td>Target CO2 concentration (ppm)</td></tr>
-                            <tr><td><span class="param-name">current_ppm</span></td><td>number</td><td><span class="param-default">400</span></td><td>Current ambient CO2 (ppm)</td></tr>
-                            <tr><td><span class="param-name">stage</span></td><td>string</td><td>-</td><td>Growth stage for recommendations</td></tr>
+                            <tr><td><span class="param-name">room_m3</span></td><td>number</td><td>-</td><td data-i18n="apiParamRoomM3">Room volume in cubic meters</td></tr>
+                            <tr><td><span class="param-name">target_ppm</span></td><td>number</td><td><span class="param-default">1200</span></td><td data-i18n="apiParamTargetPpm">Target CO2 concentration (ppm)</td></tr>
+                            <tr><td><span class="param-name">current_ppm</span></td><td>number</td><td><span class="param-default">400</span></td><td data-i18n="apiParamCurrentPpm">Current ambient CO2 (ppm)</td></tr>
+                            <tr><td><span class="param-name">stage</span></td><td>string</td><td>-</td><td data-i18n="apiParamStageRec">Growth stage for recommendations</td></tr>
                         </tbody>
                     </table>
                     <div class="endpoint-actions">
@@ -1150,16 +1150,16 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                         <span class="method-badge get">GET</span>
                         <span class="endpoint-path">/v1/irrigation</span>
                     </div>
-                    <p class="endpoint-desc">Watering volume and frequency calculator. Computes optimal water volume per pot based on pot size, medium, growth stage, and current environment conditions. Supports multiple plants.</p>
+                    <p class="endpoint-desc" data-i18n="apiDescIrrigation">Watering volume and frequency calculator. Computes optimal water volume per pot based on pot size, medium, growth stage, and current environment conditions. Supports multiple plants.</p>
                     <table class="params-table">
                         <thead><tr><th data-i18n="apiThParam">Parameter</th><th data-i18n="apiThType">Type</th><th data-i18n="apiThDefault">Default</th><th data-i18n="apiThDesc">Description</th></tr></thead>
                         <tbody>
-                            <tr><td><span class="param-name">pot_size</span><span class="param-required">required</span></td><td>number</td><td>-</td><td>Pot volume in liters</td></tr>
-                            <tr><td><span class="param-name">medium</span></td><td>string</td><td>-</td><td>Growing medium: <code>soil</code>, <code>coco</code>, <code>hydro</code>, <code>dwc</code></td></tr>
-                            <tr><td><span class="param-name">stage</span></td><td>string</td><td>-</td><td>Growth stage</td></tr>
-                            <tr><td><span class="param-name">vpd</span></td><td>number</td><td>-</td><td>Current VPD (affects transpiration rate)</td></tr>
-                            <tr><td><span class="param-name">temp</span></td><td>number</td><td>-</td><td>Current temperature</td></tr>
-                            <tr><td><span class="param-name">plants</span></td><td>number</td><td>-</td><td>Number of plants (multiplies total)</td></tr>
+                            <tr><td><span class="param-name">pot_size</span><span class="param-required">required</span></td><td>number</td><td>-</td><td data-i18n="apiParamPotSize">Pot volume in liters</td></tr>
+                            <tr><td><span class="param-name">medium</span></td><td>string</td><td>-</td><td data-i18n="apiParamMedium">Growing medium: <code>soil</code>, <code>coco</code>, <code>hydro</code>, <code>dwc</code></td></tr>
+                            <tr><td><span class="param-name">stage</span></td><td>string</td><td>-</td><td data-i18n="apiParamStage">Growth stage</td></tr>
+                            <tr><td><span class="param-name">vpd</span></td><td>number</td><td>-</td><td data-i18n="apiParamCurrentVpd">Current VPD (affects transpiration rate)</td></tr>
+                            <tr><td><span class="param-name">temp</span></td><td>number</td><td>-</td><td data-i18n="apiParamCurrentTemp">Current temperature</td></tr>
+                            <tr><td><span class="param-name">plants</span></td><td>number</td><td>-</td><td data-i18n="apiParamPlants">Number of plants (multiplies total)</td></tr>
                         </tbody>
                     </table>
                     <div class="endpoint-actions">
@@ -1211,18 +1211,18 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                         <span class="method-badge get">GET</span>
                         <span class="endpoint-path">/v1/room</span>
                     </div>
-                    <p class="endpoint-desc">Room equipment sizing calculator. Given your tent/room dimensions and light wattage, get recommended ventilation (CFM), humidifier/dehumidifier capacity, and fan sizing. Accounts for heat load from lights.</p>
+                    <p class="endpoint-desc" data-i18n="apiDescRoom">Room equipment sizing calculator. Given your tent/room dimensions and light wattage, get recommended ventilation (CFM), humidifier/dehumidifier capacity, and fan sizing. Accounts for heat load from lights.</p>
                     <table class="params-table">
                         <thead><tr><th data-i18n="apiThParam">Parameter</th><th data-i18n="apiThType">Type</th><th data-i18n="apiThDefault">Default</th><th data-i18n="apiThDesc">Description</th></tr></thead>
                         <tbody>
-                            <tr><td><span class="param-name">length</span><span class="param-required">required</span></td><td>number</td><td>-</td><td>Room length in meters</td></tr>
-                            <tr><td><span class="param-name">width</span><span class="param-required">required</span></td><td>number</td><td>-</td><td>Room width in meters</td></tr>
-                            <tr><td><span class="param-name">height</span></td><td>number</td><td><span class="param-default">2</span></td><td>Room height in meters</td></tr>
-                            <tr><td><span class="param-name">lights_watts</span></td><td>number</td><td>-</td><td>Total light wattage</td></tr>
-                            <tr><td><span class="param-name">target_temp</span></td><td>number</td><td><span class="param-default">25</span></td><td>Target temperature</td></tr>
-                            <tr><td><span class="param-name">ambient_temp</span></td><td>number</td><td><span class="param-default">22</span></td><td>Ambient/intake temperature</td></tr>
-                            <tr><td><span class="param-name">plants</span></td><td>number</td><td><span class="param-default">4</span></td><td>Number of plants</td></tr>
-                            <tr><td><span class="param-name">target_humidity</span></td><td>number</td><td><span class="param-default">55</span></td><td>Target humidity (%)</td></tr>
+                            <tr><td><span class="param-name">length</span><span class="param-required">required</span></td><td>number</td><td>-</td><td data-i18n="apiParamRoomLength">Room length in meters</td></tr>
+                            <tr><td><span class="param-name">width</span><span class="param-required">required</span></td><td>number</td><td>-</td><td data-i18n="apiParamRoomWidth">Room width in meters</td></tr>
+                            <tr><td><span class="param-name">height</span></td><td>number</td><td><span class="param-default">2</span></td><td data-i18n="apiParamRoomHeight">Room height in meters</td></tr>
+                            <tr><td><span class="param-name">lights_watts</span></td><td>number</td><td>-</td><td data-i18n="apiParamLightsWatts">Total light wattage</td></tr>
+                            <tr><td><span class="param-name">target_temp</span></td><td>number</td><td><span class="param-default">25</span></td><td data-i18n="apiParamTargetTemp">Target temperature</td></tr>
+                            <tr><td><span class="param-name">ambient_temp</span></td><td>number</td><td><span class="param-default">22</span></td><td data-i18n="apiParamAmbientTemp">Ambient/intake temperature</td></tr>
+                            <tr><td><span class="param-name">plants</span></td><td>number</td><td><span class="param-default">4</span></td><td data-i18n="apiParamPlantsCount">Number of plants</td></tr>
+                            <tr><td><span class="param-name">target_humidity</span></td><td>number</td><td><span class="param-default">55</span></td><td data-i18n="apiParamTargetHumidity">Target humidity (%)</td></tr>
                         </tbody>
                     </table>
                     <div class="endpoint-actions">
@@ -1273,14 +1273,14 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                         <span class="method-badge get">GET</span>
                         <span class="endpoint-path">/v1/dry</span>
                     </div>
-                    <p class="endpoint-desc">Drying and curing calculator. Estimate dry weight yield, optimal drying duration, and get step-by-step curing instructions based on wet harvest weight, environment, and trim method.</p>
+                    <p class="endpoint-desc" data-i18n="apiDescDry">Drying and curing calculator. Estimate dry weight yield, optimal drying duration, and get step-by-step curing instructions based on wet harvest weight, environment, and trim method.</p>
                     <table class="params-table">
                         <thead><tr><th data-i18n="apiThParam">Parameter</th><th data-i18n="apiThType">Type</th><th data-i18n="apiThDefault">Default</th><th data-i18n="apiThDesc">Description</th></tr></thead>
                         <tbody>
-                            <tr><td><span class="param-name">wet_weight</span><span class="param-required">required</span></td><td>number</td><td>-</td><td>Wet harvest weight in grams</td></tr>
-                            <tr><td><span class="param-name">temp</span></td><td>number</td><td>-</td><td>Drying room temperature</td></tr>
-                            <tr><td><span class="param-name">humidity</span></td><td>number</td><td>-</td><td>Drying room humidity (%)</td></tr>
-                            <tr><td><span class="param-name">method</span></td><td>string</td><td>-</td><td>Drying method: <code>hang</code>, <code>rack</code>, or <code>wet_trim</code></td></tr>
+                            <tr><td><span class="param-name">wet_weight</span><span class="param-required">required</span></td><td>number</td><td>-</td><td data-i18n="apiParamWetWeight">Wet harvest weight in grams</td></tr>
+                            <tr><td><span class="param-name">temp</span></td><td>number</td><td>-</td><td data-i18n="apiParamDryTemp">Drying room temperature</td></tr>
+                            <tr><td><span class="param-name">humidity</span></td><td>number</td><td>-</td><td data-i18n="apiParamDryHumidity">Drying room humidity (%)</td></tr>
+                            <tr><td><span class="param-name">method</span></td><td>string</td><td>-</td><td data-i18n="apiParamDryMethod">Drying method: <code>hang</code>, <code>rack</code>, or <code>wet_trim</code></td></tr>
                         </tbody>
                     </table>
                     <div class="endpoint-actions">
@@ -1329,18 +1329,18 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                         <span class="method-badge get">GET</span>
                         <span class="endpoint-path">/v1/convert</span>
                     </div>
-                    <p class="endpoint-desc">Multi-purpose unit converter for grow-related measurements. Converts between Celsius/Fahrenheit, EC/PPM (both 500 and 700 scale), PPFD/Lux, and VPD units. Provide any input and get all conversions.</p>
+                    <p class="endpoint-desc" data-i18n="apiDescConvert">Multi-purpose unit converter for grow-related measurements. Converts between Celsius/Fahrenheit, EC/PPM (both 500 and 700 scale), PPFD/Lux, and VPD units. Provide any input and get all conversions.</p>
                     <table class="params-table">
                         <thead><tr><th data-i18n="apiThParam">Parameter</th><th data-i18n="apiThType">Type</th><th data-i18n="apiThDefault">Default</th><th data-i18n="apiThDesc">Description</th></tr></thead>
                         <tbody>
-                            <tr><td><span class="param-name">temp</span></td><td>number</td><td>-</td><td>Temperature value to convert</td></tr>
-                            <tr><td><span class="param-name">from</span></td><td>string</td><td>-</td><td>Source unit for temp: <code>c</code> or <code>f</code></td></tr>
-                            <tr><td><span class="param-name">ec</span></td><td>number</td><td>-</td><td>EC value (mS/cm) to convert to PPM</td></tr>
-                            <tr><td><span class="param-name">ppm</span></td><td>number</td><td>-</td><td>PPM value to convert to EC</td></tr>
-                            <tr><td><span class="param-name">ppm_scale</span></td><td>string</td><td>-</td><td>PPM scale: <code>500</code> or <code>700</code></td></tr>
-                            <tr><td><span class="param-name">ppfd</span></td><td>number</td><td>-</td><td>PPFD to convert to Lux</td></tr>
-                            <tr><td><span class="param-name">lux</span></td><td>number</td><td>-</td><td>Lux to convert to PPFD</td></tr>
-                            <tr><td><span class="param-name">vpd</span></td><td>number</td><td>-</td><td>VPD value for unit info</td></tr>
+                            <tr><td><span class="param-name">temp</span></td><td>number</td><td>-</td><td data-i18n="apiParamTempConvert">Temperature value to convert</td></tr>
+                            <tr><td><span class="param-name">from</span></td><td>string</td><td>-</td><td data-i18n="apiParamFromUnit">Source unit for temp: <code>c</code> or <code>f</code></td></tr>
+                            <tr><td><span class="param-name">ec</span></td><td>number</td><td>-</td><td data-i18n="apiParamEcConvert">EC value (mS/cm) to convert to PPM</td></tr>
+                            <tr><td><span class="param-name">ppm</span></td><td>number</td><td>-</td><td data-i18n="apiParamPpmConvert">PPM value to convert to EC</td></tr>
+                            <tr><td><span class="param-name">ppm_scale</span></td><td>string</td><td>-</td><td data-i18n="apiParamPpmScale">PPM scale: <code>500</code> or <code>700</code></td></tr>
+                            <tr><td><span class="param-name">ppfd</span></td><td>number</td><td>-</td><td data-i18n="apiParamPpfdConvert">PPFD to convert to Lux</td></tr>
+                            <tr><td><span class="param-name">lux</span></td><td>number</td><td>-</td><td data-i18n="apiParamLuxConvert">Lux to convert to PPFD</td></tr>
+                            <tr><td><span class="param-name">vpd</span></td><td>number</td><td>-</td><td data-i18n="apiParamVpdConvert">VPD value for unit info</td></tr>
                         </tbody>
                     </table>
                     <div class="endpoint-actions">
@@ -1376,11 +1376,11 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                         <span class="method-badge get">GET</span>
                         <span class="endpoint-path">/health</span>
                     </div>
-                    <p class="endpoint-desc">API health check endpoint. Returns current API status, version, uptime, and endpoint count. Use this to verify the API is operational before making other calls.</p>
+                    <p class="endpoint-desc" data-i18n="apiDescHealth">API health check endpoint. Returns current API status, version, uptime, and endpoint count. Use this to verify the API is operational before making other calls.</p>
                     <table class="params-table">
                         <thead><tr><th data-i18n="apiThParam">Parameter</th><th data-i18n="apiThType">Type</th><th data-i18n="apiThDefault">Default</th><th data-i18n="apiThDesc">Description</th></tr></thead>
                         <tbody>
-                            <tr><td colspan="4" style="color:#90A4AE;font-style:italic;">No parameters required</td></tr>
+                            <tr><td colspan="4" style="color:#90A4AE;font-style:italic;" data-i18n="apiNoParams">No parameters required</td></tr>
                         </tbody>
                     </table>
                     <div class="endpoint-actions">
@@ -1578,6 +1578,94 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                 apiThDefault: "Default",
                 apiThDesc: "Description",
                 apiFooterTagline: "\u2014 Built by growers, for growers.",
+                apiDescVpd: "Calculate VPD (Vapor Pressure Deficit) from temperature and humidity. Returns VPD value, leaf VPD, status classification, and optimal ranges for all growth stages.",
+                apiDescTarget: "Reverse VPD calculator. Given a target VPD (or growth stage) and either temperature or humidity, calculates the missing variable. Useful for finding what humidity to aim for at a given temperature.",
+                apiDescChart: "Generate a VPD heatmap data matrix. Returns a 2D grid of VPD values across a temperature and humidity range, with zone classifications. Perfect for building visual VPD charts.",
+                apiDescBatch: "Batch VPD calculations with aggregated statistics. Submit multiple temperature/humidity readings and receive individual VPD values plus min, max, average, and standard deviation across the set.",
+                apiDescDli: "Daily Light Integral calculator. Compute DLI from PPFD and photoperiod (forward), or find the required PPFD to hit a target DLI (reverse). Includes optimal DLI ranges per growth stage.",
+                apiDescLight: "Comprehensive light calculator. Estimates PPFD from wattage and area, calculates DLI, evaluates light intensity for a given growth stage, and provides efficiency metrics.",
+                apiDescStage: "Get comprehensive environment targets for a growth stage. Returns optimal ranges for VPD, temperature, humidity, PPFD, DLI, CO2, EC, pH, and watering frequency. Optionally tailored to a growing medium.",
+                apiDescSchedule: "Generate a full grow timeline with week-by-week stage progression. Returns duration and environment targets for each stage, customized by plant type and growing medium.",
+                apiDescDiagnose: "Full environment diagnosis with a 0-100 health score. Analyzes temperature, humidity, VPD, pH, EC, PPFD, CO2, and night temperature. Returns issues found, severity levels, and actionable recommendations.",
+                apiDescDeficit: "Symptom-based nutrient deficiency diagnosis. Describe visible plant symptoms and get ranked possible deficiencies with confidence scores, affected nutrients, and treatment recommendations.",
+                apiDescDewpoint: "Calculate dewpoint temperature, mold/condensation risk assessment, and safe night temperature minimum. Essential for preventing bud rot and mildew.",
+                apiDescNutrient: "Get EC, pH, and PPM targets for a given growth stage and medium. Includes medium-specific tips, flush schedules, and adjustments based on your water source EC.",
+                apiDescCo2: "CO2 enrichment calculator. Determine how much CO2 gas is needed to reach a target concentration in your grow room, and get stage-appropriate CO2 recommendations.",
+                apiDescIrrigation: "Watering volume and frequency calculator. Computes optimal water volume per pot based on pot size, medium, growth stage, and current environment conditions. Supports multiple plants.",
+                apiDescRoom: "Room equipment sizing calculator. Given your tent/room dimensions and light wattage, get recommended ventilation (CFM), humidifier/dehumidifier capacity, and fan sizing. Accounts for heat load from lights.",
+                apiDescDry: "Drying and curing calculator. Estimate dry weight yield, optimal drying duration, and get step-by-step curing instructions based on wet harvest weight, environment, and trim method.",
+                apiDescConvert: "Multi-purpose unit converter for grow-related measurements. Converts between Celsius/Fahrenheit, EC/PPM (both 500 and 700 scale), PPFD/Lux, and VPD units. Provide any input and get all conversions.",
+                apiDescHealth: "API health check endpoint. Returns current API status, version, uptime, and endpoint count. Use this to verify the API is operational before making other calls.",
+                apiParamTemp: "Air temperature",
+                apiParamHumidity: "Relative humidity (%)",
+                apiParamLeafOffset: "Leaf temperature offset below air temp",
+                apiParamUnit: "Temperature unit: c (Celsius) or f (Fahrenheit)",
+                apiParamTargetVpd: "Target VPD value (kPa). Provide this or stage.",
+                apiParamStageVpd: "Growth stage (uses midpoint VPD). One of: clone_seedling, early_veg, late_veg, early_flower, mid_flower, late_flower",
+                apiParamKnownTemp: "Known temperature (solves for humidity)",
+                apiParamKnownHumidity: "Known humidity (solves for temperature)",
+                apiParamLeafOffsetShort: "Leaf temperature offset",
+                apiParamUnitShort: "Temperature unit: c or f",
+                apiParamTempMin: "Minimum temperature",
+                apiParamTempMax: "Maximum temperature",
+                apiParamTempStep: "Temperature step size",
+                apiParamRhMin: "Minimum relative humidity (%)",
+                apiParamRhMax: "Maximum relative humidity (%)",
+                apiParamRhStep: "Humidity step size",
+                apiParamStageZone: "Growth stage for zone classification",
+                apiParamReadings: "Array of {\"temp\":N, \"humidity\":N} objects (URL-encoded)",
+                apiParamPpfd: "Photosynthetic Photon Flux Density (umol/m2/s)",
+                apiParamHours: "Photoperiod in hours",
+                apiParamDli: "Target DLI (mol/m2/day) for reverse calculation",
+                apiParamPpfdKnown: "Known PPFD (if available)",
+                apiParamWatts: "Light wattage (for PPFD estimation)",
+                apiParamEfficiency: "LED efficiency (umol/J)",
+                apiParamArea: "Grow area in m2",
+                apiParamLightHeight: "Light height in meters",
+                apiParamStageEval: "Growth stage for evaluation",
+                apiParamStageName: "Stage name or \"all\" for every stage. Options: clone_seedling, early_veg, late_veg, early_flower, mid_flower, late_flower",
+                apiParamMedium: "Growing medium: soil, coco, hydro, dwc",
+                apiParamPlantType: "Plant type: photo (photoperiod) or auto (autoflower)",
+                apiParamStageDiag: "Growth stage for context-aware diagnosis",
+                apiParamMediumShort: "Growing medium",
+                apiParamCurrentPpfd: "Current PPFD",
+                apiParamPh: "Nutrient solution pH",
+                apiParamEc: "Nutrient solution EC (mS/cm)",
+                apiParamCo2Level: "CO2 level (ppm)",
+                apiParamNightTemp: "Night temperature",
+                apiParamSymptoms: "Comma-separated symptom keywords. Examples: yellow_lower_leaves, brown_spots, curling_up, purple_stems, slow_growth, burnt_tips",
+                apiParamPhDiag: "Current pH (helps narrow diagnosis)",
+                apiParamStage: "Growth stage",
+                apiParamWaterEc: "Base water EC (mS/cm) for adjusted targets",
+                apiParamRoomM3: "Room volume in cubic meters",
+                apiParamTargetPpm: "Target CO2 concentration (ppm)",
+                apiParamCurrentPpm: "Current ambient CO2 (ppm)",
+                apiParamStageRec: "Growth stage for recommendations",
+                apiParamPotSize: "Pot volume in liters",
+                apiParamCurrentVpd: "Current VPD (affects transpiration rate)",
+                apiParamCurrentTemp: "Current temperature",
+                apiParamPlants: "Number of plants (multiplies total)",
+                apiParamRoomLength: "Room length in meters",
+                apiParamRoomWidth: "Room width in meters",
+                apiParamRoomHeight: "Room height in meters",
+                apiParamLightsWatts: "Total light wattage",
+                apiParamTargetTemp: "Target temperature",
+                apiParamAmbientTemp: "Ambient/intake temperature",
+                apiParamPlantsCount: "Number of plants",
+                apiParamTargetHumidity: "Target humidity (%)",
+                apiParamWetWeight: "Wet harvest weight in grams",
+                apiParamDryTemp: "Drying room temperature",
+                apiParamDryHumidity: "Drying room humidity (%)",
+                apiParamDryMethod: "Drying method: hang, rack, or wet_trim",
+                apiParamTempConvert: "Temperature value to convert",
+                apiParamFromUnit: "Source unit for temp: c or f",
+                apiParamEcConvert: "EC value (mS/cm) to convert to PPM",
+                apiParamPpmConvert: "PPM value to convert to EC",
+                apiParamPpmScale: "PPM scale: 500 or 700",
+                apiParamPpfdConvert: "PPFD to convert to Lux",
+                apiParamLuxConvert: "Lux to convert to PPFD",
+                apiParamVpdConvert: "VPD value for unit info",
+                apiNoParams: "No parameters required",
                 footHome: "Home",
                 footGuides: "Guides",
                 footFaq: "Support",
@@ -1616,6 +1704,94 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                 apiThDefault: "V\u00fdchoz\u00ed",
                 apiThDesc: "Popis",
                 apiFooterTagline: "\u2014 Od p\u011bstitel\u016f pro p\u011bstitele.",
+                apiDescVpd: "Vypo\u010d\u00edtejte VPD (deficit tlaku vodn\u00ed p\u00e1ry) z teploty a vlhkosti. Vrac\u00ed hodnotu VPD, listov\u00e9 VPD, klasifikaci stavu a optim\u00e1ln\u00ed rozsahy pro v\u0161echny r\u016fstov\u00e9 f\u00e1ze.",
+                apiDescTarget: "Zp\u011btn\u00fd kalkul\u00e1tor VPD. Na z\u00e1klad\u011b c\u00edlov\u00e9ho VPD (nebo r\u016fstov\u00e9 f\u00e1ze) a teploty nebo vlhkosti vypo\u010d\u00edt\u00e1 chyb\u011bj\u00edc\u00ed prom\u011bnnou. U\u017eite\u010dn\u00e9 pro zji\u0161t\u011bn\u00ed, jakou vlhkost c\u00edlit p\u0159i dan\u00e9 teplot\u011b.",
+                apiDescChart: "Generuje datovou matici VPD heatmapy. Vrac\u00ed 2D m\u0159\u00ed\u017eku hodnot VPD p\u0159es rozsah teploty a vlhkosti s klasifikac\u00ed z\u00f3n. Ide\u00e1ln\u00ed pro tvorbu vizu\u00e1ln\u00edch VPD graf\u016f.",
+                apiDescBatch: "D\u00e1vkov\u00e9 v\u00fdpo\u010dty VPD s agregovanou statistikou. Ode\u0161lete v\u00edce m\u011b\u0159en\u00ed teploty/vlhkosti a z\u00edskejte jednotliv\u00e9 hodnoty VPD plus minimum, maximum, pr\u016fm\u011br a sm\u011brodatnou odchylku.",
+                apiDescDli: "Kalkul\u00e1tor denn\u00edho sv\u011bteln\u00e9ho integr\u00e1lu. Vypo\u010d\u00edtejte DLI z PPFD a fotoperiody (dop\u0159edu), nebo najd\u011bte pot\u0159ebn\u00e9 PPFD pro c\u00edlov\u00e9 DLI (zp\u011btn\u011b). V\u010detn\u011b optim\u00e1ln\u00edch rozsah\u016f DLI podle f\u00e1ze.",
+                apiDescLight: "Komplexn\u00ed sv\u011bteln\u00fd kalkul\u00e1tor. Odhaduje PPFD z p\u0159\u00edkonu a plochy, po\u010d\u00edt\u00e1 DLI, hodnotil intenzitu sv\u011btla pro danou r\u016fstovou f\u00e1zi a poskytuje metriky \u00fa\u010dinnosti.",
+                apiDescStage: "Z\u00edskejte komplexn\u00ed c\u00edlov\u00e9 hodnoty prost\u0159ed\u00ed pro r\u016fstovou f\u00e1zi. Vrac\u00ed optim\u00e1ln\u00ed rozsahy pro VPD, teplotu, vlhkost, PPFD, DLI, CO2, EC, pH a frekvenci z\u00e1livky. Voliteln\u011b p\u0159izp\u016fsobeno p\u011bstebn\u00edmu m\u00e9diu.",
+                apiDescSchedule: "Vygenerujte kompletn\u00ed \u010dasovou osu p\u011bstov\u00e1n\u00ed s t\u00fddenn\u00edm postupem f\u00e1z\u00ed. Vrac\u00ed d\u00e9lku a c\u00edlov\u00e9 hodnoty prost\u0159ed\u00ed pro ka\u017edou f\u00e1zi, p\u0159izp\u016fsobeno typu rostliny a m\u00e9diu.",
+                apiDescDiagnose: "Kompletn\u00ed diagnostika prost\u0159ed\u00ed se sk\u00f3re zdrav\u00ed 0-100. Analyzuje teplotu, vlhkost, VPD, pH, EC, PPFD, CO2 a no\u010dn\u00ed teplotu. Vrac\u00ed nalezen\u00e9 probl\u00e9my, \u00farovn\u011b z\u00e1va\u017enosti a doporu\u010den\u00ed.",
+                apiDescDeficit: "Diagnostika nedostatku \u017eivin na z\u00e1klad\u011b symptom\u016f. Popi\u0161te viditeln\u00e9 symptomy rostliny a z\u00edskejte se\u0159azen\u00e9 mo\u017en\u00e9 nedostatky s hodnocen\u00edm spolehlivosti, dot\u010den\u00fdmi \u017eivinami a doporu\u010den\u00edmi l\u00e9\u010dby.",
+                apiDescDewpoint: "Vypo\u010d\u00edtejte teplotu rosn\u00e9ho bodu, hodnocen\u00ed rizika pl\u00edsn\u00ed/kondenzace a bezpe\u010dnou minim\u00e1ln\u00ed no\u010dn\u00ed teplotu. Nezbytn\u00e9 pro prevenci hniloby a pl\u00edsn\u00ed.",
+                apiDescNutrient: "Z\u00edskejte c\u00edlov\u00e9 hodnoty EC, pH a PPM pro danou r\u016fstovou f\u00e1zi a m\u00e9dium. V\u010detn\u011b tip\u016f specifick\u00fdch pro m\u00e9dium, pl\u00e1n\u016f proplachov\u00e1n\u00ed a \u00faprav na z\u00e1klad\u011b EC va\u0161\u00ed vody.",
+                apiDescCo2: "Kalkul\u00e1tor obohacen\u00ed CO2. Zjist\u011bte, kolik CO2 je pot\u0159eba k dosa\u017een\u00ed c\u00edlov\u00e9 koncentrace ve va\u0161\u00ed p\u011bstebn\u00ed m\u00edstnosti, a z\u00edskejte doporu\u010den\u00ed CO2 podle f\u00e1ze.",
+                apiDescIrrigation: "Kalkul\u00e1tor objemu a frekvence z\u00e1livky. Vypo\u010d\u00edt\u00e1 optim\u00e1ln\u00ed objem vody na kv\u011btin\u00e1\u010d podle velikosti, m\u00e9dia, r\u016fstov\u00e9 f\u00e1ze a aktu\u00e1ln\u00edch podm\u00ednek. Podporuje v\u00edce rostlin.",
+                apiDescRoom: "Kalkul\u00e1tor dimenzov\u00e1n\u00ed vybaven\u00ed m\u00edstnosti. Na z\u00e1klad\u011b rozm\u011br\u016f stanu/m\u00edstnosti a p\u0159\u00edkonu sv\u011btla z\u00edskejte doporu\u010denou ventilaci (CFM), kapacitu zvlh\u010dova\u010de/odvlh\u010dova\u010de a velikost ventil\u00e1toru.",
+                apiDescDry: "Kalkul\u00e1tor su\u0161en\u00ed a fer. Odhadn\u011bte v\u00fdnos such\u00e9 hmotnosti, optim\u00e1ln\u00ed dobu su\u0161en\u00ed a z\u00edskejte pokyny k fermentaci podle hmotnosti \u010derstv\u00e9 sklizn\u011b, prost\u0159ed\u00ed a metody st\u0159\u00edh\u00e1n\u00ed.",
+                apiDescConvert: "Univerz\u00e1ln\u00ed p\u0159evod\u00edk jednotek pro p\u011bstebn\u00ed m\u011b\u0159en\u00ed. P\u0159ev\u00e1d\u00ed mezi Celsius/Fahrenheit, EC/PPM (stupnice 500 i 700), PPFD/Lux a jednotkami VPD.",
+                apiDescHealth: "Kontroln\u00ed endpoint stavu API. Vrac\u00ed aktu\u00e1ln\u00ed stav API, verzi, uptime a po\u010det endpoint\u016f. Pou\u017eijte k ov\u011b\u0159en\u00ed, \u017ee API funguje.",
+                apiParamTemp: "Teplota vzduchu",
+                apiParamHumidity: "Relativn\u00ed vlhkost (%)",
+                apiParamLeafOffset: "Offset teploty listu pod teplotou vzduchu",
+                apiParamUnit: "Jednotka teploty: c (Celsius) nebo f (Fahrenheit)",
+                apiParamTargetVpd: "C\u00edlov\u00e1 hodnota VPD (kPa). Zadejte toto nebo f\u00e1zi.",
+                apiParamStageVpd: "R\u016fstov\u00e1 f\u00e1ze (pou\u017e\u00edv\u00e1 st\u0159edn\u00ed VPD). Mo\u017enosti: clone_seedling, early_veg, late_veg, early_flower, mid_flower, late_flower",
+                apiParamKnownTemp: "Zn\u00e1m\u00e1 teplota (\u0159e\u0161\u00ed vlhkost)",
+                apiParamKnownHumidity: "Zn\u00e1m\u00e1 vlhkost (\u0159e\u0161\u00ed teplotu)",
+                apiParamLeafOffsetShort: "Offset teploty listu",
+                apiParamUnitShort: "Jednotka teploty: c nebo f",
+                apiParamTempMin: "Minim\u00e1ln\u00ed teplota",
+                apiParamTempMax: "Maxim\u00e1ln\u00ed teplota",
+                apiParamTempStep: "Krok teploty",
+                apiParamRhMin: "Minim\u00e1ln\u00ed relativn\u00ed vlhkost (%)",
+                apiParamRhMax: "Maxim\u00e1ln\u00ed relativn\u00ed vlhkost (%)",
+                apiParamRhStep: "Krok vlhkosti",
+                apiParamStageZone: "R\u016fstov\u00e1 f\u00e1ze pro klasifikaci z\u00f3n",
+                apiParamReadings: "Pole objekt\u016f {\"temp\":N, \"humidity\":N} (URL-k\u00f3dov\u00e1no)",
+                apiParamPpfd: "Hustota toku fotosyntetick\u00fdch foton\u016f (umol/m2/s)",
+                apiParamHours: "Fotoperioda v hodin\u00e1ch",
+                apiParamDli: "C\u00edlov\u00e9 DLI (mol/m2/den) pro zp\u011btn\u00fd v\u00fdpo\u010det",
+                apiParamPpfdKnown: "Zn\u00e1m\u00e9 PPFD (pokud je k dispozici)",
+                apiParamWatts: "P\u0159\u00edkon sv\u011btla (pro odhad PPFD)",
+                apiParamEfficiency: "\u00da\u010dinnost LED (umol/J)",
+                apiParamArea: "P\u011bstebn\u00ed plocha v m2",
+                apiParamLightHeight: "V\u00fd\u0161ka sv\u011btla v metrech",
+                apiParamStageEval: "R\u016fstov\u00e1 f\u00e1ze pro vyhodnocen\u00ed",
+                apiParamStageName: "N\u00e1zev f\u00e1ze nebo \"all\" pro v\u0161echny f\u00e1ze. Mo\u017enosti: clone_seedling, early_veg, late_veg, early_flower, mid_flower, late_flower",
+                apiParamMedium: "P\u011bstebn\u00ed m\u00e9dium: soil, coco, hydro, dwc",
+                apiParamPlantType: "Typ rostliny: photo (fotoperiodick\u00e1) nebo auto (autokvete)",
+                apiParamStageDiag: "R\u016fstov\u00e1 f\u00e1ze pro kontextovou diagnostiku",
+                apiParamMediumShort: "P\u011bstebn\u00ed m\u00e9dium",
+                apiParamCurrentPpfd: "Aktu\u00e1ln\u00ed PPFD",
+                apiParamPh: "pH \u017eivn\u00e9ho roztoku",
+                apiParamEc: "EC \u017eivn\u00e9ho roztoku (mS/cm)",
+                apiParamCo2Level: "Hladina CO2 (ppm)",
+                apiParamNightTemp: "No\u010dn\u00ed teplota",
+                apiParamSymptoms: "\u010c\u00e1rkou odd\u011blen\u00e1 kl\u00ed\u010dov\u00e1 slova symptom\u016f. P\u0159\u00edklady: yellow_lower_leaves, brown_spots, curling_up, purple_stems, slow_growth, burnt_tips",
+                apiParamPhDiag: "Aktu\u00e1ln\u00ed pH (pom\u00e1h\u00e1 zp\u0159esnit diagnostiku)",
+                apiParamStage: "R\u016fstov\u00e1 f\u00e1ze",
+                apiParamWaterEc: "Z\u00e1kladn\u00ed EC vody (mS/cm) pro upraven\u00e9 c\u00edle",
+                apiParamRoomM3: "Objem m\u00edstnosti v kubick\u00fdch metrech",
+                apiParamTargetPpm: "C\u00edlov\u00e1 koncentrace CO2 (ppm)",
+                apiParamCurrentPpm: "Aktu\u00e1ln\u00ed ambientn\u00ed CO2 (ppm)",
+                apiParamStageRec: "R\u016fstov\u00e1 f\u00e1ze pro doporu\u010den\u00ed",
+                apiParamPotSize: "Objem kv\u011btin\u00e1\u010de v litrech",
+                apiParamCurrentVpd: "Aktu\u00e1ln\u00ed VPD (ovliv\u0148uje rychlost transpirace)",
+                apiParamCurrentTemp: "Aktu\u00e1ln\u00ed teplota",
+                apiParamPlants: "Po\u010det rostlin (n\u00e1sob\u00ed celkem)",
+                apiParamRoomLength: "D\u00e9lka m\u00edstnosti v metrech",
+                apiParamRoomWidth: "\u0160\u00ed\u0159ka m\u00edstnosti v metrech",
+                apiParamRoomHeight: "V\u00fd\u0161ka m\u00edstnosti v metrech",
+                apiParamLightsWatts: "Celkov\u00fd p\u0159\u00edkon sv\u011btel",
+                apiParamTargetTemp: "C\u00edlov\u00e1 teplota",
+                apiParamAmbientTemp: "Okoln\u00ed/p\u0159\u00edvodn\u00ed teplota",
+                apiParamPlantsCount: "Po\u010det rostlin",
+                apiParamTargetHumidity: "C\u00edlov\u00e1 vlhkost (%)",
+                apiParamWetWeight: "Hmotnost \u010derstv\u00e9 sklizn\u011b v gramech",
+                apiParamDryTemp: "Teplota su\u0161\u00edc\u00ed m\u00edstnosti",
+                apiParamDryHumidity: "Vlhkost su\u0161\u00edc\u00ed m\u00edstnosti (%)",
+                apiParamDryMethod: "Metoda su\u0161en\u00ed: hang, rack nebo wet_trim",
+                apiParamTempConvert: "Hodnota teploty k p\u0159evodu",
+                apiParamFromUnit: "Zdrojov\u00e1 jednotka teploty: c nebo f",
+                apiParamEcConvert: "Hodnota EC (mS/cm) k p\u0159evodu na PPM",
+                apiParamPpmConvert: "Hodnota PPM k p\u0159evodu na EC",
+                apiParamPpmScale: "Stupnice PPM: 500 nebo 700",
+                apiParamPpfdConvert: "PPFD k p\u0159evodu na Lux",
+                apiParamLuxConvert: "Lux k p\u0159evodu na PPFD",
+                apiParamVpdConvert: "Hodnota VPD pro informace o jednotk\u00e1ch",
+                apiNoParams: "Bez parametr\u016f",
                 footHome: "Dom\u016f",
                 footGuides: "Pr\u016fvodci",
                 footFaq: "Podpora",
@@ -1654,6 +1830,94 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                 apiThDefault: "Standard",
                 apiThDesc: "Beschreibung",
                 apiFooterTagline: "\u2014 Von Growern, f\u00fcr Grower.",
+                apiDescVpd: "Berechnen Sie VPD (Dampfdruckdefizit) aus Temperatur und Luftfeuchtigkeit. Gibt VPD-Wert, Blatt-VPD, Statusklassifizierung und optimale Bereiche f\u00fcr alle Wachstumsphasen zur\u00fcck.",
+                apiDescTarget: "Umgekehrter VPD-Rechner. Bei gegebenem Ziel-VPD (oder Wachstumsphase) und Temperatur oder Luftfeuchtigkeit wird die fehlende Variable berechnet. N\u00fctzlich, um die Ziel-Luftfeuchtigkeit bei einer bestimmten Temperatur zu finden.",
+                apiDescChart: "Generiert eine VPD-Heatmap-Datenmatrix. Gibt ein 2D-Raster von VPD-Werten \u00fcber einen Temperatur- und Feuchtigkeitsbereich mit Zonenklassifizierung zur\u00fcck. Ideal f\u00fcr visuelle VPD-Diagramme.",
+                apiDescBatch: "Batch-VPD-Berechnungen mit aggregierter Statistik. Senden Sie mehrere Temperatur-/Feuchtigkeitsmessungen und erhalten Sie individuelle VPD-Werte plus Minimum, Maximum, Durchschnitt und Standardabweichung.",
+                apiDescDli: "DLI-Rechner (Tageslichtsumme). Berechnen Sie DLI aus PPFD und Photoperiode (vorw\u00e4rts) oder finden Sie die ben\u00f6tigte PPFD f\u00fcr ein Ziel-DLI (r\u00fcckw\u00e4rts). Inkl. optimaler DLI-Bereiche pro Wachstumsphase.",
+                apiDescLight: "Umfassender Lichtrechner. Sch\u00e4tzt PPFD aus Leistung und Fl\u00e4che, berechnet DLI, bewertet Lichtintensit\u00e4t f\u00fcr eine Wachstumsphase und liefert Effizienzmetriken.",
+                apiDescStage: "Umfassende Umgebungsziele f\u00fcr eine Wachstumsphase. Gibt optimale Bereiche f\u00fcr VPD, Temperatur, Luftfeuchtigkeit, PPFD, DLI, CO2, EC, pH und Gie\u00dfh\u00e4ufigkeit zur\u00fcck. Optional an das Anbaumedium angepasst.",
+                apiDescSchedule: "Erstellen Sie einen vollst\u00e4ndigen Anbauzeitplan mit wochenweisem Phasenfortschritt. Gibt Dauer und Umgebungsziele f\u00fcr jede Phase zur\u00fcck, angepasst an Pflanzentyp und Anbaumedium.",
+                apiDescDiagnose: "Vollst\u00e4ndige Umgebungsdiagnose mit Gesundheitswert 0-100. Analysiert Temperatur, Luftfeuchtigkeit, VPD, pH, EC, PPFD, CO2 und Nachttemperatur. Gibt gefundene Probleme, Schweregrade und Empfehlungen zur\u00fcck.",
+                apiDescDeficit: "Symptombasierte N\u00e4hrstoffmangel-Diagnose. Beschreiben Sie sichtbare Pflanzensymptome und erhalten Sie bewertete m\u00f6gliche M\u00e4ngel mit Konfidenzwerten, betroffenen N\u00e4hrstoffen und Behandlungsempfehlungen.",
+                apiDescDewpoint: "Berechnen Sie die Taupunkttemperatur, Schimmel-/Kondensationsrisiko und sichere minimale Nachttemperatur. Unverzichtbar zur Vorbeugung von Knospenf\u00e4ule und Mehltau.",
+                apiDescNutrient: "EC-, pH- und PPM-Zielwerte f\u00fcr eine Wachstumsphase und Medium. Inkl. medienspezifischer Tipps, Sp\u00fclpl\u00e4ne und Anpassungen basierend auf Ihrem Ausgangs-EC.",
+                apiDescCo2: "CO2-Anreicherungsrechner. Bestimmen Sie, wie viel CO2 ben\u00f6tigt wird, um eine Zielkonzentration in Ihrem Growraum zu erreichen, und erhalten Sie phasengerechte CO2-Empfehlungen.",
+                apiDescIrrigation: "Gie\u00dfvolumen- und Frequenzrechner. Berechnet das optimale Wasservolumen pro Topf basierend auf Topfgr\u00f6\u00dfe, Medium, Wachstumsphase und aktuellen Umgebungsbedingungen. Unterst\u00fctzt mehrere Pflanzen.",
+                apiDescRoom: "Raumausstattungsrechner. Bei gegebenen Zelt-/Raumma\u00dfen und Lichtleistung erhalten Sie empfohlene Bel\u00fcftung (CFM), Luftbefeuchter-/Entfeuchterkapazit\u00e4t und Ventilatorgr\u00f6\u00dfe.",
+                apiDescDry: "Trocknungs- und Aush\u00e4rtungsrechner. Sch\u00e4tzen Sie das Trockengewicht, die optimale Trocknungsdauer und erhalten Sie Schritt-f\u00fcr-Schritt-Aush\u00e4rtungsanweisungen.",
+                apiDescConvert: "Universeller Einheitenumrechner f\u00fcr Anbaumessungen. Konvertiert zwischen Celsius/Fahrenheit, EC/PPM (500er und 700er Skala), PPFD/Lux und VPD-Einheiten.",
+                apiDescHealth: "API-Gesundheitscheck-Endpunkt. Gibt aktuellen API-Status, Version, Uptime und Endpunktanzahl zur\u00fcck. Verwenden Sie dies, um die Betriebsbereitschaft der API zu pr\u00fcfen.",
+                apiParamTemp: "Lufttemperatur",
+                apiParamHumidity: "Relative Luftfeuchtigkeit (%)",
+                apiParamLeafOffset: "Blatttemperatur-Offset unter der Lufttemperatur",
+                apiParamUnit: "Temperatureinheit: c (Celsius) oder f (Fahrenheit)",
+                apiParamTargetVpd: "Ziel-VPD-Wert (kPa). Geben Sie dies oder eine Phase an.",
+                apiParamStageVpd: "Wachstumsphase (verwendet mittleres VPD). Optionen: clone_seedling, early_veg, late_veg, early_flower, mid_flower, late_flower",
+                apiParamKnownTemp: "Bekannte Temperatur (l\u00f6st nach Luftfeuchtigkeit)",
+                apiParamKnownHumidity: "Bekannte Luftfeuchtigkeit (l\u00f6st nach Temperatur)",
+                apiParamLeafOffsetShort: "Blatttemperatur-Offset",
+                apiParamUnitShort: "Temperatureinheit: c oder f",
+                apiParamTempMin: "Mindesttemperatur",
+                apiParamTempMax: "H\u00f6chsttemperatur",
+                apiParamTempStep: "Temperaturschrittgr\u00f6\u00dfe",
+                apiParamRhMin: "Minimale relative Luftfeuchtigkeit (%)",
+                apiParamRhMax: "Maximale relative Luftfeuchtigkeit (%)",
+                apiParamRhStep: "Feuchtigkeitsschrittgr\u00f6\u00dfe",
+                apiParamStageZone: "Wachstumsphase f\u00fcr Zonenklassifizierung",
+                apiParamReadings: "Array von {\"temp\":N, \"humidity\":N} Objekten (URL-kodiert)",
+                apiParamPpfd: "Photosynthetische Photonenflussdichte (umol/m2/s)",
+                apiParamHours: "Photoperiode in Stunden",
+                apiParamDli: "Ziel-DLI (mol/m2/Tag) f\u00fcr R\u00fcckw\u00e4rtsberechnung",
+                apiParamPpfdKnown: "Bekanntes PPFD (falls verf\u00fcgbar)",
+                apiParamWatts: "Lichtleistung (f\u00fcr PPFD-Sch\u00e4tzung)",
+                apiParamEfficiency: "LED-Effizienz (umol/J)",
+                apiParamArea: "Anbaufl\u00e4che in m2",
+                apiParamLightHeight: "Lichtpunkth\u00f6he in Metern",
+                apiParamStageEval: "Wachstumsphase f\u00fcr Bewertung",
+                apiParamStageName: "Phasenname oder \"all\" f\u00fcr alle Phasen. Optionen: clone_seedling, early_veg, late_veg, early_flower, mid_flower, late_flower",
+                apiParamMedium: "Anbaumedium: soil, coco, hydro, dwc",
+                apiParamPlantType: "Pflanzentyp: photo (photoperiodisch) oder auto (Autoflower)",
+                apiParamStageDiag: "Wachstumsphase f\u00fcr kontextbezogene Diagnose",
+                apiParamMediumShort: "Anbaumedium",
+                apiParamCurrentPpfd: "Aktuelles PPFD",
+                apiParamPh: "N\u00e4hrl\u00f6sungs-pH",
+                apiParamEc: "N\u00e4hrl\u00f6sungs-EC (mS/cm)",
+                apiParamCo2Level: "CO2-Wert (ppm)",
+                apiParamNightTemp: "Nachttemperatur",
+                apiParamSymptoms: "Kommagetrennte Symptom-Schl\u00fcsselw\u00f6rter. Beispiele: yellow_lower_leaves, brown_spots, curling_up, purple_stems, slow_growth, burnt_tips",
+                apiParamPhDiag: "Aktueller pH (hilft bei der Diagnose)",
+                apiParamStage: "Wachstumsphase",
+                apiParamWaterEc: "Ausgangswasser-EC (mS/cm) f\u00fcr angepasste Ziele",
+                apiParamRoomM3: "Raumvolumen in Kubikmetern",
+                apiParamTargetPpm: "Ziel-CO2-Konzentration (ppm)",
+                apiParamCurrentPpm: "Aktuelles Umgebungs-CO2 (ppm)",
+                apiParamStageRec: "Wachstumsphase f\u00fcr Empfehlungen",
+                apiParamPotSize: "Topfvolumen in Litern",
+                apiParamCurrentVpd: "Aktuelles VPD (beeinflusst Transpirationsrate)",
+                apiParamCurrentTemp: "Aktuelle Temperatur",
+                apiParamPlants: "Anzahl der Pflanzen (multipliziert Gesamt)",
+                apiParamRoomLength: "Rauml\u00e4nge in Metern",
+                apiParamRoomWidth: "Raumbreite in Metern",
+                apiParamRoomHeight: "Raumh\u00f6he in Metern",
+                apiParamLightsWatts: "Gesamte Lichtleistung",
+                apiParamTargetTemp: "Zieltemperatur",
+                apiParamAmbientTemp: "Umgebungs-/Zulufttemperatur",
+                apiParamPlantsCount: "Anzahl der Pflanzen",
+                apiParamTargetHumidity: "Ziel-Luftfeuchtigkeit (%)",
+                apiParamWetWeight: "Feucht-Erntegewicht in Gramm",
+                apiParamDryTemp: "Trocknungsraumtemperatur",
+                apiParamDryHumidity: "Trocknungsraum-Luftfeuchtigkeit (%)",
+                apiParamDryMethod: "Trocknungsmethode: hang, rack oder wet_trim",
+                apiParamTempConvert: "Temperaturwert zum Umrechnen",
+                apiParamFromUnit: "Quelleinheit f\u00fcr Temperatur: c oder f",
+                apiParamEcConvert: "EC-Wert (mS/cm) zum Umrechnen in PPM",
+                apiParamPpmConvert: "PPM-Wert zum Umrechnen in EC",
+                apiParamPpmScale: "PPM-Skala: 500 oder 700",
+                apiParamPpfdConvert: "PPFD zum Umrechnen in Lux",
+                apiParamLuxConvert: "Lux zum Umrechnen in PPFD",
+                apiParamVpdConvert: "VPD-Wert f\u00fcr Einheitsinfo",
+                apiNoParams: "Keine Parameter erforderlich",
                 footHome: "Startseite",
                 footGuides: "Anleitungen",
                 footFaq: "Support",
@@ -1692,6 +1956,94 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                 apiThDefault: "Predeterminado",
                 apiThDesc: "Descripci\u00f3n",
                 apiFooterTagline: "\u2014 Hecho por cultivadores, para cultivadores.",
+                apiDescVpd: "Calcula el VPD (D\u00e9ficit de Presi\u00f3n de Vapor) a partir de temperatura y humedad. Devuelve valor VPD, VPD foliar, clasificaci\u00f3n de estado y rangos \u00f3ptimos para todas las fases de crecimiento.",
+                apiDescTarget: "Calculadora VPD inversa. Dado un VPD objetivo (o fase de crecimiento) y temperatura o humedad, calcula la variable faltante. \u00datil para encontrar la humedad objetivo a una temperatura dada.",
+                apiDescChart: "Genera una matriz de datos de mapa de calor VPD. Devuelve una cuadr\u00edcula 2D de valores VPD a trav\u00e9s de un rango de temperatura y humedad, con clasificaci\u00f3n de zonas. Perfecto para gr\u00e1ficos VPD visuales.",
+                apiDescBatch: "C\u00e1lculos VPD por lotes con estad\u00edsticas agregadas. Env\u00eda m\u00faltiples lecturas de temperatura/humedad y recibe valores VPD individuales m\u00e1s m\u00ednimo, m\u00e1ximo, promedio y desviaci\u00f3n est\u00e1ndar.",
+                apiDescDli: "Calculadora de Integral de Luz Diaria. Calcula DLI a partir de PPFD y fotoper\u00edodo (directo), o encuentra el PPFD necesario para un DLI objetivo (inverso). Incluye rangos DLI \u00f3ptimos por fase.",
+                apiDescLight: "Calculadora de luz completa. Estima PPFD a partir de vatios y \u00e1rea, calcula DLI, eval\u00faa la intensidad lum\u00ednica para una fase de crecimiento y proporciona m\u00e9tricas de eficiencia.",
+                apiDescStage: "Objetivos ambientales completos para una fase de crecimiento. Devuelve rangos \u00f3ptimos para VPD, temperatura, humedad, PPFD, DLI, CO2, EC, pH y frecuencia de riego. Opcionalmente adaptado al medio de cultivo.",
+                apiDescSchedule: "Genera un cronograma completo de cultivo con progresi\u00f3n semanal de fases. Devuelve duraci\u00f3n y objetivos ambientales por fase, personalizado seg\u00fan tipo de planta y medio de cultivo.",
+                apiDescDiagnose: "Diagn\u00f3stico ambiental completo con puntuaci\u00f3n de salud 0-100. Analiza temperatura, humedad, VPD, pH, EC, PPFD, CO2 y temperatura nocturna. Devuelve problemas encontrados, niveles de gravedad y recomendaciones.",
+                apiDescDeficit: "Diagn\u00f3stico de deficiencia nutricional basado en s\u00edntomas. Describe s\u00edntomas visibles y obt\u00e9n posibles deficiencias clasificadas con puntuaciones de confianza, nutrientes afectados y recomendaciones de tratamiento.",
+                apiDescDewpoint: "Calcula la temperatura del punto de roc\u00edo, evaluaci\u00f3n de riesgo de moho/condensaci\u00f3n y temperatura nocturna m\u00ednima segura. Esencial para prevenir pudrici\u00f3n y mildi\u00fa.",
+                apiDescNutrient: "Objetivos de EC, pH y PPM para una fase de crecimiento y medio. Incluye consejos espec\u00edficos del medio, programas de lavado y ajustes seg\u00fan el EC del agua.",
+                apiDescCo2: "Calculadora de enriquecimiento con CO2. Determina cu\u00e1nto CO2 se necesita para alcanzar una concentraci\u00f3n objetivo en tu sala de cultivo, y obt\u00e9n recomendaciones de CO2 por fase.",
+                apiDescIrrigation: "Calculadora de volumen y frecuencia de riego. Calcula el volumen \u00f3ptimo de agua por maceta seg\u00fan tama\u00f1o, medio, fase de crecimiento y condiciones ambientales. Soporta m\u00faltiples plantas.",
+                apiDescRoom: "Calculadora de dimensionamiento de equipos. Dadas las dimensiones del espacio y la potencia lum\u00ednica, obt\u00e9n ventilaci\u00f3n recomendada (CFM), capacidad de humidificador/deshumidificador y tama\u00f1o de ventilador.",
+                apiDescDry: "Calculadora de secado y curado. Estima el peso seco, duraci\u00f3n \u00f3ptima de secado e instrucciones paso a paso de curado seg\u00fan el peso de cosecha h\u00famedo, ambiente y m\u00e9todo de recorte.",
+                apiDescConvert: "Convertidor de unidades multiprop\u00f3sito para mediciones de cultivo. Convierte entre Celsius/Fahrenheit, EC/PPM (escalas 500 y 700), PPFD/Lux y unidades VPD.",
+                apiDescHealth: "Endpoint de verificaci\u00f3n de estado de la API. Devuelve el estado actual, versi\u00f3n, tiempo de actividad y n\u00famero de endpoints. \u00dasalo para verificar que la API est\u00e1 operativa.",
+                apiParamTemp: "Temperatura del aire",
+                apiParamHumidity: "Humedad relativa (%)",
+                apiParamLeafOffset: "Desviaci\u00f3n de temperatura foliar respecto al aire",
+                apiParamUnit: "Unidad de temperatura: c (Celsius) o f (Fahrenheit)",
+                apiParamTargetVpd: "Valor VPD objetivo (kPa). Proporciona esto o la fase.",
+                apiParamStageVpd: "Fase de crecimiento (usa VPD medio). Opciones: clone_seedling, early_veg, late_veg, early_flower, mid_flower, late_flower",
+                apiParamKnownTemp: "Temperatura conocida (resuelve humedad)",
+                apiParamKnownHumidity: "Humedad conocida (resuelve temperatura)",
+                apiParamLeafOffsetShort: "Desviaci\u00f3n de temperatura foliar",
+                apiParamUnitShort: "Unidad de temperatura: c o f",
+                apiParamTempMin: "Temperatura m\u00ednima",
+                apiParamTempMax: "Temperatura m\u00e1xima",
+                apiParamTempStep: "Paso de temperatura",
+                apiParamRhMin: "Humedad relativa m\u00ednima (%)",
+                apiParamRhMax: "Humedad relativa m\u00e1xima (%)",
+                apiParamRhStep: "Paso de humedad",
+                apiParamStageZone: "Fase de crecimiento para clasificaci\u00f3n de zonas",
+                apiParamReadings: "Array de objetos {\"temp\":N, \"humidity\":N} (codificado URL)",
+                apiParamPpfd: "Densidad de Flujo Fot\u00f3nico Fotosint\u00e9tico (umol/m2/s)",
+                apiParamHours: "Fotoper\u00edodo en horas",
+                apiParamDli: "DLI objetivo (mol/m2/d\u00eda) para c\u00e1lculo inverso",
+                apiParamPpfdKnown: "PPFD conocido (si est\u00e1 disponible)",
+                apiParamWatts: "Potencia de la luz (para estimaci\u00f3n PPFD)",
+                apiParamEfficiency: "Eficiencia LED (umol/J)",
+                apiParamArea: "\u00c1rea de cultivo en m2",
+                apiParamLightHeight: "Altura de la luz en metros",
+                apiParamStageEval: "Fase de crecimiento para evaluaci\u00f3n",
+                apiParamStageName: "Nombre de fase o \"all\" para todas. Opciones: clone_seedling, early_veg, late_veg, early_flower, mid_flower, late_flower",
+                apiParamMedium: "Medio de cultivo: soil, coco, hydro, dwc",
+                apiParamPlantType: "Tipo de planta: photo (fotoperiodo) o auto (autofloreciente)",
+                apiParamStageDiag: "Fase de crecimiento para diagn\u00f3stico contextual",
+                apiParamMediumShort: "Medio de cultivo",
+                apiParamCurrentPpfd: "PPFD actual",
+                apiParamPh: "pH de la soluci\u00f3n nutritiva",
+                apiParamEc: "EC de la soluci\u00f3n nutritiva (mS/cm)",
+                apiParamCo2Level: "Nivel de CO2 (ppm)",
+                apiParamNightTemp: "Temperatura nocturna",
+                apiParamSymptoms: "Palabras clave de s\u00edntomas separadas por comas. Ejemplos: yellow_lower_leaves, brown_spots, curling_up, purple_stems, slow_growth, burnt_tips",
+                apiParamPhDiag: "pH actual (ayuda a precisar el diagn\u00f3stico)",
+                apiParamStage: "Fase de crecimiento",
+                apiParamWaterEc: "EC del agua base (mS/cm) para objetivos ajustados",
+                apiParamRoomM3: "Volumen de la sala en metros c\u00fabicos",
+                apiParamTargetPpm: "Concentraci\u00f3n objetivo de CO2 (ppm)",
+                apiParamCurrentPpm: "CO2 ambiental actual (ppm)",
+                apiParamStageRec: "Fase de crecimiento para recomendaciones",
+                apiParamPotSize: "Volumen de la maceta en litros",
+                apiParamCurrentVpd: "VPD actual (afecta la tasa de transpiraci\u00f3n)",
+                apiParamCurrentTemp: "Temperatura actual",
+                apiParamPlants: "N\u00famero de plantas (multiplica el total)",
+                apiParamRoomLength: "Largo de la sala en metros",
+                apiParamRoomWidth: "Ancho de la sala en metros",
+                apiParamRoomHeight: "Alto de la sala en metros",
+                apiParamLightsWatts: "Potencia total de iluminaci\u00f3n",
+                apiParamTargetTemp: "Temperatura objetivo",
+                apiParamAmbientTemp: "Temperatura ambiente/entrada",
+                apiParamPlantsCount: "N\u00famero de plantas",
+                apiParamTargetHumidity: "Humedad objetivo (%)",
+                apiParamWetWeight: "Peso de cosecha h\u00famedo en gramos",
+                apiParamDryTemp: "Temperatura de la sala de secado",
+                apiParamDryHumidity: "Humedad de la sala de secado (%)",
+                apiParamDryMethod: "M\u00e9todo de secado: hang, rack o wet_trim",
+                apiParamTempConvert: "Valor de temperatura a convertir",
+                apiParamFromUnit: "Unidad de origen: c o f",
+                apiParamEcConvert: "Valor EC (mS/cm) a convertir a PPM",
+                apiParamPpmConvert: "Valor PPM a convertir a EC",
+                apiParamPpmScale: "Escala PPM: 500 o 700",
+                apiParamPpfdConvert: "PPFD a convertir a Lux",
+                apiParamLuxConvert: "Lux a convertir a PPFD",
+                apiParamVpdConvert: "Valor VPD para info de unidades",
+                apiNoParams: "No se requieren par\u00e1metros",
                 footHome: "Inicio",
                 footGuides: "Gu\u00edas",
                 footFaq: "Soporte",
@@ -1730,6 +2082,94 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                 apiThDefault: "Standaard",
                 apiThDesc: "Beschrijving",
                 apiFooterTagline: "\u2014 Gemaakt door kwekers, voor kwekers.",
+                apiDescVpd: "Bereken VPD (Dampdrukdeficit) op basis van temperatuur en luchtvochtigheid. Geeft VPD-waarde, blad-VPD, statusclassificatie en optimale bereiken voor alle groeifasen.",
+                apiDescTarget: "Omgekeerde VPD-calculator. Bij een doel-VPD (of groeifase) en temperatuur of luchtvochtigheid wordt de ontbrekende variabele berekend. Handig om de doelvochtigheid bij een bepaalde temperatuur te vinden.",
+                apiDescChart: "Genereer een VPD-heatmap datamatrix. Geeft een 2D-raster van VPD-waarden over een temperatuur- en vochtigheidsbereik met zoneclassificatie. Perfect voor visuele VPD-grafieken.",
+                apiDescBatch: "Batch VPD-berekeningen met geaggregeerde statistieken. Dien meerdere temperatuur-/vochtigheidsmetingen in en ontvang individuele VPD-waarden plus minimum, maximum, gemiddelde en standaardafwijking.",
+                apiDescDli: "DLI-calculator (Dagelijks Lichtintegraal). Bereken DLI uit PPFD en fotoperiode (voorwaarts), of vind de benodigde PPFD voor een doel-DLI (omgekeerd). Inclusief optimale DLI-bereiken per groeifase.",
+                apiDescLight: "Uitgebreide lichtcalculator. Schat PPFD op basis van wattage en oppervlakte, berekent DLI, evalueert lichtintensiteit voor een groeifase en biedt effici\u00ebntie-metrics.",
+                apiDescStage: "Uitgebreide omgevingsdoelen voor een groeifase. Geeft optimale bereiken voor VPD, temperatuur, vochtigheid, PPFD, DLI, CO2, EC, pH en gietfrequentie. Optioneel afgestemd op het groeimedium.",
+                apiDescSchedule: "Genereer een volledig kweekschema met wekelijkse fasevoortgang. Geeft duur en omgevingsdoelen per fase, aangepast aan planttype en groeimedium.",
+                apiDescDiagnose: "Volledige omgevingsdiagnose met gezondheidsscore 0-100. Analyseert temperatuur, vochtigheid, VPD, pH, EC, PPFD, CO2 en nachttemperatuur. Geeft gevonden problemen, ernstniveaus en aanbevelingen.",
+                apiDescDeficit: "Symptoomgebaseerde voedingstekortdiagnose. Beschrijf zichtbare plantsymptomen en krijg gerangschikte mogelijke tekorten met betrouwbaarheidsscores, getroffen voedingsstoffen en behandelingsaanbevelingen.",
+                apiDescDewpoint: "Bereken de dauwpunttemperatuur, schimmel-/condensatierisicobeoordeling en veilige minimale nachttemperatuur. Essentieel ter voorkoming van knoprot en meeldauw.",
+                apiDescNutrient: "EC-, pH- en PPM-doelen voor een groeifase en medium. Inclusief mediumspecifieke tips, spoelschema's en aanpassingen op basis van uw water-EC.",
+                apiDescCo2: "CO2-verrijkingscalculator. Bepaal hoeveel CO2 nodig is om een doelconcentratie in uw kweekruimte te bereiken, en krijg fasegerichte CO2-aanbevelingen.",
+                apiDescIrrigation: "Calculator voor watervolume en -frequentie. Berekent het optimale watervolume per pot op basis van potgrootte, medium, groeifase en huidige omstandigheden. Ondersteunt meerdere planten.",
+                apiDescRoom: "Uitrustingsberekeningscalculator. Op basis van tent-/ruimteafmetingen en lichtvermorgen krijgt u aanbevolen ventilatie (CFM), luchtbevochtiger-/ontvochtigercapaciteit en ventilatorgrootte.",
+                apiDescDry: "Droog- en curingcalculator. Schat het drooggewicht, optimale droogtijd en krijg stap-voor-stap curinginstructies op basis van nat oogstgewicht, omgeving en trimmethode.",
+                apiDescConvert: "Universele eenhedenomrekener voor kweekmetingen. Converteert tussen Celsius/Fahrenheit, EC/PPM (500- en 700-schaal), PPFD/Lux en VPD-eenheden.",
+                apiDescHealth: "API-gezondheidscheck endpoint. Geeft huidige API-status, versie, uptime en eindpuntaantal. Gebruik dit om te controleren of de API operationeel is.",
+                apiParamTemp: "Luchttemperatuur",
+                apiParamHumidity: "Relatieve luchtvochtigheid (%)",
+                apiParamLeafOffset: "Bladtemperatuurverschil onder luchttemperatuur",
+                apiParamUnit: "Temperatuureenheid: c (Celsius) of f (Fahrenheit)",
+                apiParamTargetVpd: "Doel-VPD-waarde (kPa). Geef dit of een fase op.",
+                apiParamStageVpd: "Groeifase (gebruikt middelpunt VPD). Opties: clone_seedling, early_veg, late_veg, early_flower, mid_flower, late_flower",
+                apiParamKnownTemp: "Bekende temperatuur (lost vochtigheid op)",
+                apiParamKnownHumidity: "Bekende vochtigheid (lost temperatuur op)",
+                apiParamLeafOffsetShort: "Bladtemperatuurverschil",
+                apiParamUnitShort: "Temperatuureenheid: c of f",
+                apiParamTempMin: "Minimumtemperatuur",
+                apiParamTempMax: "Maximumtemperatuur",
+                apiParamTempStep: "Temperatuurstapgrootte",
+                apiParamRhMin: "Minimale relatieve vochtigheid (%)",
+                apiParamRhMax: "Maximale relatieve vochtigheid (%)",
+                apiParamRhStep: "Vochtigheidsstapgrootte",
+                apiParamStageZone: "Groeifase voor zoneclassificatie",
+                apiParamReadings: "Array van {\"temp\":N, \"humidity\":N} objecten (URL-gecodeerd)",
+                apiParamPpfd: "Fotosynthetische Fotonenstroom Dichtheid (umol/m2/s)",
+                apiParamHours: "Fotoperiode in uren",
+                apiParamDli: "Doel-DLI (mol/m2/dag) voor omgekeerde berekening",
+                apiParamPpfdKnown: "Bekend PPFD (indien beschikbaar)",
+                apiParamWatts: "Lichtwattage (voor PPFD-schatting)",
+                apiParamEfficiency: "LED-effici\u00ebntie (umol/J)",
+                apiParamArea: "Kweekoppervlakte in m2",
+                apiParamLightHeight: "Lichthoogte in meters",
+                apiParamStageEval: "Groeifase voor evaluatie",
+                apiParamStageName: "Fasenaam of \"all\" voor alle fasen. Opties: clone_seedling, early_veg, late_veg, early_flower, mid_flower, late_flower",
+                apiParamMedium: "Groeimedium: soil, coco, hydro, dwc",
+                apiParamPlantType: "Planttype: photo (fotoperiode) of auto (autoflower)",
+                apiParamStageDiag: "Groeifase voor contextbewuste diagnose",
+                apiParamMediumShort: "Groeimedium",
+                apiParamCurrentPpfd: "Huidig PPFD",
+                apiParamPh: "Voedingsoplossing pH",
+                apiParamEc: "Voedingsoplossing EC (mS/cm)",
+                apiParamCo2Level: "CO2-niveau (ppm)",
+                apiParamNightTemp: "Nachttemperatuur",
+                apiParamSymptoms: "Door komma's gescheiden symptoomwoorden. Voorbeelden: yellow_lower_leaves, brown_spots, curling_up, purple_stems, slow_growth, burnt_tips",
+                apiParamPhDiag: "Huidige pH (helpt diagnose te verfijnen)",
+                apiParamStage: "Groeifase",
+                apiParamWaterEc: "Basis water-EC (mS/cm) voor aangepaste doelen",
+                apiParamRoomM3: "Ruimtevolume in kubieke meters",
+                apiParamTargetPpm: "Doel-CO2-concentratie (ppm)",
+                apiParamCurrentPpm: "Huidig omgevings-CO2 (ppm)",
+                apiParamStageRec: "Groeifase voor aanbevelingen",
+                apiParamPotSize: "Potvolume in liters",
+                apiParamCurrentVpd: "Huidig VPD (be\u00efnvloedt transpiratiesnelheid)",
+                apiParamCurrentTemp: "Huidige temperatuur",
+                apiParamPlants: "Aantal planten (vermenigvuldigt totaal)",
+                apiParamRoomLength: "Ruimtelengte in meters",
+                apiParamRoomWidth: "Ruimtebreedte in meters",
+                apiParamRoomHeight: "Ruimtehoogte in meters",
+                apiParamLightsWatts: "Totaal lichtwattage",
+                apiParamTargetTemp: "Doeltemperatuur",
+                apiParamAmbientTemp: "Omgevings-/inlaattemperatuur",
+                apiParamPlantsCount: "Aantal planten",
+                apiParamTargetHumidity: "Doelvochtigheid (%)",
+                apiParamWetWeight: "Nat oogstgewicht in gram",
+                apiParamDryTemp: "Droogkamertemperatuur",
+                apiParamDryHumidity: "Droogkamervochtigheid (%)",
+                apiParamDryMethod: "Droogmethode: hang, rack of wet_trim",
+                apiParamTempConvert: "Temperatuurwaarde om te converteren",
+                apiParamFromUnit: "Broneenheid voor temperatuur: c of f",
+                apiParamEcConvert: "EC-waarde (mS/cm) om te converteren naar PPM",
+                apiParamPpmConvert: "PPM-waarde om te converteren naar EC",
+                apiParamPpmScale: "PPM-schaal: 500 of 700",
+                apiParamPpfdConvert: "PPFD om te converteren naar Lux",
+                apiParamLuxConvert: "Lux om te converteren naar PPFD",
+                apiParamVpdConvert: "VPD-waarde voor eenheidsinformatie",
+                apiNoParams: "Geen parameters vereist",
                 footHome: "Home",
                 footGuides: "Gidsen",
                 footFaq: "Ondersteuning",
@@ -1768,6 +2208,94 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                 apiThDefault: "D\u00e9faut",
                 apiThDesc: "Description",
                 apiFooterTagline: "\u2014 Con\u00e7u par des cultivateurs, pour des cultivateurs.",
+                apiDescVpd: "Calculez le VPD (D\u00e9ficit de Pression de Vapeur) \u00e0 partir de la temp\u00e9rature et de l'humidit\u00e9. Renvoie la valeur VPD, le VPD foliaire, la classification du statut et les plages optimales pour toutes les phases de croissance.",
+                apiDescTarget: "Calculateur VPD inverse. \u00c0 partir d'un VPD cible (ou d'une phase de croissance) et de la temp\u00e9rature ou de l'humidit\u00e9, calcule la variable manquante. Utile pour trouver l'humidit\u00e9 cible \u00e0 une temp\u00e9rature donn\u00e9e.",
+                apiDescChart: "G\u00e9n\u00e8re une matrice de donn\u00e9es de carte thermique VPD. Renvoie une grille 2D de valeurs VPD sur une plage de temp\u00e9rature et d'humidit\u00e9, avec classification des zones. Parfait pour cr\u00e9er des graphiques VPD visuels.",
+                apiDescBatch: "Calculs VPD par lots avec statistiques agr\u00e9g\u00e9es. Soumettez plusieurs lectures de temp\u00e9rature/humidit\u00e9 et recevez des valeurs VPD individuelles plus minimum, maximum, moyenne et \u00e9cart-type.",
+                apiDescDli: "Calculateur DLI (Int\u00e9grale de Lumi\u00e8re Journali\u00e8re). Calculez le DLI \u00e0 partir du PPFD et de la photop\u00e9riode (direct), ou trouvez le PPFD n\u00e9cessaire pour atteindre un DLI cible (inverse). Inclut les plages DLI optimales par phase.",
+                apiDescLight: "Calculateur de lumi\u00e8re complet. Estime le PPFD \u00e0 partir de la puissance et de la surface, calcule le DLI, \u00e9value l'intensit\u00e9 lumineuse pour une phase de croissance et fournit des m\u00e9triques d'efficacit\u00e9.",
+                apiDescStage: "Objectifs environnementaux complets pour une phase de croissance. Renvoie les plages optimales pour VPD, temp\u00e9rature, humidit\u00e9, PPFD, DLI, CO2, EC, pH et fr\u00e9quence d'arrosage. Optionnellement adapt\u00e9 au substrat de culture.",
+                apiDescSchedule: "G\u00e9n\u00e9rez un calendrier de culture complet avec progression hebdomadaire des phases. Renvoie la dur\u00e9e et les objectifs environnementaux par phase, personnalis\u00e9 selon le type de plante et le substrat.",
+                apiDescDiagnose: "Diagnostic environnemental complet avec score de sant\u00e9 0-100. Analyse la temp\u00e9rature, l'humidit\u00e9, le VPD, le pH, l'EC, le PPFD, le CO2 et la temp\u00e9rature nocturne. Renvoie les probl\u00e8mes trouv\u00e9s, les niveaux de gravit\u00e9 et les recommandations.",
+                apiDescDeficit: "Diagnostic de carence nutritive bas\u00e9 sur les sympt\u00f4mes. D\u00e9crivez les sympt\u00f4mes visibles et obtenez les carences possibles class\u00e9es avec scores de confiance, nutriments affect\u00e9s et recommandations de traitement.",
+                apiDescDewpoint: "Calculez la temp\u00e9rature du point de ros\u00e9e, l'\u00e9valuation du risque de moisissure/condensation et la temp\u00e9rature nocturne minimale s\u00fbre. Essentiel pour pr\u00e9venir la pourriture et le mildiou.",
+                apiDescNutrient: "Objectifs EC, pH et PPM pour une phase de croissance et un substrat. Inclut des conseils sp\u00e9cifiques au substrat, des calendriers de rin\u00e7age et des ajustements bas\u00e9s sur l'EC de votre eau.",
+                apiDescCo2: "Calculateur d'enrichissement en CO2. D\u00e9terminez la quantit\u00e9 de CO2 n\u00e9cessaire pour atteindre une concentration cible dans votre espace de culture, et obtenez des recommandations CO2 par phase.",
+                apiDescIrrigation: "Calculateur de volume et fr\u00e9quence d'arrosage. Calcule le volume d'eau optimal par pot selon la taille, le substrat, la phase de croissance et les conditions actuelles. Supporte plusieurs plantes.",
+                apiDescRoom: "Calculateur de dimensionnement d'\u00e9quipement. \u00c0 partir des dimensions de l'espace et de la puissance lumineuse, obtenez la ventilation recommand\u00e9e (CFM), la capacit\u00e9 humidificateur/d\u00e9shumidificateur et la taille du ventilateur.",
+                apiDescDry: "Calculateur de s\u00e9chage et d'affinage. Estimez le poids sec, la dur\u00e9e optimale de s\u00e9chage et obtenez des instructions d'affinage \u00e9tape par \u00e9tape selon le poids de r\u00e9colte humide, l'environnement et la m\u00e9thode de taille.",
+                apiDescConvert: "Convertisseur d'unit\u00e9s polyvalent pour les mesures de culture. Convertit entre Celsius/Fahrenheit, EC/PPM (\u00e9chelles 500 et 700), PPFD/Lux et unit\u00e9s VPD.",
+                apiDescHealth: "Point de contr\u00f4le de sant\u00e9 de l'API. Renvoie le statut actuel, la version, le temps de fonctionnement et le nombre de points d'acc\u00e8s. Utilisez-le pour v\u00e9rifier que l'API est op\u00e9rationnelle.",
+                apiParamTemp: "Temp\u00e9rature de l'air",
+                apiParamHumidity: "Humidit\u00e9 relative (%)",
+                apiParamLeafOffset: "D\u00e9calage de temp\u00e9rature foliaire sous la temp\u00e9rature de l'air",
+                apiParamUnit: "Unit\u00e9 de temp\u00e9rature : c (Celsius) ou f (Fahrenheit)",
+                apiParamTargetVpd: "Valeur VPD cible (kPa). Fournissez ceci ou la phase.",
+                apiParamStageVpd: "Phase de croissance (utilise le VPD m\u00e9dian). Options : clone_seedling, early_veg, late_veg, early_flower, mid_flower, late_flower",
+                apiParamKnownTemp: "Temp\u00e9rature connue (r\u00e9sout l'humidit\u00e9)",
+                apiParamKnownHumidity: "Humidit\u00e9 connue (r\u00e9sout la temp\u00e9rature)",
+                apiParamLeafOffsetShort: "D\u00e9calage de temp\u00e9rature foliaire",
+                apiParamUnitShort: "Unit\u00e9 de temp\u00e9rature : c ou f",
+                apiParamTempMin: "Temp\u00e9rature minimale",
+                apiParamTempMax: "Temp\u00e9rature maximale",
+                apiParamTempStep: "Pas de temp\u00e9rature",
+                apiParamRhMin: "Humidit\u00e9 relative minimale (%)",
+                apiParamRhMax: "Humidit\u00e9 relative maximale (%)",
+                apiParamRhStep: "Pas d'humidit\u00e9",
+                apiParamStageZone: "Phase de croissance pour la classification des zones",
+                apiParamReadings: "Tableau d'objets {\"temp\":N, \"humidity\":N} (encod\u00e9 URL)",
+                apiParamPpfd: "Densit\u00e9 de Flux Photonique Photosynth\u00e9tique (umol/m2/s)",
+                apiParamHours: "Photop\u00e9riode en heures",
+                apiParamDli: "DLI cible (mol/m2/jour) pour calcul inverse",
+                apiParamPpfdKnown: "PPFD connu (si disponible)",
+                apiParamWatts: "Puissance de l'\u00e9clairage (pour estimation PPFD)",
+                apiParamEfficiency: "Efficacit\u00e9 LED (umol/J)",
+                apiParamArea: "Surface de culture en m2",
+                apiParamLightHeight: "Hauteur de la lampe en m\u00e8tres",
+                apiParamStageEval: "Phase de croissance pour \u00e9valuation",
+                apiParamStageName: "Nom de phase ou \"all\" pour toutes les phases. Options : clone_seedling, early_veg, late_veg, early_flower, mid_flower, late_flower",
+                apiParamMedium: "Substrat de culture : soil, coco, hydro, dwc",
+                apiParamPlantType: "Type de plante : photo (photop\u00e9riode) ou auto (autofloraison)",
+                apiParamStageDiag: "Phase de croissance pour diagnostic contextuel",
+                apiParamMediumShort: "Substrat de culture",
+                apiParamCurrentPpfd: "PPFD actuel",
+                apiParamPh: "pH de la solution nutritive",
+                apiParamEc: "EC de la solution nutritive (mS/cm)",
+                apiParamCo2Level: "Niveau de CO2 (ppm)",
+                apiParamNightTemp: "Temp\u00e9rature nocturne",
+                apiParamSymptoms: "Mots-cl\u00e9s de sympt\u00f4mes s\u00e9par\u00e9s par des virgules. Exemples : yellow_lower_leaves, brown_spots, curling_up, purple_stems, slow_growth, burnt_tips",
+                apiParamPhDiag: "pH actuel (aide \u00e0 affiner le diagnostic)",
+                apiParamStage: "Phase de croissance",
+                apiParamWaterEc: "EC de l'eau de base (mS/cm) pour objectifs ajust\u00e9s",
+                apiParamRoomM3: "Volume de la pi\u00e8ce en m\u00e8tres cubes",
+                apiParamTargetPpm: "Concentration CO2 cible (ppm)",
+                apiParamCurrentPpm: "CO2 ambiant actuel (ppm)",
+                apiParamStageRec: "Phase de croissance pour recommandations",
+                apiParamPotSize: "Volume du pot en litres",
+                apiParamCurrentVpd: "VPD actuel (affecte le taux de transpiration)",
+                apiParamCurrentTemp: "Temp\u00e9rature actuelle",
+                apiParamPlants: "Nombre de plantes (multiplie le total)",
+                apiParamRoomLength: "Longueur de la pi\u00e8ce en m\u00e8tres",
+                apiParamRoomWidth: "Largeur de la pi\u00e8ce en m\u00e8tres",
+                apiParamRoomHeight: "Hauteur de la pi\u00e8ce en m\u00e8tres",
+                apiParamLightsWatts: "Puissance totale d'\u00e9clairage",
+                apiParamTargetTemp: "Temp\u00e9rature cible",
+                apiParamAmbientTemp: "Temp\u00e9rature ambiante/d'admission",
+                apiParamPlantsCount: "Nombre de plantes",
+                apiParamTargetHumidity: "Humidit\u00e9 cible (%)",
+                apiParamWetWeight: "Poids de r\u00e9colte humide en grammes",
+                apiParamDryTemp: "Temp\u00e9rature de la salle de s\u00e9chage",
+                apiParamDryHumidity: "Humidit\u00e9 de la salle de s\u00e9chage (%)",
+                apiParamDryMethod: "M\u00e9thode de s\u00e9chage : hang, rack ou wet_trim",
+                apiParamTempConvert: "Valeur de temp\u00e9rature \u00e0 convertir",
+                apiParamFromUnit: "Unit\u00e9 source pour la temp\u00e9rature : c ou f",
+                apiParamEcConvert: "Valeur EC (mS/cm) \u00e0 convertir en PPM",
+                apiParamPpmConvert: "Valeur PPM \u00e0 convertir en EC",
+                apiParamPpmScale: "\u00c9chelle PPM : 500 ou 700",
+                apiParamPpfdConvert: "PPFD \u00e0 convertir en Lux",
+                apiParamLuxConvert: "Lux \u00e0 convertir en PPFD",
+                apiParamVpdConvert: "Valeur VPD pour info d'unit\u00e9",
+                apiNoParams: "Aucun param\u00e8tre requis",
                 footHome: "Accueil",
                 footGuides: "Guides",
                 footFaq: "Assistance",
@@ -1806,6 +2334,94 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                 apiThDefault: "Predefinito",
                 apiThDesc: "Descrizione",
                 apiFooterTagline: "\u2014 Creato da coltivatori, per coltivatori.",
+                apiDescVpd: "Calcola il VPD (Deficit di Pressione di Vapore) da temperatura e umidit\u00e0. Restituisce valore VPD, VPD fogliare, classificazione dello stato e intervalli ottimali per tutte le fasi di crescita.",
+                apiDescTarget: "Calcolatore VPD inverso. Dato un VPD obiettivo (o fase di crescita) e temperatura o umidit\u00e0, calcola la variabile mancante. Utile per trovare l'umidit\u00e0 obiettivo a una data temperatura.",
+                apiDescChart: "Genera una matrice di dati heatmap VPD. Restituisce una griglia 2D di valori VPD su un intervallo di temperatura e umidit\u00e0, con classificazione delle zone. Perfetto per creare grafici VPD visivi.",
+                apiDescBatch: "Calcoli VPD in batch con statistiche aggregate. Invia pi\u00f9 letture di temperatura/umidit\u00e0 e ricevi valori VPD individuali pi\u00f9 minimo, massimo, media e deviazione standard.",
+                apiDescDli: "Calcolatore DLI (Integrale di Luce Giornaliero). Calcola DLI da PPFD e fotoperiodo (diretto), o trova il PPFD necessario per raggiungere un DLI obiettivo (inverso). Include intervalli DLI ottimali per fase.",
+                apiDescLight: "Calcolatore di luce completo. Stima PPFD da potenza e area, calcola DLI, valuta l'intensit\u00e0 luminosa per una fase di crescita e fornisce metriche di efficienza.",
+                apiDescStage: "Obiettivi ambientali completi per una fase di crescita. Restituisce intervalli ottimali per VPD, temperatura, umidit\u00e0, PPFD, DLI, CO2, EC, pH e frequenza di irrigazione. Opzionalmente adattato al substrato di coltivazione.",
+                apiDescSchedule: "Genera un programma di coltivazione completo con progressione settimanale delle fasi. Restituisce durata e obiettivi ambientali per ogni fase, personalizzato per tipo di pianta e substrato.",
+                apiDescDiagnose: "Diagnosi ambientale completa con punteggio salute 0-100. Analizza temperatura, umidit\u00e0, VPD, pH, EC, PPFD, CO2 e temperatura notturna. Restituisce problemi trovati, livelli di gravit\u00e0 e raccomandazioni.",
+                apiDescDeficit: "Diagnosi di carenza nutritiva basata sui sintomi. Descrivi i sintomi visibili e ottieni possibili carenze classificate con punteggi di affidabilit\u00e0, nutrienti coinvolti e raccomandazioni di trattamento.",
+                apiDescDewpoint: "Calcola la temperatura del punto di rugiada, valutazione del rischio muffa/condensa e temperatura notturna minima sicura. Essenziale per prevenire marciume e muffe.",
+                apiDescNutrient: "Obiettivi EC, pH e PPM per una fase di crescita e substrato. Include consigli specifici per substrato, programmi di lavaggio e regolazioni basate sull'EC dell'acqua.",
+                apiDescCo2: "Calcolatore di arricchimento CO2. Determina quanto CO2 serve per raggiungere una concentrazione obiettivo nella stanza di coltivazione, e ottieni raccomandazioni CO2 per fase.",
+                apiDescIrrigation: "Calcolatore di volume e frequenza di irrigazione. Calcola il volume d'acqua ottimale per vaso in base a dimensione, substrato, fase di crescita e condizioni attuali. Supporta pi\u00f9 piante.",
+                apiDescRoom: "Calcolatore di dimensionamento attrezzature. Date le dimensioni dello spazio e la potenza luminosa, ottieni ventilazione raccomandata (CFM), capacit\u00e0 umidificatore/deumidificatore e dimensione ventilatore.",
+                apiDescDry: "Calcolatore di essiccazione e stagionatura. Stima il peso secco, la durata ottimale di essiccazione e ottieni istruzioni passo-passo di stagionatura in base al peso del raccolto umido, ambiente e metodo di taglio.",
+                apiDescConvert: "Convertitore di unit\u00e0 multiuso per misurazioni di coltivazione. Converte tra Celsius/Fahrenheit, EC/PPM (scale 500 e 700), PPFD/Lux e unit\u00e0 VPD.",
+                apiDescHealth: "Endpoint di controllo salute API. Restituisce lo stato attuale, versione, uptime e numero di endpoint. Usalo per verificare che l'API sia operativa.",
+                apiParamTemp: "Temperatura dell'aria",
+                apiParamHumidity: "Umidit\u00e0 relativa (%)",
+                apiParamLeafOffset: "Offset temperatura fogliare sotto la temperatura dell'aria",
+                apiParamUnit: "Unit\u00e0 di temperatura: c (Celsius) o f (Fahrenheit)",
+                apiParamTargetVpd: "Valore VPD obiettivo (kPa). Fornisci questo o la fase.",
+                apiParamStageVpd: "Fase di crescita (usa VPD medio). Opzioni: clone_seedling, early_veg, late_veg, early_flower, mid_flower, late_flower",
+                apiParamKnownTemp: "Temperatura nota (risolve l'umidit\u00e0)",
+                apiParamKnownHumidity: "Umidit\u00e0 nota (risolve la temperatura)",
+                apiParamLeafOffsetShort: "Offset temperatura fogliare",
+                apiParamUnitShort: "Unit\u00e0 di temperatura: c o f",
+                apiParamTempMin: "Temperatura minima",
+                apiParamTempMax: "Temperatura massima",
+                apiParamTempStep: "Passo di temperatura",
+                apiParamRhMin: "Umidit\u00e0 relativa minima (%)",
+                apiParamRhMax: "Umidit\u00e0 relativa massima (%)",
+                apiParamRhStep: "Passo di umidit\u00e0",
+                apiParamStageZone: "Fase di crescita per classificazione zone",
+                apiParamReadings: "Array di oggetti {\"temp\":N, \"humidity\":N} (codificato URL)",
+                apiParamPpfd: "Densit\u00e0 di Flusso Fotonico Fotosintetico (umol/m2/s)",
+                apiParamHours: "Fotoperiodo in ore",
+                apiParamDli: "DLI obiettivo (mol/m2/giorno) per calcolo inverso",
+                apiParamPpfdKnown: "PPFD noto (se disponibile)",
+                apiParamWatts: "Potenza luce (per stima PPFD)",
+                apiParamEfficiency: "Efficienza LED (umol/J)",
+                apiParamArea: "Area di coltivazione in m2",
+                apiParamLightHeight: "Altezza della luce in metri",
+                apiParamStageEval: "Fase di crescita per valutazione",
+                apiParamStageName: "Nome fase o \"all\" per tutte le fasi. Opzioni: clone_seedling, early_veg, late_veg, early_flower, mid_flower, late_flower",
+                apiParamMedium: "Substrato di coltivazione: soil, coco, hydro, dwc",
+                apiParamPlantType: "Tipo di pianta: photo (fotoperiodo) o auto (autofiorente)",
+                apiParamStageDiag: "Fase di crescita per diagnosi contestuale",
+                apiParamMediumShort: "Substrato di coltivazione",
+                apiParamCurrentPpfd: "PPFD attuale",
+                apiParamPh: "pH della soluzione nutritiva",
+                apiParamEc: "EC della soluzione nutritiva (mS/cm)",
+                apiParamCo2Level: "Livello CO2 (ppm)",
+                apiParamNightTemp: "Temperatura notturna",
+                apiParamSymptoms: "Parole chiave dei sintomi separate da virgole. Esempi: yellow_lower_leaves, brown_spots, curling_up, purple_stems, slow_growth, burnt_tips",
+                apiParamPhDiag: "pH attuale (aiuta a restringere la diagnosi)",
+                apiParamStage: "Fase di crescita",
+                apiParamWaterEc: "EC dell'acqua base (mS/cm) per obiettivi regolati",
+                apiParamRoomM3: "Volume della stanza in metri cubi",
+                apiParamTargetPpm: "Concentrazione CO2 obiettivo (ppm)",
+                apiParamCurrentPpm: "CO2 ambientale attuale (ppm)",
+                apiParamStageRec: "Fase di crescita per raccomandazioni",
+                apiParamPotSize: "Volume del vaso in litri",
+                apiParamCurrentVpd: "VPD attuale (influenza il tasso di traspirazione)",
+                apiParamCurrentTemp: "Temperatura attuale",
+                apiParamPlants: "Numero di piante (moltiplica il totale)",
+                apiParamRoomLength: "Lunghezza della stanza in metri",
+                apiParamRoomWidth: "Larghezza della stanza in metri",
+                apiParamRoomHeight: "Altezza della stanza in metri",
+                apiParamLightsWatts: "Potenza totale illuminazione",
+                apiParamTargetTemp: "Temperatura obiettivo",
+                apiParamAmbientTemp: "Temperatura ambiente/aspirazione",
+                apiParamPlantsCount: "Numero di piante",
+                apiParamTargetHumidity: "Umidit\u00e0 obiettivo (%)",
+                apiParamWetWeight: "Peso del raccolto umido in grammi",
+                apiParamDryTemp: "Temperatura della stanza di essiccazione",
+                apiParamDryHumidity: "Umidit\u00e0 della stanza di essiccazione (%)",
+                apiParamDryMethod: "Metodo di essiccazione: hang, rack o wet_trim",
+                apiParamTempConvert: "Valore di temperatura da convertire",
+                apiParamFromUnit: "Unit\u00e0 sorgente per temperatura: c o f",
+                apiParamEcConvert: "Valore EC (mS/cm) da convertire in PPM",
+                apiParamPpmConvert: "Valore PPM da convertire in EC",
+                apiParamPpmScale: "Scala PPM: 500 o 700",
+                apiParamPpfdConvert: "PPFD da convertire in Lux",
+                apiParamLuxConvert: "Lux da convertire in PPFD",
+                apiParamVpdConvert: "Valore VPD per info unit\u00e0",
+                apiNoParams: "Nessun parametro richiesto",
                 footHome: "Home",
                 footGuides: "Guide",
                 footFaq: "Assistenza",
@@ -1844,6 +2460,94 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                 apiThDefault: "Padr\u00e3o",
                 apiThDesc: "Descri\u00e7\u00e3o",
                 apiFooterTagline: "\u2014 Feito por cultivadores, para cultivadores.",
+                apiDescVpd: "Calcule o VPD (D\u00e9ficit de Press\u00e3o de Vapor) a partir da temperatura e umidade. Retorna valor VPD, VPD foliar, classifica\u00e7\u00e3o de status e faixas ideais para todas as fases de crescimento.",
+                apiDescTarget: "Calculadora VPD reversa. Dado um VPD alvo (ou fase de crescimento) e temperatura ou umidade, calcula a vari\u00e1vel faltante. \u00datil para encontrar a umidade alvo em uma dada temperatura.",
+                apiDescChart: "Gera uma matriz de dados de mapa de calor VPD. Retorna uma grade 2D de valores VPD em uma faixa de temperatura e umidade, com classifica\u00e7\u00e3o de zonas. Perfeito para gr\u00e1ficos VPD visuais.",
+                apiDescBatch: "C\u00e1lculos VPD em lote com estat\u00edsticas agregadas. Envie m\u00faltiplas leituras de temperatura/umidade e receba valores VPD individuais mais m\u00ednimo, m\u00e1ximo, m\u00e9dia e desvio padr\u00e3o.",
+                apiDescDli: "Calculadora DLI (Integral de Luz Di\u00e1ria). Calcule DLI a partir de PPFD e fotoper\u00edodo (direto), ou encontre o PPFD necess\u00e1rio para atingir um DLI alvo (reverso). Inclui faixas DLI ideais por fase.",
+                apiDescLight: "Calculadora de luz abrangente. Estima PPFD a partir de pot\u00eancia e \u00e1rea, calcula DLI, avalia intensidade luminosa para uma fase de crescimento e fornece m\u00e9tricas de efici\u00eancia.",
+                apiDescStage: "Metas ambientais abrangentes para uma fase de crescimento. Retorna faixas ideais para VPD, temperatura, umidade, PPFD, DLI, CO2, EC, pH e frequ\u00eancia de irriga\u00e7\u00e3o. Opcionalmente adaptado ao substrato.",
+                apiDescSchedule: "Gere um cronograma completo de cultivo com progress\u00e3o semanal de fases. Retorna dura\u00e7\u00e3o e metas ambientais por fase, personalizado por tipo de planta e substrato.",
+                apiDescDiagnose: "Diagn\u00f3stico ambiental completo com pontua\u00e7\u00e3o de sa\u00fade 0-100. Analisa temperatura, umidade, VPD, pH, EC, PPFD, CO2 e temperatura noturna. Retorna problemas encontrados, n\u00edveis de gravidade e recomenda\u00e7\u00f5es.",
+                apiDescDeficit: "Diagn\u00f3stico de defici\u00eancia nutricional baseado em sintomas. Descreva sintomas vis\u00edveis e obtenha defici\u00eancias poss\u00edveis classificadas com pontua\u00e7\u00f5es de confian\u00e7a, nutrientes afetados e recomenda\u00e7\u00f5es de tratamento.",
+                apiDescDewpoint: "Calcule a temperatura do ponto de orvalho, avalia\u00e7\u00e3o de risco de mofo/condensa\u00e7\u00e3o e temperatura noturna m\u00ednima segura. Essencial para prevenir podrid\u00e3o e m\u00edldio.",
+                apiDescNutrient: "Metas de EC, pH e PPM para uma fase de crescimento e substrato. Inclui dicas espec\u00edficas do substrato, cronogramas de lavagem e ajustes baseados no EC da sua \u00e1gua.",
+                apiDescCo2: "Calculadora de enriquecimento com CO2. Determine quanto CO2 \u00e9 necess\u00e1rio para atingir uma concentra\u00e7\u00e3o alvo na sala de cultivo, e obtenha recomenda\u00e7\u00f5es de CO2 por fase.",
+                apiDescIrrigation: "Calculadora de volume e frequ\u00eancia de irriga\u00e7\u00e3o. Calcula o volume ideal de \u00e1gua por vaso com base no tamanho, substrato, fase de crescimento e condi\u00e7\u00f5es atuais. Suporta m\u00faltiplas plantas.",
+                apiDescRoom: "Calculadora de dimensionamento de equipamentos. Dadas as dimens\u00f5es do espa\u00e7o e pot\u00eancia luminosa, obtenha ventila\u00e7\u00e3o recomendada (CFM), capacidade do umidificador/desumidificador e tamanho do ventilador.",
+                apiDescDry: "Calculadora de secagem e cura. Estime o peso seco, dura\u00e7\u00e3o ideal de secagem e obtenha instru\u00e7\u00f5es passo a passo de cura com base no peso da colheita \u00famida, ambiente e m\u00e9todo de poda.",
+                apiDescConvert: "Conversor de unidades multifuncional para medi\u00e7\u00f5es de cultivo. Converte entre Celsius/Fahrenheit, EC/PPM (escalas 500 e 700), PPFD/Lux e unidades VPD.",
+                apiDescHealth: "Endpoint de verifica\u00e7\u00e3o de sa\u00fade da API. Retorna status atual, vers\u00e3o, uptime e n\u00famero de endpoints. Use para verificar se a API est\u00e1 operacional.",
+                apiParamTemp: "Temperatura do ar",
+                apiParamHumidity: "Umidade relativa (%)",
+                apiParamLeafOffset: "Diferen\u00e7a de temperatura foliar abaixo da temperatura do ar",
+                apiParamUnit: "Unidade de temperatura: c (Celsius) ou f (Fahrenheit)",
+                apiParamTargetVpd: "Valor VPD alvo (kPa). Forne\u00e7a isto ou a fase.",
+                apiParamStageVpd: "Fase de crescimento (usa VPD m\u00e9dio). Op\u00e7\u00f5es: clone_seedling, early_veg, late_veg, early_flower, mid_flower, late_flower",
+                apiParamKnownTemp: "Temperatura conhecida (resolve umidade)",
+                apiParamKnownHumidity: "Umidade conhecida (resolve temperatura)",
+                apiParamLeafOffsetShort: "Diferen\u00e7a de temperatura foliar",
+                apiParamUnitShort: "Unidade de temperatura: c ou f",
+                apiParamTempMin: "Temperatura m\u00ednima",
+                apiParamTempMax: "Temperatura m\u00e1xima",
+                apiParamTempStep: "Passo de temperatura",
+                apiParamRhMin: "Umidade relativa m\u00ednima (%)",
+                apiParamRhMax: "Umidade relativa m\u00e1xima (%)",
+                apiParamRhStep: "Passo de umidade",
+                apiParamStageZone: "Fase de crescimento para classifica\u00e7\u00e3o de zonas",
+                apiParamReadings: "Array de objetos {\"temp\":N, \"humidity\":N} (codificado URL)",
+                apiParamPpfd: "Densidade de Fluxo Fot\u00f4nico Fotossint\u00e9tico (umol/m2/s)",
+                apiParamHours: "Fotoper\u00edodo em horas",
+                apiParamDli: "DLI alvo (mol/m2/dia) para c\u00e1lculo reverso",
+                apiParamPpfdKnown: "PPFD conhecido (se dispon\u00edvel)",
+                apiParamWatts: "Pot\u00eancia da luz (para estimativa PPFD)",
+                apiParamEfficiency: "Efici\u00eancia LED (umol/J)",
+                apiParamArea: "\u00c1rea de cultivo em m2",
+                apiParamLightHeight: "Altura da luz em metros",
+                apiParamStageEval: "Fase de crescimento para avalia\u00e7\u00e3o",
+                apiParamStageName: "Nome da fase ou \"all\" para todas. Op\u00e7\u00f5es: clone_seedling, early_veg, late_veg, early_flower, mid_flower, late_flower",
+                apiParamMedium: "Substrato de cultivo: soil, coco, hydro, dwc",
+                apiParamPlantType: "Tipo de planta: photo (fotoper\u00edodo) ou auto (autoflorescente)",
+                apiParamStageDiag: "Fase de crescimento para diagn\u00f3stico contextual",
+                apiParamMediumShort: "Substrato de cultivo",
+                apiParamCurrentPpfd: "PPFD atual",
+                apiParamPh: "pH da solu\u00e7\u00e3o nutritiva",
+                apiParamEc: "EC da solu\u00e7\u00e3o nutritiva (mS/cm)",
+                apiParamCo2Level: "N\u00edvel de CO2 (ppm)",
+                apiParamNightTemp: "Temperatura noturna",
+                apiParamSymptoms: "Palavras-chave de sintomas separadas por v\u00edrgulas. Exemplos: yellow_lower_leaves, brown_spots, curling_up, purple_stems, slow_growth, burnt_tips",
+                apiParamPhDiag: "pH atual (ajuda a refinar o diagn\u00f3stico)",
+                apiParamStage: "Fase de crescimento",
+                apiParamWaterEc: "EC da \u00e1gua base (mS/cm) para metas ajustadas",
+                apiParamRoomM3: "Volume da sala em metros c\u00fabicos",
+                apiParamTargetPpm: "Concentra\u00e7\u00e3o alvo de CO2 (ppm)",
+                apiParamCurrentPpm: "CO2 ambiente atual (ppm)",
+                apiParamStageRec: "Fase de crescimento para recomenda\u00e7\u00f5es",
+                apiParamPotSize: "Volume do vaso em litros",
+                apiParamCurrentVpd: "VPD atual (afeta a taxa de transpira\u00e7\u00e3o)",
+                apiParamCurrentTemp: "Temperatura atual",
+                apiParamPlants: "N\u00famero de plantas (multiplica o total)",
+                apiParamRoomLength: "Comprimento da sala em metros",
+                apiParamRoomWidth: "Largura da sala em metros",
+                apiParamRoomHeight: "Altura da sala em metros",
+                apiParamLightsWatts: "Pot\u00eancia total de ilumina\u00e7\u00e3o",
+                apiParamTargetTemp: "Temperatura alvo",
+                apiParamAmbientTemp: "Temperatura ambiente/entrada",
+                apiParamPlantsCount: "N\u00famero de plantas",
+                apiParamTargetHumidity: "Umidade alvo (%)",
+                apiParamWetWeight: "Peso da colheita \u00famida em gramas",
+                apiParamDryTemp: "Temperatura da sala de secagem",
+                apiParamDryHumidity: "Umidade da sala de secagem (%)",
+                apiParamDryMethod: "M\u00e9todo de secagem: hang, rack ou wet_trim",
+                apiParamTempConvert: "Valor de temperatura a converter",
+                apiParamFromUnit: "Unidade de origem: c ou f",
+                apiParamEcConvert: "Valor EC (mS/cm) a converter para PPM",
+                apiParamPpmConvert: "Valor PPM a converter para EC",
+                apiParamPpmScale: "Escala PPM: 500 ou 700",
+                apiParamPpfdConvert: "PPFD a converter para Lux",
+                apiParamLuxConvert: "Lux a converter para PPFD",
+                apiParamVpdConvert: "Valor VPD para info de unidades",
+                apiNoParams: "Nenhum par\u00e2metro necess\u00e1rio",
                 footHome: "In\u00edcio",
                 footGuides: "Guias",
                 footFaq: "Suporte",
@@ -1882,6 +2586,94 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                 apiThDefault: "Domy\u015blnie",
                 apiThDesc: "Opis",
                 apiFooterTagline: "\u2014 Stworzone przez hodowc\u00f3w, dla hodowc\u00f3w.",
+                apiDescVpd: "Oblicz VPD (Deficyt Ci\u015bnienia Par Wodnych) na podstawie temperatury i wilgotno\u015bci. Zwraca warto\u015b\u0107 VPD, VPD li\u015bciowe, klasyfikacj\u0119 statusu i optymalne zakresy dla wszystkich faz wzrostu.",
+                apiDescTarget: "Odwrotny kalkulator VPD. Na podstawie docelowego VPD (lub fazy wzrostu) i temperatury lub wilgotno\u015bci oblicza brakuj\u0105c\u0105 zmienn\u0105. Przydatny do znajdowania docelowej wilgotno\u015bci przy danej temperaturze.",
+                apiDescChart: "Generuje macierz danych mapy cieplnej VPD. Zwraca siatk\u0119 2D warto\u015bci VPD w zakresie temperatury i wilgotno\u015bci z klasyfikacj\u0105 stref. Idealny do tworzenia wizualnych wykres\u00f3w VPD.",
+                apiDescBatch: "Wsadowe obliczenia VPD z zagregowanymi statystykami. Prze\u015blij wiele odczyt\u00f3w temperatury/wilgotno\u015bci i otrzymaj indywidualne warto\u015bci VPD plus minimum, maksimum, \u015bredni\u0105 i odchylenie standardowe.",
+                apiDescDli: "Kalkulator DLI (Dzienna Suma \u015awietlna). Oblicz DLI z PPFD i fotoperiodem (wprost) lub znajd\u017a wymagane PPFD dla docelowego DLI (odwrotnie). Zawiera optymalne zakresy DLI na faz\u0119.",
+                apiDescLight: "Kompleksowy kalkulator o\u015bwietlenia. Szacuje PPFD z mocy i powierzchni, oblicza DLI, ocenia intensywno\u015b\u0107 \u015bwiat\u0142a dla fazy wzrostu i dostarcza metryki wydajno\u015bci.",
+                apiDescStage: "Kompleksowe cele \u015brodowiskowe dla fazy wzrostu. Zwraca optymalne zakresy dla VPD, temperatury, wilgotno\u015bci, PPFD, DLI, CO2, EC, pH i cz\u0119stotliwo\u015bci podlewania. Opcjonalnie dostosowane do pod\u0142o\u017ca.",
+                apiDescSchedule: "Wygeneruj pe\u0142ny harmonogram uprawy z tygodniowym post\u0119pem faz. Zwraca czas trwania i cele \u015brodowiskowe dla ka\u017cdej fazy, dostosowane do typu ro\u015bliny i pod\u0142o\u017ca.",
+                apiDescDiagnose: "Pe\u0142na diagnostyka \u015brodowiskowa z wynikiem zdrowia 0-100. Analizuje temperatur\u0119, wilgotno\u015b\u0107, VPD, pH, EC, PPFD, CO2 i temperatur\u0119 nocn\u0105. Zwraca znalezione problemy, poziomy wa\u017cno\u015bci i zalecenia.",
+                apiDescDeficit: "Diagnostyka niedoboru sk\u0142adnik\u00f3w od\u017cywczych na podstawie symptom\u00f3w. Opisz widoczne symptomy i uzyskaj uszeregowane mo\u017cliwe niedobory z ocenami pewno\u015bci, dotkni\u0119tymi sk\u0142adnikami i zaleceniami leczenia.",
+                apiDescDewpoint: "Oblicz temperatur\u0119 punktu rosy, ocen\u0119 ryzyka ple\u015bni/kondensacji i bezpieczn\u0105 minimaln\u0105 temperatur\u0119 nocn\u0105. Niezb\u0119dne do zapobiegania gnicie i m\u0105czniakom.",
+                apiDescNutrient: "Cele EC, pH i PPM dla fazy wzrostu i pod\u0142o\u017ca. Zawiera wskaz\u00f3wki specyficzne dla pod\u0142o\u017ca, harmonogramy p\u0142ukania i korekty na podstawie EC wody.",
+                apiDescCo2: "Kalkulator wzbogacania CO2. Okre\u015bl, ile CO2 potrzeba, aby osi\u0105gn\u0105\u0107 docelow\u0105 koncentracj\u0119 w pomieszczeniu uprawowym, i uzyskaj zalecenia CO2 wed\u0142ug fazy.",
+                apiDescIrrigation: "Kalkulator obj\u0119to\u015bci i cz\u0119stotliwo\u015bci podlewania. Oblicza optymaln\u0105 obj\u0119to\u015b\u0107 wody na doniczk\u0119 na podstawie rozmiaru, pod\u0142o\u017ca, fazy wzrostu i bie\u017c\u0105cych warunk\u00f3w. Obs\u0142uguje wiele ro\u015blin.",
+                apiDescRoom: "Kalkulator doboru wyposa\u017cenia. Na podstawie wymiar\u00f3w pomieszczenia i mocy o\u015bwietlenia otrzymasz zalecan\u0105 wentylacj\u0119 (CFM), pojemno\u015b\u0107 nawil\u017cacza/osuszacza i rozmiar wentylatora.",
+                apiDescDry: "Kalkulator suszenia i dojrzewania. Oszacuj such\u0105 mas\u0119, optymalny czas suszenia i uzyskaj instrukcje dojrzewania krok po kroku na podstawie mokrej masy zbioru, \u015brodowiska i metody przycinania.",
+                apiDescConvert: "Uniwersalny konwerter jednostek do pomiar\u00f3w uprawowych. Konwertuje mi\u0119dzy Celsjuszem/Fahrenheitem, EC/PPM (skale 500 i 700), PPFD/Lux i jednostkami VPD.",
+                apiDescHealth: "Endpoint sprawdzania stanu API. Zwraca aktualny status, wersj\u0119, czas dzia\u0142ania i liczb\u0119 endpoint\u00f3w. U\u017cyj do weryfikacji, czy API dzia\u0142a.",
+                apiParamTemp: "Temperatura powietrza",
+                apiParamHumidity: "Wilgotno\u015b\u0107 wzgl\u0119dna (%)",
+                apiParamLeafOffset: "Offset temperatury li\u015bcia poni\u017cej temperatury powietrza",
+                apiParamUnit: "Jednostka temperatury: c (Celsjusz) lub f (Fahrenheit)",
+                apiParamTargetVpd: "Docelowa warto\u015b\u0107 VPD (kPa). Podaj to lub faz\u0119.",
+                apiParamStageVpd: "Faza wzrostu (u\u017cywa \u015bredniego VPD). Opcje: clone_seedling, early_veg, late_veg, early_flower, mid_flower, late_flower",
+                apiParamKnownTemp: "Znana temperatura (rozwi\u0105zuje wilgotno\u015b\u0107)",
+                apiParamKnownHumidity: "Znana wilgotno\u015b\u0107 (rozwi\u0105zuje temperatur\u0119)",
+                apiParamLeafOffsetShort: "Offset temperatury li\u015bcia",
+                apiParamUnitShort: "Jednostka temperatury: c lub f",
+                apiParamTempMin: "Temperatura minimalna",
+                apiParamTempMax: "Temperatura maksymalna",
+                apiParamTempStep: "Krok temperatury",
+                apiParamRhMin: "Minimalna wilgotno\u015b\u0107 wzgl\u0119dna (%)",
+                apiParamRhMax: "Maksymalna wilgotno\u015b\u0107 wzgl\u0119dna (%)",
+                apiParamRhStep: "Krok wilgotno\u015bci",
+                apiParamStageZone: "Faza wzrostu do klasyfikacji stref",
+                apiParamReadings: "Tablica obiekt\u00f3w {\"temp\":N, \"humidity\":N} (kodowane URL)",
+                apiParamPpfd: "G\u0119sto\u015b\u0107 Strumienia Foton\u00f3w Fotosyntetycznych (umol/m2/s)",
+                apiParamHours: "Fotoperod w godzinach",
+                apiParamDli: "Docelowe DLI (mol/m2/dzie\u0144) do oblicze\u0144 odwrotnych",
+                apiParamPpfdKnown: "Znane PPFD (je\u015bli dost\u0119pne)",
+                apiParamWatts: "Moc o\u015bwietlenia (do szacowania PPFD)",
+                apiParamEfficiency: "Wydajno\u015b\u0107 LED (umol/J)",
+                apiParamArea: "Powierzchnia uprawy w m2",
+                apiParamLightHeight: "Wysoko\u015b\u0107 lampy w metrach",
+                apiParamStageEval: "Faza wzrostu do oceny",
+                apiParamStageName: "Nazwa fazy lub \"all\" dla wszystkich faz. Opcje: clone_seedling, early_veg, late_veg, early_flower, mid_flower, late_flower",
+                apiParamMedium: "Pod\u0142o\u017ce uprawowe: soil, coco, hydro, dwc",
+                apiParamPlantType: "Typ ro\u015bliny: photo (fotoperiodyczna) lub auto (automatyczna)",
+                apiParamStageDiag: "Faza wzrostu do diagnostyki kontekstowej",
+                apiParamMediumShort: "Pod\u0142o\u017ce uprawowe",
+                apiParamCurrentPpfd: "Aktualne PPFD",
+                apiParamPh: "pH roztworu od\u017cywczego",
+                apiParamEc: "EC roztworu od\u017cywczego (mS/cm)",
+                apiParamCo2Level: "Poziom CO2 (ppm)",
+                apiParamNightTemp: "Temperatura nocna",
+                apiParamSymptoms: "S\u0142owa kluczowe symptom\u00f3w oddzielone przecinkami. Przyk\u0142ady: yellow_lower_leaves, brown_spots, curling_up, purple_stems, slow_growth, burnt_tips",
+                apiParamPhDiag: "Aktualne pH (pomaga zawezi\u0107 diagnostyk\u0119)",
+                apiParamStage: "Faza wzrostu",
+                apiParamWaterEc: "Bazowe EC wody (mS/cm) dla skorygowanych cel\u00f3w",
+                apiParamRoomM3: "Obj\u0119to\u015b\u0107 pomieszczenia w metrach sze\u015bciennych",
+                apiParamTargetPpm: "Docelowa koncentracja CO2 (ppm)",
+                apiParamCurrentPpm: "Aktualne CO2 otoczenia (ppm)",
+                apiParamStageRec: "Faza wzrostu do zalece\u0144",
+                apiParamPotSize: "Obj\u0119to\u015b\u0107 doniczki w litrach",
+                apiParamCurrentVpd: "Aktualne VPD (wp\u0142ywa na szybko\u015b\u0107 transpiracji)",
+                apiParamCurrentTemp: "Aktualna temperatura",
+                apiParamPlants: "Liczba ro\u015blin (mno\u017cy sum\u0119)",
+                apiParamRoomLength: "D\u0142ugo\u015b\u0107 pomieszczenia w metrach",
+                apiParamRoomWidth: "Szeroko\u015b\u0107 pomieszczenia w metrach",
+                apiParamRoomHeight: "Wysoko\u015b\u0107 pomieszczenia w metrach",
+                apiParamLightsWatts: "Ca\u0142kowita moc o\u015bwietlenia",
+                apiParamTargetTemp: "Temperatura docelowa",
+                apiParamAmbientTemp: "Temperatura otoczenia/wlotu",
+                apiParamPlantsCount: "Liczba ro\u015blin",
+                apiParamTargetHumidity: "Docelowa wilgotno\u015b\u0107 (%)",
+                apiParamWetWeight: "Mokra masa zbioru w gramach",
+                apiParamDryTemp: "Temperatura pomieszczenia suszarni",
+                apiParamDryHumidity: "Wilgotno\u015b\u0107 pomieszczenia suszarni (%)",
+                apiParamDryMethod: "Metoda suszenia: hang, rack lub wet_trim",
+                apiParamTempConvert: "Warto\u015b\u0107 temperatury do konwersji",
+                apiParamFromUnit: "Jednostka \u017ar\u00f3d\u0142owa temperatury: c lub f",
+                apiParamEcConvert: "Warto\u015b\u0107 EC (mS/cm) do konwersji na PPM",
+                apiParamPpmConvert: "Warto\u015b\u0107 PPM do konwersji na EC",
+                apiParamPpmScale: "Skala PPM: 500 lub 700",
+                apiParamPpfdConvert: "PPFD do konwersji na Lux",
+                apiParamLuxConvert: "Lux do konwersji na PPFD",
+                apiParamVpdConvert: "Warto\u015b\u0107 VPD dla info o jednostkach",
+                apiNoParams: "Brak wymaganych parametr\u00f3w",
                 footHome: "Strona g\u0142\u00f3wna",
                 footGuides: "Poradniki",
                 footFaq: "Wsparcie",
@@ -1920,6 +2712,94 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                 apiThDefault: "\u0e04\u0e48\u0e32\u0e40\u0e23\u0e34\u0e48\u0e21\u0e15\u0e49\u0e19",
                 apiThDesc: "\u0e04\u0e33\u0e2d\u0e18\u0e34\u0e1a\u0e32\u0e22",
                 apiFooterTagline: "\u2014 \u0e2a\u0e23\u0e49\u0e32\u0e07\u0e42\u0e14\u0e22\u0e1c\u0e39\u0e49\u0e1b\u0e25\u0e39\u0e01 \u0e40\u0e1e\u0e37\u0e48\u0e2d\u0e1c\u0e39\u0e49\u0e1b\u0e25\u0e39\u0e01",
+                apiDescVpd: "\u0e04\u0e33\u0e19\u0e27\u0e13 VPD (\u0e04\u0e48\u0e32\u0e02\u0e32\u0e14\u0e14\u0e38\u0e25\u0e04\u0e27\u0e32\u0e21\u0e14\u0e31\u0e19\u0e44\u0e2d\u0e19\u0e49\u0e33) \u0e08\u0e32\u0e01\u0e2d\u0e38\u0e13\u0e2b\u0e20\u0e39\u0e21\u0e34\u0e41\u0e25\u0e30\u0e04\u0e27\u0e32\u0e21\u0e0a\u0e37\u0e49\u0e19 \u0e2a\u0e48\u0e07\u0e04\u0e37\u0e19\u0e04\u0e48\u0e32 VPD, VPD \u0e43\u0e1a, \u0e01\u0e32\u0e23\u0e08\u0e31\u0e14\u0e2b\u0e21\u0e27\u0e14\u0e2b\u0e21\u0e39\u0e48\u0e2a\u0e16\u0e32\u0e19\u0e30 \u0e41\u0e25\u0e30\u0e0a\u0e48\u0e27\u0e07\u0e17\u0e35\u0e48\u0e40\u0e2b\u0e21\u0e32\u0e30\u0e2a\u0e21\u0e2a\u0e33\u0e2b\u0e23\u0e31\u0e1a\u0e17\u0e38\u0e01\u0e23\u0e30\u0e22\u0e30\u0e01\u0e32\u0e23\u0e40\u0e08\u0e23\u0e34\u0e0d\u0e40\u0e15\u0e34\u0e1a\u0e42\u0e15",
+                apiDescTarget: "\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e04\u0e33\u0e19\u0e27\u0e13 VPD \u0e22\u0e49\u0e2d\u0e19\u0e01\u0e25\u0e31\u0e1a \u0e08\u0e32\u0e01 VPD \u0e40\u0e1b\u0e49\u0e32\u0e2b\u0e21\u0e32\u0e22 (\u0e2b\u0e23\u0e37\u0e2d\u0e23\u0e30\u0e22\u0e30\u0e01\u0e32\u0e23\u0e40\u0e08\u0e23\u0e34\u0e0d\u0e40\u0e15\u0e34\u0e1a\u0e42\u0e15) \u0e41\u0e25\u0e30\u0e2d\u0e38\u0e13\u0e2b\u0e20\u0e39\u0e21\u0e34\u0e2b\u0e23\u0e37\u0e2d\u0e04\u0e27\u0e32\u0e21\u0e0a\u0e37\u0e49\u0e19 \u0e04\u0e33\u0e19\u0e27\u0e13\u0e15\u0e31\u0e27\u0e41\u0e1b\u0e23\u0e17\u0e35\u0e48\u0e02\u0e32\u0e14\u0e2b\u0e32\u0e22\u0e44\u0e1b \u0e21\u0e35\u0e1b\u0e23\u0e30\u0e42\u0e22\u0e0a\u0e19\u0e4c\u0e2a\u0e33\u0e2b\u0e23\u0e31\u0e1a\u0e01\u0e32\u0e23\u0e2b\u0e32\u0e04\u0e27\u0e32\u0e21\u0e0a\u0e37\u0e49\u0e19\u0e40\u0e1b\u0e49\u0e32\u0e2b\u0e21\u0e32\u0e22\u0e17\u0e35\u0e48\u0e2d\u0e38\u0e13\u0e2b\u0e20\u0e39\u0e21\u0e34\u0e17\u0e35\u0e48\u0e01\u0e33\u0e2b\u0e19\u0e14",
+                apiDescChart: "\u0e2a\u0e23\u0e49\u0e32\u0e07\u0e40\u0e21\u0e17\u0e23\u0e34\u0e01\u0e0b\u0e4c\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e41\u0e1c\u0e19\u0e17\u0e35\u0e48\u0e04\u0e27\u0e32\u0e21\u0e23\u0e49\u0e2d\u0e19 VPD \u0e2a\u0e48\u0e07\u0e04\u0e37\u0e19\u0e15\u0e32\u0e23\u0e32\u0e07 2D \u0e02\u0e2d\u0e07\u0e04\u0e48\u0e32 VPD \u0e15\u0e32\u0e21\u0e0a\u0e48\u0e27\u0e07\u0e2d\u0e38\u0e13\u0e2b\u0e20\u0e39\u0e21\u0e34\u0e41\u0e25\u0e30\u0e04\u0e27\u0e32\u0e21\u0e0a\u0e37\u0e49\u0e19 \u0e1e\u0e23\u0e49\u0e2d\u0e21\u0e01\u0e32\u0e23\u0e08\u0e33\u0e41\u0e19\u0e01\u0e42\u0e0b\u0e19 \u0e40\u0e2b\u0e21\u0e32\u0e30\u0e2a\u0e33\u0e2b\u0e23\u0e31\u0e1a\u0e2a\u0e23\u0e49\u0e32\u0e07\u0e01\u0e23\u0e32\u0e1f VPD",
+                apiDescBatch: "\u0e04\u0e33\u0e19\u0e27\u0e13 VPD \u0e41\u0e1a\u0e1a\u0e0a\u0e38\u0e14\u0e1e\u0e23\u0e49\u0e2d\u0e21\u0e2a\u0e16\u0e34\u0e15\u0e34\u0e23\u0e27\u0e21 \u0e2a\u0e48\u0e07\u0e01\u0e32\u0e23\u0e2d\u0e48\u0e32\u0e19\u0e2d\u0e38\u0e13\u0e2b\u0e20\u0e39\u0e21\u0e34/\u0e04\u0e27\u0e32\u0e21\u0e0a\u0e37\u0e49\u0e19\u0e2b\u0e25\u0e32\u0e22\u0e23\u0e32\u0e22\u0e01\u0e32\u0e23\u0e41\u0e25\u0e30\u0e23\u0e31\u0e1a\u0e04\u0e48\u0e32 VPD \u0e41\u0e15\u0e48\u0e25\u0e30\u0e23\u0e32\u0e22\u0e01\u0e32\u0e23\u0e1e\u0e23\u0e49\u0e2d\u0e21\u0e04\u0e48\u0e32\u0e15\u0e48\u0e33\u0e2a\u0e38\u0e14 \u0e2a\u0e39\u0e07\u0e2a\u0e38\u0e14 \u0e04\u0e48\u0e32\u0e40\u0e09\u0e25\u0e35\u0e48\u0e22 \u0e41\u0e25\u0e30\u0e2a\u0e48\u0e27\u0e19\u0e40\u0e1a\u0e35\u0e48\u0e22\u0e07\u0e40\u0e1a\u0e19\u0e21\u0e32\u0e15\u0e23\u0e10\u0e32\u0e19",
+                apiDescDli: "\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e04\u0e33\u0e19\u0e27\u0e13 DLI (\u0e1b\u0e23\u0e34\u0e21\u0e32\u0e13\u0e41\u0e2a\u0e07\u0e23\u0e27\u0e21\u0e15\u0e48\u0e2d\u0e27\u0e31\u0e19) \u0e04\u0e33\u0e19\u0e27\u0e13 DLI \u0e08\u0e32\u0e01 PPFD \u0e41\u0e25\u0e30\u0e0a\u0e48\u0e27\u0e07\u0e41\u0e2a\u0e07 (\u0e44\u0e1b\u0e02\u0e49\u0e32\u0e07\u0e2b\u0e19\u0e49\u0e32) \u0e2b\u0e23\u0e37\u0e2d\u0e2b\u0e32 PPFD \u0e17\u0e35\u0e48\u0e15\u0e49\u0e2d\u0e07\u0e01\u0e32\u0e23\u0e2a\u0e33\u0e2b\u0e23\u0e31\u0e1a DLI \u0e40\u0e1b\u0e49\u0e32\u0e2b\u0e21\u0e32\u0e22 (\u0e22\u0e49\u0e2d\u0e19\u0e01\u0e25\u0e31\u0e1a) \u0e23\u0e27\u0e21\u0e0a\u0e48\u0e27\u0e07 DLI \u0e17\u0e35\u0e48\u0e40\u0e2b\u0e21\u0e32\u0e30\u0e2a\u0e21\u0e15\u0e32\u0e21\u0e23\u0e30\u0e22\u0e30",
+                apiDescLight: "\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e04\u0e33\u0e19\u0e27\u0e13\u0e41\u0e2a\u0e07\u0e04\u0e23\u0e1a\u0e27\u0e07\u0e08\u0e23 \u0e1b\u0e23\u0e30\u0e21\u0e32\u0e13\u0e04\u0e48\u0e32 PPFD \u0e08\u0e32\u0e01\u0e01\u0e33\u0e25\u0e31\u0e07\u0e44\u0e1f\u0e41\u0e25\u0e30\u0e1e\u0e37\u0e49\u0e19\u0e17\u0e35\u0e48 \u0e04\u0e33\u0e19\u0e27\u0e13 DLI \u0e1b\u0e23\u0e30\u0e40\u0e21\u0e34\u0e19\u0e04\u0e27\u0e32\u0e21\u0e40\u0e02\u0e49\u0e21\u0e41\u0e2a\u0e07\u0e2a\u0e33\u0e2b\u0e23\u0e31\u0e1a\u0e23\u0e30\u0e22\u0e30\u0e01\u0e32\u0e23\u0e40\u0e08\u0e23\u0e34\u0e0d\u0e40\u0e15\u0e34\u0e1a\u0e42\u0e15 \u0e41\u0e25\u0e30\u0e43\u0e2b\u0e49\u0e04\u0e48\u0e32\u0e1b\u0e23\u0e30\u0e2a\u0e34\u0e17\u0e18\u0e34\u0e20\u0e32\u0e1e",
+                apiDescStage: "\u0e40\u0e1b\u0e49\u0e32\u0e2b\u0e21\u0e32\u0e22\u0e2a\u0e20\u0e32\u0e1e\u0e41\u0e27\u0e14\u0e25\u0e49\u0e2d\u0e21\u0e04\u0e23\u0e1a\u0e27\u0e07\u0e08\u0e23\u0e2a\u0e33\u0e2b\u0e23\u0e31\u0e1a\u0e23\u0e30\u0e22\u0e30\u0e01\u0e32\u0e23\u0e40\u0e08\u0e23\u0e34\u0e0d\u0e40\u0e15\u0e34\u0e1a\u0e42\u0e15 \u0e2a\u0e48\u0e07\u0e04\u0e37\u0e19\u0e0a\u0e48\u0e27\u0e07\u0e17\u0e35\u0e48\u0e40\u0e2b\u0e21\u0e32\u0e30\u0e2a\u0e21\u0e2a\u0e33\u0e2b\u0e23\u0e31\u0e1a VPD \u0e2d\u0e38\u0e13\u0e2b\u0e20\u0e39\u0e21\u0e34 \u0e04\u0e27\u0e32\u0e21\u0e0a\u0e37\u0e49\u0e19 PPFD DLI CO2 EC pH \u0e41\u0e25\u0e30\u0e04\u0e27\u0e32\u0e21\u0e16\u0e35\u0e48\u0e43\u0e19\u0e01\u0e32\u0e23\u0e23\u0e14\u0e19\u0e49\u0e33 \u0e1b\u0e23\u0e31\u0e1a\u0e15\u0e32\u0e21\u0e27\u0e31\u0e2a\u0e14\u0e38\u0e1b\u0e25\u0e39\u0e01\u0e44\u0e14\u0e49",
+                apiDescSchedule: "\u0e2a\u0e23\u0e49\u0e32\u0e07\u0e44\u0e17\u0e21\u0e4c\u0e44\u0e25\u0e19\u0e4c\u0e01\u0e32\u0e23\u0e1b\u0e25\u0e39\u0e01\u0e40\u0e15\u0e47\u0e21\u0e23\u0e39\u0e1b\u0e41\u0e1a\u0e1a\u0e1e\u0e23\u0e49\u0e2d\u0e21\u0e04\u0e27\u0e32\u0e21\u0e04\u0e37\u0e1a\u0e2b\u0e19\u0e49\u0e32\u0e23\u0e32\u0e22\u0e2a\u0e31\u0e1b\u0e14\u0e32\u0e2b\u0e4c \u0e2a\u0e48\u0e07\u0e04\u0e37\u0e19\u0e23\u0e30\u0e22\u0e30\u0e40\u0e27\u0e25\u0e32\u0e41\u0e25\u0e30\u0e40\u0e1b\u0e49\u0e32\u0e2b\u0e21\u0e32\u0e22\u0e2a\u0e20\u0e32\u0e1e\u0e41\u0e27\u0e14\u0e25\u0e49\u0e2d\u0e21\u0e2a\u0e33\u0e2b\u0e23\u0e31\u0e1a\u0e41\u0e15\u0e48\u0e25\u0e30\u0e23\u0e30\u0e22\u0e30 \u0e1b\u0e23\u0e31\u0e1a\u0e15\u0e32\u0e21\u0e1b\u0e23\u0e30\u0e40\u0e20\u0e17\u0e1e\u0e37\u0e0a\u0e41\u0e25\u0e30\u0e27\u0e31\u0e2a\u0e14\u0e38\u0e1b\u0e25\u0e39\u0e01",
+                apiDescDiagnose: "\u0e01\u0e32\u0e23\u0e27\u0e34\u0e19\u0e34\u0e08\u0e09\u0e31\u0e22\u0e2a\u0e20\u0e32\u0e1e\u0e41\u0e27\u0e14\u0e25\u0e49\u0e2d\u0e21\u0e40\u0e15\u0e47\u0e21\u0e23\u0e39\u0e1b\u0e41\u0e1a\u0e1a\u0e1e\u0e23\u0e49\u0e2d\u0e21\u0e04\u0e30\u0e41\u0e19\u0e19\u0e2a\u0e38\u0e02\u0e20\u0e32\u0e1e 0-100 \u0e27\u0e34\u0e40\u0e04\u0e23\u0e32\u0e30\u0e2b\u0e4c\u0e2d\u0e38\u0e13\u0e2b\u0e20\u0e39\u0e21\u0e34 \u0e04\u0e27\u0e32\u0e21\u0e0a\u0e37\u0e49\u0e19 VPD pH EC PPFD CO2 \u0e41\u0e25\u0e30\u0e2d\u0e38\u0e13\u0e2b\u0e20\u0e39\u0e21\u0e34\u0e01\u0e25\u0e32\u0e07\u0e04\u0e37\u0e19 \u0e2a\u0e48\u0e07\u0e04\u0e37\u0e19\u0e1b\u0e31\u0e0d\u0e2b\u0e32\u0e17\u0e35\u0e48\u0e1e\u0e1a \u0e23\u0e30\u0e14\u0e31\u0e1a\u0e04\u0e27\u0e32\u0e21\u0e23\u0e38\u0e19\u0e41\u0e23\u0e07 \u0e41\u0e25\u0e30\u0e04\u0e33\u0e41\u0e19\u0e30\u0e19\u0e33",
+                apiDescDeficit: "\u0e01\u0e32\u0e23\u0e27\u0e34\u0e19\u0e34\u0e08\u0e09\u0e31\u0e22\u0e01\u0e32\u0e23\u0e02\u0e32\u0e14\u0e18\u0e32\u0e15\u0e38\u0e2d\u0e32\u0e2b\u0e32\u0e23\u0e08\u0e32\u0e01\u0e2d\u0e32\u0e01\u0e32\u0e23 \u0e2d\u0e18\u0e34\u0e1a\u0e32\u0e22\u0e2d\u0e32\u0e01\u0e32\u0e23\u0e17\u0e35\u0e48\u0e40\u0e2b\u0e47\u0e19\u0e41\u0e25\u0e30\u0e23\u0e31\u0e1a\u0e01\u0e32\u0e23\u0e02\u0e32\u0e14\u0e18\u0e32\u0e15\u0e38\u0e17\u0e35\u0e48\u0e40\u0e1b\u0e47\u0e19\u0e44\u0e1b\u0e44\u0e14\u0e49\u0e1e\u0e23\u0e49\u0e2d\u0e21\u0e04\u0e30\u0e41\u0e19\u0e19\u0e04\u0e27\u0e32\u0e21\u0e21\u0e31\u0e48\u0e19\u0e43\u0e08 \u0e18\u0e32\u0e15\u0e38\u0e17\u0e35\u0e48\u0e44\u0e14\u0e49\u0e23\u0e31\u0e1a\u0e1c\u0e25\u0e01\u0e23\u0e30\u0e17\u0e1a \u0e41\u0e25\u0e30\u0e04\u0e33\u0e41\u0e19\u0e30\u0e19\u0e33\u0e01\u0e32\u0e23\u0e23\u0e31\u0e01\u0e29\u0e32",
+                apiDescDewpoint: "\u0e04\u0e33\u0e19\u0e27\u0e13\u0e2d\u0e38\u0e13\u0e2b\u0e20\u0e39\u0e21\u0e34\u0e08\u0e38\u0e14\u0e19\u0e49\u0e33\u0e04\u0e49\u0e32\u0e07 \u0e1b\u0e23\u0e30\u0e40\u0e21\u0e34\u0e19\u0e04\u0e27\u0e32\u0e21\u0e40\u0e2a\u0e35\u0e48\u0e22\u0e07\u0e23\u0e32/\u0e01\u0e32\u0e23\u0e04\u0e27\u0e1a\u0e41\u0e19\u0e48\u0e19 \u0e41\u0e25\u0e30\u0e2d\u0e38\u0e13\u0e2b\u0e20\u0e39\u0e21\u0e34\u0e01\u0e25\u0e32\u0e07\u0e04\u0e37\u0e19\u0e15\u0e48\u0e33\u0e2a\u0e38\u0e14\u0e17\u0e35\u0e48\u0e1b\u0e25\u0e2d\u0e14\u0e20\u0e31\u0e22 \u0e08\u0e33\u0e40\u0e1b\u0e47\u0e19\u0e2a\u0e33\u0e2b\u0e23\u0e31\u0e1a\u0e1b\u0e49\u0e2d\u0e07\u0e01\u0e31\u0e19\u0e01\u0e32\u0e23\u0e40\u0e19\u0e48\u0e32\u0e41\u0e25\u0e30\u0e23\u0e32",
+                apiDescNutrient: "\u0e40\u0e1b\u0e49\u0e32\u0e2b\u0e21\u0e32\u0e22 EC pH \u0e41\u0e25\u0e30 PPM \u0e2a\u0e33\u0e2b\u0e23\u0e31\u0e1a\u0e23\u0e30\u0e22\u0e30\u0e01\u0e32\u0e23\u0e40\u0e08\u0e23\u0e34\u0e0d\u0e40\u0e15\u0e34\u0e1a\u0e42\u0e15\u0e41\u0e25\u0e30\u0e27\u0e31\u0e2a\u0e14\u0e38\u0e1b\u0e25\u0e39\u0e01 \u0e23\u0e27\u0e21\u0e40\u0e04\u0e25\u0e47\u0e14\u0e25\u0e31\u0e1a\u0e40\u0e09\u0e1e\u0e32\u0e30\u0e27\u0e31\u0e2a\u0e14\u0e38 \u0e15\u0e32\u0e23\u0e32\u0e07\u0e25\u0e49\u0e32\u0e07 \u0e41\u0e25\u0e30\u0e01\u0e32\u0e23\u0e1b\u0e23\u0e31\u0e1a\u0e15\u0e32\u0e21 EC \u0e02\u0e2d\u0e07\u0e19\u0e49\u0e33",
+                apiDescCo2: "\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e04\u0e33\u0e19\u0e27\u0e13\u0e01\u0e32\u0e23\u0e40\u0e1e\u0e34\u0e48\u0e21 CO2 \u0e01\u0e33\u0e2b\u0e19\u0e14\u0e1b\u0e23\u0e34\u0e21\u0e32\u0e13 CO2 \u0e17\u0e35\u0e48\u0e15\u0e49\u0e2d\u0e07\u0e01\u0e32\u0e23\u0e40\u0e1e\u0e37\u0e48\u0e2d\u0e43\u0e2b\u0e49\u0e44\u0e14\u0e49\u0e04\u0e27\u0e32\u0e21\u0e40\u0e02\u0e49\u0e21\u0e02\u0e49\u0e19\u0e40\u0e1b\u0e49\u0e32\u0e2b\u0e21\u0e32\u0e22\u0e43\u0e19\u0e2b\u0e49\u0e2d\u0e07\u0e1b\u0e25\u0e39\u0e01 \u0e41\u0e25\u0e30\u0e23\u0e31\u0e1a\u0e04\u0e33\u0e41\u0e19\u0e30\u0e19\u0e33 CO2 \u0e15\u0e32\u0e21\u0e23\u0e30\u0e22\u0e30",
+                apiDescIrrigation: "\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e04\u0e33\u0e19\u0e27\u0e13\u0e1b\u0e23\u0e34\u0e21\u0e32\u0e13\u0e41\u0e25\u0e30\u0e04\u0e27\u0e32\u0e21\u0e16\u0e35\u0e48\u0e02\u0e2d\u0e07\u0e01\u0e32\u0e23\u0e23\u0e14\u0e19\u0e49\u0e33 \u0e04\u0e33\u0e19\u0e27\u0e13\u0e1b\u0e23\u0e34\u0e21\u0e32\u0e13\u0e19\u0e49\u0e33\u0e17\u0e35\u0e48\u0e40\u0e2b\u0e21\u0e32\u0e30\u0e2a\u0e21\u0e15\u0e48\u0e2d\u0e01\u0e23\u0e30\u0e16\u0e32\u0e07\u0e15\u0e32\u0e21\u0e02\u0e19\u0e32\u0e14 \u0e27\u0e31\u0e2a\u0e14\u0e38\u0e1b\u0e25\u0e39\u0e01 \u0e23\u0e30\u0e22\u0e30\u0e01\u0e32\u0e23\u0e40\u0e08\u0e23\u0e34\u0e0d\u0e40\u0e15\u0e34\u0e1a\u0e42\u0e15 \u0e41\u0e25\u0e30\u0e2a\u0e20\u0e32\u0e1e\u0e41\u0e27\u0e14\u0e25\u0e49\u0e2d\u0e21\u0e1b\u0e31\u0e08\u0e08\u0e38\u0e1a\u0e31\u0e19 \u0e23\u0e2d\u0e07\u0e23\u0e31\u0e1a\u0e2b\u0e25\u0e32\u0e22\u0e15\u0e49\u0e19",
+                apiDescRoom: "\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e04\u0e33\u0e19\u0e27\u0e13\u0e02\u0e19\u0e32\u0e14\u0e2d\u0e38\u0e1b\u0e01\u0e23\u0e13\u0e4c \u0e08\u0e32\u0e01\u0e02\u0e19\u0e32\u0e14\u0e40\u0e15\u0e47\u0e19\u0e17\u0e4c/\u0e2b\u0e49\u0e2d\u0e07\u0e41\u0e25\u0e30\u0e01\u0e33\u0e25\u0e31\u0e07\u0e44\u0e1f\u0e41\u0e2a\u0e07 \u0e23\u0e31\u0e1a\u0e01\u0e32\u0e23\u0e23\u0e30\u0e1a\u0e32\u0e22\u0e2d\u0e32\u0e01\u0e32\u0e28\u0e17\u0e35\u0e48\u0e41\u0e19\u0e30\u0e19\u0e33 (CFM) \u0e04\u0e27\u0e32\u0e21\u0e08\u0e38\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e17\u0e33\u0e04\u0e27\u0e32\u0e21\u0e0a\u0e37\u0e49\u0e19/\u0e14\u0e39\u0e14\u0e04\u0e27\u0e32\u0e21\u0e0a\u0e37\u0e49\u0e19 \u0e41\u0e25\u0e30\u0e02\u0e19\u0e32\u0e14\u0e1e\u0e31\u0e14\u0e25\u0e21",
+                apiDescDry: "\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e04\u0e33\u0e19\u0e27\u0e13\u0e01\u0e32\u0e23\u0e2d\u0e1a\u0e41\u0e25\u0e30\u0e1a\u0e48\u0e21 \u0e1b\u0e23\u0e30\u0e21\u0e32\u0e13\u0e19\u0e49\u0e33\u0e2b\u0e19\u0e31\u0e01\u0e41\u0e2b\u0e49\u0e07 \u0e23\u0e30\u0e22\u0e30\u0e40\u0e27\u0e25\u0e32\u0e2d\u0e1a\u0e17\u0e35\u0e48\u0e40\u0e2b\u0e21\u0e32\u0e30\u0e2a\u0e21 \u0e41\u0e25\u0e30\u0e04\u0e33\u0e41\u0e19\u0e30\u0e19\u0e33\u0e01\u0e32\u0e23\u0e1a\u0e48\u0e21\u0e17\u0e35\u0e25\u0e30\u0e02\u0e31\u0e49\u0e19\u0e15\u0e2d\u0e19\u0e15\u0e32\u0e21\u0e19\u0e49\u0e33\u0e2b\u0e19\u0e31\u0e01\u0e40\u0e01\u0e47\u0e1a\u0e40\u0e01\u0e35\u0e48\u0e22\u0e27\u0e2a\u0e14 \u0e2a\u0e20\u0e32\u0e1e\u0e41\u0e27\u0e14\u0e25\u0e49\u0e2d\u0e21 \u0e41\u0e25\u0e30\u0e27\u0e34\u0e18\u0e35\u0e15\u0e31\u0e14\u0e41\u0e15\u0e48\u0e07",
+                apiDescConvert: "\u0e15\u0e31\u0e27\u0e41\u0e1b\u0e25\u0e07\u0e2b\u0e19\u0e48\u0e27\u0e22\u0e2d\u0e40\u0e19\u0e01\u0e1b\u0e23\u0e30\u0e2a\u0e07\u0e04\u0e4c\u0e2a\u0e33\u0e2b\u0e23\u0e31\u0e1a\u0e01\u0e32\u0e23\u0e27\u0e31\u0e14\u0e01\u0e32\u0e23\u0e1b\u0e25\u0e39\u0e01 \u0e41\u0e1b\u0e25\u0e07\u0e23\u0e30\u0e2b\u0e27\u0e48\u0e32\u0e07 Celsius/Fahrenheit EC/PPM (\u0e2a\u0e40\u0e01\u0e25 500 \u0e41\u0e25\u0e30 700) PPFD/Lux \u0e41\u0e25\u0e30\u0e2b\u0e19\u0e48\u0e27\u0e22 VPD",
+                apiDescHealth: "\u0e08\u0e38\u0e14\u0e15\u0e23\u0e27\u0e08\u0e2a\u0e2d\u0e1a\u0e2a\u0e16\u0e32\u0e19\u0e30 API \u0e2a\u0e48\u0e07\u0e04\u0e37\u0e19\u0e2a\u0e16\u0e32\u0e19\u0e30\u0e1b\u0e31\u0e08\u0e08\u0e38\u0e1a\u0e31\u0e19 \u0e40\u0e27\u0e2d\u0e23\u0e4c\u0e0a\u0e31\u0e19 \u0e40\u0e27\u0e25\u0e32\u0e17\u0e33\u0e07\u0e32\u0e19 \u0e41\u0e25\u0e30\u0e08\u0e33\u0e19\u0e27\u0e19\u0e08\u0e38\u0e14\u0e40\u0e0a\u0e37\u0e48\u0e2d\u0e21\u0e15\u0e48\u0e2d \u0e43\u0e0a\u0e49\u0e40\u0e1e\u0e37\u0e48\u0e2d\u0e15\u0e23\u0e27\u0e08\u0e2a\u0e2d\u0e1a\u0e27\u0e48\u0e32 API \u0e1e\u0e23\u0e49\u0e2d\u0e21\u0e43\u0e0a\u0e49\u0e07\u0e32\u0e19",
+                apiParamTemp: "\u0e2d\u0e38\u0e13\u0e2b\u0e20\u0e39\u0e21\u0e34\u0e2d\u0e32\u0e01\u0e32\u0e28",
+                apiParamHumidity: "\u0e04\u0e27\u0e32\u0e21\u0e0a\u0e37\u0e49\u0e19\u0e2a\u0e31\u0e21\u0e1e\u0e31\u0e17\u0e18\u0e4c (%)",
+                apiParamLeafOffset: "\u0e04\u0e48\u0e32\u0e0a\u0e14\u0e40\u0e0a\u0e22\u0e2d\u0e38\u0e13\u0e2b\u0e20\u0e39\u0e21\u0e34\u0e43\u0e1a\u0e15\u0e48\u0e33\u0e01\u0e27\u0e48\u0e32\u0e2d\u0e38\u0e13\u0e2b\u0e20\u0e39\u0e21\u0e34\u0e2d\u0e32\u0e01\u0e32\u0e28",
+                apiParamUnit: "\u0e2b\u0e19\u0e48\u0e27\u0e22\u0e2d\u0e38\u0e13\u0e2b\u0e20\u0e39\u0e21\u0e34: c (\u0e40\u0e0b\u0e25\u0e40\u0e0b\u0e35\u0e22\u0e2a) \u0e2b\u0e23\u0e37\u0e2d f (\u0e1f\u0e32\u0e40\u0e23\u0e19\u0e44\u0e2e\u0e15\u0e4c)",
+                apiParamTargetVpd: "\u0e04\u0e48\u0e32 VPD \u0e40\u0e1b\u0e49\u0e32\u0e2b\u0e21\u0e32\u0e22 (kPa) \u0e23\u0e30\u0e1a\u0e38\u0e04\u0e48\u0e32\u0e19\u0e35\u0e49\u0e2b\u0e23\u0e37\u0e2d\u0e23\u0e30\u0e22\u0e30",
+                apiParamStageVpd: "\u0e23\u0e30\u0e22\u0e30\u0e01\u0e32\u0e23\u0e40\u0e08\u0e23\u0e34\u0e0d\u0e40\u0e15\u0e34\u0e1a\u0e42\u0e15 (\u0e43\u0e0a\u0e49 VPD \u0e01\u0e25\u0e32\u0e07) \u0e15\u0e31\u0e27\u0e40\u0e25\u0e37\u0e2d\u0e01: clone_seedling, early_veg, late_veg, early_flower, mid_flower, late_flower",
+                apiParamKnownTemp: "\u0e2d\u0e38\u0e13\u0e2b\u0e20\u0e39\u0e21\u0e34\u0e17\u0e35\u0e48\u0e17\u0e23\u0e32\u0e1a (\u0e41\u0e01\u0e49\u0e2b\u0e32\u0e04\u0e27\u0e32\u0e21\u0e0a\u0e37\u0e49\u0e19)",
+                apiParamKnownHumidity: "\u0e04\u0e27\u0e32\u0e21\u0e0a\u0e37\u0e49\u0e19\u0e17\u0e35\u0e48\u0e17\u0e23\u0e32\u0e1a (\u0e41\u0e01\u0e49\u0e2b\u0e32\u0e2d\u0e38\u0e13\u0e2b\u0e20\u0e39\u0e21\u0e34)",
+                apiParamLeafOffsetShort: "\u0e04\u0e48\u0e32\u0e0a\u0e14\u0e40\u0e0a\u0e22\u0e2d\u0e38\u0e13\u0e2b\u0e20\u0e39\u0e21\u0e34\u0e43\u0e1a",
+                apiParamUnitShort: "\u0e2b\u0e19\u0e48\u0e27\u0e22\u0e2d\u0e38\u0e13\u0e2b\u0e20\u0e39\u0e21\u0e34: c \u0e2b\u0e23\u0e37\u0e2d f",
+                apiParamTempMin: "\u0e2d\u0e38\u0e13\u0e2b\u0e20\u0e39\u0e21\u0e34\u0e15\u0e48\u0e33\u0e2a\u0e38\u0e14",
+                apiParamTempMax: "\u0e2d\u0e38\u0e13\u0e2b\u0e20\u0e39\u0e21\u0e34\u0e2a\u0e39\u0e07\u0e2a\u0e38\u0e14",
+                apiParamTempStep: "\u0e02\u0e19\u0e32\u0e14\u0e02\u0e31\u0e49\u0e19\u0e2d\u0e38\u0e13\u0e2b\u0e20\u0e39\u0e21\u0e34",
+                apiParamRhMin: "\u0e04\u0e27\u0e32\u0e21\u0e0a\u0e37\u0e49\u0e19\u0e2a\u0e31\u0e21\u0e1e\u0e31\u0e17\u0e18\u0e4c\u0e15\u0e48\u0e33\u0e2a\u0e38\u0e14 (%)",
+                apiParamRhMax: "\u0e04\u0e27\u0e32\u0e21\u0e0a\u0e37\u0e49\u0e19\u0e2a\u0e31\u0e21\u0e1e\u0e31\u0e17\u0e18\u0e4c\u0e2a\u0e39\u0e07\u0e2a\u0e38\u0e14 (%)",
+                apiParamRhStep: "\u0e02\u0e19\u0e32\u0e14\u0e02\u0e31\u0e49\u0e19\u0e04\u0e27\u0e32\u0e21\u0e0a\u0e37\u0e49\u0e19",
+                apiParamStageZone: "\u0e23\u0e30\u0e22\u0e30\u0e01\u0e32\u0e23\u0e40\u0e08\u0e23\u0e34\u0e0d\u0e40\u0e15\u0e34\u0e1a\u0e42\u0e15\u0e2a\u0e33\u0e2b\u0e23\u0e31\u0e1a\u0e01\u0e32\u0e23\u0e08\u0e33\u0e41\u0e19\u0e01\u0e42\u0e0b\u0e19",
+                apiParamReadings: "\u0e2d\u0e32\u0e23\u0e4c\u0e40\u0e23\u0e22\u0e4c\u0e02\u0e2d\u0e07\u0e2d\u0e2d\u0e1a\u0e40\u0e08\u0e01\u0e15\u0e4c {\"temp\":N, \"humidity\":N} (\u0e40\u0e02\u0e49\u0e32\u0e23\u0e2b\u0e31\u0e2a URL)",
+                apiParamPpfd: "\u0e04\u0e27\u0e32\u0e21\u0e2b\u0e19\u0e32\u0e41\u0e19\u0e48\u0e19\u0e02\u0e2d\u0e07\u0e1f\u0e25\u0e31\u0e01\u0e0b\u0e4c\u0e42\u0e1f\u0e15\u0e2d\u0e19\u0e2a\u0e31\u0e07\u0e40\u0e04\u0e23\u0e32\u0e30\u0e2b\u0e4c\u0e41\u0e2a\u0e07 (umol/m2/s)",
+                apiParamHours: "\u0e0a\u0e48\u0e27\u0e07\u0e41\u0e2a\u0e07\u0e40\u0e1b\u0e47\u0e19\u0e0a\u0e31\u0e48\u0e27\u0e42\u0e21\u0e07",
+                apiParamDli: "DLI \u0e40\u0e1b\u0e49\u0e32\u0e2b\u0e21\u0e32\u0e22 (mol/m2/\u0e27\u0e31\u0e19) \u0e2a\u0e33\u0e2b\u0e23\u0e31\u0e1a\u0e01\u0e32\u0e23\u0e04\u0e33\u0e19\u0e27\u0e13\u0e22\u0e49\u0e2d\u0e19\u0e01\u0e25\u0e31\u0e1a",
+                apiParamPpfdKnown: "PPFD \u0e17\u0e35\u0e48\u0e17\u0e23\u0e32\u0e1a (\u0e16\u0e49\u0e32\u0e21\u0e35)",
+                apiParamWatts: "\u0e01\u0e33\u0e25\u0e31\u0e07\u0e44\u0e1f\u0e41\u0e2a\u0e07 (\u0e2a\u0e33\u0e2b\u0e23\u0e31\u0e1a\u0e1b\u0e23\u0e30\u0e21\u0e32\u0e13 PPFD)",
+                apiParamEfficiency: "\u0e1b\u0e23\u0e30\u0e2a\u0e34\u0e17\u0e18\u0e34\u0e20\u0e32\u0e1e LED (umol/J)",
+                apiParamArea: "\u0e1e\u0e37\u0e49\u0e19\u0e17\u0e35\u0e48\u0e1b\u0e25\u0e39\u0e01\u0e40\u0e1b\u0e47\u0e19 m2",
+                apiParamLightHeight: "\u0e04\u0e27\u0e32\u0e21\u0e2a\u0e39\u0e07\u0e02\u0e2d\u0e07\u0e41\u0e2a\u0e07\u0e40\u0e1b\u0e47\u0e19\u0e40\u0e21\u0e15\u0e23",
+                apiParamStageEval: "\u0e23\u0e30\u0e22\u0e30\u0e01\u0e32\u0e23\u0e40\u0e08\u0e23\u0e34\u0e0d\u0e40\u0e15\u0e34\u0e1a\u0e42\u0e15\u0e2a\u0e33\u0e2b\u0e23\u0e31\u0e1a\u0e01\u0e32\u0e23\u0e1b\u0e23\u0e30\u0e40\u0e21\u0e34\u0e19",
+                apiParamStageName: "\u0e0a\u0e37\u0e48\u0e2d\u0e23\u0e30\u0e22\u0e30\u0e2b\u0e23\u0e37\u0e2d \"all\" \u0e2a\u0e33\u0e2b\u0e23\u0e31\u0e1a\u0e17\u0e38\u0e01\u0e23\u0e30\u0e22\u0e30 \u0e15\u0e31\u0e27\u0e40\u0e25\u0e37\u0e2d\u0e01: clone_seedling, early_veg, late_veg, early_flower, mid_flower, late_flower",
+                apiParamMedium: "\u0e27\u0e31\u0e2a\u0e14\u0e38\u0e1b\u0e25\u0e39\u0e01: soil, coco, hydro, dwc",
+                apiParamPlantType: "\u0e1b\u0e23\u0e30\u0e40\u0e20\u0e17\u0e1e\u0e37\u0e0a: photo (\u0e42\u0e1f\u0e42\u0e15\u0e49\u0e1e\u0e35\u0e40\u0e23\u0e35\u0e22\u0e14) \u0e2b\u0e23\u0e37\u0e2d auto (\u0e2d\u0e2d\u0e42\u0e15\u0e49\u0e1f\u0e25\u0e32\u0e27\u0e40\u0e27\u0e2d\u0e23\u0e4c)",
+                apiParamStageDiag: "\u0e23\u0e30\u0e22\u0e30\u0e01\u0e32\u0e23\u0e40\u0e08\u0e23\u0e34\u0e0d\u0e40\u0e15\u0e34\u0e1a\u0e42\u0e15\u0e2a\u0e33\u0e2b\u0e23\u0e31\u0e1a\u0e01\u0e32\u0e23\u0e27\u0e34\u0e19\u0e34\u0e08\u0e09\u0e31\u0e22\u0e15\u0e32\u0e21\u0e1a\u0e23\u0e34\u0e1a\u0e17",
+                apiParamMediumShort: "\u0e27\u0e31\u0e2a\u0e14\u0e38\u0e1b\u0e25\u0e39\u0e01",
+                apiParamCurrentPpfd: "PPFD \u0e1b\u0e31\u0e08\u0e08\u0e38\u0e1a\u0e31\u0e19",
+                apiParamPh: "pH \u0e2a\u0e32\u0e23\u0e25\u0e30\u0e25\u0e32\u0e22\u0e18\u0e32\u0e15\u0e38\u0e2d\u0e32\u0e2b\u0e32\u0e23",
+                apiParamEc: "EC \u0e2a\u0e32\u0e23\u0e25\u0e30\u0e25\u0e32\u0e22\u0e18\u0e32\u0e15\u0e38\u0e2d\u0e32\u0e2b\u0e32\u0e23 (mS/cm)",
+                apiParamCo2Level: "\u0e23\u0e30\u0e14\u0e31\u0e1a CO2 (ppm)",
+                apiParamNightTemp: "\u0e2d\u0e38\u0e13\u0e2b\u0e20\u0e39\u0e21\u0e34\u0e01\u0e25\u0e32\u0e07\u0e04\u0e37\u0e19",
+                apiParamSymptoms: "\u0e04\u0e33\u0e2b\u0e25\u0e31\u0e01\u0e2d\u0e32\u0e01\u0e32\u0e23\u0e04\u0e31\u0e48\u0e19\u0e14\u0e49\u0e27\u0e22\u0e08\u0e38\u0e25\u0e20\u0e32\u0e04 \u0e15\u0e31\u0e27\u0e2d\u0e22\u0e48\u0e32\u0e07: yellow_lower_leaves, brown_spots, curling_up, purple_stems, slow_growth, burnt_tips",
+                apiParamPhDiag: "pH \u0e1b\u0e31\u0e08\u0e08\u0e38\u0e1a\u0e31\u0e19 (\u0e0a\u0e48\u0e27\u0e22\u0e08\u0e33\u0e01\u0e31\u0e14\u0e01\u0e32\u0e23\u0e27\u0e34\u0e19\u0e34\u0e08\u0e09\u0e31\u0e22)",
+                apiParamStage: "\u0e23\u0e30\u0e22\u0e30\u0e01\u0e32\u0e23\u0e40\u0e08\u0e23\u0e34\u0e0d\u0e40\u0e15\u0e34\u0e1a\u0e42\u0e15",
+                apiParamWaterEc: "EC \u0e19\u0e49\u0e33\u0e1e\u0e37\u0e49\u0e19\u0e10\u0e32\u0e19 (mS/cm) \u0e2a\u0e33\u0e2b\u0e23\u0e31\u0e1a\u0e40\u0e1b\u0e49\u0e32\u0e2b\u0e21\u0e32\u0e22\u0e17\u0e35\u0e48\u0e1b\u0e23\u0e31\u0e1a\u0e41\u0e25\u0e49\u0e27",
+                apiParamRoomM3: "\u0e1b\u0e23\u0e34\u0e21\u0e32\u0e15\u0e23\u0e2b\u0e49\u0e2d\u0e07\u0e40\u0e1b\u0e47\u0e19\u0e25\u0e39\u0e01\u0e1a\u0e32\u0e28\u0e01\u0e4c\u0e40\u0e21\u0e15\u0e23",
+                apiParamTargetPpm: "\u0e04\u0e27\u0e32\u0e21\u0e40\u0e02\u0e49\u0e21\u0e02\u0e49\u0e19 CO2 \u0e40\u0e1b\u0e49\u0e32\u0e2b\u0e21\u0e32\u0e22 (ppm)",
+                apiParamCurrentPpm: "CO2 \u0e41\u0e27\u0e14\u0e25\u0e49\u0e2d\u0e21\u0e1b\u0e31\u0e08\u0e08\u0e38\u0e1a\u0e31\u0e19 (ppm)",
+                apiParamStageRec: "\u0e23\u0e30\u0e22\u0e30\u0e01\u0e32\u0e23\u0e40\u0e08\u0e23\u0e34\u0e0d\u0e40\u0e15\u0e34\u0e1a\u0e42\u0e15\u0e2a\u0e33\u0e2b\u0e23\u0e31\u0e1a\u0e04\u0e33\u0e41\u0e19\u0e30\u0e19\u0e33",
+                apiParamPotSize: "\u0e1b\u0e23\u0e34\u0e21\u0e32\u0e15\u0e23\u0e01\u0e23\u0e30\u0e16\u0e32\u0e07\u0e40\u0e1b\u0e47\u0e19\u0e25\u0e34\u0e15\u0e23",
+                apiParamCurrentVpd: "VPD \u0e1b\u0e31\u0e08\u0e08\u0e38\u0e1a\u0e31\u0e19 (\u0e21\u0e35\u0e1c\u0e25\u0e15\u0e48\u0e2d\u0e2d\u0e31\u0e15\u0e23\u0e32\u0e01\u0e32\u0e23\u0e04\u0e32\u0e22\u0e19\u0e49\u0e33)",
+                apiParamCurrentTemp: "\u0e2d\u0e38\u0e13\u0e2b\u0e20\u0e39\u0e21\u0e34\u0e1b\u0e31\u0e08\u0e08\u0e38\u0e1a\u0e31\u0e19",
+                apiParamPlants: "\u0e08\u0e33\u0e19\u0e27\u0e19\u0e15\u0e49\u0e19 (\u0e04\u0e39\u0e13\u0e22\u0e2d\u0e14\u0e23\u0e27\u0e21)",
+                apiParamRoomLength: "\u0e04\u0e27\u0e32\u0e21\u0e22\u0e32\u0e27\u0e2b\u0e49\u0e2d\u0e07\u0e40\u0e1b\u0e47\u0e19\u0e40\u0e21\u0e15\u0e23",
+                apiParamRoomWidth: "\u0e04\u0e27\u0e32\u0e21\u0e01\u0e27\u0e49\u0e32\u0e07\u0e2b\u0e49\u0e2d\u0e07\u0e40\u0e1b\u0e47\u0e19\u0e40\u0e21\u0e15\u0e23",
+                apiParamRoomHeight: "\u0e04\u0e27\u0e32\u0e21\u0e2a\u0e39\u0e07\u0e2b\u0e49\u0e2d\u0e07\u0e40\u0e1b\u0e47\u0e19\u0e40\u0e21\u0e15\u0e23",
+                apiParamLightsWatts: "\u0e01\u0e33\u0e25\u0e31\u0e07\u0e44\u0e1f\u0e41\u0e2a\u0e07\u0e23\u0e27\u0e21",
+                apiParamTargetTemp: "\u0e2d\u0e38\u0e13\u0e2b\u0e20\u0e39\u0e21\u0e34\u0e40\u0e1b\u0e49\u0e32\u0e2b\u0e21\u0e32\u0e22",
+                apiParamAmbientTemp: "\u0e2d\u0e38\u0e13\u0e2b\u0e20\u0e39\u0e21\u0e34\u0e41\u0e27\u0e14\u0e25\u0e49\u0e2d\u0e21/\u0e17\u0e32\u0e07\u0e40\u0e02\u0e49\u0e32",
+                apiParamPlantsCount: "\u0e08\u0e33\u0e19\u0e27\u0e19\u0e15\u0e49\u0e19",
+                apiParamTargetHumidity: "\u0e04\u0e27\u0e32\u0e21\u0e0a\u0e37\u0e49\u0e19\u0e40\u0e1b\u0e49\u0e32\u0e2b\u0e21\u0e32\u0e22 (%)",
+                apiParamWetWeight: "\u0e19\u0e49\u0e33\u0e2b\u0e19\u0e31\u0e01\u0e40\u0e01\u0e47\u0e1a\u0e40\u0e01\u0e35\u0e48\u0e22\u0e27\u0e2a\u0e14\u0e40\u0e1b\u0e47\u0e19\u0e01\u0e23\u0e31\u0e21",
+                apiParamDryTemp: "\u0e2d\u0e38\u0e13\u0e2b\u0e20\u0e39\u0e21\u0e34\u0e2b\u0e49\u0e2d\u0e07\u0e2d\u0e1a",
+                apiParamDryHumidity: "\u0e04\u0e27\u0e32\u0e21\u0e0a\u0e37\u0e49\u0e19\u0e2b\u0e49\u0e2d\u0e07\u0e2d\u0e1a (%)",
+                apiParamDryMethod: "\u0e27\u0e34\u0e18\u0e35\u0e2d\u0e1a: hang, rack \u0e2b\u0e23\u0e37\u0e2d wet_trim",
+                apiParamTempConvert: "\u0e04\u0e48\u0e32\u0e2d\u0e38\u0e13\u0e2b\u0e20\u0e39\u0e21\u0e34\u0e17\u0e35\u0e48\u0e08\u0e30\u0e41\u0e1b\u0e25\u0e07",
+                apiParamFromUnit: "\u0e2b\u0e19\u0e48\u0e27\u0e22\u0e15\u0e49\u0e19\u0e17\u0e32\u0e07\u0e2a\u0e33\u0e2b\u0e23\u0e31\u0e1a\u0e2d\u0e38\u0e13\u0e2b\u0e20\u0e39\u0e21\u0e34: c \u0e2b\u0e23\u0e37\u0e2d f",
+                apiParamEcConvert: "\u0e04\u0e48\u0e32 EC (mS/cm) \u0e17\u0e35\u0e48\u0e08\u0e30\u0e41\u0e1b\u0e25\u0e07\u0e40\u0e1b\u0e47\u0e19 PPM",
+                apiParamPpmConvert: "\u0e04\u0e48\u0e32 PPM \u0e17\u0e35\u0e48\u0e08\u0e30\u0e41\u0e1b\u0e25\u0e07\u0e40\u0e1b\u0e47\u0e19 EC",
+                apiParamPpmScale: "\u0e2a\u0e40\u0e01\u0e25 PPM: 500 \u0e2b\u0e23\u0e37\u0e2d 700",
+                apiParamPpfdConvert: "PPFD \u0e17\u0e35\u0e48\u0e08\u0e30\u0e41\u0e1b\u0e25\u0e07\u0e40\u0e1b\u0e47\u0e19 Lux",
+                apiParamLuxConvert: "Lux \u0e17\u0e35\u0e48\u0e08\u0e30\u0e41\u0e1b\u0e25\u0e07\u0e40\u0e1b\u0e47\u0e19 PPFD",
+                apiParamVpdConvert: "\u0e04\u0e48\u0e32 VPD \u0e2a\u0e33\u0e2b\u0e23\u0e31\u0e1a\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e2b\u0e19\u0e48\u0e27\u0e22",
+                apiNoParams: "\u0e44\u0e21\u0e48\u0e15\u0e49\u0e2d\u0e07\u0e43\u0e0a\u0e49\u0e1e\u0e32\u0e23\u0e32\u0e21\u0e34\u0e40\u0e15\u0e2d\u0e23\u0e4c",
                 footHome: "\u0e2b\u0e19\u0e49\u0e32\u0e41\u0e23\u0e01",
                 footGuides: "\u0e04\u0e39\u0e48\u0e21\u0e37\u0e2d",
                 footFaq: "\u0e2a\u0e19\u0e31\u0e1a\u0e2a\u0e19\u0e38\u0e19",
@@ -1958,6 +2838,94 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                 apiThDefault: "\u05d1\u05e8\u05d9\u05e8\u05ea \u05de\u05d7\u05d3\u05dc",
                 apiThDesc: "\u05ea\u05d9\u05d0\u05d5\u05e8",
                 apiFooterTagline: "\u2014 \u05e0\u05d1\u05e0\u05d4 \u05e2\u05dc \u05d9\u05d3\u05d9 \u05de\u05d2\u05d3\u05dc\u05d9\u05dd, \u05dc\u05de\u05d2\u05d3\u05dc\u05d9\u05dd.",
+                apiDescVpd: "\u05d7\u05e9\u05d1 VPD (\u05d2\u05d9\u05e8\u05e2\u05d5\u05df \u05dc\u05d7\u05e5 \u05d0\u05d3\u05d9\u05dd) \u05de\u05d8\u05de\u05e4\u05e8\u05d8\u05d5\u05e8\u05d4 \u05d5\u05dc\u05d7\u05d5\u05ea. \u05de\u05d7\u05d6\u05d9\u05e8 \u05e2\u05e8\u05da VPD, VPD \u05e2\u05dc\u05d4, \u05e1\u05d9\u05d5\u05d5\u05d2 \u05de\u05e6\u05d1 \u05d5\u05d8\u05d5\u05d5\u05d7\u05d9\u05dd \u05d0\u05d5\u05e4\u05d8\u05d9\u05de\u05dc\u05d9\u05d9\u05dd \u05dc\u05db\u05dc \u05e9\u05dc\u05d1\u05d9 \u05d4\u05d2\u05d9\u05d3\u05d5\u05dc.",
+                apiDescTarget: "\u05de\u05d7\u05e9\u05d1\u05d5\u05df VPD \u05d4\u05e4\u05d5\u05da. \u05d1\u05d4\u05d9\u05e0\u05ea\u05df VPD \u05d9\u05e2\u05d3 (\u05d0\u05d5 \u05e9\u05dc\u05d1 \u05d2\u05d9\u05d3\u05d5\u05dc) \u05d5\u05d8\u05de\u05e4\u05e8\u05d8\u05d5\u05e8\u05d4 \u05d0\u05d5 \u05dc\u05d7\u05d5\u05ea, \u05de\u05d7\u05e9\u05d1 \u05d0\u05ea \u05d4\u05de\u05e9\u05ea\u05e0\u05d4 \u05d4\u05d7\u05e1\u05e8. \u05e9\u05d9\u05de\u05d5\u05e9\u05d9 \u05dc\u05de\u05e6\u05d9\u05d0\u05ea \u05dc\u05d7\u05d5\u05ea \u05d9\u05e2\u05d3 \u05d1\u05d8\u05de\u05e4\u05e8\u05d8\u05d5\u05e8\u05d4 \u05e0\u05ea\u05d5\u05e0\u05d4.",
+                apiDescChart: "\u05d9\u05d5\u05e6\u05e8 \u05de\u05d8\u05e8\u05d9\u05e6\u05ea \u05e0\u05ea\u05d5\u05e0\u05d9 \u05de\u05e4\u05ea \u05d7\u05d5\u05dd VPD. \u05de\u05d7\u05d6\u05d9\u05e8 \u05e8\u05e9\u05ea \u05d3\u05d5-\u05de\u05de\u05d3\u05d9\u05ea \u05e9\u05dc \u05e2\u05e8\u05db\u05d9 VPD \u05e2\u05dc \u05e4\u05e0\u05d9 \u05d8\u05d5\u05d5\u05d7 \u05d8\u05de\u05e4\u05e8\u05d8\u05d5\u05e8\u05d4 \u05d5\u05dc\u05d7\u05d5\u05ea, \u05e2\u05dd \u05e1\u05d9\u05d5\u05d5\u05d2 \u05d0\u05d6\u05d5\u05e8\u05d9\u05dd. \u05de\u05d5\u05e9\u05dc\u05dd \u05dc\u05d9\u05e6\u05d9\u05e8\u05ea \u05d2\u05e8\u05e4\u05d9 VPD \u05d5\u05d9\u05d6\u05d5\u05d0\u05dc\u05d9\u05d9\u05dd.",
+                apiDescBatch: "\u05d7\u05d9\u05e9\u05d5\u05d1\u05d9 VPD \u05d1\u05d0\u05e6\u05d5\u05d5\u05d4 \u05e2\u05dd \u05e1\u05d8\u05d8\u05d9\u05e1\u05d8\u05d9\u05e7\u05d5\u05ea \u05de\u05e6\u05d8\u05d1\u05e8\u05d5\u05ea. \u05e9\u05dc\u05d7 \u05de\u05e1\u05e4\u05e8 \u05e7\u05e8\u05d9\u05d0\u05d5\u05ea \u05d8\u05de\u05e4\u05e8\u05d8\u05d5\u05e8\u05d4/\u05dc\u05d7\u05d5\u05ea \u05d5\u05e7\u05d1\u05dc \u05e2\u05e8\u05db\u05d9 VPD \u05d1\u05d5\u05d3\u05d3\u05d9\u05dd \u05d1\u05ea\u05d5\u05e1\u05e4\u05ea \u05de\u05d9\u05e0\u05d9\u05de\u05d5\u05dd, \u05de\u05e7\u05e1\u05d9\u05de\u05d5\u05dd, \u05de\u05de\u05d5\u05e6\u05e2 \u05d5\u05e1\u05d8\u05d9\u05d9\u05ea \u05ea\u05e7\u05df.",
+                apiDescDli: "\u05de\u05d7\u05e9\u05d1\u05d5\u05df DLI (\u05d0\u05d9\u05e0\u05d8\u05d2\u05e8\u05dc \u05d0\u05d5\u05e8 \u05d9\u05d5\u05de\u05d9). \u05d7\u05e9\u05d1 DLI \u05de-PPFD \u05d5\u05ea\u05e7\u05d5\u05e4\u05ea \u05d0\u05d5\u05e8 (\u05e7\u05d3\u05d9\u05de\u05d4), \u05d0\u05d5 \u05de\u05e6\u05d0 \u05d0\u05ea \u05d4-PPFD \u05d4\u05e0\u05d3\u05e8\u05e9 \u05dc-DLI \u05d9\u05e2\u05d3 (\u05d4\u05e4\u05d5\u05da). \u05db\u05d5\u05dc\u05dc \u05d8\u05d5\u05d5\u05d7\u05d9 DLI \u05d0\u05d5\u05e4\u05d8\u05d9\u05de\u05dc\u05d9\u05d9\u05dd \u05dc\u05e4\u05d9 \u05e9\u05dc\u05d1.",
+                apiDescLight: "\u05de\u05d7\u05e9\u05d1\u05d5\u05df \u05d0\u05d5\u05e8 \u05de\u05e7\u05d9\u05e3. \u05de\u05e2\u05e8\u05d9\u05da PPFD \u05de\u05d4\u05e1\u05e4\u05e7 \u05d5\u05e9\u05d8\u05d7, \u05de\u05d7\u05e9\u05d1 DLI, \u05de\u05e2\u05e8\u05d9\u05da \u05e2\u05d5\u05e6\u05de\u05ea \u05d0\u05d5\u05e8 \u05dc\u05e9\u05dc\u05d1 \u05d2\u05d9\u05d3\u05d5\u05dc \u05d5\u05de\u05e1\u05e4\u05e7 \u05de\u05d3\u05d3\u05d9 \u05d9\u05e2\u05d9\u05dc\u05d5\u05ea.",
+                apiDescStage: "\u05d9\u05e2\u05d3\u05d9 \u05e1\u05d1\u05d9\u05d1\u05d4 \u05de\u05e7\u05d9\u05e4\u05d9\u05dd \u05dc\u05e9\u05dc\u05d1 \u05d2\u05d9\u05d3\u05d5\u05dc. \u05de\u05d7\u05d6\u05d9\u05e8 \u05d8\u05d5\u05d5\u05d7\u05d9\u05dd \u05d0\u05d5\u05e4\u05d8\u05d9\u05de\u05dc\u05d9\u05d9\u05dd \u05dc-VPD, \u05d8\u05de\u05e4\u05e8\u05d8\u05d5\u05e8\u05d4, \u05dc\u05d7\u05d5\u05ea, PPFD, DLI, CO2, EC, pH \u05d5\u05ea\u05d3\u05d9\u05e8\u05d5\u05ea \u05d4\u05e9\u05e7\u05d9\u05d4. \u05e0\u05d9\u05ea\u05df \u05dc\u05d4\u05ea\u05d0\u05de\u05d4 \u05dc\u05de\u05e6\u05e2 \u05d2\u05d9\u05d3\u05d5\u05dc.",
+                apiDescSchedule: "\u05e6\u05d5\u05e8 \u05dc\u05d5\u05d7 \u05d6\u05de\u05e0\u05d9\u05dd \u05de\u05dc\u05d0 \u05dc\u05d2\u05d9\u05d3\u05d5\u05dc \u05e2\u05dd \u05d4\u05ea\u05e7\u05d3\u05de\u05d5\u05ea \u05e9\u05d1\u05d5\u05e2\u05d9\u05ea \u05e9\u05dc \u05e9\u05dc\u05d1\u05d9\u05dd. \u05de\u05d7\u05d6\u05d9\u05e8 \u05de\u05e9\u05da \u05d5\u05d9\u05e2\u05d3\u05d9 \u05e1\u05d1\u05d9\u05d1\u05d4 \u05dc\u05db\u05dc \u05e9\u05dc\u05d1, \u05de\u05d5\u05ea\u05d0\u05dd \u05dc\u05e1\u05d5\u05d2 \u05e6\u05de\u05d7 \u05d5\u05de\u05e6\u05e2 \u05d2\u05d9\u05d3\u05d5\u05dc.",
+                apiDescDiagnose: "\u05d0\u05d1\u05d7\u05d5\u05df \u05e1\u05d1\u05d9\u05d1\u05d4 \u05de\u05dc\u05d0 \u05e2\u05dd \u05e6\u05d9\u05d5\u05df \u05d1\u05e8\u05d9\u05d0\u05d5\u05ea 0-100. \u05de\u05e0\u05ea\u05d7 \u05d8\u05de\u05e4\u05e8\u05d8\u05d5\u05e8\u05d4, \u05dc\u05d7\u05d5\u05ea, VPD, pH, EC, PPFD, CO2 \u05d5\u05d8\u05de\u05e4\u05e8\u05d8\u05d5\u05e8\u05ea \u05dc\u05d9\u05dc\u05d4. \u05de\u05d7\u05d6\u05d9\u05e8 \u05d1\u05e2\u05d9\u05d5\u05ea \u05e9\u05e0\u05de\u05e6\u05d0\u05d5, \u05e8\u05de\u05d5\u05ea \u05d7\u05d5\u05de\u05e8\u05d4 \u05d5\u05d4\u05de\u05dc\u05e6\u05d5\u05ea.",
+                apiDescDeficit: "\u05d0\u05d1\u05d7\u05d5\u05df \u05d7\u05e1\u05e8 \u05ea\u05d6\u05d5\u05e0\u05d4 \u05de\u05d1\u05d5\u05e1\u05e1 \u05ea\u05e1\u05de\u05d9\u05e0\u05d9\u05dd. \u05ea\u05d0\u05e8 \u05ea\u05e1\u05de\u05d9\u05e0\u05d9\u05dd \u05e0\u05e8\u05d0\u05d9\u05dd \u05d5\u05e7\u05d1\u05dc \u05d7\u05e1\u05e8\u05d5\u05e0\u05d5\u05ea \u05d0\u05e4\u05e9\u05e8\u05d9\u05d9\u05dd \u05de\u05d3\u05d5\u05e8\u05d2\u05d9\u05dd \u05e2\u05dd \u05e6\u05d9\u05d5\u05e0\u05d9 \u05d1\u05d9\u05d8\u05d7\u05d5\u05df, \u05ea\u05d6\u05d5\u05e0\u05d5\u05ea \u05de\u05d5\u05e9\u05e4\u05e2\u05d5\u05ea \u05d5\u05d4\u05de\u05dc\u05e6\u05d5\u05ea \u05d8\u05d9\u05e4\u05d5\u05dc.",
+                apiDescDewpoint: "\u05d7\u05e9\u05d1 \u05d8\u05de\u05e4\u05e8\u05d8\u05d5\u05e8\u05ea \u05e0\u05e7\u05d5\u05d3\u05ea \u05d8\u05dc, \u05d4\u05e2\u05e8\u05db\u05ea \u05e1\u05d9\u05db\u05d5\u05df \u05e2\u05d5\u05d1\u05e9/\u05e2\u05d9\u05d1\u05d5\u05d9 \u05d5\u05d8\u05de\u05e4\u05e8\u05d8\u05d5\u05e8\u05ea \u05dc\u05d9\u05dc\u05d4 \u05de\u05d9\u05e0\u05d9\u05de\u05dc\u05d9\u05ea \u05d1\u05d8\u05d5\u05d7\u05d4. \u05d7\u05d9\u05d5\u05e0\u05d9 \u05dc\u05de\u05e0\u05d9\u05e2\u05ea \u05e8\u05e7\u05d1\u05d5\u05df \u05d5\u05e7\u05de\u05d7\u05d9\u05d4.",
+                apiDescNutrient: "\u05d9\u05e2\u05d3\u05d9 EC, pH \u05d5-PPM \u05dc\u05e9\u05dc\u05d1 \u05d2\u05d9\u05d3\u05d5\u05dc \u05d5\u05de\u05e6\u05e2. \u05db\u05d5\u05dc\u05dc \u05d8\u05d9\u05e4\u05d9\u05dd \u05e1\u05e4\u05e6\u05d9\u05e4\u05d9\u05d9\u05dd \u05dc\u05de\u05e6\u05e2, \u05dc\u05d5\u05d7\u05d5\u05ea \u05e9\u05d8\u05d9\u05e4\u05d4 \u05d5\u05d4\u05ea\u05d0\u05de\u05d5\u05ea \u05dc\u05e4\u05d9 EC \u05d4\u05de\u05d9\u05dd.",
+                apiDescCo2: "\u05de\u05d7\u05e9\u05d1\u05d5\u05df \u05d4\u05e2\u05e9\u05e8\u05ea CO2. \u05e7\u05d1\u05e2 \u05db\u05de\u05d4 CO2 \u05e0\u05d3\u05e8\u05e9 \u05dc\u05d4\u05d2\u05d9\u05e2 \u05dc\u05e8\u05d9\u05db\u05d5\u05d6 \u05d9\u05e2\u05d3 \u05d1\u05d7\u05d3\u05e8 \u05d4\u05d2\u05d9\u05d3\u05d5\u05dc, \u05d5\u05e7\u05d1\u05dc \u05d4\u05de\u05dc\u05e6\u05d5\u05ea CO2 \u05dc\u05e4\u05d9 \u05e9\u05dc\u05d1.",
+                apiDescIrrigation: "\u05de\u05d7\u05e9\u05d1\u05d5\u05df \u05e0\u05e4\u05d7 \u05d5\u05ea\u05d3\u05d9\u05e8\u05d5\u05ea \u05d4\u05e9\u05e7\u05d9\u05d4. \u05de\u05d7\u05e9\u05d1 \u05e0\u05e4\u05d7 \u05de\u05d9\u05dd \u05d0\u05d5\u05e4\u05d8\u05d9\u05de\u05dc\u05d9 \u05dc\u05e2\u05e6\u05d9\u05e5 \u05dc\u05e4\u05d9 \u05d2\u05d5\u05d3\u05dc, \u05de\u05e6\u05e2, \u05e9\u05dc\u05d1 \u05d2\u05d9\u05d3\u05d5\u05dc \u05d5\u05ea\u05e0\u05d0\u05d9 \u05e1\u05d1\u05d9\u05d1\u05d4. \u05ea\u05d5\u05de\u05da \u05d1\u05de\u05e1\u05e4\u05e8 \u05e6\u05de\u05d7\u05d9\u05dd.",
+                apiDescRoom: "\u05de\u05d7\u05e9\u05d1\u05d5\u05df \u05de\u05d9\u05d3\u05d5\u05ea \u05e6\u05d9\u05d5\u05d3. \u05d1\u05d4\u05ea\u05d7\u05e9\u05d1 \u05de\u05d9\u05d3\u05d5\u05ea \u05d4\u05d0\u05d5\u05d4\u05dc/\u05d7\u05d3\u05e8 \u05d5\u05d4\u05e1\u05e4\u05e7 \u05d4\u05ea\u05d0\u05d5\u05e8\u05d4, \u05e7\u05d1\u05dc \u05d0\u05d5\u05d5\u05e8\u05d5\u05e8 \u05de\u05d5\u05de\u05dc\u05e5 (CFM), \u05e7\u05e4\u05e6\u05d9\u05d8\u05ea \u05de\u05db\u05e9\u05d9\u05e8 \u05dc\u05d7\u05d5\u05ea \u05d5\u05d2\u05d5\u05d3\u05dc \u05de\u05d0\u05d5\u05d5\u05e8\u05e8.",
+                apiDescDry: "\u05de\u05d7\u05e9\u05d1\u05d5\u05df \u05d9\u05d9\u05d1\u05d5\u05e9 \u05d5\u05d4\u05d1\u05e9\u05dc\u05d4. \u05d4\u05e2\u05e8\u05da \u05de\u05e9\u05e7\u05dc \u05d9\u05d1\u05e9, \u05de\u05e9\u05da \u05d9\u05d9\u05d1\u05d5\u05e9 \u05d0\u05d5\u05e4\u05d8\u05d9\u05de\u05dc\u05d9 \u05d5\u05e7\u05d1\u05dc \u05d4\u05d5\u05e8\u05d0\u05d5\u05ea \u05d4\u05d1\u05e9\u05dc\u05d4 \u05e6\u05e2\u05d3 \u05d0\u05d7\u05e8 \u05e6\u05e2\u05d3 \u05dc\u05e4\u05d9 \u05de\u05e9\u05e7\u05dc \u05e7\u05e6\u05d9\u05e8 \u05e8\u05d8\u05d5\u05d1, \u05e1\u05d1\u05d9\u05d1\u05d4 \u05d5\u05e9\u05d9\u05d8\u05ea \u05d2\u05d6\u05d9\u05de\u05d4.",
+                apiDescConvert: "\u05de\u05de\u05d9\u05e8 \u05d9\u05d7\u05d9\u05d3\u05d5\u05ea \u05e8\u05d1-\u05ea\u05db\u05dc\u05d9\u05ea\u05d9 \u05dc\u05de\u05d3\u05d9\u05d3\u05d5\u05ea \u05d2\u05d9\u05d3\u05d5\u05dc. \u05de\u05de\u05d9\u05e8 \u05d1\u05d9\u05df \u05e6\u05dc\u05d6\u05d9\u05d5\u05e1/\u05e4\u05e8\u05e0\u05d4\u05d9\u05d9\u05d8, EC/PPM (\u05e1\u05e7\u05d0\u05dc\u05d5\u05ea 500 \u05d5-700), PPFD/Lux \u05d5\u05d9\u05d7\u05d9\u05d3\u05d5\u05ea VPD.",
+                apiDescHealth: "\u05e0\u05e7\u05d5\u05d3\u05ea \u05d1\u05d3\u05d9\u05e7\u05ea \u05ea\u05e7\u05d9\u05e0\u05d5\u05ea API. \u05de\u05d7\u05d6\u05d9\u05e8 \u05de\u05e6\u05d1 \u05e0\u05d5\u05db\u05d7\u05d9, \u05d2\u05e8\u05e1\u05d4, \u05d6\u05de\u05df \u05e4\u05e2\u05d9\u05dc\u05d5\u05ea \u05d5\u05de\u05e1\u05e4\u05e8 \u05e0\u05e7\u05d5\u05d3\u05d5\u05ea \u05e7\u05e6\u05d4. \u05d4\u05e9\u05ea\u05de\u05e9 \u05dc\u05d5\u05d5\u05d3\u05d0 \u05e9\u05d4-API \u05e4\u05e2\u05d9\u05dc.",
+                apiParamTemp: "\u05d8\u05de\u05e4\u05e8\u05d8\u05d5\u05e8\u05ea \u05d0\u05d5\u05d5\u05d9\u05e8",
+                apiParamHumidity: "\u05dc\u05d7\u05d5\u05ea \u05d9\u05d7\u05e1\u05d9\u05ea (%)",
+                apiParamLeafOffset: "\u05d4\u05e4\u05e8\u05e9 \u05d8\u05de\u05e4\u05e8\u05d8\u05d5\u05e8\u05ea \u05e2\u05dc\u05d4 \u05de\u05ea\u05d7\u05ea \u05dc\u05d8\u05de\u05e4\u05e8\u05d8\u05d5\u05e8\u05ea \u05d0\u05d5\u05d5\u05d9\u05e8",
+                apiParamUnit: "\u05d9\u05d7\u05d9\u05d3\u05ea \u05d8\u05de\u05e4\u05e8\u05d8\u05d5\u05e8\u05d4: c (\u05e6\u05dc\u05d6\u05d9\u05d5\u05e1) \u05d0\u05d5 f (\u05e4\u05e8\u05e0\u05d4\u05d9\u05d9\u05d8)",
+                apiParamTargetVpd: "\u05e2\u05e8\u05da VPD \u05d9\u05e2\u05d3 (kPa). \u05e1\u05e4\u05e7 \u05d6\u05d4 \u05d0\u05d5 \u05e9\u05dc\u05d1.",
+                apiParamStageVpd: "\u05e9\u05dc\u05d1 \u05d2\u05d9\u05d3\u05d5\u05dc (\u05de\u05e9\u05ea\u05de\u05e9 \u05d1-VPD \u05d0\u05de\u05e6\u05e2\u05d9). \u05d0\u05e4\u05e9\u05e8\u05d5\u05d9\u05d5\u05ea: clone_seedling, early_veg, late_veg, early_flower, mid_flower, late_flower",
+                apiParamKnownTemp: "\u05d8\u05de\u05e4\u05e8\u05d8\u05d5\u05e8\u05d4 \u05d9\u05d3\u05d5\u05e2\u05d4 (\u05e4\u05d5\u05ea\u05e8 \u05dc\u05d7\u05d5\u05ea)",
+                apiParamKnownHumidity: "\u05dc\u05d7\u05d5\u05ea \u05d9\u05d3\u05d5\u05e2\u05d4 (\u05e4\u05d5\u05ea\u05e8 \u05d8\u05de\u05e4\u05e8\u05d8\u05d5\u05e8\u05d4)",
+                apiParamLeafOffsetShort: "\u05d4\u05e4\u05e8\u05e9 \u05d8\u05de\u05e4\u05e8\u05d8\u05d5\u05e8\u05ea \u05e2\u05dc\u05d4",
+                apiParamUnitShort: "\u05d9\u05d7\u05d9\u05d3\u05ea \u05d8\u05de\u05e4\u05e8\u05d8\u05d5\u05e8\u05d4: c \u05d0\u05d5 f",
+                apiParamTempMin: "\u05d8\u05de\u05e4\u05e8\u05d8\u05d5\u05e8\u05d4 \u05de\u05d9\u05e0\u05d9\u05de\u05dc\u05d9\u05ea",
+                apiParamTempMax: "\u05d8\u05de\u05e4\u05e8\u05d8\u05d5\u05e8\u05d4 \u05de\u05e7\u05e1\u05d9\u05de\u05dc\u05d9\u05ea",
+                apiParamTempStep: "\u05d2\u05d5\u05d3\u05dc \u05e6\u05e2\u05d3 \u05d8\u05de\u05e4\u05e8\u05d8\u05d5\u05e8\u05d4",
+                apiParamRhMin: "\u05dc\u05d7\u05d5\u05ea \u05d9\u05d7\u05e1\u05d9\u05ea \u05de\u05d9\u05e0\u05d9\u05de\u05dc\u05d9\u05ea (%)",
+                apiParamRhMax: "\u05dc\u05d7\u05d5\u05ea \u05d9\u05d7\u05e1\u05d9\u05ea \u05de\u05e7\u05e1\u05d9\u05de\u05dc\u05d9\u05ea (%)",
+                apiParamRhStep: "\u05d2\u05d5\u05d3\u05dc \u05e6\u05e2\u05d3 \u05dc\u05d7\u05d5\u05ea",
+                apiParamStageZone: "\u05e9\u05dc\u05d1 \u05d2\u05d9\u05d3\u05d5\u05dc \u05dc\u05e1\u05d9\u05d5\u05d5\u05d2 \u05d0\u05d6\u05d5\u05e8\u05d9\u05dd",
+                apiParamReadings: "\u05de\u05e2\u05e8\u05da \u05e9\u05dc \u05d0\u05d5\u05d1\u05d9\u05d9\u05e7\u05d8\u05d9\u05dd {\"temp\":N, \"humidity\":N} (\u05de\u05e7\u05d5\u05d3\u05d3 URL)",
+                apiParamPpfd: "\u05e6\u05e4\u05d9\u05e4\u05d5\u05ea \u05d6\u05e8\u05d9\u05de\u05ea \u05e4\u05d5\u05d8\u05d5\u05e0\u05d9\u05dd \u05e4\u05d5\u05d8\u05d5\u05e1\u05d9\u05e0\u05ea\u05d8\u05d9\u05d9\u05dd (umol/m2/s)",
+                apiParamHours: "\u05ea\u05e7\u05d5\u05e4\u05ea \u05d0\u05d5\u05e8 \u05d1\u05e9\u05e2\u05d5\u05ea",
+                apiParamDli: "DLI \u05d9\u05e2\u05d3 (mol/m2/\u05d9\u05d5\u05dd) \u05dc\u05d7\u05d9\u05e9\u05d5\u05d1 \u05d4\u05e4\u05d5\u05da",
+                apiParamPpfdKnown: "PPFD \u05d9\u05d3\u05d5\u05e2 (\u05d0\u05dd \u05d6\u05de\u05d9\u05df)",
+                apiParamWatts: "\u05d4\u05e1\u05e4\u05e7 \u05ea\u05d0\u05d5\u05e8\u05d4 (\u05dc\u05d4\u05e2\u05e8\u05db\u05ea PPFD)",
+                apiParamEfficiency: "\u05d9\u05e2\u05d9\u05dc\u05d5\u05ea LED (umol/J)",
+                apiParamArea: "\u05e9\u05d8\u05d7 \u05d2\u05d9\u05d3\u05d5\u05dc \u05d1-m2",
+                apiParamLightHeight: "\u05d2\u05d5\u05d1\u05d4 \u05d4\u05ea\u05d0\u05d5\u05e8\u05d4 \u05d1\u05de\u05d8\u05e8\u05d9\u05dd",
+                apiParamStageEval: "\u05e9\u05dc\u05d1 \u05d2\u05d9\u05d3\u05d5\u05dc \u05dc\u05d4\u05e2\u05e8\u05db\u05d4",
+                apiParamStageName: "\u05e9\u05dd \u05e9\u05dc\u05d1 \u05d0\u05d5 \"all\" \u05dc\u05db\u05dc \u05d4\u05e9\u05dc\u05d1\u05d9\u05dd. \u05d0\u05e4\u05e9\u05e8\u05d5\u05d9\u05d5\u05ea: clone_seedling, early_veg, late_veg, early_flower, mid_flower, late_flower",
+                apiParamMedium: "\u05de\u05e6\u05e2 \u05d2\u05d9\u05d3\u05d5\u05dc: soil, coco, hydro, dwc",
+                apiParamPlantType: "\u05e1\u05d5\u05d2 \u05e6\u05de\u05d7: photo (\u05e4\u05d5\u05d8\u05d5\u05e4\u05e8\u05d9\u05d5\u05d3\u05d9) \u05d0\u05d5 auto (\u05d0\u05d5\u05d8\u05d5\u05e4\u05e8\u05d7)",
+                apiParamStageDiag: "\u05e9\u05dc\u05d1 \u05d2\u05d9\u05d3\u05d5\u05dc \u05dc\u05d0\u05d1\u05d7\u05d5\u05df \u05d4\u05e7\u05e9\u05e8\u05d9",
+                apiParamMediumShort: "\u05de\u05e6\u05e2 \u05d2\u05d9\u05d3\u05d5\u05dc",
+                apiParamCurrentPpfd: "PPFD \u05e0\u05d5\u05db\u05d7\u05d9",
+                apiParamPh: "pH \u05ea\u05de\u05d9\u05e1\u05ea \u05d4\u05d6\u05e0\u05d4",
+                apiParamEc: "EC \u05ea\u05de\u05d9\u05e1\u05ea \u05d4\u05d6\u05e0\u05d4 (mS/cm)",
+                apiParamCo2Level: "\u05e8\u05de\u05ea CO2 (ppm)",
+                apiParamNightTemp: "\u05d8\u05de\u05e4\u05e8\u05d8\u05d5\u05e8\u05ea \u05dc\u05d9\u05dc\u05d4",
+                apiParamSymptoms: "\u05de\u05d9\u05dc\u05d5\u05ea \u05de\u05e4\u05ea\u05d7 \u05ea\u05e1\u05de\u05d9\u05e0\u05d9\u05dd \u05de\u05d5\u05e4\u05e8\u05d3\u05d5\u05ea \u05d1\u05e4\u05e1\u05d9\u05e7\u05d9\u05dd. \u05d3\u05d5\u05d2\u05de\u05d0\u05d5\u05ea: yellow_lower_leaves, brown_spots, curling_up, purple_stems, slow_growth, burnt_tips",
+                apiParamPhDiag: "pH \u05e0\u05d5\u05db\u05d7\u05d9 (\u05e2\u05d5\u05d6\u05e8 \u05dc\u05e6\u05de\u05e6\u05dd \u05d0\u05d1\u05d7\u05d5\u05df)",
+                apiParamStage: "\u05e9\u05dc\u05d1 \u05d2\u05d9\u05d3\u05d5\u05dc",
+                apiParamWaterEc: "EC \u05de\u05d9\u05dd \u05d1\u05e1\u05d9\u05e1 (mS/cm) \u05dc\u05d9\u05e2\u05d3\u05d9\u05dd \u05de\u05d5\u05ea\u05d0\u05de\u05d9\u05dd",
+                apiParamRoomM3: "\u05e0\u05e4\u05d7 \u05d4\u05d7\u05d3\u05e8 \u05d1\u05de\u05d8\u05e8\u05d9\u05dd \u05de\u05e2\u05d5\u05e7\u05d1\u05d9\u05dd",
+                apiParamTargetPpm: "\u05e8\u05d9\u05db\u05d5\u05d6 CO2 \u05d9\u05e2\u05d3 (ppm)",
+                apiParamCurrentPpm: "CO2 \u05e1\u05d1\u05d9\u05d1\u05ea\u05d9 \u05e0\u05d5\u05db\u05d7\u05d9 (ppm)",
+                apiParamStageRec: "\u05e9\u05dc\u05d1 \u05d2\u05d9\u05d3\u05d5\u05dc \u05dc\u05d4\u05de\u05dc\u05e6\u05d5\u05ea",
+                apiParamPotSize: "\u05e0\u05e4\u05d7 \u05e2\u05e6\u05d9\u05e5 \u05d1\u05dc\u05d9\u05d8\u05e8\u05d9\u05dd",
+                apiParamCurrentVpd: "VPD \u05e0\u05d5\u05db\u05d7\u05d9 (\u05de\u05e9\u05e4\u05d9\u05e2 \u05e2\u05dc \u05e7\u05e6\u05d1 \u05d3\u05d9\u05d5\u05ea)",
+                apiParamCurrentTemp: "\u05d8\u05de\u05e4\u05e8\u05d8\u05d5\u05e8\u05d4 \u05e0\u05d5\u05db\u05d7\u05d9\u05ea",
+                apiParamPlants: "\u05de\u05e1\u05e4\u05e8 \u05e6\u05de\u05d7\u05d9\u05dd (\u05de\u05db\u05e4\u05d9\u05dc \u05d0\u05ea \u05d4\u05e1\u05db\u05d5\u05dd)",
+                apiParamRoomLength: "\u05d0\u05d5\u05e8\u05da \u05d4\u05d7\u05d3\u05e8 \u05d1\u05de\u05d8\u05e8\u05d9\u05dd",
+                apiParamRoomWidth: "\u05e8\u05d5\u05d7\u05d1 \u05d4\u05d7\u05d3\u05e8 \u05d1\u05de\u05d8\u05e8\u05d9\u05dd",
+                apiParamRoomHeight: "\u05d2\u05d5\u05d1\u05d4 \u05d4\u05d7\u05d3\u05e8 \u05d1\u05de\u05d8\u05e8\u05d9\u05dd",
+                apiParamLightsWatts: "\u05d4\u05e1\u05e4\u05e7 \u05ea\u05d0\u05d5\u05e8\u05d4 \u05db\u05d5\u05dc\u05dc",
+                apiParamTargetTemp: "\u05d8\u05de\u05e4\u05e8\u05d8\u05d5\u05e8\u05d4 \u05d9\u05e2\u05d3",
+                apiParamAmbientTemp: "\u05d8\u05de\u05e4\u05e8\u05d8\u05d5\u05e8\u05ea \u05e1\u05d1\u05d9\u05d1\u05d4/\u05db\u05e0\u05d9\u05e1\u05d4",
+                apiParamPlantsCount: "\u05de\u05e1\u05e4\u05e8 \u05e6\u05de\u05d7\u05d9\u05dd",
+                apiParamTargetHumidity: "\u05dc\u05d7\u05d5\u05ea \u05d9\u05e2\u05d3 (%)",
+                apiParamWetWeight: "\u05de\u05e9\u05e7\u05dc \u05e7\u05e6\u05d9\u05e8 \u05e8\u05d8\u05d5\u05d1 \u05d1\u05d2\u05e8\u05de\u05d9\u05dd",
+                apiParamDryTemp: "\u05d8\u05de\u05e4\u05e8\u05d8\u05d5\u05e8\u05ea \u05d7\u05d3\u05e8 \u05d9\u05d9\u05d1\u05d5\u05e9",
+                apiParamDryHumidity: "\u05dc\u05d7\u05d5\u05ea \u05d7\u05d3\u05e8 \u05d9\u05d9\u05d1\u05d5\u05e9 (%)",
+                apiParamDryMethod: "\u05e9\u05d9\u05d8\u05ea \u05d9\u05d9\u05d1\u05d5\u05e9: hang, rack \u05d0\u05d5 wet_trim",
+                apiParamTempConvert: "\u05e2\u05e8\u05da \u05d8\u05de\u05e4\u05e8\u05d8\u05d5\u05e8\u05d4 \u05dc\u05d4\u05de\u05e8\u05d4",
+                apiParamFromUnit: "\u05d9\u05d7\u05d9\u05d3\u05ea \u05de\u05e7\u05d5\u05e8 \u05dc\u05d8\u05de\u05e4\u05e8\u05d8\u05d5\u05e8\u05d4: c \u05d0\u05d5 f",
+                apiParamEcConvert: "\u05e2\u05e8\u05da EC (mS/cm) \u05dc\u05d4\u05de\u05e8\u05d4 \u05dc-PPM",
+                apiParamPpmConvert: "\u05e2\u05e8\u05da PPM \u05dc\u05d4\u05de\u05e8\u05d4 \u05dc-EC",
+                apiParamPpmScale: "\u05e1\u05e7\u05d0\u05dc\u05ea PPM: 500 \u05d0\u05d5 700",
+                apiParamPpfdConvert: "PPFD \u05dc\u05d4\u05de\u05e8\u05d4 \u05dc-Lux",
+                apiParamLuxConvert: "Lux \u05dc\u05d4\u05de\u05e8\u05d4 \u05dc-PPFD",
+                apiParamVpdConvert: "\u05e2\u05e8\u05da VPD \u05dc\u05de\u05d9\u05d3\u05e2 \u05d9\u05d7\u05d9\u05d3\u05d5\u05ea",
+                apiNoParams: "\u05dc\u05d0 \u05e0\u05d3\u05e8\u05e9\u05d9\u05dd \u05e4\u05e8\u05de\u05d8\u05e8\u05d9\u05dd",
                 footHome: "\u05d3\u05e3 \u05d4\u05d1\u05d9\u05ea",
                 footGuides: "\u05de\u05d3\u05e8\u05d9\u05db\u05d9\u05dd",
                 footFaq: "\u05ea\u05de\u05d9\u05db\u05d4",
