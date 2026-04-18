@@ -1,5 +1,5 @@
 /**
- * GrowVPD Pro — Embeddable VPD Calculator Widget
+ * GrowVPD Pro — Embeddable VPD Calculator Widget with Interactive Heatmap
  * https://growvpd.pro
  *
  * Usage:
@@ -19,6 +19,10 @@
   /* ── Config ─────────────────────────────────────────── */
   var API = 'https://api.growvpd.pro/v1';
   var DEBOUNCE_MS = 300;
+  var MIN_TEMP = 15, MAX_TEMP = 35;
+  var MIN_HUM = 20, MAX_HUM = 90;
+  var CHART_COLS = 80, CHART_ROWS = 70;
+
   var STAGES = [
     { key: 'clone',      label: 'Clone / Propagation', lo: 0.2, hi: 0.6 },
     { key: 'seedling',   label: 'Seedling',            lo: 0.4, hi: 0.8 },
@@ -28,40 +32,64 @@
   ];
   var REVERSE_VPDS = [0.8, 1.0, 1.2, 1.4];
 
-  /* ── Local VPD math (Tetens) ────────────────────────── */
+  var ZONES = [
+    { max: 0.0, color: '#1565C0', label: 'Condensation' },
+    { max: 0.4, color: '#42A5F5', label: 'Low Transpiration' },
+    { max: 0.8, color: '#66BB6A', label: 'Clones & Seedlings' },
+    { max: 1.2, color: '#4CAF50', label: 'Vegetative' },
+    { max: 1.6, color: '#FFA726', label: 'Bloom' },
+    { max: 99,  color: '#E53935', label: 'Stress / Danger' }
+  ];
+
+  /* ── VPD math (Magnus formula with leaf offset) ─────── */
   function satVP(t) { return 0.6108 * Math.exp((17.27 * t) / (t + 237.3)); }
-  function calcVPD(t, rh) { var svp = satVP(t); return svp - (svp * rh / 100); }
+  function calcVPD(t, rh, leafOffset) {
+    var lo = leafOffset || 0;
+    var leafTemp = t - lo;
+    var svpLeaf = satVP(leafTemp);
+    var svpAir = satVP(t);
+    var avp = (rh / 100) * svpAir;
+    return Math.max(0, svpLeaf - avp);
+  }
   function calcDewpoint(t, rh) {
     var a = 17.27, b = 237.3;
     var alpha = (a * t) / (b + t) + Math.log(rh / 100);
     return (b * alpha) / (a - alpha);
   }
-  function targetRH(vpd, t) {
-    var svp = satVP(t);
-    if (svp === 0) return 0;
-    var rh = ((svp - vpd) / svp) * 100;
+  function targetRH(vpd, t, leafOffset) {
+    var lo = leafOffset || 0;
+    var svpLeaf = satVP(t - lo);
+    var svpAir = satVP(t);
+    if (svpAir === 0) return 0;
+    var rh = ((svpLeaf - vpd) / svpAir) * 100;
     return Math.max(0, Math.min(100, rh));
   }
   function cToF(c) { return c * 9 / 5 + 32; }
   function fToC(f) { return (f - 32) * 5 / 9; }
 
-  /* ── VPD zone logic ─────────────────────────────────── */
+  /* ── Zone color lookup ──────────────────────────────── */
+  function vpdColor(vpd) {
+    for (var i = 0; i < ZONES.length; i++) {
+      if (vpd <= ZONES[i].max) return ZONES[i].color;
+    }
+    return ZONES[ZONES.length - 1].color;
+  }
   function vpdZone(vpd) {
-    if (vpd < 0.4)  return { cls: 'zone-low',    color: '#42A5F5', label: 'Too Low — Risk of Mold' };
-    if (vpd < 0.8)  return { cls: 'zone-prop',   color: '#66BB6A', label: 'Propagation / Seedling Zone' };
-    if (vpd < 1.2)  return { cls: 'zone-veg',    color: '#2E7D32', label: 'Optimal for Vegetative Growth' };
-    if (vpd < 1.6)  return { cls: 'zone-flower', color: '#1B5E20', label: 'Ideal for Flowering' };
-    return { cls: 'zone-high', color: '#E65100', label: 'Too High — Stress Risk' };
+    for (var i = 0; i < ZONES.length; i++) {
+      if (vpd <= ZONES[i].max) return { color: ZONES[i].color, label: ZONES[i].label };
+    }
+    var last = ZONES[ZONES.length - 1];
+    return { color: last.color, label: last.label };
   }
 
-  /* ── Stage badge colour ─────────────────────────────── */
+  /* ── Stage fit ──────────────────────────────────────── */
   function stageFit(vpd, stage) {
     if (vpd >= stage.lo && vpd <= stage.hi) return 'fit-good';
     var dist = vpd < stage.lo ? stage.lo - vpd : vpd - stage.hi;
     return dist <= 0.15 ? 'fit-ok' : 'fit-bad';
   }
 
-  /* ── SVG leaf logo (inline) ─────────────────────────── */
+  /* ── SVG leaf logo ──────────────────────────────────── */
   var LEAF_SVG = '<svg viewBox="0 0 28 28" width="22" height="22" fill="none" xmlns="http://www.w3.org/2000/svg">' +
     '<path d="M14 2C8 2 3 7.5 3 14c0 4 2.5 7.5 6 9.5.5-3 1.5-5.5 3-7.5-2 1-3.5 3-4.2 5.5C6 19.5 5 17 5 14c0-5 4-9.5 9-10 5 .5 9 5 9 10 0 3-1 5.5-2.8 7.5-.7-2.5-2.2-4.5-4.2-5.5 1.5 2 2.5 4.5 3 7.5 3.5-2 6-5.5 6-9.5C25 7.5 20 2 14 2z" fill="currentColor"/>' +
     '<path d="M14 10c-.5 2-1 4-1 6.5 0 2 .3 4 1 5.5.7-1.5 1-3.5 1-5.5 0-2.5-.5-4.5-1-6.5z" fill="currentColor" opacity=".6"/>' +
@@ -79,7 +107,6 @@
     var track  = dark ? '#333'    : '#e0e0e0';
     var inputBg = dark ? '#2c2c2c' : '#fff';
 
-    /* Shorthand helpers to reduce string size */
     var F = 'display:flex;align-items:center;';
     var R = 'border-radius:';
     var B = 'border:1px solid ' + border + ';';
@@ -117,6 +144,35 @@
       '.gvpd-status-fill{height:100%;' + R + '3px;transition:width .3s,background .3s}' +
       '.gvpd-status-text{font-size:.8rem;' + FW6 + 'transition:color .2s}' +
       '.gvpd-dewpoint{font-size:.72rem;color:' + text3 + ';margin-top:6px}' +
+
+      /* Heatmap chart */
+      '.gvpd-chart-section{margin-bottom:14px}' +
+      '.gvpd-chart-title{font-size:.85rem;font-weight:700;margin-bottom:10px;' + F + 'gap:6px;color:' + text + '}' +
+      '.gvpd-chart-title svg{width:16px;height:16px;color:#4CAF50}' +
+      '.gvpd-chart-wrap{position:relative;' + BG2 + R + '12px;' + B + 'padding:8px 8px 4px 8px;overflow:hidden}' +
+      '.gvpd-chart-inner{position:relative;margin-left:36px;margin-bottom:24px}' +
+      '.gvpd-chart-canvas{display:block;width:100%;' + R + '6px;cursor:crosshair;touch-action:none}' +
+      '.gvpd-axis-y{position:absolute;left:0;top:8px;bottom:28px;width:34px;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-end;padding-right:4px}' +
+      '.gvpd-axis-y span{font-size:.6rem;color:' + text3 + ';' + FW6 + 'line-height:1}' +
+      '.gvpd-axis-x{' + F + 'justify-content:space-between;margin-left:36px;margin-top:2px;padding:0 1px}' +
+      '.gvpd-axis-x span{font-size:.6rem;color:' + text3 + ';' + FW6 + '}' +
+      '.gvpd-axis-label-y{position:absolute;left:-2px;top:50%;transform:rotate(-90deg) translateX(-50%);transform-origin:0 0;font-size:.6rem;color:' + text3 + ';' + FW6 + 'letter-spacing:.03em;white-space:nowrap}' +
+      '.gvpd-axis-label-x{text-align:center;margin-left:36px;font-size:.6rem;color:' + text3 + ';' + FW6 + 'letter-spacing:.03em;margin-top:1px}' +
+      '.gvpd-chart-tooltip{position:absolute;pointer-events:none;background:rgba(0,0,0,.85);color:#fff;padding:6px 10px;' + R + '8px;font-size:.72rem;' + FW6 + 'white-space:nowrap;z-index:10;line-height:1.4;opacity:0;transition:opacity .15s}' +
+      '.gvpd-chart-tooltip.visible{opacity:1}' +
+      '.gvpd-leaf-row{' + F + 'gap:8px;margin-bottom:12px}' +
+      '.gvpd-leaf-row label{font-size:.75rem;' + FW6 + 'color:' + text2 + ';text-transform:uppercase;letter-spacing:.05em;white-space:nowrap}' +
+      '.gvpd-leaf-row input[type=range]{flex:1;height:6px;-webkit-appearance:none;appearance:none;background:' + track + ';' + R + '3px;outline:none;cursor:pointer}' +
+      '.gvpd-leaf-row input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;' + R + '50%;background:#66BB6A;border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.25);cursor:pointer}' +
+      '.gvpd-leaf-row input[type=range]::-moz-range-thumb{width:14px;height:14px;' + R + '50%;background:#66BB6A;border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.25);cursor:pointer}' +
+      '.gvpd-leaf-val{font-size:.8rem;' + FW6 + 'color:#66BB6A;min-width:32px;text-align:center}' +
+
+      /* Legend */
+      '.gvpd-legend{' + F + 'flex-wrap:wrap;gap:6px 12px;justify-content:center;margin-top:10px}' +
+      '.gvpd-legend-item{' + F + 'gap:4px;font-size:.62rem;color:' + text2 + ';' + FW6 + '}' +
+      '.gvpd-legend-dot{width:10px;height:10px;' + R + '2px;flex-shrink:0}' +
+
+      /* Stages */
       '.gvpd-stages{' + F + 'flex-wrap:wrap;gap:6px;margin-bottom:14px;justify-content:center}' +
       '.gvpd-stage{font-size:.67rem;' + FW6 + 'padding:4px 10px;' + R + '20px;letter-spacing:.02em;transition:all .2s;border:1px solid transparent;white-space:nowrap}' +
       '.gvpd-stage.fit-good{background:' + (dark ? '#1a3020' : '#E8F5E9') + ';color:' + (dark ? '#81C784' : '#1B5E20') + ';border-color:' + (dark ? '#2E5030' : '#A5D6A7') + '}' +
@@ -166,13 +222,9 @@
   function init(scriptEl) {
     var targetSel = scriptEl && scriptEl.getAttribute('data-target');
     var themeDark = scriptEl && scriptEl.getAttribute('data-theme') === 'dark';
-    /* data-lang reserved for future i18n */
 
-    /* Find mount point */
     var mount;
-    if (targetSel) {
-      mount = document.querySelector(targetSel);
-    }
+    if (targetSel) { mount = document.querySelector(targetSel); }
     if (!mount) {
       mount = document.createElement('div');
       if (scriptEl && scriptEl.parentNode) {
@@ -182,14 +234,13 @@
       }
     }
 
-    /* Shadow DOM */
     var shadow = mount.attachShadow({ mode: 'open' });
     var style = document.createElement('style');
     style.textContent = buildCSS(themeDark);
     shadow.appendChild(style);
 
     /* State */
-    var state = { tempC: 25, rh: 60, isFahrenheit: false };
+    var state = { tempC: 25, rh: 60, isFahrenheit: false, leafOffset: 2 };
 
     /* ── Render HTML ────────────────────────────────── */
     var root = document.createElement('div');
@@ -198,55 +249,68 @@
     root.setAttribute('aria-label', 'VPD Calculator');
 
     root.innerHTML =
-      /* Header */
       '<div class="gvpd-header">' +
         LEAF_SVG +
         '<span class="gvpd-header-title">VPD Calculator</span>' +
         '<span class="gvpd-header-badge">Free Tool</span>' +
       '</div>' +
-
       '<div class="gvpd-body">' +
-
-        /* Unit toggle */
         '<div class="gvpd-toggle-row">' +
           '<div class="gvpd-toggle" role="radiogroup" aria-label="Temperature unit">' +
             '<button class="gvpd-btn-c active" role="radio" aria-checked="true" type="button">\u00b0C</button>' +
             '<button class="gvpd-btn-f" role="radio" aria-checked="false" type="button">\u00b0F</button>' +
           '</div>' +
         '</div>' +
-
-        /* Inputs */
         '<div class="gvpd-inputs">' +
           '<div class="gvpd-input-group">' +
             '<label for="gvpd-temp">Temperature</label>' +
             '<div class="gvpd-input-row">' +
-              '<input type="range" id="gvpd-temp" min="15" max="40" step="0.5" value="25" aria-label="Temperature slider">' +
-              '<input type="number" class="gvpd-num-input gvpd-temp-num" min="15" max="40" step="0.5" value="25" aria-label="Temperature value">' +
+              '<input type="range" id="gvpd-temp" min="15" max="35" step="0.5" value="25" aria-label="Temperature slider">' +
+              '<input type="number" class="gvpd-num-input gvpd-temp-num" min="15" max="35" step="0.5" value="25" aria-label="Temperature value">' +
               '<span class="gvpd-unit gvpd-temp-unit">\u00b0C</span>' +
             '</div>' +
           '</div>' +
           '<div class="gvpd-input-group">' +
             '<label for="gvpd-rh">Relative Humidity</label>' +
             '<div class="gvpd-input-row">' +
-              '<input type="range" id="gvpd-rh" min="20" max="95" step="1" value="60" aria-label="Humidity slider">' +
-              '<input type="number" class="gvpd-num-input gvpd-rh-num" min="20" max="95" step="1" value="60" aria-label="Humidity value">' +
+              '<input type="range" id="gvpd-rh" min="20" max="90" step="1" value="60" aria-label="Humidity slider">' +
+              '<input type="number" class="gvpd-num-input gvpd-rh-num" min="20" max="90" step="1" value="60" aria-label="Humidity value">' +
               '<span class="gvpd-unit">%</span>' +
             '</div>' +
           '</div>' +
         '</div>' +
-
-        /* Result */
         '<div class="gvpd-result">' +
           '<div><span class="gvpd-vpd-value" aria-live="polite">1.00</span><span class="gvpd-vpd-unit">kPa</span></div>' +
           '<div class="gvpd-status-bar"><div class="gvpd-status-fill"></div></div>' +
-          '<div class="gvpd-status-text">Optimal for Vegetative Growth</div>' +
+          '<div class="gvpd-status-text">Vegetative</div>' +
           '<div class="gvpd-dewpoint">Dew point: 16.7\u00b0C</div>' +
         '</div>' +
 
-        /* Stage badges */
-        '<div class="gvpd-stages" aria-label="Growth stage suitability"></div>' +
+        /* Heatmap chart section */
+        '<div class="gvpd-chart-section">' +
+          '<div class="gvpd-chart-title">' +
+            '<svg viewBox="0 0 16 16" fill="none"><rect x="1" y="1" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M1 5h14M1 9h14M5 1v14M9 1v14" stroke="currentColor" stroke-width=".5" opacity=".4"/></svg>' +
+            'Interactive VPD Chart' +
+          '</div>' +
+          '<div class="gvpd-leaf-row">' +
+            '<label>Leaf Offset</label>' +
+            '<input type="range" class="gvpd-leaf-slider" min="0" max="5" step="0.5" value="2" aria-label="Leaf temperature offset">' +
+            '<span class="gvpd-leaf-val">2\u00b0C</span>' +
+          '</div>' +
+          '<div class="gvpd-chart-wrap">' +
+            '<span class="gvpd-axis-label-y">Humidity (%)</span>' +
+            '<div class="gvpd-axis-y"></div>' +
+            '<div class="gvpd-chart-inner">' +
+              '<canvas class="gvpd-chart-canvas" width="640" height="400"></canvas>' +
+              '<div class="gvpd-chart-tooltip"></div>' +
+            '</div>' +
+            '<div class="gvpd-axis-x"></div>' +
+            '<div class="gvpd-axis-label-x">Temperature</div>' +
+          '</div>' +
+          '<div class="gvpd-legend"></div>' +
+        '</div>' +
 
-        /* Reverse VPD */
+        '<div class="gvpd-stages" aria-label="Growth stage suitability"></div>' +
         '<div class="gvpd-reverse">' +
           '<div class="gvpd-reverse-title">' +
             '<svg viewBox="0 0 16 16" fill="none"><path d="M8 1v5l3 3M15 8A7 7 0 111 8a7 7 0 0114 0z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
@@ -254,21 +318,17 @@
           '</div>' +
           '<div class="gvpd-reverse-grid"></div>' +
         '</div>' +
-
       '</div>' +
-
-      /* Footer */
       '<div class="gvpd-footer">' +
         '<a href="https://growvpd.pro" target="_blank" rel="noopener" class="gvpd-footer-brand">' +
-          LEAF_SVG +
-          'Powered by GrowVPD Pro' +
+          LEAF_SVG + 'Powered by GrowVPD Pro' +
         '</a>' +
         '<a href="https://api.growvpd.pro" target="_blank" rel="noopener">Free API: api.growvpd.pro</a>' +
       '</div>';
 
     shadow.appendChild(root);
 
-    /* ── Element references ─────────────────────────── */
+    /* ── Element refs ───────────────────────────────── */
     var $tempSlider  = root.querySelector('#gvpd-temp');
     var $tempNum     = root.querySelector('.gvpd-temp-num');
     var $tempUnit    = root.querySelector('.gvpd-temp-unit');
@@ -282,6 +342,262 @@
     var $reverseGrid = root.querySelector('.gvpd-reverse-grid');
     var $btnC        = root.querySelector('.gvpd-btn-c');
     var $btnF        = root.querySelector('.gvpd-btn-f');
+    var $canvas      = root.querySelector('.gvpd-chart-canvas');
+    var $tooltip     = root.querySelector('.gvpd-chart-tooltip');
+    var $leafSlider  = root.querySelector('.gvpd-leaf-slider');
+    var $leafVal     = root.querySelector('.gvpd-leaf-val');
+    var $axisY       = root.querySelector('.gvpd-axis-y');
+    var $axisX       = root.querySelector('.gvpd-axis-x');
+    var $legend      = root.querySelector('.gvpd-legend');
+    var ctx          = $canvas.getContext('2d');
+
+    /* ── Build axis labels ─────────────────────────── */
+    function buildAxes() {
+      $axisY.innerHTML = '';
+      for (var h = MAX_HUM; h >= MIN_HUM; h -= 10) {
+        var s = document.createElement('span');
+        s.textContent = h + '%';
+        $axisY.appendChild(s);
+      }
+      $axisX.innerHTML = '';
+      for (var t = MIN_TEMP; t <= MAX_TEMP; t += 5) {
+        var s = document.createElement('span');
+        s.textContent = state.isFahrenheit ? Math.round(cToF(t)) + '\u00b0F' : t + '\u00b0C';
+        $axisX.appendChild(s);
+      }
+    }
+
+    /* ── Build legend ──────────────────────────────── */
+    function buildLegend() {
+      $legend.innerHTML = '';
+      for (var i = 1; i < ZONES.length; i++) {
+        var item = document.createElement('span');
+        item.className = 'gvpd-legend-item';
+        item.innerHTML = '<span class="gvpd-legend-dot" style="background:' + ZONES[i].color + '"></span>' + ZONES[i].label;
+        $legend.appendChild(item);
+      }
+    }
+
+    /* ── Draw heatmap ──────────────────────────────── */
+    var heatmapImageData = null;
+
+    function drawHeatmap() {
+      var w = $canvas.width;
+      var h = $canvas.height;
+      var cellW = w / CHART_COLS;
+      var cellH = h / CHART_ROWS;
+      var lo = state.leafOffset;
+
+      ctx.clearRect(0, 0, w, h);
+
+      /* Draw cells */
+      for (var col = 0; col < CHART_COLS; col++) {
+        for (var row = 0; row < CHART_ROWS; row++) {
+          var temp = MIN_TEMP + (col / CHART_COLS) * (MAX_TEMP - MIN_TEMP);
+          var hum = MAX_HUM - (row / CHART_ROWS) * (MAX_HUM - MIN_HUM);
+          var vpd = calcVPD(temp, hum, lo);
+          ctx.fillStyle = vpdColor(vpd);
+          ctx.fillRect(col * cellW, row * cellH, Math.ceil(cellW), Math.ceil(cellH));
+        }
+      }
+
+      /* Grid lines */
+      ctx.strokeStyle = 'rgba(255,255,255,0.25)';
+      ctx.lineWidth = 0.5;
+      for (var t = MIN_TEMP + 5; t < MAX_TEMP; t += 5) {
+        var x = ((t - MIN_TEMP) / (MAX_TEMP - MIN_TEMP)) * w;
+        ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, h); ctx.stroke();
+      }
+      for (var rh = MIN_HUM + 10; rh < MAX_HUM; rh += 10) {
+        var y = ((MAX_HUM - rh) / (MAX_HUM - MIN_HUM)) * h;
+        ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(w, y); ctx.stroke();
+      }
+
+      /* VPD value labels on grid intersections */
+      ctx.font = '600 11px -apple-system,BlinkMacSystemFont,sans-serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      for (var t = MIN_TEMP + 5; t < MAX_TEMP; t += 5) {
+        for (var rh = MIN_HUM + 10; rh < MAX_HUM; rh += 10) {
+          var x = ((t - MIN_TEMP) / (MAX_TEMP - MIN_TEMP)) * w;
+          var y = ((MAX_HUM - rh) / (MAX_HUM - MIN_HUM)) * h;
+          var v = calcVPD(t, rh, lo);
+          ctx.fillStyle = 'rgba(255,255,255,0.85)';
+          ctx.strokeStyle = 'rgba(0,0,0,0.5)';
+          ctx.lineWidth = 2;
+          ctx.strokeText(v.toFixed(1), x, y);
+          ctx.fillText(v.toFixed(1), x, y);
+        }
+      }
+
+      heatmapImageData = ctx.getImageData(0, 0, w, h);
+    }
+
+    /* ── Draw crosshair at current position ─────────── */
+    function drawCrosshair() {
+      if (!heatmapImageData) return;
+      var w = $canvas.width;
+      var h = $canvas.height;
+
+      ctx.putImageData(heatmapImageData, 0, 0);
+
+      var px = ((state.tempC - MIN_TEMP) / (MAX_TEMP - MIN_TEMP)) * w;
+      var py = ((MAX_HUM - state.rh) / (MAX_HUM - MIN_HUM)) * h;
+
+      px = Math.max(0, Math.min(w, px));
+      py = Math.max(0, Math.min(h, py));
+
+      /* Crosshair lines */
+      ctx.strokeStyle = 'rgba(255,255,255,0.7)';
+      ctx.lineWidth = 1;
+      ctx.setLineDash([4, 3]);
+      ctx.beginPath(); ctx.moveTo(px, 0); ctx.lineTo(px, h); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(0, py); ctx.lineTo(w, py); ctx.stroke();
+      ctx.setLineDash([]);
+
+      /* Center circle */
+      var vpd = calcVPD(state.tempC, state.rh, state.leafOffset);
+      ctx.beginPath();
+      ctx.arc(px, py, 8, 0, 2 * Math.PI);
+      ctx.fillStyle = 'rgba(0,0,0,0.4)';
+      ctx.fill();
+      ctx.beginPath();
+      ctx.arc(px, py, 7, 0, 2 * Math.PI);
+      ctx.strokeStyle = '#fff';
+      ctx.lineWidth = 2.5;
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.arc(px, py, 3, 0, 2 * Math.PI);
+      ctx.fillStyle = '#fff';
+      ctx.fill();
+
+      /* VPD label near crosshair */
+      var labelX = px + 14;
+      var labelY = py - 14;
+      if (labelX + 60 > w) labelX = px - 70;
+      if (labelY < 16) labelY = py + 22;
+
+      var label = vpd.toFixed(2) + ' kPa';
+      ctx.font = '700 12px -apple-system,BlinkMacSystemFont,sans-serif';
+      var tw = ctx.measureText(label).width;
+      ctx.fillStyle = 'rgba(0,0,0,0.75)';
+      ctx.beginPath();
+      ctx.roundRect(labelX - 4, labelY - 10, tw + 8, 20, 4);
+      ctx.fill();
+      ctx.fillStyle = '#fff';
+      ctx.textAlign = 'left';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(label, labelX, labelY);
+    }
+
+    /* ── Canvas interaction ─────────────────────────── */
+    function canvasToValues(e) {
+      var rect = $canvas.getBoundingClientRect();
+      var scaleX = $canvas.width / rect.width;
+      var scaleY = $canvas.height / rect.height;
+      var cx, cy;
+
+      if (e.touches && e.touches.length > 0) {
+        cx = (e.touches[0].clientX - rect.left) * scaleX;
+        cy = (e.touches[0].clientY - rect.top) * scaleY;
+      } else {
+        cx = (e.clientX - rect.left) * scaleX;
+        cy = (e.clientY - rect.top) * scaleY;
+      }
+
+      var temp = MIN_TEMP + (cx / $canvas.width) * (MAX_TEMP - MIN_TEMP);
+      var hum = MAX_HUM - (cy / $canvas.height) * (MAX_HUM - MIN_HUM);
+
+      temp = Math.max(MIN_TEMP, Math.min(MAX_TEMP, Math.round(temp * 2) / 2));
+      hum = Math.max(MIN_HUM, Math.min(MAX_HUM, Math.round(hum)));
+
+      return { temp: temp, hum: hum };
+    }
+
+    function handleChartInteraction(e) {
+      var vals = canvasToValues(e);
+      state.tempC = vals.temp;
+      state.rh = vals.hum;
+
+      if (state.isFahrenheit) {
+        $tempNum.value = cToF(state.tempC).toFixed(1);
+      } else {
+        $tempNum.value = state.tempC.toFixed(1);
+      }
+      $tempSlider.value = state.tempC.toFixed(1);
+      $rhNum.value = Math.round(state.rh);
+      $rhSlider.value = state.rh;
+
+      recalc();
+    }
+
+    function showTooltip(e) {
+      var vals = canvasToValues(e);
+      var vpd = calcVPD(vals.temp, vals.hum, state.leafOffset);
+      var zone = vpdZone(vpd);
+      var rect = $canvas.getBoundingClientRect();
+      var innerRect = root.querySelector('.gvpd-chart-inner').getBoundingClientRect();
+
+      var clientX = e.touches ? e.touches[0].clientX : e.clientX;
+      var clientY = e.touches ? e.touches[0].clientY : e.clientY;
+
+      var tx = clientX - innerRect.left + 16;
+      var ty = clientY - innerRect.top - 40;
+      if (tx + 140 > innerRect.width) tx = clientX - innerRect.left - 150;
+      if (ty < 0) ty = clientY - innerRect.top + 16;
+
+      var tempLabel = state.isFahrenheit ? cToF(vals.temp).toFixed(1) + '\u00b0F' : vals.temp.toFixed(1) + '\u00b0C';
+      $tooltip.innerHTML = tempLabel + ' / ' + vals.hum + '% RH<br>VPD: <span style="color:' + zone.color + '">' + vpd.toFixed(2) + ' kPa</span><br>' + zone.label;
+      $tooltip.style.left = tx + 'px';
+      $tooltip.style.top = ty + 'px';
+      $tooltip.classList.add('visible');
+    }
+
+    var isDragging = false;
+
+    $canvas.addEventListener('mousedown', function (e) {
+      isDragging = true;
+      handleChartInteraction(e);
+    });
+    $canvas.addEventListener('mousemove', function (e) {
+      showTooltip(e);
+      if (isDragging) handleChartInteraction(e);
+    });
+    $canvas.addEventListener('mouseup', function () { isDragging = false; });
+    $canvas.addEventListener('mouseleave', function () {
+      isDragging = false;
+      $tooltip.classList.remove('visible');
+    });
+
+    $canvas.addEventListener('touchstart', function (e) {
+      e.preventDefault();
+      isDragging = true;
+      handleChartInteraction(e);
+      showTooltip(e);
+    }, { passive: false });
+    $canvas.addEventListener('touchmove', function (e) {
+      e.preventDefault();
+      if (isDragging) {
+        handleChartInteraction(e);
+        showTooltip(e);
+      }
+    }, { passive: false });
+    $canvas.addEventListener('touchend', function () {
+      isDragging = false;
+      $tooltip.classList.remove('visible');
+    });
+
+    /* ── Leaf offset slider ────────────────────────── */
+    $leafSlider.addEventListener('input', function () {
+      state.leafOffset = parseFloat(this.value);
+      if (state.isFahrenheit) {
+        $leafVal.textContent = (state.leafOffset * 9 / 5).toFixed(1) + '\u00b0F';
+      } else {
+        $leafVal.textContent = state.leafOffset + '\u00b0C';
+      }
+      drawHeatmap();
+      drawCrosshair();
+    });
 
     /* ── Render stages ──────────────────────────────── */
     function renderStages(vpd) {
@@ -299,7 +615,7 @@
     function renderReverse(tempC) {
       $reverseGrid.innerHTML = '';
       REVERSE_VPDS.forEach(function (v) {
-        var rh = targetRH(v, tempC);
+        var rh = targetRH(v, tempC, state.leafOffset);
         var item = document.createElement('div');
         item.className = 'gvpd-rv-item';
         item.innerHTML =
@@ -314,20 +630,16 @@
       vpd = Math.max(0, vpd);
       var zone = vpdZone(vpd);
 
-      /* VPD value */
       $vpdValue.textContent = vpd.toFixed(2);
       $vpdValue.style.color = zone.color;
 
-      /* Status bar — map VPD 0..2.0 to 0..100% */
       var pct = Math.min(100, Math.max(0, (vpd / 2.0) * 100));
       $statusFill.style.width = pct + '%';
       $statusFill.style.background = zone.color;
 
-      /* Status text */
       $statusText.textContent = zone.label;
       $statusText.style.color = zone.color;
 
-      /* Dewpoint */
       var dp = calcDewpoint(state.tempC, state.rh);
       if (state.isFahrenheit) {
         $dewpoint.textContent = 'Dew point: ' + cToF(dp).toFixed(1) + '\u00b0F';
@@ -335,31 +647,23 @@
         $dewpoint.textContent = 'Dew point: ' + dp.toFixed(1) + '\u00b0C';
       }
 
-      /* Stages */
       renderStages(vpd);
-
-      /* Reverse */
       renderReverse(state.tempC);
+      drawCrosshair();
     }
 
-    /* ── API call with local fallback ───────────────── */
+    /* ── Recalculate ────────────────────────────────── */
     var apiAvailable = true;
 
     function recalc() {
-      /* Local calc (always instant) */
-      var localVPD = calcVPD(state.tempC, state.rh);
+      var localVPD = calcVPD(state.tempC, state.rh, state.leafOffset);
       updateDisplay(localVPD);
 
-      /* Try API (non-blocking, update on response) */
       if (apiAvailable) {
         fetchJSON(
           API + '/vpd?temp=' + state.tempC.toFixed(1) + '&humidity=' + state.rh.toFixed(0),
           function (err, data) {
-            if (err) {
-              apiAvailable = false;
-              /* Silently use local calc from here on */
-              return;
-            }
+            if (err) { apiAvailable = false; return; }
             if (data && typeof data.vpd === 'number') {
               updateDisplay(data.vpd);
             }
@@ -370,21 +674,19 @@
 
     var debouncedRecalc = debounce(recalc, DEBOUNCE_MS);
 
-    /* ── Sync slider <-> number input ───────────────── */
+    /* ── Sync controls ──────────────────────────────── */
     function syncTemp(val, source) {
       var v = parseFloat(val);
       if (isNaN(v)) return;
-
       if (state.isFahrenheit) {
-        var minF = cToF(15), maxF = cToF(40);
+        var minF = cToF(MIN_TEMP), maxF = cToF(MAX_TEMP);
         v = Math.max(minF, Math.min(maxF, v));
         state.tempC = fToC(v);
-        /* Map tempC back to slider position (slider always in C internally) */
         $tempSlider.value = state.tempC.toFixed(1);
         if (source !== 'num') $tempNum.value = v.toFixed(1);
         if (source !== 'slider') $tempSlider.value = state.tempC.toFixed(1);
       } else {
-        v = Math.max(15, Math.min(40, v));
+        v = Math.max(MIN_TEMP, Math.min(MAX_TEMP, v));
         state.tempC = v;
         if (source !== 'num') $tempNum.value = v.toFixed(1);
         if (source !== 'slider') $tempSlider.value = v.toFixed(1);
@@ -395,14 +697,14 @@
     function syncRH(val, source) {
       var v = parseFloat(val);
       if (isNaN(v)) return;
-      v = Math.max(20, Math.min(95, v));
+      v = Math.max(MIN_HUM, Math.min(MAX_HUM, v));
       state.rh = v;
       if (source !== 'num') $rhNum.value = Math.round(v);
       if (source !== 'slider') $rhSlider.value = v;
       debouncedRecalc();
     }
 
-    /* ── Events: temperature ────────────────────────── */
+    /* ── Events ─────────────────────────────────────── */
     $tempSlider.addEventListener('input', function () {
       var sliderC = parseFloat(this.value);
       if (state.isFahrenheit) {
@@ -413,23 +715,15 @@
       state.tempC = sliderC;
       debouncedRecalc();
     });
+    $tempNum.addEventListener('input', function () { syncTemp(this.value, 'num'); });
 
-    $tempNum.addEventListener('input', function () {
-      syncTemp(this.value, 'num');
-    });
-
-    /* ── Events: humidity ───────────────────────────── */
     $rhSlider.addEventListener('input', function () {
       $rhNum.value = Math.round(parseFloat(this.value));
       state.rh = parseFloat(this.value);
       debouncedRecalc();
     });
+    $rhNum.addEventListener('input', function () { syncRH(this.value, 'num'); });
 
-    $rhNum.addEventListener('input', function () {
-      syncRH(this.value, 'num');
-    });
-
-    /* ── Events: unit toggle ────────────────────────── */
     function setUnit(fahrenheit) {
       state.isFahrenheit = fahrenheit;
       $btnC.classList.toggle('active', !fahrenheit);
@@ -439,38 +733,74 @@
 
       if (fahrenheit) {
         $tempUnit.textContent = '\u00b0F';
-        var minF = cToF(15), maxF = cToF(40);
-        $tempSlider.min = '15';
-        $tempSlider.max = '40';
-        $tempSlider.step = '0.5';
-        $tempSlider.value = state.tempC.toFixed(1);
-        $tempNum.min = minF.toFixed(0);
-        $tempNum.max = maxF.toFixed(0);
-        $tempNum.step = '1';
         $tempNum.value = cToF(state.tempC).toFixed(1);
+        $tempNum.min = Math.round(cToF(MIN_TEMP));
+        $tempNum.max = Math.round(cToF(MAX_TEMP));
+        $tempNum.step = '1';
+        $leafVal.textContent = (state.leafOffset * 9 / 5).toFixed(1) + '\u00b0F';
       } else {
         $tempUnit.textContent = '\u00b0C';
-        $tempSlider.min = '15';
-        $tempSlider.max = '40';
-        $tempSlider.step = '0.5';
-        $tempSlider.value = state.tempC.toFixed(1);
-        $tempNum.min = '15';
-        $tempNum.max = '40';
-        $tempNum.step = '0.5';
         $tempNum.value = state.tempC.toFixed(1);
+        $tempNum.min = MIN_TEMP;
+        $tempNum.max = MAX_TEMP;
+        $tempNum.step = '0.5';
+        $leafVal.textContent = state.leafOffset + '\u00b0C';
       }
+      $tempSlider.value = state.tempC.toFixed(1);
+      buildAxes();
       recalc();
     }
 
     $btnC.addEventListener('click', function () { setUnit(false); });
     $btnF.addEventListener('click', function () { setUnit(true); });
 
+    /* ── Canvas resize (responsive) ─────────────────── */
+    function resizeCanvas() {
+      var rect = $canvas.parentElement.getBoundingClientRect();
+      var w = Math.max(200, Math.floor(rect.width));
+      var ratio = window.devicePixelRatio || 1;
+      var canvasW = w * ratio;
+      var canvasH = Math.round(canvasW * 0.6);
+      $canvas.width = canvasW;
+      $canvas.height = canvasH;
+      $canvas.style.height = Math.round(w * 0.6) + 'px';
+      drawHeatmap();
+      drawCrosshair();
+    }
+
+    var resizeObserver;
+    if (typeof ResizeObserver !== 'undefined') {
+      resizeObserver = new ResizeObserver(function () { resizeCanvas(); });
+      resizeObserver.observe($canvas.parentElement);
+    } else {
+      window.addEventListener('resize', debounce(resizeCanvas, 150));
+    }
+
+    /* ── polyfill roundRect for older browsers ───── */
+    if (!ctx.roundRect) {
+      ctx.roundRect = function (x, y, w, h, r) {
+        ctx.beginPath();
+        ctx.moveTo(x + r, y);
+        ctx.lineTo(x + w - r, y);
+        ctx.arcTo(x + w, y, x + w, y + r, r);
+        ctx.lineTo(x + w, y + h - r);
+        ctx.arcTo(x + w, y + h, x + w - r, y + h, r);
+        ctx.lineTo(x + r, y + h);
+        ctx.arcTo(x, y + h, x, y + h - r, r);
+        ctx.lineTo(x, y + r);
+        ctx.arcTo(x, y, x + r, y, r);
+        ctx.closePath();
+      };
+    }
+
     /* ── Initial render ─────────────────────────────── */
+    buildAxes();
+    buildLegend();
+    resizeCanvas();
     recalc();
   }
 
   /* ── Bootstrap ──────────────────────────────────────── */
-  /* Capture currentScript eagerly — it is null inside async callbacks */
   var _currentScript = document.currentScript;
 
   function findScript() {
