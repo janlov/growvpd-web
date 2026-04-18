@@ -536,7 +536,7 @@ git push
 
 ### 3.9 Vytvoreni permanentniho invite linku
 
-Na webu je vsude pouzit link `https://discord.gg/growvpd`. Musis vytvorit tento link:
+Na webu je vsude pouzit link `https://discord.gg/BGDpE6nP`. Musis vytvorit tento link:
 
 1. Na serveru jdi do kanalu `#general`
 2. Klikni na ikonu postavicky s pluskem (Invite People) vedle nazvu kanalu
@@ -547,18 +547,18 @@ Na webu je vsude pouzit link `https://discord.gg/growvpd`. Musis vytvorit tento 
 5. Klikni **Generate a New Link**
 6. Zkopiruj link (bude napr. `https://discord.gg/aBcDeFg`)
 
-**Vanity URL** (`discord.gg/growvpd`):
+**Vanity URL** (`discord.gg/BGDpE6nP`):
 - Vanity URL je k dispozici az po dosazeni **50+ clenu** (nebo s Server Boost Level 1)
 - Do te doby pouzij normalni invite link
 - Jakmile ziskas 50+ clenu: Server Settings -> **Vanity URL** -> zadej `growvpd`
-- Docasne reseni: uprav vsechny `discord.gg/growvpd` na webu na tvuj skutecny invite link:
+- Docasne reseni: uprav vsechny `discord.gg/BGDpE6nP` na webu na tvuj skutecny invite link:
 
 ```bash
 cd "C:/Users/janlo/AndroidStudioProjects/GrowmasterVPDchart/website"
 
-# Nahrad discord.gg/growvpd za tvuj skutecny invite link
+# Nahrad discord.gg/BGDpE6nP za tvuj skutecny invite link
 # (nahrad aBcDeFg za svuj skutecny kod)
-find . -name "*.html" -exec sed -i 's|discord.gg/growvpd|discord.gg/aBcDeFg|g' {} \;
+find . -name "*.html" -exec sed -i 's|discord.gg/BGDpE6nP|discord.gg/aBcDeFg|g' {} \;
 
 git add .
 git commit -m "Update Discord invite link"
@@ -640,7 +640,7 @@ Po par dnech:
 - [ ] Po prihlaseni pres GitHub jde napsat komentar
 - [ ] Komentar se objevi v GitHub Discussions
 - [ ] Discord widget se zobrazuje v sidebar na guides/index.html
-- [ ] Discord invite link (discord.gg/growvpd nebo tvuj vlastni) funguje
+- [ ] Discord invite link (discord.gg/BGDpE6nP nebo tvuj vlastni) funguje
 
 ### Odkazy na aplikaci
 
@@ -719,7 +719,7 @@ GitHub Pages automaticky nasadi novou verzi do **1-3 minut** po push.
 | GitHub Discussions         | https://github.com/TVOJE_USERNAME/growvpd-web/discussions |
 | Giscus konfigurator        | https://giscus.app                                     |
 | Giscus GitHub App          | https://github.com/apps/giscus                         |
-| Discord server             | https://discord.gg/growvpd                             |
+| Discord server             | https://discord.gg/BGDpE6nP                             |
 | Google Search Console      | https://search.google.com/search-console               |
 | DNS overeni                | https://www.whatsmydns.com/#A/growvpd.pro               |
 | PageSpeed test             | https://pagespeed.web.dev/                             |

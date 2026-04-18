@@ -513,7 +513,7 @@
             // Rebuild with translated text while preserving links
             giscusNotes[g].innerHTML =
                 escapeHtml(t.discussNote) + ' ' +
-                '<a href="https://discord.gg/growvpd" target="_blank" rel="noopener">' +
+                '<a href="https://discord.gg/BGDpE6nP" target="_blank" rel="noopener">' +
                 escapeHtml(t.discussDiscord) +
                 '</a>';
         }

@@ -99,7 +99,7 @@ Replace `YOUR_SERVER_ID` with your actual Discord server ID.
 
 ### Discord invite link
 
-Make sure your Discord invite link `https://discord.gg/growvpd` is valid and set to never expire. To create a permanent invite:
+Make sure your Discord invite link `https://discord.gg/BGDpE6nP` is valid and set to never expire. To create a permanent invite:
 
 1. Go to a channel in your Discord server
 2. Click the "Create Invite" button
