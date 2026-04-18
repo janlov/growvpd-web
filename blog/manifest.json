@@ -1,3 +1,12 @@
 {
-  "articles": []
+  "articles": [
+    {
+      "slug": "what-is-vpd-every-grower-needs-it",
+      "title": "What Is VPD and Why Every Indoor Grower Needs It",
+      "excerpt": "Discover VPD, the secret metric revolutionizing indoor growing. Optimize your environment for healthier plants and bigger yields.",
+      "category": "vpd",
+      "date": "2026-04-18",
+      "readTime": "7 min read"
+    }
+  ]
 }
