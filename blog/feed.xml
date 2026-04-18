@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>GrowVPD Pro Blog</title>
+    <link>https://growvpd.pro/blog/</link>
+    <description>Indoor growing tips, VPD optimization, smart automation guides, and more from the GrowVPD Pro team.</description>
+    <language>en</language>
+    <atom:link href="https://growvpd.pro/blog/feed.xml" rel="self" type="application/rss+xml"/>
+    <lastBuildDate>Sat, 18 Apr 2026 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://growvpd.pro/images/logo.webp</url>
+      <title>GrowVPD Pro Blog</title>
+      <link>https://growvpd.pro/blog/</link>
+    </image>
+  </channel>
+</rss>

@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://giscus.app; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://giscus.app https://discord.com; connect-src 'self' https://giscus.app; base-uri 'self'; form-action 'self';">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog — GrowVPD Pro</title>
+    <meta name="description" content="Indoor growing tips, VPD optimization guides, PPFD and lighting advice, nutrient management, smart automation tutorials, and more from the GrowVPD Pro team.">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="GrowVPD Pro Blog — Growing Tips & Automation Tutorials">
+    <meta property="og:description" content="Indoor growing tips, VPD optimization guides, PPFD and lighting advice, nutrient management, and smart automation tutorials from the GrowVPD Pro team.">
+    <meta property="og:url" content="https://growvpd.pro/blog/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="icon" type="image/png" href="../images/favicon.png">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="canonical" href="https://growvpd.pro/blog/">
+    <link rel="alternate" type="application/rss+xml" title="GrowVPD Pro Blog" href="feed.xml">
+    <link rel="alternate" hreflang="en" href="https://growvpd.pro/blog/">
+    <link rel="alternate" hreflang="cs" href="https://growvpd.pro/blog/?lang=cs">
+    <link rel="alternate" hreflang="de" href="https://growvpd.pro/blog/?lang=de">
+    <link rel="alternate" hreflang="es" href="https://growvpd.pro/blog/?lang=es">
+    <link rel="alternate" hreflang="nl" href="https://growvpd.pro/blog/?lang=nl">
+    <link rel="alternate" hreflang="fr" href="https://growvpd.pro/blog/?lang=fr">
+    <link rel="alternate" hreflang="it" href="https://growvpd.pro/blog/?lang=it">
+    <link rel="alternate" hreflang="pt" href="https://growvpd.pro/blog/?lang=pt">
+    <link rel="alternate" hreflang="pl" href="https://growvpd.pro/blog/?lang=pl">
+    <link rel="alternate" hreflang="th" href="https://growvpd.pro/blog/?lang=th">
+    <link rel="alternate" hreflang="he" href="https://growvpd.pro/blog/?lang=he">
+    <link rel="alternate" hreflang="x-default" href="https://growvpd.pro/blog/">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/forum.css">
+    <script>(function(){var p=new URLSearchParams(location.search).get("lang"),s=localStorage.getItem("growvpd-lang"),l=p||s||(navigator.language||"en").split("-")[0];if(l&&l!=="en"){var st=document.createElement("style");st.id="i18n-cloak";st.textContent="[data-i18n],[data-i18n-html]{opacity:0!important}";document.head.appendChild(st);setTimeout(function(){var c=document.getElementById("i18n-cloak");if(c)c.remove()},150)}})()</script>
+
+    <style>
+        /* Blog card grid */
+        .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; margin-top: 32px; }
+
+        .blog-card { background: #fff; border: 1px solid #ECEFF1; border-radius: 16px; overflow: hidden; transition: all .3s ease; display: flex; flex-direction: column; }
+        .blog-card:hover { border-color: #C8E6C9; box-shadow: 0 8px 32px rgba(46,125,50,.1); transform: translateY(-3px); }
+        .blog-card-body { padding: 24px; flex: 1; display: flex; flex-direction: column; }
+        .blog-card-category { display: inline-block; font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; padding: 3px 10px; border-radius: 5px; margin-bottom: 12px; width: fit-content; }
+        .blog-card-category[data-cat="vpd"] { background: rgba(46,125,50,.08); color: #2E7D32; }
+        .blog-card-category[data-cat="light"] { background: rgba(255,143,0,.08); color: #E65100; }
+        .blog-card-category[data-cat="nutrients"] { background: rgba(33,150,243,.08); color: #1565C0; }
+        .blog-card-category[data-cat="automation"] { background: rgba(156,39,176,.08); color: #7B1FA2; }
+        .blog-card-category[data-cat="tips"] { background: rgba(0,150,136,.08); color: #00796B; }
+        .blog-card-title { font-size: 1.1rem; font-weight: 800; color: #212121; line-height: 1.3; margin-bottom: 10px; letter-spacing: -.01em; }
+        .blog-card-title a { color: inherit; text-decoration: none; }
+        .blog-card-title a:hover { color: #2E7D32; }
+        .blog-card-excerpt { font-size: .88rem; color: #78909C; line-height: 1.6; margin-bottom: 16px; flex: 1; }
+        .blog-card-meta { display: flex; align-items: center; gap: 12px; font-size: .78rem; color: #B0BEC5; margin-top: auto; padding-top: 16px; border-top: 1px solid #F5F5F5; }
+        .blog-card-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: #CFD8DC; }
+
+        /* Category filter tabs */
+        .blog-tabs { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+        .blog-tab { padding: 8px 20px; border-radius: 24px; border: 1px solid #E0E0E0; background: #fff; color: #546E7A; font-size: .85rem; font-weight: 600; cursor: pointer; transition: all .25s; }
+        .blog-tab:hover { border-color: #C8E6C9; color: #2E7D32; }
+        .blog-tab.active { background: #2E7D32; color: #fff; border-color: #2E7D32; }
+
+        /* Empty state */
+        .blog-empty { text-align: center; padding: 80px 24px; color: #90A4AE; }
+        .blog-empty svg { margin-bottom: 16px; opacity: .4; }
+        .blog-empty h3 { font-size: 1.2rem; font-weight: 700; color: #546E7A; margin-bottom: 8px; }
+        .blog-empty p { font-size: .9rem; line-height: 1.6; max-width: 420px; margin: 0 auto; }
+
+        /* Blog hero adjustments */
+        .blog-hero-sub { max-width: 600px; }
+
+        /* Download CTA banner */
+        .blog-download-cta { background: linear-gradient(135deg, #E8F5E9, #C8E6C9); border-radius: 16px; padding: 40px; text-align: center; margin: 48px 0 0; }
+        .blog-download-cta h3 { font-size: 1.25rem; font-weight: 800; color: #1B5E20; margin-bottom: 8px; }
+        .blog-download-cta p { font-size: .9rem; color: #546E7A; margin-bottom: 20px; max-width: 480px; margin-left: auto; margin-right: auto; }
+        .blog-download-cta .btn { display: inline-flex; align-items: center; gap: 8px; background: #2E7D32; color: #fff; padding: 12px 28px; border-radius: 10px; font-weight: 600; font-size: .9rem; transition: all .25s; text-decoration: none; }
+        .blog-download-cta .btn:hover { background: #1B5E20; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(46,125,50,.35); }
+
+        /* RSS link */
+        .blog-rss { display: inline-flex; align-items: center; gap: 6px; font-size: .82rem; color: #90A4AE; margin-top: 12px; transition: color .2s; }
+        .blog-rss:hover { color: #2E7D32; }
+
+        @media (max-width: 768px) {
+            .blog-grid { grid-template-columns: 1fr; gap: 16px; }
+            .blog-download-cta { padding: 28px 20px; }
+        }
+        @media (max-width: 480px) {
+            .blog-tab { padding: 6px 14px; font-size: .8rem; }
+        }
+    </style>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        "name": "GrowVPD Pro Blog",
+        "description": "Indoor growing tips, VPD optimization guides, PPFD and lighting advice, nutrient management, and smart automation tutorials.",
+        "url": "https://growvpd.pro/blog/",
+        "publisher": {
+            "@type": "Organization",
+            "name": "GrowVPD Pro",
+            "url": "https://growvpd.pro"
+        },
+        "inLanguage": "en"
+    }
+    </script>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="../index.html" class="nav-brand">
+                <img class="nav-logo" src="../images/logo.webp" alt="GrowVPD Pro" width="28" height="28">
+                <span>GrowVPD Pro</span>
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../index.html#features" data-i18n="navFeatures">Features</a></li>
+                <li><a href="../guides/index.html" data-i18n="navGuides">Guides</a></li>
+                <li><a href="../docs/index.html" data-i18n="navApi">API</a></li>
+                <li><a href="../widget/index.html" data-i18n="navWidget">Widget</a></li>
+                <li><a href="index.html" class="active" data-i18n="navBlog">Blog</a></li>
+                <li><a href="../partnership/index.html" data-i18n="navPartnership">Partnerships</a></li>
+                <li><a href="../support/index.html" data-i18n="navFaq">FAQ</a></li>
+                <li><a href="../index.html#download" class="nav-cta" data-i18n="navDownload">Download</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="forum-hero">
+        <div class="forum-hero-glow forum-hero-glow-1"></div>
+        <div class="forum-hero-glow forum-hero-glow-2"></div>
+        <div class="forum-hero-grid"></div>
+        <div class="container forum-hero-content">
+            <div class="forum-hero-badge">
+                <span class="badge-dot"></span>
+                <span data-i18n="blogHeroBadge">Blog</span>
+            </div>
+            <h1><span data-i18n="blogHeroTitle1">GrowVPD Pro</span><br><span class="text-gradient" data-i18n="blogHeroTitle2">Blog</span></h1>
+            <p class="forum-hero-sub blog-hero-sub" data-i18n="blogHeroSub">Growing tips, VPD deep dives, lighting science, nutrient management, and smart automation tutorials &mdash; written by growers, for growers.</p>
+            <div class="hero-badges">
+                <span class="hero-badge-item" data-i18n-html="blogBadge1">&#127793; Growing Tips</span>
+                <span class="hero-badge-item" data-i18n-html="blogBadge2">&#127777;&#65039; VPD Science</span>
+                <span class="hero-badge-item" data-i18n-html="blogBadge3">&#128161; Lighting &amp; PPFD</span>
+                <span class="hero-badge-item" data-i18n-html="blogBadge4">&#129302; Automation</span>
+            </div>
+        </div>
+        <div class="forum-hero-wave">
+            <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+                <path d="M0,60 C360,120 720,0 1080,60 C1260,90 1380,80 1440,60 L1440,120 L0,120 Z" fill="#ffffff"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Category Tabs -->
+    <section class="forum-tabs-section">
+        <div class="container">
+            <div class="blog-tabs" id="blogTabs">
+                <button class="blog-tab active" data-filter="all" data-i18n="blogTabAll">All</button>
+                <button class="blog-tab" data-filter="vpd" data-i18n="blogTabVpd">VPD</button>
+                <button class="blog-tab" data-filter="light" data-i18n="blogTabLight">Light &amp; PPFD</button>
+                <button class="blog-tab" data-filter="nutrients" data-i18n="blogTabNutrients">Nutrients</button>
+                <button class="blog-tab" data-filter="automation" data-i18n="blogTabAutomation">Automation</button>
+                <button class="blog-tab" data-filter="tips" data-i18n="blogTabTips">Growing Tips</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Content -->
+    <section class="forum-content">
+        <div class="container">
+            <div id="blogGrid" class="blog-grid">
+                <!-- Articles injected by JavaScript from manifest.json -->
+            </div>
+
+            <div id="blogEmpty" class="blog-empty" style="display:none;">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#B0BEC5" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><line x1="9" y1="7" x2="17" y2="7"/><line x1="9" y1="11" x2="15" y2="11"/></svg>
+                <h3 data-i18n="blogEmptyTitle">No articles yet</h3>
+                <p data-i18n="blogEmptyDesc">We are working on new content. Check back soon or subscribe to our RSS feed to get notified when new articles are published.</p>
+            </div>
+
+            <!-- RSS link -->
+            <div style="text-align:center; margin-top: 24px;">
+                <a href="feed.xml" class="blog-rss">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
+                    RSS Feed
+                </a>
+            </div>
+
+            <!-- Download CTA -->
+            <div class="blog-download-cta">
+                <h3 data-i18n="blogCtaTitle">Start Growing Smarter</h3>
+                <p data-i18n="blogCtaDesc">Put these tips into practice with GrowVPD Pro. Free VPD chart, grow diary, and smart automation &mdash; all in one app.</p>
+                <a href="../index.html#download" class="btn" data-i18n="blogCtaBtn">Download Free</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="forum-footer">
+        <div class="container">
+            <div class="forum-footer-inner">
+                <div class="forum-footer-brand">
+                    <svg viewBox="0 0 32 32" width="20" height="20">
+                        <circle cx="16" cy="16" r="16" fill="#2E7D32"/>
+                        <path d="M16 6c0 0-6 4-6 12 0 4 2.5 7 6 8 3.5-1 6-4 6-8 0-8-6-12-6-12z" fill="#81C784"/>
+                        <path d="M16 10c0 0-3 3-3 8 0 2.5 1.2 4.5 3 5.2 1.8-.7 3-2.7 3-5.2 0-5-3-8-3-8z" fill="#A5D6A7"/>
+                    </svg>
+                    <strong>GrowVPD Pro</strong>
+                </div>
+                <div class="forum-footer-links">
+                    <a href="../index.html" data-i18n="supNavHome">Home</a>
+                    <a href="../guides/index.html" data-i18n="navGuides">Guides</a>
+                    <a href="../support/index.html" data-i18n="navSupport">Support</a>
+                    <a href="../privacy/index.html">Privacy</a>
+                    <a href="https://discord.gg/BGDpE6nP" target="_blank" rel="noopener noreferrer">Discord</a>
+                </div>
+                <span class="forum-footer-copy" data-i18n="footCopy">&copy; 2026 GrowVPD Pro. All rights reserved.</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/translations.js"></script>
+    <script src="../js/i18n.js"></script>
+
+    <script>
+    (function () {
+        'use strict';
+
+        // -----------------------------------------------------------------------
+        // DOM references
+        // -----------------------------------------------------------------------
+        var grid = document.getElementById('blogGrid');
+        var emptyState = document.getElementById('blogEmpty');
+        var tabs = document.querySelectorAll('.blog-tab');
+        var activeFilter = 'all';
+
+        // -----------------------------------------------------------------------
+        // Category display names
+        // -----------------------------------------------------------------------
+        var categoryLabels = {
+            vpd: 'VPD',
+            light: 'Light & PPFD',
+            nutrients: 'Nutrients',
+            automation: 'Automation',
+            tips: 'Growing Tips'
+        };
+
+        // -----------------------------------------------------------------------
+        // Render a single blog card
+        // -----------------------------------------------------------------------
+        function renderCard(article) {
+            var card = document.createElement('article');
+            card.className = 'blog-card';
+            card.setAttribute('data-category', article.category || 'tips');
+
+            var catLabel = categoryLabels[article.category] || article.category || 'Blog';
+            var dateStr = article.date || '';
+            var readTime = article.readTime || '';
+
+            card.innerHTML =
+                '<div class="blog-card-body">' +
+                    '<span class="blog-card-category" data-cat="' + (article.category || 'tips') + '">' + catLabel + '</span>' +
+                    '<h2 class="blog-card-title"><a href="articles/' + article.slug + '.html">' + (article.title || '') + '</a></h2>' +
+                    '<p class="blog-card-excerpt">' + (article.excerpt || '') + '</p>' +
+                    '<div class="blog-card-meta">' +
+                        '<span>' + dateStr + '</span>' +
+                        (readTime ? '<span class="dot"></span><span>' + readTime + '</span>' : '') +
+                    '</div>' +
+                '</div>';
+
+            return card;
+        }
+
+        // -----------------------------------------------------------------------
+        // Render the full grid
+        // -----------------------------------------------------------------------
+        function renderGrid(articles) {
+            grid.innerHTML = '';
+
+            if (!articles || articles.length === 0) {
+                grid.style.display = 'none';
+                emptyState.style.display = '';
+                return;
+            }
+
+            var visibleCount = 0;
+            for (var i = 0; i < articles.length; i++) {
+                var card = renderCard(articles[i]);
+                if (activeFilter !== 'all' && articles[i].category !== activeFilter) {
+                    card.style.display = 'none';
+                } else {
+                    visibleCount++;
+                }
+                grid.appendChild(card);
+            }
+
+            grid.style.display = '';
+            emptyState.style.display = visibleCount === 0 ? '' : 'none';
+        }
+
+        // -----------------------------------------------------------------------
+        // Filter by category
+        // -----------------------------------------------------------------------
+        function filterCards() {
+            var cards = grid.querySelectorAll('.blog-card');
+            var visibleCount = 0;
+            for (var i = 0; i < cards.length; i++) {
+                var cat = cards[i].getAttribute('data-category');
+                var show = (activeFilter === 'all' || cat === activeFilter);
+                cards[i].style.display = show ? '' : 'none';
+                if (show) visibleCount++;
+            }
+            emptyState.style.display = visibleCount === 0 ? '' : 'none';
+        }
+
+        // -----------------------------------------------------------------------
+        // Tab click handlers
+        // -----------------------------------------------------------------------
+        for (var t = 0; t < tabs.length; t++) {
+            tabs[t].addEventListener('click', function () {
+                for (var j = 0; j < tabs.length; j++) tabs[j].classList.remove('active');
+                this.classList.add('active');
+                activeFilter = this.getAttribute('data-filter');
+                filterCards();
+            });
+        }
+
+        // -----------------------------------------------------------------------
+        // Fetch manifest and render
+        // -----------------------------------------------------------------------
+        fetch('manifest.json')
+            .then(function (res) { return res.json(); })
+            .then(function (data) {
+                var articles = data.articles || [];
+                // Sort newest first
+                articles.sort(function (a, b) {
+                    return (b.date || '').localeCompare(a.date || '');
+                });
+                renderGrid(articles);
+            })
+            .catch(function () {
+                grid.style.display = 'none';
+                emptyState.style.display = '';
+            });
+
+        // -----------------------------------------------------------------------
+        // Navbar scroll + mobile toggle
+        // -----------------------------------------------------------------------
+        var navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', function () {
+            navbar.classList.toggle('scrolled', window.scrollY > 10);
+        }, { passive: true });
+
+        var navToggle = document.getElementById('navToggle');
+        var navLinks = document.getElementById('navLinks');
+        navToggle.addEventListener('click', function () {
+            navToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+        navLinks.querySelectorAll('a').forEach(function (link) {
+            link.addEventListener('click', function () {
+                navToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+    })();
+    </script>
+
+</body>
+</html>

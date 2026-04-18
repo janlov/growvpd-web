@@ -155,6 +155,24 @@
     <priority>0.8</priority>
     <changefreq>weekly</changefreq>
   </url>
+  <!-- Blog -->
+  <url>
+    <loc>https://growvpd.pro/blog/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://growvpd.pro/blog/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://growvpd.pro/blog/?lang=cs"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://growvpd.pro/blog/?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://growvpd.pro/blog/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://growvpd.pro/blog/?lang=nl"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://growvpd.pro/blog/?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://growvpd.pro/blog/?lang=it"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://growvpd.pro/blog/?lang=pt"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://growvpd.pro/blog/?lang=pl"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://growvpd.pro/blog/?lang=th"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://growvpd.pro/blog/?lang=he"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://growvpd.pro/blog/"/>
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+  </url>
   <!-- Guides & Community -->
   <url>
     <loc>https://growvpd.pro/guides/getting-started.html</loc>
