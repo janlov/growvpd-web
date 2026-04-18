@@ -758,6 +758,10 @@
         // Translate all UI chrome
         translateUI(lang, t);
 
+        // Remove anti-flash cloak
+        var cloak = document.getElementById('i18n-cloak');
+        if (cloak) cloak.remove();
+
         // Propagate ?lang= to all internal links
         updateNavLinks(lang);
 

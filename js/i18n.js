@@ -52,6 +52,12 @@ function applyLang(lang) {
     const t = TRANSLATIONS[lang];
     const fallback = TRANSLATIONS['en'];
 
+    // Remove anti-flash cloak after translations are applied
+    requestAnimationFrame(() => {
+        const cloak = document.getElementById('i18n-cloak');
+        if (cloak) cloak.remove();
+    });
+
     document.documentElement.lang = lang;
     document.documentElement.dir = RTL_LANGS.includes(lang) ? 'rtl' : 'ltr';
 
