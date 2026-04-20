@@ -75,6 +75,13 @@ function applyLang(lang) {
         else if (fallback[key] != null) el.innerHTML = fallback[key];
     });
 
+    // Apply placeholder translations (inputs)
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (t[key] != null) el.setAttribute('placeholder', t[key]);
+        else if (fallback[key] != null) el.setAttribute('placeholder', fallback[key]);
+    });
+
     // Update active state in language selector
     document.querySelectorAll('.lang-option').forEach(opt => {
         opt.classList.toggle('lang-active', opt.dataset.lang === lang);

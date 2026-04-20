@@ -120,4 +120,95 @@ document.addEventListener('DOMContentLoaded', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     }
+
+    // Pricing toggle (monthly / yearly / lifetime)
+    const pricingToggle = document.querySelector('.pricing-toggle');
+    if (pricingToggle) {
+        const amountEl = document.querySelector('.pricing-amount');
+        const perEl = document.querySelector('.pricing-amount .per');
+        const subEl = document.querySelector('.pricing-sublabel');
+        const hintEl = document.querySelector('.pricing-lifetime-hint');
+
+        const plans = {
+            monthly:  { price: '3.99',  per: '/mo', sub: 'Cancel anytime',              hint: '' },
+            yearly:   { price: '24.99', per: '/yr', sub: '~$2.08/mo · save 48%',        hint: '' },
+            lifetime: { price: '49.99', per: '',    sub: 'Pay once. Keep forever.',     hint: 'All future updates included' },
+        };
+
+        pricingToggle.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const plan = btn.dataset.plan;
+                if (!plan || !plans[plan]) return;
+                pricingToggle.querySelectorAll('button').forEach(b => b.classList.remove('is-active'));
+                btn.classList.add('is-active');
+                const p = plans[plan];
+                if (amountEl) {
+                    amountEl.innerHTML = `<sup>$</sup>${p.price}<span class="per">${p.per}</span>`;
+                }
+                if (subEl) subEl.textContent = p.sub;
+                if (hintEl) hintEl.textContent = p.hint;
+            });
+        });
+    }
+
+    // More-features expand/collapse
+    const moreToggle = document.querySelector('.more-features-toggle');
+    const moreGrid = document.querySelector('.more-features');
+    if (moreToggle && moreGrid) {
+        moreToggle.addEventListener('click', () => {
+            const open = moreGrid.classList.toggle('collapsed') === false;
+            moreToggle.classList.toggle('is-open', open);
+            const label = moreToggle.querySelector('.mf-label');
+            if (label) label.textContent = open
+                ? (moreToggle.dataset.labelLess || 'Show less')
+                : (moreToggle.dataset.labelMore || 'Show all features');
+        });
+    }
+
+    // Nav dropdown (Resources)
+    document.querySelectorAll('.nav-dropdown').forEach(dd => {
+        const toggle = dd.querySelector('.nav-dropdown-toggle');
+        if (!toggle) return;
+        toggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            document.querySelectorAll('.nav-dropdown.is-open').forEach(other => {
+                if (other !== dd) other.classList.remove('is-open');
+            });
+            dd.classList.toggle('is-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.nav-dropdown.is-open').forEach(d => d.classList.remove('is-open'));
+    });
+
+    // Hero notify form (same endpoint as footer subscribe)
+    const heroForm = document.getElementById('heroNotifyForm');
+    if (heroForm) {
+        heroForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const input = heroForm.querySelector('input[type=email]');
+            const btn = heroForm.querySelector('button');
+            const msg = heroForm.querySelector('.notify-msg');
+            const em = input.value.trim();
+            if (!em) return;
+            const origLabel = btn.textContent;
+            btn.disabled = true; btn.textContent = '...';
+            const lang = (localStorage.getItem('growvpd-lang') || navigator.language || 'en').substring(0,2);
+            fetch('https://api.growvpd.pro/subscribe', {
+                method: 'POST', headers: {'Content-Type':'application/json'},
+                body: JSON.stringify({ email: em, lang, source: 'hero' })
+            }).then(r => r.json()).then(d => {
+                msg.style.display = 'block';
+                msg.style.color = '#81C784';
+                msg.textContent = d.message || 'Check your inbox to confirm!';
+                input.value = '';
+            }).catch(() => {
+                msg.style.display = 'block';
+                msg.style.color = '#EF5350';
+                msg.textContent = 'Something went wrong. Try again later.';
+            }).finally(() => {
+                btn.disabled = false; btn.textContent = origLabel;
+            });
+        });
+    }
 });
