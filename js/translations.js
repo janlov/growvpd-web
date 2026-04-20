@@ -906,7 +906,7 @@ const TRANSLATIONS = {
     faqA2: "Jsme indie pěstitelé co píší software, ne startup pálící peníze VC na reklamu. Žádné ad sítě, žádné trackery, žádný 50členný marketing. $3,99/měs pokryje hosting, testování integrací a světla v growu, nad kterým funkce stavíme.",
     faqQ3: "Co se stane s mými daty, když GrowVPD Pro skončí?",
     faqA3: "Deník, fotky i nastavení jsou u tebe v telefonu — ne na našem serveru. Vše si kdykoli vyexportuješ do PDF nebo JSON. I kdybychom zítra zmizeli, tvoje grows ti zůstanou.",
-    faqQ4: "Je „lifetime" opravdu navždy?",
+    faqQ4: "Je „lifetime“ opravdu navždy?",
     faqA4: "Ano. Jedna platba, všechny budoucí Pro aktualizace v ceně, napořád. Pokud bychom někdy přešli na jiný model, stávající lifetime zákazníci si drží to, co si koupili — taková je dohoda.",
     faqQ5: "Které značky fungují teď a které jsou v beta?",
     faqA5: "Tuya a Mars Hydro už měsíce běží na reálných growech a jsou stabilní. AC Infinity, Spider Farmer, Vivosun, Bluelab a SANlight jsou v beta — protokoly jsou hotové, ale stále sháníme hardware na otestování všech modelů. Máš něco konkrétního? Přidej se na Discord, doladíme to.",
