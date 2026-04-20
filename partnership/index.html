@@ -86,6 +86,11 @@
         .integration-badge { font-size: .7rem; font-weight: 600; padding: 2px 8px; border-radius: 100px; margin-left: auto; }
         .badge-active { background: rgba(76,175,80,.15); color: #81C784; border: 1px solid rgba(76,175,80,.25); }
         .badge-beta { background: rgba(255,167,38,.12); color: #FFB74D; border: 1px solid rgba(255,167,38,.25); }
+        .badge-active-inline, .badge-beta-inline { display: inline-block; font-size: .72rem; font-weight: 700; padding: 1px 8px; border-radius: 100px; vertical-align: middle; }
+        .badge-active-inline { background: rgba(76,175,80,.18); color: #81C784; border: 1px solid rgba(76,175,80,.3); }
+        .badge-beta-inline { background: rgba(255,167,38,.15); color: #FFB74D; border: 1px solid rgba(255,167,38,.3); }
+        .beta-disclaimer { margin: 32px 0 8px; padding: 18px 22px; background: rgba(255,167,38,.07); border-left: 4px solid #FFA726; border-radius: 0 12px 12px 0; color: rgba(255,255,255,.78); font-size: .92rem; line-height: 1.65; max-width: 960px; }
+        .beta-disclaimer strong { color: #FFB74D; font-weight: 700; }
         .integration-desc { font-size: .87rem; color: rgba(255,255,255,.5); line-height: 1.6; margin-bottom: 14px; }
         .integration-protocols { display: flex; flex-wrap: wrap; gap: 6px; }
         .proto-tag { font-size: .7rem; font-weight: 600; color: rgba(255,255,255,.4); background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08); padding: 2px 9px; border-radius: 100px; }
@@ -279,7 +284,11 @@
             <div class="text-center">
                 <span class="section-label" data-i18n="partnerCurrentLabel">Current Integrations</span>
                 <h2 class="section-title section-title-light" data-i18n="partnerCurrentTitle">Already Integrated Platforms</h2>
-                <p class="section-sub section-sub-light text-center" data-i18n="partnerCurrentSub">Seven platforms. Thousands of hours of engineering. Every integration built from scratch — no shortcuts, no public SDKs — with real hardware in our hands and tested through complete growing cycles. Results are consistent. Here's where we stand today.</p>
+                <p class="section-sub section-sub-light text-center" data-i18n="partnerCurrentSub">Seven platforms. Thousands of hours of engineering. Every integration built from scratch — no shortcuts, no public SDKs — with real hardware in our hands. Here's where we stand today.</p>
+            </div>
+
+            <div class="beta-disclaimer" data-i18n-html="partnerBetaDisclaimer">
+                <strong>Honest status:</strong> Only platforms labeled <span class="badge-active-inline">Active</span> are validated through a full grow cycle on real hardware we own. Platforms labeled <span class="badge-beta-inline">Beta</span> are implemented at the protocol level and functional in the lab, but we haven't yet completed a full validation cycle on every device variant. Pair at your own pace — and please flag anything you notice on Discord so we can iterate fast.
             </div>
 
             <div class="integrations-grid">
@@ -315,7 +324,6 @@
                         <span class="proto-tag">Controllers</span>
                         <span class="proto-tag">Full Automation</span>
                     </div>
-                    <div style="margin-top:10px;padding:8px 12px;background:rgba(255,167,38,0.08);border-left:3px solid #FFA726;border-radius:4px;font-size:0.82em;color:rgba(255,255,255,0.75);" data-i18n="intMarsNote">💡 Many users report trouble connecting Mars Hydro clip fans and LED lights — and keeping them connected long-term. We traced this to the protocol level, found the root cause, and built a step-by-step setup guide into the app. Once paired correctly, devices stay connected through the entire growing cycle.</div>
                 </div>
 
                 <!-- AC Infinity — beta, needs real hardware -->
@@ -677,6 +685,7 @@
         partnerCurrentLabel: "Current Integrations",
         partnerCurrentTitle: "Already Integrated Platforms",
         partnerCurrentSub: "Seven platforms. Thousands of hours of engineering. Every integration built from scratch — no shortcuts, no public SDKs — with real hardware in our hands and tested through complete growing cycles. Results are consistent. Here's where we stand today.",
+        partnerBetaDisclaimer: "<strong>Honest status:</strong> Only platforms labeled <span class=\"badge-active-inline\">Active</span> are validated through a full grow cycle on real hardware we own. Platforms labeled <span class=\"badge-beta-inline\">Beta</span> are implemented at the protocol level and functional in the lab, but we haven't yet completed a full validation cycle on every device variant. Pair at your own pace — and please flag anything you notice on Discord so we can iterate fast.",
         partnerCurrentNote: "We're at the beginning of something big — and we're building it intensively, every single day. Every brand that partners with us at this stage helps shape the direction of the entire platform.",
         partnerEffortLabel: "Integration Reality",
         partnerEffortTitle: "What Device Integration Really Takes",
@@ -729,7 +738,6 @@
         devBeta: "Beta",
         intTuyaDesc: "The most versatile integration in GrowVPD Pro — sensors, smart plugs, cameras, climate control, irrigation automation, and more. Actively tested across multiple device generations and global regions. The foundation of our automation engine.",
         intMarsDesc: "LED grow lights, inline fans, and smart controllers — natively integrated with full automation support. Developed with real Mars Hydro hardware in hand from day one, validated through a complete growing cycle. Light scheduling, energy tracking, and full GrowVPD Pro automation engine support.",
-        intMarsNote: "💡 Mars Hydro clip fans are not WiFi devices — they connect through an iControl controller or iHub fan hub, which provides the smart layer. Many users struggle with this distinction. We traced the connection issues to the protocol level, built proper iControl/iHub detection into the app, and created a step-by-step setup guide. Once paired correctly through the right controller, devices stay connected through the entire growing cycle.",
         intAciDesc: "CLOUDLINE fans, CLOUDLAB sensors, and climate controllers — integrated for live environmental readings and automated fan control. Working integration, actively developed. Real AC Infinity hardware access would accelerate reliability and unlock the full device range.",
         intSfDesc: "LED grow lights and fans with cloud-based automation support. Core integration is functional, but thorough testing across device variants requires direct hardware access. Spider Farmer partnership would be transformative for this integration.",
         intVivoDesc: "AeroZone climate controllers, fans, and LED grow lights — one of the most technically ambitious integrations in our stack, spanning multiple control layers. Real Vivosun hardware is the single thing that would take this from promising to production-ready.",
@@ -773,6 +781,7 @@
         partnerCurrentLabel: "Aktuální integrace",
         partnerCurrentTitle: "Již integrované platformy",
         partnerCurrentSub: "Sedm platforem. Tisíce hodin inženýrské práce. Každá integrace postavena od nuly — bez veřejných SDK, bez zkratek — s reálným hardwarem v rukou a testována v průběhu kompletních pěstebních cyklů. Výsledky jsou konzistentní. Tady stojíme dnes.",
+        partnerBetaDisclaimer: "<strong>Poctivý stav:</strong> Pouze platformy označené <span class=\"badge-active-inline\">Active</span> jsou ověřené v plném pěstebním cyklu na hardwaru, který vlastníme. Platformy označené <span class=\"badge-beta-inline\">Beta</span> mají implementovaný protokol a v laboratoři fungují, ale zatím jsme nedokončili plnou validaci na všech variantách zařízení. Připojujte v klidu — a pokud si čehokoli všimnete, napište na Discord, rychle to doladíme.",
         partnerCurrentNote: "Jsme na začátku něčeho velkého — a pracujeme na tom intenzivně každý den. Každá značka, která s námi spolupracuje v této fázi, pomáhá formovat směr celé platformy.",
         partnerEffortLabel: "Realita integrace",
         partnerEffortTitle: "Co skutečně obnáší integrace zařízení",
@@ -825,7 +834,6 @@
         devBeta: "Beta",
         intTuyaDesc: "Nejuniverzálnější integrace v GrowVPD Pro — senzory, chytré zásuvky, kamery, klimatizace, automatizace závlahy a další. Aktivně testováno na mnoha generacích zařízení a v různých regionech světa. Základ celého automatizačního systému.",
         intMarsDesc: "LED pěstební světla, ventilátory a chytré řadiče — nativně integrované s plnou podporou automatizace. Vyvíjeno s reálným hardwarem Mars Hydro od prvního dne, ověřeno v průběhu kompletního pěstebního cyklu. Plánování světla, sledování spotřeby energie a plné napojení na automatizační engine GrowVPD Pro.",
-        intMarsNote: "💡 Clip ventilátory Mars Hydro nejsou WiFi zařízení — připojují se přes iControl řadič nebo iHub fan hub, který poskytuje chytrou vrstvu. Mnoho uživatelů si tento rozdíl neuvědomuje. Příčinu problémů jsme vystopovali až na úroveň protokolu, v aplikaci jsme zprovoznili správnou detekci iControl/iHub a vytvořili podrobný průvodce nastavením. Jakmile jsou zařízení správně spárována přes správný řadič, zůstávají připojena po celý pěstební cyklus.",
         intAciDesc: "Ventilátory CLOUDLINE, senzory CLOUDLAB a klimatické ovladače — integrované pro živá environmentální data a automatizované řízení. Funkční integrace v aktivním vývoji. Přístup k reálnému hardwaru AC Infinity by zásadně urychlil spolehlivost a rozšířil podporu celého sortimentu.",
         intSfDesc: "LED pěstební světla a ventilátory s cloudovou automatizací. Základní integrace funguje, ale důkladné testování napříč variantami zařízení vyžaduje přímý přístup k hardwaru. Partnerství Spider Farmer by tuto integraci zásadně posunulo.",
         intVivoDesc: "Klimatické ovladače AeroZone, ventilátory a LED světla — jedna z technicky nejnáročnějších integrací v celé aplikaci. Reálný hardware Vivosun je jediná věc, která by tuto integraci posunula z perspektivní do produkční kvality.",
@@ -869,6 +877,7 @@
         partnerCurrentLabel: "Aktuelle Integrationen",
         partnerCurrentTitle: "Bereits integrierte Plattformen",
         partnerCurrentSub: "Sieben Plattformen. Tausende Stunden Ingenieurarbeit. Jede Integration von Grund auf gebaut — ohne Abkürzungen, ohne öffentliche SDKs — mit echter Hardware in den Händen und durch vollständige Anbauzyk­len getestet. Ergebnisse sind konsistent. Das ist unser aktueller Stand.",
+        partnerBetaDisclaimer: "<strong>Ehrlicher Status:</strong> Nur Plattformen mit der Kennzeichnung <span class=\"badge-active-inline\">Active</span> sind über einen vollständigen Grow-Zyklus auf Hardware in unserem Besitz validiert. Plattformen mit <span class=\"badge-beta-inline\">Beta</span> sind auf Protokollebene implementiert und im Labor funktionsfähig, aber wir haben noch keine vollständige Validierung für jede Geräte-Variante abgeschlossen. Koppeln Sie in Ihrem eigenen Tempo — und melden Sie alles auf Discord, damit wir schnell nachbessern können.",
         partnerCurrentNote: "Wir stehen am Anfang von etwas Großem — und bauen intensiv daran, jeden einzelnen Tag. Jede Marke, die in dieser Phase mit uns zusammenarbeitet, hilft die Richtung der gesamten Plattform zu gestalten.",
         partnerEffortLabel: "Realität der Integration",
         partnerEffortTitle: "Was Geräteintegration wirklich bedeutet",
@@ -921,7 +930,6 @@
         devBeta: "Beta",
         intTuyaDesc: "Die vielseitigste Integration in GrowVPD Pro — Sensoren, Smart-Steckdosen, Kameras, Klimasteuerung, Bewässerungsautomatisierung und mehr. Aktiv getestet über mehrere Gerätegenerationen und globale Regionen. Das Fundament unseres Automatisierungssystems.",
         intMarsDesc: "LED-Wachstumslichter, Ventilatoren und Smart-Controller — nativ integriert mit voller Automatisierungsunterstützung. Von Anfang an mit echter Mars-Hydro-Hardware entwickelt, validiert über einen vollständigen Anbauzyklus. Lichtplanung, Energieverbrauch-Tracking und vollständige Anbindung an den GrowVPD-Pro-Automatisierungsmotor.",
-        intMarsNote: "💡 Mars Hydro Clip-Fans sind keine WiFi-Geräte — sie werden über einen iControl-Controller oder iHub-Fan-Hub angeschlossen, der die Smart-Schicht bereitstellt. Viele Nutzer kennen diesen Unterschied nicht. Wir haben die Verbindungsprobleme bis auf Protokollebene zurückverfolgt, eine korrekte iControl/iHub-Erkennung in die App integriert und einen detaillierten Einrichtungsleitfaden erstellt. Einmal korrekt über den richtigen Controller verbunden, bleiben die Geräte über den gesamten Anbauzyklus verbunden.",
         intAciDesc: "CLOUDLINE-Ventilatoren, CLOUDLAB-Sensoren und Klimacontroller — integriert für Live-Umgebungsdaten und automatisierte Lüftersteuerung. Funktionierende Integration in aktiver Entwicklung. Echter Zugang zu AC-Infinity-Hardware würde Zuverlässigkeit und Geräteabdeckung massiv verbessern.",
         intSfDesc: "LED-Wachstumslichter und Ventilatoren mit Cloud-basierter Automatisierung. Die Kernintegration funktioniert, aber gründliche Tests über Gerätevarianten erfordern direkten Hardware-Zugang. Eine Spider-Farmer-Partnerschaft würde diese Integration transformieren.",
         intVivoDesc: "AeroZone-Klimacontroller, Ventilatoren und LED-Lichter — eine der technisch anspruchsvollsten Integrationen in unserem Stack. Echte Vivosun-Hardware ist das Einzige, was diese Integration von vielversprechend auf produktionsreif bringen würde.",
@@ -965,6 +973,7 @@
         partnerCurrentLabel: "Integraciones actuales",
         partnerCurrentTitle: "Plataformas ya integradas",
         partnerCurrentSub: "Siete plataformas. Miles de horas de ingeniería. Cada integración construida desde cero — sin atajos, sin SDKs públicos — con hardware real en nuestras manos y probada en ciclos de cultivo completos. Los resultados son consistentes. Aquí estamos hoy.",
+        partnerBetaDisclaimer: "<strong>Estado honesto:</strong> Solo las plataformas etiquetadas como <span class=\"badge-active-inline\">Active</span> están validadas a través de un ciclo completo de cultivo con hardware que poseemos. Las plataformas etiquetadas como <span class=\"badge-beta-inline\">Beta</span> están implementadas a nivel de protocolo y funcionan en el laboratorio, pero aún no hemos completado la validación completa de cada variante. Emparéjalos a tu ritmo y cuéntanos en Discord lo que encuentres para iterar rápido.",
         partnerCurrentNote: "Estamos al principio de algo grande — y lo construimos intensamente, cada día. Cada marca que se asocia con nosotros en esta etapa ayuda a definir la dirección de toda la plataforma.",
         partnerEffortLabel: "La realidad de la integración",
         partnerEffortTitle: "Lo que realmente implica integrar un dispositivo",
@@ -1017,7 +1026,6 @@
         devBeta: "Beta",
         intTuyaDesc: "La integración más versátil en GrowVPD Pro — sensores, enchufes inteligentes, cámaras, control climático, automatización de riego y más. Probado activamente en múltiples generaciones de dispositivos y regiones globales. La base de nuestro motor de automatización.",
         intMarsDesc: "Luces LED de cultivo, ventiladores y controladores inteligentes — integrados de forma nativa con soporte completo de automatización. Desarrollado con hardware Mars Hydro real desde el primer día, validado en un ciclo de cultivo completo. Programación de luz, seguimiento energético y soporte total del motor de automatización de GrowVPD Pro.",
-        intMarsNote: "💡 Los ventiladores clip de Mars Hydro no son dispositivos WiFi — se conectan a través de un controlador iControl o hub iHub, que proporciona la capa inteligente. Muchos usuarios desconocen esta distinción. Rastreamos los problemas de conexión hasta el nivel de protocolo, implementamos detección correcta de iControl/iHub en la app y creamos una guía de configuración paso a paso. Una vez emparejados correctamente a través del controlador adecuado, los dispositivos permanecen conectados durante todo el ciclo de cultivo.",
         intAciDesc: "Ventiladores CLOUDLINE, sensores CLOUDLAB y controladores climáticos — integrados para lecturas ambientales en vivo y control automatizado. Integración funcional en desarrollo activo. El acceso real al hardware de AC Infinity aceleraría la fiabilidad y ampliaría la cobertura de dispositivos.",
         intSfDesc: "Luces LED de cultivo y ventiladores con automatización basada en la nube. La integración principal funciona, pero las pruebas exhaustivas entre variantes de dispositivos requieren acceso directo al hardware. Una colaboración con Spider Farmer transformaría esta integración.",
         intVivoDesc: "Controladores climáticos AeroZone, ventiladores y luces LED — una de las integraciones técnicamente más ambiciosas de nuestra plataforma. El hardware real de Vivosun es lo único que llevaría esta integración de prometedora a lista para producción.",
@@ -1061,6 +1069,7 @@
         partnerCurrentLabel: "Huidige integraties",
         partnerCurrentTitle: "Al geïntegreerde platforms",
         partnerCurrentSub: "Zeven platforms. Duizenden uren engineering. Elke integratie van scratch gebouwd — geen snelkoppelingen, geen publieke SDK's — met echte hardware in handen, getest door volledige kweekperiodes. Resultaten zijn consistent. Dit is waar we vandaag staan.",
+        partnerBetaDisclaimer: "<strong>Eerlijke status:</strong> Alleen platformen met het label <span class=\"badge-active-inline\">Active</span> zijn gevalideerd via een volledige kweekcyclus op hardware die wij bezitten. Platformen met <span class=\"badge-beta-inline\">Beta</span> zijn op protocolniveau geïmplementeerd en werken in het lab, maar we hebben nog geen volledige validatie voor elke variant voltooid. Koppel rustig — en laat ons op Discord weten wat je opmerkt, dan itereren we snel.",
         partnerCurrentNote: "We staan aan het begin van iets groots — en we bouwen er intensief aan, elke dag. Elk merk dat in deze fase met ons samenwerkt, helpt de richting van het hele platform te bepalen.",
         partnerEffortLabel: "Integratierealiteit",
         partnerEffortTitle: "Wat apparaatintegratie werkelijk inhoudt",
@@ -1113,7 +1122,6 @@
         devBeta: "Beta",
         intTuyaDesc: "De meest veelzijdige integratie in GrowVPD Pro — sensoren, slimme stekkers, camera's, klimaatbeheersing, irrigatieautomatisering en meer. Actief getest over meerdere apparaatgeneraties en wereldwijde regio's. De basis van ons automatiseringssysteem.",
         intMarsDesc: "LED-kweeklampen, ventilatoren en slimme controllers — native geïntegreerd met volledige automatiseringsondersteuning. Ontwikkeld met echte Mars Hydro-hardware vanaf dag één, gevalideerd over een volledig kweekproces. Lichtprogrammering, energieregistratie en volledige ondersteuning van de GrowVPD Pro automatiseringsmotor.",
-        intMarsNote: "💡 Mars Hydro clip-ventilatoren zijn geen WiFi-apparaten — ze worden aangesloten via een iControl-controller of iHub-fan-hub, die de slimme laag biedt. Veel gebruikers kennen dit verschil niet. We hebben de verbindingsproblemen teruggevoerd tot op protocolniveau, correcte iControl/iHub-detectie in de app ingebouwd en een gedetailleerde installatiegids gemaakt. Eenmaal correct gekoppeld via de juiste controller, blijven apparaten verbonden gedurende de gehele kweekperiode.",
         intAciDesc: "CLOUDLINE-ventilatoren, CLOUDLAB-sensoren en klimaatcontrollers — geïntegreerd voor live omgevingsdata en geautomatiseerde ventilatiebesturing. Werkende integratie in actieve ontwikkeling. Echte toegang tot AC Infinity-hardware zou betrouwbaarheid en apparaatdekking sterk verbeteren.",
         intSfDesc: "LED-kweeklampen en ventilatoren met cloudgebaseerde automatisering. De kernintegratie werkt, maar grondig testen met verschillende apparaatvarianten vereist directe toegang tot hardware. Een Spider Farmer-samenwerking zou deze integratie transformeren.",
         intVivoDesc: "AeroZone klimaatcontrollers, ventilatoren en LED-lampen — een van de technisch meest ambitieuze integraties in ons systeem. Echte Vivosun-hardware is het enige dat deze integratie van veelbelovend naar productieklaar zou brengen.",
@@ -1157,6 +1165,7 @@
         partnerCurrentLabel: "Intégrations actuelles",
         partnerCurrentTitle: "Plateformes déjà intégrées",
         partnerCurrentSub: "Sept plateformes. Des milliers d'heures d'ingénierie. Chaque intégration construite de zéro — sans raccourcis, sans SDK public — avec du vrai matériel entre les mains, testée sur des cycles de culture complets. Les résultats sont consistants. Voilà où nous en sommes aujourd'hui.",
+        partnerBetaDisclaimer: "<strong>Statut honnête :</strong> Seules les plateformes marquées <span class=\"badge-active-inline\">Active</span> sont validées sur un cycle de culture complet avec du matériel qui nous appartient. Les plateformes marquées <span class=\"badge-beta-inline\">Beta</span> sont implémentées au niveau du protocole et fonctionnent en laboratoire, mais nous n'avons pas encore terminé une validation complète sur chaque variante. Jumelez à votre rythme — et signalez-nous tout sur Discord pour itérer rapidement.",
         partnerCurrentNote: "Nous sommes au début de quelque chose de grand — et nous le construisons intensément, chaque jour. Chaque marque qui s'associe à nous à ce stade contribue à façonner la direction de toute la plateforme.",
         partnerEffortLabel: "La réalité de l'intégration",
         partnerEffortTitle: "Ce que représente vraiment l'intégration d'un appareil",
@@ -1209,7 +1218,6 @@
         devBeta: "Bêta",
         intTuyaDesc: "L'intégration la plus polyvalente dans GrowVPD Pro — capteurs, prises intelligentes, caméras, contrôle climatique, automatisation de l'irrigation et plus encore. Testé activement sur plusieurs générations d'appareils et régions mondiales. La base de notre moteur d'automatisation.",
         intMarsDesc: "Lampes de culture LED, ventilateurs et contrôleurs intelligents — intégrés nativement avec support d'automatisation complet. Développé avec du vrai matériel Mars Hydro dès le premier jour, validé sur un cycle de culture complet. Programmation lumineuse, suivi énergétique et support complet du moteur d'automatisation GrowVPD Pro.",
-        intMarsNote: "💡 Les ventilateurs clip Mars Hydro ne sont pas des appareils WiFi — ils se connectent via un contrôleur iControl ou un hub iHub, qui fournit la couche intelligente. Beaucoup d'utilisateurs ignorent cette distinction. Nous avons retracé les problèmes de connexion jusqu'au niveau du protocole, intégré la détection correcte iControl/iHub dans l'application et créé un guide de configuration étape par étape. Une fois correctement jumelés via le bon contrôleur, les appareils restent connectés tout au long du cycle de culture.",
         intAciDesc: "Ventilateurs CLOUDLINE, capteurs CLOUDLAB et contrôleurs climatiques — intégrés pour des données environnementales en direct et un contrôle automatisé. Intégration fonctionnelle en développement actif. Un accès réel au matériel AC Infinity accélérerait la fiabilité et élargirait la couverture des appareils.",
         intSfDesc: "Lampes de culture LED et ventilateurs avec automatisation cloud. L'intégration de base fonctionne, mais des tests approfondis sur différentes variantes d'appareils nécessitent un accès direct au matériel. Un partenariat Spider Farmer transformerait cette intégration.",
         intVivoDesc: "Contrôleurs climatiques AeroZone, ventilateurs et lumières LED — l'une des intégrations techniquement les plus ambitieuses de notre stack. Du vrai matériel Vivosun est la seule chose qui ferait passer cette intégration de prometteuse à prête pour la production.",
@@ -1253,6 +1261,7 @@
         partnerCurrentLabel: "Integrazioni attuali",
         partnerCurrentTitle: "Piattaforme già integrate",
         partnerCurrentSub: "Sette piattaforme. Migliaia di ore di ingegneria. Ogni integrazione costruita da zero — senza scorciatoie, senza SDK pubblici — con hardware reale tra le mani e testata attraverso cicli di coltivazione completi. I risultati sono consistenti. Ecco dove siamo oggi.",
+        partnerBetaDisclaimer: "<strong>Stato onesto:</strong> Solo le piattaforme etichettate come <span class=\"badge-active-inline\">Active</span> sono validate in un ciclo di coltivazione completo su hardware che possediamo. Le piattaforme etichettate <span class=\"badge-beta-inline\">Beta</span> sono implementate a livello di protocollo e funzionano in laboratorio, ma non abbiamo ancora completato una validazione completa su ogni variante. Abbina con calma — e segnalaci tutto su Discord per iterare velocemente.",
         partnerCurrentNote: "Siamo agli inizi di qualcosa di grande — e lo stiamo costruendo intensamente, ogni giorno. Ogni brand che fa partnership con noi in questa fase contribuisce a dare forma alla direzione dell'intera piattaforma.",
         partnerEffortLabel: "La realtà dell'integrazione",
         partnerEffortTitle: "Cosa comporta davvero integrare un dispositivo",
@@ -1305,7 +1314,6 @@
         devBeta: "Beta",
         intTuyaDesc: "L'integrazione più versatile in GrowVPD Pro — sensori, prese intelligenti, telecamere, controllo climatico, automazione dell'irrigazione e altro. Testato attivamente su più generazioni di dispositivi e regioni globali. Il fondamento del nostro motore di automazione.",
         intMarsDesc: "Lampade LED per la coltivazione, ventilatori e controller intelligenti — integrati nativamente con supporto completo all'automazione. Sviluppato con hardware Mars Hydro reale fin dal primo giorno, validato attraverso un ciclo di coltivazione completo. Programmazione della luce, tracciamento energetico e pieno supporto al motore di automazione di GrowVPD Pro.",
-        intMarsNote: "💡 I ventilatori clip Mars Hydro non sono dispositivi WiFi — si collegano tramite un controller iControl o un hub iHub, che fornisce lo strato intelligente. Molti utenti non conoscono questa distinzione. Abbiamo tracciato i problemi di connessione fino al livello del protocollo, integrato il rilevamento corretto di iControl/iHub nell'app e creato una guida di configurazione passo passo. Una volta abbinati correttamente tramite il controller giusto, i dispositivi rimangono connessi per tutto il ciclo di coltivazione.",
         intAciDesc: "Ventilatori CLOUDLINE, sensori CLOUDLAB e controller climatici — integrati per dati ambientali in tempo reale e controllo automatizzato. Integrazione funzionante in sviluppo attivo. L'accesso reale all'hardware AC Infinity accelererebbe notevolmente l'affidabilità e la copertura dei dispositivi.",
         intSfDesc: "Lampade LED per la coltivazione e ventilatori con automazione cloud. L'integrazione di base funziona, ma test approfonditi su varianti di dispositivi diverse richiedono accesso diretto all'hardware. Una partnership con Spider Farmer trasformerebbe questa integrazione.",
         intVivoDesc: "Controller climatici AeroZone, ventilatori e luci LED — una delle integrazioni tecnicamente più ambiziose del nostro stack. Hardware Vivosun reale è l'unica cosa che porterebbe questa integrazione da promettente a pronta per la produzione.",
@@ -1349,6 +1357,7 @@
         partnerCurrentLabel: "Integrações atuais",
         partnerCurrentTitle: "Plataformas já integradas",
         partnerCurrentSub: "Sete plataformas. Milhares de horas de engenharia. Cada integração construída do zero — sem atalhos, sem SDKs públicos — com hardware real nas mãos e testada em ciclos de cultivo completos. Os resultados são consistentes. É aqui que estamos hoje.",
+        partnerBetaDisclaimer: "<strong>Estado honesto:</strong> Apenas plataformas rotuladas como <span class=\"badge-active-inline\">Active</span> são validadas através de um ciclo de cultivo completo com hardware que possuímos. Plataformas rotuladas como <span class=\"badge-beta-inline\">Beta</span> estão implementadas no nível de protocolo e funcionais em laboratório, mas ainda não concluímos uma validação completa em cada variante. Emparelhe ao seu ritmo — e sinalize tudo no Discord para iterarmos rápido.",
         partnerCurrentNote: "Estamos no início de algo grande — e estamos a construí-lo intensamente, todos os dias. Cada marca que faz parceria connosco nesta fase ajuda a definir a direção de toda a plataforma.",
         partnerEffortLabel: "A realidade da integração",
         partnerEffortTitle: "O que realmente implica integrar um dispositivo",
@@ -1401,7 +1410,6 @@
         devBeta: "Beta",
         intTuyaDesc: "A integração mais versátil no GrowVPD Pro — sensores, tomadas inteligentes, câmeras, controlo climático, automação de irrigação e mais. Testado ativamente em múltiplas gerações de dispositivos e regiões globais. A base do nosso motor de automação.",
         intMarsDesc: "Lâmpadas LED de crescimento, ventiladores e controladores inteligentes — integrados nativamente com suporte completo de automação. Desenvolvido com hardware Mars Hydro real desde o primeiro dia, validado num ciclo de cultivo completo. Programação de luz, rastreio de energia e suporte total ao motor de automação do GrowVPD Pro.",
-        intMarsNote: "💡 Os ventiladores clip da Mars Hydro não são dispositivos WiFi — eles se conectam através de um controlador iControl ou hub iHub, que fornece a camada inteligente. Muitos usuários desconhecem essa distinção. Rastreamos os problemas de conexão até o nível do protocolo, implementamos detecção correta de iControl/iHub no app e criamos um guia de configuração passo a passo. Uma vez emparelhados corretamente através do controlador adequado, os dispositivos permanecem conectados durante todo o ciclo de cultivo.",
         intAciDesc: "Ventiladores CLOUDLINE, sensores CLOUDLAB e controladores climáticos — integrados para dados ambientais em tempo real e controlo automatizado. Integração funcional em desenvolvimento ativo. Acesso real ao hardware AC Infinity aceleraria significativamente a fiabilidade e cobertura de dispositivos.",
         intSfDesc: "Lâmpadas LED de crescimento e ventiladores com automação baseada na nuvem. A integração principal funciona, mas testes abrangentes em variantes de dispositivos requerem acesso direto ao hardware. Uma parceria com Spider Farmer transformaria esta integração.",
         intVivoDesc: "Controladores climáticos AeroZone, ventiladores e luzes LED — uma das integrações tecnicamente mais ambiciosas do nosso stack. Hardware Vivosun real é o único caminho para passar esta integração de promissora a pronta para produção.",
@@ -1445,6 +1453,7 @@
         partnerCurrentLabel: "Aktualne integracje",
         partnerCurrentTitle: "Już zintegrowane platformy",
         partnerCurrentSub: "Siedem platform. Tysiące godzin pracy inżynierskiej. Każda integracja zbudowana od zera — bez skrótów, bez publicznych SDK — z prawdziwym sprzętem w rękach i przetestowana przez pełne cykle uprawy. Wyniki są spójne. Oto gdzie jesteśmy dziś.",
+        partnerBetaDisclaimer: "<strong>Szczery status:</strong> Tylko platformy oznaczone jako <span class=\"badge-active-inline\">Active</span> są zwalidowane w pełnym cyklu uprawy na sprzęcie, który posiadamy. Platformy oznaczone <span class=\"badge-beta-inline\">Beta</span> są zaimplementowane na poziomie protokołu i działają w laboratorium, ale nie ukończyliśmy jeszcze pełnej walidacji każdej wersji urządzenia. Paruj we własnym tempie — i daj nam znać na Discord, co zauważysz, abyśmy mogli szybko reagować.",
         partnerCurrentNote: "Jesteśmy na początku czegoś wielkiego — i budujemy to intensywnie, każdego dnia. Każda marka, która współpracuje z nami na tym etapie, pomaga kształtować kierunek całej platformy.",
         partnerEffortLabel: "Rzeczywistość integracji",
         partnerEffortTitle: "Co naprawdę oznacza integracja urządzeń",
@@ -1497,7 +1506,6 @@
         devBeta: "Beta",
         intTuyaDesc: "Najbardziej wszechstronna integracja w GrowVPD Pro — czujniki, inteligentne gniazdka, kamery, sterowanie klimatem, automatyzacja nawadniania i więcej. Aktywnie testowane na wielu generacjach urządzeń i regionach globalnych. Podstawa naszego silnika automatyzacji.",
         intMarsDesc: "Lampy LED do uprawy, wentylatory i inteligentne kontrolery — natywnie zintegrowane z pełnym wsparciem automatyzacji. Opracowane z prawdziwym sprzętem Mars Hydro od pierwszego dnia, zweryfikowane przez pełny cykl uprawy. Harmonogramowanie światła, śledzenie energii i pełne wsparcie silnika automatyzacji GrowVPD Pro.",
-        intMarsNote: "💡 Wentylatory clip Mars Hydro nie są urządzeniami WiFi — łączą się przez kontroler iControl lub hub iHub, który zapewnia inteligentną warstwę. Wielu użytkowników nie zna tej różnicy. Problemy z połączeniem prześledziliśmy aż do poziomu protokołu, wbudowaliśmy prawidłowe wykrywanie iControl/iHub w aplikacji i stworzyliśmy szczegółowy przewodnik konfiguracji. Po prawidłowym sparowaniu przez odpowiedni kontroler, urządzenia pozostają połączone przez cały cykl uprawy.",
         intAciDesc: "Wentylatory CLOUDLINE, czujniki CLOUDLAB i kontrolery klimatu — zintegrowane dla danych środowiskowych na żywo i zautomatyzowanego sterowania. Działająca integracja w aktywnym rozwoju. Rzeczywisty dostęp do sprzętu AC Infinity znacznie przyspieszyłby niezawodność i zasięg urządzeń.",
         intSfDesc: "Lampy LED do uprawy i wentylatory z automatyzacją opartą na chmurze. Podstawowa integracja działa, ale dokładne testy na różnych wariantach urządzeń wymagają bezpośredniego dostępu do sprzętu. Partnerstwo Spider Farmer transformowałoby tę integrację.",
         intVivoDesc: "Kontrolery klimatu AeroZone, wentylatory i oświetlenie LED — jedna z technicznie najbardziej ambitnych integracji w naszym systemie. Prawdziwy sprzęt Vivosun jest jedyną rzeczą, która przeniosłaby tę integrację z obiecującej do gotowej na produkcję.",
@@ -1541,6 +1549,7 @@
         partnerCurrentLabel: "การรวมระบบปัจจุบัน",
         partnerCurrentTitle: "แพลตฟอร์มที่รวมระบบแล้ว",
         partnerCurrentSub: "เจ็ดแพลตฟอร์ม หลายพันชั่วโมงของงานวิศวกรรม การรวมระบบทุกอย่างสร้างจากศูนย์ — ไม่มีทางลัด ไม่มี SDK สาธารณะ — พร้อมฮาร์ดแวร์จริงในมือและทดสอบผ่านวงจรการปลูกที่สมบูรณ์ ผลลัพธ์มีความสม่ำเสมอ นี่คือจุดที่เราอยู่วันนี้",
+        partnerBetaDisclaimer: "<strong>สถานะจริง:</strong> เฉพาะแพลตฟอร์มที่มีป้าย <span class=\"badge-active-inline\">Active</span> ได้รับการตรวจสอบผ่านวงจรการปลูกเต็มรูปแบบบนฮาร์ดแวร์ที่เราเป็นเจ้าของ แพลตฟอร์มที่มีป้าย <span class=\"badge-beta-inline\">Beta</span> ถูกนำไปใช้งานในระดับโปรโตคอลและทำงานในห้องทดลองได้ แต่เรายังไม่ได้ตรวจสอบทุกรุ่นอุปกรณ์อย่างครบถ้วน จับคู่ตามจังหวะของคุณ และแจ้งสิ่งที่พบใน Discord เพื่อให้เราปรับปรุงได้รวดเร็ว",
         partnerCurrentNote: "เราอยู่ที่จุดเริ่มต้นของบางสิ่งที่ยิ่งใหญ่ — และเราสร้างมันอย่างเข้มข้นทุกวัน ทุกแบรนด์ที่เป็นพาร์ทเนอร์กับเราในระยะนี้ช่วยกำหนดทิศทางของทั้งแพลตฟอร์ม",
         partnerEffortLabel: "ความจริงของการรวมระบบ",
         partnerEffortTitle: "สิ่งที่การรวมระบบอุปกรณ์ต้องการจริงๆ",
@@ -1593,7 +1602,6 @@
         devBeta: "เบต้า",
         intTuyaDesc: "การรวมระบบที่หลากหลายที่สุดใน GrowVPD Pro — เซ็นเซอร์ ปลั๊กอัจฉริยะ กล้อง การควบคุมสภาพอากาศ การให้น้ำอัตโนมัติ และอื่นๆ ทดสอบอย่างแข็งขันในหลายรุ่นอุปกรณ์และภูมิภาคทั่วโลก รากฐานของระบบอัตโนมัติของเรา",
         intMarsDesc: "ไฟ LED เพาะปลูก พัดลม และตัวควบคุมอัจฉริยะ — รวมระบบแบบเนทีฟพร้อมรองรับการอัตโนมัติเต็มรูปแบบ พัฒนาด้วยฮาร์ดแวร์ Mars Hydro จริงตั้งแต่วันแรก ได้รับการยืนยันผ่านวงจรการปลูกที่สมบูรณ์ การกำหนดตารางแสง การติดตามพลังงาน และการรองรับเต็มรูปแบบของ GrowVPD Pro",
-        intMarsNote: "💡 พัดลมคลิป Mars Hydro ไม่ใช่อุปกรณ์ WiFi — เชื่อมต่อผ่านตัวควบคุม iControl หรือ iHub fan hub ซึ่งเป็นชั้นอัจฉริยะ ผู้ใช้หลายคนไม่ทราบความแตกต่างนี้ เราติดตามปัญหาการเชื่อมต่อลงไปถึงระดับโปรโตคอล สร้างการตรวจจับ iControl/iHub ที่ถูกต้องในแอป และสร้างคู่มือการตั้งค่าโดยละเอียด เมื่อจับคู่อย่างถูกต้องผ่านตัวควบคุมที่เหมาะสม อุปกรณ์จะเชื่อมต่อตลอดวงจรการปลูก",
         intAciDesc: "พัดลม CLOUDLINE เซ็นเซอร์ CLOUDLAB และตัวควบคุมสภาพอากาศ — รวมระบบสำหรับข้อมูลสภาพแวดล้อมแบบสดและการควบคุมพัดลมอัตโนมัติ การรวมระบบที่ทำงานได้ในการพัฒนาอย่างแข็งขัน การเข้าถึงฮาร์ดแวร์ AC Infinity จริงจะเร่งความน่าเชื่อถือและความครอบคลุมของอุปกรณ์อย่างมาก",
         intSfDesc: "ไฟ LED เพาะปลูกและพัดลมพร้อมการอัตโนมัติบนคลาวด์ การรวมระบบหลักทำงานได้ แต่การทดสอบอย่างละเอียดในรุ่นอุปกรณ์ต่างๆ ต้องการการเข้าถึงฮาร์ดแวร์โดยตรง การเป็นพาร์ทเนอร์กับ Spider Farmer จะเปลี่ยนแปลงการรวมระบบนี้โดยสิ้นเชิง",
         intVivoDesc: "ตัวควบคุมสภาพอากาศ AeroZone พัดลม และไฟ LED — หนึ่งในการรวมระบบที่ทะเยอทะยานที่สุดในเชิงเทคนิคในระบบของเรา ฮาร์ดแวร์ Vivosun จริงคือสิ่งเดียวที่จะทำให้การรวมระบบนี้เปลี่ยนจากมีแนวโน้มดีไปสู่พร้อมใช้งานจริง",
@@ -1637,6 +1645,7 @@
         partnerCurrentLabel: "שילובים נוכחיים",
         partnerCurrentTitle: "פלטפורמות משולבות כבר",
         partnerCurrentSub: "שבע פלטפורמות. אלפי שעות עבודת הנדסה. כל שילוב נבנה מאפס — ללא קיצורי דרך, ללא SDK ציבוריים — עם חומרה אמיתית בידיים ונבדק לאורך מחזורי גידול שלמים. התוצאות עקביות. כאן אנחנו עומדים היום.",
+        partnerBetaDisclaimer: "<strong>מצב כנה:</strong> רק פלטפורמות שמסומנות <span class=\"badge-active-inline\">Active</span> מאומתות במחזור גידול מלא בחומרה שבבעלותנו. פלטפורמות שמסומנות <span class=\"badge-beta-inline\">Beta</span> ממומשות ברמת הפרוטוקול ופועלות במעבדה, אך עדיין לא סיימנו אימות מלא על כל וריאנט. חבר בקצב שלך — ועדכן אותנו ב-Discord על כל דבר שתבחין בו כדי שנוכל לתקן מהר.",
         partnerCurrentNote: "אנחנו בתחילת משהו גדול — ואנחנו בונים אותו בעצימות, כל יום. כל מותג שמשתף איתנו פעולה בשלב הזה עוזר לעצב את כיוון כל הפלטפורמה.",
         partnerEffortLabel: "מציאות השילוב",
         partnerEffortTitle: "מה שילוב מכשירים באמת דורש",
@@ -1689,7 +1698,6 @@
         devBeta: "בטא",
         intTuyaDesc: "השילוב המגוון ביותר ב-GrowVPD Pro — חיישנים, תקעים חכמים, מצלמות, שליטה אקלימית, אוטומציית השקיה ועוד. נבדק באופן פעיל על פני מספר דורות של מכשירים ואזורים גלובליים. הבסיס של מנוע האוטומציה שלנו.",
         intMarsDesc: "נורות LED לגידול, מאווררים ובקרים חכמים — משולבים באופן מקורי עם תמיכה מלאה באוטומציה. פותח עם חומרת Mars Hydro אמיתית מהיום הראשון, מאומת לאורך מחזור גידול שלם. תזמון אור, מעקב אנרגיה ותמיכה מלאה במנוע האוטומציה של GrowVPD Pro.",
-        intMarsNote: "💡 מאווררי קליפ של Mars Hydro אינם מכשירי WiFi — הם מתחברים דרך בקר iControl או רכזת iHub, שמספק את השכבה החכמה. משתמשים רבים אינם מכירים הבדל זה. עקבנו אחר בעיות החיבור עד לרמת הפרוטוקול, בנינו זיהוי נכון של iControl/iHub באפליקציה ויצרנו מדריך הגדרה צעד אחר צעד. לאחר שיוך נכון דרך הבקר המתאים, המכשירים נשארים מחוברים לאורך כל מחזור הגידול.",
         intAciDesc: "מאווררי CLOUDLINE, חיישני CLOUDLAB ובקרי אקלים — משולבים לנתוני סביבה חיים ושליטה אוטומטית. שילוב פעיל בפיתוח מתמיד. גישה אמיתית לחומרת AC Infinity תאיץ משמעותית את האמינות ותרחיב את כיסוי המכשירים.",
         intSfDesc: "נורות LED לגידול ומאווררים עם אוטומציה מבוססת ענן. השילוב הבסיסי עובד, אך בדיקות מקיפות על פני גרסאות מכשירים שונות דורשות גישה ישירה לחומרה. שותפות עם Spider Farmer תשנה את השילוב הזה לחלוטין.",
         intVivoDesc: "בקרי אקלים AeroZone, מאווררים ותאורת LED — אחד השילובים הטכניים הכי שאפתניים במערכת שלנו. חומרת Vivosun אמיתית היא הדבר היחיד שיוביל שילוב זה מן המבטיח אל המוכן לייצור.",

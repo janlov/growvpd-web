@@ -415,7 +415,8 @@ ul{list-style:none}
 }
 
 @media(max-width:768px){
-    .nav-toggle{display:flex}
+    .nav-toggle{display:flex !important}
+    .navbar .nav-container{position:relative;z-index:100}
     .nav-links{position:fixed;top:64px;left:0;right:0;background:rgba(255,255,255,.98);backdrop-filter:blur(20px);flex-direction:column;padding:20px 24px;gap:12px;box-shadow:0 10px 40px rgba(0,0,0,.1);transform:translateY(-120%);transition:transform .3s;border-bottom:1px solid #f0f0f0}
     .nav-links.active{transform:translateY(0)}
 
