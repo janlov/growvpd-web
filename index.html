@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://giscus.app; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://giscus.app https://discord.com; connect-src 'self' https://giscus.app; base-uri 'self'; form-action 'self';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://giscus.app; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://giscus.app https://discord.com; connect-src 'self' https://giscus.app https://api.growvpd.pro; base-uri 'self'; form-action 'self';">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,10 +12,13 @@
     <!-- Open Graph -->
     <meta property="og:title" content="GrowVPD Pro — Free VPD & Grow Diary App">
     <meta property="og:description" content="VPD chart, grow diary & smart automation for Tuya, Mars Hydro, AC Infinity, Spider Farmer, Vivosun, Bluelab & SANlight. Offline, 15 MB, 11 languages.">
-    <meta property="og:image" content="https://api.growvpd.pro/v1/og?temp=25&humidity=60&stage=early_flower">
+    <meta property="og:image" content="https://growvpd.pro/images/og-image.png">
+    <meta property="og:image:width" content="1024">
+    <meta property="og:image:height" content="500">
     <meta property="og:url" content="https://growvpd.pro">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://growvpd.pro/images/og-image.png">
 
     <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
     <link rel="icon" type="image/png" href="images/favicon.png">
@@ -65,9 +68,10 @@
     </script>
 </head>
 <body>
+    <a href="#main" class="skip-link">Skip to content</a>
 
     <!-- Navigation -->
-    <nav class="navbar" id="navbar">
+    <nav class="navbar" id="navbar" aria-label="Main navigation">
         <div class="container nav-container">
             <a href="index.html" class="nav-brand">
                 <img class="nav-logo" src="images/logo.webp" alt="GrowVPD Pro" width="28" height="28">
@@ -78,16 +82,27 @@
             </button>
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html#features" data-i18n="navFeatures">Features</a></li>
+                <li><a href="widget/index.html" data-i18n="navWidget">VPD Chart</a></li>
                 <li><a href="guides/index.html" data-i18n="navGuides">Guides &amp; Community</a></li>
-                <li><a href="docs/index.html" data-i18n="navApi">API</a></li>
-                <li><a href="widget/index.html" data-i18n="navWidget">Widget</a></li>
-                <li><a href="blog/index.html" data-i18n="navBlog">Blog</a></li>
-                <li><a href="partnership/index.html" data-i18n="navPartnership">Partnerships</a></li>
-                <li><a href="support/index.html" data-i18n="navFaq">FAQ</a></li>
-                <li><a href="index.html#download" class="nav-cta" data-i18n="navDownload">Download</a></li>
+                <li class="nav-dropdown">
+                    <button class="nav-dropdown-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+                        <span data-i18n="navResources">Resources</span>
+                        <svg viewBox="0 0 12 12" fill="currentColor" aria-hidden="true"><path d="M2 4l4 4 4-4"/></svg>
+                    </button>
+                    <div class="nav-dropdown-menu" role="menu">
+                        <a href="docs/index.html" data-i18n="navApi">API</a>
+                        <a href="blog/index.html" data-i18n="navBlog">Blog</a>
+                        <a href="partnership/index.html" data-i18n="navPartnership">Partnerships</a>
+                        <a href="press/index.html" data-i18n="footPressKit">Press Kit</a>
+                        <a href="support/index.html" data-i18n="navFaq">FAQ</a>
+                    </div>
+                </li>
+                <li><a href="https://discord.gg/BGDpE6nP" target="_blank" rel="noopener noreferrer" class="nav-cta" data-i18n="comDiscordBtn">Join Discord</a></li>
             </ul>
         </div>
     </nav>
+
+    <main id="main">
 
     <!-- Hero -->
     <section class="hero" id="hero">
@@ -102,18 +117,21 @@
                 </div>
                 <h1><span data-i18n="heroTitle1">Your Grow Room,</span><br><span class="text-gradient" data-i18n="heroTitle2">Under Control.</span></h1>
                 <p class="hero-tagline" data-i18n-html="heroTagline">VPD chart, grow diary, and smart automation for Tuya, Mars Hydro, AC Infinity, Spider Farmer, Vivosun, Bluelab &amp; SANlight &mdash; all in one app. No sign-up, no bloat.</p>
-                <p class="hero-early-note" data-i18n-html="heroEarlyNote">We&rsquo;re a small, passionate indie team at the very beginning of this journey. Every integration gets tuned on real hardware in a real grow room, every translation is hand-checked, every Discord message gets a reply. We&rsquo;re actively sourcing more gear and reaching out to brands &mdash; but until then we ship slow, careful releases, and every early user genuinely shapes what comes next.</p>
-                <div class="hero-buttons">
-                    <a href="#download" class="btn btn-primary btn-lg btn-coming-soon">
-                        <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.61 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.5,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg>
-                        <span data-i18n="heroBtnAndroid">Coming Soon — Android</span>
+                <div class="hero-primary-cta">
+                    <a href="https://discord.gg/BGDpE6nP" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
+                        <span data-i18n="heroPrimaryCta">Join Discord — Launch Day Access</span>
                     </a>
-                    <a href="#download" class="btn btn-primary btn-lg btn-coming-soon">
-                        <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71,19.5C17.88,20.5 17,21.4 15.66,21.41C14.32,21.42 13.87,20.6 12.35,20.6C10.83,20.6 10.33,21.37 9.07,21.41C7.77,21.46 6.76,20.39 5.93,19.39C4.24,17.36 2.94,13.73 4.67,11.33C5.53,10.13 6.93,9.39 8.44,9.37C9.72,9.35 10.93,10.26 11.71,10.26C12.5,10.26 13.97,9.15 15.5,9.33C16.17,9.36 17.92,9.6 19.04,11.26C18.93,11.33 16.77,12.58 16.8,15.19C16.82,18.31 19.54,19.31 19.57,19.32L18.71,19.5M13,3.5C13.73,2.67 14.94,2.04 15.94,2C16.07,3.17 15.6,4.35 14.9,5.19C14.21,6.04 13.07,6.7 11.95,6.61C11.8,5.46 12.36,4.26 13,3.5Z"/></svg>
-                        <span data-i18n="heroBtnIos">Coming Soon — iOS</span>
-                    </a>
+                    <form class="hero-notify-form" id="heroNotifyForm" novalidate>
+                        <input type="email" required data-i18n-placeholder="heroNotifyPlaceholder" placeholder="your@email.com" aria-label="Email for launch alert">
+                        <button type="submit" data-i18n="heroNotifyBtn">Notify me</button>
+                        <span class="notify-msg" aria-live="polite"></span>
+                    </form>
+                    <span class="hero-store-soon">
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 8v5l4 2"/><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+                        <span data-i18n="heroStoresSoon">Google Play &amp; App Store — May 2026</span>
+                    </span>
                 </div>
-                <p class="hero-notify"><a href="https://discord.gg/BGDpE6nP" target="_blank" rel="noopener noreferrer" data-i18n="ctaNotify">Get notified on launch day</a> &mdash; <a href="https://discord.gg/BGDpE6nP" target="_blank" rel="noopener noreferrer">Discord</a></p>
                 <div class="hero-trust">
                     <div class="trust-item">
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="#2E7D32"><path d="M8 0L10.12 5.26L16 6.18L11.96 10.08L12.94 16L8 13.26L3.06 16L4.04 10.08L0 6.18L5.88 5.26L8 0Z"/></svg>
@@ -242,18 +260,34 @@
                         </div>
                         <h3 data-i18n="autoTitle">Smart Automation</h3>
                         <p data-i18n-html="autoDesc">Connect Tuya, Mars Hydro, AC Infinity, Spider Farmer, Vivosun, Bluelab &amp; SANlight in one system. Let an AC Infinity controller tune its own fan from live VPD, run sunrise/sunset schedules across Mars Hydro, Spider Farmer and Vivosun LEDs, or let a Bluelab Pulse flag pH drift before it hurts the plants &mdash; all from the same app.</p>
-                        <div class="auto-features-row">
-                            <span class="auto-feat" data-i18n="autoFeat1">VPD-based rules</span>
-                            <span class="auto-feat" data-i18n="autoFeat2">Light schedules &amp; dimming</span>
-                            <span class="auto-feat" data-i18n="autoFeat3">Sunrise/sunset simulation</span>
-                            <span class="auto-feat" data-i18n="autoFeat4">Equipment profiles</span>
-                            <span class="auto-feat" data-i18n="autoFeat5">Camera snapshots to diary</span>
-                            <span class="auto-feat" data-i18n="autoFeat6">Sensor data auto-logged</span>
-                            <span class="auto-feat" data-i18n-html="autoFeat7">Room &rarr; Tent hierarchy</span>
-                            <span class="auto-feat" data-i18n="autoFeat8">Energy monitoring</span>
-                            <span class="auto-feat" data-i18n="autoFeat9">Climate control (AC, dehumidifier)</span>
-                            <span class="auto-feat" data-i18n="autoFeat10">Soil sensors &amp; irrigation</span>
-                            <span class="auto-feat" data-i18n="autoFeat11">Autopot &amp; reservoir monitoring</span>
+                        <div class="auto-feat-groups">
+                            <div class="auto-feat-group">
+                                <div class="auto-feat-group-title"><span class="ag-ico">🌡️</span><span data-i18n="autoGroup1Title">Climate</span></div>
+                                <ul>
+                                    <li data-i18n="autoFeatC1">VPD-based rules with hysteresis</li>
+                                    <li data-i18n="autoFeatC2">AC, heater, dehumidifier control</li>
+                                    <li data-i18n-html="autoFeatC3">CO&#8322; enrichment during photoperiod</li>
+                                    <li data-i18n="autoFeatC4">Soil sensors &amp; auto-irrigation</li>
+                                </ul>
+                            </div>
+                            <div class="auto-feat-group">
+                                <div class="auto-feat-group-title"><span class="ag-ico">💡</span><span data-i18n="autoGroup2Title">Light</span></div>
+                                <ul>
+                                    <li data-i18n="autoFeatL1">Light schedules &amp; dimming</li>
+                                    <li data-i18n="autoFeatL2">Sunrise / sunset simulation</li>
+                                    <li data-i18n="autoFeatL3">Per-device stage presets</li>
+                                    <li data-i18n="autoFeatL4">Autopot &amp; reservoir monitoring</li>
+                                </ul>
+                            </div>
+                            <div class="auto-feat-group">
+                                <div class="auto-feat-group-title"><span class="ag-ico">📊</span><span data-i18n="autoGroup3Title">Data &amp; Diary</span></div>
+                                <ul>
+                                    <li data-i18n="autoFeatD1">Sensor data auto-logged</li>
+                                    <li data-i18n="autoFeatD2">Camera snapshots to diary</li>
+                                    <li data-i18n-html="autoFeatD3">Room &rarr; Tent hierarchy</li>
+                                    <li data-i18n="autoFeatD4">Energy monitoring</li>
+                                </ul>
+                            </div>
                         </div>
                         <p class="auto-note" data-i18n-html="autoWifi">Most devices use internet (WiFi or mobile data) &amp; cloud APIs. SANlight connects via Bluetooth. Everything else in the app works fully offline.</p>
                     </div>
@@ -269,7 +303,8 @@
                 <div class="bento-card bento-large bento-more">
                     <div class="bento-content">
                         <h3 data-i18n="moreTitle">And Much More</h3>
-                        <div class="more-features">
+                        <div class="more-features-wrap">
+                        <div class="more-features collapsed">
                             <div class="more-item">
                                 <span class="more-icon">&#129514;</span>
                                 <div><strong data-i18n="nutrientT">Nutrient Calculator</strong><br><small data-i18n-html="nutrientD">69+ synthetic fertilizers across 7 brands, plus full living soil schedules with compost tea, top-dress timing &amp; pro amendments</small></div>
@@ -323,8 +358,31 @@
                                 <div><strong data-i18n="apiT">Free Public API</strong><br><small data-i18n-html="apiD">18 endpoints for VPD, nutrients, light, diagnostics &amp; more. No signup.</small></div>
                             </div>
                         </div>
+                        <button class="more-features-toggle" type="button" data-label-more="Show all features" data-label-less="Show less">
+                            <span class="mf-label" data-i18n="showMoreFeatures">Show all features</span>
+                            <svg width="14" height="14" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true"><path d="M2 4l4 4 4-4"/></svg>
+                        </button>
+                        </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Widget Showcase -->
+    <section class="widget-showcase" id="widget">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label" data-i18n="widgetLabel">Interactive Tool</span>
+                <h2 data-i18n="widgetTitle">Interactive VPD Chart</h2>
+                <p data-i18n="widgetSub">The most detailed interactive VPD chart on the web. Real-time calculation with grow stage zones. Free to use &amp; embed.</p>
+            </div>
+            <div class="widget-embed-block">
+                <div class="widget-code-wrap">
+                    <code class="widget-code">&lt;script src="https://growvpd.pro/widget.js"&gt;&lt;/script&gt;</code>
+                    <button class="widget-copy-btn" onclick="navigator.clipboard.writeText('<script src=&quot;https://growvpd.pro/widget.js&quot;></script>')" data-i18n="widgetCode">Copy embed code</button>
+                </div>
+                <a href="widget/" class="btn btn-outline widget-demo-link" data-i18n="widgetLink">Open interactive chart</a>
             </div>
         </div>
     </section>
@@ -342,7 +400,7 @@
                     <div class="ss-card">
                         <div class="ss-phone">
                             <div class="ss-screen ss-vpd">
-                                <div class="ss-inner">VPD Chart</div>
+                                <img src="images/screens/ss-vpd.webp" alt="VPD chart screen preview" loading="lazy" width="320" height="693">
                             </div>
                         </div>
                         <span class="ss-label" data-i18n="ss1">Interactive VPD Heatmap</span>
@@ -350,7 +408,7 @@
                     <div class="ss-card">
                         <div class="ss-phone">
                             <div class="ss-screen ss-diary">
-                                <div class="ss-inner">Grow Diary</div>
+                                <img src="images/screens/ss-diary.webp" alt="Grow diary screen preview" loading="lazy" width="320" height="693">
                             </div>
                         </div>
                         <span class="ss-label" data-i18n="ss2">Full Grow Tracking</span>
@@ -358,7 +416,7 @@
                     <div class="ss-card">
                         <div class="ss-phone">
                             <div class="ss-screen ss-auto">
-                                <div class="ss-inner">Automation</div>
+                                <img src="images/screens/ss-auto.webp" alt="Automation screen preview" loading="lazy" width="320" height="693">
                             </div>
                         </div>
                         <span class="ss-label" data-i18n="ss3">Smart Device Control</span>
@@ -366,7 +424,7 @@
                     <div class="ss-card">
                         <div class="ss-phone">
                             <div class="ss-screen ss-disease">
-                                <div class="ss-inner">Diseases</div>
+                                <img src="images/screens/ss-disease.webp" alt="Disease and pest guide preview" loading="lazy" width="320" height="693">
                             </div>
                         </div>
                         <span class="ss-label" data-i18n-html="ss4">Disease & Pest Guide</span>
@@ -374,7 +432,7 @@
                     <div class="ss-card">
                         <div class="ss-phone">
                             <div class="ss-screen ss-equip">
-                                <div class="ss-inner">Equipment</div>
+                                <img src="images/screens/ss-equip.webp" alt="Equipment database preview" loading="lazy" width="320" height="693">
                             </div>
                         </div>
                         <span class="ss-label" data-i18n="ss5">200+ Products</span>
@@ -382,7 +440,7 @@
                     <div class="ss-card">
                         <div class="ss-phone">
                             <div class="ss-screen ss-ppfd">
-                                <div class="ss-inner">PPFD Guide</div>
+                                <img src="images/screens/ss-ppfd.webp" alt="PPFD and DLI guide preview" loading="lazy" width="320" height="693">
                             </div>
                         </div>
                         <span class="ss-label" data-i18n="ss6">Light Recommendations</span>
@@ -390,7 +448,7 @@
                     <div class="ss-card">
                         <div class="ss-phone">
                             <div class="ss-screen ss-nutrients">
-                                <div class="ss-inner">Nutrients</div>
+                                <img src="images/screens/ss-nutrients.webp" alt="Nutrient calculator preview" loading="lazy" width="320" height="693">
                             </div>
                         </div>
                         <span class="ss-label" data-i18n="ss7">Dosage Calculator</span>
@@ -398,7 +456,7 @@
                     <div class="ss-card">
                         <div class="ss-phone">
                             <div class="ss-screen ss-security">
-                                <div class="ss-inner">Security</div>
+                                <img src="images/screens/ss-security.webp" alt="PIN and biometric lock preview" loading="lazy" width="320" height="693">
                             </div>
                         </div>
                         <span class="ss-label" data-i18n-html="ss8">PIN &amp; Biometric Lock</span>
@@ -419,6 +477,10 @@
             <div class="use-cases">
                 <!-- USE CASE 1: Light Schedule (SHOWCASE) -->
                 <div class="use-case use-case-featured">
+                    <span class="uc-featured-badge">
+                        <svg width="10" height="10" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true"><path d="M6 1l1.5 3 3.5.5-2.5 2.5.6 3.5L6 9l-3.1 1.5.6-3.5L1 4.5 4.5 4z"/></svg>
+                        <span data-i18n="ucFeaturedBadge">Showcase</span>
+                    </span>
                     <div class="uc-flow">
                         <span class="uc-brand">Mars Hydro Light</span>
                         <span class="uc-arrow">&rarr;</span>
@@ -611,6 +673,26 @@
         </div>
     </section>
 
+    <!-- Proof bar -->
+    <section class="proof-bar" aria-label="Trust indicators">
+        <div class="container">
+            <div class="proof-bar-inner">
+                <div class="proof-item">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#81C784" stroke-width="2" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                    <span data-i18n="proofReplies">Every Discord message answered personally</span>
+                </div>
+                <div class="proof-item">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#81C784" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    <span data-i18n="proofCode">100% offline, 0 tracking</span>
+                </div>
+                <div class="proof-item">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#81C784" stroke-width="2" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                    <span data-i18n="proofOpen">Built in the open, no VCs</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Pricing -->
     <section class="pricing" id="pricing">
         <div class="container">
@@ -620,69 +702,64 @@
                 <p data-i18n="prSub">No limits on core features. Upgrade only if you want the advanced stuff.</p>
             </div>
 
-            <div class="pricing-comparison">
-                <div class="pricing-col pricing-free">
-                    <div class="pricing-col-header">
-                        <h3 data-i18n="prFreeTitle">Free</h3>
-                        <div class="pricing-price">$0</div>
-                        <p data-i18n="prForever">Forever</p>
+            <div class="pricing-v3">
+                <div class="pricing-toggle-container">
+                    <div class="pricing-toggle" role="tablist" aria-label="Billing period">
+                        <button type="button" data-plan="monthly" role="tab"><span data-i18n="prTogMonthly">Monthly</span></button>
+                        <button type="button" data-plan="yearly" class="is-active" role="tab">
+                            <span data-i18n="prTogYearly">Yearly</span>
+                            <span class="save-pill" data-i18n="prTogYearlySave">−48%</span>
+                        </button>
+                        <button type="button" data-plan="lifetime" role="tab"><span data-i18n="prTogLifetime">Lifetime</span></button>
                     </div>
-                    <ul class="pricing-features">
-                        <li class="pf-yes" data-i18n-html="prF1">VPD Chart & Table</li>
-                        <li class="pf-yes" data-i18n="prF2">Grow Diary with Harvest</li>
-                        <li class="pf-yes" data-i18n="prF3">12 Grow Templates</li>
-                        <li class="pf-yes" data-i18n-html="prF4">Nutrient & Substrate Calculators</li>
-                        <li class="pf-yes" data-i18n-html="prF5">Ventilation & Yield Calculators</li>
-                        <li class="pf-yes" data-i18n-html="prF6">Disease & Pest Guide (30+)</li>
-                        <li class="pf-yes" data-i18n="prF7">Equipment Database (200+)</li>
-                        <li class="pf-yes" data-i18n="prF8">PPFD / DLI Guide</li>
-                        <li class="pf-yes" data-i18n="prF9">11 Languages</li>
-                        <li class="pf-no" data-i18n="prFNo1">Smart Automation (7 platforms)</li>
-                        <li class="pf-no" data-i18n="prFNo2">Diary Export (PDF)</li>
-                        <li class="pf-no" data-i18n="prFNo3">BLE Sensor</li>
-                        <li class="pf-no" data-i18n-html="prFNo4">Analytics & Predictions</li>
-                    </ul>
-                    <a href="#download" class="btn btn-outline btn-block" data-i18n="prBtnFree">Download Free</a>
                 </div>
-                <div class="pricing-col pricing-pro">
-                    <div class="pricing-popular" data-i18n="prPopular">Most Popular</div>
-                    <div class="pricing-col-header">
-                        <h3 data-i18n="prProTitle">Pro</h3>
-                        <div class="pricing-price">$3.99<span>/mo</span></div>
-                        <p data-i18n="prCancel">Cancel anytime</p>
-                    </div>
-                    <ul class="pricing-features">
-                        <li class="pf-yes" data-i18n="prP1">Everything in Free</li>
-                        <li class="pf-yes pf-highlight" data-i18n="prP2">Smart Automation (7 platforms)</li>
-                        <li class="pf-yes pf-highlight" data-i18n-html="prP3">Light Scheduling &amp; Profiles</li>
-                        <li class="pf-yes pf-highlight" data-i18n="prP4">Diary Export (PDF/JSON)</li>
-                        <li class="pf-yes pf-highlight" data-i18n="prP5">BLE Sensor Support</li>
-                        <li class="pf-yes pf-highlight" data-i18n-html="prP6">Analytics &amp; Predictions</li>
-                        <li class="pf-yes pf-highlight" data-i18n="prP7">Equipment Profiles</li>
-                        <li class="pf-yes pf-highlight" data-i18n="prP8">Camera Auto-Snapshots</li>
-                        <li class="pf-yes pf-highlight" data-i18n-html="prP9">Photo Privacy &amp; Stealth</li>
-                        <li class="pf-yes" data-i18n="prP10">No Ads</li>
-                        <li class="pf-yes" data-i18n="prP11">Priority Support</li>
-                    </ul>
-                    <a href="#download" class="btn btn-primary btn-block" data-i18n="prBtnPro">Get Pro</a>
-                </div>
-            </div>
 
-            <div class="pricing-options">
-                <div class="pricing-option">
-                    <span class="po-name" data-i18n="prMonthly">Monthly</span>
-                    <span class="po-price">$3.99/mo</span>
+                <div class="pricing-card">
+                    <span class="tag-pro" data-i18n="prCardTier">Pro</span>
+                    <div class="pricing-card-head">
+                        <div class="pricing-tier" data-i18n="prProTitle">Pro</div>
+                        <div class="pricing-amount"><sup>$</sup>24.99<span class="per">/yr</span></div>
+                        <div class="pricing-sublabel" data-i18n="prCardSubYearly">~$2.08/mo · save 48%</div>
+                        <span class="pricing-lifetime-hint"></span>
+                    </div>
+                    <div class="pricing-card-cta">
+                        <a href="https://discord.gg/BGDpE6nP" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-block" data-i18n="prCardCta">Get Pro</a>
+                    </div>
+                    <p class="pricing-compare-note">
+                        <span data-i18n="prCompareNote">Most features are free forever.</span>
+                        <a href="#pricing-compare" data-i18n="prCompareLink">Compare plans ↓</a>
+                    </p>
                 </div>
-                <div class="pricing-option po-featured">
-                    <span class="po-badge" data-i18n="prSave">Save 48%</span>
-                    <span class="po-name" data-i18n="prYearly">Yearly</span>
-                    <span class="po-price">$24.99/yr</span>
-                    <span class="po-detail" data-i18n="prPerMo">~$2.08/mo</span>
-                </div>
-                <div class="pricing-option">
-                    <span class="po-name" data-i18n="prLifetime">Lifetime</span>
-                    <span class="po-price">$49.99</span>
-                    <span class="po-detail" data-i18n="prLifetimeDesc">Pay once, keep forever</span>
+
+                <div class="pricing-features-split" id="pricing-compare">
+                    <div class="pf-col pf-col-free">
+                        <h4 data-i18n="prFreeListTitle">Free forever</h4>
+                        <ul>
+                            <li class="pf-yes" data-i18n-html="prF1">VPD Chart &amp; Table</li>
+                            <li class="pf-yes" data-i18n="prF2">Grow Diary with Harvest</li>
+                            <li class="pf-yes" data-i18n="prF3">12 Grow Templates</li>
+                            <li class="pf-yes" data-i18n-html="prF4">Nutrient &amp; Substrate Calculators</li>
+                            <li class="pf-yes" data-i18n-html="prF5">Ventilation &amp; Yield Calculators</li>
+                            <li class="pf-yes" data-i18n-html="prF6">Disease &amp; Pest Guide (30+)</li>
+                            <li class="pf-yes" data-i18n="prF7">Equipment Database (200+)</li>
+                            <li class="pf-yes" data-i18n="prF8">PPFD / DLI Guide</li>
+                            <li class="pf-yes" data-i18n="prF9">11 Languages</li>
+                        </ul>
+                    </div>
+                    <div class="pf-col">
+                        <h4 data-i18n="prProListTitle">Unlocked with Pro</h4>
+                        <ul>
+                            <li class="pf-yes pf-highlight" data-i18n="prP2">Smart Automation (7 platforms)</li>
+                            <li class="pf-yes pf-highlight" data-i18n-html="prP3">Light Scheduling &amp; Profiles</li>
+                            <li class="pf-yes pf-highlight" data-i18n="prP4">Diary Export (PDF/JSON)</li>
+                            <li class="pf-yes pf-highlight" data-i18n="prP5">BLE Sensor Support</li>
+                            <li class="pf-yes pf-highlight" data-i18n-html="prP6">Analytics &amp; Predictions</li>
+                            <li class="pf-yes pf-highlight" data-i18n="prP7">Equipment Profiles</li>
+                            <li class="pf-yes pf-highlight" data-i18n="prP8">Camera Auto-Snapshots</li>
+                            <li class="pf-yes pf-highlight" data-i18n-html="prP9">Photo Privacy &amp; Stealth</li>
+                            <li class="pf-yes" data-i18n="prP10">No Ads</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -702,16 +779,6 @@
                     <p data-i18n-html="whyD1">Competitors are 100+ MB.<br>We keep it light.</p>
                 </div>
                 <div class="why-card">
-                    <div class="why-number">0</div>
-                    <div class="why-unit" data-i18n="whyU2">Cloud</div>
-                    <p data-i18n-html="whyD2">Offline-first. Your data<br>stays on your device.</p>
-                </div>
-                <div class="why-card">
-                    <div class="why-number">0</div>
-                    <div class="why-unit" data-i18n="whyU3">Sign-up</div>
-                    <p data-i18n-html="whyD3">No email, no account.<br>Open and grow.</p>
-                </div>
-                <div class="why-card">
                     <div class="why-number">7</div>
                     <div class="why-unit" data-i18n="whyU4">Platforms</div>
                     <p data-i18n-html="whyD4">Tuya, Mars Hydro, AC Infinity,<br>Spider Farmer, Vivosun, Bluelab, SANlight.</p>
@@ -722,9 +789,9 @@
                     <p data-i18n-html="whyD5">Most competitors have 1-3.<br>We speak yours.</p>
                 </div>
                 <div class="why-card">
-                    <div class="why-number">80</div>
-                    <div class="why-unit" data-i18n="whyU6">% Free</div>
-                    <p data-i18n-html="whyD6">Core features are free forever.<br>No hard paywalls.</p>
+                    <div class="why-number">100%</div>
+                    <div class="why-unit" data-i18n="whyU2">Offline</div>
+                    <p data-i18n-html="whyD2">No account, no cloud.<br>Your data stays on device.</p>
                 </div>
             </div>
         </div>
@@ -740,7 +807,12 @@
             </div>
             <div class="story-content">
                 <p class="story-para" data-i18n-html="storyP1">Every feature in this app started as something missing from our own grows. The VPD chart was the first thing &mdash; we got tired of typing temperature and humidity into a calculator three times a day, so we built a heatmap. Then we wanted a diary that didn&rsquo;t sell our photos to a server we&rsquo;d never heard of. Then we wanted our Mars Hydro lights, our AC Infinity controllers and our Tuya plugs to actually talk to each other, instead of each pretending it was the only device in the world. So we built that too. The whole app is just a list of problems we had at 2am, solved one by one.</p>
+                <blockquote class="story-quote">
+                    <span data-i18n="storyQuote">Our lab is an actual grow room, not a bench rig with a multimeter. We test on the same plants you&rsquo;d care about.</span>
+                    <span class="story-quote-author" data-i18n="storyQuoteAuthor">— the team</span>
+                </blockquote>
                 <p class="story-para" data-i18n-html="storyP2">We read every Discord message ourselves. We write the code, we run the tests, we shoot the screenshots, we translate to eleven languages because growers who don&rsquo;t speak English deserve a real app and not a Google-translate hack. There&rsquo;s no marketing team, no sales pipeline, no growth hacker. When something breaks you tell us directly, and most of the time the fix lands the same week. When something&rsquo;s missing you suggest it on Discord, and it might land in the next release. That&rsquo;s the entire feedback loop.</p>
+                <p class="story-para" data-i18n-html="heroEarlyNote">We&rsquo;re a small, passionate indie team at the very beginning of this journey. Every integration gets tuned on real hardware in a real grow room, every translation is hand-checked, every Discord message gets a reply. We&rsquo;re actively sourcing more gear and reaching out to brands &mdash; but until then we ship slow, careful releases, and every early user genuinely shapes what comes next.</p>
                 <p class="story-para" data-i18n-html="storyP3">We&rsquo;re early, and we&rsquo;re honest about it. Some integrations are rock-solid &mdash; <strong>Tuya</strong> and <strong>Mars Hydro</strong> have been running on real grows for months. Others sit in beta because we haven&rsquo;t been able to source every controller and sensor yet, and we refuse to ship integrations we can&rsquo;t test against the actual hardware. If you&rsquo;re a grower with gear we haven&rsquo;t touched, or a brand who wants to ship better software, the door is open. Pull up a chair on Discord and let&rsquo;s build this thing together.</p>
             </div>
             <div class="story-stats">
@@ -785,26 +857,16 @@
                 </div>
             </div>
 
-            <div class="com-cards">
-                <div class="com-card">
-                    <div class="com-card-icon">&#129514;</div>
-                    <h4 data-i18n="comTestTitle">Test With Us</h4>
-                    <p data-i18n="comTestDesc">Our test rig is still growing. If you own a sensor, controller, light or anything we haven&rsquo;t touched yet, jump on Discord and we&rsquo;ll walk through it together &mdash; your real grow is the best test bench.</p>
-                </div>
+            <div class="com-cards-v3">
                 <div class="com-card">
                     <div class="com-card-icon">&#129309;</div>
-                    <h4 data-i18n="comHwTitle">Looking for Hardware</h4>
-                    <p data-i18n="comHwDesc">We&rsquo;re actively sourcing gear to test and tune every integration end-to-end. If you&rsquo;re a brand, distributor or grower who can loan or send us hardware (even older gear), we&rsquo;d love to hear from you.</p>
-                </div>
-                <div class="com-card">
-                    <div class="com-card-icon">&#129303;</div>
-                    <h4 data-i18n="comPartnerTitle">Brand Partnerships</h4>
-                    <p data-i18n="comPartnerDesc">We&rsquo;re big fans of Mars Hydro, AC Infinity, Spider Farmer, Vivosun, Bluelab and SANlight. If any of these teams want to collaborate on official integrations, our door is wide open.</p>
+                    <h4 data-i18n="comCardHwTitle">Hardware &amp; brand partnerships</h4>
+                    <p data-i18n="comCardHwDesc">We&rsquo;re actively sourcing gear to test and tune every integration end-to-end. Brand, distributor or grower with hardware to loan? We&rsquo;d love to hear from you. If you&rsquo;re a manufacturer who wants to collaborate on official integrations, the door is open.</p>
                 </div>
                 <div class="com-card">
                     <div class="com-card-icon">&#128161;</div>
-                    <h4 data-i18n="comShapeTitle">Shape What Ships</h4>
-                    <p data-i18n="comShapeDesc">We&rsquo;re early enough that feedback still bends the roadmap. Vote on features, report rough edges, share what&rsquo;s missing &mdash; the next release probably contains something you asked for.</p>
+                    <h4 data-i18n="comCardShapeTitle">Shape what ships</h4>
+                    <p data-i18n="comCardShapeDesc">We&rsquo;re early enough that feedback still bends the roadmap. Test new integrations, vote on features, report rough edges, share what&rsquo;s missing &mdash; the next release probably contains something you asked for.</p>
                 </div>
             </div>
 
@@ -812,20 +874,40 @@
         </div>
     </section>
 
-    <!-- Widget Showcase -->
-    <section class="widget-showcase" id="widget">
+
+    <!-- FAQ mini -->
+    <section class="faq-mini" id="faq">
         <div class="container">
             <div class="section-header">
-                <span class="section-label" data-i18n="widgetLabel">Free Tool</span>
-                <h2 data-i18n="widgetTitle">VPD Calculator Widget</h2>
-                <p data-i18n="widgetSub">Add a professional VPD calculator to your grow blog or website. One line of code. Free forever.</p>
+                <span class="section-label" data-i18n="faqLabel">FAQ</span>
+                <h2 data-i18n="faqTitle">Questions growers ask us</h2>
+                <p data-i18n="faqSub">If it&rsquo;s not here, we&rsquo;re a message away on Discord.</p>
             </div>
-            <div class="widget-embed-block">
-                <div class="widget-code-wrap">
-                    <code class="widget-code">&lt;script src="https://growvpd.pro/widget.js"&gt;&lt;/script&gt;</code>
-                    <button class="widget-copy-btn" onclick="navigator.clipboard.writeText('<script src=&quot;https://growvpd.pro/widget.js&quot;></script>')" data-i18n="widgetCode">Copy embed code</button>
-                </div>
-                <a href="widget/" class="btn btn-outline widget-demo-link" data-i18n="widgetLink">See demo &amp; options</a>
+            <div class="faq-list">
+                <details class="faq-item">
+                    <summary class="faq-q" data-i18n="faqQ1">Does the app work without internet?</summary>
+                    <div class="faq-a" data-i18n-html="faqA1">Yes &mdash; VPD chart, diary, nutrient/ventilation calculators, disease guide, equipment DB and PPFD guide are fully offline. The only features that need internet are smart-device automation (because your gear&rsquo;s cloud requires it) and our optional cloud guardian.</div>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-q" data-i18n="faqQ2">Why is Pro so cheap compared to competitors?</summary>
+                    <div class="faq-a" data-i18n-html="faqA2">We&rsquo;re indie growers shipping software, not a funded startup burning VC cash on ads. No ad networks, no trackers, no 50-person growth team. $3.99/mo covers hosting, integration testing, and keeps the lights on in the grow room we build features against.</div>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-q" data-i18n="faqQ3">What happens to my data if GrowVPD Pro disappears?</summary>
+                    <div class="faq-a" data-i18n-html="faqA3">Your diary, photos and settings live on your device &mdash; not our server. You can export everything to PDF or JSON at any time. Even if we vanished tomorrow, your grows wouldn&rsquo;t go with us.</div>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-q" data-i18n="faqQ4">Is my lifetime purchase really lifetime?</summary>
+                    <div class="faq-a" data-i18n-html="faqA4">Yes. One payment, all future Pro updates included, forever. If we ever move to a different model, existing lifetime buyers keep what they paid for &mdash; that&rsquo;s the deal.</div>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-q" data-i18n="faqQ5">Which brands actually work today vs. beta?</summary>
+                    <div class="faq-a" data-i18n-html="faqA5">Tuya and Mars Hydro have been running on our real grows for months and are production-stable. AC Infinity, Spider Farmer, Vivosun, Bluelab and SANlight are in beta &mdash; protocols are implemented, but we&rsquo;re still sourcing more hardware to test every model. Jump on Discord if you own something specific and want to help dial it in.</div>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-q" data-i18n="faqQ6">Can I start on free and upgrade later?</summary>
+                    <div class="faq-a" data-i18n-html="faqA6">Absolutely. The free tier has VPD chart, diary, 200+ equipment DB, 12 templates, nutrient calculator, disease guide and more. Pro only unlocks automation, exports, BLE sensor and analytics. Upgrade on a whim, no migration.</div>
+                </details>
             </div>
         </div>
     </section>
@@ -837,19 +919,19 @@
             <h2><span data-i18n="ctaTitle1">Grow With Us From</span><br><span class="text-gradient-light" data-i18n="ctaTitle2">Day One.</span></h2>
             <p data-i18n="ctaDesc">GrowVPD Pro launches in May 2026. Join our Discord to be first to know!</p>
             <div class="cta-buttons">
-                <a href="#" class="btn btn-white btn-lg btn-coming-soon">
-                    <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.61 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.5,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg>
-                    <span data-i18n="ctaBtn1">Coming Soon — Google Play</span>
+                <a href="https://discord.gg/BGDpE6nP" target="_blank" rel="noopener noreferrer" class="btn btn-white btn-lg">
+                    <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
+                    <span data-i18n="heroPrimaryCta">Join Discord — Launch Day Access</span>
                 </a>
-                <a href="#" class="btn btn-glass btn-lg btn-coming-soon">
-                    <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71,19.5C17.88,20.5 17,21.4 15.66,21.41C14.32,21.42 13.87,20.6 12.35,20.6C10.83,20.6 10.33,21.37 9.07,21.41C7.77,21.46 6.76,20.39 5.93,19.39C4.24,17.36 2.94,13.73 4.67,11.33C5.53,10.13 6.93,9.39 8.44,9.37C9.72,9.35 10.93,10.26 11.71,10.26C12.5,10.26 13.97,9.15 15.5,9.33C16.17,9.36 17.92,9.6 19.04,11.26C18.93,11.33 16.77,12.58 16.8,15.19C16.82,18.31 19.54,19.31 19.57,19.32L18.71,19.5M13,3.5C13.73,2.67 14.94,2.04 15.94,2C16.07,3.17 15.6,4.35 14.9,5.19C14.21,6.04 13.07,6.7 11.95,6.61C11.8,5.46 12.36,4.26 13,3.5Z"/></svg>
-                    <span data-i18n="ctaBtn2">Coming Soon — iOS</span>
+                <a href="#features" class="btn btn-glass btn-lg">
+                    <span data-i18n="navFeatures">Features</span>
                 </a>
             </div>
-            <p class="cta-notify"><a href="https://discord.gg/BGDpE6nP" target="_blank" rel="noopener noreferrer" data-i18n="ctaNotify">Get notified on launch day</a> &mdash; <a href="https://discord.gg/BGDpE6nP" target="_blank" rel="noopener noreferrer">Discord</a></p>
+            <p class="cta-notify"><span data-i18n="heroStoresSoon">Google Play &amp; App Store — May 2026</span></p>
         </div>
     </section>
 
+    </main>
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -890,6 +972,16 @@
                     </ul>
                 </div>
             </div>
+            <div class="footer-subscribe">
+                <h4 data-i18n="footSubTitle">Growing tips &amp; updates</h4>
+                <p data-i18n="footSubDesc">Free weekly tips. No spam. Unsubscribe anytime.</p>
+                <form id="subscribeForm" onsubmit="return handleSubscribe(event)">
+                    <input type="email" id="subEmail" required placeholder="your@email.com" aria-label="Email address">
+                    <button type="submit" id="subBtn" data-i18n="footSubBtn">Subscribe</button>
+                </form>
+                <p id="subMsg" class="sub-msg" aria-live="polite"></p>
+                <p class="sub-privacy" data-i18n="heroNotifyPrivacy">One email on launch. No spam, unsubscribe anytime.</p>
+            </div>
             <div class="footer-bottom">
                 <p data-i18n="footCopy">&copy; 2026 GrowVPD Pro. All rights reserved.</p>
             </div>
@@ -898,15 +990,14 @@
 
     <div class="sticky-cta" id="stickyCta">
         <div class="container sticky-cta-inner">
-            <span class="sticky-cta-text">GrowVPD Pro — Free VPD & Grow App</span>
+            <span class="sticky-cta-text"><span data-i18n="stickyCtaTextPre">Launches May 2026 —</span></span>
             <div class="sticky-cta-buttons">
-                <a href="#download" class="sticky-cta-btn sticky-cta-android">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.61 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.5,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg>
-                    Android
+                <a href="https://discord.gg/BGDpE6nP" target="_blank" rel="noopener noreferrer" class="sticky-cta-btn sticky-cta-discord">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
+                    <span data-i18n="stickyCtaDiscord">Join Discord</span>
                 </a>
-                <a href="#download" class="sticky-cta-btn sticky-cta-ios">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71,19.5C17.88,20.5 17,21.4 15.66,21.41C14.32,21.42 13.87,20.6 12.35,20.6C10.83,20.6 10.33,21.37 9.07,21.41C7.77,21.46 6.76,20.39 5.93,19.39C4.24,17.36 2.94,13.73 4.67,11.33C5.53,10.13 6.93,9.39 8.44,9.37C9.72,9.35 10.93,10.26 11.71,10.26C12.5,10.26 13.97,9.15 15.5,9.33C16.17,9.36 17.92,9.6 19.04,11.26C18.93,11.33 16.77,12.58 16.8,15.19C16.82,18.31 19.54,19.31 19.57,19.32L18.71,19.5M13,3.5C13.73,2.67 14.94,2.04 15.94,2C16.07,3.17 15.6,4.35 14.9,5.19C14.21,6.04 13.07,6.7 11.95,6.61C11.8,5.46 12.36,4.26 13,3.5Z"/></svg>
-                    iOS
+                <a href="#download" class="sticky-cta-btn sticky-cta-email">
+                    <span data-i18n="stickyCtaEmail">Email alert</span>
                 </a>
             </div>
         </div>
@@ -919,5 +1010,32 @@
     <script src="js/translations.js"></script>
     <script src="js/i18n.js"></script>
     <script src="js/main.js"></script>
+    <script>
+    function handleSubscribe(e) {
+        e.preventDefault();
+        var em = document.getElementById('subEmail').value.trim();
+        var btn = document.getElementById('subBtn');
+        var msg = document.getElementById('subMsg');
+        if (!em) return false;
+        btn.disabled = true; btn.textContent = '...';
+        var lang = (localStorage.getItem('lang') || navigator.language || 'en').substring(0,2);
+        fetch('https://api.growvpd.pro/subscribe', {
+            method: 'POST', headers: {'Content-Type':'application/json'},
+            body: JSON.stringify({email: em, lang: lang})
+        }).then(function(r) { return r.json(); }).then(function(d) {
+            msg.style.display = 'block';
+            msg.style.color = '#81C784';
+            msg.textContent = d.message || 'Check your email to confirm!';
+            document.getElementById('subEmail').value = '';
+        }).catch(function() {
+            msg.style.display = 'block';
+            msg.style.color = '#EF5350';
+            msg.textContent = 'Something went wrong. Try again later.';
+        }).finally(function() {
+            btn.disabled = false; btn.textContent = 'Subscribe';
+        });
+        return false;
+    }
+    </script>
 </body>
 </html>

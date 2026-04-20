@@ -102,6 +102,14 @@
             border-radius: 12px;
             padding: 24px 16px;
             text-align: center;
+            display: block;
+            text-decoration: none;
+            transition: transform .15s, border-color .15s, box-shadow .15s;
+        }
+        .asset-card:hover {
+            border-color: #2E7D32;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(46,125,50,.12);
         }
         .asset-card .asset-icon {
             font-size: 2rem;
@@ -135,7 +143,7 @@
                 <li><a href="../index.html#features" data-i18n="navFeatures">Features</a></li>
                 <li><a href="../guides/index.html" data-i18n="navGuides">Guides &amp; Community</a></li>
                 <li><a href="../docs/index.html" data-i18n="navApi">API</a></li>
-                <li><a href="../widget/index.html" data-i18n="navWidget">Widget</a></li>
+                <li><a href="../widget/index.html" data-i18n="navWidget">VPD Chart</a></li>
                 <li><a href="../blog/index.html" data-i18n="navBlog">Blog</a></li>
                 <li><a href="../partnership/index.html" data-i18n="navPartnership">Partnerships</a></li>
                 <li><a href="../support/index.html" data-i18n="navFaq">FAQ</a></li>
@@ -190,26 +198,26 @@ window.addEventListener('scroll',function(){document.getElementById('navbar').cl
 
         <h2>Assets</h2>
         <div class="asset-grid">
-            <div class="asset-card">
-                <span class="asset-icon">&#9635;</span>
-                <div class="asset-name">App Icon</div>
-                <div class="asset-status">Download coming soon</div>
-            </div>
-            <div class="asset-card">
-                <span class="asset-icon">&#9641;</span>
-                <div class="asset-name">Screenshots</div>
-                <div class="asset-status">Download coming soon</div>
-            </div>
-            <div class="asset-card">
-                <span class="asset-icon">&#9678;</span>
-                <div class="asset-name">Logo</div>
-                <div class="asset-status">Download coming soon</div>
-            </div>
-            <div class="asset-card">
+            <a class="asset-card" href="presskit.zip" download>
+                <span class="asset-icon">&#10515;</span>
+                <div class="asset-name">Full Press Kit (zip)</div>
+                <div class="asset-status">18 framed screenshots + raw captures + branding &middot; 12&nbsp;MB</div>
+            </a>
+            <a class="asset-card" href="../images/og-image.png" target="_blank" rel="noopener">
                 <span class="asset-icon">&#9638;</span>
                 <div class="asset-name">Feature Graphic</div>
-                <div class="asset-status">Download coming soon</div>
-            </div>
+                <div class="asset-status">1024&times;500 PNG</div>
+            </a>
+            <a class="asset-card" href="../images/screens/ss-vpd.webp" target="_blank" rel="noopener">
+                <span class="asset-icon">&#9641;</span>
+                <div class="asset-name">Sample Screenshot</div>
+                <div class="asset-status">VPD heatmap preview</div>
+            </a>
+            <a class="asset-card" href="logo.webp" download>
+                <span class="asset-icon">&#9678;</span>
+                <div class="asset-name">Logo</div>
+                <div class="asset-status">WEBP, transparent</div>
+            </a>
         </div>
 
         <h2>Contact</h2>

@@ -13,7 +13,10 @@
     <meta property="og:description" content="Free, open REST API for indoor growing science. 18 endpoints covering VPD, light, diagnostics, nutrients, and equipment.">
     <meta property="og:url" content="https://growvpd.pro/docs/">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="https://api.growvpd.pro/v1/og?temp=24&humidity=55&stage=late_veg">
+    <meta property="og:image" content="https://growvpd.pro/images/og-image.png">
+    <meta property="og:image:width" content="1024">
+    <meta property="og:image:height" content="500">
+    <meta name="twitter:image" content="https://growvpd.pro/images/og-image.png">
     <meta name="twitter:card" content="summary_large_image">
 
     <link rel="icon" type="image/png" href="../images/favicon.png">
@@ -293,6 +296,79 @@
             }
             .sidebar-overlay.open { display: block; }
         }
+
+        /* API Playground */
+        .playground-toggle {
+            display: inline-flex; align-items: center; gap: 6px;
+            background: none; border: 1px solid #4CAF50; color: #2E7D32; padding: 8px 16px;
+            border-radius: 8px; font-size: .82rem; font-weight: 700; cursor: pointer; transition: all .2s;
+        }
+        .playground-toggle:hover { background: rgba(46,125,50,.06); }
+        .playground-toggle.open { background: #E8F5E9; border-color: #2E7D32; }
+        .playground-content {
+            display: none; margin-top: 16px; background: #FAFBFC; border: 1px solid #ECEFF1;
+            border-radius: 12px; padding: 24px;
+        }
+        .playground-content.open { display: block; }
+        .pg-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 14px; margin-bottom: 20px;
+        }
+        .pg-field { display: flex; flex-direction: column; gap: 4px; }
+        .pg-field.wide { grid-column: 1 / -1; }
+        .pg-label {
+            font-size: .72rem; font-weight: 700; color: #37474F; text-transform: uppercase;
+            letter-spacing: .04em; display: flex; align-items: center; gap: 6px;
+        }
+        .pg-req { color: #E53935; font-size: .6rem; }
+        .pg-val {
+            font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; font-size: .78rem;
+            color: #2E7D32; font-weight: 800; margin-left: auto;
+        }
+        .pg-input, .pg-select {
+            padding: 7px 10px; border: 1px solid #CFD8DC; border-radius: 6px; font-size: .82rem;
+            color: #212121; background: #fff; outline: none; font-family: inherit;
+            transition: border-color .2s;
+        }
+        .pg-input:focus, .pg-select:focus { border-color: #4CAF50; box-shadow: 0 0 0 2px rgba(76,175,80,.1); }
+        .pg-slider { width: 100%; accent-color: #4CAF50; cursor: pointer; }
+        .pg-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+        .pg-run {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: linear-gradient(135deg, #2E7D32, #388E3C); color: #fff; padding: 10px 24px;
+            border-radius: 10px; font-size: .85rem; font-weight: 800; border: none; cursor: pointer;
+            transition: all .2s; box-shadow: 0 2px 8px rgba(46,125,50,.25);
+        }
+        .pg-run:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(46,125,50,.35); }
+        .pg-run:disabled { opacity: .5; cursor: wait; transform: none; }
+        .pg-url {
+            margin: 12px 0 0; padding: 8px 12px; background: rgba(0,0,0,.03); border-radius: 6px;
+            font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; font-size: .75rem;
+            color: #546E7A; word-break: break-all; border: 1px solid #ECEFF1;
+        }
+        .pg-result {
+            margin-top: 12px; background: #1a1a2e; border-radius: 10px; overflow: hidden;
+            border: 1px solid rgba(255,255,255,.06);
+        }
+        .pg-result-header {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 8px 14px; background: rgba(255,255,255,.04);
+            border-bottom: 1px solid rgba(255,255,255,.06);
+        }
+        .pg-result-label { font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; }
+        .pg-result-label.ok { color: #81C784; }
+        .pg-result-label.err { color: #EF5350; }
+        .pg-result-time { font-size: .7rem; color: #78909C; font-family: 'SF Mono','Fira Code','Consolas',monospace; }
+        .pg-result pre {
+            margin: 0; padding: 14px; overflow-x: auto; font-family: 'SF Mono','Fira Code','Consolas',monospace;
+            font-size: .78rem; line-height: 1.55; color: #E0E0E0; max-height: 400px; overflow-y: auto;
+        }
+        @keyframes pg-spin { to { transform: rotate(360deg); } }
+        .pg-spinner { display: inline-block; width: 14px; height: 14px; border: 2px solid rgba(255,255,255,.3); border-top-color: #fff; border-radius: 50%; animation: pg-spin .6s linear infinite; }
+        @media (max-width: 600px) {
+            .pg-grid { grid-template-columns: 1fr; }
+            .playground-content { padding: 16px; }
+        }
     </style>
 
     <script type="application/ld+json">
@@ -313,7 +389,7 @@
                 <li><a href="../index.html#features" data-i18n="navFeatures">Features</a></li>
                 <li><a href="../guides/index.html" data-i18n="navGuides">Guides &amp; Community</a></li>
                 <li><a href="../docs/index.html" data-i18n="navApi">API</a></li>
-                <li><a href="../widget/index.html" data-i18n="navWidget">Widget</a></li>
+                <li><a href="../widget/index.html" data-i18n="navWidget">VPD Chart</a></li>
                 <li><a href="../blog/index.html" data-i18n="navBlog">Blog</a></li>
                 <li><a href="../partnership/index.html" data-i18n="navPartnership">Partnerships</a></li>
                 <li><a href="../support/index.html" data-i18n="navFaq">FAQ</a></li>
@@ -1418,6 +1494,15 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
                 <a href="https://discord.gg/BGDpE6nP" target="_blank" rel="noopener noreferrer">Discord</a>
                 <a href="https://t.me/growvpd" target="_blank" rel="noopener noreferrer">Telegram</a>
                 <a href="mailto:support@growvpd.pro">support@growvpd.pro</a>
+            </div>
+            <div class="footer-subscribe" style="margin:16px 0 0;padding:20px 0 0;border-top:1px solid #ECEFF1;text-align:center;width:100%;">
+                <h4 style="color:#212121;font-size:.95rem;font-weight:700;margin:0 0 6px;" data-i18n="footSubTitle">Growing tips & updates</h4>
+                <p style="color:#90A4AE;font-size:.8rem;margin:0 0 12px;" data-i18n="footSubDesc">Free weekly tips. No spam. Unsubscribe anytime.</p>
+                <form id="subscribeForm" style="display:flex;gap:8px;max-width:400px;margin:0 auto;flex-wrap:wrap;justify-content:center;" onsubmit="return handleSubscribe(event)">
+                    <input type="email" id="subEmail" required placeholder="your@email.com" style="flex:1;min-width:180px;padding:9px 12px;border:1px solid #CFD8DC;border-radius:8px;background:#fff;color:#212121;font-size:.85rem;outline:none;" onfocus="this.style.borderColor='#4CAF50'" onblur="this.style.borderColor='#CFD8DC'">
+                    <button type="submit" id="subBtn" style="padding:9px 20px;border:none;border-radius:8px;background:#2E7D32;color:#fff;font-weight:700;font-size:.83rem;cursor:pointer;transition:background .2s;" data-i18n="footSubBtn">Subscribe</button>
+                </form>
+                <p id="subMsg" style="color:#2E7D32;font-size:.78rem;margin:8px 0 0;display:none;"></p>
             </div>
             <div class="api-footer-copy" data-i18n="footCopy">&copy; 2026 GrowVPD Pro. All rights reserved.</div>
         </div>
@@ -3047,6 +3132,278 @@ data = <span class="num">get_vpd</span>(<span class="num">25</span>, <span class
             };
         }
     })();
+    </script>
+
+    <!-- API Playground — Phase 8 -->
+    <script>
+    (function() {
+        var BASE = 'https://api.growvpd.pro';
+        var STAGES = ['clone_seedling','early_veg','late_veg','early_flower','mid_flower','late_flower'];
+        var MEDIUMS = ['soil','coco','hydro','dwc'];
+
+        var EP = {
+            vpd: { path: '/v1/vpd', fields: [
+                { n:'temp', t:'slider', min:15, max:40, step:.5, v:25, req:1 },
+                { n:'humidity', t:'slider', min:20, max:95, step:1, v:60, req:1 },
+                { n:'leaf_offset', t:'number', v:2, ph:'2.0' },
+                { n:'unit', t:'select', opts:['c','f'], v:'c' }
+            ]},
+            target: { path: '/v1/target', fields: [
+                { n:'vpd', t:'number', v:1.2, ph:'e.g. 1.2' },
+                { n:'stage', t:'select', opts:STAGES },
+                { n:'temp', t:'number', v:25, ph:'e.g. 25' },
+                { n:'humidity', t:'number', ph:'e.g. 60' },
+                { n:'leaf_offset', t:'number', ph:'2.0' },
+                { n:'unit', t:'select', opts:['c','f'], v:'c' }
+            ]},
+            chart: { path: '/v1/chart', fields: [
+                { n:'temp_min', t:'number', v:18, ph:'15' },
+                { n:'temp_max', t:'number', v:30, ph:'35' },
+                { n:'temp_step', t:'number', ph:'1' },
+                { n:'rh_min', t:'number', ph:'30' },
+                { n:'rh_max', t:'number', ph:'90' },
+                { n:'rh_step', t:'number', ph:'5' },
+                { n:'stage', t:'select', opts:STAGES, v:'mid_flower' }
+            ]},
+            batch: { path: '/v1/batch', fields: [
+                { n:'readings', t:'text', v:'[{"temp":25,"humidity":60},{"temp":26,"humidity":55}]', req:1, wide:1 },
+                { n:'leaf_offset', t:'number', ph:'2.0' }
+            ]},
+            dli: { path: '/v1/dli', fields: [
+                { n:'ppfd', t:'slider', min:50, max:2000, step:10, v:600 },
+                { n:'hours', t:'slider', min:1, max:24, step:1, v:12 },
+                { n:'dli', t:'number', ph:'Target DLI (reverse)' }
+            ]},
+            light: { path: '/v1/light', fields: [
+                { n:'watts', t:'slider', min:50, max:1500, step:10, v:600 },
+                { n:'area', t:'number', v:1.44, ph:'m2' },
+                { n:'hours', t:'slider', min:1, max:24, step:1, v:12 },
+                { n:'efficiency', t:'number', v:2.5, ph:'umol/J' },
+                { n:'stage', t:'select', opts:STAGES, v:'mid_flower' }
+            ]},
+            stage: { path: '/v1/stage', fields: [
+                { n:'stage', t:'select', opts:['all'].concat(STAGES), v:'mid_flower' },
+                { n:'medium', t:'select', opts:MEDIUMS }
+            ]},
+            schedule: { path: '/v1/schedule', fields: [
+                { n:'type', t:'select', opts:['photo','auto'], v:'auto' },
+                { n:'medium', t:'select', opts:MEDIUMS, v:'coco' }
+            ]},
+            diagnose: { path: '/v1/diagnose', fields: [
+                { n:'temp', t:'slider', min:15, max:40, step:.5, v:32, req:1 },
+                { n:'humidity', t:'slider', min:20, max:95, step:1, v:75, req:1 },
+                { n:'stage', t:'select', opts:STAGES, v:'late_flower' },
+                { n:'medium', t:'select', opts:MEDIUMS },
+                { n:'ppfd', t:'number', ph:'PPFD' },
+                { n:'ph', t:'number', v:7.5, ph:'pH' },
+                { n:'ec', t:'number', ph:'EC mS/cm' },
+                { n:'co2', t:'number', ph:'CO2 ppm' },
+                { n:'night_temp', t:'number', ph:'Night temp' }
+            ]},
+            deficit: { path: '/v1/deficit', fields: [
+                { n:'symptoms', t:'text', v:'yellow_lower_leaves,brown_spots', req:1, wide:1 },
+                { n:'ph', t:'number', v:7.2, ph:'pH' },
+                { n:'medium', t:'select', opts:MEDIUMS }
+            ]},
+            dewpoint: { path: '/v1/dewpoint', fields: [
+                { n:'temp', t:'slider', min:15, max:40, step:.5, v:25, req:1 },
+                { n:'humidity', t:'slider', min:20, max:95, step:1, v:70, req:1 },
+                { n:'unit', t:'select', opts:['c','f'], v:'c' }
+            ]},
+            nutrient: { path: '/v1/nutrient', fields: [
+                { n:'stage', t:'select', opts:STAGES, v:'mid_flower', req:1 },
+                { n:'medium', t:'select', opts:MEDIUMS, v:'coco' },
+                { n:'water_ec', t:'number', v:0.3, ph:'mS/cm' }
+            ]},
+            co2: { path: '/v1/co2', fields: [
+                { n:'room_m3', t:'number', v:2.5, ph:'m3' },
+                { n:'target_ppm', t:'number', v:1200, ph:'ppm' },
+                { n:'current_ppm', t:'number', v:400, ph:'ppm' },
+                { n:'stage', t:'select', opts:STAGES, v:'mid_flower' }
+            ]},
+            irrigation: { path: '/v1/irrigation', fields: [
+                { n:'pot_size', t:'slider', min:1, max:50, step:1, v:11, req:1 },
+                { n:'medium', t:'select', opts:MEDIUMS, v:'coco' },
+                { n:'stage', t:'select', opts:STAGES, v:'mid_flower' },
+                { n:'vpd', t:'number', v:1.3, ph:'kPa' },
+                { n:'temp', t:'number', ph:'Temp' },
+                { n:'plants', t:'number', v:4, ph:'Count' }
+            ]},
+            room: { path: '/v1/room', fields: [
+                { n:'length', t:'number', v:1.2, req:1, ph:'meters' },
+                { n:'width', t:'number', v:1.2, req:1, ph:'meters' },
+                { n:'height', t:'number', v:2, ph:'meters' },
+                { n:'lights_watts', t:'slider', min:50, max:2000, step:10, v:600 },
+                { n:'target_temp', t:'number', v:25, ph:'C' },
+                { n:'ambient_temp', t:'number', v:22, ph:'C' },
+                { n:'plants', t:'number', v:4, ph:'Count' },
+                { n:'target_humidity', t:'number', v:55, ph:'%' }
+            ]},
+            dry: { path: '/v1/dry', fields: [
+                { n:'wet_weight', t:'slider', min:10, max:5000, step:10, v:500, req:1 },
+                { n:'temp', t:'number', v:20, ph:'C' },
+                { n:'humidity', t:'number', v:60, ph:'%' },
+                { n:'method', t:'select', opts:['hang','rack','wet_trim'] }
+            ]},
+            convert: { path: '/v1/convert', fields: [
+                { n:'ec', t:'number', v:1.5, ph:'mS/cm' },
+                { n:'ppm', t:'number', ph:'PPM' },
+                { n:'ppm_scale', t:'select', opts:['500','700'] },
+                { n:'temp', t:'number', ph:'Temp value' },
+                { n:'from', t:'select', opts:['c','f'] },
+                { n:'ppfd', t:'number', ph:'PPFD' },
+                { n:'lux', t:'number', ph:'Lux' }
+            ]},
+            health: { path: '/health', fields: [] }
+        };
+
+        function mkField(f, eid) {
+            var id = 'pg_' + eid + '_' + f.n;
+            var h = '<div class="pg-field' + (f.wide ? ' wide' : '') + '">';
+            h += '<label class="pg-label" for="' + id + '">' + f.n;
+            if (f.req) h += ' <span class="pg-req">REQ</span>';
+            if (f.t === 'slider') h += ' <span class="pg-val" id="' + id + '_v">' + f.v + '</span>';
+            h += '</label>';
+            if (f.t === 'slider') {
+                h += '<input type="range" class="pg-slider" id="' + id + '" data-p="' + f.n + '" min="' + f.min + '" max="' + f.max + '" step="' + f.step + '" value="' + f.v + '">';
+            } else if (f.t === 'number') {
+                h += '<input type="number" class="pg-input" id="' + id + '" data-p="' + f.n + '" value="' + (f.v != null ? f.v : '') + '" placeholder="' + (f.ph || '') + '" step="any">';
+            } else if (f.t === 'select') {
+                h += '<select class="pg-select" id="' + id + '" data-p="' + f.n + '"><option value="">--</option>';
+                (f.opts || []).forEach(function(o) { h += '<option value="' + o + '"' + (f.v === o ? ' selected' : '') + '>' + o + '</option>'; });
+                h += '</select>';
+            } else if (f.t === 'text') {
+                h += '<input type="text" class="pg-input" id="' + id + '" data-p="' + f.n + '" value=\'' + (f.v || '').replace(/'/g, '&#39;') + '\' placeholder="' + (f.ph || f.n) + '">';
+            }
+            return h + '</div>';
+        }
+
+        function getUrl(eid) {
+            var cfg = EP[eid], card = document.getElementById(eid);
+            if (!card) return BASE + cfg.path;
+            var p = [];
+            card.querySelectorAll('.playground-content [data-p]').forEach(function(el) {
+                var v = el.value;
+                if (v !== '' && v != null) p.push(encodeURIComponent(el.getAttribute('data-p')) + '=' + encodeURIComponent(v));
+            });
+            return BASE + cfg.path + (p.length ? '?' + p.join('&') : '');
+        }
+
+        function colorJson(s) {
+            s = s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+            return s.replace(/("(\\u[\da-fA-F]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+-]?\d+)?)/g, function(m) {
+                var c = 'num';
+                if (/^"/.test(m)) c = /:$/.test(m) ? 'key' : 'str';
+                else if (/true|false/.test(m)) c = 'bool';
+                else if (/null/.test(m)) c = 'null';
+                return '<span class="' + c + '">' + m + '</span>';
+            });
+        }
+
+        function runPg(eid) {
+            var btn = document.getElementById('pg_run_' + eid);
+            var res = document.getElementById('pg_res_' + eid);
+            var urlEl = document.getElementById('pg_url_' + eid);
+            var url = getUrl(eid);
+            if (urlEl) urlEl.textContent = url;
+            btn.disabled = true;
+            btn.innerHTML = '<span class="pg-spinner"></span> Loading\u2026';
+            res.style.display = 'block';
+            res.innerHTML = '';
+            var t0 = performance.now();
+            fetch(url).then(function(r) {
+                return r.text().then(function(t) { return { s: r.status, ok: r.ok, t: t }; });
+            }).then(function(r) {
+                var ms = Math.round(performance.now() - t0);
+                var pretty; try { pretty = JSON.stringify(JSON.parse(r.t), null, 2); } catch(e) { pretty = r.t; }
+                res.innerHTML = '<div class="pg-result-header"><span class="pg-result-label ' + (r.ok ? 'ok' : 'err') + '">' + r.s + (r.ok ? ' OK' : ' Error') + '</span><span class="pg-result-time">' + ms + 'ms</span></div><pre>' + colorJson(pretty) + '</pre>';
+            }).catch(function(e) {
+                var ms = Math.round(performance.now() - t0);
+                res.innerHTML = '<div class="pg-result-header"><span class="pg-result-label err">Network Error</span><span class="pg-result-time">' + ms + 'ms</span></div><pre style="color:#EF5350">' + e.message + '</pre>';
+            }).finally(function() {
+                btn.disabled = false;
+                btn.innerHTML = '<svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Send Request';
+            });
+        }
+
+        // Inject playground into each endpoint card
+        Object.keys(EP).forEach(function(eid) {
+            var card = document.getElementById(eid);
+            if (!card) return;
+            var cfg = EP[eid];
+            var actions = card.querySelector('.endpoint-actions');
+            if (!actions) return;
+
+            var btn = document.createElement('button');
+            btn.className = 'playground-toggle';
+            btn.innerHTML = '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg> Playground';
+            actions.appendChild(btn);
+
+            var pg = document.createElement('div');
+            pg.className = 'playground-content';
+            var html = '';
+            if (cfg.fields.length) {
+                html += '<div class="pg-grid">';
+                cfg.fields.forEach(function(f) { html += mkField(f, eid); });
+                html += '</div>';
+            }
+            html += '<div class="pg-actions"><button class="pg-run" id="pg_run_' + eid + '"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Send Request</button></div>';
+            html += '<div class="pg-url" id="pg_url_' + eid + '"></div>';
+            html += '<div class="pg-result" id="pg_res_' + eid + '" style="display:none"></div>';
+            pg.innerHTML = html;
+
+            var ex = card.querySelector('.example-content');
+            if (ex) ex.after(pg);
+            else actions.after(pg);
+
+            btn.addEventListener('click', function() {
+                btn.classList.toggle('open');
+                pg.classList.toggle('open');
+                if (pg.classList.contains('open')) {
+                    var u = document.getElementById('pg_url_' + eid);
+                    if (u) u.textContent = getUrl(eid);
+                }
+            });
+
+            pg.querySelectorAll('[data-p]').forEach(function(el) {
+                var fn = function() {
+                    if (el.type === 'range') {
+                        var vs = document.getElementById(el.id + '_v');
+                        if (vs) vs.textContent = el.value;
+                    }
+                    var u = document.getElementById('pg_url_' + eid);
+                    if (u) u.textContent = getUrl(eid);
+                };
+                el.addEventListener('input', fn);
+                el.addEventListener('change', fn);
+            });
+
+            document.getElementById('pg_run_' + eid).addEventListener('click', function() { runPg(eid); });
+        });
+    })();
+    </script>
+    <script>
+    function handleSubscribe(e) {
+        e.preventDefault();
+        var em = document.getElementById('subEmail').value.trim();
+        var btn = document.getElementById('subBtn');
+        var msg = document.getElementById('subMsg');
+        if (!em) return false;
+        btn.disabled = true; btn.textContent = '...';
+        var lang = (localStorage.getItem('lang') || navigator.language || 'en').substring(0,2);
+        fetch('https://api.growvpd.pro/subscribe', {
+            method: 'POST', headers: {'Content-Type':'application/json'},
+            body: JSON.stringify({email: em, lang: lang})
+        }).then(function(r) { return r.json(); }).then(function(d) {
+            msg.style.display = 'block'; msg.style.color = '#2E7D32';
+            msg.textContent = d.message || 'Check your email to confirm!';
+            document.getElementById('subEmail').value = '';
+        }).catch(function() {
+            msg.style.display = 'block'; msg.style.color = '#EF5350';
+            msg.textContent = 'Something went wrong. Try again later.';
+        }).finally(function() { btn.disabled = false; btn.textContent = 'Subscribe'; });
+        return false;
+    }
     </script>
 </body>
 </html>
