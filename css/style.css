@@ -254,6 +254,7 @@ ul{list-style:none}
 .device-badge-beta{background:rgba(255,183,77,.12);color:#FFB74D;border-color:rgba(255,183,77,.2)}
 .device-beta{opacity:.75}
 .device-beta:hover{opacity:.9}
+.device-transport{display:inline-block;margin-top:10px;font-size:.66rem;font-weight:600;padding:3px 8px;border-radius:4px;letter-spacing:.02em;text-transform:uppercase;background:rgba(129,199,132,.08);color:rgba(129,199,132,.85);border:1px solid rgba(129,199,132,.18)}
 
 .devices-more{text-align:center;color:rgba(255,255,255,.3);font-size:.85rem}
 
@@ -646,3 +647,32 @@ ul{list-style:none}
 .sticky-cta-discord:hover{background:#4752C4;color:#fff}
 .sticky-cta-email{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.15)}
 .sticky-cta-email:hover{background:rgba(255,255,255,.15)}
+
+/* --- v5 Slim Landing: 3-card value grid --- */
+.value-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.value-card{background:#FAFBFC;border:1px solid #ECEFF1;border-radius:20px;padding:36px 28px;text-align:left;transition:all .35s}
+.value-card:hover{border-color:#C8E6C9;transform:translateY(-4px);box-shadow:0 20px 60px rgba(46,125,50,.08)}
+.value-icon-wrap{width:52px;height:52px;border-radius:14px;background:rgba(46,125,50,.08);display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+.value-card h3{font-size:1.18rem;font-weight:800;color:#1B5E20;margin-bottom:10px;line-height:1.3}
+.value-card p{color:#546E7A;font-size:.95rem;line-height:1.55;margin:0}
+@media (max-width:760px){
+  .value-grid{grid-template-columns:1fr;gap:14px}
+  .value-card{padding:26px 22px}
+}
+
+/* --- v5 Slim Footer --- */
+.footer-cta-block{text-align:center;padding:8px 0 24px;display:flex;flex-direction:column;align-items:center;gap:14px}
+.footer-discord-cta{background:#5865F2;color:#fff;border:none}
+.footer-discord-cta:hover{background:#4752C4;color:#fff}
+.footer-mini-sub{display:flex;gap:8px;width:100%;max-width:380px;flex-wrap:wrap;justify-content:center}
+.footer-mini-sub input[type=email]{flex:1;min-width:200px;padding:10px 14px;border:1px solid rgba(255,255,255,.15);border-radius:8px;background:rgba(255,255,255,.06);color:#fff;font-size:.88rem;outline:none;font-family:inherit;transition:border-color .2s}
+.footer-mini-sub input[type=email]:focus{border-color:#4CAF50}
+.footer-mini-sub button{padding:10px 22px;border:none;border-radius:8px;background:#4CAF50;color:#fff;font-weight:700;font-size:.85rem;cursor:pointer;transition:background .2s;font-family:inherit}
+.footer-mini-sub button:hover{background:#388E3C}
+.footer-cta-block .sub-msg{color:#81C784;font-size:.8rem;margin:0;min-height:1em}
+.footer-cta-block .sub-msg:empty{display:none}
+.footer-links-row{display:flex;flex-wrap:wrap;gap:18px 22px;justify-content:center;padding:24px 0;border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08)}
+.footer-links-row a{color:rgba(255,255,255,.65);font-size:.85rem;text-decoration:none;transition:color .2s}
+.footer-links-row a:hover{color:#fff}
+.footer .footer-bottom{padding:18px 0 0;text-align:center}
+.footer .footer-bottom p{color:rgba(255,255,255,.45);font-size:.78rem;margin:0}

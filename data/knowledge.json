@@ -1,0 +1,514 @@
+{
+  "version": "2.0",
+  "lastUpdated": "2026-04-26",
+  "appInfo": {
+    "name": "GrowVPD Pro",
+    "packageNamespace": "com.example.growmaster_vpdchart",
+    "applicationId": "app.growvpd.pro",
+    "platforms": [
+      {"os": "Android", "minVersion": "7.0 (API 24)", "status": "Beta"},
+      {"os": "iOS", "minVersion": "15.0", "status": "In development"}
+    ],
+    "version": "1.0",
+    "versionCode": 6,
+    "apkSizeMb": {"release": 18, "debug": 46},
+    "languages": ["CS", "EN", "DE", "ES", "NL", "FR", "IT", "PT", "PL", "TH", "HE"],
+    "languageCount": 11,
+    "architecture": "Single-Activity Jetpack Compose (Android), SwiftUI + KMP shared (iOS)",
+    "database": {"android": "Room v33", "kmp": "SQLDelight"},
+    "license": "Proprietary",
+    "legalEntity": "VPD Labs LLC (Wyoming, USA)"
+  },
+  "pricing": {
+    "canonicalAsOf": "2026-04-24",
+    "currency": "USD",
+    "free": {
+      "price": 0,
+      "billing": "free",
+      "features": [
+        "VPD chart",
+        "Manual diary entries",
+        "1 tent",
+        "3 devices",
+        "11 languages"
+      ]
+    },
+    "pro_monthly": {
+      "price": 3.99,
+      "billing": "monthly",
+      "savings_pct_vs_monthly_baseline": 0
+    },
+    "pro_yearly": {
+      "price": 24.99,
+      "billing": "annual",
+      "savings_pct_vs_monthly": 48
+    },
+    "pro_lifetime": {
+      "price": 49.99,
+      "billing": "one_time",
+      "monthsToBreakEvenVsMonthly": 12,
+      "includesAllFutureProFeatures": true
+    },
+    "proUnlocks": [
+      "Unlimited tents, devices, photos",
+      "All smart automation across 8 platforms",
+      "Substrate drybacks + WC%/EC crop steering",
+      "Blueprint auto-setpoints on stage transition",
+      "Multi-device sync (Phone-as-Hub + QR pairing + Ed25519 + LAN/Cloud relay)",
+      "BLE sensors (third-party temp/humidity)",
+      "AI disease diagnostics",
+      "Full PDF + JSON exports with photos",
+      "Photo watermarking with live VPD/temp/RH overlay",
+      "Tuya Cloud Bridge wizard",
+      "Self-hosted home agent (planned)",
+      "Hub mode + 24/7 relay phone",
+      "Priority support",
+      "No ads ever",
+      "All future Pro features (lifetime tier)"
+    ],
+    "noFlashDiscounts": true,
+    "noAdsEver": true,
+    "noDataSelling": true
+  },
+  "positioning": {
+    "primaryMessage": "The only cannabis automation that works without a $2,500 controller. Bring your own devices. VPD-first automation. 11 languages. Local-first privacy. $3.99/mo.",
+    "secondaryMessage": "Your grow doesn't die when the cloud goes down. Growlink is cloud-only, TrolMaster relies on AWS. We talk LAN direct to your devices.",
+    "targetAudience": {
+      "primary": "Hobby to prosumer cannabis growers (5M+ globally) with 1-4 tents and existing Tuya / AC Infinity / Mars Hydro gear",
+      "secondary": "Privacy-conscious growers (EU/GDPR audience)",
+      "tertiary": "Home Assistant users wanting cannabis-specific analytics layer"
+    },
+    "notTargeting": [
+      "Commercial cannabis MSOs ($2-5k hardware budgets — Growlink owns them)",
+      "Industrial greenhouse operators (Agrowtek)",
+      "Hardware-proud TrolMaster loyalists"
+    ],
+    "pillars": [
+      "Automation Engine 2.0 (algorithms from OpenGrowBox / GanjOS / HA)",
+      "Diary Transformation (Isley-level journal depth)",
+      "Platform Excellence (audited Kotlin clients vs HA reference)",
+      "Onboarding + Polish (8 wizards, hardware matrix, 11-language parity)"
+    ]
+  },
+  "platforms": [
+    {
+      "id": "tuya",
+      "name": "Tuya / Smart Life",
+      "transport": "LAN (v3.3/v3.4/v3.5) + Cloud Bridge per-user + Tuya Pulsar real-time MQTT push + Zigbee sub-devices via hub + BLE direct",
+      "status": "Verified",
+      "supportedDeviceCategories": [
+        "Smart plugs (cz/tdq/pc)",
+        "TH sensors WB3S (th05/th08/th16/snt957w)",
+        "Dehumidifiers",
+        "Humidifiers",
+        "AC/heatpump (kt)",
+        "Air purifiers",
+        "CO2 sensors",
+        "Inline air vents (Aygrochy)",
+        "Valves / irrigation",
+        "Energy meters",
+        "Leak sensors",
+        "Lights",
+        "Dimmers",
+        "IR remotes",
+        "Cameras",
+        "Breakers",
+        "Thermostats"
+      ],
+      "supportedProductIds": "1452 unique IDs across 200+ vendors (sourced from tuya-local Apache 2.0)",
+      "pairingMethods": [
+        "LAN local (auto for cz/pc/kg/kt/dj categories)",
+        "Cloud Bridge wizard (Path A — recommended for battery sensors)",
+        "OAuth extract-unlink (PENDING — feature flag OAUTH_EXTRACT_UNLINK_ENABLED=false, blocked on Tuya OEM clientid approval)"
+      ],
+      "limitations": [
+        "wsdcg battery WiFi TH sensors update every 15-60 min (recommend Zigbee alternative like Aqara WSDCGQ11LM)",
+        "co2bj CO2 sensors same low-power limitation",
+        "50-device cap on free Tuya IoT trial (commercial $25k/yr deferred until 1000+ paid users)",
+        "wsdcg LAN access permanently blocked by firmware"
+      ]
+    },
+    {
+      "id": "ac_infinity",
+      "name": "AC Infinity",
+      "transport": "Cloud REST + AI controller PUT endpoint + IPC camera REST + BLE (Controller 69 BT-only)",
+      "status": "Verified",
+      "supportedDevices": {
+        "controllers": ["69 Pro (devType 11)", "69 Pro+ (18)", "AI+ (20)", "Outlet AI (21)", "Outlet AI+ (22)"],
+        "fans": ["CLOUDLINE T/S/A 4-12\"", "CLOUDRAY A4/A6/S4/S6 circulation"],
+        "lights": ["IONFRAME EVO 3-10 (280-1000W)", "IONBOARD", "IONBEAM"],
+        "climate": ["CLOUDFORGE T3/T5/T7 humidifier", "THERMOFORGE T3/T7 heater", "TERRAFORM 7/8/12 AC"],
+        "sensors": ["Climate", "CO2+Light", "Soil", "Water", "Hydro pH/EC/TDS"],
+        "camera": ["SPECTRON 3/7 (REST API + AI plant health)"]
+      },
+      "pairingMethods": ["Sign in with email + password in Settings → Connected Accounts"],
+      "limitations": [
+        "HTTP not HTTPS",
+        "Password truncated to 25 chars",
+        "Field name 'appPasswordl' (trailing lowercase L)",
+        "Rate limiting on rapid PATCH calls",
+        "modeSetid removed for 69 Pro (causes 403)"
+      ]
+    },
+    {
+      "id": "mars_hydro",
+      "name": "Mars Hydro",
+      "transport": "REST auth + BLE pairing-only + MQTT cloud control (mTLS)",
+      "status": "Verified",
+      "supportedDevices": ["DimBox Pro", "DimBox", "FanBox", "iHub", "iControl ecosystem"],
+      "mqttBroker": "ssl://mars-pro.mqtt.lgledsolutions.com:8883",
+      "pairingMethods": [
+        "Sign in via REST → MQTT subscribes",
+        "BLE scan to discover device PID",
+        "Topics: MHPRO/<deviceType>/<deviceType>/API/UP|DOWN/<pid>"
+      ],
+      "limitations": [
+        "BLE used for pairing only (iConnect BLE control unreliable)",
+        "WiFi required during pairing",
+        "Fan speed clamped 25-100% (hardware limit)",
+        "Client ID format MUST be <userId>_<timestamp>",
+        "MQTT username MUST be <accessId>-prod"
+      ]
+    },
+    {
+      "id": "spider_farmer",
+      "name": "Spider Farmer",
+      "transport": "WiFi MQTT (sister of Mars Hydro under MZ) + BLE offline GATT",
+      "status": "Verified",
+      "supportedDevices": ["Spider Farmer lights, fans, controllers using SF protocol"],
+      "mqttBroker": "sf.mqtt.spider-farmer.com",
+      "pairingMethods": ["Sign in via Spider Farmer Smart Cloud REST", "BLE GATT for offline telemetry"],
+      "limitations": ["Same firmware family as Mars Hydro — same caveats apply"]
+    },
+    {
+      "id": "vivosun",
+      "name": "Vivosun",
+      "transport": "REST + AWS IoT MQTT (WebSocket + SigV4) + BLE (AeroLab THB only) + RTSP (GrowCam C4)",
+      "status": "Verified",
+      "supportedDevices": {
+        "controllers": ["GrowHub E42A+", "E42A", "E25 mini", "A10 plug", "A22 plug + sensor"],
+        "sensors": ["AeroLab THB (BLE only, name 'ThermoBeacon2')"],
+        "climate": ["AeroStream H19/H09/H05 humidifier (hmdf)", "AeroDrain D12 dehumidifier", "AeroLush C08 AC", "AeroFlux W70 heater (heat)"],
+        "camera": ["GrowCam C4 (RTSP port 554, 2K QHD 4MP, IR, 2-way audio)"],
+        "other": ["VGrow smart grow box", "VCure C80 curing box"]
+      },
+      "pairingMethods": ["Sign in via REST → AWS IoT WebSocket subscribes for shadow updates"],
+      "limitations": [
+        "NOT Tuya-based",
+        "AeroLab THB BLE-only (no WiFi/cloud)",
+        "Camera control limited to RTSP stream view",
+        "Sensor sentinel -6666 = unavailable"
+      ]
+    },
+    {
+      "id": "bluelab",
+      "name": "Bluelab Edenic",
+      "transport": "Edenic REST API (api.edenic.io)",
+      "status": "Verified",
+      "supportedDevices": [
+        "Guardian Monitor WiFi",
+        "Guardian Inline WiFi",
+        "Pro Controller WiFi",
+        "pH Controller WiFi",
+        "OnePen (BLE)",
+        "Pulse Meter (BLE)",
+        "IntelliDose (via IntelliLink)"
+      ],
+      "pairingMethods": ["Generate API key in Edenic mobile app → provide API key + Organization ID"],
+      "rateLimit": "1 request per minute (we poll every 70 seconds)",
+      "limitations": [
+        "1 req/min hard rate limit",
+        "Metric units only",
+        "No humidity/VPD (Bluelab focuses on water/nutrient solution)",
+        "Guardian buffers 24h offline data",
+        "API uses 400 as rate-limit signal (not 429)"
+      ]
+    },
+    {
+      "id": "sanlight",
+      "name": "SANlight",
+      "transport": "Bluetooth Mesh (Nordic nRF52832 with S132 v7.3.0)",
+      "status": "EXPERIMENTAL",
+      "supportedDevices": [
+        "EVO 3-60 (190W)",
+        "EVO 3-80/100 (200W)",
+        "EVO 4-80/100/120 (265W)",
+        "EVO 5-100/120/150 (320-340W)",
+        "EVO 6-120/150 (400W)",
+        "Q4W Gen2 (165W)",
+        "Q6W Gen2 (245W)",
+        "STIXX 50 (50W IP68)",
+        "M30 (30W)"
+      ],
+      "pairingMethods": ["BLE Mesh provisioning (uses guessed UUIDs from APK reverse engineering)"],
+      "limitations": [
+        "EXPERIMENTAL — BLE Mesh stack uses guessed UUIDs",
+        "Community confirms nobody has cracked proprietary protocol in 2.5 years",
+        "Recommended fallback: 0-10V GrowControl adapter → AC Infinity for stable dimming"
+      ]
+    },
+    {
+      "id": "test_devices",
+      "name": "Test devices (built-in simulator)",
+      "transport": "Local simulation, no network",
+      "status": "Verified",
+      "useCase": "Demo data, screenshots, automation rule testing without hardware",
+      "activation": "Settings → Demo data → Seed demo data"
+    }
+  ],
+  "deviceTypes": [
+    {"id": "light", "controlCommands": ["power_on", "power_off", "set_dimming(0-100)", "set_dimming_ramp(from,to,durationSec)"], "automationHooks": ["Photoperiod schedule", "Sunrise/sunset ramp", "Native ramp passthrough"]},
+    {"id": "inline_fan", "controlCommands": ["power_on", "power_off", "set_speed(25-100)", "mode (auto/timer/cycle/VPD)"], "automationHooks": ["VPD threshold", "Temp ceiling", "RH floor/ceiling"]},
+    {"id": "exhaust_fan", "controlCommands": ["power_on", "power_off", "set_speed"], "automationHooks": ["Exhaust priority during emergency override"]},
+    {"id": "intake_fan", "controlCommands": ["power_on", "power_off", "set_speed(25-100)"], "automationHooks": ["CO2 trigger", "Temp ceiling"]},
+    {"id": "humidifier", "controlCommands": ["power_on", "power_off", "set_target_humidity(0-100)", "mode (auto/manual)"], "automationHooks": ["RH floor below stage target"]},
+    {"id": "dehumidifier", "controlCommands": ["power_on", "power_off", "set_target_humidity(0-100)", "speed (low/med/high)"], "automationHooks": ["RH ceiling above stage target"]},
+    {"id": "heater", "controlCommands": ["power_on", "power_off", "set_target_temp"], "automationHooks": ["Temp floor below stage target"]},
+    {"id": "ac_climate", "controlCommands": ["set_mode (cool/heat/auto/dry/fan)", "set_temp_set", "swing_mode"], "automationHooks": ["Temp ceiling", "Day/night offset"]},
+    {"id": "co2_sensor", "controlCommands": ["read-only"], "automationHooks": ["CO2 threshold (800-1500 veg, 1500-2500 flower, dangerous >5000)"]},
+    {"id": "co2_doser", "controlCommands": ["power_on", "power_off", "dose duration"], "automationHooks": ["Night CO2 hold = 0 ppm"]},
+    {"id": "th_sensor", "controlCommands": ["read-only"], "automationHooks": ["Drives all VPD/temp/RH automation"]},
+    {"id": "soil_sensor", "controlCommands": ["read-only (VWC/EC/temp/pH)"], "automationHooks": ["Crop steering drybacks", "Irrigation triggers", "Stagnation safety"]},
+    {"id": "ppfd_sensor", "controlCommands": ["read-only"], "automationHooks": ["DLI tracking", "Light-level enforcement"]},
+    {"id": "smart_plug", "controlCommands": ["power_on", "power_off", "countdown timer", "energy metering"], "automationHooks": ["Universal — any device on a plug"]},
+    {"id": "camera", "controlCommands": ["RTSP/ONVIF stream", "snapshot to diary", "AI plant health (Spectron)"], "automationHooks": ["Auto-snapshot on schedule (daily → 2 weeks)"]},
+    {"id": "irrigation_pump", "controlCommands": ["power_on", "power_off", "max-run safety"], "automationHooks": ["Timer + soil VWC threshold"]},
+    {"id": "valve", "controlCommands": ["valve_open_for(seconds)", "mode (auto/manual/timer)"], "automationHooks": ["Drain/feed cycles", "Hydro/aeroponics"]},
+    {"id": "energy_meter", "controlCommands": ["read-only (V/A/W + kWh)"], "automationHooks": ["Power anomaly detection", "Leak status", "GFCI auto-cut"]},
+    {"id": "leak_sensor", "controlCommands": ["read-only (normal/alarm)"], "automationHooks": ["Fire-and-forget priority alarm + cut all reachable plugs"]},
+    {"id": "air_purifier", "controlCommands": ["power_on", "power_off", "speed", "mode"], "automationHooks": ["Filter life monitoring"]}
+  ],
+  "features": [
+    {"id": "vpd_chart", "category": "monitoring", "name": "Interactive VPD chart", "tier": "free", "description": "Color-coded VPD heatmap per growth stage with °C/°F toggle, tent switching, save-to-diary, target VPD band overlay"},
+    {"id": "ppfd_meter", "category": "monitoring", "name": "PPFD meter", "tier": "free", "description": "Combined Meter + Guide tab using phone light sensor; smart sensor toggle (Pro) reads live PPFD"},
+    {"id": "ble_sensor", "category": "monitoring", "name": "Bluetooth temp/humidity sensor", "tier": "pro", "description": "Read live data from third-party BLE sensors (SensorPush, Govee, SwitchBot, Ruuvi, Inkbird)"},
+    {"id": "smart_automation", "category": "automation", "name": "Smart device automation", "tier": "pro", "description": "8 platforms, VPD-centric multi-tent optimization, ClimateIntelligence engine"},
+    {"id": "blueprint_setpoints", "category": "automation", "name": "Blueprint auto-setpoints", "tier": "pro", "description": "On stage transition, auto-push new targets to all connected devices"},
+    {"id": "emergency_override", "category": "automation", "name": "Emergency override (D2)", "tier": "pro", "description": "Triggers on temp spike (>maxTemp+2°C) or condensation imminent (dewpoint within 0.5°C of air); bypasses cooldowns"},
+    {"id": "auto_stage", "category": "automation", "name": "Auto stage detection (D4)", "tier": "pro", "description": "6h periodic worker; 3-signal voting (photoperiod/VWC/elapsed days); proposes via notification with Confirm/Dismiss"},
+    {"id": "light_ramp", "category": "automation", "name": "Sunrise/sunset light ramp (D1)", "tier": "pro", "description": "Default 5-min ramp; native pass-through for Mars Hydro/SANlight; client-side stepping for others"},
+    {"id": "night_co2_hold", "category": "automation", "name": "Night CO2 hold (D3)", "tier": "pro", "description": "At lights-off, CO2 target → 0 ppm (ambient); saves gas + reduces stress"},
+    {"id": "three_point_band", "category": "automation", "name": "Three-point target band (D5)", "tier": "pro", "description": "Sensor cards show min/target/max gradient bar with current-value needle"},
+    {"id": "stagnation_safety", "category": "automation", "name": "Stagnation safety (A1)", "tier": "pro", "description": "Detects sensor/pump fault when 3+ consecutive readings stuck below 40% VWC"},
+    {"id": "deadband", "category": "automation", "name": "Deadband stability hold (A2)", "tier": "pro", "description": "When VPD inside band for ≥2 min, suppresses further actions for 5 min"},
+    {"id": "leaf_offset", "category": "automation", "name": "Leaf temperature offset (A3)", "tier": "pro", "description": "Per-tent setting (-10 to +10°C); adjusts VPD calculation for canopy vs air temp"},
+    {"id": "day_night_offsets", "category": "automation", "name": "Day/night climate offsets (A4)", "tier": "pro", "description": "Auto-applies night offsets (-3°C, +20% RH, +0.3kPa VPD, 0 ppm CO2)"},
+    {"id": "weighted_deviations", "category": "automation", "name": "Weighted deviations (A5)", "tier": "pro", "description": "40% temp / 60% humidity blend in priority decisions"},
+    {"id": "hero_banner", "category": "diary", "name": "Hero banner", "tier": "free", "description": "200dp photo background, dark overlay, title + strain top-left, live sensor chips with trend arrows"},
+    {"id": "stage_timeline", "category": "diary", "name": "Stage timeline", "tier": "free", "description": "Horizontal LazyRow of 6 milestone nodes; tap reached → edit, tap future → advance"},
+    {"id": "multi_strain", "category": "diary", "name": "Multi-strain editor", "tier": "free", "description": "One grow can carry multiple strains with per-strain plant counts"},
+    {"id": "bulk_activity", "category": "diary", "name": "Bulk activity recording", "tier": "free", "description": "Water all / Feed all / Note all multi-grow flow with atomic transaction"},
+    {"id": "watermarking", "category": "diary", "name": "Photo watermarking", "tier": "pro", "description": "Canvas overlay at capture; selectable timestamp/grow name/stage+week/live VPD/temp/RH/custom text in 4 corners"},
+    {"id": "strain_lineage", "category": "diary", "name": "Strain entity + lineage", "tier": "free", "description": "First-class Strain table with breeder, indica/sativa%, autoflower flag, cycle days, seed count, recursive ancestry/descendants"},
+    {"id": "sensor_rollups", "category": "diary", "name": "Sensor hourly rollups + trend arrows", "tier": "pro", "description": "Periodic 15-min WorkManager; 30-day raw retention; trend arrows (↑↓→) via 16-sample moving average"},
+    {"id": "harvest_metrics", "category": "diary", "name": "Harvest dialog + cycle time + yield", "tier": "free", "description": "HarvestDialog + CuringDialog + HarvestStatsCard with cycle time, total yield, per-plant, wet/dry ratio; editable"},
+    {"id": "ai_disease", "category": "diary", "name": "AI disease diagnostics", "tier": "pro", "description": "Photo of leaf → AI color analysis + 5-step diagnostic questionnaire; 30+ diseases with product recommendations"},
+    {"id": "export", "category": "diary", "name": "Export & sharing", "tier": "pro", "description": "Full PDF including Lifecycle table + Harvest summary block; JSON backup; share with photos"},
+    {"id": "8_platforms", "category": "smart_devices", "name": "8 platforms", "tier": "pro", "description": "Tuya, AC Infinity, Mars Hydro, Spider Farmer, Vivosun, Bluelab Edenic, SANlight (experimental), Test devices"},
+    {"id": "cloud_bridge", "category": "smart_devices", "name": "Tuya Cloud Bridge wizard", "tier": "pro", "description": "5-step guided setup; HMAC validator + encrypted credential store"},
+    {"id": "oauth_extract", "category": "smart_devices", "name": "Tuya OAuth-extract-unlink (PENDING)", "tier": "pro", "description": "One-tap 'Sign in with Tuya' → auto-extract local_keys → optional unlink. Code shipped behind feature flag, awaiting Tuya OEM clientid approval"},
+    {"id": "multi_device_sync", "category": "smart_devices", "name": "Multi-device sync (Phone-as-Hub)", "tier": "pro", "description": "Ed25519 keypair, QR pairing, HLC clock, LWW merge, LAN TCP transport, Cloud Relay fallback"},
+    {"id": "hub_mode", "category": "smart_devices", "name": "Hub mode", "tier": "pro", "description": "Designate one phone as 24/7 relay anchor (Android foreground service; iOS BGTaskScheduler best-effort)"},
+    {"id": "cloud_relay", "category": "smart_devices", "name": "Cloud Relay fallback", "tier": "pro", "description": "When LAN sync unreachable, encrypted messages route through our cloud relay"},
+    {"id": "pulsar_push", "category": "smart_devices", "name": "Tuya Pulsar real-time push", "tier": "pro", "description": "Per-user MQTT WSS subscriber; AES-128-ECB decoder; ~ms latency vs 5-10s polling"},
+    {"id": "ble_pairing", "category": "smart_devices", "name": "BLE pairing", "tier": "pro", "description": "Mars Hydro, Spider Farmer, SANlight, Vivosun AeroLab THB"},
+    {"id": "compatibility_matrix", "category": "equipment", "name": "Hardware compatibility matrix", "tier": "free", "description": "Searchable list of 27+ verified devices with status badges; 270+ entries in product registry"},
+    {"id": "equipment_db", "category": "equipment", "name": "Equipment database", "tier": "free", "description": "200+ products: lights, tents, ventilation, fans, humidifiers from Mars Hydro, Spider Farmer, AC Infinity, Lumatek, Gavita"},
+    {"id": "equipment_profiles", "category": "equipment", "name": "Equipment profiles", "tier": "pro", "description": "Save your tent setup once, load into new grows"},
+    {"id": "setup_builder", "category": "equipment", "name": "Setup builder", "tier": "free", "description": "Suggest tent configurations based on space + budget"},
+    {"id": "crashlytics_optin", "category": "polish", "name": "Crashlytics opt-in", "tier": "free", "description": "Off by default in debug, on by default in release; 5 anonymous custom keys; no PII"},
+    {"id": "privacy_screen", "category": "polish", "name": "Privacy explanation screen", "tier": "free", "description": "4 sections: local-first, vendor cloud, multi-device sync, crash reporting; Canvas-drawn 3-flow diagram"},
+    {"id": "demo_data", "category": "polish", "name": "Demo data orchestrator", "tier": "free", "description": "Settings button creates strain catalogue, 3 demo grows, sensor history, automation rules; tagged for safe clearing"},
+    {"id": "qr_token", "category": "polish", "name": "QR token import", "tier": "pro", "description": "Scan QR to auto-fill API tokens for Bluelab/Vivosun/Tuya"},
+    {"id": "wizards_8_platforms", "category": "polish", "name": "Onboarding wizards (8 platforms)", "tier": "free", "description": "3-5 step visual wizard per platform with deep-links and explainers"},
+    {"id": "app_lock", "category": "polish", "name": "App lock with PIN/biometric", "tier": "free", "description": "Lock-on-background via LifecycleEventObserver"},
+    {"id": "photo_privacy", "category": "polish", "name": "Photo privacy", "tier": "pro", "description": "Hide photos from device gallery, stealth mode, disguised icon"},
+    {"id": "no_ads", "category": "polish", "name": "No ads", "tier": "free", "description": "Forever. Ever. We don't sell ad space."}
+  ],
+  "growthStages": [
+    {"id": "seedling", "displayName": "Seedling", "durationDaysTypical": "7-14", "tempC": "22-26", "humidityPct": "65-75", "vpdKpa": "0.4-0.8", "ppfd": "100-300", "co2Ppm": "400-600"},
+    {"id": "veg", "displayName": "Vegetative", "durationDaysTypical": "21-42", "tempC": "22-28", "humidityPct": "55-70", "vpdKpa": "0.8-1.2", "ppfd": "300-600", "co2Ppm": "600-1200"},
+    {"id": "pre_flower", "displayName": "Pre-flower", "durationDaysTypical": "7-14", "tempC": "22-28", "humidityPct": "50-65", "vpdKpa": "1.0-1.4", "ppfd": "400-700", "co2Ppm": "800-1200"},
+    {"id": "flower", "displayName": "Flower", "durationDaysTypical": "35-56", "tempC": "20-26", "humidityPct": "40-55", "vpdKpa": "1.2-1.6", "ppfd": "600-1000", "co2Ppm": "1000-1500"},
+    {"id": "late_flower", "displayName": "Late flower", "durationDaysTypical": "14-28", "tempC": "18-24", "humidityPct": "35-50", "vpdKpa": "1.4-1.8", "ppfd": "700-1100", "co2Ppm": "800-1200"},
+    {"id": "flush", "displayName": "Flush", "durationDaysTypical": "7-14", "tempC": "18-22", "humidityPct": "35-45", "vpdKpa": "1.4-1.6", "ppfd": "500-800", "co2Ppm": "ambient"},
+    {"id": "drying", "displayName": "Drying", "durationDaysTypical": "7-14", "tempC": "16-21", "humidityPct": "55-65", "vpdKpa": "0.6-0.9", "ppfd": "0", "co2Ppm": "ambient"},
+    {"id": "curing", "displayName": "Curing", "durationDaysTypical": "14+", "tempC": "18-22", "humidityPct": "58-65", "vpdKpa": "0.7-1.0", "ppfd": "0", "co2Ppm": "ambient"},
+    {"id": "harvested", "displayName": "Harvested", "durationDaysTypical": "terminal", "tempC": null, "humidityPct": null, "vpdKpa": null, "ppfd": null, "co2Ppm": null}
+  ],
+  "nightOffsets": {"tempC": -3, "humidityPctPoints": 20, "vpdKpa": 0.3, "co2Ppm": 0},
+  "glossary": [
+    {"term": "VPD", "definition": "Vapor Pressure Deficit. Difference between water vapor pressure at saturation and actual air vapor pressure. Drives transpiration; primary metric for tent climate optimization. Measured in kPa (typically 0.4-1.8)."},
+    {"term": "Leaf VPD", "definition": "VPD computed using leaf temperature instead of air temperature. Leaves typically 1-3°C cooler than air under LED → leaf VPD is lower than air VPD. Critical for accuracy."},
+    {"term": "PPFD", "definition": "Photosynthetic Photon Flux Density. Light intensity at canopy in µmol/m²/s. Drives photosynthesis."},
+    {"term": "DLI", "definition": "Daily Light Integral. Cumulative PPFD over 24h, expressed as mol/m²/day."},
+    {"term": "EC", "definition": "Electrical Conductivity. Measure of nutrient salt concentration in solution (mS/cm or µS/cm or ppm 500/700)."},
+    {"term": "pH", "definition": "Acidity/alkalinity. 5.5-6.5 typical for cannabis hydro/coco; 6.0-7.0 for soil."},
+    {"term": "Photoperiod", "definition": "Light/dark cycle ratio. 18/6 = 18h light + 6h dark (typical veg). 12/12 = flower trigger for photoperiod strains. 20/4 or 24/0 = autoflower."},
+    {"term": "Autoflower", "definition": "Cannabis strain that flowers based on age (typically 60-90 days) regardless of photoperiod. Genetics include ruderalis."},
+    {"term": "Dryback", "definition": "Substrate moisture loss between irrigations. % drop from saturation peak to next irrigation start. Used in crop steering."},
+    {"term": "Crop steering", "definition": "Manipulation of irrigation, EC, and environment to push plants toward vegetative or generative growth. WC%/EC tracking is key signal."},
+    {"term": "Tent", "definition": "Grow tent — enclosed structure (typically 2'x2' to 5'x5'+). Each tent is a unit of climate control in GrowVPD Pro."},
+    {"term": "Hub mode", "definition": "One phone designated as 24/7 relay anchor. Android: foreground service. iOS: APNs silent push + BGTaskScheduler. Limited on iOS due to App Store policy."},
+    {"term": "Cloud Bridge", "definition": "Self-service Tuya IoT trial setup wizard. User creates own free Tuya developer account, pastes credentials, we encrypt + subscribe to per-user Pulsar MQTT push."},
+    {"term": "OAuth-extract-unlink", "definition": "Future one-tap Tuya flow: 'Sign in with Tuya' → auto-extract local_key per device → optionally unlink from Tuya. PENDING approval (business task #87)."},
+    {"term": "Multi-device sync", "definition": "Ed25519 keypair-based P2P sync between phones. QR pairing, HLC clock, LWW merge, LAN TCP transport with Cloud Relay fallback."},
+    {"term": "Watermarking", "definition": "Photo capture overlay with live VPD/temp/RH + grow name/stage/week + custom text. 4 corner positions. Per-tent enable. Pro feature."},
+    {"term": "Deadband", "definition": "Stability range where automation rules stop firing despite values inside the band. Prevents thrashing. Default 2-min dwell + 5-min hold (A2)."},
+    {"term": "Hysteresis", "definition": "Difference between turn-on and turn-off thresholds. Prevents rapid cycling."},
+    {"term": "Emergency override", "definition": "D2 safety mode: bypasses all cooldowns when temp spike (>+2°C above max) or condensation imminent (dewpoint within 0.5°C of air temp). Forces 100% exhaust + cooling."},
+    {"term": "Three-point band", "definition": "UI representation: gradient bar with min/target/max ticks + current-value needle. Color-coded by zone proximity (D5)."},
+    {"term": "Stagnation safety", "definition": "A1: detects soil moisture sensor stuck below 40% for 3+ consecutive readings. Suppresses baseline learning + UI alert."},
+    {"term": "Magnus dewpoint", "definition": "Approximation formula computing dewpoint from temp + RH. Used in D2 condensation trigger."},
+    {"term": "Native ramp", "definition": "Capability tag indicating device firmware supports gradual dimming (Mars Hydro setPeriod sunrise mode, SANlight BLE Mesh bleSetDaylightSchedule)."},
+    {"term": "Pulsar", "definition": "Tuya's real-time event stream. We subscribe via MQTT WSS on port 8285 (/mqtt path). AES-128-ECB encrypted payload."},
+    {"term": "Witness", "definition": "Cloudflare Worker FCM relay for cloud-push-only sensors. ~12 user trial capacity. Being phased out as Cloud Bridge wizard ramps up."},
+    {"term": "Blueprint", "definition": "Stage-aware target preset bundle. On stage transition, BlueprintExecutor pushes new setpoints to all connected devices."},
+    {"term": "Stage timeline", "definition": "Horizontal milestone widget on grow detail screen. 6 nodes: Seedling, Veg, Flower, Drying, Curing, Harvested."},
+    {"term": "GrowStatusEvent", "definition": "Audit-log row capturing lifecycle events (CREATED, STAGE_CHANGE, ARCHIVED, RESTORED, STRAIN_CHANGED, HARVEST, CURED). Structured JSON metadata in note column."},
+    {"term": "HLC", "definition": "Hybrid Logical Clock. Used in multi-device sync to order distributed diary writes deterministically."},
+    {"term": "LWW merge", "definition": "Last-Writer-Wins conflict resolution. Per-field LWW for diary entries during sync."},
+    {"term": "R8", "definition": "Android code shrinker + obfuscator. Reduces release APK from 46 MB → 18 MB."},
+    {"term": "BYOD", "definition": "Bring Your Own Devices. Our positioning: works with whatever Tuya/AC Infinity/Mars Hydro/etc. you already own."},
+    {"term": "CompatibilityBadge", "definition": "Per-device UI badge: VERIFIED (field-tested) / BETA (works but limited testing) / EXPERIMENTAL (use at your own risk) / CLOUD_ONLY (no LAN path)."}
+  ],
+  "faqs": [
+    {"category": "basics", "q": "What is GrowVPD Pro?", "a": "Indoor grow companion app combining VPD chart, grow diary, smart device automation across 8 platforms, AI disease diagnostics, equipment database, and 11-language localization. Local-first privacy."},
+    {"category": "basics", "q": "Which devices do you support?", "a": "8 platforms — Tuya/Smart Life, AC Infinity, Mars Hydro, Spider Farmer, Vivosun, Bluelab Edenic, SANlight (experimental), and a built-in Test devices simulator. 270+ verified models in compatibility matrix."},
+    {"category": "basics", "q": "Is it offline?", "a": "Yes — VPD chart, diary, photos, and core features run 100% offline. Smart device automation requires network access to your devices (or our Cloud Bridge for Tuya battery sensors). No data sold or shared."},
+    {"category": "basics", "q": "Which platforms is it on?", "a": "Android 7+ in Beta. iOS 15+ in development via KMP shared module."},
+    {"category": "basics", "q": "How much does it cost?", "a": "Free tier is fully usable (1 tent, 3 devices, manual diary). Pro is $3.99/month, $24.99/year (48% saving), or $49.99 lifetime."},
+    {"category": "basics", "q": "How many languages?", "a": "11 — Czech, English, German, Spanish, Dutch, French, Italian, Portuguese, Polish, Thai, Hebrew."},
+    {"category": "getting_started", "q": "How do I add my first device?", "a": "Open Automatizace tab → Add device → choose your platform → follow 3-5 step wizard. For Tuya battery sensors, Cloud Bridge wizard is recommended (5 minutes setup)."},
+    {"category": "getting_started", "q": "I have a Tuya WiFi smart plug — does it work?", "a": "Yes, fully — LAN local control via v3.5 protocol. Add via Tuya wizard, sign into Smart Life, devices auto-discover."},
+    {"category": "getting_started", "q": "I have a Tuya battery TH sensor — does it work?", "a": "Yes via Cloud Bridge (LAN access permanently blocked by firmware). Sensor updates every 15-60 min by design. Consider Zigbee alternative (Aqara WSDCGQ11LM) for live data."},
+    {"category": "getting_started", "q": "Do I need any hardware to start?", "a": "No. VPD chart + diary work standalone with manual entries. Smart device features kick in once you connect at least one supported device."},
+    {"category": "getting_started", "q": "How do I import my existing grow diary?", "a": "Currently no third-party import; manual entry. Multi-device sync (Pro) replicates between paired phones via QR."},
+    {"category": "platforms", "q": "How do I connect AC Infinity controller?", "a": "Settings → Connected Accounts → AC Infinity → email + password. Devices auto-discover. Supports 69 Pro, 69 Pro+, AI+, Outlet AI, Outlet AI+, Spectron camera."},
+    {"category": "platforms", "q": "Mars Hydro / Spider Farmer setup?", "a": "Sign in with email + password → BLE scan to discover device → MQTT subscribes for live status. WiFi required during pairing."},
+    {"category": "platforms", "q": "Vivosun setup?", "a": "Sign in via REST → AWS IoT WebSocket subscribes for shadow updates. AeroLab THB is BLE-only."},
+    {"category": "platforms", "q": "Bluelab Edenic setup?", "a": "Generate API key in Edenic mobile app (Account Settings → API Keys). Provide API key + Organization ID. We poll telemetry every 70 seconds."},
+    {"category": "platforms", "q": "SANlight setup?", "a": "BLE Mesh provisioning is EXPERIMENTAL. We recommend the 0-10V GrowControl bridge path connected to AC Infinity for reliable dimming."},
+    {"category": "platforms", "q": "How do I set up Tuya Cloud Bridge?", "a": "Tap 'Set up Cloud Bridge' when prompted (or in Settings → Tuya Cloud Bridge). Follow 5-step wizard: create free Tuya IoT trial → cloud project → link Smart Life → paste Client ID + Secret → done."},
+    {"category": "automation", "q": "What is VPD-centric automation?", "a": "Our automation engine prioritizes Vapor Pressure Deficit. Sensors feed VPD calculations; rules trigger humidifier/dehumidifier/fan based on VPD bands per growth stage."},
+    {"category": "automation", "q": "What happens when I change grow stage?", "a": "Blueprint auto-setpoints push new targets (temp/RH/CO2/VPD/PPFD) to all connected devices for that tent. Single tap, whole tent re-targets."},
+    {"category": "automation", "q": "What's the Emergency override?", "a": "D2 mode. Triggers when air temp >maxTemp + 2°C OR dewpoint within 0.5°C of air temp (condensation imminent). Bypasses cooldowns, forces 100% exhaust + cooling. Notifies user."},
+    {"category": "automation", "q": "How does Auto stage detection work?", "a": "6h periodic worker analyzes photoperiod (18h → veg, 12h → flower, 23h → autoflower veg), VWC dryback %, and elapsed days. Proposes transitions via notification with Confirm/Dismiss buttons. Never auto-applies."},
+    {"category": "automation", "q": "Will my grow die if the cloud goes down?", "a": "No. We talk LAN direct to your devices. Tuya v3.5 LAN, AC Infinity, Mars Hydro, Spider Farmer, Vivosun all keep working when our cloud or vendor cloud is offline."},
+    {"category": "automation", "q": "Does it work in 24/0 light cycle for autoflowers?", "a": "Yes. Blueprint allows custom photoperiods. Day/night offsets only apply when light schedule reports off — for 24/0 cycles, night offsets never trigger."},
+    {"category": "diary", "q": "How do I track multiple strains in one grow?", "a": "Multi-strain editor on New Grow form. Add multiple strains with per-strain plant counts. Each auto-creates a row in Strain table with seed count decrement."},
+    {"category": "diary", "q": "Can I share my grow with friends?", "a": "Yes — Diary → grow detail → Export → Share. Includes photos, harvest data, timeline. PDF or JSON."},
+    {"category": "diary", "q": "How do I water 5 plants at once?", "a": "Long-press grow card → multi-select bottom action bar → Water all. Single dialog assembles N entries in atomic transaction."},
+    {"category": "diary", "q": "What happens at harvest?", "a": "Tap 'Mark as harvested' CTA OR 'Harvested' stage in timeline. HarvestDialog asks wet/dry weights + date + notes. CuringDialog follows. HarvestStatsCard shows cycle time, total yield, per-plant, wet/dry ratio."},
+    {"category": "diary", "q": "Can I edit a harvest later?", "a": "Yes. HarvestStatsCard shows 'Edit harvest' button → opens HarvestDialog pre-filled with current values."},
+    {"category": "pro_features", "q": "What do I get with Pro?", "a": "Unlimited tents/devices/photos, all 8 smart automation platforms, substrate drybacks, blueprint auto-setpoints, multi-device sync, BLE sensors, AI disease, exports, photo watermarking, Tuya Cloud Bridge wizard, Hub mode, no ads ever."},
+    {"category": "pro_features", "q": "Should I buy Lifetime or Yearly?", "a": "Lifetime ($49.99) breaks even after ~12 months vs Monthly. If you plan to use the app for 1+ year, Lifetime is cheaper. Lifetime also includes ALL future Pro features forever."},
+    {"category": "pro_features", "q": "Can I downgrade from Pro to Free?", "a": "Yes, at next billing cycle. Existing Pro data (extra tents/devices) remains visible but read-only after downgrade."},
+    {"category": "pro_features", "q": "What happens to my data if I cancel Pro?", "a": "Local data is yours forever — no deletion. Cloud sync stops. Diary, photos, history all stay on your phone."},
+    {"category": "troubleshooting", "q": "Why is my Tuya plug slow to respond?", "a": "Without Cloud Bridge: 5-10s polling. With Cloud Bridge: ~ms latency via Pulsar push. Set up bridge for instant feedback."},
+    {"category": "troubleshooting", "q": "My BLE sensor disconnected?", "a": "Re-scan in Settings → BLE sensor. Some sensors auto-reconnect; others need manual re-pair after phone restart."},
+    {"category": "troubleshooting", "q": "Where are my photos stored?", "a": "On your phone under app's private storage. Hidden from device gallery if you enable 'Hide photos from gallery' in Settings → Privacy."},
+    {"category": "troubleshooting", "q": "How do I export my full diary?", "a": "Diary → grow detail → Export → PDF (full, with photos) or JSON (data only, for backup). Pro feature."},
+    {"category": "troubleshooting", "q": "App crashed — what should I do?", "a": "Crashlytics is opt-in (off by default in debug). Enable in Settings → Crash Reporting if you want crashes auto-uploaded. Otherwise email a screenshot to support@growvpd.pro."},
+    {"category": "privacy", "q": "What data does GrowVPD Pro collect?", "a": "Local-first by default. Crash Reporting (opt-in) sends stack traces + device model + Android version + app version + 5 anonymous custom keys. NO photos, NO sensor readings, NO plant info, NO email."},
+    {"category": "privacy", "q": "Where does my data live?", "a": "On your phone in Room SQLite DB. Smart device control hits vendor cloud per their privacy policies. Multi-device sync goes phone-to-phone via LAN with Cloud Relay fallback (Ed25519 encrypted, we can't decrypt)."},
+    {"category": "privacy", "q": "Are my photos uploaded anywhere?", "a": "No. Photos live in app's private storage on your phone. Watermarked photos can be optionally exported to your gallery for sharing."},
+    {"category": "privacy", "q": "Do you sell my data?", "a": "No. Never. We make money from Pro subscriptions only."},
+    {"category": "privacy", "q": "How do I delete all my data?", "a": "Settings → Delete all data. Wipes Room DB, photos, preferences. Cloud Relay queue cleared on next sync."},
+    {"category": "hub_mode", "q": "What is Hub mode?", "a": "Designate one phone as 24/7 relay anchor. Always-on for cloud relay, BLE sensor keep-alive, automation polling. Best on a spare/dedicated phone left at home. Pro feature."},
+    {"category": "hub_mode", "q": "Does Hub mode work on iOS?", "a": "Limited. iOS App Store policy doesn't allow persistent foreground services for our use case. We use APNs silent push + BGTaskScheduler + bluetooth-central mode. Best-effort, not 24/7. For true 24/7 relay we recommend an Android Hub phone."},
+    {"category": "hub_mode", "q": "How do I set up Hub mode?", "a": "Settings → Hub mode → 'Use this phone as Hub' → grant battery whitelist permission (Android) or enable Background App Refresh + Push Notifications (iOS)."},
+    {"category": "cloud_bridge", "q": "Why do I need Cloud Bridge for some Tuya devices?", "a": "Battery WiFi sensors (wsdcg TH, co2bj CO2, ldcg illuminance) are firmware-blocked from LAN access. They publish only to Tuya cloud. Cloud Bridge subscribes to your own free Tuya IoT trial's per-user MQTT stream."},
+    {"category": "cloud_bridge", "q": "How long does Cloud Bridge setup take?", "a": "5 minutes if you follow the wizard. ~15-30 min realistic for first-timers. ~50-60% first-time completion rate (we're improving with video tutorials in 11 languages)."},
+    {"category": "cloud_bridge", "q": "Is Cloud Bridge free?", "a": "Yes — uses Tuya's free IoT developer trial (50-device cap per user, not shared). Pro tier required to use the bridge feature in our app."},
+    {"category": "cloud_bridge", "q": "What if Tuya raises the device cap?", "a": "We'd switch to commercial Tuya tier ($25k/yr, viable at 1000+ paid users) and migrate everyone off their own dev accounts transparently."},
+    {"category": "cloud_bridge", "q": "What if my Tuya trial saturates?", "a": "Witness saturation detection fires a notification (24h cooldown, max 3 prompts) suggesting bridge re-link or Zigbee swap."}
+  ],
+  "troubleshooting": {
+    "general": [
+      {"issue": "App crashes on startup", "solutions": ["Update to latest version", "Settings → Clear app cache", "Enable Crash Reporting opt-in or email support"]},
+      {"issue": "No data after app reinstall", "solutions": ["Local data lives in app's private storage; uninstall removes it", "Settings → Export → JSON before uninstalling", "Multi-device sync (Pro) restores from paired phone"]},
+      {"issue": "App is slow / laggy", "solutions": ["Sensor history >30 days auto-deleted (configurable)", "VPD chart with 2+ week range uses hourly rollups", "Enable 'Reduce animations' in Settings"]}
+    ],
+    "tuya": [
+      {"issue": "Battery sensor not updating", "solution": "Expected (15-60min); switch to Zigbee for live data"},
+      {"issue": "LAN probe times out", "solution": "Wait for adaptive backoff (30s → 2min → 10min → 1h); set up Cloud Bridge as fallback"},
+      {"issue": "Cloud Bridge wizard says wrong region", "solution": "Tap 'Switch to <region>'; trial credentials are tied to one region"},
+      {"issue": "Trial saturated (1106)", "solution": "Witness fallback prompts for bridge setup automatically"},
+      {"issue": "v3.5 plug control silently fails", "solution": "Fixed in tuya_v35_lan_working.md; update to current build"}
+    ],
+    "ac_infinity": [
+      {"issue": "AI controller not responding", "solution": "Confirm devType is 22 (Outlet AI+); we route via modeAndSetting PUT"},
+      {"issue": "Temperature setting not saving", "solution": "Dual-unit fix shipped: writes both devHt AND devHtf"},
+      {"issue": "Schedule won't disable", "solution": "Schedule sentinel is 65535 (we send correctly now)"},
+      {"issue": "VPD trigger writes wrong value", "solution": "We now encode tenths (12 = 1.2 kPa)"},
+      {"issue": "Token expired after password change", "solution": "Auto re-login on code 102"}
+    ],
+    "mars_hydro_spider_farmer": [
+      {"issue": "Device not responding after password change", "solution": "Token code 102 auto re-login"},
+      {"issue": "BLE MAC differs from device PID", "solution": "We try ±1, ±2 on last byte and cache working one"},
+      {"issue": "MQTT connects but no events", "solution": "Username MUST be <accessId>-prod"},
+      {"issue": "iHub controller not detected", "solution": "iHub type='hub' fix; multi-port fan control on ports 1-4"},
+      {"issue": "iControl required for some automation", "solution": "Engine validates iControl presence per rule"}
+    ],
+    "vivosun": [
+      {"issue": "Shadow command not applying", "solution": "Check region/SigV4 signature"},
+      {"issue": "AeroLab THB not found", "solution": "BLE name is ThermoBeacon2; UUIDs 0000fff5-... (write 0x0D), 0000fff3-... (read)"},
+      {"issue": "RTSP camera stuck loading", "solution": "Credentials in setting.jf.devUser/devPass; URL rtsp://<user>:<pass>@<ip>:554/"},
+      {"issue": "Sensor returns -6666", "solution": "Device offline or sensor disconnected"},
+      {"issue": "MQTT WebSocket disconnects after 8h", "solution": "AWS IoT max session length; auto-reconnects"}
+    ],
+    "bluelab": [
+      {"issue": "API returns 400", "solution": "Edenic uses 400 as rate-limit signal; retry with exponential backoff (2s × 10 max)"},
+      {"issue": "API key expired", "solution": "Track creation date, warn at T-30 days, deep-link to app.edenic.io/api-keys"},
+      {"issue": "EC reads ppm but I want mS/cm", "solution": "Conductivity unit selector preference (mS/cm / µS/cm / ppm 500 / ppm 700)"},
+      {"issue": "Device shows wrong sub-type", "solution": "Read additionalInfo.deviceSubType for Guardian Monitor vs Connect"},
+      {"issue": "Both API key AND organization_id required", "solution": "Yes, two separate fields in config"}
+    ],
+    "sanlight": [
+      {"issue": "BLE Mesh provisioning fails", "solution": "Protocol uses guessed UUIDs from APK reverse engineering; not 100% reliable"},
+      {"issue": "Recommended fallback", "solution": "Use 0-10V GrowControl adapter (Wieland → RJ45) on each EVO luminaire, connect to AC Infinity for stable dimming control"}
+    ],
+    "hub_mode": [
+      {"issue": "Hub disconnects overnight (Android)", "solution": "Grant battery whitelist permission via Settings → Hub mode → Battery whitelist wizard"},
+      {"issue": "Hub doesn't survive iOS background", "solution": "Expected; iOS limits silent push to ~2-3/hour reliably; Hub mode on iOS is best-effort, not 24/7"}
+    ],
+    "multi_device_sync": [
+      {"issue": "QR pairing fails", "solution": "Verify both phones on same LAN OR both have Cloud Relay enabled"},
+      {"issue": "Diary entries duplicating", "solution": "HLC clock prevents this; if seen, file a bug with sync logs"},
+      {"issue": "Sync stuck pending", "solution": "Tap 'Sync now' button in Settings to force immediate retry"}
+    ]
+  },
+  "links": {
+    "website": "https://growvpd.pro",
+    "api": "https://api.growvpd.pro",
+    "apiDocs": "https://api.growvpd.pro/docs",
+    "discord": "https://discord.gg/BGDpE6nP",
+    "telegram": "https://t.me/growvpd",
+    "support": "support@growvpd.pro",
+    "press": "press@growvpd.pro",
+    "partners": "partners@growvpd.pro",
+    "affiliate": "https://growvpd.pro/partnership",
+    "blog": "https://growvpd.pro/blog",
+    "privacy": "https://growvpd.pro/privacy",
+    "terms": "https://growvpd.pro/terms",
+    "github": "https://github.com/growvpd"
+  },
+  "stats": {
+    "platformsSupported": 8,
+    "languagesSupported": 11,
+    "deviceTypesSupported": 18,
+    "verifiedDevicesInMatrix": 27,
+    "totalDeviceEntriesInRegistry": 270,
+    "tuyaProductIdsSupported": 1452,
+    "tuyaVendorsSupported": 200,
+    "growthStages": 9,
+    "glossaryTerms": 33,
+    "faqs": 50,
+    "troubleshootingItems": 30,
+    "androidUnitTests": 580,
+    "linesOfCodeApprox": 60000,
+    "kotlinFiles": 350,
+    "stringFieldsLocalized": 1675
+  }
+}

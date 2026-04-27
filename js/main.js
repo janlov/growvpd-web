@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const plans = {
             monthly:  { price: '3.99',  per: '/mo', sub: 'Cancel anytime',              hint: '' },
             yearly:   { price: '24.99', per: '/yr', sub: '~$2.08/mo · save 48%',        hint: '' },
-            lifetime: { price: '49.99', per: '',    sub: 'Pay once. Keep forever.',     hint: 'All future updates included' },
+            lifetime: { price: '49.99', per: '',    sub: 'Pay once. Keep forever.',     hint: 'All future Pro features included' },
         };
 
         pricingToggle.querySelectorAll('button').forEach(btn => {

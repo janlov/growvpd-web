@@ -218,19 +218,31 @@
                         <ul class="nav-links" id="navLinks">
                 <li><a href="../index.html#features" data-i18n="navFeatures">Features</a></li>
                 <li><a href="../guides/index.html" data-i18n="navGuides">Guides &amp; Community</a></li>
-                <li><a href="../docs/index.html" data-i18n="navApi">API</a></li>
                 <li><a href="../widget/index.html" data-i18n="navWidget">VPD Chart</a></li>
-                <li><a href="../blog/index.html" data-i18n="navBlog">Blog</a></li>
-                <li><a href="../partnership/index.html" data-i18n="navPartnership">Partnerships</a></li>
-                <li><a href="../support/index.html" data-i18n="navFaq">FAQ</a></li>
-                <li><a href="../index.html#download" class="nav-cta" data-i18n="navDownload">Download</a></li>
+                <li><a href="../index.html#pricing" data-i18n="navPricing">Pricing</a></li>
+                <li class="nav-dropdown">
+                    <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                        <span data-i18n="navResources">Resources</span>
+                        <svg width="10" height="10" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true"><path d="M2 4l4 4 4-4"/></svg>
+                    </button>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="../docs/index.html" data-i18n="navApi">API</a></li>
+                        <li><a href="../blog/index.html" data-i18n="navBlog">Blog</a></li>
+                        <li><a href="../partnership/index.html" data-i18n="navPartnership">Partnerships</a></li>
+                        <li><a href="../press/index.html" data-i18n="navPressKit">Press Kit</a></li>
+                        <li><a href="../support/index.html" data-i18n="navFaq">FAQ</a></li>
+                    </ul>
+                </li>
+                <li><a href="https://discord.gg/BGDpE6nP" target="_blank" rel="noopener noreferrer" class="nav-cta" data-i18n="comDiscordBtn">Join Discord</a></li>
             </ul>
         </div>
     </nav>
     <script>
-document.getElementById('navToggle')?.addEventListener('click',function(){this.classList.toggle('active');document.getElementById('navLinks').classList.toggle('active')});
-window.addEventListener('scroll',function(){document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>20)},{passive:true});
-    </script>
+document.getElementById("navToggle")?.addEventListener("click",function(){this.classList.toggle("active");document.getElementById("navLinks").classList.toggle("active")});
+window.addEventListener("scroll",function(){document.getElementById("navbar").classList.toggle("scrolled",window.scrollY>20)},{passive:true});
+document.querySelectorAll(".nav-dropdown").forEach(function(dd){var t=dd.querySelector(".nav-dropdown-toggle");if(!t)return;t.addEventListener("click",function(e){e.stopPropagation();document.querySelectorAll(".nav-dropdown.is-open").forEach(function(o){if(o!==dd)o.classList.remove("is-open")});dd.classList.toggle("is-open")})});
+document.addEventListener("click",function(){document.querySelectorAll(".nav-dropdown.is-open").forEach(function(d){d.classList.remove("is-open")})});
+</script>
 
     <div class="page-header">
         <div class="container">
@@ -362,7 +374,7 @@ window.addEventListener('scroll',function(){document.getElementById('navbar').cl
                     <span class="faq-arrow">&#9660;</span>
                 </button>
                 <div class="faq-answer">
-                    <p data-i18n-html="supA11">Pro unlocks: Smart Device Automation (7 platforms: Tuya, Mars Hydro, AC Infinity, Spider Farmer, Vivosun, Bluelab, SANlight), Light Scheduling, Equipment Profiles, Diary Export (PDF/JSON), BLE Sensor, Analytics & Predictions, Photo Privacy, and ad-free experience.</p>
+                    <p data-i18n-html="supA11">Pro unlocks: Smart Device Automation (8 platforms: Tuya, Mars Hydro, AC Infinity, Spider Farmer, Vivosun, Bluelab, SANlight, Sonoff/Zigbee), Tuya Cloud Bridge wizard, 24/7 Hub Mode, Multi-Device Sync (Beta), Light Scheduling, Equipment Profiles, Diary Export (PDF/JSON), BLE Sensor, Analytics &amp; Predictions, Photo Watermarking, Photo Privacy, and ad-free experience.</p>
                 </div>
             </div>
 
@@ -383,6 +395,56 @@ window.addEventListener('scroll',function(){document.getElementById('navbar').cl
                 </button>
                 <div class="faq-answer">
                     <p data-i18n-html="supA13">Yes, anytime. Go to Google Play Store or App Store &rarr; Subscriptions &rarr; GrowVPD Pro &rarr; Cancel. You keep Pro until the end of the billing period.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span data-i18n="supQ17">What is the Tuya Cloud Bridge wizard?</span>
+                    <span class="faq-arrow">&#9660;</span>
+                </button>
+                <div class="faq-answer">
+                    <p data-i18n-html="supA17">A 5-step in-app guided setup that connects your own Tuya developer credentials so cloud-only sensors (battery WiFi temp/humidity, CO2, cameras) work in GrowVPD Pro. No PC required, takes 15&ndash;30 minutes the first time. See the <a href="../guides/cloud-bridge-setup.html">Cloud Bridge guide</a> for the walkthrough.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span data-i18n="supQ18">What is 24/7 Hub Mode?</span>
+                    <span class="faq-arrow">&#9660;</span>
+                </button>
+                <div class="faq-answer">
+                    <p data-i18n-html="supA18">Hub Mode turns an old Android phone into an always-on relay for automation rules, BLE sensors and Cloud Bridge. Foreground service, boot auto-start, battery-optimisation whitelist. Great if your daily phone goes to sleep. See the <a href="../guides/hub-mode.html">Hub Mode guide</a>.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span data-i18n="supQ19">How does Auto Harvest Tracking work?</span>
+                    <span class="faq-arrow">&#9660;</span>
+                </button>
+                <div class="faq-answer">
+                    <p data-i18n-html="supA19">When you mark a grow as harvested, GrowVPD Pro automatically computes wet/dry yield, g/watt, g/plant, cycle days and wet:dry ratio from your diary entries and tent setup. The cure log tracks RH and days in jars. See the <a href="../guides/harvest-tracking-detailed.html">Harvest Tracking guide</a>.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span data-i18n="supQ20">Can I try the app without owning any devices?</span>
+                    <span class="faq-arrow">&#9660;</span>
+                </button>
+                <div class="faq-answer">
+                    <p data-i18n-html="supA20">Yes. Settings &rarr; Demo data populates strains, grows and 30 days of sensor history so you can explore VPD chart, automation, harvest stats and watermarking on your own time. One tap clears it all. See the <a href="../guides/demo-mode.html">Demo Mode guide</a>.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span data-i18n="supQ21">Can I opt out of crash reporting?</span>
+                    <span class="faq-arrow">&#9660;</span>
+                </button>
+                <div class="faq-answer">
+                    <p data-i18n-html="supA21">Yes &mdash; one tap in Settings &rarr; Privacy. Crash reporting is anonymous (no PII, no plant info, no diary content) and only sends stack traces so we can fix bugs before they bite you. Off by default in Pro Lifetime EU users; toggle anytime.</p>
                 </div>
             </div>
         </div>
