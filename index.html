@@ -55,14 +55,14 @@
       "name": "GrowVPD Pro",
       "operatingSystem": "Android, iOS",
       "applicationCategory": "UtilitiesApplication",
-      "description": "VPD graf, pěstební deník a multi-platformní chytrá automatizace pro indoor pěstitele. Mars Hydro otestováno, Tuya/Zigbee testování v dubnu 2026, AC Infinity, Spider Farmer, Vivosun, Bluelab a SANlight implementováno.",
+      "description": "VPD graf, pěstební deník a multi-platformní chytrá automatizace pro indoor pěstitele. Podpora pro Mars Hydro, Tuya/Zigbee, AC Infinity, Spider Farmer, Vivosun, Bluelab a SANlight v aktivním vývoji.",
       "offers": [
         {"@type": "Offer", "price": "0", "priceCurrency": "USD", "description": "Free version"},
         {"@type": "Offer", "price": "3.99", "priceCurrency": "USD", "description": "Pro Monthly"},
         {"@type": "Offer", "price": "24.99", "priceCurrency": "USD", "description": "Pro Yearly"},
         {"@type": "Offer", "price": "49.99", "priceCurrency": "USD", "description": "Pro Lifetime"}
       ],
-      "featureList": "VPD Chart, Grow Diary, Smart Automation, BYOD, Mars Hydro Verified, Tuya LAN/Cloud Bridge/Zigbee, Hub Mode, Multi-Device Sync, PPFD Guide, Equipment Database, 11 Languages",
+      "featureList": "VPD Chart, Grow Diary, Smart Automation, BYOD, Mars Hydro, Tuya LAN/Cloud Bridge/Zigbee, Hub Mode, Multi-Device Sync, PPFD Guide, Equipment Database, 11 Languages",
       "screenshot": "https://growvpd.pro/images/og-image.png",
       "author": {"@type": "Organization", "name": "VPD Labs LLC", "email": "support@growvpd.pro"}
     }
@@ -231,17 +231,7 @@
                     </div>
                 </div>
                 <p class="auto-paths-note"><a href="guides/cloud-bridge-setup.html" data-i18n="autoPathsGuideLinkV8">Detailní průvodce Tuya připojením &rarr;</a></p>
-            </div>
-
-            <!-- Testing status callout -->
-            <div class="auto-row auto-row-status">
-                <h3 class="auto-row-title" data-i18n="testStatusTitleV8">Co máme otestováno</h3>
-                <ul class="testing-status-list">
-                    <li><span class="ts-mark ts-ok" aria-hidden="true">&#10003;</span><strong data-i18n="testStatusVerifiedT">Mars Hydro</strong> &mdash; <span data-i18n="testStatusVerifiedD">plně ověřeno na reálném hardwaru (BLE párování, MQTT řízení, plánování světla)</span></li>
-                    <li><span class="ts-mark ts-soon" aria-hidden="true">&#9203;</span><strong data-i18n="testStatusSoonT">Tuya + Zigbee</strong> &mdash; <span data-i18n="testStatusSoonD">testování tento týden (HW dodávka středa: TS0601, TH06, Aqara WSDCGQ11LM)</span></li>
-                    <li><span class="ts-mark ts-wip" aria-hidden="true">&#128736;</span><strong data-i18n="testStatusReadyT">AC Infinity, Spider Farmer, Vivosun, Bluelab</strong> &mdash; <span data-i18n="testStatusReadyD">kód implementován, čeká na hardwarové ověření</span></li>
-                    <li><span class="ts-mark ts-exp" aria-hidden="true">&#9888;</span><strong data-i18n="testStatusExpT">SANlight</strong> &mdash; <span data-i18n="testStatusExpD">experimentální (BLE Mesh, neoficiální protokol)</span></li>
-                </ul>
+                <p class="auto-paths-active-dev" data-i18n-html="autoActiveDevV9">Vyvíjíme aktivně. Aktuální stav podpory konkrétního zařízení najdete v aplikaci v sekci <strong>Vybavení &rarr; Kompatibilita zařízení</strong>.</p>
             </div>
 
             <!-- Row 2: Hub Mode (compressed) -->
@@ -297,8 +287,7 @@
                     <ul>
                         <li data-i18n="roadNow1V8">Android beta &middot; sideload + Discord</li>
                         <li data-i18n="roadNow2V8">11 jazyků</li>
-                        <li data-i18n="roadNow3V8">Mars Hydro plně otestováno</li>
-                        <li data-i18n="roadNow4V8">8 platforem implementováno</li>
+                        <li data-i18n="roadNow3V9">8 platforem v aktivním vývoji</li>
                         <li data-i18n="roadNow5V8">Hub Mode + sync mezi zařízeními</li>
                         <li data-i18n="roadNow6V8">Fázové blueprinty + sledování sklizní</li>
                     </ul>
@@ -403,7 +392,7 @@
         </div>
     </section>
 
-    <!-- FAQ (5 items) -->
+    <!-- FAQ (4 items) -->
     <section class="faq-mini" id="faq">
         <div class="container">
             <div class="section-header">
@@ -418,10 +407,6 @@
                 <details class="faq-item">
                     <summary class="faq-q" data-i18n="faqQ2V7">Jaký je rozdíl oproti Grow with Jane nebo Photone?</summary>
                     <div class="faq-a" data-i18n="faqA2V8">Photone měří jen PPFD pomocí kamery. Grow with Jane je deník bez automatizace. GrowVPD Pro nabízí oboje plus 8 platforem &mdash; v jednom pravidle propojíte Tuya zásuvku s hodnotou z AC Infinity senzoru.</div>
-                </details>
-                <details class="faq-item">
-                    <summary class="faq-q" data-i18n="faqQ3V8">Které platformy už fungují?</summary>
-                    <div class="faq-a" data-i18n="faqA3V8">Mars Hydro je jediná platforma, kterou jsme plně otestovali na reálném hardwaru. Tuya a Zigbee přes Tuya hub procházejí testy tento týden (dodávka HW středa). AC Infinity, Spider Farmer, Vivosun a Bluelab mají implementovanou podporu, čekají na hardwarové ověření. SANlight je experimentální (BLE Mesh, neoficiální protokol).</div>
                 </details>
                 <details class="faq-item">
                     <summary class="faq-q" data-i18n="faqQ4V7">Proč jsou spuštěcí ceny tak nízké?</summary>

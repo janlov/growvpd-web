@@ -744,6 +744,8 @@ ul{list-style:none}
 .auto-paths-note{margin-top:8px;text-align:center;color:rgba(255,255,255,.55);font-size:.88rem}
 .auto-paths-note a{color:#A5D6A7;text-decoration:none;font-weight:600;border-bottom:1px solid rgba(165,214,167,.4);padding-bottom:1px;transition:color .2s,border-color .2s}
 .auto-paths-note a:hover{color:#C8E6C9;border-bottom-color:#C8E6C9}
+.auto-paths-active-dev{margin-top:18px;text-align:center;color:rgba(255,255,255,.7);font-size:.95rem;line-height:1.6;max-width:760px;margin-left:auto;margin-right:auto}
+.auto-paths-active-dev strong{color:#A5D6A7;font-weight:600}
 .auto-row-status{display:block}
 .testing-status-list{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr;gap:10px}
 .testing-status-list li{display:flex;gap:14px;align-items:flex-start;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:14px 18px;color:rgba(255,255,255,.72);font-size:.92rem;line-height:1.55}

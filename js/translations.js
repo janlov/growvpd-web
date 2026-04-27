@@ -1440,24 +1440,14 @@ const TRANSLATIONS = {
     autoPathZigbeeTitleV8: "Přes Tuya hub",
     autoPathZigbeeDescV8: "Aqara, Sonoff a Tuya Zigbee senzory přes Blow Smart Hub. Víceletá výdrž baterie, žádné samostatné aplikace.",
     autoPathsGuideLinkV8: "Detailní průvodce Tuya připojením →",
-
-    testStatusTitleV8: "Co máme otestováno",
-    testStatusVerifiedT: "Mars Hydro",
-    testStatusVerifiedD: "plně ověřeno na reálném hardwaru (BLE párování, MQTT řízení, plánování světla)",
-    testStatusSoonT: "Tuya + Zigbee",
-    testStatusSoonD: "testování tento týden (HW dodávka středa: TS0601, TH06, Aqara WSDCGQ11LM)",
-    testStatusReadyT: "AC Infinity, Spider Farmer, Vivosun, Bluelab",
-    testStatusReadyD: "kód implementován, čeká na hardwarové ověření",
-    testStatusExpT: "SANlight",
-    testStatusExpD: "experimentální (BLE Mesh, neoficiální protokol)",
+    autoActiveDevV9: "Vyvíjíme aktivně. Aktuální stav podpory konkrétního zařízení najdete v aplikaci v sekci <strong>Vybavení → Kompatibilita zařízení</strong>.",
 
     autoRow2P1V8: "Vyřazený telefon (Android 7+) zapojený do nabíječky vedle stanu drží spojení a běží automatizační pravidla. Bez Raspberry Pi, bez extra hardwaru.",
     autoRow3P1V8: "Šifrovaná synchronizace deníku přes lokální Wi-Fi (Ed25519, QR párování). Žádný centrální server, žádný požadavek na internet.",
 
     roadNow1V8: "Android beta · sideload + Discord",
     roadNow2V8: "11 jazyků",
-    roadNow3V8: "Mars Hydro plně otestováno",
-    roadNow4V8: "8 platforem implementováno",
+    roadNow3V9: "8 platforem v aktivním vývoji",
     roadNow5V8: "Hub Mode + sync mezi zařízeními",
     roadNow6V8: "Fázové blueprinty + sledování sklizní",
     roadSoon1V8: "iOS verze (TestFlight → App Store)",
@@ -1473,9 +1463,7 @@ const TRANSLATIONS = {
     roadLater5V8: "Growlink, Agrowtek (čtení přes API)",
 
     faqA1V8: "Ano. VPD graf, deník, kalkulačky a průvodci fungují plně offline. Internet potřebuje jen chytrá automatizace přes cloudová API. Mars Hydro (BLE) ani Tuya v režimu LAN přímo internet nevyžadují.",
-    faqA2V8: "Photone měří jen PPFD pomocí kamery. Grow with Jane je deník bez automatizace. GrowVPD Pro nabízí oboje plus 8 platforem — v jednom pravidle propojíte Tuya zásuvku s hodnotou z AC Infinity senzoru.",
-    faqQ3V8: "Které platformy už fungují?",
-    faqA3V8: "Mars Hydro je jediná platforma, kterou jsme plně otestovali na reálném hardwaru. Tuya a Zigbee přes Tuya hub procházejí testy tento týden (dodávka HW středa). AC Infinity, Spider Farmer, Vivosun a Bluelab mají implementovanou podporu, čekají na hardwarové ověření. SANlight je experimentální (BLE Mesh, neoficiální protokol)."
+    faqA2V8: "Photone měří jen PPFD pomocí kamery. Grow with Jane je deník bez automatizace. GrowVPD Pro nabízí oboje plus 8 platforem — v jednom pravidle propojíte Tuya zásuvku s hodnotou z AC Infinity senzoru."
   },
 
   de: {
