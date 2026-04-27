@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://giscus.app; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://giscus.app https://discord.com; connect-src 'self' https://giscus.app; base-uri 'self'; form-action 'self';">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tuya Cloud Bridge Setup (5 steps) — GrowVPD Pro Guides</title>
+    <meta name="description" content="Connect cloud-only Tuya sensors and cameras to GrowVPD Pro using the in-app 5-step Cloud Bridge wizard. No PC, no developer tools — just your phone.">
+
+    <link rel="icon" type="image/png" href="../images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="canonical" href="https://growvpd.pro/guides/cloud-bridge-setup.html">
+    <link rel="alternate" hreflang="en" href="https://growvpd.pro/guides/cloud-bridge-setup.html">
+    <link rel="alternate" hreflang="cs" href="https://growvpd.pro/guides/cloud-bridge-setup.html?lang=cs">
+    <link rel="alternate" hreflang="de" href="https://growvpd.pro/guides/cloud-bridge-setup.html?lang=de">
+    <link rel="alternate" hreflang="es" href="https://growvpd.pro/guides/cloud-bridge-setup.html?lang=es">
+    <link rel="alternate" hreflang="nl" href="https://growvpd.pro/guides/cloud-bridge-setup.html?lang=nl">
+    <link rel="alternate" hreflang="fr" href="https://growvpd.pro/guides/cloud-bridge-setup.html?lang=fr">
+    <link rel="alternate" hreflang="it" href="https://growvpd.pro/guides/cloud-bridge-setup.html?lang=it">
+    <link rel="alternate" hreflang="pt" href="https://growvpd.pro/guides/cloud-bridge-setup.html?lang=pt">
+    <link rel="alternate" hreflang="pl" href="https://growvpd.pro/guides/cloud-bridge-setup.html?lang=pl">
+    <link rel="alternate" hreflang="th" href="https://growvpd.pro/guides/cloud-bridge-setup.html?lang=th">
+    <link rel="alternate" hreflang="he" href="https://growvpd.pro/guides/cloud-bridge-setup.html?lang=he">
+    <link rel="alternate" hreflang="x-default" href="https://growvpd.pro/guides/cloud-bridge-setup.html">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/forum.css">
+    <script>(function(){var p=new URLSearchParams(location.search).get("lang"),s=localStorage.getItem("growvpd-lang"),l=p||s||(navigator.language||"en").split("-")[0];if(l&&l!=="en"){var st=document.createElement("style");st.id="i18n-cloak";st.textContent="[data-i18n],[data-i18n-html]{opacity:0!important}";document.head.appendChild(st);setTimeout(function(){var c=document.getElementById("i18n-cloak");if(c)c.remove()},150)}})()</script>
+    <style>
+        .article-page { padding: 100px 0 60px; background: #fff; min-height: 100vh; }
+        .article-container { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+        .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: .82rem; color: #90A4AE; margin-bottom: 32px; flex-wrap: wrap; }
+        .breadcrumb a { color: #2E7D32; font-weight: 500; transition: color .2s; }
+        .breadcrumb a:hover { color: #1B5E20; }
+        .breadcrumb .sep { color: #CFD8DC; }
+        .article-header { margin-bottom: 40px; }
+        .article-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+        .category-badge { display: inline-block; background: rgba(46,125,50,.08); color: #2E7D32; font-size: .75rem; font-weight: 700; padding: 4px 12px; border-radius: 6px; text-transform: uppercase; letter-spacing: .05em; }
+        .article-date, .article-read-time { font-size: .82rem; color: #90A4AE; }
+        .article-header h1 { font-size: 2.2rem; font-weight: 900; color: #1B5E20; line-height: 1.15; letter-spacing: -.02em; }
+        .article-body h2 { font-size: 1.45rem; font-weight: 800; color: #212121; margin: 40px 0 16px; }
+        .article-body h3 { font-size: 1.1rem; font-weight: 700; color: #37474F; margin: 28px 0 12px; }
+        .article-body p { color: #546E7A; font-size: .95rem; line-height: 1.75; margin-bottom: 16px; }
+        .article-body ul, .article-body ol { color: #546E7A; font-size: .95rem; line-height: 1.75; margin: 0 0 16px 24px; }
+        .article-body ul { list-style: disc; }
+        .article-body ol { list-style: decimal; }
+        .article-body li { margin-bottom: 6px; }
+        .article-body strong { color: #212121; font-weight: 600; }
+        .article-body blockquote { background: #F1F8E9; border-left: 4px solid #4CAF50; padding: 16px 20px; border-radius: 0 12px 12px 0; margin: 24px 0; font-size: .9rem; color: #33691E; line-height: 1.7; }
+        .article-body blockquote strong { color: #1B5E20; }
+        .article-body code { background: #ECEFF1; padding: 2px 6px; border-radius: 4px; font-size: .85rem; color: #37474F; }
+        .step-card { background: #FAFBFC; border: 1px solid #ECEFF1; border-radius: 12px; padding: 20px; margin: 20px 0; }
+        .step-card .step-num { display: inline-block; background: #2E7D32; color: #fff; font-weight: 700; font-size: .8rem; padding: 4px 10px; border-radius: 6px; margin-bottom: 8px; }
+        .discord-cta { background: linear-gradient(135deg, #F1F8E9, #E8F5E9); border: 1px solid #C8E6C9; border-radius: 16px; padding: 32px; text-align: center; margin: 48px 0; }
+        .discord-cta h3 { font-size: 1.2rem; font-weight: 800; color: #1B5E20; margin-bottom: 8px; }
+        .discord-cta p { font-size: .9rem; color: #546E7A; margin-bottom: 20px; }
+        .discord-cta .btn { display: inline-flex; align-items: center; gap: 8px; background: #2E7D32; color: #fff; padding: 12px 28px; border-radius: 10px; font-weight: 600; font-size: .9rem; text-decoration: none; }
+        .related-guides { margin: 48px 0; }
+        .related-guides h3 { font-size: 1.1rem; font-weight: 800; color: #212121; margin-bottom: 16px; }
+        .related-list { display: flex; flex-direction: column; gap: 10px; }
+        .related-link { display: flex; align-items: center; gap: 10px; padding: 14px 18px; background: #FAFBFC; border: 1px solid #ECEFF1; border-radius: 12px; transition: all .25s; color: #2E7D32; font-weight: 600; font-size: .9rem; }
+        .related-link:hover { border-color: #C8E6C9; background: #F1F8E9; transform: translateX(4px); }
+        .related-link .arrow { margin-left: auto; color: #90A4AE; }
+        .article-footer { border-top: 1px solid #ECEFF1; padding: 32px 0; margin-top: 48px; text-align: center; font-size: .82rem; color: #90A4AE; }
+        .article-footer a { color: #2E7D32; font-weight: 500; }
+        @media (max-width: 768px) {
+            .article-page { padding: 80px 0 40px; }
+            .article-header h1 { font-size: 1.7rem; }
+            .article-body h2 { font-size: 1.25rem; }
+        }
+    </style>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://growvpd.pro/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://growvpd.pro/guides/"},{"@type":"ListItem","position":3,"name":"Tuya Cloud Bridge Setup"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Article","headline":"Tuya Cloud Bridge Setup (5 steps)","author":{"@type":"Organization","name":"GrowVPD Pro"},"publisher":{"@type":"Organization","name":"GrowVPD Pro"},"datePublished":"2026-04-26","description":"Connect cloud-only Tuya sensors and cameras to GrowVPD Pro using the in-app 5-step Cloud Bridge wizard.","mainEntityOfPage":"https://growvpd.pro/guides/cloud-bridge-setup.html"}
+    </script>
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="../index.html" class="nav-brand">
+                <img class="nav-logo" src="../images/logo.webp" alt="GrowVPD Pro" width="28" height="28">
+                <span>GrowVPD Pro</span>
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../index.html#features" data-i18n="navFeatures">Features</a></li>
+                <li><a href="../guides/index.html" data-i18n="navGuides">Guides &amp; Community</a></li>
+                <li><a href="../widget/index.html" data-i18n="navWidget">VPD Chart</a></li>
+                <li><a href="../index.html#pricing" data-i18n="navPricing">Pricing</a></li>
+                <li class="nav-dropdown">
+                    <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                        <span data-i18n="navResources">Resources</span>
+                        <svg width="10" height="10" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true"><path d="M2 4l4 4 4-4"/></svg>
+                    </button>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="../docs/index.html" data-i18n="navApi">API</a></li>
+                        <li><a href="../blog/index.html" data-i18n="navBlog">Blog</a></li>
+                        <li><a href="../partnership/index.html" data-i18n="navPartnership">Partnerships</a></li>
+                        <li><a href="../press/index.html" data-i18n="navPressKit">Press Kit</a></li>
+                        <li><a href="../support/index.html" data-i18n="navFaq">FAQ</a></li>
+                    </ul>
+                </li>
+                <li><a href="https://discord.gg/BGDpE6nP" target="_blank" rel="noopener noreferrer" class="nav-cta" data-i18n="comDiscordBtn">Join Discord</a></li>
+            </ul>
+        </div>
+    </nav>
+    <script>
+document.getElementById("navToggle")?.addEventListener("click",function(){this.classList.toggle("active");document.getElementById("navLinks").classList.toggle("active")});
+window.addEventListener("scroll",function(){document.getElementById("navbar").classList.toggle("scrolled",window.scrollY>20)},{passive:true});
+document.querySelectorAll(".nav-dropdown").forEach(function(dd){var t=dd.querySelector(".nav-dropdown-toggle");if(!t)return;t.addEventListener("click",function(e){e.stopPropagation();document.querySelectorAll(".nav-dropdown.is-open").forEach(function(o){if(o!==dd)o.classList.remove("is-open")});dd.classList.toggle("is-open")})});
+document.addEventListener("click",function(){document.querySelectorAll(".nav-dropdown.is-open").forEach(function(d){d.classList.remove("is-open")})});
+    </script>
+
+    <main class="article-page">
+        <div class="article-container">
+
+            <div class="breadcrumb">
+                <a href="index.html">Guides &amp; Community</a>
+                <span class="sep">/</span>
+                <a href="index.html">Smart Devices</a>
+                <span class="sep">/</span>
+                <span>Tuya Cloud Bridge Setup</span>
+            </div>
+
+            <header class="article-header">
+                <div class="article-meta">
+                    <span class="category-badge">Smart Devices</span>
+                    <span class="article-date">April 2026</span>
+                    <span class="article-read-time">7 min read</span>
+                </div>
+                <h1>Tuya Cloud Bridge Setup (5 steps)</h1>
+            </header>
+
+            <div class="article-body">
+
+                <h2>Why You Need Cloud Bridge</h2>
+                <p>Most Tuya devices &mdash; smart plugs, lights, AC units, climate controllers &mdash; talk to GrowVPD Pro directly over your local network (LAN). No cloud needed. They are fast, private, and they keep working even if your internet drops.</p>
+                <p>But a few categories of Tuya devices <strong>only ever push data to the Tuya cloud</strong> and never accept LAN polling:</p>
+                <ul>
+                    <li>Battery WiFi temperature/humidity sensors (<code>wsdcg</code> category)</li>
+                    <li>Battery CO<sub>2</sub> sensors (<code>co2bj</code>)</li>
+                    <li>Light/door sensors (<code>ldcg</code>, <code>mcs</code>)</li>
+                    <li>Tuya cloud cameras (<code>sp</code>) for snapshots</li>
+                </ul>
+                <p>For those, GrowVPD Pro needs to authenticate against the Tuya OpenAPI as you. The Cloud Bridge wizard makes that happen in 5 in-app steps, with no PC and no command-line tools.</p>
+
+                <blockquote>
+                    <strong>Heads up.</strong> First-time setup takes 15&ndash;30 minutes because Tuya&rsquo;s console requires email verification and a free trial. Plan to do it once, in a quiet moment.
+                </blockquote>
+
+                <h2>Before You Start</h2>
+                <p>You will need:</p>
+                <ul>
+                    <li>The Smart Life or Tuya Smart app installed on the same phone, with all your Tuya devices already added there.</li>
+                    <li>An email account you can check on your phone (used for the Tuya developer trial).</li>
+                    <li>About 20 minutes of focus.</li>
+                </ul>
+
+                <h2>The 5 Steps</h2>
+
+                <div class="step-card">
+                    <span class="step-num">Step 1</span>
+                    <h3>Open the wizard</h3>
+                    <p>In GrowVPD Pro, go to <strong>Automation &rarr; Add platform &rarr; Tuya &rarr; "I have cloud-only sensors"</strong>. The wizard opens with a short explainer and a "Start" button.</p>
+                </div>
+
+                <div class="step-card">
+                    <span class="step-num">Step 2</span>
+                    <h3>Create your free Tuya IoT trial</h3>
+                    <p>The wizard opens an in-app browser at <code>iot.tuya.com</code>. Sign up with your email, verify it, then create a new "Cloud Project". Choose any name (e.g. "GrowVPD"). Pick the region nearest to where your devices are paired (EU / US / CN / India). The wizard links the right hint above the field.</p>
+                    <p>This trial is free, anonymous, and isolated from our infrastructure &mdash; the credentials live <strong>only in your phone&rsquo;s encrypted store</strong>, never on our server.</p>
+                </div>
+
+                <div class="step-card">
+                    <span class="step-num">Step 3</span>
+                    <h3>Subscribe to required APIs</h3>
+                    <p>Inside your Tuya Cloud Project, go to <strong>Service API &rarr; Go to authorize</strong> and subscribe (free trial) to the three APIs the wizard lists:</p>
+                    <ol>
+                        <li><strong>IoT Core</strong></li>
+                        <li><strong>Smart Home Basic Service</strong></li>
+                        <li><strong>Smart Home Pulsar Service</strong> (push streaming)</li>
+                    </ol>
+                    <p>Tap "I subscribed" in the wizard when done.</p>
+                </div>
+
+                <div class="step-card">
+                    <span class="step-num">Step 4</span>
+                    <h3>Link your Smart Life account</h3>
+                    <p>Open the project&rsquo;s "Devices &rarr; Link Tuya App Account" tab and scan the QR code with your Smart Life app. This tells Tuya&rsquo;s cloud to expose your existing devices to your project. Smart Life will show a confirmation popup &mdash; tap "Authorize".</p>
+                </div>
+
+                <div class="step-card">
+                    <span class="step-num">Step 5</span>
+                    <h3>Paste credentials and validate</h3>
+                    <p>Back in the wizard, paste:</p>
+                    <ul>
+                        <li><strong>Access ID / Client ID</strong> &mdash; from the project&rsquo;s "Overview" tab</li>
+                        <li><strong>Access Secret / Client Secret</strong> &mdash; same place</li>
+                        <li><strong>Region</strong> &mdash; pre-selected from Step 2</li>
+                    </ul>
+                    <p>Tap "Validate". The wizard hits Tuya&rsquo;s OpenAPI, fetches a token, and lists every device in your project. Pick the ones to import (you can filter by category or by tent), tap "Add", and you&rsquo;re done.</p>
+                </div>
+
+                <h2>What Happens After Setup</h2>
+                <p>GrowVPD Pro stores your credentials encrypted in <code>SecureCredentialStore</code> (uses Android Keystore). It then:</p>
+                <ul>
+                    <li><strong>Polls Tuya OpenAPI every 5&ndash;15 minutes</strong> for cloud-only devices.</li>
+                    <li><strong>Subscribes to Tuya Pulsar</strong> &mdash; a websocket push channel &mdash; so battery sensors stream into your diary the moment Tuya&rsquo;s cloud sees them.</li>
+                    <li><strong>Auto-refreshes the access token</strong> when it expires (default 2 hours).</li>
+                    <li><strong>Continues using LAN</strong> for all your other Tuya plugs/AC units/lights &mdash; the bridge is only used where it&rsquo;s necessary.</li>
+                </ul>
+
+                <h2>Troubleshooting</h2>
+                <p><strong>"Validate failed: invalid signature"</strong> &mdash; double-check Access ID and Secret are pasted without leading/trailing spaces. Tuya&rsquo;s console adds a "Copy" button next to each field; use it.</p>
+                <p><strong>"No devices found"</strong> &mdash; you skipped Step 4. Re-link the Smart Life account by scanning the QR.</p>
+                <p><strong>"Region mismatch"</strong> &mdash; the wizard picked the wrong region. Open Smart Life &rarr; Me &rarr; Settings &rarr; Account and Security and verify the country listed there. Re-create the Cloud Project in that region (free).</p>
+                <p><strong>"Trial expired" (after 6 months)</strong> &mdash; Tuya offers free trial extensions in the console. Click "Renew" and the wizard&rsquo;s validation will pass again immediately.</p>
+
+                <blockquote>
+                    <strong>Privacy note.</strong> All Cloud Bridge traffic goes <em>device &rarr; Tuya cloud &rarr; your phone</em>. Our servers see <strong>nothing</strong>. The whole point of Path A (Cloud Bridge) is to remove our infrastructure from the loop.
+                </blockquote>
+
+                <h2>Alternatives if Cloud Bridge Feels Too Much</h2>
+                <p>If 5 steps and a developer trial sound like overkill, two simpler paths exist:</p>
+                <ul>
+                    <li><strong>Swap to Zigbee TH sensors</strong> (Aqara WSDCGQ11LM, Sonoff SNZB-02) &mdash; same job, no cloud at all.</li>
+                    <li><strong>Use a self-hosted home agent</strong> (Path B, 2026 Q4) &mdash; we ship a small Kotlin/JVM relay you can run on a Raspberry Pi or NAS.</li>
+                </ul>
+
+            </div>
+
+            <div class="discord-cta">
+                <h3>Stuck on a step?</h3>
+                <p>Drop a screenshot in #cloud-bridge on Discord &mdash; the team usually answers within an hour and we have walked dozens of users through this.</p>
+                <a href="https://discord.gg/BGDpE6nP" class="btn" target="_blank" rel="noopener noreferrer">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37.07.07 0 0 0 3.645 4.397C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
+                    Discuss on Discord
+                </a>
+            </div>
+
+            <div class="related-guides">
+                <h3>Related Guides</h3>
+                <div class="related-list">
+                    <a href="connect-tuya.html" class="related-link">
+                        How to Connect Tuya / Smart Life Devices
+                        <span class="arrow">&rarr;</span>
+                    </a>
+                    <a href="hub-mode.html" class="related-link">
+                        24/7 Hub Mode &mdash; Old phone as relay
+                        <span class="arrow">&rarr;</span>
+                    </a>
+                    <a href="automation-rules.html" class="related-link">
+                        Building Automation Rules
+                        <span class="arrow">&rarr;</span>
+                    </a>
+                </div>
+            </div>
+
+            <footer class="article-footer">
+                <p>&copy; 2026 <a href="../index.html">GrowVPD Pro</a>. All rights reserved. &middot; <a href="../privacy/index.html">Privacy Policy</a> &middot; <a href="../support/index.html">Support</a></p>
+            </footer>
+
+        </div>
+    </main>
+
+<script src="guide-i18n.js"></script>
+</body>
+</html>

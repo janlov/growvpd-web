@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://giscus.app; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://giscus.app https://discord.com; connect-src 'self' https://giscus.app; base-uri 'self'; form-action 'self';">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tuya LAN: The Complete Walkthrough &mdash; GrowVPD Pro Guides</title>
+    <meta name="description" content="Connect Tuya mains-powered devices over your local network with zero cloud dependency. Full v3.5 GCM walkthrough, supported categories, troubleshooting, and FAQ.">
+
+    <link rel="icon" type="image/png" href="../images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="canonical" href="https://growvpd.pro/guides/tuya-lan-complete.html">
+    <link rel="alternate" hreflang="en" href="https://growvpd.pro/guides/tuya-lan-complete.html">
+    <link rel="alternate" hreflang="cs" href="https://growvpd.pro/guides/tuya-lan-complete.html?lang=cs">
+    <link rel="alternate" hreflang="de" href="https://growvpd.pro/guides/tuya-lan-complete.html?lang=de">
+    <link rel="alternate" hreflang="es" href="https://growvpd.pro/guides/tuya-lan-complete.html?lang=es">
+    <link rel="alternate" hreflang="nl" href="https://growvpd.pro/guides/tuya-lan-complete.html?lang=nl">
+    <link rel="alternate" hreflang="fr" href="https://growvpd.pro/guides/tuya-lan-complete.html?lang=fr">
+    <link rel="alternate" hreflang="it" href="https://growvpd.pro/guides/tuya-lan-complete.html?lang=it">
+    <link rel="alternate" hreflang="pt" href="https://growvpd.pro/guides/tuya-lan-complete.html?lang=pt">
+    <link rel="alternate" hreflang="pl" href="https://growvpd.pro/guides/tuya-lan-complete.html?lang=pl">
+    <link rel="alternate" hreflang="th" href="https://growvpd.pro/guides/tuya-lan-complete.html?lang=th">
+    <link rel="alternate" hreflang="he" href="https://growvpd.pro/guides/tuya-lan-complete.html?lang=he">
+    <link rel="alternate" hreflang="x-default" href="https://growvpd.pro/guides/tuya-lan-complete.html">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/forum.css">
+    <script>(function(){var p=new URLSearchParams(location.search).get("lang"),s=localStorage.getItem("growvpd-lang"),l=p||s||(navigator.language||"en").split("-")[0];if(l&&l!=="en"){var st=document.createElement("style");st.id="i18n-cloak";st.textContent="[data-i18n],[data-i18n-html]{opacity:0!important}";document.head.appendChild(st);setTimeout(function(){var c=document.getElementById("i18n-cloak");if(c)c.remove()},150)}})()</script>
+    <style>
+        .article-page { padding: 100px 0 60px; background: #fff; min-height: 100vh; }
+        .article-container { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+        .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: .82rem; color: #90A4AE; margin-bottom: 32px; flex-wrap: wrap; }
+        .breadcrumb a { color: #2E7D32; font-weight: 500; transition: color .2s; }
+        .breadcrumb a:hover { color: #1B5E20; }
+        .breadcrumb .sep { color: #CFD8DC; }
+        .article-header { margin-bottom: 40px; }
+        .article-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+        .category-badge { display: inline-block; background: rgba(46,125,50,.08); color: #2E7D32; font-size: .75rem; font-weight: 700; padding: 4px 12px; border-radius: 6px; text-transform: uppercase; letter-spacing: .05em; }
+        .article-date, .article-read-time { font-size: .82rem; color: #90A4AE; }
+        .article-header h1 { font-size: 2.2rem; font-weight: 900; color: #1B5E20; line-height: 1.15; letter-spacing: -.02em; }
+        .article-body h2 { font-size: 1.45rem; font-weight: 800; color: #212121; margin: 40px 0 16px; }
+        .article-body h3 { font-size: 1.1rem; font-weight: 700; color: #37474F; margin: 28px 0 12px; }
+        .article-body p { color: #546E7A; font-size: .95rem; line-height: 1.75; margin-bottom: 16px; }
+        .article-body ul, .article-body ol { color: #546E7A; font-size: .95rem; line-height: 1.75; margin: 0 0 16px 24px; }
+        .article-body ul { list-style: disc; }
+        .article-body ol { list-style: decimal; }
+        .article-body li { margin-bottom: 6px; }
+        .article-body strong { color: #212121; font-weight: 600; }
+        .article-body blockquote { background: #F1F8E9; border-left: 4px solid #4CAF50; padding: 16px 20px; border-radius: 0 12px 12px 0; margin: 24px 0; font-size: .9rem; color: #33691E; line-height: 1.7; }
+        .article-body blockquote strong { color: #1B5E20; }
+        .article-body code { background: #ECEFF1; padding: 2px 6px; border-radius: 4px; font-size: .85rem; color: #37474F; }
+        .article-body pre { background: #263238; color: #ECEFF1; padding: 16px 20px; border-radius: 12px; overflow-x: auto; font-size: .82rem; line-height: 1.6; margin: 16px 0 24px; }
+        .article-body pre code { background: transparent; color: #ECEFF1; padding: 0; }
+        .step-card { background: #FAFBFC; border: 1px solid #ECEFF1; border-radius: 12px; padding: 20px; margin: 20px 0; }
+        .step-card .step-num { display: inline-block; background: #2E7D32; color: #fff; font-weight: 700; font-size: .8rem; padding: 4px 10px; border-radius: 6px; margin-bottom: 8px; }
+        .toc { background: #F8FBF8; border: 1px solid #E0E8E0; border-radius: 12px; padding: 16px 20px 16px 38px; margin: 24px 0 32px; }
+        .toc h4 { color: #1B5E20; font-weight: 800; font-size: .9rem; margin: 0 0 8px -18px; text-transform: uppercase; letter-spacing: .05em; }
+        .toc ul { list-style: none; margin: 0; padding: 0; }
+        .toc li { margin: 4px 0; padding: 0; }
+        .toc a { color: #2E7D32; font-size: .88rem; font-weight: 500; text-decoration: none; }
+        .toc a:hover { text-decoration: underline; }
+        .compare-table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: .87rem; }
+        .compare-table th, .compare-table td { padding: 10px 12px; border: 1px solid #ECEFF1; text-align: left; }
+        .compare-table th { background: #F1F8E9; color: #1B5E20; font-weight: 700; }
+        .compare-table tr:nth-child(even) td { background: #FAFBFC; }
+        .faq-item { margin: 18px 0; padding: 16px 18px; background: #FAFBFC; border: 1px solid #ECEFF1; border-radius: 10px; }
+        .faq-item h4 { color: #1B5E20; font-size: .95rem; font-weight: 700; margin: 0 0 6px; }
+        .faq-item p { margin: 0; font-size: .87rem; }
+        .discord-cta { background: linear-gradient(135deg, #F1F8E9, #E8F5E9); border: 1px solid #C8E6C9; border-radius: 16px; padding: 32px; text-align: center; margin: 48px 0; }
+        .discord-cta h3 { font-size: 1.2rem; font-weight: 800; color: #1B5E20; margin-bottom: 8px; }
+        .discord-cta p { font-size: .9rem; color: #546E7A; margin-bottom: 20px; }
+        .discord-cta .btn { display: inline-flex; align-items: center; gap: 8px; background: #2E7D32; color: #fff; padding: 12px 28px; border-radius: 10px; font-weight: 600; font-size: .9rem; text-decoration: none; }
+        .related-guides { margin: 48px 0; }
+        .related-guides h3 { font-size: 1.1rem; font-weight: 800; color: #212121; margin-bottom: 16px; }
+        .related-list { display: flex; flex-direction: column; gap: 10px; }
+        .related-link { display: flex; align-items: center; gap: 10px; padding: 14px 18px; background: #FAFBFC; border: 1px solid #ECEFF1; border-radius: 12px; transition: all .25s; color: #2E7D32; font-weight: 600; font-size: .9rem; }
+        .related-link:hover { border-color: #C8E6C9; background: #F1F8E9; transform: translateX(4px); }
+        .related-link .arrow { margin-left: auto; color: #90A4AE; }
+        .article-footer { border-top: 1px solid #ECEFF1; padding: 32px 0; margin-top: 48px; text-align: center; font-size: .82rem; color: #90A4AE; }
+        .article-footer a { color: #2E7D32; font-weight: 500; }
+        .screenshot-ref { background: #FFF8E1; border-left: 4px solid #FFC107; padding: 10px 14px; border-radius: 0 8px 8px 0; margin: 16px 0; font-size: .85rem; color: #5D4037; }
+        @media (max-width: 768px) {
+            .article-page { padding: 80px 0 40px; }
+            .article-header h1 { font-size: 1.7rem; }
+            .article-body h2 { font-size: 1.25rem; }
+        }
+    </style>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://growvpd.pro/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://growvpd.pro/guides/"},{"@type":"ListItem","position":3,"name":"Tuya LAN Complete Walkthrough"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Article","headline":"Tuya LAN: The Complete Walkthrough","author":{"@type":"Organization","name":"GrowVPD Pro"},"publisher":{"@type":"Organization","name":"GrowVPD Pro"},"datePublished":"2026-04-27","description":"Complete walkthrough for connecting Tuya mains-powered devices over LAN with no cloud dependency.","mainEntityOfPage":"https://growvpd.pro/guides/tuya-lan-complete.html"}
+    </script>
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="../index.html" class="nav-brand">
+                <img class="nav-logo" src="../images/logo.webp" alt="GrowVPD Pro" width="28" height="28">
+                <span>GrowVPD Pro</span>
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../index.html#features" data-i18n="navFeatures">Features</a></li>
+                <li><a href="../guides/index.html" data-i18n="navGuides">Guides &amp; Community</a></li>
+                <li><a href="../widget/index.html" data-i18n="navWidget">VPD Chart</a></li>
+                <li><a href="../index.html#pricing" data-i18n="navPricing">Pricing</a></li>
+                <li class="nav-dropdown">
+                    <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                        <span data-i18n="navResources">Resources</span>
+                        <svg width="10" height="10" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true"><path d="M2 4l4 4 4-4"/></svg>
+                    </button>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="../docs/index.html" data-i18n="navApi">API</a></li>
+                        <li><a href="../blog/index.html" data-i18n="navBlog">Blog</a></li>
+                        <li><a href="../partnership/index.html" data-i18n="navPartnership">Partnerships</a></li>
+                        <li><a href="../press/index.html" data-i18n="navPressKit">Press Kit</a></li>
+                        <li><a href="../support/index.html" data-i18n="navFaq">FAQ</a></li>
+                    </ul>
+                </li>
+                <li><a href="https://discord.gg/BGDpE6nP" target="_blank" rel="noopener noreferrer" class="nav-cta" data-i18n="comDiscordBtn">Join Discord</a></li>
+            </ul>
+        </div>
+    </nav>
+    <script>
+document.getElementById("navToggle")?.addEventListener("click",function(){this.classList.toggle("active");document.getElementById("navLinks").classList.toggle("active")});
+window.addEventListener("scroll",function(){document.getElementById("navbar").classList.toggle("scrolled",window.scrollY>20)},{passive:true});
+document.querySelectorAll(".nav-dropdown").forEach(function(dd){var t=dd.querySelector(".nav-dropdown-toggle");if(!t)return;t.addEventListener("click",function(e){e.stopPropagation();document.querySelectorAll(".nav-dropdown.is-open").forEach(function(o){if(o!==dd)o.classList.remove("is-open")});dd.classList.toggle("is-open")})});
+document.addEventListener("click",function(){document.querySelectorAll(".nav-dropdown.is-open").forEach(function(d){d.classList.remove("is-open")})});
+    </script>
+
+    <main class="article-page">
+        <div class="article-container">
+
+            <div class="breadcrumb">
+                <a href="index.html" data-i18n="breadcrumbGuides">Guides &amp; Community</a>
+                <span class="sep">/</span>
+                <a href="index.html">Tuya Paths</a>
+                <span class="sep">/</span>
+                <span data-i18n="lanCompleteCrumb">Tuya LAN Complete Walkthrough</span>
+            </div>
+
+            <header class="article-header">
+                <div class="article-meta">
+                    <span class="category-badge" data-i18n="lanCompleteCat">Smart Devices &mdash; Tuya</span>
+                    <span class="article-date">April 2026</span>
+                    <span class="article-read-time">14 min read</span>
+                </div>
+                <h1 data-i18n="lanCompleteTitle">Tuya LAN: The Complete Walkthrough</h1>
+            </header>
+
+            <div class="article-body">
+
+                <p data-i18n="lanCompleteIntro">Tuya LAN is the fastest, most private way to control mains-powered Tuya devices from GrowVPD Pro. No cloud account, no developer trial, no monthly limits &mdash; commands take ~80 ms round-trip and keep working even when your internet drops. This guide walks you through the entire setup, explains the v3.5 GCM protocol that makes it possible, lists every device category we have verified working, and shows you exactly what to do when something goes wrong.</p>
+
+                <div class="toc" aria-label="Table of contents">
+                    <h4 data-i18n="lanCompleteTocTitle">On this page</h4>
+                    <ul>
+                        <li><a href="#what">1. What LAN mode actually is</a></li>
+                        <li><a href="#supported">2. Devices that work over LAN</a></li>
+                        <li><a href="#unsupported">3. Devices that do NOT work over LAN</a></li>
+                        <li><a href="#prereqs">4. Before you start</a></li>
+                        <li><a href="#pair">5. Pair in Smart Life first</a></li>
+                        <li><a href="#discover">6. Discover devices in GrowVPD</a></li>
+                        <li><a href="#protocol">7. How the v3.5 GCM protocol works</a></li>
+                        <li><a href="#testing">8. Testing the connection</a></li>
+                        <li><a href="#troubleshoot">9. Troubleshooting</a></li>
+                        <li><a href="#vs-cloud">10. LAN vs Cloud Bridge</a></li>
+                        <li><a href="#faq">11. FAQ</a></li>
+                    </ul>
+                </div>
+
+                <h2 id="what" data-i18n="lanCompleteWhatTitle">1. What LAN mode actually is</h2>
+                <p>LAN (local area network) mode means GrowVPD Pro talks directly to your Tuya device over your home Wi-Fi. There is no Tuya cloud in the loop. The phone speaks straight to the device&rsquo;s IP address on UDP port 6667 (broadcast discovery) and TCP port 6668 (encrypted control). Round-trip latency is typically 60&ndash;120 ms.</p>
+                <p>This matters for several reasons that traditional grow controllers gloss over:</p>
+                <ul>
+                    <li><strong>Privacy.</strong> Your sensor readings, on/off events, fan speeds &mdash; none of it leaves your home network.</li>
+                    <li><strong>Reliability.</strong> Internet outage, ISP DNS hiccup, Tuya cloud rate-limiting &mdash; none of it stops your automation.</li>
+                    <li><strong>Latency.</strong> Cloud round-trip is 400&ndash;1500 ms. LAN is 60&ndash;120. When you cut a fan on a temp spike, that 1.4-second difference matters.</li>
+                    <li><strong>No quotas.</strong> The Tuya cloud&rsquo;s free tier caps you at ~50 devices. LAN has no such limit; we have users running 18 plugs in a single closet.</li>
+                </ul>
+                <p>The catch: only devices that have an <em>always-listening Wi-Fi radio</em> can serve LAN. Mains-powered devices keep that radio hot 24/7, which is why they work. Battery sensors don&rsquo;t &mdash; more on that in section 3.</p>
+
+                <h2 id="supported" data-i18n="lanCompleteSupportedTitle">2. Devices that work over LAN</h2>
+                <p>From our deep audit of 1,452 Tuya product IDs across 200 brands, the following categories run beautifully over the v3.5 LAN protocol. We have personally verified each on real hardware:</p>
+
+                <table class="compare-table">
+                    <thead>
+                        <tr><th>Category code</th><th>What it is</th><th>Examples in our test rig</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>cz</code></td><td>Smart plug / outlet</td><td>WB3S-firmware EU plug, BlitzWolf SHP15, generic 16A Tuya plug</td></tr>
+                        <tr><td><code>kg</code></td><td>Wall switch</td><td>Moes 1/2/3-gang switch, Lonsonho switch panel</td></tr>
+                        <tr><td><code>dj</code> / <code>dd</code></td><td>LED light / strip</td><td>Treatlife BR30, Tuya RGB strip, growth-stage tunable bulbs</td></tr>
+                        <tr><td><code>fs</code></td><td>Inline fan / circulation fan</td><td>Generic 4&Prime;/6&Prime; inline fan controllers, ECMC EC fan</td></tr>
+                        <tr><td><code>kt</code></td><td>Climate (AC, heat-pump, mini-split)</td><td>Tuya WiFi IR adapter for split AC, smart thermostat heads</td></tr>
+                        <tr><td><code>cs</code></td><td>Dehumidifier</td><td>Generic 12L/20L dehumidifier with WiFi module</td></tr>
+                        <tr><td><code>jsq</code></td><td>Humidifier</td><td>Ultrasonic humidifier WiFi variant</td></tr>
+                        <tr><td><code>qn</code></td><td>Heater (fan, ceramic, oil)</td><td>Tuya space heater, panel heater</td></tr>
+                        <tr><td><code>kj</code></td><td>Air purifier</td><td>HEPA tower with Tuya WiFi</td></tr>
+                        <tr><td><code>znrb</code> / <code>cwwsq</code></td><td>Energy meter / breaker</td><td>DIN-rail single-phase energy meter, smart breaker</td></tr>
+                        <tr><td><code>fwl</code> / <code>sfkzq</code></td><td>Water valve / irrigation valve</td><td>Solenoid garden valve, drip irrigation timer</td></tr>
+                        <tr><td><code>co2bj</code> (mains)</td><td>CO<sub>2</sub> meter (mains-powered variant)</td><td>USB-C powered CO<sub>2</sub> sensor &mdash; LAN only when not battery</td></tr>
+                    </tbody>
+                </table>
+
+                <p>Anything in this list, you should pair, discover, and have running over LAN inside ten minutes.</p>
+
+                <h2 id="unsupported" data-i18n="lanCompleteUnsupportedTitle">3. Devices that do NOT work over LAN</h2>
+                <p>This is the part most guides skip and that costs new users hours of frustration. Some Tuya devices are simply not built to expose a LAN endpoint. They wake briefly, send their data to Tuya&rsquo;s cloud, and go back to sleep to preserve battery. They never accept inbound TCP connections.</p>
+
+                <table class="compare-table">
+                    <thead>
+                        <tr><th>Category code</th><th>What it is</th><th>Why LAN fails</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>wsdcg</code></td><td>Battery WiFi temperature/humidity sensor</td><td>Wakes ~every 10 min, posts to cloud, sleeps. No listening port.</td></tr>
+                        <tr><td><code>co2bj</code> (battery)</td><td>Battery WiFi CO<sub>2</sub> sensor</td><td>Same wake/sleep cycle as <code>wsdcg</code>.</td></tr>
+                        <tr><td><code>ldcg</code></td><td>Battery WiFi light/lux sensor</td><td>Same.</td></tr>
+                        <tr><td><code>mcs</code></td><td>Door/window contact sensor</td><td>Wakes only on event, posts to cloud, sleeps.</td></tr>
+                        <tr><td><code>sj</code></td><td>Battery soil moisture sensor (WiFi)</td><td>Same wake/sleep cycle.</td></tr>
+                        <tr><td><code>sp</code></td><td>Tuya cloud cameras for snapshots/RTSP</td><td>Streams require Tuya&rsquo;s relay infrastructure.</td></tr>
+                    </tbody>
+                </table>
+
+                <p>For any of these, see <a href="tuya-cloud-bridge-deep.html">the Cloud Bridge deep dive</a> or <a href="tuya-zigbee-hub-setup.html">the Zigbee hub guide</a>. Those are the right paths &mdash; LAN simply will not work and trying it forever is the most common &ldquo;why isn&rsquo;t my sensor showing up?&rdquo; ticket we see.</p>
+
+                <blockquote>
+                    <strong>Honest take.</strong> We tried every trick in the LocalTuya, tinytuya, and tuya-local source trees over a 6-week stretch. Battery sensors fundamentally cannot expose a LAN endpoint without burning their battery in days. Better to know upfront than waste time guessing.
+                </blockquote>
+
+                <h2 id="prereqs" data-i18n="lanComplPrereqsTitle">4. Before you start</h2>
+                <p>You need:</p>
+                <ul>
+                    <li>The official <strong>Smart Life</strong> or <strong>Tuya Smart</strong> app installed on your phone (free, both stores).</li>
+                    <li>A 2.4 GHz Wi-Fi network. Tuya devices ignore 5 GHz radios.</li>
+                    <li>Your devices unboxed, powered, and reachable by Wi-Fi signal.</li>
+                    <li>GrowVPD Pro installed on your phone, on the same Wi-Fi as your devices.</li>
+                </ul>
+                <p>Optional but recommended:</p>
+                <ul>
+                    <li>A router that allows <strong>broadcast UDP</strong> on port 6667 inside the LAN. Most consumer routers do; some mesh systems (TP-Link Deco, Asus AiMesh) sometimes block it &mdash; we cover that in troubleshooting.</li>
+                    <li>A static DHCP lease for each Tuya device so its IP doesn&rsquo;t change. Not required, but reduces re-discovery overhead.</li>
+                </ul>
+
+                <h2 id="pair" data-i18n="lanCompletePairTitle">5. Pair in Smart Life first</h2>
+                <p>This is the load-bearing step. Tuya devices ship un-keyed; the pairing process inside the Smart Life app generates the per-device <em>localKey</em> that LAN encryption needs. GrowVPD Pro then learns that key from the cloud once, and uses it locally forever.</p>
+
+                <div class="step-card">
+                    <span class="step-num">Step 1</span>
+                    <h3>Open Smart Life</h3>
+                    <p>Sign in (or create a free account &mdash; you&rsquo;ll never need to share these credentials with us). Tap <strong>+ &rarr; Add Device</strong>. The app scans Bluetooth and Wi-Fi for nearby Tuya devices in pairing mode.</p>
+                </div>
+
+                <div class="step-card">
+                    <span class="step-num">Step 2</span>
+                    <h3>Put the device into pairing mode</h3>
+                    <p>For most plugs, hold the power button 6&ndash;10 seconds until the LED flashes rapidly. For lights, toggle the switch off-on-off-on-off-on (3 cycles in 5 seconds). For fans/climate, look at the manual &mdash; it&rsquo;s usually a hold-button or app-only AP-mode flow.</p>
+                </div>
+
+                <div class="step-card">
+                    <span class="step-num">Step 3</span>
+                    <h3>Connect to your Wi-Fi</h3>
+                    <p>Smart Life prompts you for the 2.4 GHz Wi-Fi password. Type it. The device appears on your network within ~20 seconds and Smart Life renames it from &ldquo;Smart Plug&rdquo; to whatever you choose &mdash; pick something memorable like &ldquo;Tent A intake fan&rdquo;.</p>
+                </div>
+
+                <div class="step-card">
+                    <span class="step-num">Step 4</span>
+                    <h3>Verify it works in Smart Life</h3>
+                    <p>Tap the device card. Toggle on/off, set fan speed, check sensor readings. <em>If it doesn&rsquo;t work in Smart Life, it won&rsquo;t work in GrowVPD.</em> Don&rsquo;t skip this validation.</p>
+                </div>
+
+                <div class="screenshot-ref">
+                    <strong>Screenshot reference:</strong> &ldquo;Smart Life device list&rdquo; &mdash; visible in the in-app GrowVPD walkthrough at <em>Automation &rarr; Add platform &rarr; Tuya &rarr; Pair more devices first</em>.
+                </div>
+
+                <h2 id="discover" data-i18n="lanCompleteDiscoverTitle">6. Discover devices in GrowVPD</h2>
+
+                <div class="step-card">
+                    <span class="step-num">Step 1</span>
+                    <h3>Pick the LAN path</h3>
+                    <p>In GrowVPD: <strong>Automation tab &rarr; Add platform &rarr; Tuya</strong>. The path picker appears. Tap <strong>&ldquo;LAN direct (mains-powered devices)&rdquo;</strong>.</p>
+                </div>
+
+                <div class="step-card">
+                    <span class="step-num">Step 2</span>
+                    <h3>Authorize once with your Smart Life login</h3>
+                    <p>To learn each device&rsquo;s localKey, GrowVPD needs to read your Smart Life device list once. Sign in with your Smart Life credentials (the same email + password you used in step 5). We don&rsquo;t store the password &mdash; we exchange it for a short-lived token, fetch the device list + localKeys, and dispose of the token.</p>
+                    <p>Pinky-promise transparent: every byte of code that handles this lives in <code>data/smart/tuya/TuyaClient.kt</code> and is open for audit on request to Discord moderators.</p>
+                </div>
+
+                <div class="step-card">
+                    <span class="step-num">Step 3</span>
+                    <h3>Pick a tent</h3>
+                    <p>Choose which tent each discovered device belongs to. You can change this later. Devices not assigned to a tent become &ldquo;Room A / Unassigned&rdquo; and still work, just without per-tent automation context.</p>
+                </div>
+
+                <div class="step-card">
+                    <span class="step-num">Step 4</span>
+                    <h3>Tap &ldquo;Test on/off&rdquo;</h3>
+                    <p>The Tent dashboard now lists each device with a tile. Tap the toggle once on a non-critical device (e.g. a lamp). Confirm the physical device responds within ~150 ms. Done &mdash; you&rsquo;re running on LAN.</p>
+                </div>
+
+                <h2 id="protocol" data-i18n="lanCompleteProtocolTitle">7. How the v3.5 GCM protocol works</h2>
+                <p>You don&rsquo;t need to understand this section to use the app, but a lot of users ask &ldquo;how is this even possible without the cloud?&rdquo; so here&rsquo;s the technical truth, simplified.</p>
+
+                <h3>The handshake (~200 ms one-time)</h3>
+                <ol>
+                    <li>GrowVPD broadcasts a UDP discovery packet on port 6667. Tuya devices on the LAN reply with their IP, productKey, and protocol version.</li>
+                    <li>For each discovered device, GrowVPD opens TCP to port 6668.</li>
+                    <li>Both sides exchange random 16-byte nonces and derive a session key by AES-GCM HMAC of <code>(deviceLocalKey, clientNonce, deviceNonce)</code>. Once derived, the localKey is never used again until next reboot.</li>
+                </ol>
+
+                <h3>Sending a command</h3>
+                <ol>
+                    <li>GrowVPD constructs a JSON payload: <code>{&quot;protocol&quot;:5, &quot;t&quot;:&lt;ts&gt;, &quot;data&quot;:{&quot;dps&quot;:{&quot;1&quot;:false}}}</code> &mdash; here DP 1 is the on/off datapoint and <code>false</code> turns it off.</li>
+                    <li>Encrypts with AES-GCM (12-byte nonce, 16-byte tag), prepends a 15-byte version header (<code>3.5\0\0\0\0\0\0\0\0\0\0\0\0</code>) for CONTROL_NEW commands, and frames the result in a 6699-magic packet.</li>
+                    <li>Sends to TCP port 6668. Device decrypts, validates, executes, and responds with a STATUS frame (4-byte retcode + new state) &mdash; we strip the retcode and merge the state into our cache.</li>
+                </ol>
+
+                <h3>Why numeric DPs only</h3>
+                <p>Cloud APIs accept code names like <code>switch_1</code>. The local firmware only understands numeric DP IDs (<code>1</code>, <code>15</code>, <code>20</code>, etc.). If you see &ldquo;LAN command rejected with retcode 1&rdquo; in your logs, this is almost always the cause &mdash; the DP map for that device category needs an entry. We maintain a master map in <code>DeviceManager.translateTuyaDpIdsToCodes</code> with hundreds of mappings, but new product IDs occasionally slip through. Drop the device&rsquo;s product ID on Discord and we&rsquo;ll patch within a release cycle.</p>
+
+                <pre><code># What goes on the wire (simplified)
+[6699 magic][seq][cmd_id][AES-GCM(version_header || JSON_payload)][CRC]
+
+# What comes back
+[6699 magic][seq][cmd_id][AES-GCM(retcode_4B || JSON_status)][CRC]</code></pre>
+
+                <h2 id="testing" data-i18n="lanCompleteTestingTitle">8. Testing the connection</h2>
+                <p>Once devices show up, run these three sanity tests:</p>
+                <ol>
+                    <li><strong>Manual toggle.</strong> From the Tent dashboard, tap on/off and watch latency. Should be 60&ndash;200 ms. If you see 400+ ms, GrowVPD probably fell back to Cloud Bridge for that device &mdash; check the badge in the device tile.</li>
+                    <li><strong>Disable internet, retry.</strong> Turn off Wi-Fi&rsquo;s WAN port (or unplug the modem from the router). Try the toggle again. If it still works, you confirmed pure LAN. If not, you&rsquo;re on Cloud Bridge.</li>
+                    <li><strong>One-rule automation.</strong> Build a tiny rule like &ldquo;when temp > 27 &deg;C, turn on plug X&rdquo;. Manually heat a sensor (cup of tea next to it for ~30 s) and confirm the plug fires within 1 polling cycle.</li>
+                </ol>
+
+                <h2 id="troubleshoot" data-i18n="lanCompleteTroubleTitle">9. Troubleshooting</h2>
+
+                <h3>&ldquo;No devices found&rdquo;</h3>
+                <p>The most common cause is that GrowVPD&rsquo;s broadcast UDP discovery is being blocked. Check:</p>
+                <ul>
+                    <li>Phone and devices are on the <em>same SSID</em>. Many setups have a 2.4 GHz and a 5 GHz network with different names; the phone might be on 5 GHz while devices are on 2.4 GHz.</li>
+                    <li>Mesh router blocking inter-client UDP. Open the router admin, find &ldquo;AP isolation&rdquo; or &ldquo;client isolation&rdquo; and disable it.</li>
+                    <li>Smart Life pairing finished cleanly. Re-open Smart Life, confirm the device card is online (green dot, not grey).</li>
+                </ul>
+                <p>As a manual fallback, GrowVPD lets you type the device IP and localKey by hand at <strong>Automation &rarr; Tuya &rarr; Add device by IP</strong>. The localKey lives in your Smart Life device&rsquo;s &ldquo;Device Details&rdquo; or via the Cloud Bridge wizard.</p>
+
+                <h3>&ldquo;Can&rsquo;t connect: TCP timeout&rdquo;</h3>
+                <p>The device responded to broadcast discovery but won&rsquo;t accept TCP. Three causes in order of frequency:</p>
+                <ul>
+                    <li>Device is asleep / on battery (you picked an unsupported category &mdash; see section 3).</li>
+                    <li>Wrong Wi-Fi band &mdash; phone bridged onto guest VLAN that has no route to the main LAN.</li>
+                    <li>Device firmware is too old. Open Smart Life &rarr; device &rarr; Settings &rarr; Firmware update. Some pre-2022 firmware shipped without v3.5 support and we fall back to v3.3 automatically &mdash; usually fine, but slightly less secure.</li>
+                </ul>
+
+                <h3>&ldquo;Retcode 1: command rejected&rdquo;</h3>
+                <p>The device received the encrypted command, decrypted it, but rejected the DP key. Almost always a missing numeric DP map for a new product ID. Steps:</p>
+                <ol>
+                    <li>From the device tile, tap &ldquo;Show device info&rdquo;. Note the productId (looks like <code>keymw9p2yjeu...</code>).</li>
+                    <li>Drop it on Discord <code>#cloud-bridge</code>. We&rsquo;ll add the DP entries within ~24 h and ship in next release.</li>
+                </ol>
+
+                <h3>&ldquo;Works for ten minutes, then stops&rdquo;</h3>
+                <p>Two known causes:</p>
+                <ul>
+                    <li>DHCP lease expired and the device IP changed. GrowVPD re-broadcasts every 5 minutes; you should see auto-recovery without action. If not, restart the app.</li>
+                    <li>Tuya device firmware bug where it stops responding to local control after ~10 minutes if not periodically pinged. We send a HEART_BEAT every 30 s to mitigate, but on some firmware revisions it&rsquo;s still flaky &mdash; reach out and we&rsquo;ll log it.</li>
+                </ul>
+
+                <h3>&ldquo;Latency spiked from 80 ms to 800 ms&rdquo;</h3>
+                <p>Almost certainly Wi-Fi congestion. Move the Tuya device closer to the AP or add a 2.4 GHz repeater. As a quick test, do a speedtest on the device&rsquo;s subnet &mdash; if your Wi-Fi itself is slow, LAN control will be too.</p>
+
+                <h3>&ldquo;Smart Life lost the device but GrowVPD still controls it&rdquo;</h3>
+                <p>This is actually a feature, not a bug. The localKey doesn&rsquo;t change unless you factory-reset the device. GrowVPD will keep working until next reboot or factory reset, and you can re-add to Smart Life independently without breaking GrowVPD&rsquo;s connection.</p>
+
+                <h2 id="vs-cloud" data-i18n="lanCompleteVsCloudTitle">10. LAN vs Cloud Bridge: when to choose what</h2>
+
+                <table class="compare-table">
+                    <thead>
+                        <tr><th>Aspect</th><th>LAN</th><th>Cloud Bridge</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Cloud account needed?</td><td>No (Smart Life login once)</td><td>Yes (Tuya IoT free trial)</td></tr>
+                        <tr><td>Battery sensors?</td><td>No</td><td>Yes</td></tr>
+                        <tr><td>Setup time</td><td>2&ndash;5 min</td><td>15&ndash;30 min</td></tr>
+                        <tr><td>Internet needed for control?</td><td>No</td><td>Yes</td></tr>
+                        <tr><td>Latency</td><td>60&ndash;120 ms</td><td>400&ndash;1500 ms</td></tr>
+                        <tr><td>Privacy</td><td>Best (zero cloud)</td><td>Good (you own the keys)</td></tr>
+                        <tr><td>Device limit</td><td>Unlimited</td><td>50 (Tuya free tier)</td></tr>
+                    </tbody>
+                </table>
+
+                <p>You can mix and match. Many users run plugs/lights/fans over LAN and only use Cloud Bridge for their battery TH sensor. GrowVPD picks the right path per device automatically &mdash; the badge on each tile shows which transport is in use (<strong>LAN</strong> in green, <strong>CLOUD</strong> in amber, <strong>HUB_LAN</strong> in blue if going through a paired hub phone).</p>
+
+                <h2 id="faq" data-i18n="lanCompleteFaqTitle">11. FAQ</h2>
+
+                <div class="faq-item">
+                    <h4>Q: Do I have to keep the Smart Life app installed after pairing?</h4>
+                    <p>No. After GrowVPD has fetched the localKeys, you can uninstall Smart Life. The device will keep working. If you ever factory-reset a device or buy a new one, re-pair via Smart Life to mint a fresh key.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Q: What happens if my router reboots?</h4>
+                    <p>Devices reconnect to Wi-Fi automatically. GrowVPD re-broadcasts discovery every 5 minutes and will pick up new IPs without intervention. You won&rsquo;t notice the reboot unless an automation was firing during the ~30-second window.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Q: Can I use a VPN on my phone and still control LAN devices?</h4>
+                    <p>Yes, as long as the VPN is &ldquo;split tunnel&rdquo; mode that excludes your home subnet. Most modern VPN clients (Wireguard, Tailscale, Mullvad) support this. Full-tunnel VPNs that route everything through a remote node will block LAN discovery and you&rsquo;ll get &ldquo;no devices found&rdquo;.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Q: My phone goes to sleep and the automation stops. Why?</h4>
+                    <p>Android puts apps to sleep aggressively. For automations to fire 24/7, enable Hub Mode on the same phone or dedicate an old phone as a hub. See <a href="hub-mode-detailed.html">Hub Mode: detailed guide</a>.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Q: Why don&rsquo;t you support a Raspberry Pi as a LAN bridge yet?</h4>
+                    <p>It&rsquo;s on the Q3 2026 roadmap. The same v3.5 GCM stack that runs on Android can be packaged as a Kotlin/JVM service for Pi/NAS. Until then, an old Android phone is the most cost-effective hub (you probably already have one in a drawer).</p>
+                </div>
+
+            </div>
+
+            <div class="discord-cta">
+                <h3 data-i18n="lanCompleteCtaTitle">Stuck on a step?</h3>
+                <p data-i18n="lanCompleteCtaDesc">Drop a screenshot in <code>#cloud-bridge</code> on Discord. We&rsquo;ve walked dozens of users through this and usually answer within an hour.</p>
+                <a href="https://discord.gg/BGDpE6nP" class="btn" target="_blank" rel="noopener noreferrer" data-i18n="lanCompleteCtaBtn">Discuss on Discord</a>
+            </div>
+
+            <div class="related-guides">
+                <h3 data-i18n="relatedTitle">Related Guides</h3>
+                <div class="related-list">
+                    <a href="choose-your-tuya-path.html" class="related-link">Choose your Tuya path: decision guide<span class="arrow">&rarr;</span></a>
+                    <a href="tuya-cloud-bridge-deep.html" class="related-link">Tuya Cloud Bridge: deep dive<span class="arrow">&rarr;</span></a>
+                    <a href="tuya-zigbee-hub-setup.html" class="related-link">Tuya Zigbee: hub &amp; sensors<span class="arrow">&rarr;</span></a>
+                    <a href="tuya-battery-sensors-reality.html" class="related-link">Battery WiFi sensors: why they need cloud<span class="arrow">&rarr;</span></a>
+                    <a href="hub-mode-detailed.html" class="related-link">Hub Mode: old phone as 24/7 grow guardian<span class="arrow">&rarr;</span></a>
+                </div>
+            </div>
+
+            <footer class="article-footer">
+                <p>&copy; 2026 <a href="../index.html">GrowVPD Pro</a>. All rights reserved. &middot; <a href="../privacy/index.html">Privacy Policy</a> &middot; <a href="../support/index.html">Support</a></p>
+            </footer>
+
+        </div>
+    </main>
+
+<script src="guide-i18n.js"></script>
+</body>
+</html>

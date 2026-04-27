@@ -416,20 +416,32 @@
             </button>
                         <ul class="nav-links" id="navLinks">
                 <li><a href="../index.html#features" data-i18n="navFeatures">Features</a></li>
-                <li><a href="index.html" data-i18n="navGuides">Guides &amp; Community</a></li>
-                <li><a href="../docs/index.html" data-i18n="navApi">API</a></li>
+                <li><a href="../guides/index.html" data-i18n="navGuides">Guides &amp; Community</a></li>
                 <li><a href="../widget/index.html" data-i18n="navWidget">VPD Chart</a></li>
-                <li><a href="../blog/index.html" data-i18n="navBlog">Blog</a></li>
-                <li><a href="../partnership/index.html" data-i18n="navPartnership">Partnerships</a></li>
-                <li><a href="../support/index.html" data-i18n="navFaq">FAQ</a></li>
-                <li><a href="../index.html#download" class="nav-cta" data-i18n="navDownload">Download</a></li>
+                <li><a href="../index.html#pricing" data-i18n="navPricing">Pricing</a></li>
+                <li class="nav-dropdown">
+                    <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                        <span data-i18n="navResources">Resources</span>
+                        <svg width="10" height="10" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true"><path d="M2 4l4 4 4-4"/></svg>
+                    </button>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="../docs/index.html" data-i18n="navApi">API</a></li>
+                        <li><a href="../blog/index.html" data-i18n="navBlog">Blog</a></li>
+                        <li><a href="../partnership/index.html" data-i18n="navPartnership">Partnerships</a></li>
+                        <li><a href="../press/index.html" data-i18n="navPressKit">Press Kit</a></li>
+                        <li><a href="../support/index.html" data-i18n="navFaq">FAQ</a></li>
+                    </ul>
+                </li>
+                <li><a href="https://discord.gg/BGDpE6nP" target="_blank" rel="noopener noreferrer" class="nav-cta" data-i18n="comDiscordBtn">Join Discord</a></li>
             </ul>
         </div>
     </nav>
     <script>
-document.getElementById('navToggle')?.addEventListener('click',function(){this.classList.toggle('active');document.getElementById('navLinks').classList.toggle('active')});
-window.addEventListener('scroll',function(){document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>20)},{passive:true});
-    </script>
+document.getElementById("navToggle")?.addEventListener("click",function(){this.classList.toggle("active");document.getElementById("navLinks").classList.toggle("active")});
+window.addEventListener("scroll",function(){document.getElementById("navbar").classList.toggle("scrolled",window.scrollY>20)},{passive:true});
+document.querySelectorAll(".nav-dropdown").forEach(function(dd){var t=dd.querySelector(".nav-dropdown-toggle");if(!t)return;t.addEventListener("click",function(e){e.stopPropagation();document.querySelectorAll(".nav-dropdown.is-open").forEach(function(o){if(o!==dd)o.classList.remove("is-open")});dd.classList.toggle("is-open")})});
+document.addEventListener("click",function(){document.querySelectorAll(".nav-dropdown.is-open").forEach(function(d){d.classList.remove("is-open")})});
+</script>
 
     <div class="article-page">
 
@@ -620,6 +632,51 @@ window.addEventListener('scroll',function(){document.getElementById('navbar').cl
                 <li><strong>Restore action:</strong> Ramp back down across a sunset window at lights-off</li>
                 <li><strong>Growth stage filter:</strong> Different peak brightness per stage (Seedling 40%, Veg 80%, Flower 100%)</li>
             </ul>
+
+            <h2>Advanced Automation Features</h2>
+
+            <p>Beyond the simple "if condition then action" rule, GrowVPD Pro layers in several smart features that make automation safer and more accurate. These are on by default for new tents but can be tuned per rule.</p>
+
+            <h3>Sensor fault detection</h3>
+            <p>If a sensor reading goes <strong>flat</strong> (same value to within 0.05 for several samples in a row), <strong>spikes implausibly</strong> (e.g., +10&deg;C between readings 1 minute apart), or <strong>stops reporting</strong> for longer than its expected polling interval, the rule engine flags it as a probable fault and pauses dependent rules instead of triggering on bad data. You get a notification suggesting calibration or replacement, and rules resume automatically when the sensor recovers.</p>
+
+            <h3>Deadband: 2-min dwell + 5-min hold</h3>
+            <p>On top of hysteresis, GrowVPD Pro applies a <strong>2-minute dwell</strong> (the condition must remain true for 2 minutes before triggering) and a <strong>5-minute hold</strong> (the action holds for at least 5 minutes once triggered, even if the sensor briefly drops back into the safe zone). This kills the rapid-cycle problem when a sensor flickers around a threshold and protects your equipment from short on/off bursts.</p>
+
+            <h3>Leaf temperature offset for VPD</h3>
+            <p>Air temperature is not the same as leaf temperature, and VPD is what the <em>leaf</em> experiences. With strong direct LED light, leaves can sit 1&ndash;3&deg;C below ambient air temp due to transpiration cooling; under HPS, they sit 1&ndash;2&deg;C above. GrowVPD Pro lets you set a <strong>leaf temperature offset</strong> per tent and uses the corrected leaf temperature for VPD calculations and rule evaluation. This is the difference between "my chart says 1.0 kPa" and "my plants actually feel 1.0 kPa."</p>
+
+            <h3>Night offsets (temp, RH, VPD, CO2)</h3>
+            <p>Plants want different conditions during lights-off. Rather than create separate day/night rules, every condition target supports a <strong>night offset</strong> &mdash; e.g., target VPD 1.2 kPa day with a -0.3 kPa night offset means lights-off VPD target is 0.9 kPa. Offsets exist for temperature, humidity, VPD, and CO2 independently, and lights-on/lights-off is detected automatically from your light schedule.</p>
+
+            <h3>Weighted deviation across metrics</h3>
+            <p>For tents with several sensors, the engine combines deviations from target into a single <strong>weighted deviation score</strong> &mdash; e.g., temperature deviation might count more than humidity if your strain is heat-sensitive. The most actionable rule (the one that brings the deviation score down most) fires first, instead of every rule firing simultaneously and fighting each other. Weights are auto-tuned based on the active grow stage but can be overridden per tent.</p>
+
+            <h3>Emergency override (temp spike + condensation)</h3>
+            <p>Two scenarios bypass normal rule timing and force immediate action:</p>
+            <ul>
+                <li><strong>Temperature spike</strong> &mdash; if temperature exceeds a hard ceiling (e.g., 32&deg;C), all fans go to max speed, the heater is force-off, the dehumidifier is force-off, and a critical notification fires. No dwell, no hold &mdash; the override runs until temp returns under ceiling for a recovery window.</li>
+                <li><strong>Condensation risk</strong> &mdash; if RH crosses 90% with temperature falling toward dew point, the dehumidifier and exhaust fan are force-on regardless of schedule.</li>
+            </ul>
+            <p>Normal rules resume after a 10-minute recovery window once conditions return to normal. The override is logged in the device action history for review.</p>
+
+            <h3>Auto stage detection (3-signal voting)</h3>
+            <p>GrowVPD Pro can propose a stage transition (Veg &rarr; Pre-flower &rarr; Flower &rarr; Late flower) by voting across three signals:</p>
+            <ul>
+                <li><strong>Calendar</strong> &mdash; days from grow start, against the strain&rsquo;s typical timeline.</li>
+                <li><strong>Photoperiod</strong> &mdash; detection of an 18/6 to 12/12 light schedule change.</li>
+                <li><strong>Sensor patterns</strong> &mdash; transpiration rate (proxied via humidity rebound after lights-off) and target VPD drift.</li>
+            </ul>
+            <p>When at least two of the three agree, you get a notification proposing the new stage. Tap to accept, dismiss, or open settings to disable auto-detection per grow. Rule targets and offsets re-tune automatically when you accept.</p>
+
+            <h3>Light dimming ramp (sunrise / sunset)</h3>
+            <p>For supported lights (Mars Hydro iConnect, Spider Farmer, SANlight, Vivosun), GrowVPD Pro uses the device&rsquo;s native ramp command to drive smooth sunrise/sunset transitions. Set <code>lightRampSec</code> in the stage targets (e.g., 1800 for a 30-min ramp) and the device handles the dimming locally &mdash; even if the phone is asleep or offline. For lights without native ramp, the app falls back to step-dimming over MQTT or LAN.</p>
+
+            <h3>Night CO2 hold</h3>
+            <p>CO2 enrichment during lights-off is wasteful (plants don&rsquo;t consume CO2 in the dark) and risky (without strong ventilation, levels build up). GrowVPD Pro automatically <strong>holds</strong> CO2 dosing rules during lights-off, keeping your CO2 sensor logging but never triggering the dosing valve. CO2 dosing resumes at the start of the photoperiod, with a configurable warm-up offset so your tent reaches target CO2 within a few minutes of lights-on.</p>
+
+            <h3>Three-point band (target zones)</h3>
+            <p>Beyond a single threshold, every rule supports a <strong>three-point band</strong>: a <em>low</em> action target, a <em>high</em> action target, and the <em>safe zone</em> in between. For example, "humidity 55&ndash;65% safe, &lt; 55% turn on humidifier, &gt; 65% turn on dehumidifier" is one rule with two outputs instead of two competing rules. The tent dashboard visualizes the band live and shows where current readings sit on the gauge.</p>
 
             <h2>Safety Features</h2>
 

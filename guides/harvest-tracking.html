@@ -107,20 +107,32 @@
             </button>
                         <ul class="nav-links" id="navLinks">
                 <li><a href="../index.html#features" data-i18n="navFeatures">Features</a></li>
-                <li><a href="index.html" data-i18n="navGuides">Guides &amp; Community</a></li>
-                <li><a href="../docs/index.html" data-i18n="navApi">API</a></li>
+                <li><a href="../guides/index.html" data-i18n="navGuides">Guides &amp; Community</a></li>
                 <li><a href="../widget/index.html" data-i18n="navWidget">VPD Chart</a></li>
-                <li><a href="../blog/index.html" data-i18n="navBlog">Blog</a></li>
-                <li><a href="../partnership/index.html" data-i18n="navPartnership">Partnerships</a></li>
-                <li><a href="../support/index.html" data-i18n="navFaq">FAQ</a></li>
-                <li><a href="../index.html#download" class="nav-cta" data-i18n="navDownload">Download</a></li>
+                <li><a href="../index.html#pricing" data-i18n="navPricing">Pricing</a></li>
+                <li class="nav-dropdown">
+                    <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                        <span data-i18n="navResources">Resources</span>
+                        <svg width="10" height="10" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true"><path d="M2 4l4 4 4-4"/></svg>
+                    </button>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="../docs/index.html" data-i18n="navApi">API</a></li>
+                        <li><a href="../blog/index.html" data-i18n="navBlog">Blog</a></li>
+                        <li><a href="../partnership/index.html" data-i18n="navPartnership">Partnerships</a></li>
+                        <li><a href="../press/index.html" data-i18n="navPressKit">Press Kit</a></li>
+                        <li><a href="../support/index.html" data-i18n="navFaq">FAQ</a></li>
+                    </ul>
+                </li>
+                <li><a href="https://discord.gg/BGDpE6nP" target="_blank" rel="noopener noreferrer" class="nav-cta" data-i18n="comDiscordBtn">Join Discord</a></li>
             </ul>
         </div>
     </nav>
     <script>
-document.getElementById('navToggle')?.addEventListener('click',function(){this.classList.toggle('active');document.getElementById('navLinks').classList.toggle('active')});
-window.addEventListener('scroll',function(){document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>20)},{passive:true});
-    </script>
+document.getElementById("navToggle")?.addEventListener("click",function(){this.classList.toggle("active");document.getElementById("navLinks").classList.toggle("active")});
+window.addEventListener("scroll",function(){document.getElementById("navbar").classList.toggle("scrolled",window.scrollY>20)},{passive:true});
+document.querySelectorAll(".nav-dropdown").forEach(function(dd){var t=dd.querySelector(".nav-dropdown-toggle");if(!t)return;t.addEventListener("click",function(e){e.stopPropagation();document.querySelectorAll(".nav-dropdown.is-open").forEach(function(o){if(o!==dd)o.classList.remove("is-open")});dd.classList.toggle("is-open")})});
+document.addEventListener("click",function(){document.querySelectorAll(".nav-dropdown.is-open").forEach(function(d){d.classList.remove("is-open")})});
+</script>
 
     <main class="article-page">
         <div class="article-container">
@@ -217,14 +229,49 @@ window.addEventListener('scroll',function(){document.getElementById('navbar').cl
                     <strong>Do not rush drying.</strong> Fast-drying in 3&ndash;4 days (by raising temperature or lowering humidity) destroys terpenes and produces harsh, grassy-tasting flower. The slow dry is where quality is made.
                 </div>
 
-                <h2>Recording in the App</h2>
+                <h2>Recording in the App: HarvestSheet</h2>
+                <p>The fastest way to log a harvest in GrowVPD Pro is the <strong>Harvest button</strong> on the grow detail screen. Tap it and the <strong>HarvestSheet</strong> slides up &mdash; one screen with every field you need:</p>
                 <ol>
-                    <li>Create a new diary entry on harvest day and set the stage to "Harvest"</li>
-                    <li>Enter the wet weight and take photos of the fresh harvest</li>
-                    <li>After drying (7&ndash;14 days), edit the entry to add dry weight</li>
-                    <li>Mark the grow as complete to trigger final analytics calculations</li>
-                    <li>Review the harvest summary with all efficiency metrics</li>
+                    <li><strong>Harvest date</strong> &mdash; defaults to today, but you can backdate if you forgot to log on the actual day.</li>
+                    <li><strong>Wet weight</strong> &mdash; enter the post-trim weight in grams (or ounces, if you have your unit set to imperial).</li>
+                    <li><strong>Dry weight</strong> &mdash; leave blank if you are still drying; come back and edit later.</li>
+                    <li><strong>Notes</strong> &mdash; freeform field for trim impressions, smell, anomalies, anything you want to remember.</li>
                 </ol>
+                <p>Tap <strong>Save harvest</strong> and the sheet calculates everything from your existing grow data: cycle time, yield per plant, g/W, g/m&sup2;, and the wet/dry ratio.</p>
+
+                <h3>Cycle time calculation</h3>
+                <p>The app computes cycle time as <code>(harvest date) &minus; (grow start date)</code>, in days. If you have a strain assigned to the grow, the cycle time is also compared to the strain&rsquo;s expected duration so you can see whether you finished early or late.</p>
+
+                <h3>Yield per plant + wet/dry ratio</h3>
+                <p>Yield per plant divides dry weight by the plant count recorded on your grow. The wet/dry ratio is calculated automatically and flagged in three colors:</p>
+                <ul>
+                    <li><strong>Green (4:1 to 5:1)</strong> &mdash; healthy ratio, well-dried.</li>
+                    <li><strong>Amber (3:1 or 6:1)</strong> &mdash; possibly under- or over-dried.</li>
+                    <li><strong>Red (less than 3:1 or more than 6:1)</strong> &mdash; investigate. Either the wet weight was off, the buds dried too hard, or there&rsquo;s still moisture trapped inside that risks mold.</li>
+                </ul>
+
+                <h3>Editing an existing harvest</h3>
+                <p>You can edit a harvest at any time. Open the grow detail, scroll to the HarvestStatsCard, tap <strong>Edit harvest</strong>, and the same HarvestSheet opens with current values pre-filled. Common reasons to edit:</p>
+                <ul>
+                    <li>Adding the dry weight after the cure (the most common).</li>
+                    <li>Correcting a typo in wet weight.</li>
+                    <li>Adding a curing-stage entry (separate from harvest) to track how the buds developed during cure.</li>
+                </ul>
+
+                <h3>Status timeline events</h3>
+                <p>Saving a harvest writes a <strong>HARVEST</strong> event to the GrowStatusEvent timeline visible at the top of the grow detail. When you later mark the grow as cured, that adds a <strong>CURED</strong> event. The timeline gives you an at-a-glance lifecycle view: created &rarr; stage changes &rarr; harvested &rarr; cured.</p>
+
+                <h2>PDF export with lifecycle + harvest summary</h2>
+                <p>From the grow detail menu (three-dot top right), tap <strong>Export PDF</strong>. The exported PDF includes:</p>
+                <ul>
+                    <li>Cover page with strain, dates, plant count, total cycle days.</li>
+                    <li>Lifecycle timeline showing every status event with timestamps.</li>
+                    <li>Stage-by-stage summary of average VPD, temperature, humidity, light hours.</li>
+                    <li>Harvest summary card: wet/dry weights, all efficiency metrics, wet/dry ratio with verdict.</li>
+                    <li>Daily entries with notes, sensor data, and embedded photos.</li>
+                    <li>Optional cure notes if filled in.</li>
+                </ul>
+                <p>The PDF is great for sharing with friends, attaching to a forum post, or archiving when you stop running the tent for a season. Long-term diary data also exports to JSON if you prefer raw data.</p>
 
             </div>
 

@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://giscus.app; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://giscus.app https://discord.com; connect-src 'self' https://giscus.app; base-uri 'self'; form-action 'self';">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Automation Philosophy: VPD-Driven &amp; Local-First &mdash; GrowVPD Pro Guides</title>
+    <meta name="description" content="Why GrowVPD prioritises VPD over RH alone, runs automations locally, and gives you the same logic as $2500 commercial controllers at a fraction of the price.">
+
+    <link rel="icon" type="image/png" href="../images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="canonical" href="https://growvpd.pro/guides/automation-philosophy.html">
+    <link rel="alternate" hreflang="en" href="https://growvpd.pro/guides/automation-philosophy.html">
+    <link rel="alternate" hreflang="cs" href="https://growvpd.pro/guides/automation-philosophy.html?lang=cs">
+    <link rel="alternate" hreflang="de" href="https://growvpd.pro/guides/automation-philosophy.html?lang=de">
+    <link rel="alternate" hreflang="es" href="https://growvpd.pro/guides/automation-philosophy.html?lang=es">
+    <link rel="alternate" hreflang="nl" href="https://growvpd.pro/guides/automation-philosophy.html?lang=nl">
+    <link rel="alternate" hreflang="fr" href="https://growvpd.pro/guides/automation-philosophy.html?lang=fr">
+    <link rel="alternate" hreflang="it" href="https://growvpd.pro/guides/automation-philosophy.html?lang=it">
+    <link rel="alternate" hreflang="pt" href="https://growvpd.pro/guides/automation-philosophy.html?lang=pt">
+    <link rel="alternate" hreflang="pl" href="https://growvpd.pro/guides/automation-philosophy.html?lang=pl">
+    <link rel="alternate" hreflang="th" href="https://growvpd.pro/guides/automation-philosophy.html?lang=th">
+    <link rel="alternate" hreflang="he" href="https://growvpd.pro/guides/automation-philosophy.html?lang=he">
+    <link rel="alternate" hreflang="x-default" href="https://growvpd.pro/guides/automation-philosophy.html">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/forum.css">
+    <script>(function(){var p=new URLSearchParams(location.search).get("lang"),s=localStorage.getItem("growvpd-lang"),l=p||s||(navigator.language||"en").split("-")[0];if(l&&l!=="en"){var st=document.createElement("style");st.id="i18n-cloak";st.textContent="[data-i18n],[data-i18n-html]{opacity:0!important}";document.head.appendChild(st);setTimeout(function(){var c=document.getElementById("i18n-cloak");if(c)c.remove()},150)}})()</script>
+    <style>
+        .article-page { padding: 100px 0 60px; background: #fff; min-height: 100vh; }
+        .article-container { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+        .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: .82rem; color: #90A4AE; margin-bottom: 32px; flex-wrap: wrap; }
+        .breadcrumb a { color: #2E7D32; font-weight: 500; transition: color .2s; }
+        .breadcrumb a:hover { color: #1B5E20; }
+        .breadcrumb .sep { color: #CFD8DC; }
+        .article-header { margin-bottom: 40px; }
+        .article-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+        .category-badge { display: inline-block; background: rgba(46,125,50,.08); color: #2E7D32; font-size: .75rem; font-weight: 700; padding: 4px 12px; border-radius: 6px; text-transform: uppercase; letter-spacing: .05em; }
+        .article-date, .article-read-time { font-size: .82rem; color: #90A4AE; }
+        .article-header h1 { font-size: 2.2rem; font-weight: 900; color: #1B5E20; line-height: 1.15; letter-spacing: -.02em; }
+        .article-body h2 { font-size: 1.45rem; font-weight: 800; color: #212121; margin: 40px 0 16px; }
+        .article-body h3 { font-size: 1.1rem; font-weight: 700; color: #37474F; margin: 28px 0 12px; }
+        .article-body p { color: #546E7A; font-size: .95rem; line-height: 1.75; margin-bottom: 16px; }
+        .article-body ul, .article-body ol { color: #546E7A; font-size: .95rem; line-height: 1.75; margin: 0 0 16px 24px; }
+        .article-body ul { list-style: disc; }
+        .article-body ol { list-style: decimal; }
+        .article-body li { margin-bottom: 6px; }
+        .article-body strong { color: #212121; font-weight: 600; }
+        .article-body blockquote { background: #F1F8E9; border-left: 4px solid #4CAF50; padding: 16px 20px; border-radius: 0 12px 12px 0; margin: 24px 0; font-size: .9rem; color: #33691E; line-height: 1.7; }
+        .article-body blockquote strong { color: #1B5E20; }
+        .article-body code { background: #ECEFF1; padding: 2px 6px; border-radius: 4px; font-size: .85rem; color: #37474F; }
+        .article-body pre { background: #263238; color: #ECEFF1; padding: 16px 20px; border-radius: 12px; overflow-x: auto; font-size: .82rem; line-height: 1.6; margin: 16px 0 24px; }
+        .article-body pre code { background: transparent; color: #ECEFF1; padding: 0; }
+        .toc { background: #F8FBF8; border: 1px solid #E0E8E0; border-radius: 12px; padding: 16px 20px 16px 38px; margin: 24px 0 32px; }
+        .toc h4 { color: #1B5E20; font-weight: 800; font-size: .9rem; margin: 0 0 8px -18px; text-transform: uppercase; letter-spacing: .05em; }
+        .toc ul { list-style: none; margin: 0; padding: 0; }
+        .toc li { margin: 4px 0; padding: 0; }
+        .toc a { color: #2E7D32; font-size: .88rem; font-weight: 500; text-decoration: none; }
+        .toc a:hover { text-decoration: underline; }
+        .compare-table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: .87rem; }
+        .compare-table th, .compare-table td { padding: 10px 12px; border: 1px solid #ECEFF1; text-align: left; }
+        .compare-table th { background: #F1F8E9; color: #1B5E20; font-weight: 700; }
+        .compare-table tr:nth-child(even) td { background: #FAFBFC; }
+        .faq-item { margin: 18px 0; padding: 16px 18px; background: #FAFBFC; border: 1px solid #ECEFF1; border-radius: 10px; }
+        .faq-item h4 { color: #1B5E20; font-size: .95rem; font-weight: 700; margin: 0 0 6px; }
+        .faq-item p { margin: 0; font-size: .87rem; }
+        .principle { background: #FAFBFC; border: 1px solid #ECEFF1; border-radius: 14px; padding: 22px 24px; margin: 20px 0; }
+        .principle h3 { margin-top: 0; color: #1B5E20; }
+        .principle .label { display: inline-block; background: #2E7D32; color: #fff; font-size: .72rem; font-weight: 700; padding: 3px 10px; border-radius: 5px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: .05em; }
+        .discord-cta { background: linear-gradient(135deg, #F1F8E9, #E8F5E9); border: 1px solid #C8E6C9; border-radius: 16px; padding: 32px; text-align: center; margin: 48px 0; }
+        .discord-cta h3 { font-size: 1.2rem; font-weight: 800; color: #1B5E20; margin-bottom: 8px; }
+        .discord-cta p { font-size: .9rem; color: #546E7A; margin-bottom: 20px; }
+        .discord-cta .btn { display: inline-flex; align-items: center; gap: 8px; background: #2E7D32; color: #fff; padding: 12px 28px; border-radius: 10px; font-weight: 600; font-size: .9rem; text-decoration: none; }
+        .related-guides { margin: 48px 0; }
+        .related-guides h3 { font-size: 1.1rem; font-weight: 800; color: #212121; margin-bottom: 16px; }
+        .related-list { display: flex; flex-direction: column; gap: 10px; }
+        .related-link { display: flex; align-items: center; gap: 10px; padding: 14px 18px; background: #FAFBFC; border: 1px solid #ECEFF1; border-radius: 12px; transition: all .25s; color: #2E7D32; font-weight: 600; font-size: .9rem; }
+        .related-link:hover { border-color: #C8E6C9; background: #F1F8E9; transform: translateX(4px); }
+        .related-link .arrow { margin-left: auto; color: #90A4AE; }
+        .article-footer { border-top: 1px solid #ECEFF1; padding: 32px 0; margin-top: 48px; text-align: center; font-size: .82rem; color: #90A4AE; }
+        .article-footer a { color: #2E7D32; font-weight: 500; }
+        @media (max-width: 768px) {
+            .article-page { padding: 80px 0 40px; }
+            .article-header h1 { font-size: 1.7rem; }
+            .article-body h2 { font-size: 1.25rem; }
+        }
+    </style>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://growvpd.pro/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://growvpd.pro/guides/"},{"@type":"ListItem","position":3,"name":"Automation Philosophy"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Article","headline":"Our Automation Philosophy","author":{"@type":"Organization","name":"GrowVPD Pro"},"publisher":{"@type":"Organization","name":"GrowVPD Pro"},"datePublished":"2026-04-27","description":"Our philosophy: VPD-driven, local-first, plant-aware automation.","mainEntityOfPage":"https://growvpd.pro/guides/automation-philosophy.html"}
+    </script>
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="../index.html" class="nav-brand">
+                <img class="nav-logo" src="../images/logo.webp" alt="GrowVPD Pro" width="28" height="28">
+                <span>GrowVPD Pro</span>
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../index.html#features" data-i18n="navFeatures">Features</a></li>
+                <li><a href="../guides/index.html" data-i18n="navGuides">Guides &amp; Community</a></li>
+                <li><a href="../widget/index.html" data-i18n="navWidget">VPD Chart</a></li>
+                <li><a href="../index.html#pricing" data-i18n="navPricing">Pricing</a></li>
+                <li class="nav-dropdown">
+                    <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                        <span data-i18n="navResources">Resources</span>
+                        <svg width="10" height="10" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true"><path d="M2 4l4 4 4-4"/></svg>
+                    </button>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="../docs/index.html" data-i18n="navApi">API</a></li>
+                        <li><a href="../blog/index.html" data-i18n="navBlog">Blog</a></li>
+                        <li><a href="../partnership/index.html" data-i18n="navPartnership">Partnerships</a></li>
+                        <li><a href="../press/index.html" data-i18n="navPressKit">Press Kit</a></li>
+                        <li><a href="../support/index.html" data-i18n="navFaq">FAQ</a></li>
+                    </ul>
+                </li>
+                <li><a href="https://discord.gg/BGDpE6nP" target="_blank" rel="noopener noreferrer" class="nav-cta" data-i18n="comDiscordBtn">Join Discord</a></li>
+            </ul>
+        </div>
+    </nav>
+    <script>
+document.getElementById("navToggle")?.addEventListener("click",function(){this.classList.toggle("active");document.getElementById("navLinks").classList.toggle("active")});
+window.addEventListener("scroll",function(){document.getElementById("navbar").classList.toggle("scrolled",window.scrollY>20)},{passive:true});
+document.querySelectorAll(".nav-dropdown").forEach(function(dd){var t=dd.querySelector(".nav-dropdown-toggle");if(!t)return;t.addEventListener("click",function(e){e.stopPropagation();document.querySelectorAll(".nav-dropdown.is-open").forEach(function(o){if(o!==dd)o.classList.remove("is-open")});dd.classList.toggle("is-open")})});
+document.addEventListener("click",function(){document.querySelectorAll(".nav-dropdown.is-open").forEach(function(d){d.classList.remove("is-open")})});
+    </script>
+
+    <main class="article-page">
+        <div class="article-container">
+
+            <div class="breadcrumb">
+                <a href="index.html" data-i18n="breadcrumbGuides">Guides &amp; Community</a>
+                <span class="sep">/</span>
+                <a href="index.html">Automation</a>
+                <span class="sep">/</span>
+                <span data-i18n="autoPhilCrumb">Automation Philosophy</span>
+            </div>
+
+            <header class="article-header">
+                <div class="article-meta">
+                    <span class="category-badge" data-i18n="autoPhilCat">Philosophy &amp; Approach</span>
+                    <span class="article-date">April 2026</span>
+                    <span class="article-read-time">12 min read</span>
+                </div>
+                <h1 data-i18n="autoPhilTitle">Our Automation Philosophy: VPD-Driven &amp; Local-First</h1>
+            </header>
+
+            <div class="article-body">
+
+                <p data-i18n="autoPhilIntro">Most grow automation is glorified RH-thresholding. Plants get screwed because the system reacted to a number that doesn&rsquo;t actually drive transpiration. We took a different approach. This guide explains the principles behind GrowVPD&rsquo;s automation engine &mdash; what we optimize for, why, and how that compares to commercial controllers costing 50&times; as much.</p>
+
+                <div class="toc" aria-label="Table of contents">
+                    <h4>On this page</h4>
+                    <ul>
+                        <li><a href="#why-vpd">1. Why VPD, not just humidity</a></li>
+                        <li><a href="#stage-aware">2. Stage-aware setpoints</a></li>
+                        <li><a href="#hysteresis">3. Hysteresis &amp; cooldowns</a></li>
+                        <li><a href="#emergency">4. Emergency override</a></li>
+                        <li><a href="#auto-stage">5. Auto-stage detection</a></li>
+                        <li><a href="#dimming">6. Light dimming ramp</a></li>
+                        <li><a href="#night-co2">7. Night CO<sub>2</sub> hold</a></li>
+                        <li><a href="#three-band">8. Three-point band visualisation</a></li>
+                        <li><a href="#local-first">9. Local-first architecture</a></li>
+                        <li><a href="#cloud-mirror">10. Cloud mirror (opt-in)</a></li>
+                        <li><a href="#vs-controllers">11. Versus $2500 controllers</a></li>
+                        <li><a href="#faq">12. FAQ</a></li>
+                    </ul>
+                </div>
+
+                <h2 id="why-vpd">1. Why VPD, not just humidity</h2>
+
+                <p>Plants don&rsquo;t care about relative humidity. They care about <strong>vapour pressure deficit</strong> &mdash; the gap between the moisture the air is currently holding and the maximum it could hold at that temperature. VPD is what drives transpiration. RH alone is half the story.</p>
+
+                <p>Two scenarios illustrate the difference:</p>
+
+                <ul>
+                    <li><strong>20&deg;C, 70% RH</strong> &rarr; VPD ~0.7 kPa &rarr; perfect for late veg.</li>
+                    <li><strong>30&deg;C, 70% RH</strong> &rarr; VPD ~1.27 kPa &rarr; flowering territory; veg plants would stress.</li>
+                </ul>
+
+                <p>The RH is identical in both scenarios. But the temperature difference produces a 75% difference in VPD &mdash; one is veg-friendly, the other is too high for veg. An RH-only thermostat misses this entirely. A VPD-aware automation reads both, computes VPD, and acts on the actual physiological signal.</p>
+
+                <div class="principle">
+                    <span class="label">Principle 1</span>
+                    <h3>Automate on VPD, surface RH for context</h3>
+                    <p>Every automation in GrowVPD reads the current VPD and compares against the stage-target band. RH is shown for context (and as a fallback when only one sensor is available), but the trigger is always the VPD calculation.</p>
+                </div>
+
+                <h2 id="stage-aware">2. Stage-aware setpoints</h2>
+
+                <p>VPD targets are not static. A seedling wants 0.4&ndash;0.8 kPa; late flower wants 1.2&ndash;1.6 kPa. If your automation uses one threshold across the entire grow, you&rsquo;re hammering seedlings or under-driving flowers. Either way, yield suffers.</p>
+
+                <p>GrowVPD ships <strong>six built-in stage presets</strong>: clone, seedling, early veg, late veg, early flower, late flower. Each comes with stage-specific defaults for VPD, day temp, night temp, RH range, CO<sub>2</sub> setpoint, and PPFD target. When you change the grow&rsquo;s stage in the diary, every automation rule for that tent re-baselines automatically.</p>
+
+                <table class="compare-table">
+                    <thead>
+                        <tr><th>Stage</th><th>VPD target</th><th>Day temp</th><th>Night temp</th><th>RH band</th><th>PPFD</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Clone</td><td>0.4&ndash;0.8</td><td>24&ndash;26&deg;C</td><td>22&ndash;24&deg;C</td><td>70&ndash;80%</td><td>150&ndash;300</td></tr>
+                        <tr><td>Seedling</td><td>0.6&ndash;0.9</td><td>23&ndash;26&deg;C</td><td>21&ndash;23&deg;C</td><td>65&ndash;75%</td><td>200&ndash;400</td></tr>
+                        <tr><td>Early veg</td><td>0.8&ndash;1.1</td><td>24&ndash;28&deg;C</td><td>22&ndash;24&deg;C</td><td>55&ndash;70%</td><td>400&ndash;600</td></tr>
+                        <tr><td>Late veg</td><td>1.0&ndash;1.3</td><td>24&ndash;28&deg;C</td><td>21&ndash;24&deg;C</td><td>50&ndash;65%</td><td>500&ndash;700</td></tr>
+                        <tr><td>Early flower</td><td>1.1&ndash;1.4</td><td>23&ndash;27&deg;C</td><td>20&ndash;23&deg;C</td><td>45&ndash;55%</td><td>600&ndash;900</td></tr>
+                        <tr><td>Late flower</td><td>1.2&ndash;1.6</td><td>22&ndash;26&deg;C</td><td>18&ndash;22&deg;C</td><td>40&ndash;50%</td><td>600&ndash;1100</td></tr>
+                    </tbody>
+                </table>
+
+                <p>You can override any of these per tent. But for most growers the defaults give you a working setup in under a minute.</p>
+
+                <div class="principle">
+                    <span class="label">Principle 2</span>
+                    <h3>Stage-driven, not user-driven</h3>
+                    <p>You shouldn&rsquo;t have to manually re-tune setpoints when you flip 12/12. The diary knows the grow stage, the automation engine reads it, every rule re-bases. One source of truth.</p>
+                </div>
+
+                <h2 id="hysteresis">3. Hysteresis &amp; cooldowns</h2>
+
+                <p>If you set &ldquo;humidifier on when RH &lt; 55, off when RH &gt; 60&rdquo; with no other safeguards, here&rsquo;s what happens: humidifier kicks on at 54.9%, kicks off at 60.1%, kicks back on at 59.9% three minutes later, and so on. You&rsquo;ve built a relay-cycling machine that wears out the humidifier and your patience.</p>
+
+                <p>GrowVPD enforces hysteresis on every rule:</p>
+
+                <ul>
+                    <li><strong>Trigger band</strong>: the threshold to turn on (e.g. VPD &gt; 1.5 kPa).</li>
+                    <li><strong>Restore band</strong>: a separate threshold to turn off (e.g. VPD &lt; 1.3 kPa). Always more conservative than the trigger to prevent flapping.</li>
+                    <li><strong>Min ON time</strong>: e.g. once on, stay on at least 5 minutes. Prevents tiny on-off blips.</li>
+                    <li><strong>Min OFF time</strong>: e.g. once off, stay off at least 3 minutes before re-triggering.</li>
+                    <li><strong>Max run time</strong>: cap continuous runtime, e.g. dehumidifier never runs &gt; 60 min straight (forces a cooldown).</li>
+                </ul>
+
+                <p>These knobs ship with stage-aware defaults but are user-tunable per rule. The result: stable behavior, low duty cycle, devices last for years.</p>
+
+                <h2 id="emergency">4. Emergency override</h2>
+
+                <p>Sometimes a single number is so out-of-bounds that all other rules become irrelevant. If your tent hits 38&deg;C, the automation engine doesn&rsquo;t care about your stage&rsquo;s VPD band &mdash; it cuts the lights and slams the exhaust to 100% immediately.</p>
+
+                <p>Our Emergency Override layer fires when:</p>
+
+                <ul>
+                    <li>Temperature &gt; 35&deg;C in any tent</li>
+                    <li>Humidity &gt; 90% AND temperature &gt; 28&deg;C (mold risk)</li>
+                    <li>VPD &gt; 2.5 kPa for &gt; 30 min (drought stress)</li>
+                    <li>CO<sub>2</sub> &gt; 2000 ppm in inhabited spaces (safety)</li>
+                </ul>
+
+                <p>When triggered, normal rules pause. Emergency actions execute (cut lights, exhaust max, dehumidifier off, alert push). When sensors recover into safe range for 10 minutes, normal rules resume. You get a notification with the timeline so you can investigate root cause.</p>
+
+                <h2 id="auto-stage">5. Auto-stage detection</h2>
+
+                <p>This is one of our newer features. Once a week, an analysis worker looks at:</p>
+
+                <ul>
+                    <li>Photo-period of the grow light (you set 12/12 or it reports back automatically)</li>
+                    <li>Plant height growth rate from your diary photos</li>
+                    <li>Days since seed/clone</li>
+                    <li>Strain default flowering window</li>
+                </ul>
+
+                <p>If the inferred stage diverges from your manually-set stage by &gt;7 days, you get a non-blocking suggestion: &ldquo;You marked Late Veg, but your light is 12/12 and stretch has begun. Want to switch to Early Flower?&rdquo;. One tap accepts; the next automation cycle uses the new stage&rsquo;s targets.</p>
+
+                <p>Non-blocking is the key word. We never silently change your stage. You stay in control; we surface the data.</p>
+
+                <h2 id="dimming">6. Light dimming ramp</h2>
+
+                <p>Sudden 0&rarr;100% light is a stress event. Plants ramp transpiration; if VPD isn&rsquo;t in band, they wilt or burn the meristems. Commercial controllers rarely solve this; growers either do it manually or skip it.</p>
+
+                <p>GrowVPD&rsquo;s dimming ramp lets you specify, per light:</p>
+
+                <ul>
+                    <li><strong>Sunrise duration</strong>: minutes to ramp 0% &rarr; 100% (default 30 min in flower).</li>
+                    <li><strong>Sunset duration</strong>: minutes to ramp 100% &rarr; 0% (default 30 min).</li>
+                    <li><strong>Hold percentage</strong>: nighttime &ldquo;moonlight&rdquo; level if you want one (default 0%).</li>
+                </ul>
+
+                <p>Native ramp passthrough is supported on Mars Hydro, AC Infinity, SANlight, and selected Tuya light strips. For lights without native ramp, we approximate via stepped dimming every minute.</p>
+
+                <div class="principle">
+                    <span class="label">Principle 3</span>
+                    <h3>Smooth state changes, never abrupt</h3>
+                    <p>Whatever the system can ramp, it should ramp. Cool-tube fans, EC pumps, lights, dehumidifiers &mdash; smooth transitions reduce plant stress and equipment wear.</p>
+                </div>
+
+                <h2 id="night-co2">7. Night CO<sub>2</sub> hold</h2>
+
+                <p>If you supplement CO<sub>2</sub>, you almost certainly know you should cut it during dark cycles (plants don&rsquo;t photosynthesise without light, so extra CO<sub>2</sub> is wasted &mdash; and elevated CO<sub>2</sub> at night actually reduces respiration efficiency).</p>
+
+                <p>GrowVPD&rsquo;s Night CO<sub>2</sub> Hold automatically:</p>
+
+                <ul>
+                    <li>Detects light-off events from your light schedule</li>
+                    <li>Sets the CO<sub>2</sub> setpoint to ambient (~400 ppm) at lights-off + 30 min</li>
+                    <li>Restores supplementation setpoint at lights-on - 30 min</li>
+                    <li>Logs the energy/CO<sub>2</sub> savings to your monthly cost tracker</li>
+                </ul>
+
+                <p>Saves around 25% of CO<sub>2</sub> consumption for a typical flowering setup &mdash; meaningful on tank/canister supplementation.</p>
+
+                <h2 id="three-band">8. Three-point band visualisation</h2>
+
+                <p>The dashboard shows your tent&rsquo;s VPD as a single number, but the underlying control logic uses a band:</p>
+
+                <ul>
+                    <li><strong>Lower edge</strong>: turn ON dehumidifier / increase exhaust to push VPD up</li>
+                    <li><strong>Mid-point</strong>: target. Ideally hover here.</li>
+                    <li><strong>Upper edge</strong>: turn ON humidifier / reduce exhaust to push VPD down</li>
+                </ul>
+
+                <p>The Three-Point Band card visualises this at a glance. Green if you&rsquo;re inside the band; yellow if drifting; red if outside. The thumb shows live VPD; the band shifts in real-time when you change stage. Tap to reveal the underlying rules and edit setpoints.</p>
+
+                <p>This UX pattern is &ldquo;at-a-glance OK / not OK&rdquo; that&rsquo;s missing from most grow apps. Most show RH and temp as separate gauges; you have to do the VPD math in your head.</p>
+
+                <h2 id="local-first">9. Local-first architecture</h2>
+
+                <p>The automation engine runs entirely on your phone. Sensor reads, rule evaluation, command dispatch &mdash; all on-device. The cloud is a bonus, not a requirement.</p>
+
+                <p>Why this matters:</p>
+
+                <ul>
+                    <li><strong>Internet outage</strong>: rules keep firing. Your dehumidifier still kicks on if RH spikes.</li>
+                    <li><strong>Cloud-rate limiting</strong>: doesn&rsquo;t affect you. We don&rsquo;t poll cloud for every rule.</li>
+                    <li><strong>Privacy</strong>: sensor data never leaves your home unless you explicitly opt-in to cloud sync.</li>
+                    <li><strong>Latency</strong>: no round-trip through Tuya/SmartLife/etc. LAN command takes ~80 ms.</li>
+                </ul>
+
+                <p>The single exception: the phone needs to be running the app (or Hub Mode) for the engine to evaluate rules. We address that with <a href="hub-mode-detailed.html">Hub Mode</a> &mdash; an old phone as a 24/7 grow guardian. Or in Q3 2026, a Raspberry Pi home agent.</p>
+
+                <div class="principle">
+                    <span class="label">Principle 4</span>
+                    <h3>Phone is the controller, cloud is optional</h3>
+                    <p>The phone is more powerful than most $2500 commercial controllers. Use it. Cloud is for sync, sharing, and history &mdash; never for the hot path of automation.</p>
+                </div>
+
+                <h2 id="cloud-mirror">10. Cloud mirror (opt-in)</h2>
+
+                <p>Some growers want the automation logic to keep running even if the phone is dead, lost, or factory-reset. For them we offer Cloud Mirror: an opt-in feature that pushes a copy of your rules to Tuya&rsquo;s Scene Linkage cloud (or AC Infinity&rsquo;s cloud rules, etc.). The cloud version then runs as a fallback when the phone is offline for &gt;1 hour.</p>
+
+                <p>Cloud Mirror is:</p>
+
+                <ul>
+                    <li><strong>Opt-in</strong>: off by default. Toggle in Settings &rarr; Automation &rarr; Cloud Mirror.</li>
+                    <li><strong>Per-rule</strong>: you pick which rules mirror. A rule with private context might not.</li>
+                    <li><strong>One-way</strong>: phone is the source of truth. Cloud copy refreshes when you edit on phone.</li>
+                    <li><strong>Translatable</strong>: a rule like &ldquo;VPD&gt;1.5 turn on humidifier&rdquo; on phone becomes &ldquo;humidity&lt;X turn on humidifier&rdquo; on cloud (cloud doesn&rsquo;t do VPD natively, so we degrade to RH).</li>
+                </ul>
+
+                <p>For most growers, Hub Mode + LAN is enough. Cloud Mirror is for the &ldquo;commercial nursery&rdquo; tier.</p>
+
+                <h2 id="vs-controllers">11. Versus $2500 commercial controllers</h2>
+
+                <p>TrolMaster Hydro-X (~$1500), Growlink Climate Pro (~$2500), Agrowtek (~$2000+) are well-engineered hardware boxes that run the same kind of logic GrowVPD does. We&rsquo;ve studied their datasheets and behavior. The differences:</p>
+
+                <table class="compare-table">
+                    <thead>
+                        <tr><th></th><th>$2500 Controller</th><th>GrowVPD ($4&ndash;5/mo Pro)</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>VPD-driven climate</td><td>Yes</td><td>Yes</td></tr>
+                        <tr><td>Stage-aware setpoints</td><td>Yes</td><td>Yes</td></tr>
+                        <tr><td>Hysteresis &amp; cooldowns</td><td>Yes</td><td>Yes</td></tr>
+                        <tr><td>Emergency override</td><td>Yes</td><td>Yes</td></tr>
+                        <tr><td>Light ramp / sunrise-sunset</td><td>Yes</td><td>Yes</td></tr>
+                        <tr><td>Auto-stage detection</td><td>No</td><td>Yes</td></tr>
+                        <tr><td>Diary integration</td><td>No</td><td>Yes (deeply)</td></tr>
+                        <tr><td>Photo timeline</td><td>No</td><td>Yes</td></tr>
+                        <tr><td>Strain-aware</td><td>No</td><td>Yes</td></tr>
+                        <tr><td>Multi-platform devices</td><td>Brand-locked</td><td>Tuya, MarsHydro, ACI, Spider Farmer, Vivosun, Bluelab, SANlight</td></tr>
+                        <tr><td>Replaceable BYOD hardware</td><td>No (sealed)</td><td>Yes (use any BYOD device we support)</td></tr>
+                        <tr><td>Cost</td><td>$1500&ndash;3000 hardware</td><td>$0 hardware (use phone) + Pro $4&ndash;5/mo</td></tr>
+                        <tr><td>Locked to brand if hardware dies</td><td>Yes</td><td>No</td></tr>
+                    </tbody>
+                </table>
+
+                <p>We&rsquo;re not better at <em>everything</em>. A purpose-built controller has dedicated relays, hardened weather-proof enclosures, and 5-year warranties. If you&rsquo;re running a 5000 sq ft commercial facility, those things matter. For 95% of indoor growers (1&ndash;6 tents at home), GrowVPD + a phone + BYOD smart plugs gives you the same control logic at a fraction of the cost. And if your light or fan dies, you swap it for any other supported brand &mdash; no $1000 lock-in.</p>
+
+                <blockquote>
+                    <strong>Honest take.</strong> We&rsquo;re not selling hardware, we&rsquo;re selling the logic. The hardware is commodity now: $8 plug, $80 inline fan controller, $20 humidifier. The smarts on top is what differentiates a good harvest from a great one. That&rsquo;s where we live.
+                </blockquote>
+
+                <h2 id="faq">12. FAQ</h2>
+
+                <div class="faq-item">
+                    <h4>Q: Can I disable the stage-aware presets and use my own setpoints?</h4>
+                    <p>Yes. Settings &rarr; Automation &rarr; Use stage presets &rarr; off. From then on, every rule uses fixed setpoints you specify. Most growers leave presets on and override individual rules; very few want a fully manual setup.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Q: How fast does the engine react to a sensor change?</h4>
+                    <p>Sensor read interval is 30 sec for LAN sensors, 5 min for Cloud Bridge sensors. Rule evaluation runs every 30 sec when the app is foreground, every 15 min in background (battery-aware) or every 30 sec in Hub Mode. Command dispatch is sub-second on LAN.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Q: What happens if two rules conflict (one says turn on, another says turn off)?</h4>
+                    <p>Rules have a priority field (1&ndash;100, default 50). Higher priority wins. Emergency override rules are always priority 100. If two rules tie at the same priority, the one that fired most recently keeps its decision (anti-flap).</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Q: Can rules run on a schedule, not just sensor-triggered?</h4>
+                    <p>Yes. A rule can be sensor-driven (RH&gt;X), time-driven (every day at 18:00), or event-driven (light just turned on). Mix them: &ldquo;Between 22:00 and 06:00, if VPD&gt;1.4 turn on humidifier&rdquo;.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Q: Do I need to write any code?</h4>
+                    <p>No. The rule editor is a wizard: pick a tent, pick a sensor, pick a threshold, pick a target device, pick the action, save. The default rules cover &gt;90% of common automations out of the box. Power users can edit JSON if they really want to, but that&rsquo;s for the tinkerers.</p>
+                </div>
+
+            </div>
+
+            <div class="discord-cta">
+                <h3 data-i18n="autoPhilCtaTitle">Want to challenge our thinking?</h3>
+                <p data-i18n="autoPhilCtaDesc">We genuinely love automation philosophy debates. Drop your setup in <code>#automation</code> on Discord. We learn the most from growers who think differently.</p>
+                <a href="https://discord.gg/BGDpE6nP" class="btn" target="_blank" rel="noopener noreferrer" data-i18n="autoPhilCtaBtn">Discuss on Discord</a>
+            </div>
+
+            <div class="related-guides">
+                <h3 data-i18n="relatedTitle">Related Guides</h3>
+                <div class="related-list">
+                    <a href="automation-rules.html" class="related-link">Setting Up Smart Automation Rules<span class="arrow">&rarr;</span></a>
+                    <a href="cross-brand-automation.html" class="related-link">Cross-Brand Automation: Mixing Tuya, Mars Hydro &amp; More<span class="arrow">&rarr;</span></a>
+                    <a href="vpd-complete-guide.html" class="related-link">Understanding VPD: The Complete Guide<span class="arrow">&rarr;</span></a>
+                    <a href="hub-mode-detailed.html" class="related-link">Hub Mode: old phone as 24/7 grow guardian<span class="arrow">&rarr;</span></a>
+                </div>
+            </div>
+
+            <footer class="article-footer">
+                <p>&copy; 2026 <a href="../index.html">GrowVPD Pro</a>. All rights reserved. &middot; <a href="../privacy/index.html">Privacy Policy</a> &middot; <a href="../support/index.html">Support</a></p>
+            </footer>
+
+        </div>
+    </main>
+
+<script src="guide-i18n.js"></script>
+</body>
+</html>

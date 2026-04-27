@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://giscus.app; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://giscus.app https://discord.com; connect-src 'self' https://giscus.app; base-uri 'self'; form-action 'self';">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hub Mode: Old Phone as 24/7 Grow Guardian &mdash; GrowVPD Pro Guides</title>
+    <meta name="description" content="Turn any old Android phone into a 24/7 grow automation guardian. Detailed setup, manufacturer-specific battery tweaks, power costs, and the Pi roadmap.">
+
+    <link rel="icon" type="image/png" href="../images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="canonical" href="https://growvpd.pro/guides/hub-mode-detailed.html">
+    <link rel="alternate" hreflang="en" href="https://growvpd.pro/guides/hub-mode-detailed.html">
+    <link rel="alternate" hreflang="cs" href="https://growvpd.pro/guides/hub-mode-detailed.html?lang=cs">
+    <link rel="alternate" hreflang="de" href="https://growvpd.pro/guides/hub-mode-detailed.html?lang=de">
+    <link rel="alternate" hreflang="es" href="https://growvpd.pro/guides/hub-mode-detailed.html?lang=es">
+    <link rel="alternate" hreflang="nl" href="https://growvpd.pro/guides/hub-mode-detailed.html?lang=nl">
+    <link rel="alternate" hreflang="fr" href="https://growvpd.pro/guides/hub-mode-detailed.html?lang=fr">
+    <link rel="alternate" hreflang="it" href="https://growvpd.pro/guides/hub-mode-detailed.html?lang=it">
+    <link rel="alternate" hreflang="pt" href="https://growvpd.pro/guides/hub-mode-detailed.html?lang=pt">
+    <link rel="alternate" hreflang="pl" href="https://growvpd.pro/guides/hub-mode-detailed.html?lang=pl">
+    <link rel="alternate" hreflang="th" href="https://growvpd.pro/guides/hub-mode-detailed.html?lang=th">
+    <link rel="alternate" hreflang="he" href="https://growvpd.pro/guides/hub-mode-detailed.html?lang=he">
+    <link rel="alternate" hreflang="x-default" href="https://growvpd.pro/guides/hub-mode-detailed.html">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/forum.css">
+    <script>(function(){var p=new URLSearchParams(location.search).get("lang"),s=localStorage.getItem("growvpd-lang"),l=p||s||(navigator.language||"en").split("-")[0];if(l&&l!=="en"){var st=document.createElement("style");st.id="i18n-cloak";st.textContent="[data-i18n],[data-i18n-html]{opacity:0!important}";document.head.appendChild(st);setTimeout(function(){var c=document.getElementById("i18n-cloak");if(c)c.remove()},150)}})()</script>
+    <style>
+        .article-page { padding: 100px 0 60px; background: #fff; min-height: 100vh; }
+        .article-container { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+        .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: .82rem; color: #90A4AE; margin-bottom: 32px; flex-wrap: wrap; }
+        .breadcrumb a { color: #2E7D32; font-weight: 500; transition: color .2s; }
+        .breadcrumb a:hover { color: #1B5E20; }
+        .breadcrumb .sep { color: #CFD8DC; }
+        .article-header { margin-bottom: 40px; }
+        .article-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+        .category-badge { display: inline-block; background: rgba(46,125,50,.08); color: #2E7D32; font-size: .75rem; font-weight: 700; padding: 4px 12px; border-radius: 6px; text-transform: uppercase; letter-spacing: .05em; }
+        .article-date, .article-read-time { font-size: .82rem; color: #90A4AE; }
+        .article-header h1 { font-size: 2.2rem; font-weight: 900; color: #1B5E20; line-height: 1.15; letter-spacing: -.02em; }
+        .article-body h2 { font-size: 1.45rem; font-weight: 800; color: #212121; margin: 40px 0 16px; }
+        .article-body h3 { font-size: 1.1rem; font-weight: 700; color: #37474F; margin: 28px 0 12px; }
+        .article-body p { color: #546E7A; font-size: .95rem; line-height: 1.75; margin-bottom: 16px; }
+        .article-body ul, .article-body ol { color: #546E7A; font-size: .95rem; line-height: 1.75; margin: 0 0 16px 24px; }
+        .article-body ul { list-style: disc; }
+        .article-body ol { list-style: decimal; }
+        .article-body li { margin-bottom: 6px; }
+        .article-body strong { color: #212121; font-weight: 600; }
+        .article-body blockquote { background: #F1F8E9; border-left: 4px solid #4CAF50; padding: 16px 20px; border-radius: 0 12px 12px 0; margin: 24px 0; font-size: .9rem; color: #33691E; line-height: 1.7; }
+        .article-body blockquote strong { color: #1B5E20; }
+        .article-body code { background: #ECEFF1; padding: 2px 6px; border-radius: 4px; font-size: .85rem; color: #37474F; }
+        .article-body pre { background: #263238; color: #ECEFF1; padding: 16px 20px; border-radius: 12px; overflow-x: auto; font-size: .82rem; line-height: 1.6; margin: 16px 0 24px; }
+        .article-body pre code { background: transparent; color: #ECEFF1; padding: 0; }
+        .step-card { background: #FAFBFC; border: 1px solid #ECEFF1; border-radius: 12px; padding: 20px; margin: 20px 0; }
+        .step-card .step-num { display: inline-block; background: #2E7D32; color: #fff; font-weight: 700; font-size: .8rem; padding: 4px 10px; border-radius: 6px; margin-bottom: 8px; }
+        .toc { background: #F8FBF8; border: 1px solid #E0E8E0; border-radius: 12px; padding: 16px 20px 16px 38px; margin: 24px 0 32px; }
+        .toc h4 { color: #1B5E20; font-weight: 800; font-size: .9rem; margin: 0 0 8px -18px; text-transform: uppercase; letter-spacing: .05em; }
+        .toc ul { list-style: none; margin: 0; padding: 0; }
+        .toc li { margin: 4px 0; padding: 0; }
+        .toc a { color: #2E7D32; font-size: .88rem; font-weight: 500; text-decoration: none; }
+        .toc a:hover { text-decoration: underline; }
+        .compare-table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: .87rem; }
+        .compare-table th, .compare-table td { padding: 10px 12px; border: 1px solid #ECEFF1; text-align: left; }
+        .compare-table th { background: #F1F8E9; color: #1B5E20; font-weight: 700; }
+        .compare-table tr:nth-child(even) td { background: #FAFBFC; }
+        .faq-item { margin: 18px 0; padding: 16px 18px; background: #FAFBFC; border: 1px solid #ECEFF1; border-radius: 10px; }
+        .faq-item h4 { color: #1B5E20; font-size: .95rem; font-weight: 700; margin: 0 0 6px; }
+        .faq-item p { margin: 0; font-size: .87rem; }
+        .discord-cta { background: linear-gradient(135deg, #F1F8E9, #E8F5E9); border: 1px solid #C8E6C9; border-radius: 16px; padding: 32px; text-align: center; margin: 48px 0; }
+        .discord-cta h3 { font-size: 1.2rem; font-weight: 800; color: #1B5E20; margin-bottom: 8px; }
+        .discord-cta p { font-size: .9rem; color: #546E7A; margin-bottom: 20px; }
+        .discord-cta .btn { display: inline-flex; align-items: center; gap: 8px; background: #2E7D32; color: #fff; padding: 12px 28px; border-radius: 10px; font-weight: 600; font-size: .9rem; text-decoration: none; }
+        .related-guides { margin: 48px 0; }
+        .related-guides h3 { font-size: 1.1rem; font-weight: 800; color: #212121; margin-bottom: 16px; }
+        .related-list { display: flex; flex-direction: column; gap: 10px; }
+        .related-link { display: flex; align-items: center; gap: 10px; padding: 14px 18px; background: #FAFBFC; border: 1px solid #ECEFF1; border-radius: 12px; transition: all .25s; color: #2E7D32; font-weight: 600; font-size: .9rem; }
+        .related-link:hover { border-color: #C8E6C9; background: #F1F8E9; transform: translateX(4px); }
+        .related-link .arrow { margin-left: auto; color: #90A4AE; }
+        .article-footer { border-top: 1px solid #ECEFF1; padding: 32px 0; margin-top: 48px; text-align: center; font-size: .82rem; color: #90A4AE; }
+        .article-footer a { color: #2E7D32; font-weight: 500; }
+        .screenshot-ref { background: #FFF8E1; border-left: 4px solid #FFC107; padding: 10px 14px; border-radius: 0 8px 8px 0; margin: 16px 0; font-size: .85rem; color: #5D4037; }
+        @media (max-width: 768px) {
+            .article-page { padding: 80px 0 40px; }
+            .article-header h1 { font-size: 1.7rem; }
+            .article-body h2 { font-size: 1.25rem; }
+        }
+    </style>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://growvpd.pro/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://growvpd.pro/guides/"},{"@type":"ListItem","position":3,"name":"Hub Mode Detailed"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Article","headline":"Hub Mode: Old Phone as 24/7 Grow Guardian","author":{"@type":"Organization","name":"GrowVPD Pro"},"publisher":{"@type":"Organization","name":"GrowVPD Pro"},"datePublished":"2026-04-27","description":"Turn any old Android phone into a 24/7 grow automation guardian.","mainEntityOfPage":"https://growvpd.pro/guides/hub-mode-detailed.html"}
+    </script>
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="../index.html" class="nav-brand">
+                <img class="nav-logo" src="../images/logo.webp" alt="GrowVPD Pro" width="28" height="28">
+                <span>GrowVPD Pro</span>
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../index.html#features" data-i18n="navFeatures">Features</a></li>
+                <li><a href="../guides/index.html" data-i18n="navGuides">Guides &amp; Community</a></li>
+                <li><a href="../widget/index.html" data-i18n="navWidget">VPD Chart</a></li>
+                <li><a href="../index.html#pricing" data-i18n="navPricing">Pricing</a></li>
+                <li class="nav-dropdown">
+                    <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                        <span data-i18n="navResources">Resources</span>
+                        <svg width="10" height="10" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true"><path d="M2 4l4 4 4-4"/></svg>
+                    </button>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="../docs/index.html" data-i18n="navApi">API</a></li>
+                        <li><a href="../blog/index.html" data-i18n="navBlog">Blog</a></li>
+                        <li><a href="../partnership/index.html" data-i18n="navPartnership">Partnerships</a></li>
+                        <li><a href="../press/index.html" data-i18n="navPressKit">Press Kit</a></li>
+                        <li><a href="../support/index.html" data-i18n="navFaq">FAQ</a></li>
+                    </ul>
+                </li>
+                <li><a href="https://discord.gg/BGDpE6nP" target="_blank" rel="noopener noreferrer" class="nav-cta" data-i18n="comDiscordBtn">Join Discord</a></li>
+            </ul>
+        </div>
+    </nav>
+    <script>
+document.getElementById("navToggle")?.addEventListener("click",function(){this.classList.toggle("active");document.getElementById("navLinks").classList.toggle("active")});
+window.addEventListener("scroll",function(){document.getElementById("navbar").classList.toggle("scrolled",window.scrollY>20)},{passive:true});
+document.querySelectorAll(".nav-dropdown").forEach(function(dd){var t=dd.querySelector(".nav-dropdown-toggle");if(!t)return;t.addEventListener("click",function(e){e.stopPropagation();document.querySelectorAll(".nav-dropdown.is-open").forEach(function(o){if(o!==dd)o.classList.remove("is-open")});dd.classList.toggle("is-open")})});
+document.addEventListener("click",function(){document.querySelectorAll(".nav-dropdown.is-open").forEach(function(d){d.classList.remove("is-open")})});
+    </script>
+
+    <main class="article-page">
+        <div class="article-container">
+
+            <div class="breadcrumb">
+                <a href="index.html" data-i18n="breadcrumbGuides">Guides &amp; Community</a>
+                <span class="sep">/</span>
+                <a href="index.html">Multi-Device</a>
+                <span class="sep">/</span>
+                <span data-i18n="hubDetailedCrumb">Hub Mode Detailed</span>
+            </div>
+
+            <header class="article-header">
+                <div class="article-meta">
+                    <span class="category-badge" data-i18n="hubDetailedCat">Smart Devices &mdash; Hub</span>
+                    <span class="article-date">April 2026</span>
+                    <span class="article-read-time">16 min read</span>
+                </div>
+                <h1 data-i18n="hubDetailedTitle">Hub Mode: Old Phone as 24/7 Grow Guardian</h1>
+            </header>
+
+            <div class="article-body">
+
+                <p data-i18n="hubDetailedIntro">Your daily-driver phone is going to sleep. It always will. Modern Android (and iOS even more so) tries hard to extend battery by suspending background work the moment your screen turns off. For an automation app that polls sensors every 5 minutes and snaps fan/light commands the second a tent crosses a threshold, that&rsquo;s death by a thousand naps.</p>
+
+                <p data-i18n="hubDetailedIntro2">Hub Mode is the elegant fix. Take an old Android phone &mdash; the one in your drawer, the one your kid grew out of, the one you almost recycled &mdash; plug it into a charger near your tent, and dedicate it to running GrowVPD&rsquo;s foreground service 24/7. Your daily phone roams freely, the hub watches your grow.</p>
+
+                <div class="toc" aria-label="Table of contents">
+                    <h4 data-i18n="hubDetailedTocTitle">On this page</h4>
+                    <ul>
+                        <li><a href="#concept">1. The hub concept</a></li>
+                        <li><a href="#hardware">2. What hardware works</a></li>
+                        <li><a href="#why-phones">3. Why phones beat Pi (for now)</a></li>
+                        <li><a href="#setup">4. Step-by-step setup</a></li>
+                        <li><a href="#battery">5. Manufacturer battery tweaks</a></li>
+                        <li><a href="#power">6. Power consumption and electricity cost</a></li>
+                        <li><a href="#pair-primary">7. Pairing your primary phone</a></li>
+                        <li><a href="#ios">8. iOS limitations explained</a></li>
+                        <li><a href="#future">9. Future: Raspberry Pi agent</a></li>
+                        <li><a href="#troubleshoot">10. Troubleshooting</a></li>
+                        <li><a href="#recovery">11. Recovery: hub died</a></li>
+                        <li><a href="#faq">12. FAQ</a></li>
+                    </ul>
+                </div>
+
+                <h2 id="concept" data-i18n="hubDetailedConceptTitle">1. The hub concept</h2>
+                <p>Hub Mode designates one phone as the &ldquo;hub&rdquo; for your GrowVPD setup. The hub:</p>
+                <ul>
+                    <li>Holds the persistent connection to all your smart devices (Tuya, Mars Hydro, AC Infinity, etc.).</li>
+                    <li>Runs the AutomationWorker every 5&ndash;15 minutes, evaluating rules.</li>
+                    <li>Maintains the Tuya Pulsar websocket and BLE GATT connections.</li>
+                    <li>Streams sensor readings and event logs to your primary phone whenever it&rsquo;s on the same Wi-Fi.</li>
+                    <li>Optionally falls back to a cloud relay when both devices are off-LAN.</li>
+                </ul>
+                <p>Your primary phone (your daily driver) stays free to leave the house, go on airplane mode, run out of battery &mdash; the hub doesn&rsquo;t care. When your primary returns to the same Wi-Fi, the two re-sync within seconds.</p>
+
+                <blockquote>
+                    <strong>Important distinction.</strong> The GrowVPD hub is <em>not</em> the same as a Tuya Zigbee hub (see <a href="tuya-zigbee-hub-setup.html">that guide</a>). The Zigbee hub is hardware that mediates Zigbee radio. The GrowVPD hub is software running on an Android phone that mediates everything for your automation app. You can have both, neither, or just one.
+                </blockquote>
+
+                <h2 id="hardware" data-i18n="hubDetailedHardwareTitle">2. What hardware works</h2>
+                <p>Anything Android 7 (Nougat, 2016) or newer with Wi-Fi works. We&rsquo;ve verified Hub Mode running cleanly on:</p>
+
+                <table class="compare-table">
+                    <thead>
+                        <tr><th>Phone</th><th>Year</th><th>Hub viability</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Pixel 3 / 3a / 4 / 4a</td><td>2018&ndash;2020</td><td>Excellent. Stock Android, almost no battery-saver friction.</td></tr>
+                        <tr><td>Galaxy S8 / S9 / S10</td><td>2017&ndash;2019</td><td>Good. Some battery-saver tweaks needed; documented below.</td></tr>
+                        <tr><td>Galaxy A50 / A51 / A52</td><td>2019&ndash;2021</td><td>Good. Mid-range, plenty of headroom for a single foreground service.</td></tr>
+                        <tr><td>OnePlus 6 / 7 / 8</td><td>2018&ndash;2020</td><td>Good. OxygenOS battery-saver is moderately aggressive.</td></tr>
+                        <tr><td>Xiaomi Redmi Note 8 / 9 / 10</td><td>2019&ndash;2021</td><td>Tricky. MIUI is the most aggressive Android skin; needs every tweak in section 5.</td></tr>
+                        <tr><td>Nokia 5.3 / 6.2</td><td>2020</td><td>Excellent. Stock Android One.</td></tr>
+                        <tr><td>Motorola Moto G6 / G7</td><td>2018&ndash;2019</td><td>Excellent. Near-stock Android.</td></tr>
+                    </tbody>
+                </table>
+
+                <p>Hardware shopping tip: if you don&rsquo;t already have an old phone, used markets (Backmarket, eBay, Facebook Marketplace) sell decent ex-flagships in the $50&ndash;$120 range. A 2020 Pixel 4a is our top recommendation: stock Android, fast enough for our service, dirt cheap second-hand, and it just works.</p>
+
+                <h2 id="why-phones" data-i18n="hubDetailedWhyPhonesTitle">3. Why phones beat Raspberry Pi (for now)</h2>
+                <p>People keep asking: &ldquo;Why not a Pi?&rdquo; A Pi 4 is $35, a phone is $50&ndash;$120. Numerically Pi wins. So why are we recommending phones?</p>
+                <ul>
+                    <li><strong>Built-in screen.</strong> When something breaks, you tap the screen and see what&rsquo;s wrong. With a Pi you SSH in or look at logs. For non-technical users that&rsquo;s a big difference.</li>
+                    <li><strong>Built-in battery as UPS.</strong> Power blip? The phone keeps running on its internal cell for hours. The Pi shuts off the moment the wall power dies.</li>
+                    <li><strong>Built-in GUI for diagnostics.</strong> Tap the GrowVPD app, see live data, no ssh.</li>
+                    <li><strong>Built-in radios.</strong> Wi-Fi, Bluetooth, GPS, NFC. The Pi 4 has Wi-Fi but BLE peripheral mode and NFC require add-ons.</li>
+                    <li><strong>Already in your drawer.</strong> Most users have an old phone. Most don&rsquo;t have a spare Pi.</li>
+                    <li><strong>Already configured.</strong> Wi-Fi credentials, app store, pairing flow &mdash; all just work. Pi takes 30 minutes of headless setup.</li>
+                </ul>
+                <p>Pi will become a fantastic option once we ship the JVM home agent (planned Q3 2026, see section 9). Until then, phones are the pragmatic choice.</p>
+
+                <h2 id="setup" data-i18n="hubDetailedSetupTitle">4. Step-by-step setup</h2>
+
+                <div class="step-card">
+                    <span class="step-num">Step 1</span>
+                    <h3>Charge the old phone</h3>
+                    <p>Plug it in, let it boot to the lock screen. Sign into Wi-Fi (the same SSID your daily phone and smart devices use). If the phone hasn&rsquo;t been used in 6 months, expect a 20-minute system update on first boot &mdash; let it finish.</p>
+                </div>
+
+                <div class="step-card">
+                    <span class="step-num">Step 2</span>
+                    <h3>Install GrowVPD Pro</h3>
+                    <p>Open Play Store on the old phone, sign in (a different Google account is fine, no need to share credentials with your main account), search &ldquo;GrowVPD Pro&rdquo;, install. Pro license unlocks via the same in-app purchase you have on your primary phone if you sign into the same Google account; or you can use the device as a free hub (Hub Mode itself doesn&rsquo;t require Pro &mdash; only some advanced platform features do).</p>
+                </div>
+
+                <div class="step-card">
+                    <span class="step-num">Step 3</span>
+                    <h3>Skip onboarding, head to Settings</h3>
+                    <p>Open the app on the hub phone. You can skip the welcome flow (since you&rsquo;ll inherit data from your primary). Tap <strong>Settings &rarr; Hub Mode</strong>.</p>
+                </div>
+
+                <div class="step-card">
+                    <span class="step-num">Step 4</span>
+                    <h3>Toggle &ldquo;This is the hub&rdquo;</h3>
+                    <p>Three things happen in sequence:</p>
+                    <ol>
+                        <li>Foreground service notification permission request &mdash; allow.</li>
+                        <li>Battery optimisation request &mdash; the app deep-links you to the right OS settings page; tap &ldquo;Don&rsquo;t optimise&rdquo;.</li>
+                        <li>Boot receiver registration &mdash; silent, ensures hub auto-restarts after reboots.</li>
+                    </ol>
+                    <p>You should see a persistent notification: &ldquo;GrowVPD Hub: monitoring 0 devices&rdquo;. The 0 will become a real number once you pair platforms or sync from your primary phone.</p>
+                </div>
+
+                <div class="step-card">
+                    <span class="step-num">Step 5</span>
+                    <h3>Apply manufacturer-specific battery tweaks</h3>
+                    <p>This is the make-or-break step. See section 5.</p>
+                </div>
+
+                <div class="step-card">
+                    <span class="step-num">Step 6</span>
+                    <h3>Plug in to charger and place near tent</h3>
+                    <p>Use the original charger if possible (cheap chargers can underdeliver and cause trickle issues). Lay the phone face-down on a hard surface so it doesn&rsquo;t trap heat. Avoid direct sunlight or heat from the grow light.</p>
+                </div>
+
+                <div class="step-card">
+                    <span class="step-num">Step 7</span>
+                    <h3>On your primary phone, pair via QR</h3>
+                    <p>Open GrowVPD on your daily phone. Settings &rarr; Multi-Device Sync &rarr; <strong>Pair new device</strong>. Scan the QR shown on the hub phone. Sync starts immediately.</p>
+                    <p>Within 2&ndash;5 minutes (depending on diary size) the hub has all your data and rules. From now on, both phones see the same diary; the hub does the heavy lifting.</p>
+                </div>
+
+                <h2 id="battery" data-i18n="hubDetailedBatteryTitle">5. Manufacturer-specific battery tweaks</h2>
+                <p>Stock Android handles the hub gracefully. Custom Android skins need extra work because each manufacturer reinvents battery saving in incompatible ways. The wizard tries to deep-link these settings; here&rsquo;s the manual reference.</p>
+
+                <h3>Xiaomi MIUI / Redmi / POCO</h3>
+                <p>The most aggressive Android skin. Apply ALL of:</p>
+                <ol>
+                    <li>Settings &rarr; Apps &rarr; Manage apps &rarr; GrowVPD Pro &rarr; <strong>Battery saver &rarr; No restrictions</strong></li>
+                    <li>Settings &rarr; Apps &rarr; Manage apps &rarr; GrowVPD Pro &rarr; <strong>Other permissions &rarr; Show on Lock screen: ON</strong></li>
+                    <li>Settings &rarr; Apps &rarr; Manage apps &rarr; GrowVPD Pro &rarr; <strong>Autostart: ON</strong></li>
+                    <li>Settings &rarr; Battery &amp; performance &rarr; App battery saver &rarr; <strong>GrowVPD &rarr; No restrictions</strong></li>
+                    <li>Recents drawer &rarr; pull GrowVPD card down &rarr; tap padlock to <strong>lock in recents</strong></li>
+                </ol>
+
+                <h3>OPPO ColorOS / Realme UI / OnePlus OxygenOS (post-merger)</h3>
+                <ol>
+                    <li>Settings &rarr; Battery &rarr; <strong>Sleep standby optimisation: OFF</strong> for GrowVPD</li>
+                    <li>Settings &rarr; Apps &rarr; GrowVPD &rarr; Battery usage &rarr; <strong>Allow background activity: ON</strong></li>
+                    <li>Recents &rarr; long-press GrowVPD &rarr; <strong>Lock</strong></li>
+                </ol>
+
+                <h3>Huawei EMUI / Honor MagicOS</h3>
+                <ol>
+                    <li>Settings &rarr; Battery &rarr; App launch &rarr; GrowVPD &rarr; <strong>Manage manually &rarr; enable Auto-launch, Secondary launch, Run in background</strong></li>
+                    <li>Settings &rarr; Apps &rarr; GrowVPD &rarr; <strong>Power usage details &rarr; allow keep running</strong></li>
+                </ol>
+
+                <h3>Samsung One UI</h3>
+                <ol>
+                    <li>Settings &rarr; Apps &rarr; GrowVPD &rarr; Battery &rarr; <strong>Unrestricted</strong></li>
+                    <li>Settings &rarr; Device care &rarr; Battery &rarr; Background usage limits &rarr; Never sleeping apps &rarr; <strong>add GrowVPD</strong></li>
+                    <li>Confirm GrowVPD is NOT in &ldquo;Sleeping apps&rdquo; or &ldquo;Deep sleeping apps&rdquo; lists; if it is, remove.</li>
+                </ol>
+
+                <h3>Stock Android (Pixel, Nokia, Motorola)</h3>
+                <ol>
+                    <li>Settings &rarr; Apps &rarr; GrowVPD &rarr; Battery &rarr; <strong>Unrestricted</strong></li>
+                </ol>
+                <p>That&rsquo;s it. Stock Android plays nicely.</p>
+
+                <blockquote>
+                    <strong>Verification.</strong> After applying all tweaks, leave the hub idle (screen off, plugged in) for 1 hour. Open the app, check the &ldquo;Hub status&rdquo; card &mdash; it should show &ldquo;Last poll: &lt; 5 min ago&rdquo;. If it shows &ldquo;15+ minutes&rdquo; then the OS killed the service and you need to revisit the tweaks (often Autostart or Lock-in-recents are missed).
+                </blockquote>
+
+                <h2 id="power" data-i18n="hubDetailedPowerTitle">6. Power consumption and electricity cost</h2>
+                <p>Modern phones idle very efficiently. Real measurements from our hub phones, all plugged-in:</p>
+
+                <table class="compare-table">
+                    <thead>
+                        <tr><th>Phone</th><th>Idle draw at the wall</th><th>Active hub draw</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Pixel 3a</td><td>~1.8 W</td><td>~3.5 W</td></tr>
+                        <tr><td>Galaxy S9</td><td>~2.2 W</td><td>~4.5 W</td></tr>
+                        <tr><td>Redmi Note 9</td><td>~1.5 W</td><td>~3.0 W</td></tr>
+                        <tr><td>OnePlus 7</td><td>~2.0 W</td><td>~4.0 W</td></tr>
+                    </tbody>
+                </table>
+
+                <p>Average ~3.5 W active. Over a month: 3.5 W &times; 24 h &times; 30 d = 2.5 kWh. At an average $0.20/kWh electricity rate, that&rsquo;s $0.50/month. Less than a coffee.</p>
+                <p>For comparison, a Raspberry Pi 4 at idle draws ~3 W, so they&rsquo;re comparable on power.</p>
+
+                <h2 id="pair-primary" data-i18n="hubDetailedPairTitle">7. Pairing your primary phone</h2>
+                <p>Detailed in <a href="multi-device-sync-setup.html">the Multi-Device Sync guide</a>, but here&rsquo;s the abbreviated flow:</p>
+
+                <ol>
+                    <li>Hub phone: <strong>Settings &rarr; Multi-Device Sync &rarr; Pair new device &rarr; Show QR</strong>.</li>
+                    <li>Primary phone: <strong>Settings &rarr; Multi-Device Sync &rarr; Pair new device &rarr; Scan QR</strong>.</li>
+                    <li>Both phones pop a confirmation: &ldquo;Pair with [device name]?&rdquo;. Tap Confirm on both.</li>
+                    <li>Initial sync (~2&ndash;5 min for a year of diary).</li>
+                    <li>Done. From now on, edits propagate within seconds when both phones are on the same Wi-Fi.</li>
+                </ol>
+
+                <h2 id="ios" data-i18n="hubDetailedIosTitle">8. iOS limitations explained</h2>
+                <p>Honest section. iOS does not have a true Hub Mode equivalent because Apple&rsquo;s policy forbids 24/7 background services for non-VoIP, non-music apps.</p>
+                <p>What we do on iOS instead:</p>
+                <ul>
+                    <li><strong>Silent push notifications.</strong> Server pushes &ldquo;wake up and check rules&rdquo; via APNs. iOS may or may not deliver promptly &mdash; Apple throttles silent pushes if it suspects abuse.</li>
+                    <li><strong>BGTaskScheduler.</strong> Periodic ~15-minute background tasks if the OS chooses to run them. Cannot guarantee.</li>
+                    <li><strong>Foreground polling.</strong> When user opens the app, do a fast catch-up sync.</li>
+                </ul>
+                <p>Practical effect: an iPhone can be a primary phone in a multi-device setup, but the <strong>hub should always be Android</strong>. We document this in the iOS onboarding flow so users don&rsquo;t set up a hub-less iOS-only system and get bitten.</p>
+
+                <h2 id="future" data-i18n="hubDetailedFutureTitle">9. Future: Raspberry Pi home agent (Q3 2026)</h2>
+                <p>Roadmap: package the same Kotlin/JVM that runs in the Android hub as a standalone Linux service. Then:</p>
+                <ul>
+                    <li>Install on a Pi 4, NAS, or any always-on Linux box: <code>./install-growvpd-agent.sh</code></li>
+                    <li>The agent runs as systemd service, talks the same wire protocol as the Android hub.</li>
+                    <li>Pair from your phone via QR (same flow as today).</li>
+                    <li>Optional: web admin UI on <code>http://growvpd-agent.local:8080</code> for headless management.</li>
+                </ul>
+                <p>Tracker target Q3 2026; we&rsquo;ll announce on Discord and the blog the moment it&rsquo;s ready.</p>
+
+                <h2 id="troubleshoot" data-i18n="hubDetailedTroubleTitle">10. Troubleshooting</h2>
+
+                <h3>&ldquo;Hub keeps stopping&rdquo;</h3>
+                <p>Almost always battery saving. Re-do section 5&rsquo;s tweaks for your specific manufacturer, paying special attention to Autostart (MIUI), Lock-in-recents (OPPO/OnePlus), and Battery: Unrestricted (everywhere).</p>
+
+                <h3>&ldquo;Hub status notification disappeared&rdquo;</h3>
+                <p>Restart the app once. Some Android versions garbage-collect foreground service notifications after major OS updates. Re-toggling Hub Mode in Settings re-creates it.</p>
+
+                <h3>&ldquo;Other phone can&rsquo;t see the hub&rdquo;</h3>
+                <p>Three causes:</p>
+                <ul>
+                    <li>Different SSIDs (2.4 vs 5 GHz with separate names; or guest vs main network).</li>
+                    <li>Router blocks mDNS / multicast. Common on TP-Link Deco, Asus AiMesh defaults. Enable <em>multicast/mDNS</em> in router admin or fall back to QR pairing (which works regardless).</li>
+                    <li>VPN on either phone. Disable or set to split-tunnel.</li>
+                </ul>
+
+                <h3>&ldquo;Phone overheats&rdquo;</h3>
+                <p>Place it face-down on a hard surface. Don&rsquo;t put it in a closed drawer or directly under the grow light. If it still overheats, the phone&rsquo;s battery is degraded &mdash; consider a different phone.</p>
+
+                <h3>&ldquo;Hub disconnected from a smart device&rdquo;</h3>
+                <p>If a single device shows &ldquo;offline&rdquo; in the hub&rsquo;s tent dashboard, check the device&rsquo;s power, Wi-Fi, or BLE range. The hub re-tries connections every 5 minutes. If 3 retries fail, the device is marked offline and a notification fires.</p>
+
+                <h3>&ldquo;Sync delayed by hours&rdquo;</h3>
+                <p>This is symptomatic of an inactive hub (battery-saving killed it) or a Wi-Fi disconnect. Look at the hub&rsquo;s last-poll timestamp in its Settings. If it&rsquo;s &gt; 30 min ago, work the tweaks again.</p>
+
+                <h2 id="recovery" data-i18n="hubDetailedRecoveryTitle">11. Recovery: hub phone died &mdash; what now?</h2>
+                <p>Your hub phone got dropped, the screen broke, or the battery just gave up. Here&rsquo;s the recovery sequence:</p>
+                <ol>
+                    <li>On your primary phone: Settings &rarr; Multi-Device Sync &rarr; Paired devices &rarr; tap the dead hub &rarr; <strong>Unpair</strong>. The dead device&rsquo;s public key is revoked.</li>
+                    <li>Promote your primary phone to hub temporarily: Settings &rarr; Hub Mode &rarr; <strong>This is the hub</strong>. (Yes, your primary CAN be the hub if you don&rsquo;t mind keeping it plugged in and tweaking battery saving.)</li>
+                    <li>When you get a replacement, install GrowVPD on it, mark it as the hub, then on your primary <strong>Pair new device</strong> &rarr; scan QR from new hub.</li>
+                    <li>Initial backfill takes ~5 min and you&rsquo;re running again.</li>
+                </ol>
+                <p>Importantly: <strong>your data is safe</strong>. The diary, sensor history, and rules all live in the Room database on every paired phone. The hub is just the always-on watcher; losing the hub doesn&rsquo;t lose any data.</p>
+
+                <h2 id="faq" data-i18n="hubDetailedFaqTitle">12. FAQ</h2>
+
+                <div class="faq-item">
+                    <h4>Q: Can I use my daily phone as both primary AND hub?</h4>
+                    <p>Yes, in a single-phone setup. Hub Mode just adds the foreground service. Battery impact is real but moderate (~3&ndash;5%/day extra). The downside is you must always keep your phone charged and on the right Wi-Fi for automation to fire reliably.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Q: Does the hub need to be the same Wi-Fi as the smart devices?</h4>
+                    <p>Yes for LAN-controlled devices (Tuya plugs, Mars Hydro WiFi, etc.). For cloud-only platforms (Tuya battery sensors via Pulsar) it just needs internet. For BLE devices it needs to be physically close (~5 m).</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Q: Can a tablet be a hub?</h4>
+                    <p>Yes! Android tablets work great. The bigger screen makes diagnostics easier. Just make sure it has a SIM-free Wi-Fi-only setup so it doesn&rsquo;t drain battery on cellular.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Q: Do I need Pro for Hub Mode?</h4>
+                    <p>Hub Mode itself is free. The advanced platform integrations (Tuya, Mars Hydro, etc.) need Pro on at least one paired phone. If your primary is Pro, the hub inherits Pro features over the sync channel.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Q: What happens if my hub gets factory reset?</h4>
+                    <p>Re-install GrowVPD, sign in (if Google account is linked), and either re-pair via QR from your primary (recommended) or set up fresh. Either way you don&rsquo;t lose primary data; the hub&rsquo;s state is recoverable from any paired device.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Q: Can I run two hubs for redundancy?</h4>
+                    <p>Not yet officially supported &mdash; the protocol assumes one hub. We&rsquo;re researching multi-hub leader election for resilience but it&rsquo;s low priority because the cloud relay fallback already covers most failure modes.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Q: Will Hub Mode work on a phone without a SIM?</h4>
+                    <p>Absolutely. Wi-Fi only is fine, often preferable (no cellular drain). Most users put their hub on Wi-Fi-only.</p>
+                </div>
+
+            </div>
+
+            <div class="discord-cta">
+                <h3 data-i18n="hubDetailedCtaTitle">Hub setup not behaving?</h3>
+                <p data-i18n="hubDetailedCtaDesc">Drop your phone model in <code>#hub-mode</code> on Discord. We have manufacturer-specific battery-saving recipes for almost every Android skin.</p>
+                <a href="https://discord.gg/BGDpE6nP" class="btn" target="_blank" rel="noopener noreferrer" data-i18n="hubDetailedCtaBtn">Discuss on Discord</a>
+            </div>
+
+            <div class="related-guides">
+                <h3 data-i18n="relatedTitle">Related Guides</h3>
+                <div class="related-list">
+                    <a href="hub-mode.html" class="related-link">Hub Mode (quick version)<span class="arrow">&rarr;</span></a>
+                    <a href="multi-device-sync-setup.html" class="related-link">Multi-Device Sync Setup<span class="arrow">&rarr;</span></a>
+                    <a href="tuya-cloud-bridge-deep.html" class="related-link">Tuya Cloud Bridge: deep dive<span class="arrow">&rarr;</span></a>
+                    <a href="automation-philosophy.html" class="related-link">Our automation philosophy<span class="arrow">&rarr;</span></a>
+                </div>
+            </div>
+
+            <footer class="article-footer">
+                <p>&copy; 2026 <a href="../index.html">GrowVPD Pro</a>. All rights reserved. &middot; <a href="../privacy/index.html">Privacy Policy</a> &middot; <a href="../support/index.html">Support</a></p>
+            </footer>
+
+        </div>
+    </main>
+
+<script src="guide-i18n.js"></script>
+</body>
+</html>

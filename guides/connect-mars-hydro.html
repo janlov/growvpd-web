@@ -130,20 +130,32 @@
             </button>
                         <ul class="nav-links" id="navLinks">
                 <li><a href="../index.html#features" data-i18n="navFeatures">Features</a></li>
-                <li><a href="index.html" data-i18n="navGuides">Guides &amp; Community</a></li>
-                <li><a href="../docs/index.html" data-i18n="navApi">API</a></li>
+                <li><a href="../guides/index.html" data-i18n="navGuides">Guides &amp; Community</a></li>
                 <li><a href="../widget/index.html" data-i18n="navWidget">VPD Chart</a></li>
-                <li><a href="../blog/index.html" data-i18n="navBlog">Blog</a></li>
-                <li><a href="../partnership/index.html" data-i18n="navPartnership">Partnerships</a></li>
-                <li><a href="../support/index.html" data-i18n="navFaq">FAQ</a></li>
-                <li><a href="../index.html#download" class="nav-cta" data-i18n="navDownload">Download</a></li>
+                <li><a href="../index.html#pricing" data-i18n="navPricing">Pricing</a></li>
+                <li class="nav-dropdown">
+                    <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                        <span data-i18n="navResources">Resources</span>
+                        <svg width="10" height="10" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true"><path d="M2 4l4 4 4-4"/></svg>
+                    </button>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="../docs/index.html" data-i18n="navApi">API</a></li>
+                        <li><a href="../blog/index.html" data-i18n="navBlog">Blog</a></li>
+                        <li><a href="../partnership/index.html" data-i18n="navPartnership">Partnerships</a></li>
+                        <li><a href="../press/index.html" data-i18n="navPressKit">Press Kit</a></li>
+                        <li><a href="../support/index.html" data-i18n="navFaq">FAQ</a></li>
+                    </ul>
+                </li>
+                <li><a href="https://discord.gg/BGDpE6nP" target="_blank" rel="noopener noreferrer" class="nav-cta" data-i18n="comDiscordBtn">Join Discord</a></li>
             </ul>
         </div>
     </nav>
     <script>
-document.getElementById('navToggle')?.addEventListener('click',function(){this.classList.toggle('active');document.getElementById('navLinks').classList.toggle('active')});
-window.addEventListener('scroll',function(){document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>20)},{passive:true});
-    </script>
+document.getElementById("navToggle")?.addEventListener("click",function(){this.classList.toggle("active");document.getElementById("navLinks").classList.toggle("active")});
+window.addEventListener("scroll",function(){document.getElementById("navbar").classList.toggle("scrolled",window.scrollY>20)},{passive:true});
+document.querySelectorAll(".nav-dropdown").forEach(function(dd){var t=dd.querySelector(".nav-dropdown-toggle");if(!t)return;t.addEventListener("click",function(e){e.stopPropagation();document.querySelectorAll(".nav-dropdown.is-open").forEach(function(o){if(o!==dd)o.classList.remove("is-open")});dd.classList.toggle("is-open")})});
+document.addEventListener("click",function(){document.querySelectorAll(".nav-dropdown.is-open").forEach(function(d){d.classList.remove("is-open")})});
+</script>
 
     <main class="article-page">
         <div class="article-container">
@@ -193,6 +205,36 @@ window.addEventListener('scroll',function(){document.getElementById('navbar').cl
                 <h2>How Mars Hydro Connection Works</h2>
                 <p>Mars Hydro uses the <strong>MQTT protocol</strong> for device communication &mdash; the same protocol their official MarsPro app uses internally. MQTT is a lightweight, real-time messaging protocol, fast and reliable for IoT devices.</p>
                 <p>When you connect your Mars Hydro account in GrowVPD Pro, the app authenticates with Mars Hydro&rsquo;s cloud servers and subscribes to your device channels. Commands (like &ldquo;set fan to 60%&rdquo;) travel as MQTT messages and reach the device within seconds.</p>
+
+                <h3>Discovery: REST + BLE fallback</h3>
+                <p>Once you sign in, GrowVPD Pro tries two ways to find your Mars Hydro hardware:</p>
+                <ul>
+                    <li><strong>REST device list (primary)</strong> &mdash; calls the Mars Hydro account API to enumerate every device already linked to your account. This works for any device that completed initial setup through MarsPro or GrowVPD Pro on a previous session. No proximity needed.</li>
+                    <li><strong>BLE scan (fallback for new devices)</strong> &mdash; if the REST list is empty (e.g., brand-new hardware), the app scans Bluetooth for nearby iConnect devices in pairing mode. Use this path only when adding a device for the very first time.</li>
+                </ul>
+                <p>If REST returns an empty list and you have not seen the device in MarsPro either, the device probably needs first-time pairing. Put it into pairing mode (next section) and the BLE fallback will pick it up.</p>
+
+                <h3>BLE pairing protocol (under the hood)</h3>
+                <p>You don&rsquo;t need to know the wire details, but for the curious: BLE pairing in GrowVPD Pro uses the same four-message handshake as MarsPro:</p>
+                <ol>
+                    <li><code>setDevActive</code> &mdash; binds the device to your account.</li>
+                    <li><code>setWifi</code> &mdash; hands over your WiFi SSID + password so the device can join your network.</li>
+                    <li><code>setDevTimezone</code> &mdash; sets the device clock for sunrise/sunset and schedule features.</li>
+                    <li><code>setDevDeactive</code> &mdash; cleanly closes the BLE binding session; the device transitions to MQTT cloud control.</li>
+                </ol>
+                <p>From this point on, BLE is no longer used. All control flows over WiFi via MQTT, exactly as MarsPro would do it. This means GrowVPD Pro can completely replace MarsPro for setup if you prefer to skip downloading their app.</p>
+
+                <h3>MQTT control topic format</h3>
+                <p>Commands to a Mars Hydro device are published to a topic of the form:</p>
+                <p><code>MHPRO/&lt;type&gt;/&lt;type&gt;/API/DOWN/&lt;pid&gt;</code></p>
+                <p>Where <code>&lt;type&gt;</code> is the device family (light, fan, hub) and <code>&lt;pid&gt;</code> is the device&rsquo;s persistent product ID. The persistent PID is captured during pairing and stored locally so commands continue to land on the correct device even if the cloud reassigns transient IDs. State changes (sensor readings, manual button presses on the device) flow back on a parallel <code>UP</code> topic.</p>
+
+                <h3>Native sunrise / sunset ramp via setPeriod</h3>
+                <p>For Mars Hydro lights, GrowVPD Pro uses the <strong>native</strong> <code>setPeriod</code> MQTT command to drive sunrise and sunset dimming ramps. This means the ramp runs entirely on the device itself &mdash; smooth, glitch-free, and continuing even if your phone is offline or the cloud has a hiccup. You set the ramp duration (e.g., 30 minutes) and target peak brightness; the device handles the rest.</p>
+                <p>This is preferable to step-dimming from the app, which would have to send a command every minute and is vulnerable to network drops mid-ramp.</p>
+
+                <h3>Code 102 auto re-login</h3>
+                <p>Mars Hydro&rsquo;s MQTT broker occasionally invalidates a session with response code <code>102</code> &mdash; usually after several hours of idle connection or after a server-side restart. GrowVPD Pro detects this transparently and silently re-authenticates with your stored credentials. You will not see a notification or a "device offline" warning unless the re-login itself fails.</p>
 
                 <div class="important-box">
                     <strong>How it fits with MarsPro:</strong> We see GrowVPD Pro as a companion to the official <strong>MarsPro</strong> app, not a replacement. The simplest path is to complete the initial device setup in MarsPro the way Mars Hydro intends, then sign in with the same Mars Hydro credentials in GrowVPD Pro to bring your devices alongside the rest of your gear (sensors from other brands, diary logging, cross-brand schedules). If you&rsquo;d rather pair a new device straight from GrowVPD Pro, Bluetooth is used once to hand over your WiFi credentials and everything afterwards flows over WiFi through the Mars Hydro cloud. Either way, we&rsquo;d be delighted to work directly with the Mars Hydro team to make this experience smoother for their customers.

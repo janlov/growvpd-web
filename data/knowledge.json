@@ -117,12 +117,100 @@
       ],
       "supportedProductIds": "1452 unique IDs across 200+ vendors (sourced from tuya-local Apache 2.0)",
       "pairingMethods": [
-        "LAN local (auto for cz/pc/kg/kt/dj categories)",
-        "Cloud Bridge wizard (Path A — recommended for battery sensors)",
-        "OAuth extract-unlink (PENDING — feature flag OAUTH_EXTRACT_UNLINK_ENABLED=false, blocked on Tuya OEM clientid approval)"
+        {
+          "id": "lan_direct",
+          "name": "Path A — LAN direct",
+          "bestFor": "230V mains-powered devices (smart plugs WB3S, lights, AC/heatpump climate, inline vents, valves, energy meters, dimmers)",
+          "setupTime": "~30 sec auto-discovery",
+          "privacy": "Fully local — no cloud",
+          "latency": "~50-200 ms",
+          "pros": "Instant response, zero cloud dependency, survives internet outage, no rate limits, no per-account caps",
+          "cons": "Battery WiFi sensors cannot use this path (firmware-blocked permanently to save power)",
+          "supportedCategories": "cz/tdq/pc plugs, dj lights, kt climate, kg/fs inline vents, valves, energy meters, dimmers, breakers"
+        },
+        {
+          "id": "cloud_bridge",
+          "name": "Path B — Cloud Bridge wizard",
+          "bestFor": "Battery WiFi sensors (wsdcg TH, co2bj CO2, ldcg lux), foreign-region devices, anything LAN refuses",
+          "setupTime": "~10 min one-time",
+          "privacy": "User's own free Tuya IoT trial; we never see credentials (encrypted on device)",
+          "latency": "~50-500 ms (Pulsar push) or 15-60 min (battery sensor firmware sleep)",
+          "pros": "Works for everything Tuya touches, near-real-time push via Pulsar MQTT, user owns the project",
+          "cons": "10-min one-time setup; battery sensors push only every 15-60 min by hardware design; 50-device cap on free trial",
+          "stepByStep": [
+            "Step 1: Create free Tuya IoT trial at iot.tuya.com",
+            "Step 2: Create cloud project, region auto-detected",
+            "Step 3: Link Smart Life account (QR scan)",
+            "Step 4: Paste Client ID + Secret (HMAC-SHA256 validated)",
+            "Step 5: Discovery starts; Pulsar online ~30s"
+          ]
+        },
+        {
+          "id": "zigbee_via_hub",
+          "name": "Path C — Zigbee via hub",
+          "bestFor": "TH/motion/leak/door sensors and switches needing live data + multi-year battery (recommended whenever a Zigbee version exists)",
+          "setupTime": "~5 min per sensor",
+          "privacy": "Local to your hub; some hubs relay to vendor cloud unless flashed with custom firmware",
+          "latency": "~100-500 ms",
+          "pros": "Live data, 2-5 year battery, mesh self-heals, doesn't clog WiFi, dozens of cheap sensors (Aqara WSDCGQ11LM ~€12)",
+          "cons": "Requires a hub (€15-40 one-time)",
+          "recommendedHardware": [
+            "Aqara WSDCGQ11LM TH sensor (~€12)",
+            "Sonoff SNZB-02 TH sensor (~€10)",
+            "Blow Smart Hub (Polish-market Zigbee gateway, Tuya cloud)",
+            "Sonoff ZBDongle-P + Zigbee2MQTT (fully local, advanced users)"
+          ]
+        },
+        {
+          "id": "oauth_extract_unlink",
+          "name": "Path 4 — OAuth extract-unlink (PENDING)",
+          "bestFor": "Future one-tap 'Sign in with Tuya' to auto-extract local_keys + optionally unlink",
+          "status": "PENDING — feature flag OAUTH_EXTRACT_UNLINK_ENABLED=false, blocked on Tuya OEM clientid approval (business task #87)"
+        }
       ],
+      "decisionMatrix": {
+        "rule": "Mains-powered → Path A. Battery → Path C if a Zigbee version exists, else Path B. Foreign-region or stubborn LAN device → Path B.",
+        "categories": [
+          {"device": "Smart plug (WB3S)", "lan": "YES (recommended)", "cloud": "YES (fallback)", "zigbee": "N/A"},
+          {"device": "Smart plug (no WB3S, foreign region)", "lan": "NO", "cloud": "YES (recommended)", "zigbee": "N/A"},
+          {"device": "TH sensor (WiFi battery wsdcg)", "lan": "NO (firmware-blocked)", "cloud": "YES (15-60 min)", "zigbee": "YES via swap (recommended)"},
+          {"device": "TH sensor (Zigbee Aqara/Sonoff)", "lan": "N/A", "cloud": "YES via hub", "zigbee": "YES (recommended)"},
+          {"device": "CO2 sensor (battery co2bj)", "lan": "NO", "cloud": "YES (15-60 min)", "zigbee": "YES via Aqara/Frient"},
+          {"device": "Light / grow light (WiFi dj)", "lan": "YES (recommended)", "cloud": "YES (fallback)", "zigbee": "N/A"},
+          {"device": "Climate AC/heatpump (kt)", "lan": "YES (recommended)", "cloud": "YES (fallback)", "zigbee": "N/A"},
+          {"device": "Inline vent (Aygrochy kg/fs)", "lan": "YES (recommended)", "cloud": "YES (fallback)", "zigbee": "N/A"},
+          {"device": "Valve / irrigation", "lan": "YES (recommended)", "cloud": "YES (fallback)", "zigbee": "YES (Zigbee versions)"},
+          {"device": "Energy meter", "lan": "YES (recommended)", "cloud": "YES (fallback)", "zigbee": "YES (Zigbee versions)"},
+          {"device": "Leak sensor", "lan": "YES if mains", "cloud": "YES (battery 15-60 min)", "zigbee": "YES (recommended for battery)"},
+          {"device": "Door / motion sensor", "lan": "NO (battery)", "cloud": "YES (15-60 min)", "zigbee": "YES (recommended)"}
+        ]
+      },
+      "hubMode": {
+        "summary": "GrowVPD Hub Mode is separate from Path C's Zigbee hub. Path C hub = radio gateway for Zigbee sensors. GrowVPD Hub Mode = a designated Android phone running 24/7 as relay anchor.",
+        "whyYouMightWantIt": [
+          "Main phone sleeps / leaves the house, breaking BLE links and pausing automation",
+          "Partner / family see the same diary updated in real time",
+          "Automation rules need to fire at exact times (lights, irrigation), and your daily phone is unreliable"
+        ],
+        "hardware": "Any unused Android phone (4+ years old fine), kept on charger, on home WiFi. iOS works best-effort only (App Store policy limits foreground services).",
+        "setup": [
+          "Install GrowVPD Pro on the spare phone",
+          "Settings → Hub mode → 'Use this phone as Hub'",
+          "Grant battery whitelist (skip Doze) — one tap",
+          "Grant boot autostart — one tap",
+          "Pair from main phone via QR code (one-time Ed25519 key exchange)"
+        ],
+        "background": [
+          "HubService foreground service runs 24/7 (persistent notification)",
+          "Listens on LAN for sync requests from paired phones",
+          "Falls back to Cloud Relay (encrypted) when peers off-LAN",
+          "Polls platforms (AC Infinity, Mars Hydro, Tuya Pulsar) on its own schedule",
+          "Survives reboots via BootCompletedReceiver"
+        ],
+        "raspberryPi": "Not yet — current Hub is Android-only (we ship the full Compose app). Standalone Pi/JVM agent on the roadmap (relay_server/README.md has a Ktor reference impl). For now: old Android phone in the closet."
+      },
       "limitations": [
-        "wsdcg battery WiFi TH sensors update every 15-60 min (recommend Zigbee alternative like Aqara WSDCGQ11LM)",
+        "wsdcg battery WiFi TH sensors update every 15-60 min (recommend Zigbee swap like Aqara WSDCGQ11LM)",
         "co2bj CO2 sensors same low-power limitation",
         "50-device cap on free Tuya IoT trial (commercial $25k/yr deferred until 1000+ paid users)",
         "wsdcg LAN access permanently blocked by firmware"

@@ -126,20 +126,32 @@
             </button>
                         <ul class="nav-links" id="navLinks">
                 <li><a href="../index.html#features" data-i18n="navFeatures">Features</a></li>
-                <li><a href="index.html" data-i18n="navGuides">Guides &amp; Community</a></li>
-                <li><a href="../docs/index.html" data-i18n="navApi">API</a></li>
+                <li><a href="../guides/index.html" data-i18n="navGuides">Guides &amp; Community</a></li>
                 <li><a href="../widget/index.html" data-i18n="navWidget">VPD Chart</a></li>
-                <li><a href="../blog/index.html" data-i18n="navBlog">Blog</a></li>
-                <li><a href="../partnership/index.html" data-i18n="navPartnership">Partnerships</a></li>
-                <li><a href="../support/index.html" data-i18n="navFaq">FAQ</a></li>
-                <li><a href="../index.html#download" class="nav-cta" data-i18n="navDownload">Download</a></li>
+                <li><a href="../index.html#pricing" data-i18n="navPricing">Pricing</a></li>
+                <li class="nav-dropdown">
+                    <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                        <span data-i18n="navResources">Resources</span>
+                        <svg width="10" height="10" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true"><path d="M2 4l4 4 4-4"/></svg>
+                    </button>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="../docs/index.html" data-i18n="navApi">API</a></li>
+                        <li><a href="../blog/index.html" data-i18n="navBlog">Blog</a></li>
+                        <li><a href="../partnership/index.html" data-i18n="navPartnership">Partnerships</a></li>
+                        <li><a href="../press/index.html" data-i18n="navPressKit">Press Kit</a></li>
+                        <li><a href="../support/index.html" data-i18n="navFaq">FAQ</a></li>
+                    </ul>
+                </li>
+                <li><a href="https://discord.gg/BGDpE6nP" target="_blank" rel="noopener noreferrer" class="nav-cta" data-i18n="comDiscordBtn">Join Discord</a></li>
             </ul>
         </div>
     </nav>
     <script>
-document.getElementById('navToggle')?.addEventListener('click',function(){this.classList.toggle('active');document.getElementById('navLinks').classList.toggle('active')});
-window.addEventListener('scroll',function(){document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>20)},{passive:true});
-    </script>
+document.getElementById("navToggle")?.addEventListener("click",function(){this.classList.toggle("active");document.getElementById("navLinks").classList.toggle("active")});
+window.addEventListener("scroll",function(){document.getElementById("navbar").classList.toggle("scrolled",window.scrollY>20)},{passive:true});
+document.querySelectorAll(".nav-dropdown").forEach(function(dd){var t=dd.querySelector(".nav-dropdown-toggle");if(!t)return;t.addEventListener("click",function(e){e.stopPropagation();document.querySelectorAll(".nav-dropdown.is-open").forEach(function(o){if(o!==dd)o.classList.remove("is-open")});dd.classList.toggle("is-open")})});
+document.addEventListener("click",function(){document.querySelectorAll(".nav-dropdown.is-open").forEach(function(d){d.classList.remove("is-open")})});
+</script>
 
     <main class="article-page">
         <div class="article-container">
@@ -186,7 +198,87 @@ window.addEventListener('scroll',function(){document.getElementById('navbar').cl
                     <li>A Tuya IoT Platform developer account (free &mdash; instructions below)</li>
                 </ul>
 
-                <h2>Connection Steps</h2>
+                <h2>Three Ways to Connect Tuya</h2>
+                <p>GrowVPD Pro supports three different paths to bring your Tuya/Smart Life devices online. Pick the one that matches your hardware and how much setup you are willing to do:</p>
+                <ol>
+                    <li><strong>Cloud Bridge wizard (recommended for most users)</strong> &mdash; a guided 5-step flow that walks you through creating a free Tuya developer trial, linking your Smart Life app, and saving the credentials. Works with every Tuya device, no firmware reflashing required.</li>
+                    <li><strong>Local LAN (no cloud)</strong> &mdash; for devices running v3.5 firmware where the local key is recoverable. Once paired, GrowVPD Pro talks to the device directly on your home network without going through Tuya servers.</li>
+                    <li><strong>OAuth one-tap (coming soon)</strong> &mdash; sign in with Tuya, grant access, devices appear automatically. Pending Tuya OEM partnership approval &mdash; see <a href="oauth-coming-soon.html" style="color:#2E7D32;font-weight:600;">OAuth status</a>.</li>
+                </ol>
+                <p>The Cloud Bridge wizard is the default for new accounts. The other two paths are described after the main walkthrough.</p>
+
+                <h2>Cloud Bridge wizard (recommended)</h2>
+                <p>The Cloud Bridge wizard launches the first time you tap a Tuya device that needs cloud access &mdash; or anytime from <strong>Settings &gt; Tuya Cloud Bridge &gt; Set up</strong>. It is a 5-step Compose flow that takes about 5 minutes:</p>
+
+                <div class="step-card">
+                    <span class="step-number">1</span>
+                    <h3>Decision screen</h3>
+                    <p>The wizard opens with a quick chooser: <strong>Use my Tuya developer trial</strong> (the standard path), <strong>Connect to a self-hosted relay</strong> (advanced), or <strong>Skip</strong>. Tap the trial option to start the guided flow.</p>
+                </div>
+
+                <div class="step-card">
+                    <span class="step-number">2</span>
+                    <h3>Create a free Tuya developer account</h3>
+                    <p>The wizard opens the Tuya IoT Platform sign-up page in your browser. Use the same email you use for the Smart Life app if you can &mdash; it makes the linking step painless. The trial is free and self-service; no credit card needed.</p>
+                </div>
+
+                <div class="step-card">
+                    <span class="step-number">3</span>
+                    <h3>Create an IoT project (region auto-detected)</h3>
+                    <p>The wizard shows your auto-detected region (Europe, US, India, China) based on your phone locale, and walks you through creating a <strong>Smart Home Cloud Project</strong>. An expandable instructions card details the exact menu paths inside the Tuya dashboard. The wizard subscribes <strong>IoT Core</strong> and <strong>Smart Home Device Management</strong> automatically &mdash; both free.</p>
+                </div>
+
+                <div class="step-card">
+                    <span class="step-number">4</span>
+                    <h3>Link your Smart Life app</h3>
+                    <p>Inside the Tuya project, the wizard prompts you to scan a QR code with your Smart Life or Tuya app. This grants the project access to your devices. The wizard waits for the link confirmation and then lights up the next step.</p>
+                </div>
+
+                <div class="step-card">
+                    <span class="step-number">5</span>
+                    <h3>Paste credentials &amp; validate</h3>
+                    <p>Copy your <strong>Access ID</strong> and <strong>Access Secret</strong> from the Tuya project Overview page and paste them into the wizard. Tap <strong>Test &amp; Save</strong>. The wizard signs a real HMAC-SHA256 token request against the Tuya API and either:</p>
+                    <ul>
+                        <li><strong>Validates</strong> &mdash; credentials are encrypted (EncryptedSharedPreferences) and the success screen appears.</li>
+                        <li><strong>Detects a wrong region</strong> &mdash; offers a one-tap <em>Switch to &lt;region&gt;</em> button that re-tests against the suggested datacenter without you re-typing credentials.</li>
+                        <li><strong>Reports a credential or network error</strong> &mdash; with a precise message (e.g., "Invalid sign", "No internet").</li>
+                    </ul>
+                    <p>On success, the wizard hands off to the device discovery screen so you can pick which devices to import.</p>
+                </div>
+
+                <blockquote>
+                    <strong>Why a wizard?</strong> Tuya's developer dashboard is dense and the language varies by region. The wizard packages the steps that catch out 90% of new users (region mismatch, unsubscribed APIs, unlinked Smart Life account) into a guided flow with live validation, so you never get to the "No devices found" stage with broken credentials.
+                </blockquote>
+
+                <h2>Local LAN (no cloud)</h2>
+                <p>If your Tuya device runs the <strong>v3.5 firmware</strong> with a recoverable local key (most newer devices on the WB3S chipset), GrowVPD Pro can talk to it directly on your LAN, without ever sending data through Tuya servers. This is the fastest, most private path &mdash; commands fire in under 100 ms and continue working if your internet drops.</p>
+                <p>How it works:</p>
+                <ul>
+                    <li>The wizard discovers v3.5 devices on your subnet via UDP broadcast on port 6667.</li>
+                    <li>It pulls the <code>local_key</code> through the Cloud Bridge once (one-time cloud round-trip), then never needs the cloud again for that device.</li>
+                    <li>All subsequent commands use AES-GCM with the per-session key over TCP port 6668 &mdash; this is Tuya's <code>CONTROL_NEW</code> protocol with the v3.5 enhancements (GCM session key, version header, retcode strip, numeric DPs).</li>
+                    <li>The device shows a <strong>HUB_LAN</strong> badge in the device list, signalling local-only operation.</li>
+                </ul>
+                <p>Local LAN is automatic when GrowVPD Pro detects a compatible device. You do not need to choose it manually &mdash; if the firmware supports it and the local key is on file, the app uses LAN as the default transport.</p>
+
+                <div class="warning-box">
+                    <strong>Limitations:</strong> Some Tuya device categories (notably cameras, AC units with regional firmware splits, and certain Zigbee sub-devices behind a hub) cannot be controlled fully over LAN even on v3.5. For those devices, the Cloud Bridge transparently falls back to cloud control. The badge on the device card will read <strong>CLOUD</strong> instead of <strong>HUB_LAN</strong>.
+                </div>
+
+                <h2>Tuya Pulsar push events (faster than polling)</h2>
+                <p>Once the Cloud Bridge is configured, GrowVPD Pro subscribes to the <strong>Tuya Pulsar MQTT message bus</strong> on your Tuya project. Pulsar pushes device state changes to the app within seconds, instead of polling the cloud every 15 minutes.</p>
+                <p>What this means in practice:</p>
+                <ul>
+                    <li>Sensor readings on the VPD chart and tent dashboard refresh almost in real time.</li>
+                    <li>Automation rules see new readings within seconds of the device emitting them, instead of up to 15 minutes later.</li>
+                    <li>Energy logs and device action history stay in sync without manual refresh.</li>
+                </ul>
+                <p>Pulsar runs in the background as long as a Tuya bridge is configured &mdash; no extra setup. If your trial is saturated or the Pulsar connection fails, the app falls back to the standard 15-minute polling and a bridge of last resort to keep things ticking.</p>
+
+                <h2>Manual / advanced credentials entry</h2>
+                <p>If you already have a Tuya developer account and prefer to skip the guided wizard, the legacy single-form entry is still available. From the wizard&rsquo;s decision screen, tap <strong>Manual entry (advanced)</strong>. You will land on a single Access ID / Access Secret / Region form &mdash; the same form returning users see.</p>
+
+                <h2>Connection Steps (legacy, manual reference)</h2>
 
                 <div class="step-card">
                     <span class="step-number">1</span>
@@ -314,6 +406,14 @@ window.addEventListener('scroll',function(){document.getElementById('navbar').cl
             <div class="related-guides">
                 <h3>Related Guides</h3>
                 <div class="related-list">
+                    <a href="cloud-bridge-setup.html" class="related-link">
+                        Cloud Bridge Setup: Full Walkthrough
+                        <span class="arrow">&rarr;</span>
+                    </a>
+                    <a href="oauth-coming-soon.html" class="related-link">
+                        OAuth Coming Soon: Tuya One-Tap Pairing Status
+                        <span class="arrow">&rarr;</span>
+                    </a>
                     <a href="connect-mars-hydro.html" class="related-link">
                         How to Connect Mars Hydro Devices to GrowVPD Pro
                         <span class="arrow">&rarr;</span>

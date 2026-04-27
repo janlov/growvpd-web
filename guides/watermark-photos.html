@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://giscus.app; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://giscus.app https://discord.com; connect-src 'self' https://giscus.app; base-uri 'self'; form-action 'self';">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Watermarking (Pro) — GrowVPD Pro Guides</title>
+    <meta name="description" content="Auto-stamp diary photos with strain, day, stage and VPD. Pro feature for grow journals shared on Discord, Reddit or Instagram.">
+
+    <link rel="icon" type="image/png" href="../images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="canonical" href="https://growvpd.pro/guides/watermark-photos.html">
+    <link rel="alternate" hreflang="en" href="https://growvpd.pro/guides/watermark-photos.html">
+    <link rel="alternate" hreflang="cs" href="https://growvpd.pro/guides/watermark-photos.html?lang=cs">
+    <link rel="alternate" hreflang="de" href="https://growvpd.pro/guides/watermark-photos.html?lang=de">
+    <link rel="alternate" hreflang="es" href="https://growvpd.pro/guides/watermark-photos.html?lang=es">
+    <link rel="alternate" hreflang="nl" href="https://growvpd.pro/guides/watermark-photos.html?lang=nl">
+    <link rel="alternate" hreflang="fr" href="https://growvpd.pro/guides/watermark-photos.html?lang=fr">
+    <link rel="alternate" hreflang="it" href="https://growvpd.pro/guides/watermark-photos.html?lang=it">
+    <link rel="alternate" hreflang="pt" href="https://growvpd.pro/guides/watermark-photos.html?lang=pt">
+    <link rel="alternate" hreflang="pl" href="https://growvpd.pro/guides/watermark-photos.html?lang=pl">
+    <link rel="alternate" hreflang="th" href="https://growvpd.pro/guides/watermark-photos.html?lang=th">
+    <link rel="alternate" hreflang="he" href="https://growvpd.pro/guides/watermark-photos.html?lang=he">
+    <link rel="alternate" hreflang="x-default" href="https://growvpd.pro/guides/watermark-photos.html">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/forum.css">
+    <script>(function(){var p=new URLSearchParams(location.search).get("lang"),s=localStorage.getItem("growvpd-lang"),l=p||s||(navigator.language||"en").split("-")[0];if(l&&l!=="en"){var st=document.createElement("style");st.id="i18n-cloak";st.textContent="[data-i18n],[data-i18n-html]{opacity:0!important}";document.head.appendChild(st);setTimeout(function(){var c=document.getElementById("i18n-cloak");if(c)c.remove()},150)}})()</script>
+    <style>
+        .article-page { padding: 100px 0 60px; background: #fff; min-height: 100vh; }
+        .article-container { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+        .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: .82rem; color: #90A4AE; margin-bottom: 32px; flex-wrap: wrap; }
+        .breadcrumb a { color: #2E7D32; font-weight: 500; transition: color .2s; }
+        .breadcrumb a:hover { color: #1B5E20; }
+        .breadcrumb .sep { color: #CFD8DC; }
+        .article-header { margin-bottom: 40px; }
+        .article-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+        .category-badge { display: inline-block; background: rgba(46,125,50,.08); color: #2E7D32; font-size: .75rem; font-weight: 700; padding: 4px 12px; border-radius: 6px; text-transform: uppercase; letter-spacing: .05em; }
+        .article-date, .article-read-time { font-size: .82rem; color: #90A4AE; }
+        .article-header h1 { font-size: 2.2rem; font-weight: 900; color: #1B5E20; line-height: 1.15; letter-spacing: -.02em; }
+        .article-body h2 { font-size: 1.45rem; font-weight: 800; color: #212121; margin: 40px 0 16px; }
+        .article-body h3 { font-size: 1.1rem; font-weight: 700; color: #37474F; margin: 28px 0 12px; }
+        .article-body p { color: #546E7A; font-size: .95rem; line-height: 1.75; margin-bottom: 16px; }
+        .article-body ul, .article-body ol { color: #546E7A; font-size: .95rem; line-height: 1.75; margin: 0 0 16px 24px; }
+        .article-body ul { list-style: disc; }
+        .article-body ol { list-style: decimal; }
+        .article-body li { margin-bottom: 6px; }
+        .article-body strong { color: #212121; font-weight: 600; }
+        .article-body blockquote { background: #F1F8E9; border-left: 4px solid #4CAF50; padding: 16px 20px; border-radius: 0 12px 12px 0; margin: 24px 0; font-size: .9rem; color: #33691E; line-height: 1.7; }
+        .article-body blockquote strong { color: #1B5E20; }
+        .article-body code { background: #ECEFF1; padding: 2px 6px; border-radius: 4px; font-size: .85rem; color: #37474F; }
+        .step-card { background: #FAFBFC; border: 1px solid #ECEFF1; border-radius: 12px; padding: 20px; margin: 20px 0; }
+        .step-card .step-num { display: inline-block; background: #2E7D32; color: #fff; font-weight: 700; font-size: .8rem; padding: 4px 10px; border-radius: 6px; margin-bottom: 8px; }
+        .discord-cta { background: linear-gradient(135deg, #F1F8E9, #E8F5E9); border: 1px solid #C8E6C9; border-radius: 16px; padding: 32px; text-align: center; margin: 48px 0; }
+        .discord-cta h3 { font-size: 1.2rem; font-weight: 800; color: #1B5E20; margin-bottom: 8px; }
+        .discord-cta p { font-size: .9rem; color: #546E7A; margin-bottom: 20px; }
+        .discord-cta .btn { display: inline-flex; align-items: center; gap: 8px; background: #2E7D32; color: #fff; padding: 12px 28px; border-radius: 10px; font-weight: 600; font-size: .9rem; text-decoration: none; }
+        .related-guides { margin: 48px 0; }
+        .related-guides h3 { font-size: 1.1rem; font-weight: 800; color: #212121; margin-bottom: 16px; }
+        .related-list { display: flex; flex-direction: column; gap: 10px; }
+        .related-link { display: flex; align-items: center; gap: 10px; padding: 14px 18px; background: #FAFBFC; border: 1px solid #ECEFF1; border-radius: 12px; transition: all .25s; color: #2E7D32; font-weight: 600; font-size: .9rem; }
+        .related-link:hover { border-color: #C8E6C9; background: #F1F8E9; transform: translateX(4px); }
+        .related-link .arrow { margin-left: auto; color: #90A4AE; }
+        .article-footer { border-top: 1px solid #ECEFF1; padding: 32px 0; margin-top: 48px; text-align: center; font-size: .82rem; color: #90A4AE; }
+        .article-footer a { color: #2E7D32; font-weight: 500; }
+        @media (max-width: 768px) {
+            .article-page { padding: 80px 0 40px; }
+            .article-header h1 { font-size: 1.7rem; }
+            .article-body h2 { font-size: 1.25rem; }
+        }
+    </style>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://growvpd.pro/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://growvpd.pro/guides/"},{"@type":"ListItem","position":3,"name":"Photo Watermarking (Pro)"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Article","headline":"Photo Watermarking (Pro)","author":{"@type":"Organization","name":"GrowVPD Pro"},"publisher":{"@type":"Organization","name":"GrowVPD Pro"},"datePublished":"2026-04-26","description":"Auto-stamp diary photos with strain, day, stage and VPD. Pro feature for grow journals shared on Discord, Reddit or Instagram.","mainEntityOfPage":"https://growvpd.pro/guides/watermark-photos.html"}
+    </script>
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="../index.html" class="nav-brand">
+                <img class="nav-logo" src="../images/logo.webp" alt="GrowVPD Pro" width="28" height="28">
+                <span>GrowVPD Pro</span>
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../index.html#features" data-i18n="navFeatures">Features</a></li>
+                <li><a href="../guides/index.html" data-i18n="navGuides">Guides &amp; Community</a></li>
+                <li><a href="../widget/index.html" data-i18n="navWidget">VPD Chart</a></li>
+                <li><a href="../index.html#pricing" data-i18n="navPricing">Pricing</a></li>
+                <li class="nav-dropdown">
+                    <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                        <span data-i18n="navResources">Resources</span>
+                        <svg width="10" height="10" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true"><path d="M2 4l4 4 4-4"/></svg>
+                    </button>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="../docs/index.html" data-i18n="navApi">API</a></li>
+                        <li><a href="../blog/index.html" data-i18n="navBlog">Blog</a></li>
+                        <li><a href="../partnership/index.html" data-i18n="navPartnership">Partnerships</a></li>
+                        <li><a href="../press/index.html" data-i18n="navPressKit">Press Kit</a></li>
+                        <li><a href="../support/index.html" data-i18n="navFaq">FAQ</a></li>
+                    </ul>
+                </li>
+                <li><a href="https://discord.gg/BGDpE6nP" target="_blank" rel="noopener noreferrer" class="nav-cta" data-i18n="comDiscordBtn">Join Discord</a></li>
+            </ul>
+        </div>
+    </nav>
+    <script>
+document.getElementById("navToggle")?.addEventListener("click",function(){this.classList.toggle("active");document.getElementById("navLinks").classList.toggle("active")});
+window.addEventListener("scroll",function(){document.getElementById("navbar").classList.toggle("scrolled",window.scrollY>20)},{passive:true});
+document.querySelectorAll(".nav-dropdown").forEach(function(dd){var t=dd.querySelector(".nav-dropdown-toggle");if(!t)return;t.addEventListener("click",function(e){e.stopPropagation();document.querySelectorAll(".nav-dropdown.is-open").forEach(function(o){if(o!==dd)o.classList.remove("is-open")});dd.classList.toggle("is-open")})});
+document.addEventListener("click",function(){document.querySelectorAll(".nav-dropdown.is-open").forEach(function(d){d.classList.remove("is-open")})});
+    </script>
+
+    <main class="article-page">
+        <div class="article-container">
+
+            <div class="breadcrumb">
+                <a href="index.html">Guides &amp; Community</a>
+                <span class="sep">/</span>
+                <a href="index.html">Diary &amp; Yields</a>
+                <span class="sep">/</span>
+                <span>Photo Watermarking (Pro)</span>
+            </div>
+
+            <header class="article-header">
+                <div class="article-meta">
+                    <span class="category-badge">Diary &amp; Yields</span>
+                    <span class="article-date">April 2026</span>
+                    <span class="article-read-time">5 min read</span>
+                </div>
+                <h1>Photo Watermarking (Pro)</h1>
+            </header>
+
+            <div class="article-body">
+                <h2>What Is Photo Watermarking?</h2>
+                <p>Every diary photo you take in GrowVPD Pro can be auto-stamped with the data that surrounds it: <strong>strain name, day of grow, current stage, today&rsquo;s VPD reading, harvest week</strong>. Stamping happens on save, in the corner of your choice, with a translucent style that does not distract from the plant.</p>
+                <p>Use cases:</p>
+                <ul>
+                    <li>Discord/forum sharing &mdash; one image carries all context, no caption needed.</li>
+                    <li>Cycle comparison &mdash; flip through a year of photos and instantly see strain + day on each.</li>
+                    <li>Grow journals &mdash; PDF exports become polished cycle reports.</li>
+                </ul>
+                <p>Watermarking is a Pro feature.</p>
+
+                <h2>Enabling Watermark</h2>
+                <ol>
+                    <li>Settings &rarr; <strong>Watermark</strong>.</li>
+                    <li>Toggle <em>Enable photo watermarking</em>.</li>
+                    <li>Pick a position: bottom-left, bottom-right, top-left, top-right, or center.</li>
+                    <li>Pick a style: <em>Pill</em> (pill-shaped tag), <em>Bar</em> (full-width bottom strip), or <em>Corner</em> (small box).</li>
+                    <li>Pick which fields to include: any combination of strain, day, stage, VPD, week, harvest stats.</li>
+                </ol>
+                <p>From the next diary photo onward, every image carries the watermark. Existing photos are not retroactively stamped &mdash; the original file on disk is unchanged.</p>
+
+                <h2>Per-Grow Override</h2>
+                <p>Each grow has its own watermark toggle in <strong>Grow Settings &rarr; Photo watermark</strong>. Useful if you want stealth photos for one tent (turn off) while marking the rest. Off-grow setting overrides the global default.</p>
+
+                <h2>Watermark Anatomy</h2>
+                <p>A typical bottom-right pill watermark looks like:</p>
+                <p><code>Wedding Cake &middot; Day 42 &middot; Flower Wk 3 &middot; VPD 1.18</code></p>
+                <p>Fields are auto-populated from:</p>
+                <ul>
+                    <li><strong>Strain</strong> &mdash; from the grow&rsquo;s strain field.</li>
+                    <li><strong>Day</strong> &mdash; days since grow start.</li>
+                    <li><strong>Stage</strong> &mdash; from your current stage marker (Veg / Flower Wk N).</li>
+                    <li><strong>VPD</strong> &mdash; from the latest sensor reading at photo time, or from the entry you saved with the photo.</li>
+                    <li><strong>Harvest stats</strong> &mdash; only after harvest: dry weight, yield/W.</li>
+                </ul>
+
+                <h2>Style Customisation</h2>
+                <p>Pro users can fine-tune:</p>
+                <ul>
+                    <li>Background opacity (0&ndash;100%).</li>
+                    <li>Text colour (white / cream / accent).</li>
+                    <li>Font size (small / medium / large &mdash; auto-scales to image dimensions).</li>
+                    <li>Show/hide the GrowVPD logo.</li>
+                </ul>
+                <p>Preview updates live in the settings screen.</p>
+
+                <h2>Privacy &amp; Stealth Mode</h2>
+                <p>If you have the &ldquo;Photo Privacy&rdquo; or stealth-mode features enabled, watermarking respects them:</p>
+                <ul>
+                    <li>Stealth mode &rarr; watermark omits strain name (replaces with grow ID hash).</li>
+                    <li>Stamp uses a generic plant glyph instead of the GrowVPD logo when stealth is on.</li>
+                </ul>
+
+                <h2>Sharing</h2>
+                <p>Tap any photo &rarr; Share. The shared file already has the watermark baked in (it&rsquo;s saved to disk that way). PDF diary exports also include the stamped photos. JSON exports include both stamped JPEGs and the raw originals.</p>
+
+                <blockquote>
+                    <strong>Reverting.</strong> The original photo file is preserved untouched in the app&rsquo;s photo storage. Watermark is rendered into a derivative file only. If you change watermark settings, future photos use the new style; existing ones keep their original stamp.
+                </blockquote>
+            </div>
+
+            <div class="discord-cta">
+                <h3>Need help?</h3>
+                <p>Join our Discord and the team will walk you through it. We answer every question.</p>
+                <a href="https://discord.gg/BGDpE6nP" class="btn" target="_blank" rel="noopener noreferrer">Discuss on Discord</a>
+            </div>
+
+            <div class="related-guides">
+                <h3>Related Guides</h3>
+                <div class="related-list">
+                    <a href="photo-documentation.html" class="related-link">Photo Documentation<span class="arrow">&rarr;</span></a>
+                    <a href="grow-diary-guide.html" class="related-link">Grow Diary Guide<span class="arrow">&rarr;</span></a>
+                    <a href="privacy-security-guide.html" class="related-link">Privacy &amp; Security<span class="arrow">&rarr;</span></a>
+                </div>
+            </div>
+
+            <footer class="article-footer">
+                <p>&copy; 2026 <a href="../index.html">GrowVPD Pro</a>. All rights reserved. &middot; <a href="../privacy/index.html">Privacy Policy</a> &middot; <a href="../support/index.html">Support</a></p>
+            </footer>
+
+        </div>
+    </main>
+
+<script src="guide-i18n.js"></script>
+</body>
+</html>

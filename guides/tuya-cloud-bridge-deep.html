@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://giscus.app; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://giscus.app https://discord.com; connect-src 'self' https://giscus.app; base-uri 'self'; form-action 'self';">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tuya Cloud Bridge: Deep Dive &mdash; GrowVPD Pro Guides</title>
+    <meta name="description" content="The full conceptual guide to GrowVPD's Tuya Cloud Bridge: why it exists, how it works, region selection, API quotas, token refresh, privacy guarantees, and the OAuth roadmap.">
+
+    <link rel="icon" type="image/png" href="../images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="canonical" href="https://growvpd.pro/guides/tuya-cloud-bridge-deep.html">
+    <link rel="alternate" hreflang="en" href="https://growvpd.pro/guides/tuya-cloud-bridge-deep.html">
+    <link rel="alternate" hreflang="cs" href="https://growvpd.pro/guides/tuya-cloud-bridge-deep.html?lang=cs">
+    <link rel="alternate" hreflang="de" href="https://growvpd.pro/guides/tuya-cloud-bridge-deep.html?lang=de">
+    <link rel="alternate" hreflang="es" href="https://growvpd.pro/guides/tuya-cloud-bridge-deep.html?lang=es">
+    <link rel="alternate" hreflang="nl" href="https://growvpd.pro/guides/tuya-cloud-bridge-deep.html?lang=nl">
+    <link rel="alternate" hreflang="fr" href="https://growvpd.pro/guides/tuya-cloud-bridge-deep.html?lang=fr">
+    <link rel="alternate" hreflang="it" href="https://growvpd.pro/guides/tuya-cloud-bridge-deep.html?lang=it">
+    <link rel="alternate" hreflang="pt" href="https://growvpd.pro/guides/tuya-cloud-bridge-deep.html?lang=pt">
+    <link rel="alternate" hreflang="pl" href="https://growvpd.pro/guides/tuya-cloud-bridge-deep.html?lang=pl">
+    <link rel="alternate" hreflang="th" href="https://growvpd.pro/guides/tuya-cloud-bridge-deep.html?lang=th">
+    <link rel="alternate" hreflang="he" href="https://growvpd.pro/guides/tuya-cloud-bridge-deep.html?lang=he">
+    <link rel="alternate" hreflang="x-default" href="https://growvpd.pro/guides/tuya-cloud-bridge-deep.html">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/forum.css">
+    <script>(function(){var p=new URLSearchParams(location.search).get("lang"),s=localStorage.getItem("growvpd-lang"),l=p||s||(navigator.language||"en").split("-")[0];if(l&&l!=="en"){var st=document.createElement("style");st.id="i18n-cloak";st.textContent="[data-i18n],[data-i18n-html]{opacity:0!important}";document.head.appendChild(st);setTimeout(function(){var c=document.getElementById("i18n-cloak");if(c)c.remove()},150)}})()</script>
+    <style>
+        .article-page { padding: 100px 0 60px; background: #fff; min-height: 100vh; }
+        .article-container { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+        .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: .82rem; color: #90A4AE; margin-bottom: 32px; flex-wrap: wrap; }
+        .breadcrumb a { color: #2E7D32; font-weight: 500; transition: color .2s; }
+        .breadcrumb a:hover { color: #1B5E20; }
+        .breadcrumb .sep { color: #CFD8DC; }
+        .article-header { margin-bottom: 40px; }
+        .article-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+        .category-badge { display: inline-block; background: rgba(46,125,50,.08); color: #2E7D32; font-size: .75rem; font-weight: 700; padding: 4px 12px; border-radius: 6px; text-transform: uppercase; letter-spacing: .05em; }
+        .article-date, .article-read-time { font-size: .82rem; color: #90A4AE; }
+        .article-header h1 { font-size: 2.2rem; font-weight: 900; color: #1B5E20; line-height: 1.15; letter-spacing: -.02em; }
+        .article-body h2 { font-size: 1.45rem; font-weight: 800; color: #212121; margin: 40px 0 16px; }
+        .article-body h3 { font-size: 1.1rem; font-weight: 700; color: #37474F; margin: 28px 0 12px; }
+        .article-body p { color: #546E7A; font-size: .95rem; line-height: 1.75; margin-bottom: 16px; }
+        .article-body ul, .article-body ol { color: #546E7A; font-size: .95rem; line-height: 1.75; margin: 0 0 16px 24px; }
+        .article-body ul { list-style: disc; }
+        .article-body ol { list-style: decimal; }
+        .article-body li { margin-bottom: 6px; }
+        .article-body strong { color: #212121; font-weight: 600; }
+        .article-body blockquote { background: #F1F8E9; border-left: 4px solid #4CAF50; padding: 16px 20px; border-radius: 0 12px 12px 0; margin: 24px 0; font-size: .9rem; color: #33691E; line-height: 1.7; }
+        .article-body blockquote strong { color: #1B5E20; }
+        .article-body code { background: #ECEFF1; padding: 2px 6px; border-radius: 4px; font-size: .85rem; color: #37474F; }
+        .article-body pre { background: #263238; color: #ECEFF1; padding: 16px 20px; border-radius: 12px; overflow-x: auto; font-size: .82rem; line-height: 1.6; margin: 16px 0 24px; }
+        .article-body pre code { background: transparent; color: #ECEFF1; padding: 0; }
+        .step-card { background: #FAFBFC; border: 1px solid #ECEFF1; border-radius: 12px; padding: 20px; margin: 20px 0; }
+        .step-card .step-num { display: inline-block; background: #2E7D32; color: #fff; font-weight: 700; font-size: .8rem; padding: 4px 10px; border-radius: 6px; margin-bottom: 8px; }
+        .toc { background: #F8FBF8; border: 1px solid #E0E8E0; border-radius: 12px; padding: 16px 20px 16px 38px; margin: 24px 0 32px; }
+        .toc h4 { color: #1B5E20; font-weight: 800; font-size: .9rem; margin: 0 0 8px -18px; text-transform: uppercase; letter-spacing: .05em; }
+        .toc ul { list-style: none; margin: 0; padding: 0; }
+        .toc li { margin: 4px 0; padding: 0; }
+        .toc a { color: #2E7D32; font-size: .88rem; font-weight: 500; text-decoration: none; }
+        .toc a:hover { text-decoration: underline; }
+        .compare-table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: .87rem; }
+        .compare-table th, .compare-table td { padding: 10px 12px; border: 1px solid #ECEFF1; text-align: left; }
+        .compare-table th { background: #F1F8E9; color: #1B5E20; font-weight: 700; }
+        .compare-table tr:nth-child(even) td { background: #FAFBFC; }
+        .faq-item { margin: 18px 0; padding: 16px 18px; background: #FAFBFC; border: 1px solid #ECEFF1; border-radius: 10px; }
+        .faq-item h4 { color: #1B5E20; font-size: .95rem; font-weight: 700; margin: 0 0 6px; }
+        .faq-item p { margin: 0; font-size: .87rem; }
+        .discord-cta { background: linear-gradient(135deg, #F1F8E9, #E8F5E9); border: 1px solid #C8E6C9; border-radius: 16px; padding: 32px; text-align: center; margin: 48px 0; }
+        .discord-cta h3 { font-size: 1.2rem; font-weight: 800; color: #1B5E20; margin-bottom: 8px; }
+        .discord-cta p { font-size: .9rem; color: #546E7A; margin-bottom: 20px; }
+        .discord-cta .btn { display: inline-flex; align-items: center; gap: 8px; background: #2E7D32; color: #fff; padding: 12px 28px; border-radius: 10px; font-weight: 600; font-size: .9rem; text-decoration: none; }
+        .related-guides { margin: 48px 0; }
+        .related-guides h3 { font-size: 1.1rem; font-weight: 800; color: #212121; margin-bottom: 16px; }
+        .related-list { display: flex; flex-direction: column; gap: 10px; }
+        .related-link { display: flex; align-items: center; gap: 10px; padding: 14px 18px; background: #FAFBFC; border: 1px solid #ECEFF1; border-radius: 12px; transition: all .25s; color: #2E7D32; font-weight: 600; font-size: .9rem; }
+        .related-link:hover { border-color: #C8E6C9; background: #F1F8E9; transform: translateX(4px); }
+        .related-link .arrow { margin-left: auto; color: #90A4AE; }
+        .article-footer { border-top: 1px solid #ECEFF1; padding: 32px 0; margin-top: 48px; text-align: center; font-size: .82rem; color: #90A4AE; }
+        .article-footer a { color: #2E7D32; font-weight: 500; }
+        .screenshot-ref { background: #FFF8E1; border-left: 4px solid #FFC107; padding: 10px 14px; border-radius: 0 8px 8px 0; margin: 16px 0; font-size: .85rem; color: #5D4037; }
+        @media (max-width: 768px) {
+            .article-page { padding: 80px 0 40px; }
+            .article-header h1 { font-size: 1.7rem; }
+            .article-body h2 { font-size: 1.25rem; }
+        }
+    </style>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://growvpd.pro/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://growvpd.pro/guides/"},{"@type":"ListItem","position":3,"name":"Tuya Cloud Bridge Deep Dive"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Article","headline":"Tuya Cloud Bridge: Deep Dive","author":{"@type":"Organization","name":"GrowVPD Pro"},"publisher":{"@type":"Organization","name":"GrowVPD Pro"},"datePublished":"2026-04-27","description":"The full conceptual guide to GrowVPD's Tuya Cloud Bridge architecture, privacy model, and roadmap.","mainEntityOfPage":"https://growvpd.pro/guides/tuya-cloud-bridge-deep.html"}
+    </script>
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="../index.html" class="nav-brand">
+                <img class="nav-logo" src="../images/logo.webp" alt="GrowVPD Pro" width="28" height="28">
+                <span>GrowVPD Pro</span>
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../index.html#features" data-i18n="navFeatures">Features</a></li>
+                <li><a href="../guides/index.html" data-i18n="navGuides">Guides &amp; Community</a></li>
+                <li><a href="../widget/index.html" data-i18n="navWidget">VPD Chart</a></li>
+                <li><a href="../index.html#pricing" data-i18n="navPricing">Pricing</a></li>
+                <li class="nav-dropdown">
+                    <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                        <span data-i18n="navResources">Resources</span>
+                        <svg width="10" height="10" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true"><path d="M2 4l4 4 4-4"/></svg>
+                    </button>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="../docs/index.html" data-i18n="navApi">API</a></li>
+                        <li><a href="../blog/index.html" data-i18n="navBlog">Blog</a></li>
+                        <li><a href="../partnership/index.html" data-i18n="navPartnership">Partnerships</a></li>
+                        <li><a href="../press/index.html" data-i18n="navPressKit">Press Kit</a></li>
+                        <li><a href="../support/index.html" data-i18n="navFaq">FAQ</a></li>
+                    </ul>
+                </li>
+                <li><a href="https://discord.gg/BGDpE6nP" target="_blank" rel="noopener noreferrer" class="nav-cta" data-i18n="comDiscordBtn">Join Discord</a></li>
+            </ul>
+        </div>
+    </nav>
+    <script>
+document.getElementById("navToggle")?.addEventListener("click",function(){this.classList.toggle("active");document.getElementById("navLinks").classList.toggle("active")});
+window.addEventListener("scroll",function(){document.getElementById("navbar").classList.toggle("scrolled",window.scrollY>20)},{passive:true});
+document.querySelectorAll(".nav-dropdown").forEach(function(dd){var t=dd.querySelector(".nav-dropdown-toggle");if(!t)return;t.addEventListener("click",function(e){e.stopPropagation();document.querySelectorAll(".nav-dropdown.is-open").forEach(function(o){if(o!==dd)o.classList.remove("is-open")});dd.classList.toggle("is-open")})});
+document.addEventListener("click",function(){document.querySelectorAll(".nav-dropdown.is-open").forEach(function(d){d.classList.remove("is-open")})});
+    </script>
+
+    <main class="article-page">
+        <div class="article-container">
+
+            <div class="breadcrumb">
+                <a href="index.html" data-i18n="breadcrumbGuides">Guides &amp; Community</a>
+                <span class="sep">/</span>
+                <a href="index.html">Tuya Paths</a>
+                <span class="sep">/</span>
+                <span data-i18n="cbDeepCrumb">Cloud Bridge Deep Dive</span>
+            </div>
+
+            <header class="article-header">
+                <div class="article-meta">
+                    <span class="category-badge" data-i18n="cbDeepCat">Smart Devices &mdash; Tuya</span>
+                    <span class="article-date">April 2026</span>
+                    <span class="article-read-time">18 min read</span>
+                </div>
+                <h1 data-i18n="cbDeepTitle">Tuya Cloud Bridge: Deep Dive</h1>
+            </header>
+
+            <div class="article-body">
+
+                <p data-i18n="cbDeepIntro">If you&rsquo;ve already followed our 5-step Cloud Bridge wizard and want to understand <em>why</em> it works the way it does &mdash; what&rsquo;s in your phone, what we never see, and where it&rsquo;s all going &mdash; this is the page for you. The wizard is the &ldquo;how&rdquo;; this guide is the full &ldquo;what and why&rdquo;.</p>
+
+                <div class="toc" aria-label="Table of contents">
+                    <h4 data-i18n="cbDeepTocTitle">On this page</h4>
+                    <ul>
+                        <li><a href="#concept">1. The Cloud Bridge concept</a></li>
+                        <li><a href="#oauth">2. Why no one-tap OAuth (yet)</a></li>
+                        <li><a href="#wizard">3. Step-by-step with screenshots</a></li>
+                        <li><a href="#region">4. Region selection</a></li>
+                        <li><a href="#quota">5. API quota and how we batch</a></li>
+                        <li><a href="#tokens">6. Token refresh and auto-recovery</a></li>
+                        <li><a href="#pulsar">7. Pulsar streaming explained</a></li>
+                        <li><a href="#troubleshoot">8. Troubleshooting</a></li>
+                        <li><a href="#privacy">9. Privacy: where credentials live</a></li>
+                        <li><a href="#future">10. Future: OEM OAuth replaces this</a></li>
+                        <li><a href="#faq">11. FAQ</a></li>
+                    </ul>
+                </div>
+
+                <h2 id="concept" data-i18n="cbDeepConceptTitle">1. The Cloud Bridge concept</h2>
+                <p>Tuya is a B2B IoT platform. Brands like BlitzWolf, Treatlife, Moes, Lonsonho, Qingping, Aqara (some lines), Sonoff (some lines) license Tuya&rsquo;s firmware and cloud. When you buy a &ldquo;smart plug&rdquo; from Amazon for $9, there is a 70% chance it&rsquo;s really a Tuya plug under a brand sticker.</p>
+                <p>For mains-powered devices, we can talk to them directly over your Wi-Fi (see <a href="tuya-lan-complete.html">the LAN guide</a>). But battery sensors, cameras, and certain &ldquo;cloud-only&rdquo; categories never accept inbound connections; they only push data to Tuya&rsquo;s cloud. To read that data, we need an authenticated session against the Tuya cloud, scoped to <em>your</em> devices.</p>
+                <p>The Cloud Bridge is exactly that: a per-user authenticated channel. You create a free Tuya developer trial, get a unique <code>access_id</code> + <code>access_secret</code>, link your Smart Life devices to it, and paste the credentials into our wizard. From then on, GrowVPD on your phone polls Tuya&rsquo;s OpenAPI directly &mdash; not via our servers.</p>
+
+                <blockquote>
+                    <strong>Why this isn&rsquo;t shady.</strong> The credentials live <em>only</em> on your phone, encrypted with the Android Keystore. Our backend literally never sees them. You can verify this in <code>SecureCredentialStore.kt</code>.
+                </blockquote>
+
+                <h2 id="oauth" data-i18n="cbDeepOauthTitle">2. Why no one-tap OAuth (yet)</h2>
+                <p>The natural question: &ldquo;Why isn&rsquo;t this just a Login-with-Tuya button like Sign-in-with-Google?&rdquo;</p>
+                <p>The honest answer: Tuya OEM partnerships start at roughly $25,000/year for the &ldquo;Smart Home PaaS OEM&rdquo; tier that gives third-party apps an OAuth client ID. We are a 1&ndash;2 person team building this in public. We can&rsquo;t justify that spend until we hit ~1,000 paid users (that&rsquo;s our internal break-even).</p>
+                <p>So the trial-account route is a practical workaround. It takes 15&ndash;30 minutes once, then forgets about it forever. Our roadmap commitment: <strong>once we hit 1,000 paid users, we apply for the OEM tier and the OAuth one-tap replaces the wizard automatically</strong>. Existing wizard users keep their setup; new users see a button instead.</p>
+
+                <p>Until then, here&rsquo;s the full setup with the wizard.</p>
+
+                <h2 id="wizard" data-i18n="cbDeepWizardTitle">3. Step-by-step with screenshots</h2>
+
+                <div class="step-card">
+                    <span class="step-num">Step 1</span>
+                    <h3>Open the wizard in GrowVPD</h3>
+                    <p>From the Automation tab: <strong>Add platform &rarr; Tuya &rarr; &ldquo;I have cloud-only sensors&rdquo;</strong>. The wizard greets you with an explanation of what you&rsquo;re about to do.</p>
+                    <div class="screenshot-ref">
+                        <strong>Screenshot reference:</strong> <em>tuya-bridge-step1.png</em> &mdash; the wizard intro screen with green &ldquo;Start&rdquo; button. Available in app at <code>R.drawable.guide_tuya_bridge_step1</code>.
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <span class="step-num">Step 2</span>
+                    <h3>Create a free Tuya IoT trial account</h3>
+                    <p>The wizard opens an in-app browser pointed at <code>iot.tuya.com/cloud/</code>. You sign up with your email (use any), verify, and the Tuya console appears. Tap <strong>+ Create Cloud Project</strong>:</p>
+                    <ul>
+                        <li><strong>Project name:</strong> e.g. <code>GrowVPD</code> &mdash; only you see this.</li>
+                        <li><strong>Description:</strong> optional.</li>
+                        <li><strong>Industry:</strong> &ldquo;Smart Home&rdquo;.</li>
+                        <li><strong>Development method:</strong> &ldquo;Smart Home&rdquo;.</li>
+                        <li><strong>Data center:</strong> pick the region nearest your devices &mdash; see section 4.</li>
+                    </ul>
+                    <p>You get a 6-month trial. After the trial, click &ldquo;Renew&rdquo; in the console and it extends, free, indefinitely as long as you keep using the project.</p>
+                    <div class="screenshot-ref">
+                        <strong>Screenshot reference:</strong> <em>tuya-iot-create-project.png</em> &mdash; the Tuya console &ldquo;Create Cloud Project&rdquo; dialog.
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <span class="step-num">Step 3</span>
+                    <h3>Subscribe to the required APIs</h3>
+                    <p>Inside your Cloud Project, go to <strong>Service API &rarr; Go to authorize</strong>. Subscribe to all three APIs the wizard lists:</p>
+                    <ol>
+                        <li><strong>IoT Core</strong> &mdash; the foundation API; lets us read device status and send commands.</li>
+                        <li><strong>Smart Home Basic Service</strong> &mdash; gives us the Smart Life device list and DP definitions.</li>
+                        <li><strong>Smart Home Pulsar Service</strong> &mdash; the websocket push channel that streams sensor changes in real time.</li>
+                    </ol>
+                    <p>All three are on the free trial. Tap &ldquo;I subscribed&rdquo; in the wizard when done.</p>
+                </div>
+
+                <div class="step-card">
+                    <span class="step-num">Step 4</span>
+                    <h3>Link your Smart Life account</h3>
+                    <p>In the project: <strong>Devices &rarr; Link Tuya App Account &rarr; Add App Account</strong>. A QR code appears. Scan it with your Smart Life app: <strong>Me &rarr; Settings &rarr; (top-right scan icon) &rarr; scan</strong>. Smart Life pops a confirmation; tap <strong>Authorize</strong>.</p>
+                    <p>This step tells Tuya&rsquo;s cloud &ldquo;expose this user&rsquo;s devices to this project&rsquo;s API token&rdquo;. It&rsquo;s the consent step, equivalent to an OAuth Authorize click.</p>
+                    <div class="screenshot-ref">
+                        <strong>Screenshot reference:</strong> <em>tuya-link-smart-life.png</em> &mdash; the QR scan and Smart Life authorize popup.
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <span class="step-num">Step 5</span>
+                    <h3>Paste credentials and validate</h3>
+                    <p>Back in the wizard, paste from the project Overview tab:</p>
+                    <ul>
+                        <li><strong>Access ID / Client ID</strong> &mdash; long alphanumeric string, ~20 chars</li>
+                        <li><strong>Access Secret / Client Secret</strong> &mdash; longer string, ~32 chars</li>
+                        <li><strong>Region</strong> &mdash; auto-filled from the data centre you picked in step 2</li>
+                    </ul>
+                    <p>Tap <strong>Validate</strong>. The wizard:</p>
+                    <ol>
+                        <li>Computes an HMAC-SHA256 signature over <code>(client_id || timestamp || nonce || string_to_sign)</code> &mdash; this is Tuya&rsquo;s authentication scheme.</li>
+                        <li>Posts it to <code>https://openapi.tuyaeu.com/v1.0/token?grant_type=1</code>.</li>
+                        <li>Receives an access_token + refresh_token + 7200-second expiry.</li>
+                        <li>Calls <code>/v1.0/iot-01/associated-users/{uid}/devices</code> to fetch your device list.</li>
+                        <li>Stores everything encrypted in <code>SecureCredentialStore</code> and shows the device picker.</li>
+                    </ol>
+                    <p>Pick the devices you want to import, assign them to tents, and tap <strong>Add</strong>. You&rsquo;re done.</p>
+                </div>
+
+                <h2 id="region" data-i18n="cbDeepRegionTitle">4. Region selection: when to pick which</h2>
+                <p>Tuya has five data centres. Your Smart Life account is bound to exactly one. If you guess wrong, validation will fail with a misleading error. Match it to where you originally signed up for Smart Life.</p>
+
+                <table class="compare-table">
+                    <thead>
+                        <tr><th>Region</th><th>API endpoint</th><th>Use if</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>EU (Central)</td><td><code>openapi.tuyaeu.com</code></td><td>You&rsquo;re in Europe and your phone signed up there. Default for CZ/DE/PL/etc.</td></tr>
+                        <tr><td>US (East)</td><td><code>openapi.tuyaus.com</code></td><td>You&rsquo;re in the Americas. Default for USA, Canada, Mexico, Brazil.</td></tr>
+                        <tr><td>CN (China)</td><td><code>openapi.tuyacn.com</code></td><td>You&rsquo;re in China or your devices were originally Mainland-shipped.</td></tr>
+                        <tr><td>India</td><td><code>openapi.tuyain.com</code></td><td>You&rsquo;re in India.</td></tr>
+                        <tr><td>Western America</td><td><code>openapi.tuyaus.com</code> (same)</td><td>Some old US accounts; behaves like US East.</td></tr>
+                    </tbody>
+                </table>
+
+                <p>Not sure which region you&rsquo;re on? Open Smart Life: <strong>Me &rarr; Settings &rarr; Account and Security</strong>. The &ldquo;Region&rdquo; field tells you. If you accidentally created a Tuya cloud project in the wrong region, just delete it and create a new one &mdash; takes 30 seconds.</p>
+
+                <h2 id="quota" data-i18n="cbDeepQuotaTitle">5. API quota and how we batch calls</h2>
+                <p>The Tuya free trial has soft and hard limits. Soft limit: 50 devices visible per project. Hard limit: 1 million API calls per month. We&rsquo;ve never seen a user hit the hard limit (that would be ~23 calls per minute, every minute, for a month) but the device cap matters.</p>
+                <p>If you&rsquo;re at 50+ Tuya devices &mdash; rare but possible if you&rsquo;re multi-room, multi-tent &mdash; here&rsquo;s how to handle it:</p>
+                <ul>
+                    <li><strong>Most plugs/lights/fans should be on LAN, not Cloud Bridge.</strong> Move them to LAN to free Cloud Bridge slots.</li>
+                    <li><strong>Cloud Bridge is for sensors and cameras only.</strong> If you have 50 sensors, congratulations, you&rsquo;re a commercial grow &mdash; reach out and we&rsquo;ll help arrange the paid Tuya tier.</li>
+                </ul>
+
+                <h3>How we batch to stay polite</h3>
+                <p>Our polling cadence is intentionally conservative:</p>
+                <ul>
+                    <li><strong>Sensor poll:</strong> every 5 minutes (default), configurable to 10/15 in Settings.</li>
+                    <li><strong>Device-status poll:</strong> every 10 minutes, batched so each tent goes out as a single call.</li>
+                    <li><strong>Pulsar push:</strong> always-on websocket, doesn&rsquo;t count against poll quota.</li>
+                </ul>
+                <p>Realistic monthly usage for a typical 8-device setup: ~85,000 calls/month. That&rsquo;s 8.5% of the trial cap.</p>
+
+                <h2 id="tokens" data-i18n="cbDeepTokensTitle">6. Token refresh and auto-recovery</h2>
+                <p>Tuya access tokens expire after 7,200 seconds (2 hours). Refresh tokens last 30 days. GrowVPD handles both transparently:</p>
+                <ol>
+                    <li>Background refresh ~10 minutes before expiry. If it succeeds, you never know it happened.</li>
+                    <li>If background refresh fails (rare; usually network blip), the next API call detects the 401 and triggers an immediate refresh attempt.</li>
+                    <li>If the refresh token has expired (only happens if app was offline > 30 days), GrowVPD pops a one-tap notification: &ldquo;Tuya credentials need re-validation, tap to reopen wizard&rdquo;. Re-validation takes ~10 seconds and your device list is preserved.</li>
+                </ol>
+
+                <pre><code># Token refresh sequence (simplified)
+GET /v1.0/token/&lt;refresh_token&gt; with HMAC headers
+&rarr; { access_token, refresh_token, expire_time: 7200 }
+&rarr; persist to SecureCredentialStore (Android Keystore-backed)
+&rarr; schedule next refresh in 6,800 s</code></pre>
+
+                <h2 id="pulsar" data-i18n="cbDeepPulsarTitle">7. Pulsar streaming explained</h2>
+                <p>Polling every 5 minutes is fine for slow-changing sensors but bad for events &mdash; you don&rsquo;t want to wait 5 minutes to know a temp probe just spiked. That&rsquo;s where Tuya&rsquo;s Pulsar service comes in.</p>
+                <p>Pulsar is a websocket-based push channel. Once you subscribe (the wizard does this in step 3), Tuya&rsquo;s cloud opens an MQTT-over-WSS connection from your phone and any device state change pushes a message in real time (typically &lt; 1 second from device wake to phone).</p>
+                <p>This is critical for battery TH sensors: they wake every ~10 minutes, post a reading, and sleep. Pulsar makes sure that reading lands in your diary the moment it arrives at Tuya&rsquo;s cloud, instead of waiting for the next poll cycle to discover it.</p>
+
+                <blockquote>
+                    <strong>What you&rsquo;ll see in the app.</strong> Sensor tiles update with a small lightning bolt icon when they came in via Pulsar push, vs a clock icon for a polled reading. This helps you confirm Pulsar is working.
+                </blockquote>
+
+                <h2 id="troubleshoot" data-i18n="cbDeepTroubleTitle">8. Troubleshooting</h2>
+
+                <h3>&ldquo;1106 invalid signature&rdquo;</h3>
+                <p>The HMAC computed by GrowVPD didn&rsquo;t match what Tuya expected. 95% of the time the cause is a stray space or newline in the pasted Access ID or Secret. Re-copy from the Tuya console using the &ldquo;Copy&rdquo; icon next to each field, paste again, validate.</p>
+                <p>5% of the time the cause is a system clock skew. The HMAC includes a timestamp; if your phone&rsquo;s clock is off by more than ~5 minutes from Tuya&rsquo;s NTP, signatures fail. Open phone Settings &rarr; Date &amp; Time &rarr; Set automatically. Toggle off and back on to force resync.</p>
+
+                <h3>&ldquo;1004 region mismatch&rdquo;</h3>
+                <p>You created the Tuya project in (say) US, but your Smart Life account is EU. The token validates but the device list call fails because your devices live on a different shard. Fix:</p>
+                <ol>
+                    <li>In Tuya console, delete the wrong-region project.</li>
+                    <li>Re-create in the correct region (see section 4).</li>
+                    <li>Re-paste the new Access ID + Secret in the wizard.</li>
+                </ol>
+
+                <h3>&ldquo;Token expired&rdquo;</h3>
+                <p>If you see this and auto-refresh didn&rsquo;t kick in, two possibilities:</p>
+                <ul>
+                    <li>App was offline for &gt; 30 days &mdash; refresh token expired. Re-run the wizard&rsquo;s Validate step (no need to redo steps 1-4); takes 10 seconds.</li>
+                    <li>Tuya project was deleted in the console. Look at your Tuya console; if the project is gone, re-create.</li>
+                </ul>
+
+                <h3>&ldquo;No devices found after validate&rdquo;</h3>
+                <p>You skipped or fumbled step 4 (linking Smart Life). In Tuya console, go back to <strong>Devices &rarr; Link Tuya App Account</strong> and confirm your Smart Life username appears in the linked accounts list. If not, re-do the QR + Authorize.</p>
+
+                <h3>&ldquo;Some devices show, others don&rsquo;t&rdquo;</h3>
+                <p>The Tuya OpenAPI only exposes devices that were assigned to a &ldquo;Home&rdquo; in Smart Life. Devices in &ldquo;Default&rdquo; sometimes don&rsquo;t enumerate. Open Smart Life, create a Home if you don&rsquo;t have one, drag the missing devices into it. Wait 30 seconds, retry the GrowVPD validate.</p>
+
+                <h3>&ldquo;Pulsar push isn&rsquo;t working&rdquo;</h3>
+                <p>You&rsquo;ll know from the lightning-bolt vs clock icon (see section 7). Causes:</p>
+                <ul>
+                    <li>Smart Home Pulsar Service subscription was missed in step 3. Go back to Tuya console, subscribe.</li>
+                    <li>Your phone&rsquo;s battery saver killed the websocket. Enable Hub Mode (recommended) or whitelist GrowVPD from battery optimisation.</li>
+                </ul>
+
+                <h2 id="privacy" data-i18n="cbDeepPrivacyTitle">9. Privacy: where credentials live</h2>
+                <p>Plain English: <strong>your Tuya credentials never touch our servers</strong>. They live in three places, all on your phone:</p>
+                <ul>
+                    <li><code>SecureCredentialStore</code> &mdash; an EncryptedSharedPreferences instance backed by the Android Keystore. The encryption key is held in the Tee/StrongBox secure enclave; even root access on your phone can&rsquo;t extract it directly.</li>
+                    <li>The Tuya OpenAPI access tokens, refreshed every 2 hours.</li>
+                    <li>An in-memory cache of decoded device list, refreshed each app start.</li>
+                </ul>
+                <p>What we, the GrowVPD team, can see: nothing related to Tuya. We have no logs of your access ID, no copy of your token, no idea which devices you have. Crashlytics opt-in collects stack traces only and we explicitly redact Tuya keys.</p>
+                <p>What Tuya can see: the same as if you used Smart Life. Your device states, sensor readings, on/off events. Nothing we add to the picture.</p>
+
+                <h2 id="future" data-i18n="cbDeepFutureTitle">10. Future: when we get OEM approval, OAuth replaces this wizard</h2>
+                <p>Once we cross the Tuya OEM threshold (~1,000 paid users; current state: applying after launch ramp), the user-facing flow becomes:</p>
+                <ol>
+                    <li>Tap &ldquo;Connect Tuya&rdquo; in GrowVPD.</li>
+                    <li>Custom Tab opens to <code>auth.tuyaeu.com/login</code> with our app&rsquo;s OAuth client ID.</li>
+                    <li>Sign in with Smart Life credentials, tap Authorize.</li>
+                    <li>Custom Tab returns to the app with an OAuth code.</li>
+                    <li>App exchanges code for tokens, picks devices, done.</li>
+                </ol>
+                <p>Total time: ~30 seconds vs today&rsquo;s 15&ndash;30 minutes. The wizard&rsquo;s job ends. We are eager to ship this and are tracking the user-count milestone publicly on Discord.</p>
+                <p>Until then: the manual wizard is fully functional, fully private, and once-and-done. Many of our most loyal beta users have it set up and never thought about it again.</p>
+
+                <h2 id="faq" data-i18n="cbDeepFaqTitle">11. FAQ</h2>
+
+                <div class="faq-item">
+                    <h4>Q: How long does the Tuya free trial actually last?</h4>
+                    <p>6 months at first. After that, click &ldquo;Renew Trial&rdquo; in the Tuya console; it extends free for another 6 months. Repeat indefinitely. We&rsquo;ve had users on the trial path for 18+ months without paying Tuya a cent.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Q: Can I share my Tuya credentials with my partner so we both use the same project?</h4>
+                    <p>Technically yes &mdash; you can paste the same Access ID/Secret on two phones. But for clean accountability we recommend each person creates their own Tuya project (free) and links the same Smart Life account separately. That way revoking one doesn&rsquo;t affect the other.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Q: What if Tuya changes their pricing or shuts down trials?</h4>
+                    <p>We watch this carefully. If trials disappear, we&rsquo;ll write a migration guide to whatever the new entry-level path is, or accelerate our OEM application. Either way, the data your phone has cached keeps working &mdash; you&rsquo;re never stranded.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Q: Why does GrowVPD ask for my Smart Life login during LAN setup?</h4>
+                    <p>That&rsquo;s a one-shot, not Cloud Bridge. LAN needs the per-device localKey to encrypt commands. The fastest way to fetch keys is via Smart Life&rsquo;s lightweight API. Cloud Bridge is a different path that fetches keys + provides cloud streaming &mdash; you only need it for battery sensors.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Q: What if my Tuya project gets suspended?</h4>
+                    <p>This is rare but happens if you exceed the free trial&rsquo;s API quota or violate Tuya&rsquo;s ToS (e.g. trying to resell their data). The fix is to create a new project &mdash; keep the same Smart Life account &mdash; and re-paste the new credentials. Your GrowVPD history (diary, sensor readings) is unaffected.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Q: Can I export my Tuya project data if I switch to another grow app later?</h4>
+                    <p>Your sensor history is stored in your local GrowVPD database (Room), and Pro users can export it as JSON anytime. The Tuya project itself is yours &mdash; you control it via the Tuya console regardless of which app you use.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Q: Does Cloud Bridge work without internet?</h4>
+                    <p>No. The whole point of Cloud Bridge is to reach devices that only speak to the Tuya cloud. If your internet is down, those devices can&rsquo;t reach the cloud anyway. Mains-powered devices on LAN keep working fine during internet outages.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Q: Do my Tuya credentials sync across multiple phones if I use Multi-Device Sync?</h4>
+                    <p>No, deliberately. Each phone holds its own Tuya credentials. This is a security feature: revoking access on one phone doesn&rsquo;t leak to another. See <a href="multi-device-sync-setup.html">Multi-Device Sync Setup</a> for what does and doesn&rsquo;t sync.</p>
+                </div>
+
+            </div>
+
+            <div class="discord-cta">
+                <h3 data-i18n="cbDeepCtaTitle">Stuck on a step?</h3>
+                <p data-i18n="cbDeepCtaDesc">Join <code>#cloud-bridge</code> on Discord with a screenshot. We&rsquo;ve walked dozens through this and usually answer within an hour.</p>
+                <a href="https://discord.gg/BGDpE6nP" class="btn" target="_blank" rel="noopener noreferrer" data-i18n="cbDeepCtaBtn">Discuss on Discord</a>
+            </div>
+
+            <div class="related-guides">
+                <h3 data-i18n="relatedTitle">Related Guides</h3>
+                <div class="related-list">
+                    <a href="cloud-bridge-setup.html" class="related-link">Tuya Cloud Bridge Setup (5-step quick walkthrough)<span class="arrow">&rarr;</span></a>
+                    <a href="tuya-lan-complete.html" class="related-link">Tuya LAN: The Complete Walkthrough<span class="arrow">&rarr;</span></a>
+                    <a href="tuya-battery-sensors-reality.html" class="related-link">Battery WiFi sensors: why they need cloud<span class="arrow">&rarr;</span></a>
+                    <a href="choose-your-tuya-path.html" class="related-link">Choose your Tuya path: decision guide<span class="arrow">&rarr;</span></a>
+                </div>
+            </div>
+
+            <footer class="article-footer">
+                <p>&copy; 2026 <a href="../index.html">GrowVPD Pro</a>. All rights reserved. &middot; <a href="../privacy/index.html">Privacy Policy</a> &middot; <a href="../support/index.html">Support</a></p>
+            </footer>
+
+        </div>
+    </main>
+
+<script src="guide-i18n.js"></script>
+</body>
+</html>
