@@ -6,7 +6,7 @@
     <description>Indoor growing tips, VPD optimization, smart automation guides, and more from the GrowVPD Pro team.</description>
     <language>en</language>
     <atom:link href="https://growvpd.pro/blog/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Sat, 18 Apr 2026 17:45:56 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 28 Apr 2026 08:04:53 +0000</lastBuildDate>
     <image>
       <url>https://growvpd.pro/images/logo.webp</url>
       <title>GrowVPD Pro Blog</title>
@@ -19,6 +19,14 @@
       <pubDate>Sat, 18 Apr 2026 00:00:00 +0000</pubDate>
       <description>Unlock optimal plant growth! Learn what VPD is and why this crucial metric is a game-changer for every indoor grower, leading to healthier plants and bigger yields.</description>
       <category>VPD</category>
+    </item>
+    <item>
+      <title>How to Lower Humidity in Your Grow Tent: 8 Proven Methods</title>
+      <link>https://growvpd.pro/blog/articles/how-to-lower-humidity-grow-tent.html</link>
+      <guid isPermaLink="true">https://growvpd.pro/blog/articles/how-to-lower-humidity-grow-tent.html</guid>
+      <pubDate>Tue, 28 Apr 2026 00:00:00 +0000</pubDate>
+      <description>Struggling with high humidity in your grow tent? Discover 8 proven methods to effectively lower humidity, prevent mold, and boost plant health for a thriving harvest. Get expert tips now!</description>
+      <category>Growing Tips</category>
     </item>
   </channel>
 </rss>
