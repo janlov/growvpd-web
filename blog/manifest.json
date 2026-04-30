@@ -1,6 +1,14 @@
 {
   "articles": [
     {
+      "slug": "vpd-chart-explained-beginners",
+      "title": "VPD Chart Explained for Beginners: Read It Like a Pro",
+      "excerpt": "New to VPD? This guide breaks down the Vapor Pressure Deficit chart, helping you optimize your grow for happier plants.",
+      "category": "vpd",
+      "date": "2026-04-30",
+      "readTime": "7 min read"
+    },
+    {
       "slug": "how-to-lower-humidity-grow-tent",
       "title": "How to Lower Humidity in Your Grow Tent: 8 Proven Methods",
       "excerpt": "Combat high grow tent humidity! Learn 8 proven methods to protect your plants, prevent mold, and ensure a healthy, abundant yield.",
